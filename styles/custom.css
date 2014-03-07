@@ -1,0 +1,36 @@
+/* Shoehorn Custom CSS
+-------------------------*/
+a.logo {
+    background: url([[setting:logo]]) no-repeat 0 0;
+    display: block;
+    float: left;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.dir-rtl a.logo {
+    background: url([[setting:logo]]) no-repeat 100% 0;
+    display: block;
+    float: right;
+}
+
+#region-main-shoehorn {
+    background-color: #fff;
+    box-shadow: 0 0 8px #888;
+}
+
+#region-main {
+    background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 100% 12px transparent;
+    padding: 0px 0px 12px;
+    margin: 0 auto;
+}
+
+#region-main > div {
+    padding: 10px;
+}
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]
