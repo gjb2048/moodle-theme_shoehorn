@@ -40,6 +40,14 @@ if ($ADMIN->fulltree) {
     );
     $settings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
+    // Invert Navbar to dark background.
+    $name = 'theme_shoehorn/invert';
+    $title = get_string('invert', 'theme_shoehorn');
+    $description = get_string('invertdesc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
     // Logo file setting.
     $name = 'theme_shoehorn/logo';
     $title = get_string('logo','theme_shoehorn');

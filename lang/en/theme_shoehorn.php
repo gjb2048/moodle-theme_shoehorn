@@ -53,6 +53,9 @@ $string['configtitle'] = 'Shoehorn';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
+$string['invert'] = 'Invert navbar';
+$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
+
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
 If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>

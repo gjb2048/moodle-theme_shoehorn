@@ -19,6 +19,7 @@ a.logo {
 #region-main-shoehorn {
     background-color: #fff;
     box-shadow: 0 0 8px #888;
+    padding: 8px;
 }
 
 #region-main {
