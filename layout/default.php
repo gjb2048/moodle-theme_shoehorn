@@ -28,14 +28,17 @@ $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
 
-$fluid = (!empty($PAGE->layout_options['fluid']));
-$container = 'container';
+//$fluid = (!empty($PAGE->layout_options['fluid']));
+//$container = 'container';
+$container = 'container-fluid';
+/*
 if (isset($PAGE->theme->settings->fluidwidth) && ($PAGE->theme->settings->fluidwidth == true)) {
     $container = 'container-fluid';
 }
 if ($fluid) {
     $container = 'container-fluid';
 }
+*/
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -72,13 +75,15 @@ echo $OUTPUT->doctype() ?>
     </div>
     </div>
 </nav>
+
+<div id="page" class="<?php echo $container; ?>">
+
 <header class="moodleheader">
-<div class="<?php echo $container; ?>">
+<div class="<?php /*echo $container;*/ ?>">
 <?php echo $OUTPUT->page_heading(); ?>
 </div>
 </header>
 
-<div id="page" class="<?php echo $container; ?>">
     <header id="page-header" class="clearfix">
         <div id="page-navbar" class="clearfix">
             <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
@@ -111,7 +116,7 @@ echo $OUTPUT->doctype() ?>
         }?>
     </div>
 
-    <footer id="page-footer">
+    <footer id="page-footer" class="row">
         <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
         <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
         <?php

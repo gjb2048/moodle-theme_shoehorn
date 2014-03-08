@@ -1,0 +1,52 @@
+// Shoehorn custom additions.
+
+// Body.
+body {
+    background-color: #1F4D87;
+}
+
+// Header.
+header {
+    color: @gray-lighter;
+}
+
+// Page.
+#page {
+    #gradient > .vertical(#1F4D87, #B8D2E9);
+}
+
+// Breadcrumb.
+.breadcrumb {
+    .divider {
+        padding: 0 4px;
+    }
+}
+
+// Blocks.
+.block {
+    .block-hider-show, .block-hider-hide {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+// My home.
+#region-main .block {
+    color: @text-color;
+
+    .header {
+        color: @text-color;
+    }
+}
+
+// Footer.
+#page-footer {
+    #gradient > .vertical(#269F00, #267F00);
+    color: @gray-lighter;
+}
+
+#page-footer a {
+    color: @gray-lighter;
+    &:hover, &:active {
+        color: #ccc;
+    }
+}

@@ -1,0 +1,13 @@
+// Bootstrap 3 overrides.
+
+// breadcrumbs.less.
+.breadcrumb {
+  background-color: rgba(red(@breadcrumb-bg), green(@breadcrumb-bg), blue(@breadcrumb-bg), 0.5);
+
+  > li {
+    + li:before {
+      content: none;
+      padding: 0px;
+    }
+  }
+}

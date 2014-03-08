@@ -58,6 +58,7 @@ can be really useful in visualising the issue along with any files you consider 
 Todo
 ====
 1. Inverted navbar.
+2. Consider moving fluid container setting from Bootstrap 3 settings.
 
 Version Information
 ===================

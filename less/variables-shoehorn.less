@@ -13,7 +13,7 @@
 @gray-light:             lighten(#000, 60%);   // #999
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-primary:         #267F00;
+@brand-primary:         #1F4D87;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -27,7 +27,7 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            #1F4D87;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -327,23 +327,23 @@
 
 // Basics of a navbar
 @navbar-height:                    50px;
-@navbar-margin-bottom:             @line-height-computed;
+@navbar-margin-bottom:             0px;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #777;
+@navbar-default-color:             #653cae;
 @navbar-default-bg:                #ffd974;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                #653cae;
+@navbar-default-link-hover-color:          lighten(@navbar-default-link-color, 5%);
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
+@navbar-default-link-active-color:         lighten(@navbar-default-link-color, 8%);
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-color:       darken(@navbar-default-link-color, 10%);
 @navbar-default-link-disabled-bg:          transparent;
 
 // Navbar brand label
@@ -352,9 +352,9 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #888;
-@navbar-default-toggle-border-color:       #ddd;
+@navbar-default-toggle-hover-bg:           #ffd974;
+@navbar-default-toggle-icon-bar-bg:        #653cae;
+@navbar-default-toggle-border-color:       darken(@navbar-default-toggle-hover-bg, 10%);
 
 
 // Inverted navbar
@@ -661,7 +661,7 @@
 //
 //##
 
-@panel-bg:                    #fff;
+@panel-bg:                    rgba(red(#fff), green(#fff), blue(#fff), 0.5);
 @panel-body-padding:          15px;
 @panel-border-radius:         @border-radius-base;
 
@@ -669,9 +669,9 @@
 @panel-inner-border:          #ddd;
 @panel-footer-bg:             #f5f5f5;
 
-@panel-default-text:          @gray-dark;
-@panel-default-border:        #ddd;
-@panel-default-heading-bg:    #f5f5f5;
+@panel-default-text:          @gray-lighter;
+@panel-default-border:        rgba(red(#fff), green(#fff), blue(#fff), 0.2);
+@panel-default-heading-bg:    transparent;
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;

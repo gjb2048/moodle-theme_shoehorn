@@ -1,5 +1,5 @@
 /**
- * Gruntfile for compiling theme_bootstrap .less files.
+ * Gruntfile for compiling theme_shoehorn .less files.
  *
  * This file configures tasks to be run by Grunt
  * http://gruntjs.com/ for the current theme.
@@ -40,41 +40,6 @@
  *                                 when your theme is not in the
  *                                 standard location.
  *
- * grunt swatch  Task for working with bootswatch files. Expects a
- *               convention to be followed - bootswatch files are
- *               contained within a directory providing the name
- *               by which the swatch is identified. By default the
- *               directory these should be placed in is less/bootswatch
- *               however the user may optionally override this.
- *               e.g. swatch files contained within a directory
- *               located at less/bootswatch/squib will be associated
- *               with the swatch name 'squib'.
- *
- *               Switches the current bootswatch files compiled with
- *               the theme to those of a given bootswatch, recompiles
- *               less and clears the theme cache.
- *
- *               Options:
- *
- *               --name=<swatchname>    Required. Name (as defined by
- *                                      the convention) of the swatch
- *                                      to activate.
- *
- *               --swatches-dir=<path>  Optional. Explicitly define
- *                                      the path to the directory
- *                                      containing your bootswatches
- *                                      (default is less/bootswatch).
- *
- *               --vars-only            Optional. Copy the swatch's
- *                                      variables.less file only
- *                                      and empty custom-bootswatch.less
- *                                      Due to issues with grunt's
- *                                      handling of boolean options
- *                                      if not explicitly set e.g.
- *                                      `--vars-only=true` this option
- *                                      should be passed last.
- *
- *
  *
  * Plumbing tasks & targets:
  * -------------------------
@@ -96,35 +61,10 @@
  *                                      directory when your theme is
  *                                      not in the standard location.
  *
- * grunt bootswatch  Switch the theme less/bootswatch/custom-bootswatch.
- *                   less and less/bootswatch/custom-variables.less
- *                   files for those of a given bootswatch theme using
- *                   convention described in swatch task.
- *
- *                   Options:
- *
- *                   --name=<swatchname>    Required. Name (as defined by
- *                                          the convention) of the swatch
- *                                          to activate.
- *
- *                   --swatches-dir=<path>  Optional. Explicitly define
- *                                          the path to the directory
- *                                          containing your bootswatches
- *                                          (default is less/bootswatch).
- *
- *                   --vars-only            Optional. Copy the swatch's
- *                                          variables.less file only
- *                                          and empty custom-bootswatch.less
- *                                          Due to issues with grunt's
- *                                          handling of boolean options
- *                                          if not explicitly set e.g.
- *                                          `--vars-only=true` this option
- *                                          should be passed last.
- *
- *
  * @package theme
- * @subpackage bootstrap
- * @author Joby Harding www.iamjoby.com
+ * @subpackage shoehorn
+ * @author G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
+ * @author Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -132,12 +72,6 @@ module.exports = function(grunt) {
 
     // Import modules.
     var path = require('path');
-
-    // Theme Bootstrap constants.
-    var LESSDIR         = 'less',
-        BOOTSWATCHDIR   = path.join(LESSDIR, 'bootswatch'),
-        BOOTSWATCHFILE  = path.join(BOOTSWATCHDIR, 'custom-bootswatch.less'),
-        BOOTSWATCHVARS  = path.join(BOOTSWATCHDIR, 'custom-variables.less');
 
     // PHP strings for exec task.
     var moodleroot = 'dirname(dirname(__DIR__))',
