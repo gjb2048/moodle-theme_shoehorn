@@ -23,8 +23,8 @@ a.logo {
 }
 
 #region-main {
-    background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 100% 12px transparent;
-    padding: 0px 0px 12px;
+    background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 96% 12px transparent;
+    padding-bottom: 12px;
     margin: 0 auto;
 }
 

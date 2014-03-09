@@ -24,36 +24,24 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-$THEME->doctype = 'html5';
-$THEME->name = 'shoehorn';
-$THEME->parents = array('bootstrap');
-$THEME->sheets = array('moodle', 'general', 'custom');
-if (!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 1)) {
-    $THEME->sheets[] = 'font';
-    $THEME->sheets[] = 'font-awesome.min';
-}
-if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
-    $THEME->sheets[] = 'social';
-}
-$THEME->supportscssoptimisation = false;
-$THEME->yuicssmodules = array();
-
-$THEME->editor_sheets = array('editor');
-
-$THEME->parents_exclude_sheets = array(
-    'bootstrap' => array(
-        'moodle',
-        'editor'
-    )
-);
-
-$THEME->plugins_exclude_sheets = array(
-    'block' => array(
-        'html'
-    )
-);
-
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-$THEME->csspostprocess = 'theme_shoehorn_process_css';
+?>
+<footer id="page-footer" class="row">
+    <div class="col-md-3">
+    <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
+    <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
+    <?php
+    echo $OUTPUT->login_info();
+    echo $OUTPUT->home_link();
+    ?>
+    </div>
+    <div class="col-md-6">
+    <?php
+    require_once(dirname(__FILE__).'/social.php');
+    ?>
+    </div>
+    <div class="col-md-3">
+    <?php
+    echo $OUTPUT->standard_footer_html();
+    ?>
+    </div>
+</footer>

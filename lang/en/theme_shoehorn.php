@@ -66,5 +66,18 @@ $string['pluginname'] = 'Shoehorn';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
+// Settings.
+$string['generalsettings'] = 'General';
+
 $string['cdnfonts'] = 'Content delivery network fonts';
 $string['cdnfonts_desc'] = 'Use content delivery network fonts';
+
+$string['numberofsociallinks'] = 'Number of social network links';
+$string['numberofsociallinks_desc'] = 'Number of social network links you want to add.';
+$string['socialheading'] = 'Social networking';
+$string['socialheadingsub'] = 'Gather followers with social networking';
+$string['socialdesc'] = 'Provide direct links to your social networks.';
+$string['socialnetworklink'] = 'Social network link ';
+$string['socialnetworklink_desc'] = 'Social network link number ';
+$string['socialnetworkicon'] = 'Social network icon ';
+$string['socialnetworkicon_desc'] = 'Social network icon number ';

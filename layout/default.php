@@ -21,8 +21,6 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
-
-
 $regions = bootstrap_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
@@ -116,15 +114,7 @@ echo $OUTPUT->doctype() ?>
         }?>
     </div>
 
-    <footer id="page-footer" class="row">
-        <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
-        <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
-        <?php
-        echo $OUTPUT->login_info();
-        echo $OUTPUT->home_link();
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </footer>
+    <? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
