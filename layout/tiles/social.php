@@ -43,7 +43,6 @@ if ($numberofsociallinks) {
                 $haveicons = true;
                 $icons = '<div class="row">';
                 $icons .= '<div class="col-md-12 socialnetworkscontainer">';
-                $icons .= '<div class="socialnetworkssignleft"></div>';
                 $icons .= '<ul class="socialnetworks">';
             }
             $iconname = 'socialicon'.$i;
@@ -54,7 +53,6 @@ if ($numberofsociallinks) {
     }
     if ($haveicons) {
         $icons .= '</ul>';
-        $icons .= '<div class="socialnetworkssignright"></div>';
         $icons .= '</div></div>';
         echo $icons;
     }

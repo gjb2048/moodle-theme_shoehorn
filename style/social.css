@@ -26,16 +26,19 @@
  */
 
 div.socialnetworkscontainer {
-    min-height: 160px;
+    min-height: 128px;
+    background: url([[pix:theme|post]]) no-repeat scroll 50% 100% / 5% 128px transparent;
 }
 
 ul.socialnetworks {
     list-style-type: none;
     margin: 0px 0px 10px;
     display: inline-block;
-    background: url([[pix:theme|signpost]]) no-repeat 50%;
+    background: url([[pix:theme|posttop]]) no-repeat 50% 0px;
+    background-color: #eee;
+    border: 2px solid black;
+    border-radius: 4px;
     padding: 4px;
-    min-height: 128px;
 }
 
 ul.socialnetworks li {
