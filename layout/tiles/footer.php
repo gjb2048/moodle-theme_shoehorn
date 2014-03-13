@@ -26,7 +26,8 @@
  */
 ?>
 <footer id="page-footer" class="row">
-    <div class="col-md-3">
+    <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
+    <div class="<?php echo $cols['side']; ?>">
     <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
     <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
     <?php
@@ -34,12 +35,12 @@
     echo $OUTPUT->home_link();
     ?>
     </div>
-    <div class="col-md-6">
+    <div class="<?php echo $cols['centre']; ?>">
     <?php
     require_once(dirname(__FILE__).'/social.php');
     ?>
     </div>
-    <div class="col-md-3">
+    <div class="<?php echo $cols['side']; ?>">
     <?php
     echo $OUTPUT->standard_footer_html();
     ?>

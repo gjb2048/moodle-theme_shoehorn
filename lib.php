@@ -65,3 +65,41 @@ function theme_shoehorn_set_customcss($css, $customcss) {
 
     return $css;
 }
+
+function shoehorn_grid($hassidepre, $hassidepost) {
+    if ($hassidepre && $hassidepost) {
+        $regions = array('content' => 'col-sm-4 col-md-6');
+        $regions['pre'] = 'col-sm-4 col-md-3';
+        $regions['post'] = 'col-sm-4 col-md-3';
+    } else if ($hassidepre && !$hassidepost) {
+        $regions = array('content' => 'col-sm-8 col-md-9');
+        $regions['pre'] = 'col-sm-4 col-md-3';
+        $regions['post'] = 'emtpy';
+    } else if (!$hassidepre && $hassidepost) {
+        $regions = array('content' => 'col-sm-8 col-md-9');
+        $regions['pre'] = 'empty';
+        $regions['post'] = 'col-sm-4 col-md-3';
+    } else if (!$hassidepre && !$hassidepost) {
+        $regions = array('content' => 'col-md-12');
+        $regions['pre'] = 'empty';
+        $regions['post'] = 'empty';
+    }
+    return $regions;
+}
+
+function shoehorn_social_footer($settings) {
+    $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
+
+    if ($numberofsociallinks) {
+        // Max social links of 16.
+        $diff = round($numberofsociallinks / 7);
+        $side = 5 - $diff;
+        $centre = 2 + ($diff * 2);
+        $cols['side'] = 'col-sm-'.$side.' col-md-'.$side;
+        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre;
+    } else {
+        $cols['side'] = 'col-sm-6 col-md-6';
+    }
+
+    return $cols;
+}

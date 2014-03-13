@@ -59,6 +59,7 @@ Todo
 ====
 1. Inverted navbar.
 2. Consider moving fluid container setting from Bootstrap 3 settings.
+3. RTL sheets in config.php.
 
 Version Information
 ===================

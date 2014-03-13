@@ -31,7 +31,7 @@
  *
  * grunt watch   Watch the less directory (and all subdirectories)
  *               for changes to *.less files then on detection
- *               recompile all less files and clear the theme cache.
+ *               run 'grunt compile'
  *
  *               Options:
  *
@@ -39,7 +39,16 @@
  *                                 path to your Moodle root directory
  *                                 when your theme is not in the
  *                                 standard location.
+ * grunt compile Run the .less files through the compiler, create the
+ *               RTL version of the output, then run decache so that 
+ *               the results can be seen on the next page load.
  *
+ *               Options:
+ *
+ *               --dirroot=<path>  Optional. Explicitly define the
+ *                                 path to your Moodle root directory
+ *                                 when your theme is not in the
+ *                                 standard location.
  *
  * Plumbing tasks & targets:
  * -------------------------
@@ -61,11 +70,20 @@
  *                                      directory when your theme is
  *                                      not in the standard location.
  *
+ * grunt replace                  Run all text replace tasks.
+ *
+ * grunt replace:rtl_images  Add _rtl to the filenames of certain images
+ *                           that require flipping for use with RTL
+ *                           languages.
+ *
+ * grunt cssflip    Create moodle-rtl.css by flipping the direction styles
+ *                  in moodle.css.
+ *
+ *
  * @package theme
  * @subpackage shoehorn
  * @author G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
- * @author Based on code originally written by Bas Brands, David Scotson and many other contributors.
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Based on code originally written by Joby Harding, Bas Brands, David Scotson and many other contributors. * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 module.exports = function(grunt) {
@@ -84,11 +102,11 @@ module.exports = function(grunt) {
         moodleroot = 'realpath("' + dirrootopt + '")';
     }
 
-    configfile = moodleroot + ' . "/config.php"';
+    configfile = moodleroot + " . '/config.php'";
 
-    decachephp += "define(\"CLI_SCRIPT\", true);";
-    decachephp += "require(" + configfile  + ");";
-    decachephp += "theme_reset_all_caches();";
+    decachephp += 'define(\'CLI_SCRIPT\', true);';
+    decachephp += 'require(' + configfile  + ');';
+    decachephp += 'theme_reset_all_caches();';
 
     grunt.initConfig({
         less: {
@@ -121,7 +139,7 @@ module.exports = function(grunt) {
         },
         exec: {
             decache: {
-                cmd: "php -r '" + decachephp + "'",
+                cmd: 'php -r "' + decachephp + '"',
                 callback: function(error, stdout, stderror) {
                     // exec will output error messages
                     // just add one to confirm success.
@@ -134,9 +152,44 @@ module.exports = function(grunt) {
         watch: {
             // Watch for any changes to less files and compile.
             files: ["less/**/*.less", "../bootstrap/less/**/*.less"],
-            tasks: ["less:moodle", "less:editor", "exec:decache"],
+            tasks: ["compile"],
             options: {
                 spawn: false
+            }
+        },
+        cssflip: {
+            rtl: {
+                files: {
+                    'style/moodle-rtl.css': 'style/moodle.css'
+                }
+            }
+        },
+        replace: {
+            rtl_images: {
+                src: ['style/moodle-rtl.css'],
+                    overwrite: true,
+                    replacements: [{
+                        from: '[[pix:theme|fp/path_folder]]',
+                        to: '[[pix:theme|fp/path_folder_rtl]]'
+                    }, {
+                        from: '[[pix:t/collapsed]]',
+                        to: '[[pix:t/collapsed_rtl]]'
+                    }, {
+                        from: '[[pix:t/collapsed_empty]]',
+                        to: '[[pix:t/collapsed_empty_rtl]]'
+                    }, {
+                        from: '[[pix:y/tn]]',
+                        to: '[[pix:y/tn_rtl]]'
+                    }, {
+                        from: '[[pix:y/tp]]',
+                        to: '[[pix:y/tp_rtl]]'
+                    }, {
+                        from: '[[pix:y/ln]]',
+                        to: '[[pix:y/ln_rtl]]'
+                    }, {
+                        from: '[[pix:y/lp]]',
+                        to: '[[pix:y/lp_rtl]]'
+                    }]
             }
         }
     });
@@ -145,8 +198,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-exec");
+    grunt.loadNpmTasks("grunt-text-replace");
+    grunt.loadNpmTasks("grunt-css-flip");
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
+
+    grunt.registerTask("compile", ["less", "cssflip", "replace:rtl_images", "decache"]);
+    grunt.registerTask("swatch", ["bootswatch", "compile"]);
 };

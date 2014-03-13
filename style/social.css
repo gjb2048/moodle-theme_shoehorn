@@ -27,7 +27,8 @@
 
 div.socialnetworkscontainer {
     min-height: 128px;
-    background: url([[pix:theme|post]]) no-repeat scroll 50% 100% / 5% 128px transparent;
+    /* background: url([[pix:theme|post]]) no-repeat scroll 50% 100% / 5% 128px transparent; */
+    background: transparent center top no-repeat scroll url([[pix:theme|post]]);
 }
 
 ul.socialnetworks {
@@ -48,5 +49,5 @@ ul.socialnetworks li {
 }
 
 #page-footer .socialnetworks a {
-    color: #B8D2E9;
+    color: #1F4D87;
 }

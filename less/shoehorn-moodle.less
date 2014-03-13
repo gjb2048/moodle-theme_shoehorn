@@ -1,5 +1,30 @@
 // Moodle overrides.
 
+// calendar.less.
+.block .minicalendar td.weekend {
+    color: lighten(@text-color, 10%);
+}
+
+// forms.less.
+.mform fieldset.collapsible legend a.fheader {
+    margin-left: 0px;
+}
+
+// At this width and above the form label stacks beside the control
+@media (min-width: @screen-md-min) {
+    .form-item .form-setting input[type="text"],
+    .form-item .form-setting input[type="password"],
+    .form-item .form-setting select,
+    .mform .fcontainer .fitem .felement input[type="text"],
+    .mform .fcontainer .fitem .felement input[type="password"],
+    .mform .fcontainer .fitem .felement select {
+        min-width: 445px;
+    }
+    .form-item .form-setting td input[type="text"] {
+        min-width: 220px; // Device detection regular expressions boxes on 'Theme settings' page.
+    }
+}
+
 // modules.less.
 #page-footer {
     border-top: none;
