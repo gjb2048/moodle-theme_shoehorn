@@ -105,6 +105,7 @@ echo $OUTPUT->doctype() ?>
 
     <div id="page-content" class="row">
         <div id="region-main" class="<?php echo $regions['content']; ?>">
+            <?php require_once(dirname(__FILE__).'/tiles/frontpageslider.php'); ?>
             <section id="region-main-shoehorn">
                 <?php
                 echo $OUTPUT->course_content_header();

@@ -50,17 +50,6 @@ Website: <a href="http://about.me/gjbarnard">about.me/gjbarnard</a>
 
 $string['configtitle'] = 'Shoehorn';
 
-$string['customcss'] = 'Custom CSS';
-$string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
-
-$string['invert'] = 'Invert navbar';
-$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
-
-$string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
-If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
-a.logo {height: 100px;} or whatever height in pixels the logo is.';
-
 $string['pluginname'] = 'Shoehorn';
 
 $string['region-side-post'] = 'Right';
@@ -72,6 +61,45 @@ $string['generalsettings'] = 'General';
 $string['cdnfonts'] = 'Content delivery network fonts';
 $string['cdnfonts_desc'] = 'Use content delivery network fonts';
 
+$string['invert'] = 'Invert navbar';
+$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
+
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
+If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
+a.logo {height: 100px;} or whatever height in pixels the logo is.';
+
+// Footer menu.
+$string['footermenu'] = 'Footer menu';
+$string['footermenu_desc'] = 'Zero or more lines representing the links to place in the footer menu.<br>
+Form of name|url|title|lang where title and lang are optional.<br>
+The title being the text that is shown when the link is hovered over.<br>
+The lang being to only show in this language.<br>
+For example:<br>
+About|//mymoodle/theme/shoehorn/pages/about.html|About my site<br>
+Anleitung|//mymoodle/theme/shoehorn/pages/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
+Home|//mymoodle/index.php';
+
+// Custom css.
+$string['customcss'] = 'Custom CSS';
+$string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
+
+// Slider settings.
+$string['numberofslides'] = 'Number of slides';
+$string['numberofslides_desc'] = 'Number of slides on the slider.';
+$string['sliderheading'] = 'Slider';
+$string['sliderheadingsub'] = 'Present your portfolio with slides.';
+$string['sliderdesc'] = 'Present your portfolio with slides containing an image, URL and text.';
+$string['slideimage'] = 'Image for slide ';
+$string['slideimage_desc'] = 'The image for slide ';
+$string['slideurl'] = 'URL for slide ';
+$string['slideurl_desc'] = 'The URL for slide ';
+$string['slidecaptiontitle'] = 'Caption title for slide ';
+$string['slidecaptiontitle_desc'] = 'The caption title for slide ';
+$string['slidecaptiontext'] = 'Caption text for slide ';
+$string['slidecaptiontext_desc'] = 'The caption text for slide ';
+
+// Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';
 $string['numberofsociallinks_desc'] = 'Number of social network links you want to add.';
 $string['socialheading'] = 'Social networking';

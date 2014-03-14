@@ -12,6 +12,60 @@
   }
 }
 
+// Carousel.less.
+// Centre the image.
+.carousel-inner {
+  > .item {
+    > img {
+       width: 100%;
+       max-width: 600px;
+       max-height: 300px;
+       margin: 0 auto;
+       padding: 0;
+    }
+  }
+}
+
+// Left/right controls for nav.
+.carousel-control {
+  background: none;  // Removes background that was used to surround original control.
+  border: none; // No border required.
+  width: auto; // Using Font Awesome.
+  height: auto; // Using Font Awesome.
+
+  top: 40%;
+  margin-top: -20px;
+  font-size: 52px;
+  font-weight: 100;
+  line-height: 30px;
+
+  &.left,
+  &.right {
+    background-image: none;
+    background-repeat: none;
+  }
+
+  // Hover/focus state.
+  &:hover,
+  &:focus {
+    color: lighten(@carousel-control-color, 5%);
+  }
+}
+
+// Carousel indicator pips.
+.carousel-indicators {
+  li {
+    background: @carousel-control-color;
+    background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.75);
+  }
+}
+
+// Caption for text below images.
+.carousel-caption {
+  background: @carousel-control-color;
+  background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.75);
+}
+
 // panels.less.
 .panel-title {
   color: @text-color;

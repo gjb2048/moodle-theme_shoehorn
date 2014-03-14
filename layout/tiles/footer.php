@@ -25,7 +25,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<footer id="page-footer" class="row">
+<footer id="page-footer" class="container-fluid">
+    <div class="row">
     <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
     <div class="<?php echo $cols['side']; ?>">
     <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
@@ -44,5 +45,11 @@
     <?php
     echo $OUTPUT->standard_footer_html();
     ?>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+    <?php echo $OUTPUT->footer_menu($PAGE->theme->settings); ?>
+    </div>
     </div>
 </footer>

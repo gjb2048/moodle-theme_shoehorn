@@ -48,4 +48,33 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $title = html_writer::tag('span', get_string('pagepath'), array('class' => 'accesshide'));
         return $title . html_writer::tag('ul', "$list_items", array('class' => 'breadcrumb'));
     }
+
+    function footer_menu($settings) {
+        $o = '';
+
+        if (!empty($settings->footermenu)) {
+            $lang = current_language();
+            $lines = explode("\n", $settings->footermenu);
+            $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
+                            html_writer::end_tag('i'), array('class' => 'divider'));
+
+            $items = array();
+            foreach ($lines as $line) {
+                $line = trim($line);
+                $bits = explode('|', $line, 4); // name|url|title|lang
+                if ((!empty($bits[3]) or (array_key_exists(3, $bits)))) {
+                    if ($bits[3] !== $lang) {
+                        continue;
+                    }
+                }
+                $title = '';
+                if ((!empty($bits[2]) or (array_key_exists(2, $bits)))) {
+                    $title = $bits[2];
+                }
+                $items[] = html_writer::tag('a', $bits[0], array('href' => $bits[1], 'title' => $title));
+            }
+            $o .= implode("$divider", $items);
+        }
+    return $o;
+    }
 }

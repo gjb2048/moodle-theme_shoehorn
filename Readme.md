@@ -60,11 +60,14 @@ Todo
 1. Inverted navbar.
 2. Consider moving fluid container setting from Bootstrap 3 settings.
 3. RTL sheets in config.php.
+4. Update settings page form background does not reach to the bottom.
 
 Version Information
 ===================
  8th March 2014 - Version 2.6.0.1
   1.  Alpha development version.
+  2.  Dynamic social icon colour footer sign.
+  3.  Dynamic customisable footer menu.
 
 Thanks
 ======

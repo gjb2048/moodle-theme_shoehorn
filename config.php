@@ -92,7 +92,7 @@ $THEME->layouts = array(
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'default.php',
+        'file' => 'frontpage.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar'=>true),
@@ -102,7 +102,7 @@ $THEME->layouts = array(
         'file' => 'default.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-    	'options' => array('fluid'=>true),
+        'options' => array('fluid'=>true),
     ),
     // My dashboard page.
     'mydashboard' => array(
@@ -163,7 +163,7 @@ $THEME->layouts = array(
         'file' => 'default.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-    	'options' => array('fluid'=>true),
+        'options' => array('fluid'=>true),
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(
