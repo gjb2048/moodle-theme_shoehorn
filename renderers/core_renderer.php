@@ -49,6 +49,32 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         return $title . html_writer::tag('ul', "$list_items", array('class' => 'breadcrumb'));
     }
 
+    /**
+     * Get the HTML for blocks in the given region.
+     *
+     * @param string $region The region to get HTML for.
+     * @param array $classes array of classes for the tag.
+     * @param class $theme Theme instance.
+     * @param string $tag Tag to use.
+     * @return string HTML.
+     */
+    public function shoehornblocks($region, $classes, $theme, $tag = 'aside') {
+        $output = '';
+
+        $logo = $theme->setting_file_url('logo', 'logo');
+        if (!is_null($logo)) {
+            //$output .= '<div class="row">';
+            //$output .= '<div class="panel panel-default col-md-offset-9 col-md-3">';
+            //$output .= '<img src="'.$logo.'" alt="'.get_string('logo', 'theme_shoehorn').'">';
+            //$output .= '</div>';
+            //$output .= '</div>';
+        }
+
+        $output .= $this->blocks($region, $classes, $tag);
+
+        return $output;
+    }
+
     function footer_menu($settings) {
         $o = '';
 
@@ -75,6 +101,6 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
             $o .= implode("$divider", $items);
         }
-    return $o;
+        return $o;
     }
 }

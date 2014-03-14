@@ -87,6 +87,34 @@ function shoehorn_grid($hassidepre, $hassidepost) {
     return $regions;
 }
 
+/**
+ * Serves any files associated with the theme settings.
+ *
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param array $args
+ * @param bool $forcedownload
+ * @param array $options
+ * @return bool
+ */
+function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM) {
+        if ($filearea === 'logo') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if (substr($filearea, 0, 10) === 'slideimage') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else {
+            send_file_not_found();
+        }
+    } else {
+        send_file_not_found();
+    }
+}
+
 function shoehorn_social_footer($settings) {
     $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
 

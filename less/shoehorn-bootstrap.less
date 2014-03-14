@@ -55,15 +55,22 @@
 // Carousel indicator pips.
 .carousel-indicators {
   li {
-    background: @carousel-control-color;
-    background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.75);
+    background: @text-color;
+    background: rgba(red(@text-color),green(@text-color),blue(@text-color),.75);
   }
 }
 
 // Caption for text below images.
 .carousel-caption {
   background: @carousel-control-color;
-  background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.75);
+  background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.25);
+}
+
+// Techicially grid.less.
+// I think the nested grid is broken in BS 3.1.1.
+.row > .row {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 // panels.less.

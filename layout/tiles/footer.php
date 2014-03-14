@@ -25,7 +25,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<footer id="page-footer" class="container-fluid">
+<footer id="page-footer" class="row">
     <div class="row">
     <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
     <div class="<?php echo $cols['side']; ?>">

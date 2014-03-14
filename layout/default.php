@@ -123,11 +123,11 @@ echo $OUTPUT->doctype() ?>
             echo $OUTPUT->blocks('side-post', $regions['post']);
         }?>
     </div>
+
+    <? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+
+    <?php echo $OUTPUT->standard_end_of_body_html() ?>
+
 </div>
-
-<? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
-
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
-
 </body>
 </html>

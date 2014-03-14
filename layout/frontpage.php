@@ -117,18 +117,22 @@ echo $OUTPUT->doctype() ?>
 
         <?php
         if ($knownregionpre) {
-            echo $OUTPUT->blocks('side-pre', $regions['pre']);
+            echo $OUTPUT->shoehornblocks('side-pre', $regions['pre'], $PAGE->theme);
         }?>
         <?php
         if ($knownregionpost) {
-            echo $OUTPUT->blocks('side-post', $regions['post']);
+            if (!$knownregionpre) {
+                echo $OUTPUT->shoehornblocks('side-post', $regions['post'], $PAGE->theme);
+            } else {
+                echo $OUTPUT->blocks('side-post', $regions['post']);
+            }
         }?>
     </div>
+
+    <? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+
+    <?php echo $OUTPUT->standard_end_of_body_html() ?>
+
 </div>
-
-<? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
-
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
-
 </body>
 </html>
