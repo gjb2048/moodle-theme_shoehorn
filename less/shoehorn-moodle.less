@@ -7,10 +7,14 @@
 
 // core.less.
 // Bas 'fixed moving blocks to empty region' 17/01/2014 - SHA-1: 7c2d6dd6b36097290d63865acd07137b0b0497d6.
+// Look at mixins.less for left and right on push and pull respectively.
 .editing.used-region-side-post.used-region-side-pre {
     #region-main {
         .make-sm-column(4);
         .make-md-column(6);
+        //.make-sm-column-push(4);
+        //.make-md-column-push(3);
+        left: inherit;
     }
     #block-region-side-post {
         .make-sm-column(4);
@@ -20,7 +24,25 @@
     #block-region-side-pre {
         .make-sm-column(4);
         .make-md-column(3);
+        //.make-sm-column-pull(4);
+        //.make-md-column-pull(6);
+        right: inherit;
         min-height: 100px;
+    }
+}
+
+// Dropdown editing menu for a module on the course page.
+.moodle-actionmenu[data-enhanced].show  {
+    .menu {
+        a {
+            &:hover,
+            &:focus {
+                img {
+                    background-color: rgba(red(@dropdown-link-active-color), green(@dropdown-link-active-color), blue(@dropdown-link-active-color), 0.5);
+                    border-radius: @border-radius-base;
+                }
+            }
+        }
     }
 }
 
@@ -42,6 +64,20 @@
     .form-item .form-setting td input[type="text"] {
         min-width: 220px; // Device detection regular expressions boxes on 'Theme settings' page.
     }
+}
+
+// login.less
+.loginbox.onecolumn {
+    .make-sm-column(8);
+    .make-sm-column-push(2);
+    .make-md-column(6);
+    .make-md-column-push(3);
+}
+
+.loginbox.onecolumn {
+    // Separate to override above.
+    float: none;
+    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
 }
 
 // modules.less.

@@ -91,6 +91,10 @@ module.exports = function(grunt) {
     // Import modules.
     var path = require('path');
 
+    // Theme Bootstrap constants.
+    var LESSDIR         = 'less',
+        THEMEDIR        = path.basename(path.resolve('.'));
+
     // PHP strings for exec task.
     var moodleroot = 'dirname(dirname(__DIR__))',
         configfile = '',
@@ -99,7 +103,7 @@ module.exports = function(grunt) {
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
-        moodleroot = 'realpath("' + dirrootopt + '")';
+        moodleroot = "realpath('" + dirrootopt + "')";
     }
 
     configfile = moodleroot + " . '/config.php'";
@@ -113,11 +117,12 @@ module.exports = function(grunt) {
             // Compile moodle styles.
             moodle: {
                 options: {
-                    compress: true,
+                    compress: false,
                     paths: "../bootstrap/less",
                     report: 'min',
-                    sourceMap: false,
-                    outputSourceFiles: true
+                    sourceMap: true,
+                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapFilename: 'sourcemap-moodle.json'
                 },
                 files: {
                     "style/moodle.css": "less/moodleallshoehorn.less",
@@ -126,11 +131,12 @@ module.exports = function(grunt) {
             // Compile editor styles.
             editor: {
                 options: {
-                    compress: true,
+                    compress: false,
                     paths: "../bootstrap/less",
                     report: 'min',
-                    sourceMap: false,
-                    outputSourceFiles: true
+                    sourceMap: true,
+                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapFilename: 'sourcemap-editor.json'
                 },
                 files: {
                     "style/editor.css": "less/editorallshoehorn.less"

@@ -118,7 +118,7 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
-        'file' => 'default.php',
+        'file' => 'login.php',
         'regions' => array(),
         'options' => array('langmenu'=>true, 'nonavbar'=>true),
     ),
@@ -169,6 +169,12 @@ $THEME->layouts = array(
     'secure' => array(
         'file' => 'secure.php',
         'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre'
+    ),
+    // The shoehorn custom page layout.  Not listed on: http://docs.moodle.org/dev/Themes_overview.
+    'page' => array(
+        'file' => 'page.php',
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre'
     ),
 );

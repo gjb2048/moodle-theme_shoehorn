@@ -25,6 +25,26 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
+
+    /**
+     * Gets HTML for the page heading.
+     *
+     * @param string $tag The tag to encase the heading in. h1 by default.
+     * @return string HTML.
+     */
+    public function page_heading($tag = 'h1') {
+        $o = '';
+
+        $logo = $this->page->theme->setting_file_url('logo', 'logo');
+        if (!is_null($logo)) {
+            $o .= html_writer::empty_tag('img', array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'), 'class' => 'logo'));
+            $o .= html_writer::tag($tag, $this->page->heading, array('class' => 'logoheading'));
+        } else {
+            $o .= parent::page_heading($tag);
+        }
+        return $o;
+    }
+
     /*
      * This renders the navbar.
      * Uses bootstrap compatible html.
@@ -47,32 +67,6 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                         html_writer::start_tag('li'), $breadcrumbs) . html_writer::end_tag('li');
         $title = html_writer::tag('span', get_string('pagepath'), array('class' => 'accesshide'));
         return $title . html_writer::tag('ul', "$list_items", array('class' => 'breadcrumb'));
-    }
-
-    /**
-     * Get the HTML for blocks in the given region.
-     *
-     * @param string $region The region to get HTML for.
-     * @param array $classes array of classes for the tag.
-     * @param class $theme Theme instance.
-     * @param string $tag Tag to use.
-     * @return string HTML.
-     */
-    public function shoehornblocks($region, $classes, $theme, $tag = 'aside') {
-        $output = '';
-
-        $logo = $theme->setting_file_url('logo', 'logo');
-        if (!is_null($logo)) {
-            //$output .= '<div class="row">';
-            //$output .= '<div class="panel panel-default col-md-offset-9 col-md-3">';
-            //$output .= '<img src="'.$logo.'" alt="'.get_string('logo', 'theme_shoehorn').'">';
-            //$output .= '</div>';
-            //$output .= '</div>';
-        }
-
-        $output .= $this->blocks($region, $classes, $tag);
-
-        return $output;
     }
 
     function footer_menu($settings) {

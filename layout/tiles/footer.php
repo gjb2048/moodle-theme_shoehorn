@@ -25,15 +25,21 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<footer id="page-footer" class="row">
-    <div class="row">
-    <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
-    <div class="<?php echo $cols['side']; ?>">
+<div class="row">
+<div id="page-info" class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 panel panel-default">
     <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
     <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
     <?php
     echo $OUTPUT->login_info();
-    echo $OUTPUT->home_link();
+    echo $OUTPUT->standard_footer_html();
+    ?>
+</div>
+</div>
+<footer id="page-footer" class="row">
+    <div class="row">
+    <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
+    <div class="<?php echo $cols['side']; ?>">
+    <?php
     ?>
     </div>
     <div class="<?php echo $cols['centre']; ?>">
@@ -43,7 +49,6 @@
     </div>
     <div class="<?php echo $cols['side']; ?>">
     <?php
-    echo $OUTPUT->standard_footer_html();
     ?>
     </div>
     </div>

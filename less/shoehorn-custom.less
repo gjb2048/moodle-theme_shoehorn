@@ -1,8 +1,13 @@
 // Shoehorn custom additions / changes.
 
+@page-top-bg: #1F4D87;
+@page-bottom-bg: #B8D2E9;
+@footer-top-bg: #269F00;
+@footer-bottom-bg: #267F00;
+
 // Body.
 body {
-    background-color: #1F4D87;
+    background-color: @page-top-bg;
 }
 
 // Header.
@@ -10,9 +15,14 @@ header {
     color: @gray-lighter;
 }
 
+// Logo.
+.logoheading {
+    display: inline-block;
+}
+
 // Page.
 #page {
-    #gradient > .vertical(#1F4D87, #B8D2E9);
+    #gradient > .vertical(@page-top-bg, @page-bottom-bg);
 }
 
 // Breadcrumb.
@@ -43,9 +53,15 @@ header {
     }
 }
 
+// Page info.
+#page-info {
+    margin-top: 1em;
+    text-align: center;
+}
+
 // Footer.
 #page-footer {
-    #gradient > .vertical(#269F00, #267F00);
+    #gradient > .vertical(@footer-top-bg, @footer-bottom-bg);
     color: @gray-lighter;
 }
 

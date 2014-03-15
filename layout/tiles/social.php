@@ -47,7 +47,7 @@ if ($numberofsociallinks) {
             }
             $iconname = 'socialicon'.$i;
             $icons .= '<li><a href="'.$PAGE->theme->settings->$name.'" target="_blank">';
-            $icons .= '<span class="screenreaderonly">'.$choices[$PAGE->theme->settings->$iconname].'</span>';
+            $icons .= '<span class="sr-only">'.$choices[$PAGE->theme->settings->$iconname].'</span>';
             $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i></a></li>';
         }
     }
