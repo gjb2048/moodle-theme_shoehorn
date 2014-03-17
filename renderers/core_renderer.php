@@ -119,6 +119,13 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         global $PAGE;
 
+        if ($PAGE->user_is_editing()) {
+            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
+            echo html_writer::tag('h3', get_string('editonmainpage', 'theme_shoehorn'));
+            echo html_writer::end_tag('div');
+            return;
+        }
+
         $modinfo = get_fast_modinfo($course);
         $course = course_get_format($course)->get_course();
 
@@ -138,14 +145,6 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
             // Can't view this section.
             return;
         }
-
-        if ($PAGE->user_is_editing()) {
-            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
-            echo html_writer::tag('h3', get_string('editonmainpage', 'theme_shoehorn'));
-            echo html_writer::end_tag('div');
-            return;
-        }
-
 
         // Copy activity clipboard..
         echo $this->course_activity_clipboard($course, $displaysection);
@@ -191,7 +190,21 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         //echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
         //echo $this->section_footer();
 
-        foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+        $sections = $modinfo->get_section_info_all();
+
+        // Check we will have a section to show...
+        $shownsectioncount = 0;
+        foreach ($sections as $section => $thissection) {
+            $showsection = $thissection->uservisible ||
+                    ($thissection->visible && !$thissection->available && $thissection->showavailability
+                    && !empty($thissection->availableinfo));
+            if ($showsection) {
+                $shownsectioncount++;
+            }
+        }
+
+		if ($shownsectioncount) {
+        foreach ($sections as $section => $thissection) {
             if ($section == 0) {
                 // 0-section is displayed a little different than the others
                 if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
@@ -203,8 +216,8 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
                 continue;
             }
             if ($section > $course->numsections) {
-                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
-                continue;
+                // Activities inside this section are 'orphaned', this section will be printed on the main course page when editing is on.
+                break;  // Not sure why core does not use this instead of 'continue'?
             }
             // Show the section if the user is permitted to access it, OR if it's not available
             // but showavailability is turned on (and there is some available info text).
@@ -214,29 +227,96 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
             if (!$showsection) {
                 // Hidden section message is overridden by 'unavailable' control
                 // (showavailability option).
-                if (!$course->hiddensections && $thissection->available) {
+                /* if (!$course->hiddensections && $thissection->available) {
                     echo $this->section_hidden($section);
-                }
-
+                } */
                 continue;
             }
 
-            if (!$PAGE->user_is_editing()) {
-                // Display section summary only.
-                echo $this->section_summary($thissection, $course, null);
-            } else {
-                echo $this->section_header($thissection, $course, false, 0);
-                if ($thissection->uservisible) {
-                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                    echo $this->courserenderer->course_section_add_cm_control($course, $section, 0);
-                }
-                echo $this->section_footer();
+            echo $this->section_header($thissection, $course, false, 0);
+            if ($thissection->uservisible) {
+                echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                echo $this->courserenderer->course_section_add_cm_control($course, $section, 0);
             }
+            echo $this->section_footer();
         }
 
         echo $this->end_section_list();
-
+        } else {
+            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
+            echo html_writer::tag('h3', get_string('nosectionstoshow', 'theme_shoehorn'));
+            echo html_writer::end_tag('div');
+        }
         // Close single-section div.
         echo html_writer::end_tag('div');
     }
 }
+
+/*
+$numberofslides = (empty($PAGE->theme->settings->numberofslides)) ? false : $PAGE->theme->settings->numberofslides;
+
+if ($numberofslides) { ?>
+    <div>
+        <div class="carouselslider">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php
+                    $first = true;
+                    for ($i = 1; $i <= $numberofslides; $i++) { ?>
+                        <li data-target="#myCarousel" data-slide-to="<?php echo $i-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
+                    <?php } ?>
+                </ol>
+                <div class="carousel-inner">
+                    <?php
+                    $first = true;
+                    for ($i = 1; $i <= $numberofslides; $i++) {
+                        $urlsetting = 'slideurl'.$i;
+                        if (!empty($PAGE->theme->settings->$urlsetting)) {
+                            echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
+                        } else {
+                            echo '<div';
+                        }
+                        echo ' class="';
+                        if ($first) { 
+                            echo 'active '; 
+                            $first = false;
+                        }
+                        echo 'item">';
+                        $imagesetting = 'slideimage'.$i;
+                        if (!empty($PAGE->theme->settings->$imagesetting)) {
+                            $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
+                        } else {
+                            $image = $OUTPUT->pix_url('Default_Slide', 'theme');
+                        }
+                        $slidecaptiontitle = 'slidecaptiontitle'.$i;
+                        if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
+                            $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
+                        } else {
+                            $imgalt = 'No caption title';
+                        }
+                        ?>
+                            <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
+                            <?php
+                            $slidecaptiontext = 'slidecaptiontext'.$i;
+                            if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
+                                <div class="carousel-caption">
+                                <?php
+                                    if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
+                                    if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
+                                ?> </div> <?php
+                            }
+                        if (!empty($PAGE->theme->settings->$urlsetting)) {
+                            echo '</a>';
+                        } else {
+                            echo '</div>';
+                        }
+                    } ?>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+*/

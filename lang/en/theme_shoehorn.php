@@ -57,6 +57,7 @@ $string['region-side-pre'] = 'Left';
 
 // Course single section page.
 $string['editonmainpage'] = 'Please edit on the main course page';
+$string['nosectionstoshow'] = 'No sections to show';
 
 // Settings.
 $string['generalsettings'] = 'General';
