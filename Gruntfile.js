@@ -40,7 +40,7 @@
  *                                 when your theme is not in the
  *                                 standard location.
  * grunt compile Run the .less files through the compiler, create the
- *               RTL version of the output, then run decache so that 
+ *               RTL version of the output, then run decache so that
  *               the results can be seen on the next page load.
  *
  *               Options:
@@ -70,11 +70,22 @@
  *                                      directory when your theme is
  *                                      not in the standard location.
  *
- * grunt replace                  Run all text replace tasks.
+ * grunt replace             Run all text replace tasks.
  *
  * grunt replace:rtl_images  Add _rtl to the filenames of certain images
  *                           that require flipping for use with RTL
  *                           languages.
+ *
+ * grunt replace:svg_colors  Change the color of the SVGs in pix_core by
+ *                           text replacing #999 with a new hex color.
+ *                           Note this requires the SVGs to be #999 to
+ *                           start with or the replace will do nothing
+ *                           so should usually be preceded by copying
+ *                           a fresh set of the original SVGs.
+ *
+ *                           Options:
+ *
+ *                           --svgcolor=<hexcolor> Hex color to use for SVGs
  *
  * grunt cssflip    Create moodle-rtl.css by flipping the direction styles
  *                  in moodle.css.
@@ -96,21 +107,45 @@ module.exports = function(grunt) {
         THEMEDIR        = path.basename(path.resolve('.'));
 
     // PHP strings for exec task.
-    var moodleroot = 'dirname(dirname(__DIR__))',
+    var moodleroot = path.dirname(path.dirname(__dirname)),
         configfile = '',
         decachephp = '',
-        dirrootopt = grunt.option('dirroot') || '';
+        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
-        moodleroot = "realpath('" + dirrootopt + "')";
+        moodleroot = path.resolve(dirrootopt);
     }
 
-    configfile = moodleroot + " . '/config.php'";
+    configfile = path.join(moodleroot, 'config.php');
 
     decachephp += 'define(\'CLI_SCRIPT\', true);';
-    decachephp += 'require(' + configfile  + ');';
+    decachephp += 'require(\'' + configfile  + '\');';
     decachephp += 'theme_reset_all_caches();';
+
+    var swatchname = grunt.option('name') || '';
+    var defaultsvgcolor = {
+        amelia: '#e8d069',
+        bootstrap: '#428bca',
+        classic: '#428bca',
+        cerulean: '#2fa4e7',
+        classic: '#428bca',
+        cosmo: '#007fff',
+        cupid: '#56caef',
+        cyborg: '#2a9fd6',
+        flatly: '#18bc9c',
+        journal: '#eb6864',
+        lumen: '#158cba',
+        readable: '#4582ec',
+        shamrock: '#f8e33c',
+        simplex: '#d9230f',
+        slate: '#fff',
+        spacelab: '#446e9b',
+        superhero: '#df691a',
+        united: '#dd4814',
+        yeti: '#008cba',
+    };
+    var svgcolor = grunt.option('svgcolor') || defaultsvgcolor[swatchname] || '#999';
 
     grunt.initConfig({
         less: {
@@ -124,9 +159,8 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'
                 },
-                files: {
-                    "style/moodle.css": "less/moodleallshoehorn.less",
-                }
+                src: 'less/moodleallshoehorn.less',
+                dest: 'style/moodle.css'
             },
             // Compile editor styles.
             editor: {
@@ -138,9 +172,8 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-editor.json'
                 },
-                files: {
-                    "style/editor.css": "less/editorallshoehorn.less"
-                }
+                src: 'less/editorallshoehorn.less',
+                dest: 'style/editor.css'
             }
         },
         exec: {
@@ -165,14 +198,21 @@ module.exports = function(grunt) {
         },
         cssflip: {
             rtl: {
-                files: {
-                    'style/moodle-rtl.css': 'style/moodle.css'
-                }
+                src: 'style/moodle.css',
+                dest: 'style/moodle-rtl.css'
+            }
+        },
+        copy: {
+            svg: {
+                 expand: true,
+                 cwd: 'pix_core_originals/',
+                 src: '**',
+                 dest: 'pix_core/',
             }
         },
         replace: {
             rtl_images: {
-                src: ['style/moodle-rtl.css'],
+                src: 'style/moodle-rtl.css',
                     overwrite: true,
                     replacements: [{
                         from: '[[pix:theme|fp/path_folder]]',
@@ -196,6 +236,14 @@ module.exports = function(grunt) {
                         from: '[[pix:y/lp]]',
                         to: '[[pix:y/lp_rtl]]'
                     }]
+            },
+            svg_colors: {
+                src: 'pix_core/**/*.svg',
+                    overwrite: true,
+                    replacements: [{
+                        from: '#999',
+                        to: svgcolor
+                    }]
             }
         }
     });
@@ -206,11 +254,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks("grunt-text-replace");
     grunt.loadNpmTasks("grunt-css-flip");
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
     grunt.registerTask("compile", ["less", "cssflip", "replace:rtl_images", "decache"]);
-    grunt.registerTask("swatch", ["bootswatch", "compile"]);
+    grunt.registerTask("swatch", ["bootswatch", "svg", "compile"]);
+    grunt.registerTask("svg", ["copy:svg", "replace:svg_colors"]);
 };

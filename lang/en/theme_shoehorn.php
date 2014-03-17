@@ -55,6 +55,9 @@ $string['pluginname'] = 'Shoehorn';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
+// Course single section page.
+$string['editonmainpage'] = 'Please edit on the main course page';
+
 // Settings.
 $string['generalsettings'] = 'General';
 

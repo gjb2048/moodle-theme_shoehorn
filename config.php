@@ -34,7 +34,6 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
     $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
 }
 $THEME->sheets[] = 'general';
-$THEME->sheets[] = 'custom';
 if (!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 1)) {
     $THEME->sheets[] = 'font';
     $THEME->sheets[] = 'font-awesome.min';
@@ -42,6 +41,7 @@ if (!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 1)) {
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }
+$THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 

@@ -98,3 +98,145 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         return $o;
     }
 }
+
+// Course formats....
+include_once($CFG->dirroot . "/course/format/topics/renderer.php");
+class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
+    protected function get_nav_links($course, $sections, $sectionno) {
+        return array();
+    }
+
+    /**
+     * Output the html for a single section page .
+     *
+     * @param stdClass $course The course entry from DB
+     * @param array $sections (argument not used)
+     * @param array $mods (argument not used)
+     * @param array $modnames (argument not used)
+     * @param array $modnamesused (argument not used)
+     * @param int $displaysection The section number in the course which is being displayed
+     */
+    public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+        global $PAGE;
+
+        $modinfo = get_fast_modinfo($course);
+        $course = course_get_format($course)->get_course();
+
+        // Can we view the section in question?
+        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+            // This section doesn't exist
+            print_error('unknowncoursesection', 'error', null, $course->fullname);
+            return;
+        }
+
+        if (!$sectioninfo->uservisible) {
+            if (!$course->hiddensections) {
+                echo $this->start_section_list();
+                echo $this->section_hidden($displaysection);
+                echo $this->end_section_list();
+            }
+            // Can't view this section.
+            return;
+        }
+
+        if ($PAGE->user_is_editing()) {
+            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
+            echo html_writer::tag('h3', get_string('editonmainpage', 'theme_shoehorn'));
+            echo html_writer::end_tag('div');
+            return;
+        }
+
+
+        // Copy activity clipboard..
+        echo $this->course_activity_clipboard($course, $displaysection);
+        /* $thissection = $modinfo->get_section_info(0);
+        if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+            echo $this->start_section_list();
+            echo $this->section_header($thissection, $course, true, $displaysection);
+            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+            echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
+            echo $this->section_footer();
+            echo $this->end_section_list();
+        }*/
+
+        // Start single-section div
+        //echo html_writer::start_tag('div', array('class' => 'single-section'));
+        echo html_writer::start_tag('div', array('class' => ''));
+
+        // The requested section page.
+        //$thissection = $modinfo->get_section_info($displaysection);
+
+        // Title with section navigation links.
+        /*$sectiontitle = '';
+        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation navigationtitle'));
+        // Title attributes
+        $classes = 'sectionname';
+        if (!$thissection->visible) {
+            $classes .= ' dimmed_text';
+        }
+        $sectiontitle .= $this->output->heading(get_section_name($course, $displaysection), 3, $classes);
+
+        $sectiontitle .= html_writer::end_tag('div');
+        echo $sectiontitle; */
+
+        // Now the list of sections..
+        echo $this->start_section_list();
+
+        //echo $this->section_header($thissection, $course, true, $displaysection);
+        // Show completion help icon.
+        //$completioninfo = new completion_info($course);
+        //echo $completioninfo->display_help_icon();
+
+        //echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+        //echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+        //echo $this->section_footer();
+
+        foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+            if ($section == 0) {
+                // 0-section is displayed a little different than the others
+                if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
+                    echo $this->section_header($thissection, $course, false, 0);
+                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                    echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
+                    echo $this->section_footer();
+                }
+                continue;
+            }
+            if ($section > $course->numsections) {
+                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
+                continue;
+            }
+            // Show the section if the user is permitted to access it, OR if it's not available
+            // but showavailability is turned on (and there is some available info text).
+            $showsection = $thissection->uservisible ||
+                    ($thissection->visible && !$thissection->available && $thissection->showavailability
+                    && !empty($thissection->availableinfo));
+            if (!$showsection) {
+                // Hidden section message is overridden by 'unavailable' control
+                // (showavailability option).
+                if (!$course->hiddensections && $thissection->available) {
+                    echo $this->section_hidden($section);
+                }
+
+                continue;
+            }
+
+            if (!$PAGE->user_is_editing()) {
+                // Display section summary only.
+                echo $this->section_summary($thissection, $course, null);
+            } else {
+                echo $this->section_header($thissection, $course, false, 0);
+                if ($thissection->uservisible) {
+                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                    echo $this->courserenderer->course_section_add_cm_control($course, $section, 0);
+                }
+                echo $this->section_footer();
+            }
+        }
+
+        echo $this->end_section_list();
+
+        // Close single-section div.
+        echo html_writer::end_tag('div');
+    }
+}

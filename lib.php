@@ -68,17 +68,17 @@ function theme_shoehorn_set_customcss($css, $customcss) {
 
 function shoehorn_grid($hassidepre, $hassidepost) {
     if ($hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-sm-4 col-md-6');
-        $regions['pre'] = 'col-sm-4 col-md-3';
-        $regions['post'] = 'col-sm-4 col-md-3';
+        $regions = array('content' => 'col-sm-4 col-md-6 col-lg-8');
+        $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
+        $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
     } else if ($hassidepre && !$hassidepost) {
-        $regions = array('content' => 'col-sm-8 col-md-9');
-        $regions['pre'] = 'col-sm-4 col-md-3';
+        $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
+        $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
         $regions['post'] = 'emtpy';
     } else if (!$hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-sm-8 col-md-9');
+        $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
         $regions['pre'] = 'empty';
-        $regions['post'] = 'col-sm-4 col-md-3';
+        $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
     } else if (!$hassidepre && !$hassidepost) {
         $regions = array('content' => 'col-md-12');
         $regions['pre'] = 'empty';
@@ -123,10 +123,10 @@ function shoehorn_social_footer($settings) {
         $diff = round($numberofsociallinks / 7);
         $side = 5 - $diff;
         $centre = 2 + ($diff * 2);
-        $cols['side'] = 'col-sm-'.$side.' col-md-'.$side;
-        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre;
+        $cols['side'] = 'col-sm-'.$side.' col-md-'.$side.' col-lg-'.$side;
+        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre;
     } else {
-        $cols['side'] = 'col-sm-6 col-md-6';
+        $cols['side'] = 'col-sm-6 col-md-6 col-lg-6';
     }
 
     return $cols;
