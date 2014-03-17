@@ -106,6 +106,89 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         return array();
     }
 
+    protected function shoehorn_start_section_list() {
+        return html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
+    }
+
+    protected function shoehorn_end_section_list() {
+        return html_writer::end_tag('ul');
+    }
+
+    /**
+     * Generate the display of the header part of a section before
+     * course modules are included
+     *
+     * @param stdClass $section The course_section entry from DB
+     * @param stdClass $course The course entry from DB
+     * @return string HTML to output.
+     */
+    protected function shoehorn_section_header($section, $course, $displaysection) {
+        global $PAGE;
+
+        $o = '';
+        $currenttext = '';
+        $sectionstyle = '';
+
+        if ($section->section != 0) {
+            // Only in the non-general sections.
+            if (!$section->visible) {
+                $sectionstyle = ' hidden';
+            } else if (course_get_format($course)->is_section_current($section)) {
+                $sectionstyle = ' current';
+            }
+        }
+		if ($section->section == $displaysection) {
+			$sectionstyle .= ' active';
+		}
+        $o.= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
+            'class' => 'section main clearfix'.$sectionstyle.' item', 'role'=>'region',
+            'aria-label'=> get_section_name($course, $section)));
+
+		$onsectionpage = true;
+        $leftcontent = $this->section_left_content($section, $course, $onsectionpage);
+        $o.= html_writer::tag('div', $leftcontent, array('class' => 'left side'));
+
+        $rightcontent = $this->section_right_content($section, $course, $onsectionpage);
+        $o.= html_writer::tag('div', $rightcontent, array('class' => 'right side'));
+        $o.= html_writer::start_tag('div', array('class' => 'content'));
+
+        // When not on a section page, we display the section titles except the general section if null
+        /*$hasnamenotsecpg = (!$onsectionpage && ($section->section != 0 || !is_null($section->name)));
+
+        // When on a section page, we only display the general section title, if title is not the default one
+        $hasnamesecpg = ($onsectionpage && ($section->section == 0 && !is_null($section->name)));
+
+        $classes = ' accesshide';
+        if ($hasnamenotsecpg || $hasnamesecpg) {
+            $classes = '';
+        }*/
+        //$o.= $this->output->heading($this->section_title($section, $course), 3, 'sectionname' . $classes);
+        $o.= $this->output->heading($this->section_title($section, $course), 3, 'sectionname');
+
+        $o.= html_writer::start_tag('div', array('class' => 'summary'));
+        $o.= $this->format_summary_text($section);
+
+        $context = context_course::instance($course->id);
+        $o.= html_writer::end_tag('div');
+
+        $o .= $this->section_availability_message($section,
+                has_capability('moodle/course:viewhiddensections', $context));
+
+        return $o;
+    }
+
+    /**
+     * Generate the display of the footer part of a section
+     *
+     * @return string HTML to output.
+     */
+    protected function shoehorn_section_footer() {
+        $o = html_writer::end_tag('div');
+        $o.= html_writer::end_tag('li');
+
+        return $o;
+    }
+
     /**
      * Output the html for a single section page .
      *
@@ -178,9 +261,6 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         $sectiontitle .= html_writer::end_tag('div');
         echo $sectiontitle; */
 
-        // Now the list of sections..
-        echo $this->start_section_list();
-
         //echo $this->section_header($thissection, $course, true, $displaysection);
         // Show completion help icon.
         //$completioninfo = new completion_info($course);
@@ -193,55 +273,70 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         $sections = $modinfo->get_section_info_all();
 
         // Check we will have a section to show...
-        $shownsectioncount = 0;
+        $shownsections = array();
         foreach ($sections as $section => $thissection) {
             $showsection = $thissection->uservisible ||
                     ($thissection->visible && !$thissection->available && $thissection->showavailability
                     && !empty($thissection->availableinfo));
             if ($showsection) {
-                $shownsectioncount++;
+                $shownsections[] = $thissection->section;
             }
-        }
-
-		if ($shownsectioncount) {
-        foreach ($sections as $section => $thissection) {
-            if ($section == 0) {
-                // 0-section is displayed a little different than the others
-                if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
-                    echo $this->section_header($thissection, $course, false, 0);
-                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                    echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
-                    echo $this->section_footer();
-                }
-                continue;
-            }
-            if ($section > $course->numsections) {
+            if ($thissection->section > $course->numsections) {
                 // Activities inside this section are 'orphaned', this section will be printed on the main course page when editing is on.
                 break;  // Not sure why core does not use this instead of 'continue'?
             }
-            // Show the section if the user is permitted to access it, OR if it's not available
-            // but showavailability is turned on (and there is some available info text).
-            $showsection = $thissection->uservisible ||
-                    ($thissection->visible && !$thissection->available && $thissection->showavailability
-                    && !empty($thissection->availableinfo));
-            if (!$showsection) {
-                // Hidden section message is overridden by 'unavailable' control
-                // (showavailability option).
-                /* if (!$course->hiddensections && $thissection->available) {
-                    echo $this->section_hidden($section);
-                } */
+        }
+//echo print_r($shownsections, true);
+		if (count($shownsections) > 0) {
+		$loopsection = 0;
+		$numsections = count($shownsections);
+		//echo $numsections;
+		//echo '<br />';
+		//echo $displaysection;
+//echo print_r($modinfo->get_section_info_all(), true);
+        $sections = $modinfo->get_section_info_all();
+		
+		?>
+        <div class="carouselslider">
+            <div id="myCourseCarousel" class="carousel slide" data-ride="carousel" data-interval="">
+                <ol class="carousel-indicators">
+                    <?php
+                    for ($i = 0; $i < $numsections; $i++) { ?>
+                        <li data-target="#myCourseCarousel" data-slide-to="<?php echo $i; ?>" <?php if ($i == $displaysection) { echo 'class="active"'; } ?>></li>
+                    <?php } ?>
+                </ol>
+                    <?php
+
+		
+        echo $this->shoehorn_start_section_list();
+        while ($loopsection < $numsections) {
+            $thissection = $sections[$shownsections[$loopsection]];
+		    $loopsection++;
+            if ($thissection->section == 0) {
+                // 0-section is displayed a little different than the others
+                if ($thissection->summary or !empty($modinfo->sections[0])) {
+                    echo $this->shoehorn_section_header($thissection, $course, $displaysection);
+                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                    echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
+                    echo $this->shoehorn_section_footer();
+                }
                 continue;
             }
 
-            echo $this->section_header($thissection, $course, false, 0);
+            echo $this->shoehorn_section_header($thissection, $course, $displaysection);
             if ($thissection->uservisible) {
                 echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                echo $this->courserenderer->course_section_add_cm_control($course, $section, 0);
+                echo $this->courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
             }
-            echo $this->section_footer();
+            echo $this->shoehorn_section_footer();
         }
-
-        echo $this->end_section_list();
+        echo $this->shoehorn_end_section_list();
+		?>
+                <a class="left carousel-control" href="#myCourseCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+                <a class="right carousel-control" href="#myCourseCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+<?php
         } else {
             echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
             echo html_writer::tag('h3', get_string('nosectionstoshow', 'theme_shoehorn'));

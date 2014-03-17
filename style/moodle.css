@@ -15397,6 +15397,27 @@ header {
 #region-main .block .header {
   color: #1f4d87;
 }
+#myCourseCarousel .carousel-inner {
+  padding-bottom: 15px;
+}
+#myCourseCarousel .carousel-inner li.item {
+  min-height: 300px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#myCourseCarousel .carousel-control {
+  color: #b8d2e9;
+}
+#myCourseCarousel .carousel-indicators {
+  bottom: -15px;
+}
+#myCourseCarousel .carousel-indicators li {
+  border-color: #b8d2e9;
+}
+#myCourseCarousel .carousel-indicators li.active {
+  background-color: #b8d2e9;
+  border-width: 2px;
+}
 #page-info {
   margin-top: 1em;
   text-align: center;

@@ -53,6 +53,37 @@ header {
     }
 }
 
+// Course single page carousel.
+#myCourseCarousel .carousel-inner {
+    padding-bottom: 15px;
+    li.item {
+        min-height: 300px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+#myCourseCarousel .carousel-control {
+    color: @page-bottom-bg;
+}
+
+//.course-content #myCourseCarousel ul li.section.main {
+//    border-bottom: none;
+//}
+
+// Carousel indicator pips.
+#myCourseCarousel .carousel-indicators {
+    bottom: -15px;
+    li {
+        border-color: @page-bottom-bg;
+
+        &.active {
+            background-color: @page-bottom-bg;
+            border-width: 2px;
+        }
+    }
+}
+
 // Page info.
 #page-info {
     margin-top: 1em;
