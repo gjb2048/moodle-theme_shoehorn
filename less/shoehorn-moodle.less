@@ -51,6 +51,12 @@
     margin-left: 0px;
 }
 
+.path-admin .buttons,
+.form-buttons {
+// Counteract 'float' caused by .make-md-column(8);.
+    float: none;
+}
+
 // At this width and above the form label stacks beside the control
 @media (min-width: @screen-md-min) {
     .form-item .form-setting input[type="text"],

@@ -32,6 +32,7 @@ $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = shoehorn_grid($hassidepre, $hassidepost);
+$showslider = shoehorn_showslider($PAGE->theme->settings);
 $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
@@ -105,7 +106,11 @@ echo $OUTPUT->doctype() ?>
 
     <div id="page-content" class="row">
         <div id="region-main" class="<?php echo $regions['content']; ?>">
-            <?php require_once(dirname(__FILE__).'/tiles/frontpageslider.php'); ?>
+            <?php
+            if ($showslider) {
+                require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
+            }
+            ?>
             <section id="region-main-shoehorn">
                 <?php
                 echo $OUTPUT->course_content_header();

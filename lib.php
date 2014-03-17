@@ -87,6 +87,18 @@ function shoehorn_grid($hassidepre, $hassidepost) {
     return $regions;
 }
 
+function shoehorn_showslider($settings) {
+    $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
+    if ($devicetype == "mobile") {
+        $showslider = (empty($settings->slidermobile)) ? false : $settings->slidermobile;
+    } else if ($devicetype == "tablet") {
+        $showslider = (empty($settings->slidertablet)) ? false : $settings->slidertablet;
+    } else {
+        $showslider = true;
+    }
+    return $showslider;
+}
+
 /**
  * Serves any files associated with the theme settings.
  *

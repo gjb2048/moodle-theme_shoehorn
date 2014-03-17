@@ -15313,6 +15313,10 @@ input.fp-btn-choose {
 .mform fieldset.collapsible legend a.fheader {
   margin-left: 0px;
 }
+.path-admin .buttons,
+.form-buttons {
+  float: none;
+}
 @media (min-width: 992px) {
   .form-item .form-setting input[type="text"],
   .form-item .form-setting input[type="password"],
@@ -15401,7 +15405,7 @@ header {
   padding-bottom: 15px;
 }
 #myCourseCarousel .carousel-inner li.item {
-  min-height: 300px;
+  min-height: 200px;
   padding-left: 30px;
   padding-right: 30px;
 }

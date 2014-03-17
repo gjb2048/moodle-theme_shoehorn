@@ -89,6 +89,10 @@ $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
 // Slider settings.
+$string['slidermobile'] = 'Display on mobile';
+$string['slidermobile_desc'] = 'Display the slider on mobile devices.';
+$string['slidertablet'] = 'Display on tablet';
+$string['slidertablet_desc'] = 'Display the slider on tablet devices.';
 $string['numberofslides'] = 'Number of slides';
 $string['numberofslides_desc'] = 'Number of slides on the slider.';
 $string['sliderheading'] = 'Slider';

@@ -144,25 +144,13 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
             'class' => 'section main clearfix'.$sectionstyle.' item', 'role'=>'region',
             'aria-label'=> get_section_name($course, $section)));
 
-		$onsectionpage = true;
-        $leftcontent = $this->section_left_content($section, $course, $onsectionpage);
+        $leftcontent = $this->section_left_content($section, $course, true);
         $o.= html_writer::tag('div', $leftcontent, array('class' => 'left side'));
 
-        $rightcontent = $this->section_right_content($section, $course, $onsectionpage);
+        $rightcontent = $this->section_right_content($section, $course, true);
         $o.= html_writer::tag('div', $rightcontent, array('class' => 'right side'));
         $o.= html_writer::start_tag('div', array('class' => 'content'));
 
-        // When not on a section page, we display the section titles except the general section if null
-        /*$hasnamenotsecpg = (!$onsectionpage && ($section->section != 0 || !is_null($section->name)));
-
-        // When on a section page, we only display the general section title, if title is not the default one
-        $hasnamesecpg = ($onsectionpage && ($section->section == 0 && !is_null($section->name)));
-
-        $classes = ' accesshide';
-        if ($hasnamenotsecpg || $hasnamesecpg) {
-            $classes = '';
-        }*/
-        //$o.= $this->output->heading($this->section_title($section, $course), 3, 'sectionname' . $classes);
         $o.= $this->output->heading($this->section_title($section, $course), 3, 'sectionname');
 
         $o.= html_writer::start_tag('div', array('class' => 'summary'));
@@ -190,7 +178,7 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
     }
 
     /**
-     * Output the html for a single section page .
+     * Output the html for a single section page.
      *
      * @param stdClass $course The course entry from DB
      * @param array $sections (argument not used)
@@ -231,44 +219,9 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
 
         // Copy activity clipboard..
         echo $this->course_activity_clipboard($course, $displaysection);
-        /* $thissection = $modinfo->get_section_info(0);
-        if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
-            echo $this->start_section_list();
-            echo $this->section_header($thissection, $course, true, $displaysection);
-            echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
-            echo $this->courserenderer->course_section_add_cm_control($course, 0, $displaysection);
-            echo $this->section_footer();
-            echo $this->end_section_list();
-        }*/
 
         // Start single-section div
-        //echo html_writer::start_tag('div', array('class' => 'single-section'));
         echo html_writer::start_tag('div', array('class' => ''));
-
-        // The requested section page.
-        //$thissection = $modinfo->get_section_info($displaysection);
-
-        // Title with section navigation links.
-        /*$sectiontitle = '';
-        $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation navigationtitle'));
-        // Title attributes
-        $classes = 'sectionname';
-        if (!$thissection->visible) {
-            $classes .= ' dimmed_text';
-        }
-        $sectiontitle .= $this->output->heading(get_section_name($course, $displaysection), 3, $classes);
-
-        $sectiontitle .= html_writer::end_tag('div');
-        echo $sectiontitle; */
-
-        //echo $this->section_header($thissection, $course, true, $displaysection);
-        // Show completion help icon.
-        //$completioninfo = new completion_info($course);
-        //echo $completioninfo->display_help_icon();
-
-        //echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
-        //echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
-        //echo $this->section_footer();
 
         $sections = $modinfo->get_section_info_all();
 
@@ -286,28 +239,24 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
                 break;  // Not sure why core does not use this instead of 'continue'?
             }
         }
-//echo print_r($shownsections, true);
 		if (count($shownsections) > 0) {
 		$loopsection = 0;
 		$numsections = count($shownsections);
-		//echo $numsections;
-		//echo '<br />';
-		//echo $displaysection;
-//echo print_r($modinfo->get_section_info_all(), true);
         $sections = $modinfo->get_section_info_all();
-		
-		?>
-        <div class="carouselslider">
-            <div id="myCourseCarousel" class="carousel slide" data-ride="carousel" data-interval="">
-                <ol class="carousel-indicators">
-                    <?php
-                    for ($i = 0; $i < $numsections; $i++) { ?>
-                        <li data-target="#myCourseCarousel" data-slide-to="<?php echo $i; ?>" <?php if ($i == $displaysection) { echo 'class="active"'; } ?>></li>
-                    <?php } ?>
-                </ol>
-                    <?php
 
-		
+        echo html_writer::start_tag('div', array('class' => 'carouselslider'));
+        echo html_writer::start_tag('div', array('id' => 'myCourseCarousel', 'class' => 'carousel slide', 'data-ride' => 'carousel', 'data-interval' => ''));
+        echo html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
+        for ($i = 0; $i < $numsections; $i++) {
+            $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i);
+            if ($i == $displaysection) {
+                $attributes['class'] = 'active';
+            }
+            echo html_writer::start_tag('li', $attributes);
+            echo html_writer::end_tag('li');
+        }
+        echo html_writer::end_tag('ol');
+
         echo $this->shoehorn_start_section_list();
         while ($loopsection < $numsections) {
             $thissection = $sections[$shownsections[$loopsection]];
@@ -331,12 +280,17 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
             echo $this->shoehorn_section_footer();
         }
         echo $this->shoehorn_end_section_list();
-		?>
-                <a class="left carousel-control" href="#myCourseCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
-                <a class="right carousel-control" href="#myCourseCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
-            </div>
-        </div>
-<?php
+
+        echo html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'prev'));
+        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-left'));
+        echo html_writer::end_tag('i');
+        echo html_writer::end_tag('a');
+        echo html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'next'));
+        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-right'));
+        echo html_writer::end_tag('i');
+        echo html_writer::end_tag('a');
+        echo html_writer::end_tag('div');
+        echo html_writer::end_tag('div');
         } else {
             echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
             echo html_writer::tag('h3', get_string('nosectionstoshow', 'theme_shoehorn'));

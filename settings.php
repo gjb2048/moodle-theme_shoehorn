@@ -137,6 +137,22 @@ defined('MOODLE_INTERNAL') || die;
             format_text(get_string('socialdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $numberofslides = get_config('theme_shoehorn', 'numberofslides');
 
+    // Show on mobile.
+    $name = 'theme_shoehorn/slidermobile';
+    $title = get_string('slidermobile', 'theme_shoehorn');
+    $description = get_string('slidermobile_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $slidersettings->add($setting);
+
+    // Show on tablet.
+    $name = 'theme_shoehorn/slidertablet';
+    $title = get_string('slidertablet', 'theme_shoehorn');
+    $description = get_string('slidertablet_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $slidersettings->add($setting);
+
     for ($i = 1; $i <= $numberofslides; $i++) {
         // Image.
         $name = 'theme_shoehorn/slideimage'.$i;
