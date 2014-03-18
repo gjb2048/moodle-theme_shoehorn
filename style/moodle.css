@@ -15244,6 +15244,21 @@ input.fp-btn-choose {
 .panel-title > a {
   color: #1f4d87;
 }
+.panel-primary {
+  background-color: #1f4d87;
+}
+.panel-success {
+  background-color: #d6e9c6;
+}
+.panel-info {
+  background-color: #bce8f1;
+}
+.panel-warning {
+  background-color: #faebcc;
+}
+.panel-danger {
+  background-color: #ebccd1;
+}
 .block .minicalendar td.weekend {
   color: #2965b0;
 }
@@ -15448,5 +15463,9 @@ header {
 }
 #footermenu .copyright:before {
   content: "\00A9";
+}
+#footermenu .divider {
+  padding-left: 3px;
+  padding-right: 3px;
 }
 /*# sourceMappingURL=/moodle26/theme/shoehorn/sourcemap-moodle.json */

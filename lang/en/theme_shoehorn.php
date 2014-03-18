@@ -106,14 +106,18 @@ $string['sitepagecontent'] = 'Site page content ';
 $string['sitepagecontent_desc'] = 'Site page content number ';
 $string['sitepagelang'] = 'Site page language ';
 $string['sitepagelang_desc'] = 'Site page language number ';
-$string['sitepagelang_desc2'] = ".  Enter language pack code, the text before the '.zip' extension on '";
+$string['sitepagelang_desc2'] = ".  Enter language pack code for an installed language pack, the text within the brackets on '";
 $string['sitepagelang_desc3'] = "'.  Leave blank for all languages.";
-$string['sitepagelang_urlname'] = 'download.moodle.org/langpack/2.6/';
-$string['sitepagelang_urllink'] = 'http://download.moodle.org/langpack/2.6/';
+$string['sitepagelang_urlname'] = 'Language packs';
+$string['sitepagelang_urllink'] = '/admin/tool/langimport/index.php';
 
 $string['unknownsitepage'] = 'Unknown site page number ';
 $string['unknownsitepagecontent1'] = 'Site page number ';
-$string['unknownsitepagecontent2'] = ' is not known, check your administration settings for the theme.';
+$string['unknownsitepagecontent2'] = ' is not known, ask an an administrator to check the settings for the theme.';
+$string['pagenotforlanguagetitle1'] = 'Site page number ';
+$string['pagenotforlanguagetitle2'] = ' not for language';
+$string['pagenotforlanguagecontent1'] = 'Site page number ';
+$string['pagenotforlanguagecontent2'] = ' has not been set for the current language, ask an an administrator to check the settings for the theme.';
 
 // Slider settings.
 $string['frontpageslidermobile'] = 'Display front page slider on mobile';

@@ -97,24 +97,35 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         // Site page setting.
         $numberofsitepages = (empty($settings->numberofsitepages)) ? false : $settings->numberofsitepages;
         if ($numberofsitepages) {
+            $lang = current_language();
             for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
                 $sitepagetitle = 'sitepagetitle'.$sp;
                 if (!empty($settings->$sitepagetitle)) {
-                    $items[] .= html_writer::tag('a', $settings->$sitepagetitle, array('href' => '/theme/shoehorn/pages/sitepage.php?pageid='.$sp, 'class' => 'sitepagelink'));
+                    $sitepagelang = 'sitepagelang'.$sp;
+                    if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == $lang)) {
+                        $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+                        $url->param('pageid', $sp);
+                        $url = preg_replace('|^https?://|i', '//', $url->out(false));
+                        $items[] .= html_writer::tag('a', $settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
+                    }
                 }
             }
         }
 
         // Copyright setting.
         if (!empty($settings->copyright)) {
-            $items[] .= html_writer::tag('p', ' '.$settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
+            $items[] .= html_writer::tag('span', ' '.$settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
         }
 
         if (count($items) > 0) {
             $o = html_writer::start_tag('div', array('id' => 'footermenu'));
-            $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
-                            html_writer::end_tag('i'), array('class' => 'divider'));
-            $o .= implode("$divider", $items);
+            if (count($items) == 1) {
+                $o .= $items[0];
+            } else {
+                $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
+                                html_writer::end_tag('i'), array('class' => 'divider'));
+                $o .= implode("$divider", $items);
+            }
             $o .= html_writer::end_tag('div');
         }
 
@@ -241,16 +252,16 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
     // Check we will have a section to show...
     $shownsections = array();
     foreach ($sections as $section => $thissection) {
+        if ($thissection->section > $course->numsections) {
+            /* Activities inside this section are 'orphaned', this section will be printed on the main course page when
+               editing is on. */
+            break;  // Not sure why core does not use this instead of 'continue'?
+        }
         $showsection = $thissection->uservisible ||
                 ($thissection->visible && !$thissection->available && $thissection->showavailability
                 && !empty($thissection->availableinfo));
         if ($showsection) {
             $shownsections[] = $thissection->section;
-        }
-        if ($thissection->section > $course->numsections) {
-            /* Activities inside this section are 'orphaned', this section will be printed on the main course page when
-               editing is on. */
-            break;  // Not sure why core does not use this instead of 'continue'?
         }
     }
     if (count($shownsections) > 0) {

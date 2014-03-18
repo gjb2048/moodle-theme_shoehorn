@@ -169,7 +169,7 @@ defined('MOODLE_INTERNAL') || die;
         $title = get_string('sitepagetitle', 'theme_shoehorn').$i;
         $description = get_string('sitepagetitle_desc', 'theme_shoehorn').$i;
         $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
 
@@ -178,14 +178,14 @@ defined('MOODLE_INTERNAL') || die;
         $title = get_string('sitepageheading', 'theme_shoehorn').$i;
         $description = get_string('sitepageheading_desc', 'theme_shoehorn').$i;
         $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
 
         // Site page content.
-        $name = 'theme_shoehorn/sitepagecontent';
-        $title = get_string('sitepagecontent', 'theme_shoehorn');
-        $description = get_string('sitepagecontent_desc', 'theme_shoehorn');
+        $name = 'theme_shoehorn/sitepagecontent'.$i;
+        $title = get_string('sitepagecontent', 'theme_shoehorn').$i;
+        $description = get_string('sitepagecontent_desc', 'theme_shoehorn').$i;
         $default = '';
         $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -199,7 +199,7 @@ defined('MOODLE_INTERNAL') || die;
                        'href' => get_string('sitepagelang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
                        .get_string('sitepagelang_desc3', 'theme_shoehorn');
         $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
     }

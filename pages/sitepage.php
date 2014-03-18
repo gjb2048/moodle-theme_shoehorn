@@ -35,20 +35,30 @@ $url->param('pageid', $pageid);
 $PAGE->set_url($url, $url->params());
 
 $o = '';
-$settings = $PAGE->theme->settings;
 $sitepagetitle = 'sitepagetitle'.$pageid;
+$theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
+$settings = $theme->settings;
 if (!empty($settings->$sitepagetitle)) {
-    $PAGE->set_title($settings->$sitepagetitle);
+    $lang = current_language();
+    $sitepagelang = 'sitepagelang'.$pageid;
+    if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == $lang)) {
+        $PAGE->set_title($settings->$sitepagetitle);
 
-    $sitepageheading = 'sitepageheading'.$pageid;
-    $PAGE->set_heading($settings->$sitepageheading);
+        $sitepageheading = 'sitepageheading'.$pageid;
+        $PAGE->set_heading($settings->$sitepageheading);
 
-    $PAGE->set_pagelayout('page');
+        $PAGE->set_pagelayout('page');
 
-    // Content.
-    $sitepagecontent = 'sitepagecontent'.$pageid;
-//$o .= print_r($settings->sitepagecontent, true);
-    $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
+        // Content.
+        $sitepagecontent = 'sitepagecontent'.$pageid;
+        $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
+    } else {
+        $text = get_string('pagenotforlanguagetitle1', 'theme_shoehorn').$pageid.get_string('pagenotforlanguagetitle2', 'theme_shoehorn');
+        $PAGE->set_title($text);
+        $PAGE->set_heading($text);
+        $PAGE->set_pagelayout('page');
+        $o .= html_writer::tag('h3', get_string('pagenotforlanguagecontent1', 'theme_shoehorn').$pageid.get_string('pagenotforlanguagecontent2', 'theme_shoehorn'), array('class' => 'panel panel-warning'));
+    }
 } else {
     $text = get_string('unknownsitepage', 'theme_shoehorn').$pageid;
     $PAGE->set_title($text);
