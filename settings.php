@@ -68,6 +68,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Copyright text.
+    $name = 'theme_shoehorn/copyright';
+    $title = get_string('copyright', 'theme_shoehorn');
+    $description = get_string('copyright_desc', 'theme_shoehorn');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Custom CSS file.
     $name = 'theme_shoehorn/customcss';
     $title = get_string('customcss', 'theme_shoehorn');
@@ -77,10 +86,28 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Number of site pages.
+    $name = 'theme_shoehorn/numberofsitepages';
+    $title = get_string('numberofsitepages', 'theme_shoehorn');
+    $description = get_string('numberofsitepages_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        0 => '0',
+        1 => '1',
+        2 => '2',
+        3 => '3',
+        4 => '4',
+        5 => '5',
+        6 => '6',
+        7 => '7',
+        8 => '8'
+    );
+    $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
     // Number of slides.
-    $name = 'theme_shoehorn/numberofslides';
-    $title = get_string('numberofslides', 'theme_shoehorn');
-    $description = get_string('numberofslides_desc', 'theme_shoehorn');
+    $name = 'theme_shoehorn/frontpagenumberofslides';
+    $title = get_string('frontpagenumberofslides', 'theme_shoehorn');
+    $description = get_string('frontpagenumberofslides_desc', 'theme_shoehorn');
     $default = 3;
     $choices = array(
         0 => '0',
@@ -131,59 +158,106 @@ defined('MOODLE_INTERNAL') || die;
 
     $ADMIN->add('theme_shoehorn', $generalsettings);
 
+    // Site pages....
+    $sitepagessettings = new admin_settingpage('theme_shoehorn_sitepages', get_string('sitepagesheading', 'theme_shoehorn'));
+    $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepages', get_string('sitepagesheadingsub', 'theme_shoehorn'),
+            format_text(get_string('sitepagesdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+    $numberofsitepages = get_config('theme_shoehorn', 'numberofsitepages');
+    for ($i = 1; $i <= $numberofsitepages; $i++) {
+        // Site page title.
+        $name = 'theme_shoehorn/sitepagetitle'.$i;
+        $title = get_string('sitepagetitle', 'theme_shoehorn').$i;
+        $description = get_string('sitepagetitle_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page heading.
+        $name = 'theme_shoehorn/sitepageheading'.$i;
+        $title = get_string('sitepageheading', 'theme_shoehorn').$i;
+        $description = get_string('sitepageheading_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page content.
+        $name = 'theme_shoehorn/sitepagecontent';
+        $title = get_string('sitepagecontent', 'theme_shoehorn');
+        $description = get_string('sitepagecontent_desc', 'theme_shoehorn');
+        $default = '';
+        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page language only.
+        $name = 'theme_shoehorn/sitepagelang'.$i;
+        $title = get_string('sitepagelang', 'theme_shoehorn').$i;
+        $description = get_string('sitepagelang_desc', 'theme_shoehorn').$i.get_string('sitepagelang_desc2', 'theme_shoehorn')
+                       .html_writer::tag('a', get_string('sitepagelang_urlname', 'theme_shoehorn'), array(
+                       'href' => get_string('sitepagelang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
+                       .get_string('sitepagelang_desc3', 'theme_shoehorn');
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+    }
+    $ADMIN->add('theme_shoehorn', $sitepagessettings);
+
     // Slider page....
-    $slidersettings = new admin_settingpage('theme_shoehorn_slider', get_string('sliderheading', 'theme_shoehorn'));
-    $slidersettings->add(new admin_setting_heading('theme_moment_slider', get_string('sliderheadingsub', 'theme_shoehorn'),
-            format_text(get_string('socialdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
-    $numberofslides = get_config('theme_shoehorn', 'numberofslides');
+    $slidersettings = new admin_settingpage('theme_shoehorn_slider', get_string('frontpagesliderheading', 'theme_shoehorn'));
+    $slidersettings->add(new admin_setting_heading('theme_moment_slider', get_string('frontpagesliderheadingsub', 'theme_shoehorn'),
+            format_text(get_string('frontpagesliderdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+    $numberofslides = get_config('theme_shoehorn', 'frontpagenumberofslides');
 
     // Show on mobile.
-    $name = 'theme_shoehorn/slidermobile';
-    $title = get_string('slidermobile', 'theme_shoehorn');
-    $description = get_string('slidermobile_desc', 'theme_shoehorn');
+    $name = 'theme_shoehorn/frontpageslidermobile';
+    $title = get_string('frontpageslidermobile', 'theme_shoehorn');
+    $description = get_string('frontpageslidermobile_desc', 'theme_shoehorn');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $slidersettings->add($setting);
 
     // Show on tablet.
-    $name = 'theme_shoehorn/slidertablet';
-    $title = get_string('slidertablet', 'theme_shoehorn');
-    $description = get_string('slidertablet_desc', 'theme_shoehorn');
+    $name = 'theme_shoehorn/frontpageslidertablet';
+    $title = get_string('frontpageslidertablet', 'theme_shoehorn');
+    $description = get_string('frontpageslidertablet_desc', 'theme_shoehorn');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $slidersettings->add($setting);
 
     for ($i = 1; $i <= $numberofslides; $i++) {
         // Image.
-        $name = 'theme_shoehorn/slideimage'.$i;
-        $title = get_string('slideimage', 'theme_shoehorn').$i;
-        $description = get_string('slideimage_desc', 'theme_shoehorn').$i;
-        $setting = new admin_setting_configstoredfile($name, $title, $description, 'slideimage'.$i);
+        $name = 'theme_shoehorn/frontpageslideimage'.$i;
+        $title = get_string('frontpageslideimage', 'theme_shoehorn').$i;
+        $description = get_string('frontpageslideimage_desc', 'theme_shoehorn').$i;
+        $setting = new admin_setting_configstoredfile($name, $title, $description, 'frontpageslideimage'.$i);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
 
         // URL.
-        $name = 'theme_shoehorn/slideurl'.$i;
-        $title = get_string('slideurl', 'theme_shoehorn').$i;
-        $description = get_string('slideurl_desc', 'theme_shoehorn').$i;
+        $name = 'theme_shoehorn/frontpageslideurl'.$i;
+        $title = get_string('frontpageslideurl', 'theme_shoehorn').$i;
+        $description = get_string('frontpageslideurl_desc', 'theme_shoehorn').$i;
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
 
         // Caption title.
-        $name = 'theme_shoehorn/slidecaptiontitle'.$i;
-        $title = get_string('slidecaptiontitle', 'theme_shoehorn').$i;
-        $description = get_string('slidecaptiontitle_desc', 'theme_shoehorn').$i;
+        $name = 'theme_shoehorn/frontpageslidecaptiontitle'.$i;
+        $title = get_string('frontpageslidecaptiontitle', 'theme_shoehorn').$i;
+        $description = get_string('frontpageslidecaptiontitle_desc', 'theme_shoehorn').$i;
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
 
         // Caption text.
-        $name = 'theme_shoehorn/slidecaptiontext'.$i;
-        $title = get_string('slidecaptiontext', 'theme_shoehorn').$i;
-        $description = get_string('slidecaptiontext_desc', 'theme_shoehorn').$i;
+        $name = 'theme_shoehorn/frontpageslidecaptiontext'.$i;
+        $title = get_string('frontpageslidecaptiontext', 'theme_shoehorn').$i;
+        $description = get_string('frontpageslidecaptiontext_desc', 'theme_shoehorn').$i;
         $default = '';
         $setting = new admin_setting_configtextarea($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');

@@ -90,9 +90,9 @@ function shoehorn_grid($hassidepre, $hassidepost) {
 function shoehorn_showslider($settings) {
     $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
     if ($devicetype == "mobile") {
-        $showslider = (empty($settings->slidermobile)) ? false : $settings->slidermobile;
+        $showslider = (empty($settings->frontpageslidermobile)) ? false : $settings->frontpageslidermobile;
     } else if ($devicetype == "tablet") {
-        $showslider = (empty($settings->slidertablet)) ? false : $settings->slidertablet;
+        $showslider = (empty($settings->frontpageslidertablet)) ? false : $settings->frontpageslidertablet;
     } else {
         $showslider = true;
     }
@@ -116,7 +116,7 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
         if ($filearea === 'logo') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        } else if (substr($filearea, 0, 10) === 'slideimage') {
+        } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else {

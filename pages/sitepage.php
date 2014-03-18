@@ -26,13 +26,36 @@
 
 // http://docs.moodle.org/dev/Page_API.
 require_once('../../../config.php');
+
+$pageid = required_param('pageid', PARAM_INT);
+
 $PAGE->set_context(context_system::instance());
 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-$url->param('pageid', 1);
+$url->param('pageid', $pageid);
 $PAGE->set_url($url, $url->params());
-$PAGE->set_title('Site page title');
-$PAGE->set_heading('Site page heading');
-$PAGE->set_pagelayout('page');
+
+$o = '';
+$settings = $PAGE->theme->settings;
+$sitepagetitle = 'sitepagetitle'.$pageid;
+if (!empty($settings->$sitepagetitle)) {
+    $PAGE->set_title($settings->$sitepagetitle);
+
+    $sitepageheading = 'sitepageheading'.$pageid;
+    $PAGE->set_heading($settings->$sitepageheading);
+
+    $PAGE->set_pagelayout('page');
+
+    // Content.
+    $sitepagecontent = 'sitepagecontent'.$pageid;
+//$o .= print_r($settings->sitepagecontent, true);
+    $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
+} else {
+    $text = get_string('unknownsitepage', 'theme_shoehorn').$pageid;
+    $PAGE->set_title($text);
+    $PAGE->set_heading($text);
+    $PAGE->set_pagelayout('page');
+    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent1', 'theme_shoehorn').$pageid.get_string('unknownsitepagecontent2', 'theme_shoehorn'), array('class' => 'panel panel-warning'));
+}
 
 $courseid = SITEID;
 /// locate course information
@@ -57,7 +80,7 @@ $PAGE->navbar->add($PAGE->title, $url);
 echo $OUTPUT->header();
 echo $OUTPUT->box_start();
 
-echo '<h1>Test</h1>';
+echo $o;
 
 echo $OUTPUT->box_end();
 

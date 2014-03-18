@@ -71,14 +71,13 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
     function footer_menu($settings) {
         $o = '';
+        $items = array();
 
+        // Footer menu setting.
         if (!empty($settings->footermenu)) {
             $lang = current_language();
             $lines = explode("\n", $settings->footermenu);
-            $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
-                            html_writer::end_tag('i'), array('class' => 'divider'));
 
-            $items = array();
             foreach ($lines as $line) {
                 $line = trim($line);
                 $bits = explode('|', $line, 4); // name|url|title|lang
@@ -93,8 +92,32 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $items[] = html_writer::tag('a', $bits[0], array('href' => $bits[1], 'title' => $title));
             }
-            $o .= implode("$divider", $items);
         }
+
+        // Site page setting.
+        $numberofsitepages = (empty($settings->numberofsitepages)) ? false : $settings->numberofsitepages;
+        if ($numberofsitepages) {
+            for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
+                $sitepagetitle = 'sitepagetitle'.$sp;
+                if (!empty($settings->$sitepagetitle)) {
+                    $items[] .= html_writer::tag('a', $settings->$sitepagetitle, array('href' => '/theme/shoehorn/pages/sitepage.php?pageid='.$sp, 'class' => 'sitepagelink'));
+                }
+            }
+        }
+
+        // Copyright setting.
+        if (!empty($settings->copyright)) {
+            $items[] .= html_writer::tag('p', ' '.$settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
+        }
+
+        if (count($items) > 0) {
+            $o = html_writer::start_tag('div', array('id' => 'footermenu'));
+            $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
+                            html_writer::end_tag('i'), array('class' => 'divider'));
+            $o .= implode("$divider", $items);
+            $o .= html_writer::end_tag('div');
+        }
+
         return $o;
     }
 }
@@ -225,7 +248,8 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
             $shownsections[] = $thissection->section;
         }
         if ($thissection->section > $course->numsections) {
-            // Activities inside this section are 'orphaned', this section will be printed on the main course page when editing is on.
+            /* Activities inside this section are 'orphaned', this section will be printed on the main course page when
+               editing is on. */
             break;  // Not sure why core does not use this instead of 'continue'?
         }
     }
@@ -235,7 +259,8 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
         $sections = $modinfo->get_section_info_all();
 
         echo html_writer::start_tag('div', array('class' => 'carouselslider'));
-        echo html_writer::start_tag('div', array('id' => 'myCourseCarousel', 'class' => 'carousel slide', 'data-ride' => 'carousel', 'data-interval' => ''));
+        echo html_writer::start_tag('div', array('id' => 'myCourseCarousel', 'class' => 'carousel slide',
+                                                 'data-ride' => 'carousel', 'data-interval' => ''));
         echo html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
         for ($i = 0; $i < $numsections; $i++) {
             $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i);
@@ -271,11 +296,13 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
         }
         echo html_writer::end_tag('ul');
 
-        echo html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'prev'));
+        echo html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
+                                               'data-slide' => 'prev'));
         echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-left'));
         echo html_writer::end_tag('i');
         echo html_writer::end_tag('a');
-        echo html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'next'));
+        echo html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
+                                               'data-slide' => 'next'));
         echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-right'));
         echo html_writer::end_tag('i');
         echo html_writer::end_tag('a');
@@ -290,7 +317,8 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
     echo html_writer::end_tag('div');
 }
 
-
+/* Now the really clever bit to expose parts of the renderer interface such that they can be accessed by a global function if
+   they are passed a reference to the $this object. */
 include_once($CFG->dirroot . "/course/format/topics/renderer.php");
 class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
     public $courserenderer;
@@ -319,262 +347,186 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         return parent::format_summary_text($section);
     }
 
-    /**
-     * Generate the display of the header part of a section before
-     * course modules are included
-     *
-     * @param stdClass $section The course_section entry from DB
-     * @param stdClass $course The course entry from DB
-     * @return string HTML to output.
-     */
-    /*protected function shoehorn_section_header($section, $course, $format, $displaysection) {
-        global $PAGE;
+    public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+        shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+    }
+}
 
-        $o = '';
-        $sectionstyle = '';
+include_once($CFG->dirroot . "/course/format/weeks/renderer.php");
+class theme_shoehorn_format_weeks_renderer extends format_topics_renderer {
+    public $courserenderer;
 
-        if ($section->section != 0) {
-            // Only in the non-general sections.
-            if (!$section->visible) {
-                $sectionstyle = ' hidden';
-            } else if ($format->is_section_current($section)) {
-                $sectionstyle = ' current';
-            }
-        }
-        if ($section->section == $displaysection) {
-            $sectionstyle .= ' active';
-        }
-        $o.= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
-            'class' => 'section main clearfix'.$sectionstyle.' item', 'role'=>'region',
-            'aria-label'=> $format->get_section_name($section)));
+    protected function get_nav_links($course, $sections, $sectionno) {
+        return array();
+    }
 
-        $leftcontent = $this->section_left_content($section, $course, true);
-        $o.= html_writer::tag('div', $leftcontent, array('class' => 'left side'));
+    public function section_left_content($section, $course, $onsectionpage) {
+        return parent::section_left_content($section, $course, $onsectionpage);
+    }
 
-        $rightcontent = $this->section_right_content($section, $course, true);
-        $o.= html_writer::tag('div', $rightcontent, array('class' => 'right side'));
-        $o.= html_writer::start_tag('div', array('class' => 'content'));
+    public function section_right_content($section, $course, $onsectionpage) {
+        return parent::section_right_content($section, $course, $onsectionpage);
+    }
 
-        $o.= html_writer::tag('h3', $format->get_section_name($section), array('class' => 'sectionname'));
+    public function section_availability_message($section, $canviewhidden) {
+        return parent::section_availability_message($section, $canviewhidden);
+    }
 
-        $o.= html_writer::start_tag('div', array('class' => 'summary'));
-        $o.= $this->format_summary_text($section);
+    public function course_activity_clipboard($course, $sectionno = null) {
+        return parent::course_activity_clipboard($course, $sectionno);
+    }
 
-        $context = context_course::instance($course->id);
-        $o.= html_writer::end_tag('div');
-
-        $o .= $this->section_availability_message($section,
-                has_capability('moodle/course:viewhiddensections', $context));
-
-        return $o;
-    } */
-
-    /**
-     * Generate the display of the footer part of a section
-     *
-     * @return string HTML to output.
-     */
-    /*protected function shoehorn_section_footer() {
-        $o = html_writer::end_tag('div');
-        $o.= html_writer::end_tag('li');
-
-        return $o;
-    }*/
+    public function format_summary_text($section) {
+        return parent::format_summary_text($section);
+    }
 
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
     }
-
-    /**
-     * Output the html for a single section page.
-     *
-     * @param stdClass $course The course entry from DB
-     * @param array $sections (argument not used)
-     * @param array $mods (argument not used)
-     * @param array $modnames (argument not used)
-     * @param array $modnamesused (argument not used)
-     * @param int $displaysection The section number in the course which is being displayed
-     */
-    /*public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-        global $PAGE;
-
-        if ($PAGE->user_is_editing()) {
-            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
-            echo html_writer::tag('h3', get_string('editonmainpage', 'theme_shoehorn'));
-            echo html_writer::end_tag('div');
-            return;
-        }
-
-        $modinfo = get_fast_modinfo($course);
-        $format = course_get_format($course);
-        $course = $format->get_course();
-
-        // Can we view the section in question?
-        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
-            // This section doesn't exist
-            print_error('unknowncoursesection', 'error', null, $course->fullname);
-            return;
-        }
-
-        if (!$sectioninfo->uservisible) {
-            if (!$course->hiddensections) {
-                echo $this->start_section_list();
-                echo $this->section_hidden($displaysection);
-                echo $this->end_section_list();
-            }
-            // Can't view this section.
-            return;
-        }
-
-        // Copy activity clipboard..
-        echo $this->course_activity_clipboard($course, $displaysection);
-
-        // Start single-section div
-        echo html_writer::start_tag('div', array('class' => ''));
-
-        $sections = $modinfo->get_section_info_all();
-
-        // Check we will have a section to show...
-        $shownsections = array();
-        foreach ($sections as $section => $thissection) {
-            $showsection = $thissection->uservisible ||
-                    ($thissection->visible && !$thissection->available && $thissection->showavailability
-                    && !empty($thissection->availableinfo));
-            if ($showsection) {
-                $shownsections[] = $thissection->section;
-            }
-            if ($thissection->section > $course->numsections) {
-                // Activities inside this section are 'orphaned', this section will be printed on the main course page when editing is on.
-                break;  // Not sure why core does not use this instead of 'continue'?
-            }
-        }
-        if (count($shownsections) > 0) {
-        $loopsection = 0;
-        $numsections = count($shownsections);
-        $sections = $modinfo->get_section_info_all();
-
-        echo html_writer::start_tag('div', array('class' => 'carouselslider'));
-        echo html_writer::start_tag('div', array('id' => 'myCourseCarousel', 'class' => 'carousel slide', 'data-ride' => 'carousel', 'data-interval' => ''));
-        echo html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
-        for ($i = 0; $i < $numsections; $i++) {
-            $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i);
-            if ($i == $displaysection) {
-                $attributes['class'] = 'active';
-            }
-            echo html_writer::start_tag('li', $attributes);
-            echo html_writer::end_tag('li');
-        }
-        echo html_writer::end_tag('ol');
-
-        echo html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
-        while ($loopsection < $numsections) {
-            $thissection = $sections[$shownsections[$loopsection]];
-            $loopsection++;
-            if ($thissection->section == 0) {
-                // 0-section is displayed a little different than the others
-                if ($thissection->summary or !empty($modinfo->sections[0])) {
-                    echo shoehorn_section_header($this, $thissection, $course, $format, $displaysection);
-                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                    echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
-                    echo shoehorn_section_footer();
-                }
-                continue;
-            }
-
-            echo shoehorn_section_header($this, $thissection, $course, $format, $displaysection);
-            if ($thissection->uservisible) {
-                echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                echo $this->courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
-            }
-            echo shoehorn_section_footer();
-        }
-        echo html_writer::end_tag('ul');
-
-        echo html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'prev'));
-        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-left'));
-        echo html_writer::end_tag('i');
-        echo html_writer::end_tag('a');
-        echo html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel', 'data-slide' => 'next'));
-        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-right'));
-        echo html_writer::end_tag('i');
-        echo html_writer::end_tag('a');
-        echo html_writer::end_tag('div');
-        echo html_writer::end_tag('div');
-        } else {
-            echo html_writer::start_tag('div', array('class' => 'panel panel-default'));
-            echo html_writer::tag('h3', get_string('nosectionstoshow', 'theme_shoehorn'));
-            echo html_writer::end_tag('div');
-        }
-        // Close single-section div.
-        echo html_writer::end_tag('div');
-    }*/
 }
 
-/*
-$numberofslides = (empty($PAGE->theme->settings->numberofslides)) ? false : $PAGE->theme->settings->numberofslides;
+// Requires V2.6.1.3+ of the Collapsed Topics format.
+if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
+    include_once($CFG->dirroot . "/course/format/topcoll/renderer.php");
 
-if ($numberofslides) { ?>
-    <div>
-        <div class="carouselslider">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <?php
-                    $first = true;
-                    for ($i = 1; $i <= $numberofslides; $i++) { ?>
-                        <li data-target="#myCarousel" data-slide-to="<?php echo $i-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
-                    <?php } ?>
-                </ol>
-                <div class="carousel-inner">
-                    <?php
-                    $first = true;
-                    for ($i = 1; $i <= $numberofslides; $i++) {
-                        $urlsetting = 'slideurl'.$i;
-                        if (!empty($PAGE->theme->settings->$urlsetting)) {
-                            echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
-                        } else {
-                            echo '<div';
-                        }
-                        echo ' class="';
-                        if ($first) { 
-                            echo 'active '; 
-                            $first = false;
-                        }
-                        echo 'item">';
-                        $imagesetting = 'slideimage'.$i;
-                        if (!empty($PAGE->theme->settings->$imagesetting)) {
-                            $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
-                        } else {
-                            $image = $OUTPUT->pix_url('Default_Slide', 'theme');
-                        }
-                        $slidecaptiontitle = 'slidecaptiontitle'.$i;
-                        if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
-                            $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
-                        } else {
-                            $imgalt = 'No caption title';
-                        }
-                        ?>
-                            <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
-                            <?php
-                            $slidecaptiontext = 'slidecaptiontext'.$i;
-                            if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
-                                <div class="carousel-caption">
-                                <?php
-                                    if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
-                                    if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
-                                ?> </div> <?php
-                            }
-                        if (!empty($PAGE->theme->settings->$urlsetting)) {
-                            echo '</a>';
-                        } else {
-                            echo '</div>';
-                        }
-                    } ?>
-                </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+    class theme_shoehorn_format_topcoll_renderer extends format_topcoll_renderer {
+        public $courserenderer;
 
-*/
+        protected function get_nav_links($course, $sections, $sectionno) {
+            return array();
+        }
+
+        public function section_left_content($section, $course, $onsectionpage) {
+            return parent::section_left_content($section, $course, $onsectionpage);
+        }
+
+        public function section_right_content($section, $course, $onsectionpage) {
+            return parent::section_right_content($section, $course, $onsectionpage);
+        }
+
+        public function section_availability_message($section, $canviewhidden) {
+            return parent::section_availability_message($section, $canviewhidden);
+        }
+
+        public function course_activity_clipboard($course, $sectionno = null) {
+            return parent::course_activity_clipboard($course, $sectionno);
+        }
+
+        public function format_summary_text($section) {
+            return parent::format_summary_text($section);
+        }
+
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        }
+    }
+}
+
+if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
+    include_once($CFG->dirroot . "/course/format/grid/renderer.php");
+
+    class theme_shoehorn_format_grid_renderer extends format_grid_renderer {
+        public $courserenderer;
+
+        protected function get_nav_links($course, $sections, $sectionno) {
+            return array();
+        }
+
+        public function section_left_content($section, $course, $onsectionpage) {
+            return parent::section_left_content($section, $course, $onsectionpage);
+        }
+
+        public function section_right_content($section, $course, $onsectionpage) {
+            return parent::section_right_content($section, $course, $onsectionpage);
+        }
+
+        public function section_availability_message($section, $canviewhidden) {
+            return parent::section_availability_message($section, $canviewhidden);
+        }
+
+        public function course_activity_clipboard($course, $sectionno = null) {
+            return parent::course_activity_clipboard($course, $sectionno);
+        }
+
+        public function format_summary_text($section) {
+            return parent::format_summary_text($section);
+        }
+
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        }
+    }
+}
+
+if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
+    include_once($CFG->dirroot . "/course/format/noticebd/renderer.php");
+
+    class theme_shoehorn_format_noticebd_renderer extends format_noticebd_renderer {
+        public $courserenderer;
+
+        protected function get_nav_links($course, $sections, $sectionno) {
+            return array();
+        }
+
+        public function section_left_content($section, $course, $onsectionpage) {
+            return parent::section_left_content($section, $course, $onsectionpage);
+        }
+
+        public function section_right_content($section, $course, $onsectionpage) {
+            return parent::section_right_content($section, $course, $onsectionpage);
+        }
+
+        public function section_availability_message($section, $canviewhidden) {
+            return parent::section_availability_message($section, $canviewhidden);
+        }
+
+        public function course_activity_clipboard($course, $sectionno = null) {
+            return parent::course_activity_clipboard($course, $sectionno);
+        }
+
+        public function format_summary_text($section) {
+            return parent::format_summary_text($section);
+        }
+
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        }
+    }
+}
+
+// Requires V2.6.1.1+ of Columns format.
+if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
+    include_once($CFG->dirroot . "/course/format/columns/renderer.php");
+
+    class theme_shoehorn_format_columns_renderer extends format_columns_renderer {
+        public $courserenderer;
+
+        protected function get_nav_links($course, $sections, $sectionno) {
+            return array();
+        }
+
+        public function section_left_content($section, $course, $onsectionpage) {
+            return parent::section_left_content($section, $course, $onsectionpage);
+        }
+
+        public function section_right_content($section, $course, $onsectionpage) {
+            return parent::section_right_content($section, $course, $onsectionpage);
+        }
+
+        public function section_availability_message($section, $canviewhidden) {
+            return parent::section_availability_message($section, $canviewhidden);
+        }
+
+        public function course_activity_clipboard($course, $sectionno = null) {
+            return parent::course_activity_clipboard($course, $sectionno);
+        }
+
+        public function format_summary_text($section) {
+            return parent::format_summary_text($section);
+        }
+
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        }
+    }
+}

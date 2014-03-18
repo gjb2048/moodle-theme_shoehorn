@@ -24,7 +24,7 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$numberofslides = (empty($PAGE->theme->settings->numberofslides)) ? false : $PAGE->theme->settings->numberofslides;
+$numberofslides = (empty($PAGE->theme->settings->frontpagenumberofslides)) ? false : $PAGE->theme->settings->frontpagenumberofslides;
 
 if ($numberofslides) { ?>
     <div>
@@ -41,7 +41,7 @@ if ($numberofslides) { ?>
                     <?php
                     $first = true;
                     for ($i = 1; $i <= $numberofslides; $i++) {
-                        $urlsetting = 'slideurl'.$i;
+                        $urlsetting = 'frontpageslideurl'.$i;
                         if (!empty($PAGE->theme->settings->$urlsetting)) {
                             echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
                         } else {
@@ -53,13 +53,13 @@ if ($numberofslides) { ?>
                             $first = false;
                         }
                         echo 'item">';
-                        $imagesetting = 'slideimage'.$i;
+                        $imagesetting = 'frontpageslideimage'.$i;
                         if (!empty($PAGE->theme->settings->$imagesetting)) {
                             $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
                         } else {
                             $image = $OUTPUT->pix_url('Default_Slide', 'theme');
                         }
-                        $slidecaptiontitle = 'slidecaptiontitle'.$i;
+                        $slidecaptiontitle = 'frontpageslidecaptiontitle'.$i;
                         if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
                             $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
                         } else {
@@ -68,7 +68,7 @@ if ($numberofslides) { ?>
                         ?>
                             <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
                             <?php
-                            $slidecaptiontext = 'slidecaptiontext'.$i;
+                            $slidecaptiontext = 'frontpageslidecaptiontext'.$i;
                             if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
                                 <div class="carousel-caption">
                                 <?php

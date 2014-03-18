@@ -62,8 +62,8 @@ $string['nosectionstoshow'] = 'No sections to show';
 // Settings.
 $string['generalsettings'] = 'General';
 
-$string['cdnfonts'] = 'Content delivery network fonts';
-$string['cdnfonts_desc'] = 'Use content delivery network fonts';
+$string['cdnfonts'] = 'Content delivery network fonts where possible';
+$string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  Thus being a CDN source available.';
 
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
@@ -80,32 +80,59 @@ Form of name|url|title|lang where title and lang are optional.<br>
 The title being the text that is shown when the link is hovered over.<br>
 The lang being to only show in this language.<br>
 For example:<br>
-About|//mymoodle/theme/shoehorn/pages/about.html|About my site<br>
-Anleitung|//mymoodle/theme/shoehorn/pages/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
+About|http://mymoodle/about.html|About my site<br>
+Anleitung|http://mymoodle/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
 Home|//mymoodle/index.php';
+
+// Copyright text.
+$string['copyright'] = 'Copyright';
+$string['copyright_desc'] = 'Copyright statement, leave blank for none.';
 
 // Custom css.
 $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
+// Site pages.
+$string['numberofsitepages'] = 'Number of site pages';
+$string['numberofsitepages_desc'] = 'Number of site pages you want to add.  A link will automatically be added to the footer menu.';
+$string['sitepagesheading'] = 'Site pages';
+$string['sitepagesheadingsub'] = 'Describe your site with site pages';
+$string['sitepagesdesc'] = 'Provide information about your site.';
+$string['sitepagetitle'] = 'Site page title ';
+$string['sitepagetitle_desc'] = 'Site page title number ';
+$string['sitepageheading'] = 'Site page heading ';
+$string['sitepageheading_desc'] = 'Site page heading number ';
+$string['sitepagecontent'] = 'Site page content ';
+$string['sitepagecontent_desc'] = 'Site page content number ';
+$string['sitepagelang'] = 'Site page language ';
+$string['sitepagelang_desc'] = 'Site page language number ';
+$string['sitepagelang_desc2'] = ".  Enter language pack code, the text before the '.zip' extension on '";
+$string['sitepagelang_desc3'] = "'.  Leave blank for all languages.";
+$string['sitepagelang_urlname'] = 'download.moodle.org/langpack/2.6/';
+$string['sitepagelang_urllink'] = 'http://download.moodle.org/langpack/2.6/';
+
+$string['unknownsitepage'] = 'Unknown site page number ';
+$string['unknownsitepagecontent1'] = 'Site page number ';
+$string['unknownsitepagecontent2'] = ' is not known, check your administration settings for the theme.';
+
 // Slider settings.
-$string['slidermobile'] = 'Display on mobile';
-$string['slidermobile_desc'] = 'Display the slider on mobile devices.';
-$string['slidertablet'] = 'Display on tablet';
-$string['slidertablet_desc'] = 'Display the slider on tablet devices.';
-$string['numberofslides'] = 'Number of slides';
-$string['numberofslides_desc'] = 'Number of slides on the slider.';
-$string['sliderheading'] = 'Slider';
-$string['sliderheadingsub'] = 'Present your portfolio with slides.';
-$string['sliderdesc'] = 'Present your portfolio with slides containing an image, URL and text.';
-$string['slideimage'] = 'Image for slide ';
-$string['slideimage_desc'] = 'The image for slide ';
-$string['slideurl'] = 'URL for slide ';
-$string['slideurl_desc'] = 'The URL for slide ';
-$string['slidecaptiontitle'] = 'Caption title for slide ';
-$string['slidecaptiontitle_desc'] = 'The caption title for slide ';
-$string['slidecaptiontext'] = 'Caption text for slide ';
-$string['slidecaptiontext_desc'] = 'The caption text for slide ';
+$string['frontpageslidermobile'] = 'Display front page slider on mobile';
+$string['frontpageslidermobile_desc'] = 'Display the front page slider on mobile devices.';
+$string['frontpageslidertablet'] = 'Display front page slider on tablet';
+$string['frontpageslidertablet_desc'] = 'Display the front page slider on tablet devices.';
+$string['frontpagenumberofslides'] = 'Number of front page slides';
+$string['frontpagenumberofslides_desc'] = 'Number of slides on the front page slider.';
+$string['frontpagesliderheading'] = 'Front page slider';
+$string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page.';
+$string['frontpagesliderdesc'] = 'Present your portfolio with slides containing an image, URL and text.';
+$string['frontpageslideimage'] = 'Image for slide ';
+$string['frontpageslideimage_desc'] = 'The image for slide ';
+$string['frontpageslideurl'] = 'URL for slide ';
+$string['frontpageslideurl_desc'] = 'The URL for slide ';
+$string['frontpageslidecaptiontitle'] = 'Caption title for slide ';
+$string['frontpageslidecaptiontitle_desc'] = 'The caption title for slide ';
+$string['frontpageslidecaptiontext'] = 'Caption text for slide ';
+$string['frontpageslidecaptiontext_desc'] = 'The caption text for slide ';
 
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';

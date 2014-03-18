@@ -104,6 +104,7 @@ module.exports = function(grunt) {
 
     // Theme Bootstrap constants.
     var LESSDIR         = 'less',
+        MOODLEURL       = '/moodle26',
         THEMEDIR        = path.basename(path.resolve('.'));
 
     // PHP strings for exec task.
@@ -156,7 +157,7 @@ module.exports = function(grunt) {
                     paths: "../bootstrap/less",
                     report: 'min',
                     sourceMap: true,
-                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapRootpath: MOODLEURL + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'
                 },
                 src: 'less/moodleallshoehorn.less',
@@ -169,7 +170,7 @@ module.exports = function(grunt) {
                     paths: "../bootstrap/less",
                     report: 'min',
                     sourceMap: true,
-                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapRootpath: MOODLEURL + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-editor.json'
                 },
                 src: 'less/editorallshoehorn.less',
