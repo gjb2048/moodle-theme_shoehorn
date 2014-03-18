@@ -61,6 +61,12 @@ header {
         padding-left: 30px;
         padding-right: 30px;
     }
+    > .item.hidden {
+        display: none !important; // I do not like '!important' but no choice here.
+    }
+    > .item.hidden.active {
+        display: block !important; // I do not like '!important' but no choice here.
+    }
 }
 
 #myCourseCarousel .carousel-control {
