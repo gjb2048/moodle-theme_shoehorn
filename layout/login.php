@@ -35,6 +35,8 @@
  * breaking installation or upgrade unwittingly.
  */
 
+$loggedin = isloggedin();
+
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
@@ -55,18 +57,20 @@ echo $OUTPUT->doctype() ?>
     </header>
 
     <div id="page-content" class="row">
-        <div id="region-main" class="col-md-12">
-            <section id="region-main-shoehorn">
-                <?php echo $OUTPUT->main_content(); ?>
-            </section>
+        <div id="region-main" class="col-md-12<?php if (!$loggedin) { echo ' loggedout';} ?>">
+            <?php
+            if ($loggedin) {
+                echo html_writer::start_tag('section', array('id' => 'region-main-shoehorn'));
+            }
+            echo $OUTPUT->main_content();
+            if ($loggedin) {
+                echo html_writer::end_tag('section');
+            }
+            ?>
         </div>
     </div>
 
-    <footer id="page-footer" class="row">
-        <?php
-        echo $OUTPUT->standard_footer_html();
-        ?>
-    </footer>
+    <? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 

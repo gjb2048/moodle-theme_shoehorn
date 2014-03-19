@@ -27,9 +27,16 @@ a.logo {
     padding-bottom: 12px;
     margin: 0 auto;
 }
+body.pagelayout-login #region-main.loggedout {
+    background: none;
+}
 
 #region-main > div {
     padding: 10px;
+}
+
+.loginbox .loginform:before {
+    content: '[[setting:theloginmessge]]';
 }
 
 /* Custom CSS Settings

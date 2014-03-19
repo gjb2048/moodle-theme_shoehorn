@@ -52,8 +52,12 @@ $string['configtitle'] = 'Shoehorn';
 
 $string['pluginname'] = 'Shoehorn';
 
+// Regions....
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
+$string['region-page-bottom'] = 'Page bottom';
+$string['region-footer-pre'] = 'Footer left';
+$string['region-footer-post'] = 'Footer right';
 
 // Course single section page.
 $string['editonmainpage'] = 'Please edit on the main course page';
@@ -68,8 +72,17 @@ $string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
 
+$string['showloginmessage'] = 'Display login message';
+$string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";
+$string['showloginmessage_urlname'] = 'login instructions';
+$string['showloginmessage_urllink'] = 'http://docs.moodle.org/26/en/admin/setting/manageauths#Instructions';
+$string['loginmessage'] = 'The login message';
+$string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
+$string['loginmessage'] = 'The login message';
+$string['theloginmessage'] = 'Login here using your username and password.';
+
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
+$string['logo_desc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
 If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
 a.logo {height: 100px;} or whatever height in pixels the logo is.';
 
@@ -91,6 +104,29 @@ $string['copyright_desc'] = 'Copyright statement, leave blank for none.';
 // Custom css.
 $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
+
+// Marketing spots.
+$string['numberofmarketingspots'] = 'Number of marketing spots';
+$string['numberofmarketingspots_desc'] = 'Number of marketing spots you want to add.';
+$string['marketingspotsheading'] = 'Marketing spots';
+$string['marketingspotsheadingsub'] = 'Advertise your site with marketing spots.';
+$string['marketingspotsdesc'] = 'Provide marketing spots.';
+$string['marketingspotsdisplay'] = 'Display marketing spots';
+$string['marketingspotsdisplay_desc'] = 'When to display marketing spots.';
+$string['marketingspotsdisplaynever'] = 'Never';
+$string['marketingspotsdisplayloggedout'] = 'Logged out';
+$string['marketingspotsdisplaylogdedin'] = 'Logged in';
+$string['marketingspotsdisplayalways'] = 'Always';
+$string['marketingspotheading'] = 'Marketing spot heading ';
+$string['marketingspotheading_desc'] = 'Marketing spot heading number ';
+$string['marketingspotcontent'] = 'Marketing spot content ';
+$string['marketingspotcontent_desc'] = 'Marketing spot content number ';
+$string['marketingspotlang'] = 'Marketing spot language ';
+$string['marketingspotlang_desc'] = 'Marketing spot language number ';
+$string['marketingspotlang_desc2'] = ".  Enter language pack code for an installed language pack, the text within the brackets on '";
+$string['marketingspotlang_desc3'] = "'.  Leave blank for all languages.";
+$string['marketingspotlang_urlname'] = 'Language packs';
+$string['marketingspotlang_urllink'] = '/admin/tool/langimport/index.php';
 
 // Site pages.
 $string['numberofsitepages'] = 'Number of site pages';

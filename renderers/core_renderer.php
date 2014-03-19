@@ -122,8 +122,9 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             if (count($items) == 1) {
                 $o .= $items[0];
             } else {
-                $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
-                                html_writer::end_tag('i'), array('class' => 'divider'));
+                /* $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
+                                html_writer::end_tag('i'), array('class' => 'divider')); */
+                $divider = html_writer::tag('span', '|', array('class' => 'divider'));
                 $o .= implode("$divider", $items);
             }
             $o .= html_writer::end_tag('div');

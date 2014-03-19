@@ -60,6 +60,9 @@ $THEME->plugins_exclude_sheets = array(
     )
 );
 
+$allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
+$sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
+
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(
@@ -69,52 +72,52 @@ $THEME->layouts = array(
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
     ),
     // Main course page.
     'course' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('langmenu'=>true),
     ),
     'coursecategory' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
     ),
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
     ),
     // The site home page.
     'frontpage' => array(
         'file' => 'frontpage.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar'=>true),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('fluid'=>true),
     ),
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
         'options' => array('langmenu'=>true),
     ),
     // My public page.
     'mypublic' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
@@ -161,20 +164,20 @@ $THEME->layouts = array(
     // The pagelayout used for reports.
     'report' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('fluid'=>true),
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(
         'file' => 'secure.php',
-        'regions' => array('side-pre', 'side-post'),
+        'regions' => $allregions,
         'defaultregion' => 'side-pre'
     ),
     // The shoehorn custom page layout.  Not listed on: http://docs.moodle.org/dev/Themes_overview.
     'page' => array(
         'file' => 'page.php',
-        'regions' => array('side-pre'),
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre'
     ),
 );
@@ -182,3 +185,10 @@ $THEME->layouts = array(
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
 $THEME->csspostprocess = 'theme_shoehorn_process_css';
+
+$THEME->blockrtlmanipulations = array(
+    'side-pre' => 'side-post',
+    'side-post' => 'side-pre',
+    'side-footer-pre' => 'side-footer-post',
+    'side-footer-post' => 'side-footer-pre'
+);
