@@ -59,6 +59,20 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Number of page bottom blocks.
+    $name = 'theme_shoehorn/numpagebottomblocks';
+    $title = get_string('numpagebottomblocks','theme_shoehorn');
+    $description = get_string('numpagebottomblocks_desc', 'theme_shoehorn');
+    $choices = array(
+        1 => new lang_string('one', 'theme_shoehorn'),
+        2 => new lang_string('two', 'theme_shoehorn'),
+        3 => new lang_string('three', 'theme_shoehorn'),
+        4 => new lang_string('four', 'theme_shoehorn')
+    );
+    $default = 2;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $settings->add($setting);
+
     // Footer menu.
     $name = 'theme_shoehorn/footermenu';
     $title = get_string('footermenu', 'theme_shoehorn');
@@ -210,10 +224,10 @@ defined('MOODLE_INTERNAL') || die;
     $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn');
     $default = 1;
     $choices = array(
-        0 => get_string('marketingspotsdisplaynever', 'theme_shoehorn'),
-        1 => get_string('marketingspotsdisplayloggedout', 'theme_shoehorn'),
-        2 => get_string('marketingspotsdisplaylogdedin', 'theme_shoehorn'),
-        3 => get_string('marketingspotsdisplayalways', 'theme_shoehorn')
+        0 => new lang_string('marketingspotsdisplaynever', 'theme_shoehorn'),
+        1 => new lang_string('marketingspotsdisplayloggedout', 'theme_shoehorn'),
+        2 => new lang_string('marketingspotsdisplaylogdedin', 'theme_shoehorn'),
+        3 => new lang_string('marketingspotsdisplayalways', 'theme_shoehorn')
     );
     $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 

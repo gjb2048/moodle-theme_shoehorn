@@ -50,12 +50,7 @@ if ($fluid) {
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<head>
-    <title><?php echo $OUTPUT->page_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-    <?php echo $OUTPUT->standard_head_html() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
 <body <?php echo $OUTPUT->body_attributes(); ?>>
 
@@ -122,9 +117,10 @@ echo $OUTPUT->doctype() ?>
         if ($knownregionpost) {
             echo $OUTPUT->blocks('side-post', $regions['post']);
         }?>
+        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
     </div>
 
-    <? require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 

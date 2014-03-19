@@ -86,6 +86,15 @@ $string['logo_desc'] = 'Please upload your custom logo here if you want to add i
 If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
 a.logo {height: 100px;} or whatever height in pixels the logo is.';
 
+// Page bottom region.
+$string['numpagebottomblocks'] = 'Maximum number of blocks per row in the page bottom';
+$string['numpagebottomblocks_desc'] = 'The maximum blocks per row in the page bottom.';
+
+$string['one'] = 'One';
+$string['two'] = 'Two';
+$string['three'] = 'Three';
+$string['four'] = 'Four';
+
 // Footer menu.
 $string['footermenu'] = 'Footer menu';
 $string['footermenu_desc'] = 'Zero or more lines representing the links to place in the footer menu.<br>

@@ -24,14 +24,15 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2014031902;
-$plugin->requires  = 2013111800; // 2.6 (Build: 20131118).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '2.6.0.1';
-$plugin->dependencies = array(
-    'theme_bootstrap'  => 2014022000
-);
+?>
+<head>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <?php
+        echo $OUTPUT->standard_head_html();
+        if (!empty($PAGE->theme->settings->cdnfonts) && ($PAGE->theme->settings->cdnfonts == 2)) {
+            require_once(dirname(__FILE__).'/cdnfonts.php');
+        }
+    ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>

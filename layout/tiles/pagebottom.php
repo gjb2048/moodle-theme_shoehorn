@@ -21,17 +21,18 @@
  * @subpackage shoehorn
  * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
- * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2014031902;
-$plugin->requires  = 2013111800; // 2.6 (Build: 20131118).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '2.6.0.1';
-$plugin->dependencies = array(
-    'theme_bootstrap'  => 2014022000
-);
+$knownregionpagebottom = $PAGE->blocks->is_known_region('page-bottom');
+if ($knownregionpagebottom) {
+?>
+<div class="col-md-12">
+    <div class="row">
+        <?php
+        echo $OUTPUT->blocks('page-bottom');
+        ?>
+    </div>
+</div>
+<?php
+}
+?>

@@ -24,6 +24,9 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+$knownregionfooterpre = $PAGE->blocks->is_known_region('footer-pre');
+$knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
 ?>
 <div class="row">
 <div id="page-info" class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 panel panel-default">
@@ -42,7 +45,9 @@
     <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
     <div class="<?php echo $cols['side']; ?>">
     <?php
-    ?>
+    if ($knownregionfooterpre) {
+        echo $OUTPUT->blocks('footer-pre');
+    }?>
     </div>
     <div class="<?php echo $cols['centre']; ?>">
     <?php
@@ -51,7 +56,9 @@
     </div>
     <div class="<?php echo $cols['side']; ?>">
     <?php
-    ?>
+    if ($knownregionfooterpost) {
+        echo $OUTPUT->blocks('footer-post');
+    }?>
     </div>
     </div>
     <div class="row">
