@@ -26,12 +26,10 @@
 $knownregionpagebottom = $PAGE->blocks->is_known_region('page-bottom');
 if ($knownregionpagebottom) {
 ?>
-<div class="col-md-12">
-    <div class="row">
-        <?php
-        echo $OUTPUT->blocks('page-bottom');
-        ?>
-    </div>
+<div class="row">
+    <?php
+    echo $OUTPUT->shoehorn_pagebottom_block();
+    ?>
 </div>
 <?php
 }

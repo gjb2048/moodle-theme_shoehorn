@@ -43,10 +43,18 @@ defined('MOODLE_INTERNAL') || die;
     );
     $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
+    // Use Glyphicon font.
+    $name = 'theme_shoehorn/fonticons';
+    $title = get_string('fonticons', 'theme_shoehorn');
+    $description = get_string('fonticons_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Invert Navbar to dark background.
     $name = 'theme_shoehorn/invert';
     $title = get_string('invert', 'theme_shoehorn');
-    $description = get_string('invertdesc', 'theme_shoehorn');
+    $description = get_string('invert_desc', 'theme_shoehorn');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
@@ -71,7 +79,7 @@ defined('MOODLE_INTERNAL') || die;
     );
     $default = 2;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $settings->add($setting);
+    $generalsettings->add($setting);
 
     // Footer menu.
     $name = 'theme_shoehorn/footermenu';
@@ -91,7 +99,19 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Custom CSS file.
+    $name = 'theme_shoehorn/customcss';
+    $title = get_string('customcss', 'theme_shoehorn');
+    $description = get_string('customcss_desc', 'theme_shoehorn');
+    $default = '';
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Login message.
+    $generalsettings->add(new admin_setting_heading('theme_shoehorn_loginmessage', get_string('loginpage', 'theme_shoehorn'),
+            format_text(get_string('loginpage_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
     $name = 'theme_shoehorn/showloginmessage';
     $title = get_string('showloginmessage', 'theme_shoehorn');
     $description = get_string('showloginmessage_desc', 'theme_shoehorn').html_writer::tag('a',
@@ -109,34 +129,16 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-    // Custom CSS file.
-    $name = 'theme_shoehorn/customcss';
-    $title = get_string('customcss', 'theme_shoehorn');
-    $description = get_string('customcss_desc', 'theme_shoehorn');
-    $default = '';
-    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $generalsettings->add($setting);
+    // Other settings pages.
+    $generalsettings->add(new admin_setting_heading('theme_shoehorn_othersettingspages', get_string('othersettingpagesconfiguration', 'theme_shoehorn'),
+            format_text(get_string('othersettingpagesconfiguration_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
 
-    // Number of marketing spots.
-    $name = 'theme_shoehorn/numberofmarketingspots';
-    $title = get_string('numberofmarketingspots', 'theme_shoehorn');
-    $description = get_string('numberofmarketingspots_desc', 'theme_shoehorn');
-    $default = 1;
-    $choices = array(
-        0 => '0',
-        1 => '1',
-        2 => '2',
-        3 => '3',
-        4 => '4'
-    );
-    $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
-    // Number of site pages.
-    $name = 'theme_shoehorn/numberofsitepages';
-    $title = get_string('numberofsitepages', 'theme_shoehorn');
-    $description = get_string('numberofsitepages_desc', 'theme_shoehorn');
-    $default = 1;
+    // Number of front page slides.
+    $name = 'theme_shoehorn/frontpagenumberofslides';
+    $title = get_string('frontpagenumberofslides', 'theme_shoehorn');
+    $description = get_string('frontpagenumberofslides_desc', 'theme_shoehorn');
+    $default = 3;
     $choices = array(
         0 => '0',
         1 => '1',
@@ -158,11 +160,25 @@ defined('MOODLE_INTERNAL') || die;
     );
     $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
-    // Number of slides.
-    $name = 'theme_shoehorn/frontpagenumberofslides';
-    $title = get_string('frontpagenumberofslides', 'theme_shoehorn');
-    $description = get_string('frontpagenumberofslides_desc', 'theme_shoehorn');
-    $default = 3;
+    // Number of marketing spots.
+    $name = 'theme_shoehorn/numberofmarketingspots';
+    $title = get_string('numberofmarketingspots', 'theme_shoehorn');
+    $description = get_string('numberofmarketingspots_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        0 => '0',
+        1 => '1',
+        2 => '2',
+        3 => '3',
+        4 => '4'
+    );
+    $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+    // Number of site pages.
+    $name = 'theme_shoehorn/numberofsitepages';
+    $title = get_string('numberofsitepages', 'theme_shoehorn');
+    $description = get_string('numberofsitepages_desc', 'theme_shoehorn');
+    $default = 1;
     $choices = array(
         0 => '0',
         1 => '1',
@@ -212,114 +228,12 @@ defined('MOODLE_INTERNAL') || die;
 
     $ADMIN->add('theme_shoehorn', $generalsettings);
 
-    // Marketing spots....
-    $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
-    if ($numberofmarketingspots) {
-    $marketingspotssettings = new admin_settingpage('theme_shoehorn_marketingspots', get_string('marketingspotsheading', 'theme_shoehorn'));
-    $marketingspotssettings->add(new admin_setting_heading('theme_shoehorn_marketingspots', get_string('marketingspotsheadingsub', 'theme_shoehorn'),
-            format_text(get_string('marketingspotsdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
-
-    $name = 'theme_shoehorn/marketingspotsdisplay';
-    $title = get_string('marketingspotsdisplay', 'theme_shoehorn');
-    $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn');
-    $default = 1;
-    $choices = array(
-        0 => new lang_string('marketingspotsdisplaynever', 'theme_shoehorn'),
-        1 => new lang_string('marketingspotsdisplayloggedout', 'theme_shoehorn'),
-        2 => new lang_string('marketingspotsdisplaylogdedin', 'theme_shoehorn'),
-        3 => new lang_string('marketingspotsdisplayalways', 'theme_shoehorn')
-    );
-    $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
-
-    for ($i = 1; $i <= $numberofmarketingspots; $i++) {
-        // Marketing spot heading.
-        $name = 'theme_shoehorn/marketingspot'.$i;
-        $title = get_string('marketingspotheading', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotheading_desc', 'theme_shoehorn').$i;
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $marketingspotssettings->add($setting);
-
-        // Marketing spot content.
-        $name = 'theme_shoehorn/marketingspotcontent'.$i;
-        $title = get_string('marketingspotcontent', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotcontent_desc', 'theme_shoehorn').$i;
-        $default = '';
-        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $marketingspotssettings->add($setting);
-
-        // Marketing spot language only.
-        $name = 'theme_shoehorn/marketingspotlang'.$i;
-        $title = get_string('marketingspotlang', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotlang_desc', 'theme_shoehorn').$i.get_string('marketingspotlang_desc2', 'theme_shoehorn')
-                       .html_writer::tag('a', get_string('marketingspotlang_urlname', 'theme_shoehorn'), array(
-                       'href' => get_string('marketingspotlang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
-                       .get_string('marketingspotlang_desc3', 'theme_shoehorn');
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $marketingspotssettings->add($setting);
-    }
-    $ADMIN->add('theme_shoehorn', $marketingspotssettings);
-    }
-
-    // Site pages....
-    $numberofsitepages = get_config('theme_shoehorn', 'numberofsitepages');
-    if ($numberofsitepages) {
-    $sitepagessettings = new admin_settingpage('theme_shoehorn_sitepages', get_string('sitepagesheading', 'theme_shoehorn'));
-    $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepages', get_string('sitepagesheadingsub', 'theme_shoehorn'),
-            format_text(get_string('sitepagesdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
-    for ($i = 1; $i <= $numberofsitepages; $i++) {
-        // Site page title.
-        $name = 'theme_shoehorn/sitepagetitle'.$i;
-        $title = get_string('sitepagetitle', 'theme_shoehorn').$i;
-        $description = get_string('sitepagetitle_desc', 'theme_shoehorn').$i;
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $sitepagessettings->add($setting);
-
-        // Site page heading.
-        $name = 'theme_shoehorn/sitepageheading'.$i;
-        $title = get_string('sitepageheading', 'theme_shoehorn').$i;
-        $description = get_string('sitepageheading_desc', 'theme_shoehorn').$i;
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $sitepagessettings->add($setting);
-
-        // Site page content.
-        $name = 'theme_shoehorn/sitepagecontent'.$i;
-        $title = get_string('sitepagecontent', 'theme_shoehorn').$i;
-        $description = get_string('sitepagecontent_desc', 'theme_shoehorn').$i;
-        $default = '';
-        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $sitepagessettings->add($setting);
-
-        // Site page language only.
-        $name = 'theme_shoehorn/sitepagelang'.$i;
-        $title = get_string('sitepagelang', 'theme_shoehorn').$i;
-        $description = get_string('sitepagelang_desc', 'theme_shoehorn').$i.get_string('sitepagelang_desc2', 'theme_shoehorn')
-                       .html_writer::tag('a', get_string('sitepagelang_urlname', 'theme_shoehorn'), array(
-                       'href' => get_string('sitepagelang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
-                       .get_string('sitepagelang_desc3', 'theme_shoehorn');
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
-        $setting->set_updatedcallback('theme_reset_all_caches');
-        $sitepagessettings->add($setting);
-    }
-    $ADMIN->add('theme_shoehorn', $sitepagessettings);
-    }
-
-    // Slider page....
+    // Front page slider page....
     $numberofslides = get_config('theme_shoehorn', 'frontpagenumberofslides');
     if ($numberofslides) {
     $slidersettings = new admin_settingpage('theme_shoehorn_slider', get_string('frontpagesliderheading', 'theme_shoehorn'));
     $slidersettings->add(new admin_setting_heading('theme_moment_slider', get_string('frontpagesliderheadingsub', 'theme_shoehorn'),
-            format_text(get_string('frontpagesliderdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+            format_text(get_string('frontpagesliderheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
 
     // Show on mobile.
     $name = 'theme_shoehorn/frontpageslidermobile';
@@ -376,12 +290,114 @@ defined('MOODLE_INTERNAL') || die;
     $ADMIN->add('theme_shoehorn', $slidersettings);
     }
 
+    // Marketing spots....
+    $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
+    if ($numberofmarketingspots) {
+    $marketingspotssettings = new admin_settingpage('theme_shoehorn_marketingspots', get_string('marketingspotsheading', 'theme_shoehorn'));
+    $marketingspotssettings->add(new admin_setting_heading('theme_shoehorn_marketingspots', get_string('marketingspotsheadingsub', 'theme_shoehorn'),
+            format_text(get_string('marketingspotsheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    $name = 'theme_shoehorn/marketingspotsdisplay';
+    $title = get_string('marketingspotsdisplay', 'theme_shoehorn');
+    $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        0 => new lang_string('marketingspotsdisplaynever', 'theme_shoehorn'),
+        1 => new lang_string('marketingspotsdisplayloggedout', 'theme_shoehorn'),
+        2 => new lang_string('marketingspotsdisplaylogdedin', 'theme_shoehorn'),
+        3 => new lang_string('marketingspotsdisplayalways', 'theme_shoehorn')
+    );
+    $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+    for ($i = 1; $i <= $numberofmarketingspots; $i++) {
+        // Marketing spot heading.
+        $name = 'theme_shoehorn/marketingspot'.$i;
+        $title = get_string('marketingspotheading', 'theme_shoehorn').$i;
+        $description = get_string('marketingspotheading_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $marketingspotssettings->add($setting);
+
+        // Marketing spot content.
+        $name = 'theme_shoehorn/marketingspotcontent'.$i;
+        $title = get_string('marketingspotcontent', 'theme_shoehorn').$i;
+        $description = get_string('marketingspotcontent_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $marketingspotssettings->add($setting);
+
+        // Marketing spot language only.
+        $name = 'theme_shoehorn/marketingspotlang'.$i;
+        $title = get_string('marketingspotlang', 'theme_shoehorn').$i;
+        $description = get_string('marketingspotlang_desc', 'theme_shoehorn').$i.get_string('marketingspotlang_desc2', 'theme_shoehorn')
+                       .html_writer::tag('a', get_string('marketingspotlang_urlname', 'theme_shoehorn'), array(
+                       'href' => get_string('marketingspotlang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
+                       .get_string('marketingspotlang_desc3', 'theme_shoehorn');
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $marketingspotssettings->add($setting);
+    }
+    $ADMIN->add('theme_shoehorn', $marketingspotssettings);
+    }
+
+    // Site pages....
+    $numberofsitepages = get_config('theme_shoehorn', 'numberofsitepages');
+    if ($numberofsitepages) {
+    $sitepagessettings = new admin_settingpage('theme_shoehorn_sitepages', get_string('sitepagesheading', 'theme_shoehorn'));
+    $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepages', get_string('sitepagesheadingsub', 'theme_shoehorn'),
+            format_text(get_string('sitepagesheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+    for ($i = 1; $i <= $numberofsitepages; $i++) {
+        // Site page title.
+        $name = 'theme_shoehorn/sitepagetitle'.$i;
+        $title = get_string('sitepagetitle', 'theme_shoehorn').$i;
+        $description = get_string('sitepagetitle_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page heading.
+        $name = 'theme_shoehorn/sitepageheading'.$i;
+        $title = get_string('sitepageheading', 'theme_shoehorn').$i;
+        $description = get_string('sitepageheading_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page content.
+        $name = 'theme_shoehorn/sitepagecontent'.$i;
+        $title = get_string('sitepagecontent', 'theme_shoehorn').$i;
+        $description = get_string('sitepagecontent_desc', 'theme_shoehorn').$i;
+        $default = '';
+        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+
+        // Site page language only.
+        $name = 'theme_shoehorn/sitepagelang'.$i;
+        $title = get_string('sitepagelang', 'theme_shoehorn').$i;
+        $description = get_string('sitepagelang_desc', 'theme_shoehorn').$i.get_string('sitepagelang_desc2', 'theme_shoehorn')
+                       .html_writer::tag('a', get_string('sitepagelang_urlname', 'theme_shoehorn'), array(
+                       'href' => get_string('sitepagelang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
+                       .get_string('sitepagelang_desc3', 'theme_shoehorn');
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $sitepagessettings->add($setting);
+    }
+    $ADMIN->add('theme_shoehorn', $sitepagessettings);
+    }
+
     // Social links page....
     $numberofsociallinks = get_config('theme_shoehorn', 'numberofsociallinks');
     if ($numberofsociallinks) {
     $socialsettings = new admin_settingpage('theme_shoehorn_social', get_string('socialheading', 'theme_shoehorn'));
     $socialsettings->add(new admin_setting_heading('theme_shoehorn_social', get_string('socialheadingsub', 'theme_shoehorn'),
-            format_text(get_string('socialdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+            format_text(get_string('socialheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     for ($i = 1; $i <= $numberofsociallinks; $i++) {
         // Social url setting.
         $name = 'theme_shoehorn/social'.$i;

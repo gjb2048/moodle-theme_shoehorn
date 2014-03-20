@@ -117,8 +117,9 @@ echo $OUTPUT->doctype() ?>
         if ($knownregionpost) {
             echo $OUTPUT->blocks('side-post', $regions['post']);
         }?>
-        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
     </div>
+
+    <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
 
     <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 

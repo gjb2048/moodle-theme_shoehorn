@@ -76,6 +76,9 @@
  *                           that require flipping for use with RTL
  *                           languages.
  *
+ * grunt replace:font_fix    Correct the format for the Moodle font
+ *                           loader to pick up the Glyphicon font.
+ *
  * grunt replace:svg_colors  Change the color of the SVGs in pix_core by
  *                           text replacing #999 with a new hex color.
  *                           Note this requires the SVGs to be #999 to
@@ -155,8 +158,7 @@ module.exports = function(grunt) {
                 options: {
                     compress: false,
                     paths: "../bootstrap/less",
-                    report: 'min',
-                    sourceMap: true,
+                    report: 'min',                    report: 'min',                    sourceMap: true,
                     sourceMapRootpath: MOODLEURL + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'
                 },
@@ -245,6 +247,23 @@ module.exports = function(grunt) {
                         from: '#999',
                         to: svgcolor
                     }]
+            },
+            font_fix: {
+                src: 'style/moodle.css',
+                    overwrite: true,
+                    replacements: [{
+                        from: 'glyphicons-halflings-regular.eot',
+                        to: 'glyphicons-halflings-regular.eot]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.svg',
+                        to: 'glyphicons-halflings-regular.svg]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.ttf',
+                        to: 'glyphicons-halflings-regular.ttf]]',
+                    }, {
+                        from: 'glyphicons-halflings-regular.woff',
+                        to: 'glyphicons-halflings-regular.woff]]',
+                    }]
             }
         }
     });
@@ -261,7 +280,6 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["less", "cssflip", "replace:rtl_images", "decache"]);
-    grunt.registerTask("swatch", ["bootswatch", "svg", "compile"]);
+    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", "decache"]);
     grunt.registerTask("svg", ["copy:svg", "replace:svg_colors"]);
 };

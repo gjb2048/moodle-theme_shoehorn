@@ -69,8 +69,11 @@ $string['generalsettings'] = 'General';
 $string['cdnfonts'] = 'Content delivery network fonts where possible';
 $string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  Thus being a CDN source available.';
 
+$string['fonticons'] = 'Use icon font';
+$string['fonticons_desc'] = 'Enable this option to use the Glyphicon icon font.';
+
 $string['invert'] = 'Invert navbar';
-$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page.';
+$string['invert_desc'] = 'Swaps text and background for the navbar at the top of the page.';
 
 $string['showloginmessage'] = 'Display login message';
 $string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";
@@ -114,12 +117,18 @@ $string['copyright_desc'] = 'Copyright statement, leave blank for none.';
 $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
+// Headings
+$string['loginpage']= 'Login page';
+$string['loginpage_desc']= 'Login page settings.';
+$string['othersettingpagesconfiguration'] = 'Other setting pages configuration';
+$string['othersettingpagesconfiguration_desc'] = 'Change these settings to alter the quantitites for the settings pages they represent.  Setting to zero will hide the page.';
+
 // Marketing spots.
 $string['numberofmarketingspots'] = 'Number of marketing spots';
 $string['numberofmarketingspots_desc'] = 'Number of marketing spots you want to add.';
 $string['marketingspotsheading'] = 'Marketing spots';
-$string['marketingspotsheadingsub'] = 'Advertise your site with marketing spots.';
-$string['marketingspotsdesc'] = 'Provide marketing spots.';
+$string['marketingspotsheadingsub'] = 'Advertise your site with marketing spots';
+$string['marketingspotsheadingdesc'] = "To change the number of marketing spots go to the 'General' settings page for the theme.";
 $string['marketingspotsdisplay'] = 'Display marketing spots';
 $string['marketingspotsdisplay_desc'] = 'When to display marketing spots.';
 $string['marketingspotsdisplaynever'] = 'Never';
@@ -142,7 +151,7 @@ $string['numberofsitepages'] = 'Number of site pages';
 $string['numberofsitepages_desc'] = 'Number of site pages you want to add.  A link will automatically be added to the footer menu.';
 $string['sitepagesheading'] = 'Site pages';
 $string['sitepagesheadingsub'] = 'Describe your site with site pages';
-$string['sitepagesdesc'] = 'Provide information about your site.';
+$string['sitepagesheadingdesc'] = "To change the number of site pages go to the 'General' settings page for the theme.";
 $string['sitepagetitle'] = 'Site page title ';
 $string['sitepagetitle_desc'] = 'Site page title number ';
 $string['sitepageheading'] = 'Site page heading ';
@@ -172,8 +181,8 @@ $string['frontpageslidertablet_desc'] = 'Display the front page slider on tablet
 $string['frontpagenumberofslides'] = 'Number of front page slides';
 $string['frontpagenumberofslides_desc'] = 'Number of slides on the front page slider.';
 $string['frontpagesliderheading'] = 'Front page slider';
-$string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page.';
-$string['frontpagesliderdesc'] = 'Present your portfolio with slides containing an image, URL and text.';
+$string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
+$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of marketing spots go to the 'General' settings page for the theme.";
 $string['frontpageslideimage'] = 'Image for slide ';
 $string['frontpageslideimage_desc'] = 'The image for slide ';
 $string['frontpageslideurl'] = 'URL for slide ';
@@ -188,7 +197,7 @@ $string['numberofsociallinks'] = 'Number of social network links';
 $string['numberofsociallinks_desc'] = 'Number of social network links you want to add.';
 $string['socialheading'] = 'Social networking';
 $string['socialheadingsub'] = 'Gather followers with social networking';
-$string['socialdesc'] = 'Provide direct links to your social networks.';
+$string['socialheadingdesc'] = 'Provide direct links to your social networks.';
 $string['socialnetworklink'] = 'Social network link ';
 $string['socialnetworklink_desc'] = 'Social network link number ';
 $string['socialnetworkicon'] = 'Social network icon ';

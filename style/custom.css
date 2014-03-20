@@ -27,6 +27,7 @@ a.logo {
     padding-bottom: 12px;
     margin: 0 auto;
 }
+
 body.pagelayout-login #region-main.loggedout {
     background: none;
 }

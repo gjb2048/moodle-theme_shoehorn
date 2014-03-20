@@ -63,7 +63,7 @@ $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
     </div>
     <div class="row">
     <div class="col-md-12">
-    <?php echo $OUTPUT->footer_menu($PAGE->theme->settings); ?>
+    <?php echo $OUTPUT->footer_menu(); ?>
     </div>
     </div>
 </footer>
