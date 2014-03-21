@@ -15807,6 +15807,165 @@ header {
   background-color: #b8d2e9;
   border-width: 2px;
 }
+.marketingspot {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+}
+.marketingspot > .list-group {
+  margin-bottom: 0;
+}
+.marketingspot > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+.marketingspot > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.marketingspot > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.marketingspot > .table,
+.marketingspot > .table-responsive > .table {
+  margin-bottom: 0;
+}
+.marketingspot > .table:first-child,
+.marketingspot > .table-responsive:first-child > .table:first-child {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.marketingspot > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.marketingspot > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.marketingspot > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.marketingspot > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 3px;
+}
+.marketingspot > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.marketingspot > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.marketingspot > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.marketingspot > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.marketingspot > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 3px;
+}
+.marketingspot > .table:last-child,
+.marketingspot > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.marketingspot > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.marketingspot > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.marketingspot > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.marketingspot > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 3px;
+}
+.marketingspot > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.marketingspot > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.marketingspot > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.marketingspot > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.marketingspot > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 3px;
+}
+.marketingspot > .panel-body + .table,
+.marketingspot > .panel-body + .table-responsive {
+  border-top: 1px solid #dddddd;
+}
+.marketingspot > .table > tbody:first-child > tr:first-child th,
+.marketingspot > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+.marketingspot > .table-bordered,
+.marketingspot > .table-responsive > .table-bordered {
+  border: 0;
+}
+.marketingspot > .table-bordered > thead > tr > th:first-child,
+.marketingspot > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.marketingspot > .table-bordered > tbody > tr > th:first-child,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.marketingspot > .table-bordered > tfoot > tr > th:first-child,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.marketingspot > .table-bordered > thead > tr > td:first-child,
+.marketingspot > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.marketingspot > .table-bordered > tbody > tr > td:first-child,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.marketingspot > .table-bordered > tfoot > tr > td:first-child,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+.marketingspot > .table-bordered > thead > tr > th:last-child,
+.marketingspot > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.marketingspot > .table-bordered > tbody > tr > th:last-child,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.marketingspot > .table-bordered > tfoot > tr > th:last-child,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.marketingspot > .table-bordered > thead > tr > td:last-child,
+.marketingspot > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.marketingspot > .table-bordered > tbody > tr > td:last-child,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.marketingspot > .table-bordered > tfoot > tr > td:last-child,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+.marketingspot > .table-bordered > thead > tr:first-child > td,
+.marketingspot > .table-responsive > .table-bordered > thead > tr:first-child > td,
+.marketingspot > .table-bordered > tbody > tr:first-child > td,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+.marketingspot > .table-bordered > thead > tr:first-child > th,
+.marketingspot > .table-responsive > .table-bordered > thead > tr:first-child > th,
+.marketingspot > .table-bordered > tbody > tr:first-child > th,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+.marketingspot > .table-bordered > tbody > tr:last-child > td,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.marketingspot > .table-bordered > tfoot > tr:last-child > td,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+.marketingspot > .table-bordered > tbody > tr:last-child > th,
+.marketingspot > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.marketingspot > .table-bordered > tfoot > tr:last-child > th,
+.marketingspot > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+.marketingspot > .table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+.marketingspot > .panel-heading {
+  color: #2d70c5;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.marketingspot > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+.marketingspot > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.marketingspot h2 {
+  margin-top: 4px;
+}
 #block-region-page-bottom {
   margin-top: 1em;
 }

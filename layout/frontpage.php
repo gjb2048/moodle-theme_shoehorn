@@ -105,6 +105,7 @@ echo $OUTPUT->doctype() ?>
             if ($showslider) {
                 require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
             }
+            require_once(dirname(__FILE__).'/tiles/marketingspots.php');
             ?>
             <section id="region-main-shoehorn">
                 <?php

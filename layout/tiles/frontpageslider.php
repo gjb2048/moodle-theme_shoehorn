@@ -27,65 +27,63 @@
 $numberofslides = (empty($PAGE->theme->settings->frontpagenumberofslides)) ? false : $PAGE->theme->settings->frontpagenumberofslides;
 
 if ($numberofslides) { ?>
-    <div>
-        <div class="carouselslider">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+<div class="carouselslider">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php
+            $first = true;
+            for ($fs = 1; $fs <= $numberofslides; $fs++) { ?>
+                <li data-target="#myCarousel" data-slide-to="<?php echo $fs-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
+            <?php } ?>
+        </ol>
+        <div class="carousel-inner">
+        <?php
+            $first = true;
+            for ($fs = 1; $fs <= $numberofslides; $fs++) {
+                $urlsetting = 'frontpageslideurl'.$fs;
+                if (!empty($PAGE->theme->settings->$urlsetting)) {
+                    echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
+                } else {
+                    echo '<div';
+                }
+                echo ' class="';
+                if ($first) { 
+                    echo 'active '; 
+                    $first = false;
+                }
+                echo 'item">';
+                $imagesetting = 'frontpageslideimage'.$fs;
+                if (!empty($PAGE->theme->settings->$imagesetting)) {
+                    $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
+                } else {
+                    $image = $OUTPUT->pix_url('Default_Slide', 'theme');
+                }
+                $slidecaptiontitle = 'frontpageslidecaptiontitle'.$fs;
+                if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
+                    $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
+                } else {
+                    $imgalt = 'No caption title';
+                }
+                ?>
+                <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
+                <?php
+                $slidecaptiontext = 'frontpageslidecaptiontext'.$fs;
+                if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
+                    <div class="carousel-caption">
                     <?php
-                    $first = true;
-                    for ($i = 1; $i <= $numberofslides; $i++) { ?>
-                        <li data-target="#myCarousel" data-slide-to="<?php echo $i-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
-                    <?php } ?>
-                </ol>
-                <div class="carousel-inner">
-                    <?php
-                    $first = true;
-                    for ($i = 1; $i <= $numberofslides; $i++) {
-                        $urlsetting = 'frontpageslideurl'.$i;
-                        if (!empty($PAGE->theme->settings->$urlsetting)) {
-                            echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
-                        } else {
-                            echo '<div';
-                        }
-                        echo ' class="';
-                        if ($first) { 
-                            echo 'active '; 
-                            $first = false;
-                        }
-                        echo 'item">';
-                        $imagesetting = 'frontpageslideimage'.$i;
-                        if (!empty($PAGE->theme->settings->$imagesetting)) {
-                            $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
-                        } else {
-                            $image = $OUTPUT->pix_url('Default_Slide', 'theme');
-                        }
-                        $slidecaptiontitle = 'frontpageslidecaptiontitle'.$i;
-                        if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
-                            $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
-                        } else {
-                            $imgalt = 'No caption title';
-                        }
-                        ?>
-                            <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
-                            <?php
-                            $slidecaptiontext = 'frontpageslidecaptiontext'.$i;
-                            if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
-                                <div class="carousel-caption">
-                                <?php
-                                    if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
-                                    if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
-                                ?> </div> <?php
-                            }
-                        if (!empty($PAGE->theme->settings->$urlsetting)) {
-                            echo '</a>';
-                        } else {
-                            echo '</div>';
-                        }
-                    } ?>
-                </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
-            </div>
+                        if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
+                        if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
+                    ?> </div> <?php
+                }
+                if (!empty($PAGE->theme->settings->$urlsetting)) {
+                    echo '</a>';
+                } else {
+                    echo '</div>';
+                }
+            } ?>
         </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
     </div>
+</div>
 <?php } ?>

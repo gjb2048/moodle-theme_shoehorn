@@ -311,7 +311,7 @@ defined('MOODLE_INTERNAL') || die;
 
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
         // Marketing spot heading.
-        $name = 'theme_shoehorn/marketingspot'.$i;
+        $name = 'theme_shoehorn/marketingspotheading'.$i;
         $title = get_string('marketingspotheading', 'theme_shoehorn').$i;
         $description = get_string('marketingspotheading_desc', 'theme_shoehorn').$i;
         $default = '';
