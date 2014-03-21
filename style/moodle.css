@@ -15840,4 +15840,163 @@ body.editing #block-region-page-bottom .block {
   padding-left: 3px;
   padding-right: 3px;
 }
+.loginbox .loginpanel .loginsub:before {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+}
+.loginbox .loginpanel .loginsub:before > .list-group {
+  margin-bottom: 0;
+}
+.loginbox .loginpanel .loginsub:before > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+.loginbox .loginpanel .loginsub:before > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table {
+  margin-bottom: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 3px;
+}
+.loginbox .loginpanel .loginsub:before > .panel-body + .table,
+.loginbox .loginpanel .loginsub:before > .panel-body + .table-responsive {
+  border-top: 1px solid #dddddd;
+}
+.loginbox .loginpanel .loginsub:before > .table > tbody:first-child > tr:first-child th,
+.loginbox .loginpanel .loginsub:before > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-bordered,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered {
+  border: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr > td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr > td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr > td:first-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr > td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr > td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr > td:last-child,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr:first-child > td,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr:first-child > td,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr:first-child > td,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+.loginbox .loginpanel .loginsub:before > .table-bordered > thead > tr:first-child > th,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > thead > tr:first-child > th,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr:first-child > th,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr:last-child > td,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr:last-child > td,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tbody > tr:last-child > th,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.loginbox .loginpanel .loginsub:before > .table-bordered > tfoot > tr:last-child > th,
+.loginbox .loginpanel .loginsub:before > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+.loginbox .loginpanel .loginsub:before > .table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+.loginbox .loginpanel .loginsub:before > .panel-heading {
+  color: #2d70c5;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.loginbox .loginpanel .loginsub:before > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+.loginbox .loginpanel .loginsub:before > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.loginbox .loginpanel .loginsub label[for='username'] {
+  padding-top: 8px;
+}
 /*# sourceMappingURL=/moodle26/theme/shoehorn/sourcemap-moodle.json */

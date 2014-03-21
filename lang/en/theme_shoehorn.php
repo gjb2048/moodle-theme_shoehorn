@@ -82,7 +82,7 @@ $string['showloginmessage_urllink'] = 'http://docs.moodle.org/26/en/admin/settin
 $string['loginmessage'] = 'The login message';
 $string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
 $string['loginmessage'] = 'The login message';
-$string['theloginmessage'] = 'Login here using your username and password.';
+$string['theloginmessage'] = 'Login here using your username and password';
 
 $string['logo'] = 'Logo';
 $string['logo_desc'] = 'Please upload your custom logo here if you want to add it to the header.<br>

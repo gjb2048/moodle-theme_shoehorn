@@ -31,7 +31,7 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_logo($css, $logo);
 
     // Show login message if desired.
-    $css = theme_shoehorn_set_loginmessage($css);
+    $css = theme_shoehorn_set_loginmessage($css, $theme);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -69,14 +69,15 @@ function theme_shoehorn_set_customcss($css, $customcss) {
     return $css;
 }
 
-function theme_shoehorn_set_loginmessage($css) {
+function theme_shoehorn_set_loginmessage($css, $theme) {
     $tag = '[[setting:theloginmessge]]';
 
     if (!empty($theme->settings->showloginmessage)) {
+        $content = "content: '";
         if (!empty($theme->settings->loginmessage)) {
-            $replacement = $theme->settings->loginmessage;
+            $replacement = $content.$theme->settings->loginmessage."';";
         } else {
-            $replacement = get_string('theloginmessage', 'theme_shoehorn');
+            $replacement = $content.get_string('theloginmessage', 'theme_shoehorn')."';";
         }
     } else {
         $replacement = '';
