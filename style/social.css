@@ -27,7 +27,6 @@
 
 div.socialnetworkscontainer {
     min-height: 128px;
-    /* background: url([[pix:theme|post]]) no-repeat scroll 50% 100% / 5% 128px transparent; */
     background: transparent center top no-repeat scroll url([[pix:theme|post]]);
 }
 

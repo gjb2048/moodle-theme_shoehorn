@@ -32,10 +32,6 @@ body.pagelayout-login #region-main.loggedout {
     background: none;
 }
 
-#region-main > div {
-    padding: 10px;
-}
-
 .loginbox .loginpanel .loginsub:before {
     [[setting:theloginmessge]]
 }

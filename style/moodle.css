@@ -15756,6 +15756,9 @@ header {
 .logoheading {
   display: inline-block;
 }
+#frontpageslider {
+  padding: 10px;
+}
 #page {
   background-image: -webkit-linear-gradient(top, #1f4d87 0%, #b8d2e9 100%);
   background-image: linear-gradient(to bottom, #1f4d87 0%, #b8d2e9 100%);
@@ -15991,6 +15994,16 @@ body.editing #block-region-page-bottom .block {
 #page-footer a:hover,
 #page-footer a:active {
   color: #ccc;
+}
+#page-footer .block {
+  color: #1f4d87;
+}
+#page-footer .block a {
+  color: #1f4d87;
+}
+#page-footer .block a:hover,
+#page-footer .block a:active {
+  color: #112a49;
 }
 #footermenu .copyright:before {
   content: "\00A9";

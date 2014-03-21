@@ -27,7 +27,7 @@
 $numberofslides = (empty($PAGE->theme->settings->frontpagenumberofslides)) ? false : $PAGE->theme->settings->frontpagenumberofslides;
 
 if ($numberofslides) { ?>
-<div class="carouselslider">
+<div id="frontpageslider" class="carouselslider">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php

@@ -47,7 +47,7 @@ defined('MOODLE_INTERNAL') || die;
     $name = 'theme_shoehorn/fonticons';
     $title = get_string('fonticons', 'theme_shoehorn');
     $description = get_string('fonticons_desc', 'theme_shoehorn');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting = new admin_setting_configcheckbox($name, $title, $description, '0');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 

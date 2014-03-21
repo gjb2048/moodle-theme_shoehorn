@@ -20,6 +20,11 @@ header {
     display: inline-block;
 }
 
+// Front page slider.
+#frontpageslider {
+    padding: 10px;
+}
+
 // Page.
 #page {
     #gradient > .vertical(@page-top-bg, @page-bottom-bg);
@@ -128,6 +133,17 @@ body.editing #block-region-page-bottom .block {
     color: @gray-lighter;
     &:hover, &:active {
         color: #ccc;
+    }
+}
+
+#page-footer .block {
+    color: @text-color;
+}
+
+#page-footer .block a {
+    color: @link-color;
+    &:hover, &:active {
+        color: @link-hover-color;
     }
 }
 
