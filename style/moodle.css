@@ -15610,6 +15610,11 @@ fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.a
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
 }
+@media (max-width: 768px) {
+  .dropdown-submenu > .dropdown-menu {
+    margin-left: 10px;
+  }
+}
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }

@@ -161,6 +161,15 @@ defined('MOODLE_INTERNAL') || die;
             format_text(get_string('frontpagesliderheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $slidersettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
+    // Slide speed.
+    $name = 'theme_shoehorn/frontpagesliderspeed';
+    $title = get_string('frontpagesliderspeed', 'theme_shoehorn');
+    $description = get_string('frontpagesliderspeed_desc', 'theme_shoehorn');
+    $default = 5000;
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $slidersettings->add($setting);
+
     // Show on mobile.
     $name = 'theme_shoehorn/frontpageslidermobile';
     $title = get_string('frontpageslidermobile', 'theme_shoehorn');

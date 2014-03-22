@@ -26,9 +26,14 @@
  */
 $numberofslides = (empty($PAGE->theme->settings->frontpagenumberofslides)) ? false : $PAGE->theme->settings->frontpagenumberofslides;
 
-if ($numberofslides) { ?>
+if ($numberofslides) {
+$speed = (!isset($PAGE->theme->settings->frontpagesliderspeed)) ? 5000 : $PAGE->theme->settings->frontpagesliderspeed;
+if ($speed == 0) {
+    $speed = '';
+}
+?>
 <div id="frontpageslider" class="carouselslider">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="<?php echo $speed?>">
         <ol class="carousel-indicators">
             <?php
             $first = true;
