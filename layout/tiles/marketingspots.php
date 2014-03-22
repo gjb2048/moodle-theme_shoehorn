@@ -25,6 +25,23 @@
  */
 
 $numberofmarketingspots = (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
+$marketingspotsdisplay = (empty($PAGE->theme->settings->marketingspotsdisplay)) ? 4 : $PAGE->theme->settings->marketingspotsdisplay;
+
+// Decide on showing the marketing spots.  If so, then the number will still need to be greater than zero.
+switch($marketingspotsdisplay) {
+    case 1: // Never.
+        $numberofmarketingspots = false;
+        break;
+    case 2: // Logged out.
+        $numberofmarketingspots = (isloggedin() == false) ? $numberofmarketingspots : false;
+        break;
+    case 3: // Logged in.
+        $numberofmarketingspots = (isloggedin() == true) ? $numberofmarketingspots : false;
+        break;
+    case 4: // Always.
+    default: // Do nothing.
+        break;
+}
 
 if ($numberofmarketingspots) {
     $marketingspots = array();

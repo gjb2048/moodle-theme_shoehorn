@@ -120,15 +120,44 @@ $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be
 // Headings
 $string['loginpage']= 'Login page';
 $string['loginpage_desc']= 'Login page settings.';
-$string['othersettingpagesconfiguration'] = 'Other setting pages configuration';
-$string['othersettingpagesconfiguration_desc'] = 'Change these settings to alter the quantitites for the settings pages they represent.  Setting to zero will hide the page.';
+
+// Front page slider settings.
+$string['frontpageslidermobile'] = 'Display front page slider on mobile';
+$string['frontpageslidermobile_desc'] = 'Display the front page slider on mobile devices.';
+$string['frontpageslidertablet'] = 'Display front page slider on tablet';
+$string['frontpageslidertablet_desc'] = 'Display the front page slider on tablet devices.';
+$string['frontpagenumberofslides'] = 'Number of front page slides';
+$string['frontpagenumberofslides_desc'] = 'Number of slides on the front page slider.';
+$string['frontpagesliderheading'] = 'Front page slider';
+$string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
+$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of marketing spots change the 'Number of front page slides' below and save the page to update.";
+$string['frontpageslideimage'] = 'Image for slide ';
+$string['frontpageslideimage_desc'] = 'The image for slide ';
+$string['frontpageslideurl'] = 'URL for slide ';
+$string['frontpageslideurl_desc'] = 'The URL for slide ';
+$string['frontpageslidecaptiontitle'] = 'Caption title for slide ';
+$string['frontpageslidecaptiontitle_desc'] = 'The caption title for slide ';
+$string['frontpageslidecaptiontext'] = 'Caption text for slide ';
+$string['frontpageslidecaptiontext_desc'] = 'The caption text for slide ';
+
+// Image bank.
+$string['numberofimagebankimages'] = 'Number of images in the image bank';
+$string['numberofimagebankimages_desc'] = 'Number of images you want in the image bank.';
+$string['imagebankheading'] = 'Image bank';
+$string['imagebankheadingsub'] = 'Use images anywhere by using the image bank.';
+$string['imagebankheadingdesc'] = "To change the number of available images in the image bank change the 'Number of images in the image bank' below and save the page to update.";
+$string['imagebankimage'] = 'Image ';
+$string['imagebankimage_desc'] = "Image URL to copy: '";
+$string['imagebankimage_desc2'] = "' and use, i.e. insert in an HTML editor.";
+$string['none'] = 'none';
+
 
 // Marketing spots.
 $string['numberofmarketingspots'] = 'Number of marketing spots';
 $string['numberofmarketingspots_desc'] = 'Number of marketing spots you want to add.';
 $string['marketingspotsheading'] = 'Marketing spots';
 $string['marketingspotsheadingsub'] = 'Advertise your site with marketing spots';
-$string['marketingspotsheadingdesc'] = "To change the number of marketing spots go to the 'General' settings page for the theme.";
+$string['marketingspotsheadingdesc'] = "To change the number of marketing spots change the 'Number of marketing spots' below and save the page to update.";
 $string['marketingspotsdisplay'] = 'Display marketing spots';
 $string['marketingspotsdisplay_desc'] = 'When to display marketing spots.';
 $string['marketingspotsdisplaynever'] = 'Never';
@@ -151,7 +180,7 @@ $string['numberofsitepages'] = 'Number of site pages';
 $string['numberofsitepages_desc'] = 'Number of site pages you want to add.  A link will automatically be added to the footer menu.';
 $string['sitepagesheading'] = 'Site pages';
 $string['sitepagesheadingsub'] = 'Describe your site with site pages';
-$string['sitepagesheadingdesc'] = "To change the number of site pages go to the 'General' settings page for the theme.";
+$string['sitepagesheadingdesc'] = "To change the number of site pages change the 'Number of site pages' below and save the page to update.";
 $string['sitepagetitle'] = 'Site page title ';
 $string['sitepagetitle_desc'] = 'Site page title number ';
 $string['sitepageheading'] = 'Site page heading ';
@@ -173,31 +202,12 @@ $string['pagenotforlanguagetitle2'] = ' not for language';
 $string['pagenotforlanguagecontent1'] = 'Site page number ';
 $string['pagenotforlanguagecontent2'] = ' has not been set for the current language, ask an an administrator to check the settings for the theme.';
 
-// Slider settings.
-$string['frontpageslidermobile'] = 'Display front page slider on mobile';
-$string['frontpageslidermobile_desc'] = 'Display the front page slider on mobile devices.';
-$string['frontpageslidertablet'] = 'Display front page slider on tablet';
-$string['frontpageslidertablet_desc'] = 'Display the front page slider on tablet devices.';
-$string['frontpagenumberofslides'] = 'Number of front page slides';
-$string['frontpagenumberofslides_desc'] = 'Number of slides on the front page slider.';
-$string['frontpagesliderheading'] = 'Front page slider';
-$string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
-$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of marketing spots go to the 'General' settings page for the theme.";
-$string['frontpageslideimage'] = 'Image for slide ';
-$string['frontpageslideimage_desc'] = 'The image for slide ';
-$string['frontpageslideurl'] = 'URL for slide ';
-$string['frontpageslideurl_desc'] = 'The URL for slide ';
-$string['frontpageslidecaptiontitle'] = 'Caption title for slide ';
-$string['frontpageslidecaptiontitle_desc'] = 'The caption title for slide ';
-$string['frontpageslidecaptiontext'] = 'Caption text for slide ';
-$string['frontpageslidecaptiontext_desc'] = 'The caption text for slide ';
-
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';
 $string['numberofsociallinks_desc'] = 'Number of social network links you want to add.';
 $string['socialheading'] = 'Social networking';
 $string['socialheadingsub'] = 'Gather followers with social networking';
-$string['socialheadingdesc'] = 'Provide direct links to your social networks.';
+$string['socialheadingdesc'] = "Provide direct links to your social networks.  To change the number of social networks change the 'Number of social network links' below and save the page to update.";
 $string['socialnetworklink'] = 'Social network link ';
 $string['socialnetworklink_desc'] = 'Social network link number ';
 $string['socialnetworkicon'] = 'Social network icon ';

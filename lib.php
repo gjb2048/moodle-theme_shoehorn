@@ -141,6 +141,9 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else if (substr($filearea, 0, 14) === 'imagebankimage') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else {
             send_file_not_found();
         }
