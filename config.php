@@ -62,6 +62,7 @@ $THEME->plugins_exclude_sheets = array(
 
 $allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
+$bottomregions = array('page-bottom', 'footer-pre', 'footer-post');
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
@@ -110,7 +111,7 @@ $THEME->layouts = array(
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'default.php',
-        'regions' => $allregions,
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('langmenu'=>true),
     ),
@@ -164,8 +165,8 @@ $THEME->layouts = array(
     // The pagelayout used for reports.
     'report' => array(
         'file' => 'default.php',
-        'regions' => $sidepreregions,
-        'defaultregion' => 'side-pre',
+        'regions' => $bottomregions,
+        'defaultregion' => 'page-bottom',
         'options' => array('fluid'=>true),
     ),
     // The pagelayout used for safebrowser and securewindow.

@@ -326,13 +326,12 @@ form.popupform div {
   vertical-align: text-bottom;
   margin: 0 0.3em;
 }
-/** The 1-pixel padding is there to avoid phantom scroll bars on OS X (FF, Safari and Chrome)**/
 .no-overflow {
-  overflow: auto;
-  padding-bottom: 1px;
-}
-.pagelayout-report .no-overflow {
-  overflow: visible;
+  margin-bottom: 15px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
 }
 .no-overflow > .generaltable {
   margin-bottom: 0;
@@ -1193,9 +1192,9 @@ body.jsenabled .formlisting {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #333333;
+  color: #1f4d87;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
@@ -1214,7 +1213,7 @@ body.jsenabled .formlisting {
 }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover,
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
@@ -1239,9 +1238,9 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active,
 .open .dropdown-toggle.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ebebeb;
-  border-color: #adadad;
+  border-color: #143155;
 }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active,
@@ -1264,11 +1263,11 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled].active,
 fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .badge {
   color: #ffffff;
-  background-color: #333333;
+  background-color: #1f4d87;
 }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall {
   margin: 4px 4px 4px 0px;
@@ -3215,7 +3214,7 @@ span.editinstructions {
   display: none;
 }
 #course-category-listings #category-listing .course-count {
-  color: #a1a1a8;
+  color: #1f4d87;
   margin-right: 2rem;
   min-width: 3.5em;
   display: inline-block;
@@ -6892,104 +6891,6 @@ img#persona_signin {
 .addcourse {
   float: right;
 }
-.userenrolment {
-  width: 100%;
-  border-collapse: collapse;
-}
-.userenrolment td {
-  padding: 0;
-  height: 41px;
-}
-.userenrolment .subfield {
-  margin-right: 5px;
-}
-.userenrolment .col_userdetails .subfield_picture {
-  float: left;
-}
-.userenrolment .col_lastseen {
-  width: 150px;
-}
-.userenrolment .col_role {
-  width: 262px;
-}
-.userenrolment .col_role .roles {
-  margin-right: 30px;
-}
-.userenrolment .col_role .role {
-  float: left;
-  padding: 3px;
-  margin: 3px;
-}
-.userenrolment .col_role .role a {
-  margin-left: 3px;
-  cursor: pointer;
-}
-.userenrolment .col_role .addrole {
-  float: right;
-  width: 18px;
-  height: 18px;
-  margin: 8px 15px 8px 0px;
-  text-align: center;
-  background-color: #333333;
-  border: 1px solid #333333;
-}
-.userenrolment .col_role .addrole img {
-  vertical-align: baseline;
-}
-.userenrolment .hasAllRoles .col_role .addrole {
-  display: none;
-}
-.userenrolment .col_group .groups {
-  margin-right: 30px;
-}
-.userenrolment .col_group .group {
-  float: left;
-  padding: 3px;
-  white-space: nowrap;
-}
-.userenrolment .col_group .group a {
-  margin-left: 3px;
-  cursor: pointer;
-}
-.userenrolment .col_group .addgroup {
-  width: 18px;
-  height: 18px;
-  margin: 8px 15px 8px 0px;
-  background-color: #333333;
-  border: 1px solid #333333;
-  float: right;
-  text-align: center;
-}
-.userenrolment .col_group .addgroup a img {
-  vertical-align: baseline;
-}
-.userenrolment .col_enrol .enrolment {
-  float: left;
-  padding: 3px;
-  margin: 3px;
-}
-.userenrolment .col_enrol .enrolment a {
-  float: right;
-  margin-left: 3px;
-}
-#page-enrol-users .enrol_user_buttons {
-  float: right;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton {
-  margin-left: 1em;
-  display: inline;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton div,
-#page-enrol-users .enrol_user_buttons .enrolusersbutton form {
-  display: inline;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton input {
-  padding-left: 6px;
-  padding-right: 6px;
-}
-#page-enrol-users .user-enroller-panel .uep-search-results .user .details {
-  width: 237px;
-}
 ul,
 ol {
   padding: 0;
@@ -7200,7 +7101,9 @@ fieldset {
   padding: 0.35em 0.625em 0.75em;
 }
 legend,
-#adminsettings h3 {
+#adminsettings h3,
+.backup-restore .backup-section > h2.header,
+.backup-restore .backup-section .backup-sub-section h3 {
   border: 0;
   padding: 0;
 }
@@ -8686,7 +8589,9 @@ fieldset {
   min-width: 0;
 }
 legend,
-#adminsettings h3 {
+#adminsettings h3,
+.backup-restore .backup-section > h2.header,
+.backup-restore .backup-section .backup-sub-section h3 {
   display: block;
   width: 100%;
   padding: 0;
@@ -8793,7 +8698,6 @@ input[type="date"] {
 .form-group,
 .mform .fcontainer .fitem,
 .mform fieldset .fitem,
-.mform fieldset.hidden,
 .form-item {
   margin-bottom: 15px;
 }
@@ -9037,7 +8941,6 @@ select[multiple].input-lg {
 .form-horizontal .form-group,
 .mform .fcontainer .fitem,
 .mform fieldset .fitem,
-.mform fieldset.hidden,
 .form-item {
   margin-left: -15px;
   margin-right: -15px;
@@ -9082,7 +8985,7 @@ select[multiple].input-lg {
 }
 .btn:hover,
 .btn:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 .btn:active,
@@ -9103,18 +9006,18 @@ fieldset[disabled] .btn {
   box-shadow: none;
 }
 .btn-default {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ebebeb;
-  border-color: #adadad;
+  border-color: #143155;
 }
 .btn-default:active,
 .btn-default.active,
@@ -9137,11 +9040,11 @@ fieldset[disabled] .btn-default:active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .btn-default .badge {
   color: #ffffff;
-  background-color: #333333;
+  background-color: #1f4d87;
 }
 .btn-primary {
   color: #ffffff;
@@ -12770,8 +12673,6 @@ button.close {
 .mform .fcontainer .fitem:after,
 .mform fieldset .fitem:before,
 .mform fieldset .fitem:after,
-.mform fieldset.hidden:before,
-.mform fieldset.hidden:after,
 .form-item:before,
 .form-item:after {
   content: " ";
@@ -12798,7 +12699,6 @@ button.close {
 .path-backup .mform .grouped_settings .fitem:after,
 .mform .fcontainer .fitem:after,
 .mform fieldset .fitem:after,
-.mform fieldset.hidden:after,
 .form-item:after {
   clear: both;
 }
@@ -13488,33 +13388,32 @@ textarea.mform fieldset .fitem .felement input[type="password"] {
 .mform fieldset .fitem .felement.fdate_time_selector label {
   display: inline-block;
 }
-.mform fieldset.hidden > div {
+.mform fieldset.hidden .fitem .fitemtitle {
+  width: auto;
+}
+.mform fieldset.hidden .fitem .felement {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 992px) {
-  .mform fieldset.hidden > div {
+  .mform fieldset.hidden .fitem .felement {
     float: left;
-    width: 66.66666667%;
-  }
-}
-@media (min-width: 992px) {
-  .mform fieldset.hidden > div {
-    margin-left: 33.33333333%;
+    width: 83.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .mform fieldset.hidden > div {
+  .mform fieldset.hidden .fitem .felement {
     float: left;
-    width: 75%;
+    width: 91.66666667%;
   }
 }
-@media (min-width: 1200px) {
-  .mform fieldset.hidden > div {
-    margin-left: 25%;
-  }
+.mform fieldset.hidden .fitem .fsubmit {
+  width: 100%;
+}
+.mform fieldset.hidden .fitem .fsubmit input {
+  float: right;
 }
 .mform fieldset.hidden .fitem_actionbuttons .felement {
   padding-left: 10px;
@@ -13732,9 +13631,6 @@ textarea.form-item .form-setting input[type="password"] {
   .fitem_fcheckbox .fcheckbox {
     padding-top: 8px;
   }
-  fieldset.hidden > div {
-    margin-left: -20px;
-  }
   .form-buttons .form-submit {
     margin-left: -5px;
   }
@@ -13745,7 +13641,7 @@ textarea.form-item .form-setting input[type="password"] {
   .mform .fcontainer .fitem .felement input[type="password"],
   .mform .fcontainer .fitem .felement select {
     width: auto;
-    min-width: 500px;
+    min-width: 480px;
   }
 }
 .mform .felement.fstatic,
@@ -14353,7 +14249,6 @@ div#dock {
   margin-bottom: 1.42857143;
   font-size: 21px;
   line-height: 2.85714286;
-  color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -14722,9 +14617,9 @@ input[type="reset"] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #333333;
+  color: #1f4d87;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
   margin: 0 0 3px 5px;
 }
 button:focus,
@@ -14756,7 +14651,7 @@ input.form-submit:focus,
 input[type="button"]:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 button:active,
@@ -14821,9 +14716,9 @@ input[type="reset"].active,
 .open .dropdown-toggleinput[type="button"],
 .open .dropdown-toggleinput[type="submit"],
 .open .dropdown-toggleinput[type="reset"] {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ebebeb;
-  border-color: #adadad;
+  border-color: #143155;
 }
 button:active,
 input.form-submit:active,
@@ -14918,7 +14813,7 @@ fieldset[disabled] input[type="button"].active,
 fieldset[disabled] input[type="submit"].active,
 fieldset[disabled] input[type="reset"].active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 button .badge,
 input.form-submit .badge,
@@ -14926,7 +14821,7 @@ input[type="button"] .badge,
 input[type="submit"] .badge,
 input[type="reset"] .badge {
   color: #ffffff;
-  background-color: #333333;
+  background-color: #1f4d87;
 }
 input.form-submit,
 input#id_submitbutton,
@@ -15103,7 +14998,7 @@ td.submit input .badge {
 .submit.buttons input[name="cancel"]:hover,
 #notice .singlebutton + .singlebutton input:focus,
 .submit.buttons input[name="cancel"]:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 #notice .singlebutton + .singlebutton input:active,
@@ -15296,9 +15191,9 @@ input.fp-btn-choose {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #333333;
+  color: #1f4d87;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
@@ -15315,7 +15210,7 @@ input.fp-btn-choose {
 }
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:hover,
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
@@ -15340,9 +15235,9 @@ fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active,
 .open .dropdown-toggle.yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ebebeb;
-  border-color: #adadad;
+  border-color: #143155;
 }
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:active,
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active,
@@ -15365,17 +15260,253 @@ fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:a
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close[disabled].active,
 fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close .badge {
   color: #ffffff;
-  background-color: #333333;
+  background-color: #1f4d87;
 }
 .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close:before {
   content: inherit;
 }
 .yui3-panel .readerpanel div[role=main] {
   padding: 0 10px;
+}
+.userenrolment {
+  width: 100%;
+  border-collapse: collapse;
+}
+.userenrolment .col_userdetails .subfield_picture {
+  float: left;
+  margin: 0 5px;
+}
+.userenrolment .col_role a,
+.userenrolment .col_role span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.userenrolment .col_role a {
+  float: right;
+}
+.userenrolment .col_role .addrole {
+  text-align: center;
+}
+.userenrolment .hasAllRoles .col_role .addrole {
+  display: none;
+}
+.userenrolment .col_group .group {
+  float: left;
+  white-space: nowrap;
+}
+.userenrolment .col_group .group a {
+  margin-left: 3px;
+  cursor: pointer;
+}
+.userenrolment .col_group .addgroup {
+  text-align: center;
+}
+.userenrolment .col_group .addgroup a img {
+  vertical-align: bottom;
+}
+.enrolpanel.roleassign.visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  text-align: left;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+  width: 276px;
+  display: block;
+}
+.enrolpanel.roleassign.visible.top {
+  margin-top: -10px;
+}
+.enrolpanel.roleassign.visible.right {
+  margin-left: 10px;
+}
+.enrolpanel.roleassign.visible.bottom {
+  margin-top: 10px;
+}
+.enrolpanel.roleassign.visible.left {
+  margin-left: -10px;
+}
+.enrolpanel.roleassign.visible.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+.enrolpanel.roleassign.visible.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: #ffffff;
+}
+.enrolpanel.roleassign.visible.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+.enrolpanel.roleassign.visible.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: #ffffff;
+}
+.enrolpanel.roleassign.visible.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+.enrolpanel.roleassign.visible.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+.enrolpanel.roleassign.visible.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+.enrolpanel.roleassign.visible.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: #ffffff;
+  bottom: -10px;
+}
+.enrolpanel.roleassign.visible .container {
+  content: inherit;
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.enrolpanel.roleassign.visible a {
+  text-decoration: underline;
+}
+.enrolpanel.roleassign.visible .header {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+.enrolpanel.roleassign.visible .header .close {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1f4d87;
+  background: inherit;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  opacity: 1;
+  width: auto;
+  top: 5px;
+  right: 10px;
+  height: auto;
+  position: absolute;
+}
+.enrolpanel.roleassign.visible .header .close:before {
+  content: "\e014";
+}
+.enrolpanel.roleassign.visible .content {
+  padding: 9px 14px;
+  margin-top: 5px;
+  background-color: #ffffff;
+}
+#page-enrol-users .enrol_user_buttons {
+  float: right;
+}
+#page-enrol-users .enrol_user_buttons .enrolusersbutton {
+  display: inline;
+}
+#page-enrol-users .enrol_user_buttons .enrolusersbutton div,
+#page-enrol-users .enrol_user_buttons .enrolusersbutton form {
+  display: inline;
+  margin-right: 0;
+}
+#page-enrol-users #filterform {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+}
+#page-enrol-users #filterform blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+#page-enrol-users #filterform .fitem {
+  display: inline-block;
+  margin-right: .3em;
+  white-space: nowrap;
+}
+#page-enrol-users #filterform .fitem label {
+  display: inline;
+  line-height: 1.42857143;
+  padding-right: .3em;
+}
+#page-enrol-users #filterform .fitem :before,
+#page-enrol-users #filterform .fitem :after {
+  display: inline;
+}
+#page-enrol-users #filterform div,
+#page-enrol-users #filterform fieldset {
+  display: table;
+  float: none;
+  clear: none;
+  width: auto;
+  margin: 0;
+}
+#page-enrol-users #filterform select,
+#page-enrol-users #filterform .ftext input {
+  width: 7em;
+}
+#page-enrol-users #filterform input,
+#page-enrol-users #filterform select {
+  margin-bottom: 0;
+}
+#page-enrol-users .user-enroller-panel .uep-search-results .user .details {
+  width: 237px;
 }
 /* responsive.less */
 @media (max-width: 873px) {
@@ -15668,6 +15799,10 @@ fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.a
 }
 .panel-danger {
   background-color: #ebccd1;
+}
+.path-backup .mform .grouped_settings.section_level {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .block .minicalendar td.weekend {
   color: #2965b0;

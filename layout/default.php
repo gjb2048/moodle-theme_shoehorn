@@ -82,7 +82,7 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $container; ?>">
 
 <header class="moodleheader">
-<div class="<?php /*echo $container;*/ ?>">
+<div>
 <?php echo $OUTPUT->page_heading(); ?>
 </div>
 </header>

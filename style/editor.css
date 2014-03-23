@@ -751,7 +751,7 @@ table th[class*="col-"] {
 }
 .btn:hover,
 .btn:focus {
-  color: #333333;
+  color: #1f4d87;
   text-decoration: none;
 }
 .btn:active,
@@ -772,18 +772,18 @@ fieldset[disabled] .btn {
   box-shadow: none;
 }
 .btn-default {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333333;
+  color: #1f4d87;
   background-color: #ebebeb;
-  border-color: #adadad;
+  border-color: #143155;
 }
 .btn-default:active,
 .btn-default.active,
@@ -806,11 +806,11 @@ fieldset[disabled] .btn-default:active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #1f4d87;
 }
 .btn-default .badge {
   color: #ffffff;
-  background-color: #333333;
+  background-color: #1f4d87;
 }
 .btn-primary {
   color: #ffffff;
