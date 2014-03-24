@@ -1,10 +1,5 @@
 // Shoehorn custom additions / changes.
 
-@page-top-bg: #1F4D87;
-@page-bottom-bg: #B8D2E9;
-@footer-top-bg: #269F00;
-@footer-bottom-bg: #267F00;
-
 // Body.
 body {
     background-color: @page-top-bg;
@@ -142,8 +137,8 @@ body.editing #block-region-page-bottom .block {
 
 #page-footer .block a {
     color: @link-color;
-    &:hover, &:active {
-        color: @link-hover-color;
+    &:hover, &:active, &:focus {
+        color: darken(@body-bg, 8%);
     }
 }
 
@@ -166,4 +161,10 @@ body.editing #block-region-page-bottom .block {
 
 .loginbox .loginpanel .loginsub label[for='username'] {
     padding-top: 8px;
+}
+
+// General.
+select {
+    border-color: @text-color;
+    border-radius: 4px;
 }

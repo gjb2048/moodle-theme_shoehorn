@@ -53,6 +53,58 @@
     }
 }
 
+// course.less.
+.course-content {
+    .section-summary {
+        border: 1px solid @text-color;
+    }
+    ul {
+        li.section.main {
+            border-bottom: 2px solid lighten(@page-bottom-bg, 5%);
+        }
+    }
+}
+
+#page-course-index-category {
+    .generalbox.info {
+        border: 1px dotted @text-color;
+    }
+}
+
+// filemanager.less.
+.filemanager .fp-navbar {
+    background: darken(@body-bg, 8%);
+    border: 1px solid @page-bottom-bg;
+}
+
+.fp-toolbar .fp-btn-add,
+.fp-toolbar .fp-btn-download,
+.fp-toolbar .fp-btn-mkdir,
+.fp-toolbar .fp-tb-help,
+.fp-toolbar .fp-tb-manage,
+.fp-toolbar .fp-tb-logout,
+.fp-toolbar .fp-tb-refresh
+ {
+    border: 1px solid @page-bottom-bg;
+    border-bottom: 1px solid lighten(@page-bottom-bg, 5%);
+}
+
+.fp-toolbar a:hover {
+    background-image: radial-gradient(ellipse at center, #fff 60%,lighten(@page-bottom-bg, 5%) 100%);
+    background-color: darken(@body-bg, 8%);
+}
+
+.fp-toolbar a:active {
+    background-image: radial-gradient(ellipse at center, #fff 40%,lighten(@page-bottom-bg, 5%) 100%);
+    background-color: darken(@body-bg, 12%);
+}
+
+.filepicker-filelist,
+.filemanager-container {
+    background: @body-bg;
+    border: 1px solid @page-bottom-bg;
+}
+
 // forms.less.
 .mform fieldset.collapsible legend a.fheader {
     margin-left: 0px;

@@ -28,6 +28,8 @@
 require_once('../../../config.php');
 
 $pageid = required_param('pageid', PARAM_INT);
+// TODO Add sesskey check to edit - from my/index.php
+$edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and off
 
 $PAGE->set_context(context_system::instance());
 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
@@ -77,10 +79,42 @@ $ournode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
 if (empty($ournode)) {
     // Not logged in....
     $ournode = $PAGE->navigation->add($PAGE->title, $url);
+    $USER->editing = $edit = 0;
 } else {
     // Logged in, so add to site pages....
     $ournode = $ournode->add($PAGE->title, $url);
+
+    // Toggle the editing state and switches
+    if ($PAGE->user_allowed_editing()) {
+        if ($edit !== null) {             // Editing state was specified
+            $USER->editing = $edit;       // Change editing state
+            $context = context_user::instance($USER->id);
+            $PAGE->set_context($context);
+        }
+    } else {                          // Editing state is in session
+        if ($currentpage->userid) {   // It's a page we can edit, so load from session
+            if (!empty($USER->editing)) {
+                $edit = 1;
+            } else {
+                $edit = 0;
+            }
+        } else {                      // It's a system page and they are not allowed to edit system pages
+            $USER->editing = $edit = 0;          // Disable editing completely, just to be safe
+        }
+    }
+
+    // Add button for editing page
+    if (empty($edit)) {
+        $editstring = get_string('blocksediton');
+    } else {
+        $editstring = get_string('blockseditoff');
+    }
+
+    $url->param('edit', !$edit);
+    $button = $OUTPUT->single_button($url, $editstring);
+    $PAGE->set_button($button);
 }
+
 $ournode->make_active();
 
 $PAGE->navbar->ignore_active();
