@@ -155,7 +155,18 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
 function shoehorn_social_footer($settings) {
     $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
 
+    $haveicons = false;
     if ($numberofsociallinks) {
+        for ($i = 1; $i <= $numberofsociallinks; $i++) {
+            $name = 'social'.$i;
+            if (!empty($PAGE->theme->settings->$name)) {
+                $haveicons = true;
+                break;
+            }
+        }
+    }
+
+    if ($haveicons) {
         // Max social links of 16.
         $diff = round($numberofsociallinks / 7);
         $side = 5 - $diff;

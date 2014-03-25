@@ -178,6 +178,7 @@ $string['marketingspotlang_urlname'] = 'Language packs';
 $string['marketingspotlang_urllink'] = '/admin/tool/langimport/index.php';
 
 // Site pages.
+$string['sitepage'] = 'Site page '; // Used in sitepage.php.
 $string['numberofsitepages'] = 'Number of site pages';
 $string['numberofsitepages_desc'] = 'Number of site pages you want to add.  A link will automatically be added to the footer menu.';
 $string['sitepagesheading'] = 'Site pages';

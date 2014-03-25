@@ -40,6 +40,7 @@ $edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and of
 
 $PAGE->set_context(context_system::instance());
 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+$url->param('sesskey', sesskey());
 $url->param('pageid', $pageid);
 $PAGE->set_url($url, $url->params());
 $PAGE->set_other_editing_capability('moodle/course:update');
@@ -87,11 +88,11 @@ $PAGE->set_course($course);
 $ournode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
 if (empty($ournode)) {
     // Not logged in....
-    $ournode = $PAGE->navigation->add($PAGE->title, $url);
+    $ournode = $PAGE->navigation->add($PAGE->title, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
     $USER->editing = $edit = 0;
 } else {
-    // Logged in, so add to site pages....
-    $ournode = $ournode->add($PAGE->title, $url);
+    // Logged in, so add to site pages.... TODO: Add all site pages.
+    $ournode = $ournode->add($PAGE->title, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
 
     // Toggle the editing state and switches
     if (($sesskeyvalid) && ($PAGE->user_allowed_editing())) {
@@ -114,10 +115,17 @@ if (empty($ournode)) {
             $editstring = get_string('blockseditoff');
         }
 
+        $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+        $url->param('pageid', $pageid);
         $url->param('edit', !$edit);
         $url->param('sesskey', sesskey());
         $button = $OUTPUT->single_button($url, $editstring);
         $PAGE->set_button($button);
+
+        $settingnode = $PAGE->settingsnav->add($editstring, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
+        $settingnode->add_class('hasicon');
+        $settingnode->remove_class('root_node');
+        $settingnode->make_active();
     } else {                          // Editing state is in session
         $USER->editing = $edit = 0;          // Disable editing completely, just to be safe
     }
