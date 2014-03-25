@@ -122,13 +122,13 @@
 //** Default background color used for all tables.
 @table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               #f9f9f9;
+@table-bg-accent:               lighten(@page-bottom-bg, 5%);
 //** Background color used for `.table-hover`.
-@table-bg-hover:                #f5f5f5;
+@table-bg-hover:                @page-bottom-bg;
 @table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
-@table-border-color:            #ddd;
+@table-border-color:            @page-bottom-bg;
 
 
 //== Buttons
@@ -138,7 +138,7 @@
 @btn-font-weight:                normal;
 
 @btn-default-color:              @text-color;
-@btn-default-bg:                 #C9E6FF; // @page-bottom-bg: #B8D2E9.  But lighter.
+@btn-default-bg:                 @page-bottom-bg; // #C9E6FF was #B8D2E9.  But lighter.
 @btn-default-border:             @page-top-bg;
 
 @btn-primary-color:              #fff;
@@ -830,6 +830,6 @@
 
 //== Shoehorn
 @page-top-bg: #1F4D87;
-@page-bottom-bg: #B8D2E9;
+@page-bottom-bg: #C9E6FF; //#B8D2E9;
 @footer-top-bg: #269F00;
 @footer-bottom-bg: #267F00;

@@ -105,7 +105,46 @@
     border: 1px solid @page-bottom-bg;
 }
 
+// Drag and drop support (filemanager and filepicker form elements)
+.filepicker-filelist .filepicker-container,
+.filemanager.fm-noitems .fm-empty-container {
+    padding-top: 75px;  // Allows for two lines in the file picker (for different languages) without hitting the border on certain screen sizes.
+    border: 2px dotted @page-bottom-bg;
+}
+
+
 // forms.less.
+// Basic mforms layout, used in resources, user profile etc.
+.mform {
+    fieldset.hidden {
+        .fitem {
+            .fitemtitle {
+                .make-sm-column(3);
+                .make-md-column(2);
+                .make-lg-column(1);
+            }
+            .felement {
+                .make-sm-column(9);
+                .make-md-column(10);
+                .make-lg-column(11);
+            }
+        }
+    }
+    // submit buttons
+    fieldset.hidden:last-child {
+            &:extend(.form-group);
+            &:extend(.form-horizontal .form-group);
+            > div {
+                .make-sm-column(9);
+                .make-sm-column-offset(3);
+                .make-md-column(10);
+                .make-md-column-offset(2);
+                .make-lg-column(11);
+                .make-lg-column-offset(1);
+            }
+    }
+}
+
 .mform fieldset.collapsible legend a.fheader {
     margin-left: 0px;
 }

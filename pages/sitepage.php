@@ -28,13 +28,22 @@
 require_once('../../../config.php');
 
 $pageid = required_param('pageid', PARAM_INT);
-// TODO Add sesskey check to edit - from my/index.php
+// TODO Add sesskey check to edit - from my/index.php & check works.
+$sesskey = optional_param('sesskey', null, PARAM_RAW);
+if ($sesskey !== null && confirm_sesskey($sesskey)) {
+    $sesskeyvalid = true;
+} else {
+    $sesskeyvalid = false;
+}
+
 $edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and off
 
 $PAGE->set_context(context_system::instance());
 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
 $url->param('pageid', $pageid);
 $PAGE->set_url($url, $url->params());
+$PAGE->set_other_editing_capability('moodle/course:update');
+$PAGE->set_docs_path('');
 
 $o = '';
 $sitepagetitle = 'sitepagetitle'.$pageid;
@@ -85,34 +94,33 @@ if (empty($ournode)) {
     $ournode = $ournode->add($PAGE->title, $url);
 
     // Toggle the editing state and switches
-    if ($PAGE->user_allowed_editing()) {
+    if (($sesskeyvalid) && ($PAGE->user_allowed_editing())) {
         if ($edit !== null) {             // Editing state was specified
             $USER->editing = $edit;       // Change editing state
             $context = context_user::instance($USER->id);
             $PAGE->set_context($context);
         }
-    } else {                          // Editing state is in session
-        if ($currentpage->userid) {   // It's a page we can edit, so load from session
-            if (!empty($USER->editing)) {
-                $edit = 1;
-            } else {
-                $edit = 0;
-            }
-        } else {                      // It's a system page and they are not allowed to edit system pages
-            $USER->editing = $edit = 0;          // Disable editing completely, just to be safe
+
+        if (!empty($USER->editing)) {
+            $edit = 1;
+        } else {
+            $edit = 0;
         }
-    }
 
-    // Add button for editing page
-    if (empty($edit)) {
-        $editstring = get_string('blocksediton');
-    } else {
-        $editstring = get_string('blockseditoff');
-    }
+        // Add button for editing page
+        if (empty($edit)) {
+            $editstring = get_string('blocksediton');
+        } else {
+            $editstring = get_string('blockseditoff');
+        }
 
-    $url->param('edit', !$edit);
-    $button = $OUTPUT->single_button($url, $editstring);
-    $PAGE->set_button($button);
+        $url->param('edit', !$edit);
+        $url->param('sesskey', sesskey());
+        $button = $OUTPUT->single_button($url, $editstring);
+        $PAGE->set_button($button);
+    } else {                          // Editing state is in session
+        $USER->editing = $edit = 0;          // Disable editing completely, just to be safe
+    }
 }
 
 $ournode->make_active();

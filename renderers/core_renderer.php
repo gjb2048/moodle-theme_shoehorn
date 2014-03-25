@@ -98,6 +98,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $numberofsitepages = (empty($this->page->theme->settings->numberofsitepages)) ? false : $this->page->theme->settings->numberofsitepages;
         if ($numberofsitepages) {
             $lang = current_language();
+            $sesskey = sesskey();
             for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
                 $sitepagetitle = 'sitepagetitle'.$sp;
                 if (!empty($this->page->theme->settings->$sitepagetitle)) {
@@ -105,6 +106,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                     if (empty($this->page->theme->settings->$sitepagelang) or ($this->page->theme->settings->$sitepagelang == $lang)) {
                         $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
                         $url->param('pageid', $sp);
+                        $url->param('sesskey', $sesskey);
                         $url = preg_replace('|^https?://|i', '//', $url->out(false));
                         $items[] .= html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
                     }
