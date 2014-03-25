@@ -192,3 +192,42 @@
 .container-fluid {
     max-width: none;
 }
+
+// question.less.
+.que .info,
+.path-mod-quiz .qnbutton { // mod_quiz style sheet.
+    background-color: @page-bottom-bg;
+    border: 1px solid darken(spin(@page-bottom-bg, -10), 7%);
+    border-radius: 4px;
+}
+
+// YUI.
+.yui-skin-sam .yui-panel {
+    color: @text-color;
+    background-color: @page-bottom-bg;
+    border: 1px solid darken(spin(@page-bottom-bg, -10), 7%);
+    border-radius: 4px;
+    border-color: @page-top-bg;
+}
+
+.yui-skin-sam .yui-panel .hd,
+.yui-skin-sam .yui-panel .bd,
+.yui-skin-sam .yui-panel .ft {
+    color: @text-color;
+    background-color: @page-bottom-bg;
+}
+
+.yui-skin-sam .yui-panel .ft {
+    border-radius: 0px 0px 4px 4px;
+}
+
+.yui-skin-sam .yui-panel .hd {
+    background: @navbar-default-bg;
+    border-color: @navbar-default-border;
+    border-radius: 4px;
+    border-bottom: solid 1px @page-top-bg;
+    margin-top: -1px;
+    padding-top: 1px;
+    margin-bottom: -2px;
+    padding-bottom: 2px;
+}
