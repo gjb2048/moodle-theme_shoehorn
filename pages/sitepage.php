@@ -39,10 +39,10 @@ if ($sesskey !== null && confirm_sesskey($sesskey)) {
 $edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and off
 
 $PAGE->set_context(context_system::instance());
-$url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-$url->param('sesskey', sesskey());
-$url->param('pageid', $pageid);
-$PAGE->set_url($url, $url->params());
+$thispageurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+$thispageurl->param('sesskey', sesskey());
+$thispageurl->param('pageid', $pageid);
+$PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_other_editing_capability('moodle/course:update');
 $PAGE->set_docs_path('');
 
@@ -84,16 +84,14 @@ $courseid = SITEID;
 $course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
 $PAGE->set_course($course);
 
-// Navigation.  See: http://docs.moodle.org/dev/Navigation_API.
-$ournode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
-if (empty($ournode)) {
-    // Not logged in....
-    $ournode = $PAGE->navigation->add($PAGE->title, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
+// Navigation.  See: http://docs.moodle.org/dev/Navigation_API
+$containernode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
+if (empty($containernode)) {
+    // Not logged in, so create a container....
+    $containernode = $PAGE->navigation->add(get_string('sitepagesheading', 'theme_shoehorn'), null, navigation_node::TYPE_CONTAINER);
     $USER->editing = $edit = 0;
 } else {
-    // Logged in, so add to site pages.... TODO: Add all site pages.
-    $ournode = $ournode->add($PAGE->title, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
-
+    // Logged in....
     // Toggle the editing state and switches
     if (($sesskeyvalid) && ($PAGE->user_allowed_editing())) {
         if ($edit !== null) {             // Editing state was specified
@@ -115,14 +113,14 @@ if (empty($ournode)) {
             $editstring = get_string('blockseditoff');
         }
 
-        $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-        $url->param('pageid', $pageid);
-        $url->param('edit', !$edit);
-        $url->param('sesskey', sesskey());
-        $button = $OUTPUT->single_button($url, $editstring);
+        $usernavurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+        $usernavurl->param('pageid', $pageid);
+        $usernavurl->param('edit', !$edit);
+        $usernavurl->param('sesskey', sesskey());
+        $button = $OUTPUT->single_button($usernavurl, $editstring);
         $PAGE->set_button($button);
 
-        $settingnode = $PAGE->settingsnav->add($editstring, $url, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
+        $settingnode = $PAGE->settingsnav->add($editstring, $usernavurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
         $settingnode->add_class('hasicon');
         $settingnode->remove_class('root_node');
         $settingnode->make_active();
@@ -131,10 +129,32 @@ if (empty($ournode)) {
     }
 }
 
-$ournode->make_active();
+// Add us and the other pages....
+$numberofsitepages = $settings->numberofsitepages;
+$lang = current_language();
+$oursesskey = sesskey();
+$loggedin = isloggedin();
+for ($sp = 1; $sp <= $settings->numberofsitepages; $sp++) {
+    $sitepagetitle = 'sitepagetitle'.$sp;
+    if (!empty($settings->$sitepagetitle)) {
+        $sitepagelang = 'sitepagelang'.$sp;
+        if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == $lang)) {
+            $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+            $navurl->param('pageid', $sp);
+            if ($loggedin) {
+                $navurl->param('sesskey', $oursesskey);
+            }
+            $ournode = $containernode->add($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$sp, 'moodle', null));
+            if ($pageid == $sp) {
+                // Us....
+                $ournode->make_active();
+            }
+        }
+    }
+}
 
 $PAGE->navbar->ignore_active();
-$PAGE->navbar->add($PAGE->title, $url);
+$PAGE->navbar->add($PAGE->title, $thispageurl);
 
 // Output.
 echo $OUTPUT->header();

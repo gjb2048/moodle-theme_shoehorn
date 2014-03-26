@@ -1773,6 +1773,7 @@ input[type="date"] {
 }
 .radio label,
 .checkbox label,
+.fcheckbox > span > label,
 .form-checkbox + label,
 .form-multicheckbox label,
 .unmask label {
@@ -9010,17 +9011,8 @@ span.editinstructions {
   width: 21px;
   height: 21px;
 }
-/**
- * Course management page
- * Palette
- *
- * Background (reg)         #f5f5f5
- * Background (light        #fafafa
- * Background (highlight)   #dfa
- * Borders                  #e1e1e8
- */
 #course-category-listings {
-  background-color: #fff;
+  background-color: transparent;
   margin-bottom: 200px;
   /** Two column layout */
   /** Three column layout */
@@ -9034,20 +9026,21 @@ span.editinstructions {
 }
 #course-category-listings > div > div {
   min-height: 300px;
-  border: 1px solid #e1e1e8;
+  border: 1px solid #c9e6ff;
 }
 #course-category-listings > div > div > ul.ml > li:first-child > div {
   border-top: 0;
 }
 #course-category-listings h3 {
   margin: 0;
-  padding: 0.4rem 0.6rem 0.3rem;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #e1e1e8;
+  padding: .4rem .6rem .3rem;
+  background-color: transparent;
+  color: #2d70c5;
+  border-bottom: 1px solid #dddddd;
 }
 #course-category-listings h4 {
   margin: 1rem 0 0;
-  padding: 0.6rem 1rem 0.5rem;
+  padding: .6rem 1rem .5rem;
 }
 #course-category-listings .moodle-actionmenu {
   white-space: nowrap;
@@ -9063,7 +9056,7 @@ span.editinstructions {
 }
 #course-category-listings .listing-actions {
   text-align: center;
-  padding: 0.4rem 0.3rem 0.3rem;
+  padding: .4rem .3rem .3rem;
   line-height: 2.2em;
 }
 #course-category-listings .listing-actions > .moodle-actionmenu {
@@ -9099,7 +9092,7 @@ span.editinstructions {
   line-height: 2.2em;
 }
 #course-category-listings li > div:hover {
-  background-color: #fafafa;
+  background-color: #c9e6ff;
 }
 #course-category-listings li .tree-icon {
   margin: 2px 6px 0 0;
@@ -9107,16 +9100,16 @@ span.editinstructions {
   vertical-align: inherit;
 }
 #course-category-listings li[data-selected='1'] > div {
-  background-color: #ffffd8;
-  border-top-color: #e1e1e8;
-  border-bottom-color: #f5f5f5;
+  background-color: #d9edf7;
+  border-top-color: #c9e6ff;
+  border-bottom-color: #c9e6ff;
 }
 #course-category-listings li[data-selected='1'] li:first-of-type > div,
 #course-category-listings li[data-selected='1'][data-expandable='0'] + li > div {
-  border-top-color: #e1e1e8;
+  border-top-color: #c9e6ff;
 }
 #course-category-listings li[data-selected='1']:last-of-type > div {
-  border-bottom-color: #e1e1e8;
+  border-bottom-color: #c9e6ff;
 }
 #course-category-listings li .tree-icon {
   margin-left: 0;
@@ -9144,7 +9137,7 @@ span.editinstructions {
 }
 #course-category-listings li + li > div,
 #course-category-listings li:first-child > div {
-  border-top-color: #f5f5f5;
+  border-top-color: #c9e6ff;
 }
 #course-category-listings .item-actions {
   margin-right: 1em;
@@ -9181,10 +9174,10 @@ span.editinstructions {
   display: inline;
 }
 #course-category-listings .listitem > div .without-actions {
-  color: #333;
+  color: #1f4d87;
 }
 #course-category-listings .listitem > div .idnumber {
-  color: #a1a1a8;
+  color: #1f4d87;
   margin-right: 2em;
 }
 #course-category-listings .listitem[data-visible="0"] {
@@ -9212,12 +9205,12 @@ span.editinstructions {
 #course-category-listings .listitem.highlight > div,
 #course-category-listings .listitem.highlight > div:hover,
 #course-category-listings .listitem.highlight[data-selected='1'] > div {
-  background-color: #dfa;
+  background-color: #dff0d8;
 }
 #course-category-listings #course-listing .listitem .categoryname {
   display: inline-block;
   margin-left: 1em;
-  color: #a1a1a8;
+  color: #1f4d87;
 }
 #course-category-listings #course-listing .listitem .coursename {
   display: inline-block;
@@ -9242,7 +9235,7 @@ span.editinstructions {
   padding-top: 2px;
 }
 #course-category-listings #category-listing .listitem.highlight > div > .ba-checkbox {
-  background-color: #dfa;
+  background-color: #dff0d8;
 }
 #course-category-listings #category-listing .listitem[data-selected='1'] > div > .ba-checkbox {
   margin: 0 0.5em 0 0;
@@ -9275,7 +9268,7 @@ span.editinstructions {
   position: relative;
 }
 #course-category-listings .detail-pair {
-  border-bottom: 1px solid #e1e1e8;
+  border-bottom: 1px solid #c9e6ff;
   margin: 0 1rem;
 }
 #course-category-listings .detail-pair > * {
@@ -9301,20 +9294,22 @@ span.editinstructions {
   text-align: center;
 }
 #course-category-listings .listing-pagination .yui3-button {
-  background-color: #fff;
+  background-color: #c9e6ff;
+  color: #1f4d87;
   border: 0;
-  margin: 0.4rem 0.2rem 0.45rem;
+  margin: .4rem .2rem .45rem;
   font-size: 10.4px;
 }
 #course-category-listings .listing-pagination .yui3-button.active-page {
-  background-color: #e5effd;
+  background-color: #1f4d87;
+  color: #ffffff;
 }
 #course-category-listings .listing-pagination-totals {
   text-align: center;
 }
 #course-category-listings .listing-pagination-totals.dimmed {
   color: #2965b0;
-  margin: 0.4rem 1rem 0.45rem;
+  margin: .4rem 1rem .45rem;
 }
 #course-category-listings .select-a-category .notifymessage,
 #course-category-listings .select-a-category .alert {
@@ -13370,6 +13365,14 @@ textarea.mform fieldset .fitem .felement input[type="password"] {
 .mform fieldset .fitem select[size] {
   height: auto;
 }
+.mform .fcontainer .fitem .felement.fduration input[type="text"],
+.mform fieldset .fitem .felement.fduration input[type="text"] {
+  min-width: 0;
+  width: 5em;
+  display: inline-block;
+}
+.mform .fcontainer .fitem .felement.fduration select,
+.mform fieldset .fitem .felement.fduration select,
 .mform .fcontainer .fitem .felement.fdate_selector select,
 .mform fieldset .fitem .felement.fdate_selector select,
 .mform .fcontainer .fitem .felement.fdate_time_selector select,
@@ -13378,16 +13381,22 @@ textarea.mform fieldset .fitem .felement input[type="password"] {
   display: inline-block;
   min-width: 60px;
 }
+.mform .fcontainer .fitem .felement.fduration select[size],
+.mform fieldset .fitem .felement.fduration select[size],
 .mform .fcontainer .fitem .felement.fdate_selector select[size],
 .mform fieldset .fitem .felement.fdate_selector select[size],
 .mform .fcontainer .fitem .felement.fdate_time_selector select[size],
 .mform fieldset .fitem .felement.fdate_time_selector select[size],
+.mform .fcontainer .fitem .felement.fduration select[multiple],
+.mform fieldset .fitem .felement.fduration select[multiple],
 .mform .fcontainer .fitem .felement.fdate_selector select[multiple],
 .mform fieldset .fitem .felement.fdate_selector select[multiple],
 .mform .fcontainer .fitem .felement.fdate_time_selector select[multiple],
 .mform fieldset .fitem .felement.fdate_time_selector select[multiple] {
   height: auto;
 }
+.mform .fcontainer .fitem .felement.fduration label,
+.mform fieldset .fitem .felement.fduration label,
 .mform .fcontainer .fitem .felement.fdate_selector label,
 .mform fieldset .fitem .felement.fdate_selector label,
 .mform .fcontainer .fitem .felement.fdate_time_selector label,
@@ -13619,6 +13628,7 @@ textarea.form-item .form-setting input[type="password"] {
 .form-setting .form-checkbox input {
   margin-top: 12px;
 }
+.fcheckbox > span > label,
 .form-checkbox + label,
 .form-multicheckbox label,
 .unmask label {
@@ -13652,6 +13662,18 @@ textarea.form-item .form-setting input[type="password"] {
   .mform .fcontainer .fitem .felement select {
     width: auto;
     min-width: 480px;
+  }
+  #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup {
+    font-size: 12px;
+  }
+  #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup .fitemtitle {
+    min-height: 3.5em;
+  }
+}
+@media (max-width: 991px) {
+  #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup {
+    float: none;
+    width: 100%;
   }
 }
 .mform .felement.fstatic,
