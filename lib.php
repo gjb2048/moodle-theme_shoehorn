@@ -131,20 +131,29 @@ function shoehorn_shown_sitepages() {
     $theme = theme_config::load('shoehorn');
 
     $numberofsitepages = (empty($theme->settings->numberofsitepages)) ? false : $theme->settings->numberofsitepages;
-    $loggedin = isloggedin();
     if ($numberofsitepages) {
+        $loggedin = isloggedin();
         $lang = current_language();
-        $sesskey = sesskey();
         for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
-            $sitepagetitle = 'sitepagetitle'.$sp;
-            if (!empty($theme->settings->$sitepagetitle)) {
-                $sitepagelang = 'sitepagelang'.$sp;
-                if (empty($theme->settings->$sitepagelang) or ($theme->settings->$sitepagelang == 'all') or ($theme->settings->$sitepagelang == $lang)) {
-                    // Page can be shown.
-                    $pages[$sp] = 2;
-                } else {
-                    // Page cannot be shown.
-                    $pages[$sp] = 1;
+            $sitepagestatus = 'sitepagestatus'.$sp;
+            if (empty($theme->settings->$sitepagestatus) or ($theme->settings->$sitepagestatus == 2)) { // 2 is published.
+                $sitepagetitle = 'sitepagetitle'.$sp;
+                if (!empty($theme->settings->$sitepagetitle)) {
+                    $sitepagedisplay = 'sitepagedisplay'.$sp;
+                    if (empty($theme->settings->$sitepagedisplay)
+                        or ($theme->settings->$sitepagedisplay == 3) // Always 
+                        or (($theme->settings->$sitepagedisplay == 1) and ($loggedin == false)) // Logged out.
+                        or (($theme->settings->$sitepagedisplay == 2) and ($loggedin == true)) // Logged in.
+                    ) {
+                        $sitepagelang = 'sitepagelang'.$sp;
+                        if (empty($theme->settings->$sitepagelang) or ($theme->settings->$sitepagelang == 'all') or ($theme->settings->$sitepagelang == $lang)) {
+                            // Page can be shown.
+                            $pages[$sp] = 2;
+                        } else {
+                            // Page cannot be shown.
+                            $pages[$sp] = 1;
+                        }
+                    }
                 }
             }
         }
@@ -186,12 +195,11 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
 
 function shoehorn_social_footer($settings) {
     $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
-
     $haveicons = false;
     if ($numberofsociallinks) {
-        for ($i = 1; $i <= $numberofsociallinks; $i++) {
-            $name = 'social'.$i;
-            if (!empty($PAGE->theme->settings->$name)) {
+        for ($sli = 1; $sli <= $numberofsociallinks; $sli++) {
+            $name = 'social'.$sli;
+            if (!empty($settings->$name)) {
                 $haveicons = true;
                 break;
             }
@@ -207,6 +215,7 @@ function shoehorn_social_footer($settings) {
         $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre;
     } else {
         $cols['side'] = 'col-sm-6 col-md-6 col-lg-6';
+        $cols['centre'] = '';
     }
 
     return $cols;

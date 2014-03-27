@@ -188,18 +188,20 @@ defined('MOODLE_INTERNAL') || die;
 
     $numberofslides = get_config('theme_shoehorn', 'frontpagenumberofslides');
     for ($i = 1; $i <= $numberofslides; $i++) {
+        $slidersettings->add(new admin_setting_heading('theme_shoehorn_frontpageslidet_heading'.$i, get_string('frontpageslidersettingspageheading', 'theme_shoehorn', array('slide' => $i)), null));
+
         // Image.
         $name = 'theme_shoehorn/frontpageslideimage'.$i;
-        $title = get_string('frontpageslideimage', 'theme_shoehorn').$i;
-        $description = get_string('frontpageslideimage_desc', 'theme_shoehorn').$i;
+        $title = get_string('frontpageslideimage', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslideimage_desc', 'theme_shoehorn', array('slide' => $i));
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'frontpageslideimage'.$i);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
 
         // URL.
         $name = 'theme_shoehorn/frontpageslideurl'.$i;
-        $title = get_string('frontpageslideurl', 'theme_shoehorn').$i;
-        $description = get_string('frontpageslideurl_desc', 'theme_shoehorn').$i;
+        $title = get_string('frontpageslideurl', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslideurl_desc', 'theme_shoehorn', array('slide' => $i));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -207,8 +209,8 @@ defined('MOODLE_INTERNAL') || die;
 
         // Caption title.
         $name = 'theme_shoehorn/frontpageslidecaptiontitle'.$i;
-        $title = get_string('frontpageslidecaptiontitle', 'theme_shoehorn').$i;
-        $description = get_string('frontpageslidecaptiontitle_desc', 'theme_shoehorn').$i;
+        $title = get_string('frontpageslidecaptiontitle', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslidecaptiontitle_desc', 'theme_shoehorn', array('slide' => $i));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -216,8 +218,8 @@ defined('MOODLE_INTERNAL') || die;
 
         // Caption text.
         $name = 'theme_shoehorn/frontpageslidecaptiontext'.$i;
-        $title = get_string('frontpageslidecaptiontext', 'theme_shoehorn').$i;
-        $description = get_string('frontpageslidecaptiontext_desc', 'theme_shoehorn').$i;
+        $title = get_string('frontpageslidecaptiontext', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslidecaptiontext_desc', 'theme_shoehorn', array('slide' => $i));
         $default = '';
         $setting = new admin_setting_configtextarea($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -261,7 +263,7 @@ defined('MOODLE_INTERNAL') || die;
     for ($i = 1; $i <= $numberofimagebankimages; $i++) {
         $name = 'imagebankimage'.$i;
         $settingname = 'theme_shoehorn/'.$name;
-        $title = get_string('imagebankimage','theme_shoehorn');
+        $title = get_string('imagebankimage','theme_shoehorn').$i;
         if (empty($theme->settings->$name)) {
             $imagedesc = get_string('none', 'theme_shoehorn');
         } else {
@@ -298,6 +300,8 @@ defined('MOODLE_INTERNAL') || die;
 
     $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
+        $marketingspotssettings->add(new admin_setting_heading('theme_shoehorn_marketingspot_heading'.$i, get_string('marketingspotsettingspageheading', 'theme_shoehorn', array('spot' => $i)), null));
+
         // Marketing spot heading.
         $name = 'theme_shoehorn/marketingspotheading'.$i;
         $title = get_string('marketingspotheading', 'theme_shoehorn', array('spot' => $i));
@@ -317,9 +321,9 @@ defined('MOODLE_INTERNAL') || die;
         $marketingspotssettings->add($setting);
 
         // Status.
-        $name = 'theme_shoehorn/marketingspotsstatus'.$i;
-        $title = get_string('marketingspotsstatus', 'theme_shoehorn', array('spot' => $i));
-        $description = get_string('marketingspotsstatus_desc', 'theme_shoehorn');
+        $name = 'theme_shoehorn/marketingspotstatus'.$i;
+        $title = get_string('marketingspotstatus', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotstatus_desc', 'theme_shoehorn');
         $default = 1;
         $choices = array(
             1 => new lang_string('draft', 'theme_shoehorn'),
@@ -328,9 +332,9 @@ defined('MOODLE_INTERNAL') || die;
         $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
         // Display.
-        $name = 'theme_shoehorn/marketingspotsdisplay'.$i;
-        $title = get_string('marketingspotsdisplay', 'theme_shoehorn', array('spot' => $i));
-        $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn', array('spot' => $i));
+        $name = 'theme_shoehorn/marketingspotdisplay'.$i;
+        $title = get_string('marketingspotdisplay', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotdisplay_desc', 'theme_shoehorn', array('spot' => $i));
         $default = 3;
         $choices = array(
             1 => new lang_string('loggedout', 'theme_shoehorn'),
@@ -384,10 +388,12 @@ defined('MOODLE_INTERNAL') || die;
 
     $numberofsitepages = get_config('theme_shoehorn', 'numberofsitepages');
     for ($i = 1; $i <= $numberofsitepages; $i++) {
+        $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepage_heading'.$i, get_string('sitepagesettingspageheading', 'theme_shoehorn', array('pageid' => $i)), null));
+
         // Site page title.
         $name = 'theme_shoehorn/sitepagetitle'.$i;
-        $title = get_string('sitepagetitle', 'theme_shoehorn').$i;
-        $description = get_string('sitepagetitle_desc', 'theme_shoehorn').$i;
+        $title = get_string('sitepagetitle', 'theme_shoehorn', array('pageid' => $i));
+        $description = get_string('sitepagetitle_desc', 'theme_shoehorn', array('pageid' => $i));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -395,8 +401,8 @@ defined('MOODLE_INTERNAL') || die;
 
         // Site page heading.
         $name = 'theme_shoehorn/sitepageheading'.$i;
-        $title = get_string('sitepageheading', 'theme_shoehorn').$i;
-        $description = get_string('sitepageheading_desc', 'theme_shoehorn').$i;
+        $title = get_string('sitepageheading', 'theme_shoehorn', array('pageid' => $i));
+        $description = get_string('sitepageheading_desc', 'theme_shoehorn', array('pageid' => $i));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -404,16 +410,39 @@ defined('MOODLE_INTERNAL') || die;
 
         // Site page content.
         $name = 'theme_shoehorn/sitepagecontent'.$i;
-        $title = get_string('sitepagecontent', 'theme_shoehorn').$i;
-        $description = get_string('sitepagecontent_desc', 'theme_shoehorn').$i;
+        $title = get_string('sitepagecontent', 'theme_shoehorn', array('pageid' => $i));
+        $description = get_string('sitepagecontent_desc', 'theme_shoehorn', array('pageid' => $i));
         $default = '';
         $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
 
+        // Status.
+        $name = 'theme_shoehorn/sitepagestatus'.$i;
+        $title = get_string('sitepagestatus', 'theme_shoehorn', array('pageid' => $i));
+        $description = get_string('sitepagestatus_desc', 'theme_shoehorn');
+        $default = 1;
+        $choices = array(
+            1 => new lang_string('draft', 'theme_shoehorn'),
+            2 => new lang_string('published', 'theme_shoehorn')
+        );
+        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+        // Display.
+        $name = 'theme_shoehorn/sitepagedisplay'.$i;
+        $title = get_string('sitepagedisplay', 'theme_shoehorn', array('pageid' => $i));
+        $description = get_string('sitepagedisplay_desc', 'theme_shoehorn', array('pageid' => $i));
+        $default = 3;
+        $choices = array(
+            1 => new lang_string('loggedout', 'theme_shoehorn'),
+            2 => new lang_string('loggedin', 'theme_shoehorn'),
+            3 => new lang_string('always', 'theme_shoehorn')
+        );
+        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
         // Site page language only.
         $name = 'theme_shoehorn/sitepagelang'.$i;
-        $title = get_string('sitepagelang', 'theme_shoehorn').$i;
+        $title = get_string('sitepagelang', 'theme_shoehorn', array('pageid' => $i));
         $description = get_string('sitepagelang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
                        'href' => $langpackurl, 'target' => '_blank'))));
         $default = 'all';

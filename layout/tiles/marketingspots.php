@@ -49,9 +49,9 @@ if ($numberofmarketingspots) {
     $lang = current_language();
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
-        $marketingspotstatus = 'marketingspotsstatus'.$ms;
+        $marketingspotstatus = 'marketingspotstatus'.$ms;
         if (empty($PAGE->theme->settings->$marketingspotstatus) or ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
-            $marketingspotdisplay = 'marketingspotsdisplay'.$ms;
+            $marketingspotdisplay = 'marketingspotdisplay'.$ms;
             if (empty($PAGE->theme->settings->$marketingspotdisplay)
                 or ($PAGE->theme->settings->$marketingspotdisplay == 3) // Always 
                 or (($PAGE->theme->settings->$marketingspotdisplay == 1) and ($loggedin == false)) // Logged out.
