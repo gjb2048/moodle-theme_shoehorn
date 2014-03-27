@@ -267,7 +267,7 @@ defined('MOODLE_INTERNAL') || die;
         } else {
             $imagedesc = $theme->setting_file_url($name, $name);
         }
-        $description = get_string('imagebankimage_desc', 'theme_shoehorn').$imagedesc.get_string('imagebankimage_desc2', 'theme_shoehorn');
+        $description = get_string('imagebankimage_desc', 'theme_shoehorn', array('imagedesc' => $imagedesc));
         $setting = new admin_setting_configstoredfile($settingname, $title, $description, $name);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $imagebanksettings->add($setting);
@@ -305,6 +305,7 @@ defined('MOODLE_INTERNAL') || die;
     $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
     $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
+    $langpackurl = new moodle_url('/admin/tool/langimport/index.php');
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
         // Marketing spot heading.
         $name = 'theme_shoehorn/marketingspotheading'.$i;
@@ -327,10 +328,8 @@ defined('MOODLE_INTERNAL') || die;
         // Marketing spot language only.
         $name = 'theme_shoehorn/marketingspotlang'.$i;
         $title = get_string('marketingspotlang', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotlang_desc', 'theme_shoehorn').$i.get_string('marketingspotlang_desc2', 'theme_shoehorn')
-                       .html_writer::tag('a', get_string('marketingspotlang_urlname', 'theme_shoehorn'), array(
-                       'href' => get_string('marketingspotlang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
-                       .get_string('marketingspotlang_desc3', 'theme_shoehorn');
+        $description = get_string('marketingspotlang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
+                       'href' => $langpackurl, 'target' => '_blank'))));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -401,10 +400,8 @@ defined('MOODLE_INTERNAL') || die;
         // Site page language only.
         $name = 'theme_shoehorn/sitepagelang'.$i;
         $title = get_string('sitepagelang', 'theme_shoehorn').$i;
-        $description = get_string('sitepagelang_desc', 'theme_shoehorn').$i.get_string('sitepagelang_desc2', 'theme_shoehorn')
-                       .html_writer::tag('a', get_string('sitepagelang_urlname', 'theme_shoehorn'), array(
-                       'href' => get_string('sitepagelang_urllink', 'theme_shoehorn'), 'target' => '_blank'))
-                       .get_string('sitepagelang_desc3', 'theme_shoehorn');
+        $description = get_string('sitepagelang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
+                       'href' => $langpackurl, 'target' => '_blank'))));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
         $setting->set_updatedcallback('theme_reset_all_caches');

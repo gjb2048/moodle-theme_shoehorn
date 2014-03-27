@@ -121,6 +121,9 @@ $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be
 $string['loginpage']= 'Login page';
 $string['loginpage_desc']= 'Login page settings.';
 
+// Settings.
+$string['langpack_urlname'] = 'Language packs';
+
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
 $string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
@@ -149,8 +152,7 @@ $string['imagebankheading'] = 'Image bank';
 $string['imagebankheadingsub'] = 'Use images anywhere by using the image bank.';
 $string['imagebankheadingdesc'] = "To change the number of available images in the image bank change the 'Number of images in the image bank' below and save the page to update.";
 $string['imagebankimage'] = 'Image ';
-$string['imagebankimage_desc'] = "Image URL to copy: '";
-$string['imagebankimage_desc2'] = "' and use, i.e. insert in an HTML editor.";
+$string['imagebankimage_desc'] = 'Image URL to copy: \'{$a->imagedesc}\' and use, i.e. insert in an HTML editor.';
 $string['none'] = 'none';
 
 
@@ -171,11 +173,7 @@ $string['marketingspotheading_desc'] = 'Marketing spot heading number ';
 $string['marketingspotcontent'] = 'Marketing spot content ';
 $string['marketingspotcontent_desc'] = 'Marketing spot content number ';
 $string['marketingspotlang'] = 'Marketing spot language ';
-$string['marketingspotlang_desc'] = 'Marketing spot language number ';
-$string['marketingspotlang_desc2'] = ".  Enter language pack code for an installed language pack, the text within the brackets on '";
-$string['marketingspotlang_desc3'] = "'.  Leave blank for all languages.";
-$string['marketingspotlang_urlname'] = 'Language packs';
-$string['marketingspotlang_urllink'] = '/admin/tool/langimport/index.php';
+$string['marketingspotlang_desc'] = 'Marketing spot language number {$a->pageid}.  Enter language pack code for an installed language pack, the text within the brackets on \'{$a->url}\'.  Leave blank for all languages.';
 
 // Site pages.
 $string['sitepage'] = 'Site page '; // Used in sitepage.php.
@@ -191,19 +189,13 @@ $string['sitepageheading_desc'] = 'Site page heading number ';
 $string['sitepagecontent'] = 'Site page content ';
 $string['sitepagecontent_desc'] = 'Site page content number ';
 $string['sitepagelang'] = 'Site page language ';
-$string['sitepagelang_desc'] = 'Site page language number ';
-$string['sitepagelang_desc2'] = ".  Enter language pack code for an installed language pack, the text within the brackets on '";
-$string['sitepagelang_desc3'] = "'.  Leave blank for all languages.";
+$string['sitepagelang_desc'] = 'Site page language number {$a->pageid}.  Enter language pack code for an installed language pack, the text within the brackets on \'{$a->url}\'.  Leave blank for all languages.';
 $string['sitepagelang_urlname'] = 'Language packs';
-$string['sitepagelang_urllink'] = '/admin/tool/langimport/index.php';
 
 $string['unknownsitepage'] = 'Unknown site page number ';
-$string['unknownsitepagecontent1'] = 'Site page number ';
-$string['unknownsitepagecontent2'] = ' is not known, ask an an administrator to check the settings for the theme.';
-$string['pagenotforlanguagetitle1'] = 'Site page number ';
-$string['pagenotforlanguagetitle2'] = ' not for language';
-$string['pagenotforlanguagecontent1'] = 'Site page number ';
-$string['pagenotforlanguagecontent2'] = ' has not been set for the current language, ask an an administrator to check the settings for the theme.';
+$string['unknownsitepagecontent'] = 'Site page number {$a->pageid} is not known, ask an an administrator to check the settings for the theme.';
+$string['pagenotforlanguagetitle'] = 'Site page number {$a->pageid} not for language';
+$string['pagenotforlanguagecontent'] = 'Site page number {$a->pageid} has not been set for the current language, ask an an administrator to check the settings for the theme.';
 
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';

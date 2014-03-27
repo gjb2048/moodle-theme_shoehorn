@@ -65,18 +65,18 @@ if (!empty($settings->$sitepagetitle)) {
         $sitepagecontent = 'sitepagecontent'.$pageid;
         $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
     } else {
-        $text = get_string('pagenotforlanguagetitle1', 'theme_shoehorn').$pageid.get_string('pagenotforlanguagetitle2', 'theme_shoehorn');
+        $text = get_string('pagenotforlanguagetitle', 'theme_shoehorn', array('pageid' => $pageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
         $PAGE->set_pagelayout('page');
-        $o .= html_writer::tag('h3', get_string('pagenotforlanguagecontent1', 'theme_shoehorn').$pageid.get_string('pagenotforlanguagecontent2', 'theme_shoehorn'), array('class' => 'panel panel-warning'));
+        $o .= html_writer::tag('h3', get_string('pagenotforlanguagecontent', 'theme_shoehorn', array('pageid' => $pageid)), array('class' => 'panel panel-warning'));
     }
 } else {
     $text = get_string('unknownsitepage', 'theme_shoehorn').$pageid;
     $PAGE->set_title($text);
     $PAGE->set_heading($text);
     $PAGE->set_pagelayout('page');
-    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent1', 'theme_shoehorn').$pageid.get_string('unknownsitepagecontent2', 'theme_shoehorn'), array('class' => 'panel panel-warning'));
+    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn', array('pageid' => $pageid)), array('class' => 'panel panel-warning'));
 }
 
 $courseid = SITEID;
