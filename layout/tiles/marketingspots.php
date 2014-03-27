@@ -25,6 +25,7 @@
  */
 
 $numberofmarketingspots = (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
+$loggedin = isloggedin();
 $marketingspotsdisplay = (empty($PAGE->theme->settings->marketingspotsdisplay)) ? 4 : $PAGE->theme->settings->marketingspotsdisplay;
 
 // Decide on showing the marketing spots.  If so, then the number will still need to be greater than zero.
@@ -48,14 +49,24 @@ if ($numberofmarketingspots) {
     $lang = current_language();
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
-        $marketingspotlang = 'marketingspotlang'.$ms;
-        if (empty($PAGE->theme->settings->$marketingspotlang) or ($PAGE->theme->settings->$marketingspotlang == 'all') or ($PAGE->theme->settings->$marketingspotlang == $lang)) {
-            // Show the marketing spot.
-            $marketingspotheading = 'marketingspotheading'.$ms;
-            $marketingspotcontent = 'marketingspotcontent'.$ms;
-            $themarketingspot = html_writer::tag('h2', $PAGE->theme->settings->$marketingspotheading);
-            $themarketingspot .= html_writer::tag('div', $PAGE->theme->settings->$marketingspotcontent);
-            $marketingspots[] = $themarketingspot;
+        $marketingspotstatus = 'marketingspotsstatus'.$ms;
+        if (empty($PAGE->theme->settings->$marketingspotstatus) or ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
+            $marketingspotdisplay = 'marketingspotsdisplay'.$ms;
+            if (empty($PAGE->theme->settings->$marketingspotdisplay)
+                or ($PAGE->theme->settings->$marketingspotdisplay == 3) // Always 
+                or (($PAGE->theme->settings->$marketingspotdisplay == 1) and ($loggedin == false)) // Logged out.
+                or (($PAGE->theme->settings->$marketingspotdisplay == 2) and ($loggedin == true)) // Logged in.
+            ) {
+                $marketingspotlang = 'marketingspotlang'.$ms;
+                if (empty($PAGE->theme->settings->$marketingspotlang) or ($PAGE->theme->settings->$marketingspotlang == 'all') or ($PAGE->theme->settings->$marketingspotlang == $lang)) {
+                    // Show the marketing spot.
+                    $marketingspotheading = 'marketingspotheading'.$ms;
+                    $marketingspotcontent = 'marketingspotcontent'.$ms;
+                    $themarketingspot = html_writer::tag('h2', $PAGE->theme->settings->$marketingspotheading);
+                    $themarketingspot .= html_writer::tag('div', $PAGE->theme->settings->$marketingspotcontent);
+                    $marketingspots[] = $themarketingspot;
+                }
+            }
         }
     }
     $mscount = count($marketingspots);

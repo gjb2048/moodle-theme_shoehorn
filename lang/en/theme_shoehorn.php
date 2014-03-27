@@ -123,6 +123,13 @@ $string['loginpage_desc']= 'Login page settings.';
 
 // Settings.
 $string['langpack_urlname'] = 'Language packs';
+// Status:....
+$string['draft'] = 'Draft';
+$string['published'] = 'Published';
+// Display:....
+$string['loggedout'] = 'Logged out';
+$string['loggedin'] = 'Logged in';
+$string['always'] = 'Always';
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
@@ -155,24 +162,21 @@ $string['imagebankimage'] = 'Image ';
 $string['imagebankimage_desc'] = 'Image URL to copy: \'{$a->imagedesc}\' and use, i.e. insert in an HTML editor.';
 $string['none'] = 'none';
 
-
 // Marketing spots.
 $string['numberofmarketingspots'] = 'Number of marketing spots';
 $string['numberofmarketingspots_desc'] = 'Number of marketing spots you want to add.';
 $string['marketingspotsheading'] = 'Marketing spots';
 $string['marketingspotsheadingsub'] = 'Advertise your site with marketing spots';
 $string['marketingspotsheadingdesc'] = "To change the number of marketing spots change the 'Number of marketing spots' below and save the page to update.";
-$string['marketingspotsdisplay'] = 'Display marketing spots';
-$string['marketingspotsdisplay_desc'] = 'When to display marketing spots.';
-$string['marketingspotsdisplaynever'] = 'Never';
-$string['marketingspotsdisplayloggedout'] = 'Logged out';
-$string['marketingspotsdisplaylogdedin'] = 'Logged in';
-$string['marketingspotsdisplayalways'] = 'Always';
-$string['marketingspotheading'] = 'Marketing spot heading ';
-$string['marketingspotheading_desc'] = 'Marketing spot heading number ';
-$string['marketingspotcontent'] = 'Marketing spot content ';
-$string['marketingspotcontent_desc'] = 'Marketing spot content number ';
-$string['marketingspotlang'] = 'Marketing spot language ';
+$string['marketingspotsstatus'] = 'Marketing spot {$a->spot} status';
+$string['marketingspotsstatus_desc'] = 'Set to \'Draft\' when you are creating the spot and \'Published\' when you want it to be seen taking into account the display and langauge settings.';
+$string['marketingspotsdisplay'] = 'Marketing spot {$a->spot} status';
+$string['marketingspotsdisplay_desc'] = 'When to display marketing spot {$a->spot}.';
+$string['marketingspotheading'] = 'Marketing spot {$a->spot} heading';
+$string['marketingspotheading_desc'] = 'Marketing spot number {$a->spot} heading.';
+$string['marketingspotcontent'] = 'Marketing spot {$a->spot} content';
+$string['marketingspotcontent_desc'] = 'Marketing spot number {$a->spot} content.';
+$string['marketingspotlang'] = 'Marketing spot {$a->spot} language';
 $string['marketingspotlang_desc'] = 'Marketing spot language number {$a->pageid}.  Enter language pack code for an installed language pack, the text within the brackets on \'{$a->url}\'.  Leave blank for all languages.';
 
 // Site pages.

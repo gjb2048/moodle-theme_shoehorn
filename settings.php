@@ -296,24 +296,12 @@ defined('MOODLE_INTERNAL') || die;
             format_text(get_string('marketingspotsheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
-    $name = 'theme_shoehorn/marketingspotsdisplay';
-    $title = get_string('marketingspotsdisplay', 'theme_shoehorn');
-    $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn');
-    $default = 2;
-    $choices = array(
-        1 => new lang_string('marketingspotsdisplaynever', 'theme_shoehorn'),
-        2 => new lang_string('marketingspotsdisplayloggedout', 'theme_shoehorn'),
-        3 => new lang_string('marketingspotsdisplaylogdedin', 'theme_shoehorn'),
-        4 => new lang_string('marketingspotsdisplayalways', 'theme_shoehorn')
-    );
-    $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
-
     $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
         // Marketing spot heading.
         $name = 'theme_shoehorn/marketingspotheading'.$i;
-        $title = get_string('marketingspotheading', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotheading_desc', 'theme_shoehorn').$i;
+        $title = get_string('marketingspotheading', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotheading_desc', 'theme_shoehorn', array('spot' => $i));
         $default = '';
         $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -321,16 +309,39 @@ defined('MOODLE_INTERNAL') || die;
 
         // Marketing spot content.
         $name = 'theme_shoehorn/marketingspotcontent'.$i;
-        $title = get_string('marketingspotcontent', 'theme_shoehorn').$i;
-        $description = get_string('marketingspotcontent_desc', 'theme_shoehorn').$i;
+        $title = get_string('marketingspotcontent', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotcontent_desc', 'theme_shoehorn', array('spot' => $i));
         $default = '';
         $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $marketingspotssettings->add($setting);
 
+        // Status.
+        $name = 'theme_shoehorn/marketingspotsstatus'.$i;
+        $title = get_string('marketingspotsstatus', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotsstatus_desc', 'theme_shoehorn');
+        $default = 1;
+        $choices = array(
+            1 => new lang_string('draft', 'theme_shoehorn'),
+            2 => new lang_string('published', 'theme_shoehorn')
+        );
+        $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+        // Display.
+        $name = 'theme_shoehorn/marketingspotsdisplay'.$i;
+        $title = get_string('marketingspotsdisplay', 'theme_shoehorn', array('spot' => $i));
+        $description = get_string('marketingspotsdisplay_desc', 'theme_shoehorn', array('spot' => $i));
+        $default = 3;
+        $choices = array(
+            1 => new lang_string('loggedout', 'theme_shoehorn'),
+            2 => new lang_string('loggedin', 'theme_shoehorn'),
+            3 => new lang_string('always', 'theme_shoehorn')
+        );
+        $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
         // Marketing spot language only.
         $name = 'theme_shoehorn/marketingspotlang'.$i;
-        $title = get_string('marketingspotlang', 'theme_shoehorn').$i;
+        $title = get_string('marketingspotlang', 'theme_shoehorn', array('spot' => $i));
         $description = get_string('marketingspotlang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
                        'href' => $langpackurl, 'target' => '_blank'))));
         $default = 'all';
