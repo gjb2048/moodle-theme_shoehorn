@@ -46,9 +46,11 @@ $thispageurl->param('pageid', $ourpageid);
 $PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_other_editing_capability('moodle/course:update');
 $PAGE->set_docs_path('');
+$PAGE->set_pagelayout('page');
 
 $o = '';
 $pages = shoehorn_shown_sitepages(); // lib.php.
+$loggedin = isloggedin();
 
 $theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
 $settings = $theme->settings;
@@ -60,8 +62,6 @@ if (array_key_exists($ourpageid, $pages)) {
         $sitepageheading = 'sitepageheading'.$ourpageid;
         $PAGE->set_heading($settings->$sitepageheading);
 
-        $PAGE->set_pagelayout('page');
-
         // Content.
         $sitepagecontent = 'sitepagecontent'.$ourpageid;
         $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
@@ -69,27 +69,23 @@ if (array_key_exists($ourpageid, $pages)) {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
-        $PAGE->set_pagelayout('page');
         $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     }
 } else {
     $text = get_string('unknownsitepage', 'theme_shoehorn').$ourpageid;
     $PAGE->set_title($text);
     $PAGE->set_heading($text);
-    $PAGE->set_pagelayout('page');
     $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
 }
 
 $courseid = SITEID;
 /// locate course information
-$course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
-$PAGE->set_course($course);
+//$course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
+//$PAGE->set_course($course);
 
 // Navigation.  See: http://docs.moodle.org/dev/Navigation_API
-$containernode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
-if (empty($containernode)) {
+if (!$loggedin) {
     // Not logged in, so create a container....
-    $containernode = $PAGE->navigation->add(get_string('sitepagesheading', 'theme_shoehorn'), null, navigation_node::TYPE_CONTAINER);
     $USER->editing = $edit = 0;
 } else {
     // Logged in....
@@ -121,7 +117,8 @@ if (empty($containernode)) {
         $button = $OUTPUT->single_button($usernavurl, $editstring);
         $PAGE->set_button($button);
 
-        $settingnode = $PAGE->settingsnav->add($editstring, $usernavurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
+        $settingnode = $PAGE->settingsnav->create($editstring, $usernavurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
+        $PAGE->settingsnav->add_node($settingnode, $PAGE->settingsnav->get_children_key_list()[0]);  // Add the node before the current first.
         $settingnode->add_class('hasicon');
         $settingnode->remove_class('root_node');
         $settingnode->make_active();
@@ -131,9 +128,25 @@ if (empty($containernode)) {
 }
 
 // Add us and the other pages....
+$containernode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
+if (empty($containernode)) {
+    $containernode = $PAGE->navigation->create(get_string('sitepagesheading', 'theme_shoehorn'), null, navigation_node::TYPE_CONTAINER);
+    $children = $PAGE->navigation->get_children_key_list();
+    if (empty($children)) {
+        $beforekey = null;
+    } else {
+        $beforekey = $children[0];
+    }
+    $PAGE->navigation->add_node($containernode, $beforekey);
+}
+$children = $containernode->get_children_key_list();
+if (empty($children)) {
+    $beforekey = null;
+} else {
+    $beforekey = $children[0];
+}
 $lang = current_language();
 $oursesskey = sesskey();
-$loggedin = isloggedin();
 foreach($pages as $pageid => $status) {
     if ($status == 2) {
         $sitepagetitle = 'sitepagetitle'.$pageid;
@@ -142,7 +155,8 @@ foreach($pages as $pageid => $status) {
         if ($loggedin) {
             $navurl->param('sesskey', $oursesskey);
         }
-        $ournode = $containernode->add($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
+        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
+        $containernode->add_node($ournode, $beforekey);
         if ($pageid == $ourpageid) {
             // Us....
             $ournode->make_active();
