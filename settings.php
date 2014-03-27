@@ -274,6 +274,10 @@ defined('MOODLE_INTERNAL') || die;
     }
     $ADMIN->add('theme_shoehorn', $imagebanksettings);
 
+    // Language variables for settings....
+    $langpackurl = new moodle_url('/admin/tool/langimport/index.php');
+    $langsinstalled = array_merge(array('all' => get_string('all')), get_string_manager()->get_list_of_translations());
+
     // Marketing spots....
     // Number of marketing spots.
     $name = 'theme_shoehorn/numberofmarketingspots';
@@ -305,7 +309,6 @@ defined('MOODLE_INTERNAL') || die;
     $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
     $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
-    $langpackurl = new moodle_url('/admin/tool/langimport/index.php');
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
         // Marketing spot heading.
         $name = 'theme_shoehorn/marketingspotheading'.$i;
@@ -330,8 +333,8 @@ defined('MOODLE_INTERNAL') || die;
         $title = get_string('marketingspotlang', 'theme_shoehorn').$i;
         $description = get_string('marketingspotlang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
                        'href' => $langpackurl, 'target' => '_blank'))));
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
+        $default = 'all';
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $marketingspotssettings->add($setting);
     }
@@ -402,8 +405,8 @@ defined('MOODLE_INTERNAL') || die;
         $title = get_string('sitepagelang', 'theme_shoehorn').$i;
         $description = get_string('sitepagelang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
                        'href' => $langpackurl, 'target' => '_blank'))));
-        $default = '';
-        $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_LANG);
+        $default = 'all';
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
     }

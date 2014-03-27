@@ -104,7 +104,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 $sitepagetitle = 'sitepagetitle'.$sp;
                 if (!empty($this->page->theme->settings->$sitepagetitle)) {
                     $sitepagelang = 'sitepagelang'.$sp;
-                    if (empty($this->page->theme->settings->$sitepagelang) or ($this->page->theme->settings->$sitepagelang == $lang)) {
+                    if (empty($this->page->theme->settings->$sitepagelang) or ($this->page->theme->settings->$sitepagelang == 'all') or ($this->page->theme->settings->$sitepagelang == $lang)) {
                         $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
                         $url->param('pageid', $sp);
                         if ($loggedin) {

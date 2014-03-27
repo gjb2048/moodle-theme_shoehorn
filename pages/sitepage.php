@@ -53,7 +53,7 @@ $settings = $theme->settings;
 if (!empty($settings->$sitepagetitle)) {
     $lang = current_language();
     $sitepagelang = 'sitepagelang'.$pageid;
-    if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == $lang)) {
+    if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == 'all') or ($settings->$sitepagelang == $lang)) {
         $PAGE->set_title($settings->$sitepagetitle);
 
         $sitepageheading = 'sitepageheading'.$pageid;
@@ -138,7 +138,7 @@ for ($sp = 1; $sp <= $settings->numberofsitepages; $sp++) {
     $sitepagetitle = 'sitepagetitle'.$sp;
     if (!empty($settings->$sitepagetitle)) {
         $sitepagelang = 'sitepagelang'.$sp;
-        if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == $lang)) {
+        if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == 'all') or ($settings->$sitepagelang == $lang)) {
             $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
             $navurl->param('pageid', $sp);
             if ($loggedin) {

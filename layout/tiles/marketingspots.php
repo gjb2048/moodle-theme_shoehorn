@@ -49,9 +49,7 @@ if ($numberofmarketingspots) {
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
         $marketingspotlang = 'marketingspotlang'.$ms;
-        if (!empty($PAGE->theme->settings->$marketingspotlang) and ($lang != $PAGE->theme->settings->$marketingspotlang)) {
-            continue;
-        } else {
+        if (empty($PAGE->theme->settings->$marketingspotlang) or ($PAGE->theme->settings->$marketingspotlang == 'all') or ($PAGE->theme->settings->$marketingspotlang == $lang)) {
             // Show the marketing spot.
             $marketingspotheading = 'marketingspotheading'.$ms;
             $marketingspotcontent = 'marketingspotcontent'.$ms;
