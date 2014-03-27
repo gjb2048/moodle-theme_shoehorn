@@ -40,7 +40,7 @@ $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
     ?>
 </div>
 </div>
-<div id="footer-shadow"></div>
+<div id="footer-shadow" class="row"></div>
 <footer id="page-footer" class="row">
     <div class="row">
     <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>

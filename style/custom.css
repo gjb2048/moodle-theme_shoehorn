@@ -29,9 +29,8 @@ a.logo {
 }
 
 #footer-shadow {
-    background: url([[pix:theme|shadow_footer]]) no-repeat scroll 50% 0% / 96% 12px transparent;
+    background: url([[pix:theme|shadow_footer]]) no-repeat scroll 50% 0% / 100% 12px transparent;
     padding-top: 12px;
-    margin: 0 auto;
     margin-top: 1em;
 }
 
