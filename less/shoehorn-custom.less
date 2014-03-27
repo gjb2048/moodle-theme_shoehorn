@@ -2,7 +2,7 @@
 
 // Body.
 body {
-    background-color: @page-top-bg;
+    background-color: @footer-bottom-bg;
 }
 
 // Header.
@@ -133,12 +133,16 @@ body.editing #block-region-page-bottom .block {
 
 #page-footer .block {
     color: @text-color;
-}
-
-#page-footer .block a {
-    color: @link-color;
-    &:hover, &:active, &:focus {
-        color: darken(@body-bg, 8%);
+    a {
+        color: @link-color;
+        &:hover, &:active, &:focus {
+            color: darken(@body-bg, 8%);
+        }
+    }
+    .hasevent a {
+        &:hover, &:active, &:focus {
+            color: lighten(@text-color, 8%);
+        }
     }
 }
 

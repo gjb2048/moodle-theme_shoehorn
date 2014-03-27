@@ -179,7 +179,7 @@ $string['marketingspotstatus_desc'] = 'Set to \'Draft\' when you are creating th
 $string['marketingspotdisplay'] = 'Marketing spot {$a->spot} status';
 $string['marketingspotdisplay_desc'] = 'When to display marketing spot {$a->spot}.';
 $string['marketingspotlang'] = 'Marketing spot {$a->spot} language';
-$string['marketingspotlang_desc'] = 'Marketing spot language number {$a->pageid}.  Enter language pack code for an installed language pack, the text within the brackets on \'{$a->url}\'.  Leave blank for all languages.';
+$string['marketingspotlang_desc'] = 'Marketing spot language number {$a->pageid}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
 
 // Site pages.
 $string['sitepage'] = 'Site page '; // Used in sitepage.php.
@@ -200,7 +200,7 @@ $string['sitepagestatus_desc'] = 'Set to \'Draft\' when you are creating the pag
 $string['sitepagedisplay'] = 'Site page {$a->pageid} status';
 $string['sitepagedisplay_desc'] = 'When to display site page {$a->pageid}.';
 $string['sitepagelang'] = 'Site page {$a->pageid} language';
-$string['sitepagelang_desc'] = 'Site page language number {$a->pageid}.  Enter language pack code for an installed language pack, the text within the brackets on \'{$a->url}\'.  Leave blank for all languages.';
+$string['sitepagelang_desc'] = 'Site page language number {$a->pageid}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
 $string['sitepagelang_urlname'] = 'Language packs';
 
 $string['unknownsitepage'] = 'Unknown site page number ';
