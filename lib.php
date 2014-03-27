@@ -122,6 +122,38 @@ function shoehorn_showslider($settings) {
 }
 
 /**
+ * States if the site pages can be shown.
+ *
+ * @return array of pageid => 1 = no, 2 = yes.
+ */
+function shoehorn_shown_sitepages() {
+    $pages = array();
+    $theme = theme_config::load('shoehorn');
+
+    $numberofsitepages = (empty($theme->settings->numberofsitepages)) ? false : $theme->settings->numberofsitepages;
+    $loggedin = isloggedin();
+    if ($numberofsitepages) {
+        $lang = current_language();
+        $sesskey = sesskey();
+        for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
+            $sitepagetitle = 'sitepagetitle'.$sp;
+            if (!empty($theme->settings->$sitepagetitle)) {
+                $sitepagelang = 'sitepagelang'.$sp;
+                if (empty($theme->settings->$sitepagelang) or ($theme->settings->$sitepagelang == 'all') or ($theme->settings->$sitepagelang == $lang)) {
+                    // Page can be shown.
+                    $pages[$sp] = 2;
+                } else {
+                    // Page cannot be shown.
+                    $pages[$sp] = 1;
+                }
+            }
+        }
+    }
+
+    return $pages;
+}
+
+/**
  * Serves any files associated with the theme settings.
  *
  * @param stdClass $course

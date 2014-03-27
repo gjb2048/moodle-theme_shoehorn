@@ -95,6 +95,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
 
         // Site page setting.
+        $pages = shoehorn_shown_sitepages();
         $numberofsitepages = (empty($this->page->theme->settings->numberofsitepages)) ? false : $this->page->theme->settings->numberofsitepages;
         $loggedin = isloggedin();
         if ($numberofsitepages) {
