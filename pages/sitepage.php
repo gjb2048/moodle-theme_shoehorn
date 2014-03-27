@@ -26,8 +26,9 @@
 
 // http://docs.moodle.org/dev/Page_API.
 require_once('../../../config.php');
+require_once('../lib.php');
 
-$pageid = required_param('pageid', PARAM_INT);
+$ourpageid = required_param('pageid', PARAM_INT);
 // TODO Add sesskey check to edit - from my/index.php & check works.
 $sesskey = optional_param('sesskey', null, PARAM_RAW);
 if ($sesskey !== null && confirm_sesskey($sesskey)) {
@@ -41,42 +42,42 @@ $edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and of
 $PAGE->set_context(context_system::instance());
 $thispageurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
 $thispageurl->param('sesskey', sesskey());
-$thispageurl->param('pageid', $pageid);
+$thispageurl->param('pageid', $ourpageid);
 $PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_other_editing_capability('moodle/course:update');
 $PAGE->set_docs_path('');
 
 $o = '';
-$sitepagetitle = 'sitepagetitle'.$pageid;
+$pages = shoehorn_shown_sitepages(); // lib.php.
+
 $theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
 $settings = $theme->settings;
-if (!empty($settings->$sitepagetitle)) {
-    $lang = current_language();
-    $sitepagelang = 'sitepagelang'.$pageid;
-    if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == 'all') or ($settings->$sitepagelang == $lang)) {
+if (array_key_exists($ourpageid, $pages)) {
+    if ($pages[$ourpageid] == 2) {
+        $sitepagetitle = 'sitepagetitle'.$ourpageid;
         $PAGE->set_title($settings->$sitepagetitle);
 
-        $sitepageheading = 'sitepageheading'.$pageid;
+        $sitepageheading = 'sitepageheading'.$ourpageid;
         $PAGE->set_heading($settings->$sitepageheading);
 
         $PAGE->set_pagelayout('page');
 
         // Content.
-        $sitepagecontent = 'sitepagecontent'.$pageid;
+        $sitepagecontent = 'sitepagecontent'.$ourpageid;
         $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
     } else {
-        $text = get_string('pagenotforlanguagetitle', 'theme_shoehorn', array('pageid' => $pageid));
+        $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
         $PAGE->set_pagelayout('page');
-        $o .= html_writer::tag('h3', get_string('pagenotforlanguagecontent', 'theme_shoehorn', array('pageid' => $pageid)), array('class' => 'panel panel-warning'));
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     }
 } else {
-    $text = get_string('unknownsitepage', 'theme_shoehorn').$pageid;
+    $text = get_string('unknownsitepage', 'theme_shoehorn').$ourpageid;
     $PAGE->set_title($text);
     $PAGE->set_heading($text);
     $PAGE->set_pagelayout('page');
-    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn', array('pageid' => $pageid)), array('class' => 'panel panel-warning'));
+    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
 }
 
 $courseid = SITEID;
@@ -114,7 +115,7 @@ if (empty($containernode)) {
         }
 
         $usernavurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-        $usernavurl->param('pageid', $pageid);
+        $usernavurl->param('pageid', $ourpageid);
         $usernavurl->param('edit', !$edit);
         $usernavurl->param('sesskey', sesskey());
         $button = $OUTPUT->single_button($usernavurl, $editstring);
@@ -130,25 +131,21 @@ if (empty($containernode)) {
 }
 
 // Add us and the other pages....
-$numberofsitepages = $settings->numberofsitepages;
 $lang = current_language();
 $oursesskey = sesskey();
 $loggedin = isloggedin();
-for ($sp = 1; $sp <= $settings->numberofsitepages; $sp++) {
-    $sitepagetitle = 'sitepagetitle'.$sp;
-    if (!empty($settings->$sitepagetitle)) {
-        $sitepagelang = 'sitepagelang'.$sp;
-        if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == 'all') or ($settings->$sitepagelang == $lang)) {
-            $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-            $navurl->param('pageid', $sp);
-            if ($loggedin) {
-                $navurl->param('sesskey', $oursesskey);
-            }
-            $ournode = $containernode->add($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$sp, 'moodle', null));
-            if ($pageid == $sp) {
-                // Us....
-                $ournode->make_active();
-            }
+foreach($pages as $pageid => $status) {
+    if ($status == 2) {
+        $sitepagetitle = 'sitepagetitle'.$pageid;
+        $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+        $navurl->param('pageid', $pageid);
+        if ($loggedin) {
+            $navurl->param('sesskey', $oursesskey);
+        }
+        $ournode = $containernode->add($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
+        if ($pageid == $ourpageid) {
+            // Us....
+            $ournode->make_active();
         }
     }
 }

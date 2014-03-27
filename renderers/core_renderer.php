@@ -95,26 +95,19 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
 
         // Site page setting.
-        $pages = shoehorn_shown_sitepages();
-        $numberofsitepages = (empty($this->page->theme->settings->numberofsitepages)) ? false : $this->page->theme->settings->numberofsitepages;
+        $pages = shoehorn_shown_sitepages(); // lib.php.
         $loggedin = isloggedin();
-        if ($numberofsitepages) {
-            $lang = current_language();
-            $sesskey = sesskey();
-            for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
-                $sitepagetitle = 'sitepagetitle'.$sp;
-                if (!empty($this->page->theme->settings->$sitepagetitle)) {
-                    $sitepagelang = 'sitepagelang'.$sp;
-                    if (empty($this->page->theme->settings->$sitepagelang) or ($this->page->theme->settings->$sitepagelang == 'all') or ($this->page->theme->settings->$sitepagelang == $lang)) {
-                        $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
-                        $url->param('pageid', $sp);
-                        if ($loggedin) {
-                            $url->param('sesskey', $sesskey);
-                        }
-                        $url = preg_replace('|^https?://|i', '//', $url->out(false));
-                        $items[] .= html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
-                    }
+        $sesskey = sesskey();
+        foreach($pages as $pageid => $status) {
+            if ($status == 2) {
+                $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
+                $url->param('pageid', $pageid);
+                if ($loggedin) {
+                    $url->param('sesskey', $sesskey);
                 }
+                $url = preg_replace('|^https?://|i', '//', $url->out(false));
+                $sitepagetitle = 'sitepagetitle'.$pageid;
+                $items[] .= html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
             }
         }
 

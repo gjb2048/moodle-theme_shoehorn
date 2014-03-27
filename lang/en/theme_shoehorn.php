@@ -198,8 +198,8 @@ $string['sitepagelang_urlname'] = 'Language packs';
 
 $string['unknownsitepage'] = 'Unknown site page number ';
 $string['unknownsitepagecontent'] = 'Site page number {$a->pageid} is not known, ask an an administrator to check the settings for the theme.';
-$string['pagenotforlanguagetitle'] = 'Site page number {$a->pageid} not for language';
-$string['pagenotforlanguagecontent'] = 'Site page number {$a->pageid} has not been set for the current language, ask an an administrator to check the settings for the theme.';
+$string['pagenotdisplayedtitle'] = 'Site page number {$a->pageid} not displayed';
+$string['pagenotdisplayedcontent'] = 'Site page number {$a->pageid} has not been set for the current criteria, ask an an administrator to check the settings for the theme.';
 
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';
