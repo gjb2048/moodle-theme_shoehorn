@@ -28,6 +28,13 @@ a.logo {
     margin: 0 auto;
 }
 
+#footer-shadow {
+    background: url([[pix:theme|shadow_footer]]) no-repeat scroll 50% 0% / 96% 12px transparent;
+    padding-top: 12px;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
 body.pagelayout-login #region-main.loggedout {
     background: none;
 }
