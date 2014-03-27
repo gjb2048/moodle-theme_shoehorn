@@ -141,9 +141,9 @@ function shoehorn_shown_sitepages() {
                 if (!empty($theme->settings->$sitepagetitle)) {
                     $sitepagedisplay = 'sitepagedisplay'.$sp;
                     if (empty($theme->settings->$sitepagedisplay)
-                        or ($theme->settings->$sitepagedisplay == 3) // Always 
-                        or (($theme->settings->$sitepagedisplay == 1) and ($loggedin == false)) // Logged out.
-                        or (($theme->settings->$sitepagedisplay == 2) and ($loggedin == true)) // Logged in.
+                        or ($theme->settings->$sitepagedisplay == 1) // Always 
+                        or (($theme->settings->$sitepagedisplay == 2) and ($loggedin == false)) // Logged out.
+                        or (($theme->settings->$sitepagedisplay == 3) and ($loggedin == true)) // Logged in.
                     ) {
                         $sitepagelang = 'sitepagelang'.$sp;
                         if (empty($theme->settings->$sitepagelang) or ($theme->settings->$sitepagelang == 'all') or ($theme->settings->$sitepagelang == $lang)) {

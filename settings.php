@@ -335,11 +335,11 @@ defined('MOODLE_INTERNAL') || die;
         $name = 'theme_shoehorn/marketingspotdisplay'.$i;
         $title = get_string('marketingspotdisplay', 'theme_shoehorn', array('spot' => $i));
         $description = get_string('marketingspotdisplay_desc', 'theme_shoehorn', array('spot' => $i));
-        $default = 3;
+        $default = 1;
         $choices = array(
-            1 => new lang_string('loggedout', 'theme_shoehorn'),
-            2 => new lang_string('loggedin', 'theme_shoehorn'),
-            3 => new lang_string('always', 'theme_shoehorn')
+            1 => new lang_string('always', 'theme_shoehorn'),
+            2 => new lang_string('loggedout', 'theme_shoehorn'),
+            3 => new lang_string('loggedin', 'theme_shoehorn')
         );
         $marketingspotssettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
@@ -432,11 +432,11 @@ defined('MOODLE_INTERNAL') || die;
         $name = 'theme_shoehorn/sitepagedisplay'.$i;
         $title = get_string('sitepagedisplay', 'theme_shoehorn', array('pageid' => $i));
         $description = get_string('sitepagedisplay_desc', 'theme_shoehorn', array('pageid' => $i));
-        $default = 3;
+        $default = 1;
         $choices = array(
-            1 => new lang_string('loggedout', 'theme_shoehorn'),
-            2 => new lang_string('loggedin', 'theme_shoehorn'),
-            3 => new lang_string('always', 'theme_shoehorn')
+            1 => new lang_string('always', 'theme_shoehorn'),
+            2 => new lang_string('loggedout', 'theme_shoehorn'),
+            3 => new lang_string('loggedin', 'theme_shoehorn')
         );
         $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 

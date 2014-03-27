@@ -25,37 +25,20 @@
  */
 
 $numberofmarketingspots = (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
-$loggedin = isloggedin();
-$marketingspotsdisplay = (empty($PAGE->theme->settings->marketingspotsdisplay)) ? 4 : $PAGE->theme->settings->marketingspotsdisplay;
-
-// Decide on showing the marketing spots.  If so, then the number will still need to be greater than zero.
-switch($marketingspotsdisplay) {
-    case 1: // Never.
-        $numberofmarketingspots = false;
-        break;
-    case 2: // Logged out.
-        $numberofmarketingspots = (isloggedin() == false) ? $numberofmarketingspots : false;
-        break;
-    case 3: // Logged in.
-        $numberofmarketingspots = (isloggedin() == true) ? $numberofmarketingspots : false;
-        break;
-    case 4: // Always.
-    default: // Do nothing.
-        break;
-}
 
 if ($numberofmarketingspots) {
     $marketingspots = array();
     $lang = current_language();
+    $loggedin = isloggedin();
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
         $marketingspotstatus = 'marketingspotstatus'.$ms;
         if (empty($PAGE->theme->settings->$marketingspotstatus) or ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
             $marketingspotdisplay = 'marketingspotdisplay'.$ms;
             if (empty($PAGE->theme->settings->$marketingspotdisplay)
-                or ($PAGE->theme->settings->$marketingspotdisplay == 3) // Always 
-                or (($PAGE->theme->settings->$marketingspotdisplay == 1) and ($loggedin == false)) // Logged out.
-                or (($PAGE->theme->settings->$marketingspotdisplay == 2) and ($loggedin == true)) // Logged in.
+                or ($PAGE->theme->settings->$marketingspotdisplay == 1) // Always 
+                or (($PAGE->theme->settings->$marketingspotdisplay == 2) and ($loggedin == false)) // Logged out.
+                or (($PAGE->theme->settings->$marketingspotdisplay == 3) and ($loggedin == true)) // Logged in.
             ) {
                 $marketingspotlang = 'marketingspotlang'.$ms;
                 if (empty($PAGE->theme->settings->$marketingspotlang) or ($PAGE->theme->settings->$marketingspotlang == 'all') or ($PAGE->theme->settings->$marketingspotlang == $lang)) {

@@ -134,7 +134,7 @@ $string['always'] = 'Always';
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
 $string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
-$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of marketing spots change the 'Number of front page slides' below and save the page to update.";
+$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of slides change the 'Number of front page slides' below and save the page to update.";
 $string['frontpageslidersettingspageheading'] = 'Slide {$a->slide}';
 $string['frontpagesliderspeed'] = 'Set the slider transition speed in ms';
 $string['frontpagesliderspeed_desc'] = 'Set the slide transition speed in milliseconds.  Set to 0 for manual control.';
