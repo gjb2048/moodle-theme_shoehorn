@@ -131,7 +131,7 @@
         }
     }
     // submit buttons
-    fieldset.hidden:last-child {
+    fieldset.hidden:last-child { // This breaks IE8, see: https://github.com/ds125v/theme_bootstrap/commit/d83ddc3fd4d8487492f1fcfe396e411cfccc1e5d - https://github.com/bmbrands/theme_bootstrap/pull/231
             &:extend(.form-group);
             &:extend(.form-horizontal .form-group);
             > div {

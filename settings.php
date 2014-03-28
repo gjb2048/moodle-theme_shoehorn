@@ -224,6 +224,29 @@ defined('MOODLE_INTERNAL') || die;
         $setting = new admin_setting_configtextarea($name, $title, $description, $default, PARAM_TEXT);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
+
+        // Status.
+        $name = 'theme_shoehorn/frontpageslidestatus'.$i;
+        $title = get_string('frontpageslidestatus', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslidestatus_desc', 'theme_shoehorn');
+        $default = 1;
+        $choices = array(
+            1 => new lang_string('draft', 'theme_shoehorn'),
+            2 => new lang_string('published', 'theme_shoehorn')
+        );
+        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+        // Display.
+        $name = 'theme_shoehorn/frontpageslidedisplay'.$i;
+        $title = get_string('frontpageslidedisplay', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslidedisplay_desc', 'theme_shoehorn', array('slide' => $i));
+        $default = 1;
+        $choices = array(
+            1 => new lang_string('always', 'theme_shoehorn'),
+            2 => new lang_string('loggedout', 'theme_shoehorn'),
+            3 => new lang_string('loggedin', 'theme_shoehorn')
+        );
+        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
     }
     $ADMIN->add('theme_shoehorn', $slidersettings);
 
