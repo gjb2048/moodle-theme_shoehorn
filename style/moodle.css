@@ -8672,7 +8672,8 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
   padding: 0;
 }
 .path-course-view .completionprogress {
-  margin-left: 25pxdisplay: block;
+  margin-left: 25px;
+  display: block;
   float: right;
   height: 20px;
   position: relative;
@@ -15454,7 +15455,7 @@ fieldset[disabled] .yui3-panel .readerpanel .yui3-widget-hd .yui3-button-close.a
     width: 100%;
     height: auto;
     max-height: 220px;
-    y-scroll: auto;
+    overflow-y: auto;
     float: none;
     border: 0px;
   }
@@ -15833,6 +15834,9 @@ label {
   padding-top: 75px;
   border: 2px dotted #c9e6ff;
 }
+.mform fieldset .fitem .fitemtitle .fgrouplabel label {
+  padding-top: 0px;
+}
 .mform fieldset.hidden .fitem .fitemtitle {
   position: relative;
   min-height: 1px;
@@ -15881,6 +15885,45 @@ label {
     width: 91.66666667%;
   }
 }
+.mform fieldset.hidden > div {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .mform fieldset.hidden > div {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .mform fieldset.hidden > div {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 992px) {
+  .mform fieldset.hidden > div {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .mform fieldset.hidden > div {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 1200px) {
+  .mform fieldset.hidden > div {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .mform fieldset.hidden > div {
+    margin-left: 0%;
+  }
+}
 .mform fieldset.hidden:last-child > div {
   position: relative;
   min-height: 1px;
@@ -15919,6 +15962,9 @@ label {
   .mform fieldset.hidden:last-child > div {
     margin-left: 8.33333333%;
   }
+}
+.mform .iconhelp {
+  margin-right: -4px;
 }
 .mform fieldset.collapsible legend a.fheader {
   margin-left: 0px;

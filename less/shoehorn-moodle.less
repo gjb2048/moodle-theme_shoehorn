@@ -116,6 +116,17 @@
 // forms.less.
 // Basic mforms layout, used in resources, user profile etc.
 .mform {
+    fieldset {
+        .fitem {
+            .fitemtitle {
+                .fgrouplabel {
+                    label {
+                        padding-top: 0px;
+                    }
+                }
+            }
+        }
+    }
     fieldset.hidden {
         .fitem {
             .fitemtitle {
@@ -128,6 +139,14 @@
                 .make-md-column(10);
                 .make-lg-column(11);
             }
+        }
+        > div {
+            .make-sm-column(12);
+            .make-sm-column-offset(0);
+            .make-md-column(12);
+            .make-md-column-offset(0);
+            .make-lg-column(12);
+            .make-lg-column-offset(0);
         }
     }
     // submit buttons
@@ -143,6 +162,10 @@
                 .make-lg-column-offset(1);
             }
     }
+}
+
+.mform .iconhelp {
+    margin-right: -4px;
 }
 
 .mform fieldset.collapsible legend a.fheader {
