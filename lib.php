@@ -250,7 +250,7 @@ function shoehorn_social_footer($settings) {
         $side = 5 - $diff;
         $centre = 2 + ($diff * 2);
         $cols['side'] = 'col-sm-'.$side.' col-md-'.$side.' col-lg-'.$side;
-        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre;
+        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre.' post-size-'.$diff;
     } else {
         $cols['side'] = 'col-sm-6 col-md-6 col-lg-6';
         $cols['centre'] = '';
