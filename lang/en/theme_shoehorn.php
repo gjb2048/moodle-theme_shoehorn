@@ -152,6 +152,12 @@ $string['frontpageslidecaptiontitle'] = 'Slide {$a->slide} caption title';
 $string['frontpageslidecaptiontitle_desc'] = 'The caption title for slide {$a->slide}';
 $string['frontpageslidecaptiontext'] = 'Slide {$a->slide} caption text';
 $string['frontpageslidecaptiontext_desc'] = 'The caption text for slide {$a->slide}';
+$string['frontpageslidestatus'] = 'Slide {$a->slide} status';
+$string['frontpageslidestatus_desc'] = 'Set to \'Draft\' when you are creating the slide and \'Published\' when you want it to be seen taking into account the display and language settings.';
+$string['frontpageslidedisplay'] = 'Slide {$a->slide} status';
+$string['frontpageslidedisplay_desc'] = 'When to display slide {$a->slide}.';
+$string['frontpageslidelang'] = 'Slide {$a->slide} language';
+$string['frontpageslidelang_desc'] = 'Slide language number {$a->slide}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
 
 // Image bank.
 $string['numberofimagebankimages'] = 'Number of images in the image bank';
@@ -179,7 +185,7 @@ $string['marketingspotstatus_desc'] = 'Set to \'Draft\' when you are creating th
 $string['marketingspotdisplay'] = 'Marketing spot {$a->spot} status';
 $string['marketingspotdisplay_desc'] = 'When to display marketing spot {$a->spot}.';
 $string['marketingspotlang'] = 'Marketing spot {$a->spot} language';
-$string['marketingspotlang_desc'] = 'Marketing spot language number {$a->pageid}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
+$string['marketingspotlang_desc'] = 'Marketing spot language number {$a->spot}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
 
 // Site pages.
 $string['sitepage'] = 'Site page '; // Used in sitepage.php.
@@ -201,7 +207,6 @@ $string['sitepagedisplay'] = 'Site page {$a->pageid} status';
 $string['sitepagedisplay_desc'] = 'When to display site page {$a->pageid}.';
 $string['sitepagelang'] = 'Site page {$a->pageid} language';
 $string['sitepagelang_desc'] = 'Site page language number {$a->pageid}.  To see more languages, install language packs on \'{$a->url}\'.  Set to \'all\' for all languages.';
-$string['sitepagelang_urlname'] = 'Language packs';
 
 $string['unknownsitepage'] = 'Unknown site page number ';
 $string['unknownsitepagecontent'] = 'Site page number {$a->pageid} is not known, ask an an administrator to check the settings for the theme.';

@@ -186,6 +186,10 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $slidersettings->add($setting);
 
+    // Language variables for settings....
+    $langpackurl = new moodle_url('/admin/tool/langimport/index.php');
+    $langsinstalled = array_merge(array('all' => get_string('all')), get_string_manager()->get_list_of_translations());
+
     $numberofslides = get_config('theme_shoehorn', 'frontpagenumberofslides');
     for ($i = 1; $i <= $numberofslides; $i++) {
         $slidersettings->add(new admin_setting_heading('theme_shoehorn_frontpageslidet_heading'.$i, get_string('frontpageslidersettingspageheading', 'theme_shoehorn', array('slide' => $i)), null));
@@ -234,7 +238,7 @@ defined('MOODLE_INTERNAL') || die;
             1 => new lang_string('draft', 'theme_shoehorn'),
             2 => new lang_string('published', 'theme_shoehorn')
         );
-        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+        $slidersettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
         // Display.
         $name = 'theme_shoehorn/frontpageslidedisplay'.$i;
@@ -246,7 +250,17 @@ defined('MOODLE_INTERNAL') || die;
             2 => new lang_string('loggedout', 'theme_shoehorn'),
             3 => new lang_string('loggedin', 'theme_shoehorn')
         );
-        $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+        $slidersettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+        // Slider language only.
+        $name = 'theme_shoehorn/frontpageslidelang'.$i;
+        $title = get_string('frontpageslidelang', 'theme_shoehorn', array('slide' => $i));
+        $description = get_string('frontpageslidelang_desc', 'theme_shoehorn', array('slide' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
+                       'href' => $langpackurl, 'target' => '_blank'))));
+        $default = 'all';
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $slidersettings->add($setting);
     }
     $ADMIN->add('theme_shoehorn', $slidersettings);
 
@@ -298,10 +312,6 @@ defined('MOODLE_INTERNAL') || die;
         $imagebanksettings->add($setting);
     }
     $ADMIN->add('theme_shoehorn', $imagebanksettings);
-
-    // Language variables for settings....
-    $langpackurl = new moodle_url('/admin/tool/langimport/index.php');
-    $langsinstalled = array_merge(array('all' => get_string('all')), get_string_manager()->get_list_of_translations());
 
     // Marketing spots....
     // Number of marketing spots.
@@ -369,7 +379,7 @@ defined('MOODLE_INTERNAL') || die;
         // Marketing spot language only.
         $name = 'theme_shoehorn/marketingspotlang'.$i;
         $title = get_string('marketingspotlang', 'theme_shoehorn', array('spot' => $i));
-        $description = get_string('marketingspotlang_desc', 'theme_shoehorn', array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
+        $description = get_string('marketingspotlang_desc', 'theme_shoehorn', array('spot' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'), array(
                        'href' => $langpackurl, 'target' => '_blank'))));
         $default = 'all';
         $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
