@@ -150,7 +150,7 @@ function shoehorn_shown_sitepages() {
                             // Page can be shown.
                             $pages[$sp] = 2;
                         } else {
-                            // Page cannot be shown.
+                            // Page is not shown.
                             $pages[$sp] = 1;
                         }
                     }
@@ -160,6 +160,44 @@ function shoehorn_shown_sitepages() {
     }
 
     return $pages;
+}
+
+/**
+ * States if the front page slides can be shown.
+ *
+ * @return array of slideno => 1 = no, 2 = yes.
+ */
+function shoehorn_shown_frontpageslides() {
+    $slides = array();
+    $theme = theme_config::load('shoehorn');
+
+    $frontpagenumberofslides = (empty($theme->settings->frontpagenumberofslides)) ? false : $theme->settings->frontpagenumberofslides;
+    if ($frontpagenumberofslides) {
+        $loggedin = isloggedin();
+        $lang = current_language();
+        for ($sl = 1; $sl <= $frontpagenumberofslides; $sl++) {
+            $frontpageslidestatus = 'frontpageslidestatus'.$sl;
+            if (empty($theme->settings->$frontpageslidestatus) or ($theme->settings->$frontpageslidestatus == 2)) { // 2 is published.
+                $frontpageslidedisplay = 'frontpageslidedisplay'.$sl;
+                if (empty($theme->settings->$frontpageslidedisplay)
+                    or ($theme->settings->$frontpageslidedisplay == 1) // Always 
+                    or (($theme->settings->$frontpageslidedisplay == 2) and ($loggedin == false)) // Logged out.
+                    or (($theme->settings->$frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
+                ) {
+                    $frontpageslidelang = 'frontpageslidelang'.$sl;
+                    if (empty($theme->settings->$frontpageslidelang) or ($theme->settings->$frontpageslidelang == 'all') or ($theme->settings->$frontpageslidelang == $lang)) {
+                        // Slide can be shown.
+                        $slides[$sl] = 2;
+                    } else {
+                        // Slide is not shown.
+                        $slides[$sl] = 1;
+                    }
+                }
+            }
+        }
+    }
+
+    return $slides;
 }
 
 /**

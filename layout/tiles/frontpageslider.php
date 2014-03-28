@@ -23,9 +23,16 @@
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$numberofslides = (empty($PAGE->theme->settings->frontpagenumberofslides)) ? false : $PAGE->theme->settings->frontpagenumberofslides;
+$slides = shoehorn_shown_frontpageslides(); // In lib.php.
+$slidestoshow = false;
+foreach ($slides as $sideid => $shown) {
+    if ($shown == 2) {
+        $slidestoshow = true;
+        break;
+    }
+}
 
-if ($numberofslides) {
+if ($slidestoshow) {
 $speed = (!isset($PAGE->theme->settings->frontpagesliderspeed)) ? 5000 : $PAGE->theme->settings->frontpagesliderspeed;
 if ($speed == 0) {
     $speed = '';
@@ -36,53 +43,61 @@ if ($speed == 0) {
         <ol class="carousel-indicators">
             <?php
             $first = true;
-            for ($fs = 1; $fs <= $numberofslides; $fs++) { ?>
-                <li data-target="#myCarousel" data-slide-to="<?php echo $fs-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
-            <?php } ?>
+            $fs = 1;
+            foreach ($slides as $sideid => $shown) {
+                if ($shown == 2) {
+            ?>
+                    <li data-target="#myCarousel" data-slide-to="<?php echo $fs-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
+            <?php
+                    $fs++;
+                }
+            } ?>
         </ol>
         <div class="carousel-inner">
         <?php
             $first = true;
-            for ($fs = 1; $fs <= $numberofslides; $fs++) {
-                $urlsetting = 'frontpageslideurl'.$fs;
-                if (!empty($PAGE->theme->settings->$urlsetting)) {
-                    echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
-                } else {
-                    echo '<div';
-                }
-                echo ' class="';
-                if ($first) { 
-                    echo 'active '; 
-                    $first = false;
-                }
-                echo 'item">';
-                $imagesetting = 'frontpageslideimage'.$fs;
-                if (!empty($PAGE->theme->settings->$imagesetting)) {
-                    $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
-                } else {
-                    $image = $OUTPUT->pix_url('Default_Slide', 'theme');
-                }
-                $slidecaptiontitle = 'frontpageslidecaptiontitle'.$fs;
-                if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
-                    $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
-                } else {
-                    $imgalt = 'No caption title';
-                }
-                ?>
-                <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
-                <?php
-                $slidecaptiontext = 'frontpageslidecaptiontext'.$fs;
-                if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
-                    <div class="carousel-caption">
+            foreach ($slides as $slideid => $shown) {
+                if ($shown == 2) {
+                    $urlsetting = 'frontpageslideurl'.$slideid;
+                    if (!empty($PAGE->theme->settings->$urlsetting)) {
+                        echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
+                    } else {
+                        echo '<div';
+                    }
+                    echo ' class="';
+                    if ($first) { 
+                        echo 'active '; 
+                        $first = false;
+                    }
+                    echo 'item">';
+                    $imagesetting = 'frontpageslideimage'.$slideid;
+                    if (!empty($PAGE->theme->settings->$imagesetting)) {
+                        $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
+                    } else {
+                        $image = $OUTPUT->pix_url('Default_Slide', 'theme');
+                    }
+                    $slidecaptiontitle = 'frontpageslidecaptiontitle'.$slideid;
+                    if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
+                        $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
+                    } else {
+                        $imgalt = 'No caption title';
+                    }
+                    ?>
+                    <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
                     <?php
-                        if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
-                        if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
-                    ?> </div> <?php
-                }
-                if (!empty($PAGE->theme->settings->$urlsetting)) {
-                    echo '</a>';
-                } else {
-                    echo '</div>';
+                    $slidecaptiontext = 'frontpageslidecaptiontext'.$slideid;
+                    if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
+                        <div class="carousel-caption">
+                        <?php
+                            if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
+                            if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
+                        ?> </div> <?php
+                    }
+                    if (!empty($PAGE->theme->settings->$urlsetting)) {
+                        echo '</a>';
+                    } else {
+                        echo '</div>';
+                    }
                 }
             } ?>
         </div>
