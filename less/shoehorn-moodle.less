@@ -106,8 +106,26 @@
     background: @page-bottom-bg-light;
     border: 1px solid @page-bottom-bg;
 }
+
+.file-picker .fp-navbar {
+    background: @page-bottom-bg-light;
+    border-bottom: 1px solid @page-bottom-bg;
+}
+
 .fp-pathbar {
     border-top: 1px solid @page-bottom-bg;
+}
+
+.fp-iconview .fp-filename-field .fp-filename {
+    background: @page-bottom-bg-light;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height: 44px;
+}
+
+.fp-iconview .fp-thumbnail {
+    border: 1px solid @page-bottom-bg-light;
+    border-radius: 4px;
 }
 
 .fp-iconview .fp-thumbnail img {
@@ -150,11 +168,20 @@
     background-color: darken(@body-bg, 12%);
 }
 
+.file-picker .fp-list .fp-repo.active {
+    background: @page-bottom-bg-light;
+}
+
 .filepicker-filelist,
 .filemanager-container {
     background: @body-bg;
     border: 1px solid @page-bottom-bg;
     min-height: 170px;
+}
+
+.file-picker .ygtvfocus,
+.filemanager .ygtvfocus {
+    background-color: @page-bottom-bg-light;
 }
 
 .filemanager .fp-content{
@@ -175,9 +202,23 @@
     border: 1px solid @page-bottom-bg-dark;
 }
 
+.fp-toolbar .fp-btn-add,
+.fp-toolbar .fp-btn-download,
+.fp-toolbar .fp-btn-mkdir,
+.fp-toolbar .fp-tb-help,
+.fp-toolbar .fp-tb-manage,
+.fp-toolbar .fp-tb-logout,
+.fp-toolbar .fp-tb-refresh
+{
+    border: 1px solid @page-bottom-bg;
+    border-bottom: 1px solid @page-bottom-bg-light;
+    background: lighten(@page-bottom-bg-light, 2%);
+}
+
 .fp-viewbar {
     border: 1px solid @page-bottom-bg;
     border-bottom: 1px solid @page-bottom-bg-light;
+    background: lighten(@page-bottom-bg-light, 2%);
 }
 
 .fp-viewbar a {

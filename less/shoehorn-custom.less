@@ -184,3 +184,43 @@ select {
     margin-bottom: 0px;
     margin-left: 0px;
 }
+
+// Way off piste...
+// http://css-tricks.com/custom-scrollbars-in-webkit/ and http://stackoverflow.com/questions/7725652/css-scrollbar-style-cross-browser
+body {
+    scrollbar-face-color: @page-bottom-bg;
+    scrollbar-shadow-color: @page-top-bg;
+    scrollbar-highlight-color: @page-bottom-bg-light;
+    scrollbar-3dlight-color: @page-bottom-bg-light;
+    scrollbar-darkshadow-color: @page-bottom-bg-dark;
+    scrollbar-track-color: @page-bottom-bg;
+    scrollbar-arrow-color: @text-color;
+}
+
+::-webkit-scrollbar {
+    background-color: @page-bottom-bg-dark;
+}
+
+::-webkit-scrollbar-button {
+    background-color: @page-bottom-bg;
+    border-radius: 4px;
+    border: 2px solid @page-bottom-bg-dark;
+}
+
+::-webkit-scrollbar-track {
+    background-color: @page-bottom-bg;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: @page-bottom-bg-light;
+}
+::-webkit-scrollbar-thumb {
+    background-color: @page-bottom-bg;
+    border-radius: 4px;
+    border: 2px solid @page-bottom-bg-dark;
+}
+::-webkit-scrollbar-corner {
+    background-color: @page-bottom-bg-light;
+}
+::-webkit-resizer {
+    background-color: @page-bottom-bg-dark;
+}

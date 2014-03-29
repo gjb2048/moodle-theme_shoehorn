@@ -36,7 +36,7 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
 $THEME->sheets[] = 'general';
 if (!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 1)) {
     $THEME->sheets[] = 'font';
-    $THEME->sheets[] = 'font-awesome.min';
+    $THEME->sheets[] = 'font-awesome';
 }
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';

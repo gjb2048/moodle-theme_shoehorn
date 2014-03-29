@@ -15849,8 +15849,22 @@ label {
   background: #e3f2ff;
   border: 1px solid #c9e6ff;
 }
+.file-picker .fp-navbar {
+  background: #e3f2ff;
+  border-bottom: 1px solid #c9e6ff;
+}
 .fp-pathbar {
   border-top: 1px solid #c9e6ff;
+}
+.fp-iconview .fp-filename-field .fp-filename {
+  background: #e3f2ff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  min-height: 44px;
+}
+.fp-iconview .fp-thumbnail {
+  border: 1px solid #e3f2ff;
+  border-radius: 4px;
 }
 .fp-iconview .fp-thumbnail img {
   border: 1px solid #c9e6ff;
@@ -15885,11 +15899,18 @@ label {
   background-image: radial-gradient(ellipse at center, #ffffff 40%, #e3f2ff 100%);
   background-color: #e0e0e0;
 }
+.file-picker .fp-list .fp-repo.active {
+  background: #e3f2ff;
+}
 .filepicker-filelist,
 .filemanager-container {
   background: #ffffff;
   border: 1px solid #c9e6ff;
   min-height: 170px;
+}
+.file-picker .ygtvfocus,
+.filemanager .ygtvfocus {
+  background-color: #e3f2ff;
 }
 .filemanager .fp-content {
   overflow: auto;
@@ -15906,9 +15927,21 @@ label {
 .fp-select .fp-thumbnail img {
   border: 1px solid #afdaff;
 }
+.fp-toolbar .fp-btn-add,
+.fp-toolbar .fp-btn-download,
+.fp-toolbar .fp-btn-mkdir,
+.fp-toolbar .fp-tb-help,
+.fp-toolbar .fp-tb-manage,
+.fp-toolbar .fp-tb-logout,
+.fp-toolbar .fp-tb-refresh {
+  border: 1px solid #c9e6ff;
+  border-bottom: 1px solid #e3f2ff;
+  background: #edf7ff;
+}
 .fp-viewbar {
   border: 1px solid #c9e6ff;
   border-bottom: 1px solid #e3f2ff;
+  background: #edf7ff;
 }
 .fp-viewbar a {
   border-right: 1px solid #c9e6ff;
@@ -16601,5 +16634,39 @@ select {
   margin-top: 2px;
   margin-bottom: 0px;
   margin-left: 0px;
+}
+body {
+  scrollbar-face-color: #c9e6ff;
+  scrollbar-shadow-color: #1f4d87;
+  scrollbar-highlight-color: #e3f2ff;
+  scrollbar-3dlight-color: #e3f2ff;
+  scrollbar-darkshadow-color: #afdaff;
+  scrollbar-track-color: #c9e6ff;
+  scrollbar-arrow-color: #1f4d87;
+}
+::-webkit-scrollbar {
+  background-color: #afdaff;
+}
+::-webkit-scrollbar-button {
+  background-color: #c9e6ff;
+  border-radius: 4px;
+  border: 2px solid #afdaff;
+}
+::-webkit-scrollbar-track {
+  background-color: #c9e6ff;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #e3f2ff;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c9e6ff;
+  border-radius: 4px;
+  border: 2px solid #afdaff;
+}
+::-webkit-scrollbar-corner {
+  background-color: #e3f2ff;
+}
+::-webkit-resizer {
+  background-color: #afdaff;
 }
 /*# sourceMappingURL=/moodle26/theme/shoehorn/sourcemap-moodle.json */
