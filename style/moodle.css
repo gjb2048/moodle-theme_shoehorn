@@ -15853,6 +15853,9 @@ label {
   background: #e3f2ff;
   border-bottom: 1px solid #c9e6ff;
 }
+.file-picker .fp-repo-area {
+  border-right: 1px solid #e3f2ff;
+}
 .fp-pathbar {
   border-top: 1px solid #c9e6ff;
 }
@@ -16432,14 +16435,15 @@ body.editing #block-region-page-bottom .block {
   background-image: linear-gradient(to bottom, #269f00 0%, #267f00 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff269f00', endColorstr='#ff267f00', GradientType=0);
-  color: #eeeeee;
+  color: #e3f2ff;
 }
 #page-footer a {
-  color: #eeeeee;
+  color: #e3f2ff;
 }
 #page-footer a:hover,
-#page-footer a:active {
-  color: #ccc;
+#page-footer a:active,
+#page-footer a:focus {
+  color: #edf7ff;
 }
 #page-footer .block {
   color: #1f4d87;
@@ -16623,8 +16627,9 @@ body.editing #block-region-page-bottom .block {
 .loginbox .loginpanel .loginsub label[for='username'] {
   padding-top: 8px;
 }
-select {
-  border-color: #1f4d87;
+select,
+input {
+  border-color: #c9e6ff;
   border-radius: 4px;
 }
 .debuggingmessage {

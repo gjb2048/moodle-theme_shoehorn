@@ -121,13 +121,13 @@ body.editing #block-region-page-bottom .block {
 // Footer.
 #page-footer {
     #gradient > .vertical(@footer-top-bg, @footer-bottom-bg);
-    color: @gray-lighter;
+    color: @page-bottom-bg-light;
 }
 
 #page-footer a {
-    color: @gray-lighter;
-    &:hover, &:active {
-        color: #ccc;
+    color: @page-bottom-bg-light;
+    &:hover, &:active, &:focus {
+        color: lighten(@page-bottom-bg-light, 2%);
     }
 }
 
@@ -147,6 +147,7 @@ body.editing #block-region-page-bottom .block {
 }
 
 // Footer menu.
+
 #footermenu .copyright:before {
     content: "\00A9"; // Copyright symbol.
 }
@@ -168,8 +169,8 @@ body.editing #block-region-page-bottom .block {
 }
 
 // General.
-select {
-    border-color: @text-color;
+select, input {
+    border-color: @page-bottom-bg;
     border-radius: 4px;
 }
 
