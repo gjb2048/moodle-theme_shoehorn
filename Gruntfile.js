@@ -70,6 +70,12 @@
  *                                      directory when your theme is
  *                                      not in the standard location.
  *
+ *                    --urlprefix=<path> Optional. Explicitly define
+ *                                       the path between the domain
+ *                                       and the installation in the
+ *                                       URL, i.e. /moodle26 being:
+ *                                       --urlprefix=/moodle26
+ *
  * grunt replace             Run all text replace tasks.
  *
  * grunt replace:rtl_images  Add _rtl to the filenames of certain images
@@ -107,7 +113,7 @@ module.exports = function(grunt) {
 
     // Theme Bootstrap constants.
     var LESSDIR         = 'less',
-        MOODLEURL       = '/moodle26',
+        MOODLEURLPREFIX = grunt.option('urlprefix') || '',
         THEMEDIR        = path.basename(path.resolve('.'));
 
     // PHP strings for exec task.
@@ -127,29 +133,7 @@ module.exports = function(grunt) {
     decachephp += 'require(\'' + configfile  + '\');';
     decachephp += 'theme_reset_all_caches();';
 
-    var swatchname = grunt.option('name') || '';
-    var defaultsvgcolor = {
-        amelia: '#e8d069',
-        bootstrap: '#428bca',
-        classic: '#428bca',
-        cerulean: '#2fa4e7',
-        classic: '#428bca',
-        cosmo: '#007fff',
-        cupid: '#56caef',
-        cyborg: '#2a9fd6',
-        flatly: '#18bc9c',
-        journal: '#eb6864',
-        lumen: '#158cba',
-        readable: '#4582ec',
-        shamrock: '#f8e33c',
-        simplex: '#d9230f',
-        slate: '#fff',
-        spacelab: '#446e9b',
-        superhero: '#df691a',
-        united: '#dd4814',
-        yeti: '#008cba',
-    };
-    var svgcolor = grunt.option('svgcolor') || defaultsvgcolor[swatchname] || '#999';
+    var svgcolor = grunt.option('svgcolor') || '#1F4D87';
 
     grunt.initConfig({
         less: {
@@ -158,8 +142,9 @@ module.exports = function(grunt) {
                 options: {
                     compress: false,
                     paths: "../bootstrap/less",
-                    report: 'min',                    report: 'min',                    sourceMap: true,
-                    sourceMapRootpath: MOODLEURL + '/theme/' + THEMEDIR,
+                    report: 'min',                    report: 'min',
+                    sourceMap: true,
+                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'
                 },
                 src: 'less/moodleallshoehorn.less',
@@ -172,7 +157,7 @@ module.exports = function(grunt) {
                     paths: "../bootstrap/less",
                     report: 'min',
                     sourceMap: true,
-                    sourceMapRootpath: MOODLEURL + '/theme/' + THEMEDIR,
+                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-editor.json'
                 },
                 src: 'less/editorallshoehorn.less',
@@ -201,15 +186,15 @@ module.exports = function(grunt) {
         },
         cssflip: {
             rtl: {
-                src: 'style/moodle.css',
+                src:  'style/moodle.css',
                 dest: 'style/moodle-rtl.css'
             }
         },
         copy: {
             svg: {
                  expand: true,
-                 cwd: 'pix_core_originals/',
-                 src: '**',
+                 cwd:  'pix_core_originals/',
+                 src:  '**',
                  dest: 'pix_core/',
             }
         },
@@ -219,32 +204,32 @@ module.exports = function(grunt) {
                     overwrite: true,
                     replacements: [{
                         from: '[[pix:theme|fp/path_folder]]',
-                        to: '[[pix:theme|fp/path_folder_rtl]]'
+                        to:   '[[pix:theme|fp/path_folder_rtl]]'
                     }, {
                         from: '[[pix:t/collapsed]]',
-                        to: '[[pix:t/collapsed_rtl]]'
+                        to:   '[[pix:t/collapsed_rtl]]'
                     }, {
                         from: '[[pix:t/collapsed_empty]]',
-                        to: '[[pix:t/collapsed_empty_rtl]]'
+                        to:   '[[pix:t/collapsed_empty_rtl]]'
                     }, {
                         from: '[[pix:y/tn]]',
-                        to: '[[pix:y/tn_rtl]]'
+                        to:   '[[pix:y/tn_rtl]]'
                     }, {
                         from: '[[pix:y/tp]]',
-                        to: '[[pix:y/tp_rtl]]'
+                        to:   '[[pix:y/tp_rtl]]'
                     }, {
                         from: '[[pix:y/ln]]',
-                        to: '[[pix:y/ln_rtl]]'
+                        to:   '[[pix:y/ln_rtl]]'
                     }, {
                         from: '[[pix:y/lp]]',
-                        to: '[[pix:y/lp_rtl]]'
+                        to:   '[[pix:y/lp_rtl]]'
                     }]
             },
             svg_colors: {
                 src: 'pix_core/**/*.svg',
                     overwrite: true,
                     replacements: [{
-                        from: '#999',
+                        from: '#1F4D87',
                         to: svgcolor
                     }]
             },
@@ -253,16 +238,16 @@ module.exports = function(grunt) {
                     overwrite: true,
                     replacements: [{
                         from: 'glyphicons-halflings-regular.eot',
-                        to: 'glyphicons-halflings-regular.eot]]',
+                        to:   'glyphicons-halflings-regular.eot]]',
                     }, {
                         from: 'glyphicons-halflings-regular.svg',
-                        to: 'glyphicons-halflings-regular.svg]]',
+                        to:   'glyphicons-halflings-regular.svg]]',
                     }, {
                         from: 'glyphicons-halflings-regular.ttf',
-                        to: 'glyphicons-halflings-regular.ttf]]',
+                        to:   'glyphicons-halflings-regular.ttf]]',
                     }, {
                         from: 'glyphicons-halflings-regular.woff',
-                        to: 'glyphicons-halflings-regular.woff]]',
+                        to:   'glyphicons-halflings-regular.woff]]',
                     }]
             }
         }
