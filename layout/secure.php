@@ -19,6 +19,9 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = bootstrap_grid($hassidepre, $hassidepost);
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
+
+$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
@@ -27,7 +30,8 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="<?php echo $settingshtml->navbarclass; ?>"">
+    <div class="<?php echo $settingshtml->containerclass; ?>">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -46,9 +50,10 @@ echo $OUTPUT->doctype() ?>
             </ul>
         </div>
     </div>
+    </div>
 </nav>
 
-<div id="page" class="container">
+<div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <header id="page-header" class="clearfix">
         <?php echo $OUTPUT->page_heading(); ?>

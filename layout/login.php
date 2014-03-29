@@ -37,6 +37,8 @@
 
 $loggedin = isloggedin();
 
+$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
@@ -45,7 +47,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<div id="page" class="container-fluid">
+<div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <header id="page-header" class="clearfix">
         <?php echo $OUTPUT->page_heading(); ?>

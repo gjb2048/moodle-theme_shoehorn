@@ -72,8 +72,8 @@ $string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  
 $string['fonticons'] = 'Use icon font';
 $string['fonticons_desc'] = 'Enable this option to use the Glyphicon icon font.';
 
-$string['invert'] = 'Invert navbar';
-$string['invert_desc'] = 'Swaps text and background for the navbar at the top of the page.';
+$string['inversenavbar'] = 'Inverse navbar';
+$string['inversenavbar_desc'] = 'Swaps text and background for the navbar at the top of the page.';
 
 $string['showloginmessage'] = 'Display login message';
 $string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";

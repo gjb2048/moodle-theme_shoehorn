@@ -80,6 +80,19 @@
   }
 }
 
+.navbar-inverse .dropdown-menu {
+    background-color: @navbar-inverse-bg;
+    li > a {
+        color: @navbar-inverse-color;
+        &:hover,
+        &:focus {
+            span {
+                background-color: rgba(red(@navbar-inverse-link-active-color), green(@navbar-inverse-link-active-color), blue(@navbar-inverse-link-active-color), 0.5);
+            }
+        }
+    }
+}
+
 // Fix dropdown menu.  From: https://gist.github.com/JumpLink/7140006 via https://moodle.org/mod/forum/discuss.php?d=256770#p1113784 to http://firdaus.grandexa.com/2013/09/twitter-bootstrap-3-multilevel-dropdown-menu/.
 .dropdown-submenu{
     position:relative;
@@ -101,32 +114,40 @@
     }
 }
 
-.dropdown-submenu:hover > .dropdown-menu{
+.dropdown-submenu:hover > .dropdown-menu {
     display:block;
 }
- 
-.dropdown-submenu > a:after{
+
+.dropdown-submenu > a:after {
     display:block;
     content:" ";
     float:right;
     width:0;
     height:0;
-    border-color:transparent;
-    border-style:solid;
-    border-width:5px 0 5px 5px;
-    border-left-color:#cccccc;
-    margin-top:5px;
-    margin-right:-10px;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: @navbar-default-color;
+    margin-top: 5px;
+    margin-right: -10px;
 }
- 
-.dropdown-submenu:hover > a:after{
-    border-left-color:#ffffff;
+
+.navbar-inverse .dropdown-submenu > a:after {
+    border-left-color: @navbar-inverse-color;
 }
- 
+
+.dropdown-submenu:hover > a:after {
+    border-left-color: lighten(@navbar-default-color, 16%);
+}
+
+.navbar-inverse .dropdown-submenu:hover > a:after {
+    border-left-color: darken(@navbar-inverse-color, 16%);
+}
+
 .dropdown-submenu .pull-left{
     float:none;
 }
- 
+
 .dropdown-submenu.pull-left > .dropdown-menu{
     left:-100%;
     margin-left:10px;

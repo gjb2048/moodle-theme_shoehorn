@@ -33,17 +33,7 @@ $PAGE->set_popup_notification_allowed(false);
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
 
-//$fluid = (!empty($PAGE->layout_options['fluid']));
-//$container = 'container';
-$container = 'container-fluid';
-/*
-if (isset($PAGE->theme->settings->fluidwidth) && ($PAGE->theme->settings->fluidwidth == true)) {
-    $container = 'container-fluid';
-}
-if ($fluid) {
-    $container = 'container-fluid';
-}
-*/
+$settingshtml = theme_shoehorn_html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -53,8 +43,8 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="navbar navbar-default">
-    <div class="<?php echo $container; ?>">
+<nav role="navigation" class="<?php echo $settingshtml->navbarclass; ?>"">
+    <div class="<?php echo $settingshtml->containerclass; ?>">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -76,7 +66,7 @@ echo $OUTPUT->doctype() ?>
     </div>
 </nav>
 
-<div id="page" class="<?php echo $container; ?>">
+<div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
 <header class="moodleheader">
 <div class="<?php /*echo $container;*/ ?>">

@@ -88,6 +88,29 @@ function theme_shoehorn_set_loginmessage($css, $theme) {
     return $css;
 }
 
+/**
+ * This function creates the dynamic HTML needed for the 
+ * layout and then passes it back in an object so it can
+ * be echo'd to the page.
+ *
+ * This keeps the logic out of the layout files.
+ */
+function theme_shoehorn_html_for_settings($PAGE) {
+    $settings = $PAGE->theme->settings;
+
+    $html = new stdClass;
+
+    if ($settings->inversenavbar == true) {
+        $html->navbarclass = 'navbar navbar-inverse';
+    } else {
+        $html->navbarclass = 'navbar navbar-default';
+    }
+
+    $html->containerclass = 'container-fluid';
+
+    return $html;
+}
+
 function shoehorn_grid($hassidepre, $hassidepost) {
     if ($hassidepre && $hassidepost) {
         $regions = array('content' => 'col-sm-4 col-md-6 col-lg-8');

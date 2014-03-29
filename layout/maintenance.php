@@ -64,6 +64,7 @@ echo $OUTPUT->doctype() ?>
         </div>
     </div>
 
+    <div id="footer-shadow" class="row"></div>
     <footer id="page-footer" class="row">
         <?php
         echo $OUTPUT->standard_footer_html();

@@ -53,6 +53,29 @@
     }
 }
 
+.moodle-dialogue-base .moodle-dialogue-wrap {
+    border: 1px solid @page-bottom-bg-dark-spin;
+    //border: 1px solid @page-bottom-bg-light;
+    box-shadow: 5px 5px 20px 0 @text-color;
+    background-color: @page-bottom-bg;
+}
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
+    color: @text-color;
+    border-bottom: 1px solid @navbar-default-border;
+    //background: @page-bottom-bg-light;
+    #gradient > .vertical(#fff, @navbar-default-bg);
+}
+
+.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
+    color: @text-color;
+    input {
+        border-radius: @border-radius-base;
+        border-color: @page-bottom-bg-light;
+    }
+}
+
+
 // course.less.
 .course-content {
     .section-summary {
@@ -60,7 +83,7 @@
     }
     ul {
         li.section.main {
-            border-bottom: 2px solid lighten(@page-bottom-bg, 5%);
+            border-bottom: 2px solid @page-bottom-bg-light;
         }
     }
 }
@@ -72,9 +95,37 @@
 }
 
 // filemanager.less.
+.filemanager a,
+.file-picker a,
+.filemanager a:hover,
+.file-picker a:hover {
+    color: @text-color;
+}
+
 .filemanager .fp-navbar {
-    background: darken(@body-bg, 8%);
+    background: @page-bottom-bg-light;
     border: 1px solid @page-bottom-bg;
+}
+.fp-pathbar {
+    border-top: 1px solid @page-bottom-bg;
+}
+
+.fp-iconview .fp-thumbnail img {
+    border: 1px solid @page-bottom-bg;
+    box-shadow: 1px 1px 2px 0 @page-bottom-bg-light;
+}
+.fp-iconview .fp-thumbnail:hover {
+    border: 1px solid @page-bottom-bg;
+    box-shadow: inset 0 0 10px 0px @page-bottom-bg-light;
+}
+.fp-iconview .fp-filename-field {
+    height: 44px;
+    word-wrap: break-word;
+    //overflow: visible;
+}
+.fp-iconview .fp-filename-field:hover {
+    //overflow: visible;
+    z-index: 1000;
 }
 
 .fp-toolbar .fp-btn-add,
@@ -86,16 +137,16 @@
 .fp-toolbar .fp-tb-refresh
  {
     border: 1px solid @page-bottom-bg;
-    border-bottom: 1px solid lighten(@page-bottom-bg, 5%);
+    border-bottom: 1px solid @page-bottom-bg-light;
 }
 
 .fp-toolbar a:hover {
-    background-image: radial-gradient(ellipse at center, #fff 60%,lighten(@page-bottom-bg, 5%) 100%);
+    background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg-light 100%);
     background-color: darken(@body-bg, 8%);
 }
 
 .fp-toolbar a:active {
-    background-image: radial-gradient(ellipse at center, #fff 40%,lighten(@page-bottom-bg, 5%) 100%);
+    background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg-light 100%);
     background-color: darken(@body-bg, 12%);
 }
 
@@ -103,6 +154,46 @@
 .filemanager-container {
     background: @body-bg;
     border: 1px solid @page-bottom-bg;
+    min-height: 170px;
+}
+
+.filemanager .fp-content{
+    overflow: auto;
+    max-height: 472px;
+    min-height: 177px;
+}
+
+.fp-select .fp-hr {
+    border-bottom: 1px solid @page-bottom-bg-light;
+}
+
+.fp-select .fp-thumbnail {
+    border: 1px solid @page-bottom-bg-dark;
+    box-shadow: inset 0 0 10px 0 @page-bottom-bg;
+}
+.fp-select .fp-thumbnail img {
+    border: 1px solid @page-bottom-bg-dark;
+}
+
+.fp-viewbar {
+    border: 1px solid @page-bottom-bg;
+    border-bottom: 1px solid @page-bottom-bg-light;
+}
+
+.fp-viewbar a {
+    border-right: 1px solid @page-bottom-bg;
+}
+
+.fp-viewbar a.checked:hover,
+.fp-viewbar a:hover {
+    background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg 100%);
+    background-color: @page-bottom-bg;
+}
+
+.fp-viewbar a.checked,
+.fp-viewbar a:active {
+    background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg 100%);
+    background-color: @page-bottom-bg;
 }
 
 // Drag and drop support (filemanager and filepicker form elements)
@@ -223,7 +314,7 @@
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
     background-color: @page-bottom-bg;
-    border: 1px solid darken(spin(@page-bottom-bg, -10), 7%);
+    border: 1px solid @page-bottom-bg-dark-spin;
     border-radius: 4px;
 }
 
@@ -236,7 +327,7 @@
 .yui-skin-sam .yui-panel {
     color: @text-color;
     background-color: @page-bottom-bg;
-    border: 1px solid darken(spin(@page-bottom-bg, -10), 7%);
+    border: 1px solid @page-bottom-bg-dark-spin;
     border-radius: 4px;
     border-color: @page-top-bg;
 }
@@ -253,7 +344,8 @@
 }
 
 .yui-skin-sam .yui-panel .hd {
-    background: @navbar-default-bg;
+    #gradient > .vertical(#fff, @navbar-default-bg);
+    //background: @navbar-default-bg;
     border-color: @navbar-default-border;
     border-radius: 4px;
     border-bottom: solid 1px @page-top-bg;
