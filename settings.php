@@ -27,6 +27,65 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Copyright setting text - just text.
+ */
+class admin_setting_copyright extends admin_setting {
+
+    /**
+     * not a setting, just text
+     * @param string $name unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting' for ones in config_plugins.
+     * @param string $copyright heading
+     * @param string $information text in box
+     */
+    public function __construct($name, $copyright, $information) {
+        $this->nosave = true;
+        parent::__construct($name, $copyright, $information, '');
+    }
+
+    /**
+     * Always returns true
+     * @return bool Always returns true
+     */
+    public function get_setting() {
+        return true;
+    }
+
+    /**
+     * Always returns true
+     * @return bool Always returns true
+     */
+    public function get_defaultsetting() {
+        return true;
+    }
+
+    /**
+     * Never write settings
+     * @return string Always returns an empty string
+     */
+    public function write_setting($data) {
+    // do not write any setting
+        return '';
+    }
+
+    /**
+     * Returns an HTML string
+     * @return string Returns an HTML string
+     */
+    public function output_html($data, $query='') {
+        global $OUTPUT;
+        $return = '';
+        if ($this->visiblename != '') {
+            $return .= html_writer::tag('p', $this->visiblename.' - '.get_string('gpllicense').' v3 '.html_writer::tag('a', 'http://www.gnu.org/copyleft/gpl.html', array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')), array ('class' => 'copyright centerpara'));
+        }
+        if ($this->description != '') {
+            $return .= $OUTPUT->box(highlight($query, markdown_to_html($this->description)), 'generalbox formsettingheading');
+        }
+        return $return;
+    }
+}
+
+// Settings
     $settings = null;
     $ADMIN->add('themes', new admin_category('theme_shoehorn', 'Shoehorn'));
 
@@ -128,6 +187,9 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
+
+    // Copyright
+    $generalsettings->add(new admin_setting_copyright('theme_shoehorn_copyright', 'G J Barnard', ''));
 
     $ADMIN->add('theme_shoehorn', $generalsettings);
 

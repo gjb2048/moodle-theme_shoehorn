@@ -2,6 +2,16 @@ Introduction
 ============
 Shoehorn theme.
 
+![image1](pix/screenshot.png "Shoehorn Screenshot")
+
+About
+=====
+![image2](pix/Shoehorn_logo_sm.png "Shoehorn Logo")
+ * copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme for Moodle.
+ * author     G J Barnard - http://about.me/gjbarnard and http://moodle.org/user/profile.php?id=442195
+ * author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
+ * license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
 Required version of Moodle
 ==========================
 This version works with Moodle version 2013111800 release 2.6 (Build: 20131118) and above within the 2.6 branch until the

@@ -16461,9 +16461,6 @@ body.editing #block-region-page-bottom .block {
 #page-footer .block .hasevent a:focus {
   color: #2760a8;
 }
-#footermenu .copyright:before {
-  content: "\00A9";
-}
 #footermenu .divider {
   padding-left: 3px;
   padding-right: 3px;
@@ -16632,6 +16629,9 @@ input {
   border-color: #c9e6ff;
   border-radius: 4px;
 }
+.copyright:before {
+  content: "\00A9";
+}
 .debuggingmessage {
   margin-left: 18px;
 }
@@ -16652,11 +16652,11 @@ body {
 ::-webkit-scrollbar {
   background-color: #afdaff;
 }
-::-webkit-scrollbar-button {
-  background-color: #c9e6ff;
-  border-radius: 4px;
-  border: 2px solid #afdaff;
-}
+/*::-webkit-scrollbar-button {
+    background-color: @page-bottom-bg;
+    border-radius: 4px;
+    border: 2px solid @page-bottom-bg-dark;
+}*/
 ::-webkit-scrollbar-track {
   background-color: #c9e6ff;
 }
@@ -16665,7 +16665,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background-color: #c9e6ff;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 2px solid #afdaff;
 }
 ::-webkit-scrollbar-corner {

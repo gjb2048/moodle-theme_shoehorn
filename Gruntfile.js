@@ -50,6 +50,12 @@
  *                                 when your theme is not in the
  *                                 standard location.
  *
+ *               --urlprefix=<path> Optional. Explicitly define
+ *                                  the path between the domain
+ *                                  and the installation in the
+ *                                  URL, i.e. /moodle26 being:
+ *                                  --urlprefix=/moodle26
+ *
  * Plumbing tasks & targets:
  * -------------------------
  * Lower level tasks encapsulating a specific piece of functionality
@@ -69,12 +75,6 @@
  *                                      the path to your Moodle root
  *                                      directory when your theme is
  *                                      not in the standard location.
- *
- *                    --urlprefix=<path> Optional. Explicitly define
- *                                       the path between the domain
- *                                       and the installation in the
- *                                       URL, i.e. /moodle26 being:
- *                                       --urlprefix=/moodle26
  *
  * grunt replace             Run all text replace tasks.
  *
