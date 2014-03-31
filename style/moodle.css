@@ -16157,6 +16157,10 @@ label {
 .container-fluid {
   max-width: none;
 }
+ul,
+ol {
+  padding-left: 18px;
+}
 .que .info,
 .path-mod-quiz .qnbutton {
   background-color: #c9e6ff;

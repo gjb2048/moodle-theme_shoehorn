@@ -102,10 +102,12 @@ $string['four'] = 'Four';
 $string['footermenu'] = 'Footer menu';
 $string['footermenu_desc'] = 'Zero or more lines representing the links to place in the footer menu.<br>
 Form of name|url|title|lang where title and lang are optional.<br>
+If the url is prefixed with [[site]] then the site domain will be substituted, i.e. [[site]]/about.html becomes http://mymoodle/about.html or http://mymoodle/subfolder/about.html if Moodle is in a sub-folder on your domain.<br>
 The title being the text that is shown when the link is hovered over.<br>
 The lang being to only show in this language.<br>
 For example:<br>
-About|http://mymoodle/about.html|About my site<br>
+About|http://mywebsite/about.html|About my site<br>
+About|[[site]]/about.html|About my site<br>
 Anleitung|http://mymoodle/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
 Home|//mymoodle/index.php';
 

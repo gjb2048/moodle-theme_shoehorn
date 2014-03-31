@@ -90,6 +90,13 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 if ((!empty($bits[2]) or (array_key_exists(2, $bits)))) {
                     $title = $bits[2];
                 }
+
+                if (strstr($bits[1], '[[site]]')) {
+                    // If URL has the '[[site]]' tag, then replace with moodle_url for the site....
+                    $bits[1] = str_replace('[[site]]', '', $bits[1]);  // Strip....
+                    $thispageurl = new moodle_url($bits[1]);
+                    $bits[1] = $thispageurl->out();
+                }
                 $items[] = html_writer::tag('a', $bits[0], array('href' => $bits[1], 'title' => $title));
             }
         }
