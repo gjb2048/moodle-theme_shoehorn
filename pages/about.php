@@ -50,7 +50,7 @@ echo $OUTPUT->box_start();
 
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'), 'class' => 'col-sm-4 col-md-3 col-lg-2'));
-echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-10'));
+echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-10 lead'));
 echo html_writer::tag('p', 'Shoehorn is a Bootstrap v3 based theme that has many innovative features:');
 echo html_writer::start_tag('ul');
 echo html_writer::tag('li', 'Bespoke copyright statement.');
@@ -82,7 +82,7 @@ echo html_writer::tag('p', 'Gareth J Barnard - '.
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
-echo html_writer::tag('p', 'G J Barnard 2014 - '.get_string('gpllicense').' v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/gpl.html', array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')), array ('class' => 'copyright centerpara col-md-12'));
+echo html_writer::tag('p', 'G J Barnard 2014 - '.get_string('gpllicense').' v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/gpl.html', array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')), array ('class' => 'copyright text-center col-md-12'));
 echo html_writer::end_tag('div');
 
 echo $OUTPUT->box_end();

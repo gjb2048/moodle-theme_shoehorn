@@ -15,7 +15,7 @@
  */
 
 /**
- * Font(s) for the Shoehorn theme.
+ * Local font(s) for the Shoehorn theme where there is no CDN alternativeS.
  *
  * @package    theme.
  * @subpackage shoehorn.
@@ -28,50 +28,8 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: 'Cabin';
-  font-style: normal;
+  font-family: 'Railway'; 
   font-weight: 400;
-  src: url('[[font:theme|Cabin-Regular.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
   font-style: normal;
-  font-weight: 500;
-  src: url('[[font:theme|Cabin-Medium.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 600;
-  src: url('[[font:theme|Cabin-SemiBold.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 700;
-  src: url('[[font:theme|Cabin-Bold.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: italic;
-  font-weight: 400;
-  src: url('[[font:theme|Cabin-Italic.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: italic;
-  font-weight: 500;
-  src: url('[[font:theme|Cabin-MediumItalic.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: italic;
-  font-weight: 600;
-  src: url('[[font:theme|Cabin-SemiBoldItalic.otf]]');
-}
-@font-face {
-  font-family: 'Cabin';
-  font-style: italic;
-  font-weight: 700;
-  src: url('[[font:theme|Cabin-BoldItalic.otf]]');
+  src: url('[[font:theme|Railway.otf]]');
 }

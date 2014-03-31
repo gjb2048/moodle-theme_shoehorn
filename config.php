@@ -19,6 +19,7 @@
  *
  * @package    theme
  * @subpackage shoehorn
+ * @version    See the value of '$plugin->version' in version.php.
  * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
@@ -34,10 +35,11 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
     $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
 }
 $THEME->sheets[] = 'general';
-if (!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 1)) {
+if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) {
     $THEME->sheets[] = 'font';
     $THEME->sheets[] = 'font-awesome';
 }
+$THEME->sheets[] = 'font-local';
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }
