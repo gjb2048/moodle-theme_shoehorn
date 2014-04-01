@@ -269,7 +269,7 @@ function shoehorn_social_footer($settings) {
 
     if ($haveicons) {
         // Max social links of 16.
-        $diff = round($numberofsociallinks / 7);
+        $diff = floor($numberofsociallinks / 6);
         $side = 5 - $diff;
         $centre = 2 + ($diff * 2);
         $cols['side'] = 'col-sm-'.$side.' col-md-'.$side.' col-lg-'.$side;

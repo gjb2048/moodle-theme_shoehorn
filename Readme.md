@@ -67,11 +67,9 @@ can be really useful in visualising the issue along with any files you consider 
 
 Todo
 ====
-1. Inverted navbar remove?
-2. Consider moving fluid container setting from Bootstrap 3 settings.
-3. RTL sheets in config.php.
-4. Update settings page form background does not reach to the bottom.  An iffy 'float' like the login page was?
-5. Front page slide show speed setting.
+1. Consider moving fluid container setting from Bootstrap 3 settings.
+2. RTL sheets in config.php.
+3. Fix D&D moving blocks into the page-bottom region and moving around not having the right width / postition.
 
 Version Information
 ===================
