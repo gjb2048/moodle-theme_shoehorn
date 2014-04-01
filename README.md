@@ -69,7 +69,7 @@ Todo
 ====
 1. Consider moving fluid container setting from Bootstrap 3 settings.
 2. RTL sheets in config.php.
-3. Fix D&D moving blocks into the page-bottom region and moving around not having the right width / postition.
+3. Fix D&D moving blocks into the page-bottom region and moving around not having the right width / position.
 
 Version Information
 ===================
