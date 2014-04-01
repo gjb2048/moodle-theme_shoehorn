@@ -33,17 +33,31 @@ $string['choosereadme'] = '
 </div>
 <div class="well">
 <h3>About</h3>
-<p>Shoelace is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>
+<div class="lead"><p>Shoehorn is a Bootstrap v3 based theme that has many innovative features:</p>
+<ul>
+<li>Bespoke copyright statement.</li>
+<li>Bespoke login page message.</li>
+<li>Dynamic and customisable footer menu.</li>
+<li>Dynamic social icons sign with correct icon colours.</li>
+<li>Front page slider that can be disabled on mobiles / tablets reducing bandwidth.</li>
+<li>Footer blocks.</li>
+<li>Image bank for storing images that you can use anywhere on the site.</li>
+<li>Individual control over: front page slides, marketing spots and site pages with:</li>
+<ul>
+<li>\'Draft\' / \'Published\' state.</li>
+<li>\'before login\', \'after login\' or \'always\' visibility.</li>
+<li>Set specific language only visibility.</li>
+</ul><li>Marketing spots.</li>
+<li>Page bottom blocks.</li>
+<li>Site pages that you can customise with your own content.</li>
+<li>Slider navigation of course content with the \'One section per page\' course layout setting.</li>
+</ul>
 <h3>Parents</h3>
-<p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.6 by:<br>
-Bas Brands, David Scotson and many other contributors.</p>
+<p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.6 by: Bas Brands, David Scotson and many other contributors.</p>
 <h3>Theme Credits</h3>
-<p>Author: G J Barnard<br>
-Contact: <a href="http://moodle.org/user/profile.php?id=442195">Moodle profile</a><br>
-Website: <a href="http://about.me/gjbarnard">about.me/gjbarnard</a>
-</p>
+<p>Author: G J Barnard - <a href="//about.me/gjbarnard" target="_blank">About.me</a> - <a href="//moodle.org/user/profile.php?id=442195">Moodle profile</a> - <a href="//uk.linkedin.com/in/gjbarnard">Linkedin</a></p>
 <h3>Report a bug:</h3>
-<p><a href="http://tracker.moodle.org">http://tracker.moodle.org</a></p>
+<p><a href="//github.com/gjb2048/moodle-theme_shoehorn/issues">Shoehorn issues.</a></p>
 <h3>More information</h3>
 <p><a href="shoehorn/Readme.md">How to use this theme.</a></p>
 </div></div>';
