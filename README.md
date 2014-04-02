@@ -2,11 +2,11 @@ Introduction
 ============
 Shoehorn theme.
 
-![image1](pix/screenshot.png "Shoehorn Screenshot")
+![image1](pix/screenshot.png "Shoehorn screenshot")
 
 About
 =====
-![image2](pix/Shoehorn_logo_sm.png "Shoehorn Logo")
+![image2](pix/Shoehorn_logo_sm.png "Shoehorn logo")
  * copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme for Moodle.
  * author     G J Barnard - http://about.me/gjbarnard and http://moodle.org/user/profile.php?id=442195
  * author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
@@ -19,6 +19,19 @@ next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
 'docs.moodle.org/26/en/Installing_Moodle'.
+
+Required version of Bootstrap 3
+===============================
+The Bootstrap 3 theme for Moodle is currently under development, so I maintain a 'fork' upon which I test against.  This is
+here: https://github.com/gjb2048/theme_bootstrap
+
+Each time I make a release I will 'tag' the version to use.  Please see the 'Version information' below for details on the
+'tag' to use and install in the same way as Shoehorn.
+
+The main development is maintained here: https://github.com/bmbrands/theme_bootstrap
+
+I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
+Mark Aberdour, Paul Hibbitts, Mary Evans and Joby Harding.
 
 Installation
 ============
@@ -49,7 +62,7 @@ Uninstallation
  3. In '/theme/' remove the folder 'shoehorn'.
  4. Put Moodle out of Maintenance Mode.
 
-Reporting Issues
+Reporting issues
 ================
 Before reporting an issue, please ensure that you are running the latest version for your release of Moodle.  It is essential
 that you are operating the required version of Moodle as stated at the top - this is because the theme relies on core
@@ -59,21 +72,25 @@ I operate a policy that I will fix all genuine issues for free.  Improvements ar
 customisations / improvements for a negotiated fee. 
 
 When reporting an issue you can post in the theme's forum on Moodle.org (currently 'moodle.org/mod/forum/view.php?id=46')
-or contact me direct (details at the bottom).
+or check the issue list https://github.com/gjb2048/moodle-theme_shoehorn/issues and if the problem does not exist, create an
+issue.
 
-It is essential that you provide as much information as possible, the critical information being the contents of the format's 
-version.php file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
+It is essential that you provide as much information as possible, the critical information being the contents of the theme's 
+'version.php' file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
 Todo
 ====
 1. Consider moving fluid container setting from Bootstrap 3 settings.
-2. RTL sheets in config.php.
-3. Fix D&D moving blocks into the page-bottom region and moving around not having the right width / position.
+2. Fix D&D moving blocks into the page-bottom region and moving around not having the right width / position.
 
-Version Information
+Version information
 ===================
- 8th March 2014 - Version 2.6.0.1
+ 2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
+  1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100
+  2.  Beta development version.
+
+ 8th March 2014 - Version 2.6.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Alpha development version.
   2.  Dynamic social icon colour footer sign.
   3.  Dynamic customisable footer menu.
@@ -86,5 +103,5 @@ Bas Brands, David Scotson and many other contributors.
 Me
 ==
 G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
-Moodle profile: http://moodle.org/user/profile.php?id=442195.
+Moodle profile: http://moodle.org/user/profile.php?id=442195
 Web profile   : http://about.me/gjbarnard
