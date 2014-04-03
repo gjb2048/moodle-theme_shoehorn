@@ -100,7 +100,7 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     $html = new stdClass;
 
-    if ($settings->inversenavbar == true) {
+    if ((!empty($settings->inversenavbar)) and ($settings->inversenavbar == true)) {
         $html->navbarclass = 'navbar navbar-inverse';
     } else {
         $html->navbarclass = 'navbar navbar-default';
