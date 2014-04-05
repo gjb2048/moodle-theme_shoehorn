@@ -9090,6 +9090,48 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   margin-left: 5px;
 }
 
+.moodle-actionmenu[data-enhanced].show .menu:hover .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu:focus .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu:active .userpicture {
+  background-color: #fff;
+  border: solid 2px #fff;
+  border-radius: 4px;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu:hover .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu:focus .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu:active .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu:hover .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu:focus .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu:active .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu:hover .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu:focus .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu:active .msg-sender {
+  background: transparent;
+  color: #fff;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu:hover .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu:focus .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu:active .msg-time {
+  background: transparent;
+  color: #fff;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu:hover .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu:focus .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu:active .msg-time span {
+  background: transparent;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu .msg-sender {
+  color: #1f4d87;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu .msg-time {
+  color: #1f4d87;
+}
+
 .moodle-actionmenu[data-enhanced].show .menu a {
   display: block;
   white-space: nowrap;
@@ -19032,6 +19074,12 @@ label {
   border: 1px dotted #1f4d87;
 }
 
+#page-enrol-users .enrol_user_buttons,
+.enrol_user_buttons {
+  float: inherit;
+  text-align: left;
+}
+
 .filemanager a,
 .file-picker a,
 .filemanager a:hover,
@@ -19342,6 +19390,187 @@ label {
   }
 }
 
+.invisiblefieldset {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-color: rgba(31, 77, 135, 0.2);
+  padding-right: 4px;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+.invisiblefieldset > .list-group {
+  margin-bottom: 0;
+}
+
+.invisiblefieldset > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+.invisiblefieldset > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.invisiblefieldset > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.invisiblefieldset > .table,
+.invisiblefieldset > .table-responsive > .table {
+  margin-bottom: 0;
+}
+
+.invisiblefieldset > .table:first-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.invisiblefieldset > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.invisiblefieldset > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.invisiblefieldset > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.invisiblefieldset > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-right-radius: 3px;
+}
+
+.invisiblefieldset > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.invisiblefieldset > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.invisiblefieldset > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.invisiblefieldset > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.invisiblefieldset > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-left-radius: 3px;
+}
+
+.invisiblefieldset > .table:last-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.invisiblefieldset > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.invisiblefieldset > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.invisiblefieldset > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.invisiblefieldset > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-right-radius: 3px;
+}
+
+.invisiblefieldset > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.invisiblefieldset > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.invisiblefieldset > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.invisiblefieldset > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.invisiblefieldset > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-left-radius: 3px;
+}
+
+.invisiblefieldset > .panel-body + .table,
+.invisiblefieldset > .panel-body + .table-responsive {
+  border-top: 1px solid #c9e6ff;
+}
+
+.invisiblefieldset > .table > tbody:first-child > tr:first-child th,
+.invisiblefieldset > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+
+.invisiblefieldset > .table-bordered,
+.invisiblefieldset > .table-responsive > .table-bordered {
+  border: 0;
+}
+
+.invisiblefieldset > .table-bordered > thead > tr > th:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.invisiblefieldset > .table-bordered > tbody > tr > th:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.invisiblefieldset > .table-bordered > tfoot > tr > th:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.invisiblefieldset > .table-bordered > thead > tr > td:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.invisiblefieldset > .table-bordered > tbody > tr > td:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.invisiblefieldset > .table-bordered > tfoot > tr > td:first-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-right: 0;
+}
+
+.invisiblefieldset > .table-bordered > thead > tr > th:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.invisiblefieldset > .table-bordered > tbody > tr > th:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.invisiblefieldset > .table-bordered > tfoot > tr > th:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.invisiblefieldset > .table-bordered > thead > tr > td:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.invisiblefieldset > .table-bordered > tbody > tr > td:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.invisiblefieldset > .table-bordered > tfoot > tr > td:last-child,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-left: 0;
+}
+
+.invisiblefieldset > .table-bordered > thead > tr:first-child > td,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr:first-child > td,
+.invisiblefieldset > .table-bordered > tbody > tr:first-child > td,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+.invisiblefieldset > .table-bordered > thead > tr:first-child > th,
+.invisiblefieldset > .table-responsive > .table-bordered > thead > tr:first-child > th,
+.invisiblefieldset > .table-bordered > tbody > tr:first-child > th,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+
+.invisiblefieldset > .table-bordered > tbody > tr:last-child > td,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.invisiblefieldset > .table-bordered > tfoot > tr:last-child > td,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+.invisiblefieldset > .table-bordered > tbody > tr:last-child > th,
+.invisiblefieldset > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.invisiblefieldset > .table-bordered > tfoot > tr:last-child > th,
+.invisiblefieldset > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+
+.invisiblefieldset > .table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+
+.invisiblefieldset > .panel-heading {
+  color: #2d70c5;
+  background-color: transparent;
+  border-color: rgba(31, 77, 135, 0.2);
+}
+
+.invisiblefieldset > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: rgba(31, 77, 135, 0.2);
+}
+
+.invisiblefieldset > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: rgba(31, 77, 135, 0.2);
+}
+
 .mform .iconhelp {
   margin-left: -4px;
 }
@@ -19424,6 +19653,48 @@ ol {
   padding-right: 18px;
 }
 
+.dropdown-menu:hover .userpicture,
+.dropdown-menu:focus .userpicture,
+.dropdown-menu:active .userpicture {
+  background-color: #fff;
+  border: solid 2px #fff;
+  border-radius: 4px;
+}
+
+.dropdown-menu:hover .msg-title,
+.dropdown-menu:focus .msg-title,
+.dropdown-menu:active .msg-title,
+.dropdown-menu:hover .msg-body,
+.dropdown-menu:focus .msg-body,
+.dropdown-menu:active .msg-body,
+.dropdown-menu:hover .msg-sender,
+.dropdown-menu:focus .msg-sender,
+.dropdown-menu:active .msg-sender {
+  background: transparent;
+  color: #fff;
+}
+
+.dropdown-menu:hover .msg-time,
+.dropdown-menu:focus .msg-time,
+.dropdown-menu:active .msg-time {
+  background: transparent;
+  color: #fff;
+}
+
+.dropdown-menu:hover .msg-time span,
+.dropdown-menu:focus .msg-time span,
+.dropdown-menu:active .msg-time span {
+  background: transparent;
+}
+
+.dropdown-menu .msg-sender {
+  color: #1f4d87;
+}
+
+.dropdown-menu .msg-time {
+  color: #1f4d87;
+}
+
 .que .info,
 .path-mod-quiz .qnbutton {
   background-color: #c9e6ff;
@@ -19434,6 +19705,62 @@ ol {
 .carousel-caption,
 .carousel-indicators {
   bottom: 0px;
+}
+
+.userprofile .userprofilebox .profilepicture {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .userprofile .userprofilebox .profilepicture {
+    float: right;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .userprofile .userprofilebox .profilepicture {
+    float: right;
+    width: 25%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .userprofile .userprofilebox .profilepicture {
+    float: right;
+    width: 16.66666667%;
+  }
+}
+
+.userprofile .userprofilebox .descriptionbox {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .userprofile .userprofilebox .descriptionbox {
+    float: right;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .userprofile .userprofilebox .descriptionbox {
+    float: right;
+    width: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .userprofile .userprofilebox .descriptionbox {
+    float: right;
+    width: 83.33333333%;
+  }
 }
 
 .yui-skin-sam .yui-panel {

@@ -86,8 +86,12 @@ Todo
 
 Version information
 ===================
- 2nd April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+ 5th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
+  2.  Fixed enrolment button not showing background colour.
+  3.  Fixed search box and icon at the top of forums.
+  4.  Fixed hover over messages in message drop-down.
+  5.  Fixed user profile picture on view profile page of course participants.
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100

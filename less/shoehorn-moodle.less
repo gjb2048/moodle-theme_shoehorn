@@ -94,6 +94,12 @@
     }
 }
 
+// enrolement.less.
+#page-enrol-users .enrol_user_buttons, .enrol_user_buttons {
+    float: inherit;
+    text-align: right;
+}
+
 // filemanager.less.
 .filemanager a,
 .file-picker a,
@@ -300,6 +306,14 @@
     }
 }
 
+.invisiblefieldset {
+    .panel;
+    .panel-default;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
 .mform .iconhelp {
     margin-right: -4px;
 }
@@ -361,6 +375,33 @@ ol {
     padding-left: 18px;
 }
 
+.dropdown-menu {
+    &:hover .userpicture, &:focus .userpicture, &:active .userpicture {
+        background-color: #fff;
+        border: solid 2px #fff;
+        border-radius: 4px;
+    }
+    &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
+    &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
+    &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
+        background: transparent;
+        color: #fff;
+    }
+    &:hover .msg-time, &:focus .msg-time, &:active .msg-time {
+        background: transparent;
+        color: #fff;
+        span {
+            background: transparent;
+        }
+    }
+    .msg-sender {
+        color: @text-color;
+    }
+    .msg-time {
+        color: @text-color;
+    }
+}
+
 // question.less.
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
@@ -372,6 +413,22 @@ ol {
 // tags.less.
 .carousel-caption, .carousel-indicators {
     bottom: 0px;
+}
+
+// userprofile.less.
+.userprofile {
+    .userprofilebox {
+        .profilepicture {
+            .make-sm-column(6);
+            .make-md-column(3);
+            .make-lg-column(2);
+        }
+        .descriptionbox {
+            .make-sm-column(6);
+            .make-md-column(9);
+            .make-lg-column(10);
+        }
+    }
 }
 
 // YUI.
