@@ -16264,6 +16264,16 @@ label {
   float: none;
   background-color: rgba(201, 230, 255, 0.5);
 }
+#newmessageoverlay {
+  border: 1px solid #afdaff;
+}
+#newmessageoverlay #newmessagetext {
+  background-color: #c9e6ff;
+  border-bottom: 1px solid #afdaff;
+}
+#newmessageoverlay {
+  background-color: #e3f2ff;
+}
 #page-footer {
   margin-top: 0;
   border-top: none;
