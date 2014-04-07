@@ -19809,6 +19809,10 @@ ol {
   padding-bottom: 2px;
 }
 
+html {
+  background-color: #267f00;
+}
+
 body {
   background-color: #1f4d87;
 }
