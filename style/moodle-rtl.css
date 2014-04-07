@@ -20109,6 +20109,19 @@ body.editing #block-region-page-bottom .block {
   text-align: center;
 }
 
+#page-info .validators ul li {
+  display: inline;
+  list-style-type: none;
+}
+
+#page-info .validators ul li a:after {
+  content: ' | ';
+}
+
+#page-info .validators ul li:last-of-type a:after {
+  content: '';
+}
+
 #page-footer {
   background-image: -webkit-linear-gradient(top, #269f00 0%, #267f00 100%);
   background-image: linear-gradient(to bottom, #269f00 0%, #267f00 100%);

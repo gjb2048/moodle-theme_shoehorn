@@ -141,6 +141,19 @@ body.editing #block-region-page-bottom .block {
 #page-info {
     margin-top: 1em;
     text-align: center;
+
+    .validators ul li {
+        display: inline;
+        list-style-type: none;
+        a:after {
+            content: ' | ';
+        }
+        &:last-of-type {
+            a:after {
+                content: '';
+            }
+        }
+    }
 }
 
 // Footer.
