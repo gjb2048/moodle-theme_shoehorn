@@ -96,6 +96,7 @@ Version information
   7.  Fixed bottom colour needing to be the footer colour and the body background the top of page for the 'navbar' by applying the
       bottom footer colour to the 'html' tag.
   8.  Fixed validator links to be inline in page info section with dividers.
+  9.  Added favicon.
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100
