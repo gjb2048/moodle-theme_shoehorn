@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
- 7th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+ 8th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
   2.  Fixed enrolment button not showing background colour.
   3.  Fixed search box and icon at the top of forums.
@@ -97,6 +97,7 @@ Version information
       bottom footer colour to the 'html' tag.
   8.  Fixed validator links to be inline in page info section with dividers.
   9.  Added favicon.
+ 10.  Separated out course format renderers and updated for bootstrap fix https://github.com/bmbrands/theme_bootstrap/pull/250.
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100
