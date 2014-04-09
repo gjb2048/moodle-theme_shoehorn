@@ -102,6 +102,7 @@ Version information
       using 'purge all caches' will not affect the url.  Need to think of perhaps shortening the process by somehow using
       '$theme->setting_file_serve' in 'theme_shoehorn_pluginfile' of lib.php, but current process has safeguards.  However,
       this is implementation-al and should not affect 'imagebank.php' URLs.
+ 12.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100_2
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100
