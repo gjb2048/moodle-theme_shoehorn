@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
- 8th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+ 9th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
   2.  Fixed enrolment button not showing background colour.
   3.  Fixed search box and icon at the top of forums.
@@ -98,6 +98,10 @@ Version information
   8.  Fixed validator links to be inline in page info section with dividers.
   9.  Added favicon.
  10.  Separated out course format renderers and updated for bootstrap fix https://github.com/bmbrands/theme_bootstrap/pull/250.
+ 11.  Created 'imagebank.php' to serve image bank images so that theme designer mode off can be used and therefore
+      using 'purge all caches' will not affect the url.  Need to think of perhaps shortening the process by somehow using
+      '$theme->setting_file_serve' in 'theme_shoehorn_pluginfile' of lib.php, but current process has safeguards.  However,
+      this is implementation-al and should not affect 'imagebank.php' URLs.
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100

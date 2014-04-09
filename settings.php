@@ -305,7 +305,9 @@ defined('MOODLE_INTERNAL') || die;
         if (empty($theme->settings->$name)) {
             $imagedesc = get_string('none', 'theme_shoehorn');
         } else {
-            $imagedesc = $theme->setting_file_url($name, $name);
+            $imageurl = new moodle_url('/theme/shoehorn/imagebank.php');
+            $imageurl->param('imageid', $i);
+            $imagedesc = preg_replace('|^https?://|i', '//', $imageurl->out(false));
         }
         $description = get_string('imagebankimage_desc', 'theme_shoehorn', array('imagedesc' => $imagedesc));
         $setting = new admin_setting_configstoredfile($settingname, $title, $description, $name);

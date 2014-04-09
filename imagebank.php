@@ -19,19 +19,20 @@
  *
  * @package    theme
  * @subpackage shoehorn
- * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @copyright  &copy; 2014-onwards G J Barnard.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
- * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+require_once('../../config.php');
+$imageid = required_param('imageid', PARAM_INT);
 
-$plugin->version   = 2014040900;
-$plugin->requires  = 2013111800; // 2.6 (Build: 20131118).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_BETA;
-$plugin->release = '2.6.0.3';
-$plugin->dependencies = array(
-    'theme_bootstrap'  => 2014032100
-);
+$theme = theme_config::load('shoehorn');
+$name = 'imagebankimage'.$imageid;
+if (empty($theme->settings->$name)) {
+    header('HTTP/1.0 404 not found');
+    die('Image was not found, sorry.');
+} else {
+    $imageurl = $theme->setting_file_url($name, $name);
+    header("Location: ".$imageurl);
+}
