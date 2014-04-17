@@ -16283,9 +16283,11 @@ label {
 .container-fluid {
   max-width: none;
 }
-ul,
-ol {
+.course-content .sectionbody ul {
   padding-left: 18px;
+}
+.course-content .sectionbody ul.section {
+  padding-left: 0px;
 }
 .dropdown-menu:hover .userpicture,
 .dropdown-menu:focus .userpicture,

@@ -19661,9 +19661,12 @@ label {
   max-width: none;
 }
 
-ul,
-ol {
+.course-content .sectionbody ul {
   padding-right: 18px;
+}
+
+.course-content .sectionbody ul.section {
+  padding-right: 0px;
 }
 
 .dropdown-menu:hover .userpicture,
