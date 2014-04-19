@@ -195,3 +195,5 @@ $THEME->blockrtlmanipulations = array(
     'side-footer-pre' => 'side-footer-post',
     'side-footer-post' => 'side-footer-pre'
 );
+
+$THEME->javascripts_footer = array('test');

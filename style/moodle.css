@@ -15713,6 +15713,12 @@ label {
     width: 50%;
   }
 }
+@media (min-width: 1200px) {
+  .editing.used-region-side-post.used-region-side-pre #region-main {
+    float: left;
+    width: 66.66666667%;
+  }
+}
 .editing.used-region-side-post.used-region-side-pre #block-region-side-post {
   position: relative;
   min-height: 1px;
@@ -15730,6 +15736,12 @@ label {
   .editing.used-region-side-post.used-region-side-pre #block-region-side-post {
     float: left;
     width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    float: left;
+    width: 16.66666667%;
   }
 }
 .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
@@ -15750,6 +15762,12 @@ label {
   .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
     float: left;
     width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    float: left;
+    width: 16.66666667%;
   }
 }
 .moodle-actionmenu[data-enhanced].show .menu a:hover img,
@@ -16258,6 +16276,17 @@ label {
 @media (min-width: 992px) {
   .loginbox.onecolumn {
     left: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .loginbox.onecolumn {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+@media (min-width: 1200px) {
+  .loginbox.onecolumn {
+    left: 33.33333333%;
   }
 }
 .loginbox.onecolumn {
