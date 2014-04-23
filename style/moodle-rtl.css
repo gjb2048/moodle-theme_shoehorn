@@ -19854,6 +19854,10 @@ body {
   background-color: #1f4d87;
 }
 
+body.pagelayout-redirect {
+  color: #FFF;
+}
+
 header {
   color: #eeeeee;
 }
@@ -19871,6 +19875,10 @@ header {
   background-image: linear-gradient(to bottom, #1f4d87 0%, #c9e6ff 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f4d87', endColorstr='#ffc9e6ff', GradientType=0);
+}
+
+body.pagelayout-redirect #page {
+  color: #1f4d87;
 }
 
 .breadcrumb span {

@@ -10,6 +10,10 @@ body {
     background-color: @page-top-bg;
 }
 
+body.pagelayout-redirect {
+    color: #FFF;
+}
+
 // Header.
 header {
     color: @gray-lighter;
@@ -28,6 +32,10 @@ header {
 // Page.
 #page {
     #gradient > .vertical(@page-top-bg, @page-bottom-bg);
+}
+
+body.pagelayout-redirect #page {
+    color: @text-color;
 }
 
 // Breadcrumb.

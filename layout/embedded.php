@@ -31,11 +31,19 @@ echo $OUTPUT->doctype() ?>
 
 <body <?php echo $OUTPUT->body_attributes(); ?>>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
-<div id="page">
-    <div id="page-content" class="clearfix">
-        <?php echo $OUTPUT->main_content(); ?>
+<div id="page" class="container-fluid">
+    <div id="page-content" class="clearfix row">
+        <div id="region-main" class="col-md-12">
+            <section id="region-main-shoehorn">
+                <?php echo $OUTPUT->main_content(); ?>
+            </section>
+        </div>
     </div>
+    <div id="footer-shadow" class="row"></div>
+    <footer id="page-footer" class="row">
+    </footer>
+
+    <?php echo $OUTPUT->standard_end_of_body_html() ?>
 </div>
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
 </body>
 </html>
