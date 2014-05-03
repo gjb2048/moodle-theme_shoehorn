@@ -16312,6 +16312,10 @@ label {
 .container-fluid {
   max-width: none;
 }
+ul,
+ol {
+  padding-left: 24px;
+}
 .course-content .sectionbody ul {
   padding-left: 18px;
 }

@@ -19695,6 +19695,11 @@ label {
   max-width: none;
 }
 
+ul,
+ol {
+  padding-right: 24px;
+}
+
 .course-content .sectionbody ul {
   padding-right: 18px;
 }
