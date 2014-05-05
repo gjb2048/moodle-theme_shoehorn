@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
-17th April 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
   2.  Fixed enrolment button not showing background colour.
   3.  Fixed search box and icon at the top of forums.
@@ -104,6 +104,7 @@ Version information
       this is implementation-al and should not affect 'imagebank.php' URLs.
  12.  Collapsed Topics inspired CONTRIB-4099 to look again at the course layout and fix.
  13.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100_2
+ 14.  Implemented show old messages setting I developed on: https://github.com/gjb2048/theme_bootstrap/commit/86ca17108e5f03daf9697899188dffc7f8e5b7f2
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100

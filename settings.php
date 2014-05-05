@@ -60,6 +60,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Show old messages.
+    $name = 'theme_shoehorn/showoldmessages';
+    $title = get_string('showoldmessages', 'theme_shoehorn');
+    $description = get_string('showoldmessagesdesc', 'theme_shoehorn');
+    $default = '0';
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $generalsettings->add($setting);
+
     // Logo file setting.
     $name = 'theme_shoehorn/logo';
     $title = get_string('logo','theme_shoehorn');

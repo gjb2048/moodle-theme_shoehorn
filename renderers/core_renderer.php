@@ -72,6 +72,225 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         return $title . html_writer::tag('ul', "$list_items", array('class' => 'breadcrumb'));
     }
 
+    public function custom_menu($custommenuitems = '') {
+        /* The custom menu is always shown, even if no menu items
+           are configured in the global theme settings page. */
+        global $CFG;
+
+        if (!empty($CFG->custommenuitems)) {
+            $custommenuitems .= $CFG->custommenuitems;
+        }
+        $custommenu = new custom_menu($custommenuitems, current_language());
+        return $this->render_custom_menu($custommenu);
+    }
+
+    protected function render_custom_menu(custom_menu $menu) {
+        global $CFG, $USER;
+
+        /* TODO: eliminate this duplicated logic, it belongs in core, not
+                 here. See MDL-39565. */
+
+        $content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav'));
+        foreach ($menu->get_children() as $item) {
+            $content .= $this->render_custom_menu_item($item, 1);
+        }
+        $content .= html_writer::end_tag('ul');
+
+        return $content;
+    }
+
+    public function user_menu() {
+        global $CFG;
+        $usermenu = new custom_menu('', current_language());
+        return $this->render_user_menu($usermenu);
+    }
+
+    protected function render_user_menu(custom_menu $menu) {
+        global $CFG, $USER, $DB;
+
+        $addusermenu = true;
+        $addlangmenu = true;
+        $addmessagemenu = true;
+
+        if (!isloggedin() || isguestuser()) {
+            $addmessagemenu = false;
+        }
+
+        if ($addmessagemenu) {
+            $messages = $this->get_user_messages();
+            $messagecount = 0;
+            foreach ($messages as $message) {
+                if (!$message->from) { // Workaround for issue #103.
+                    continue;
+                }
+                $messagecount++;
+            }
+            $messagemenutext = $messagecount . ' ';
+            if ($messagecount == 1) {
+                 $messagemenutext .= get_string('message', 'message');
+            } else {
+                 $messagemenutext .= get_string('messages', 'message');
+            }
+            $messagemenu = $menu->add(
+                $messagemenutext,
+                new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
+                get_string('messages', 'message'),
+                9999
+            );
+            foreach ($messages as $message) {
+                if (!$message->from) { // Workaround for issue #103.
+                    continue;
+                }
+                $senderpicture = new user_picture($message->from);
+                $senderpicture->link = false;
+                $senderpicture = $this->render($senderpicture);
+
+                $messagecontent = $senderpicture;
+                $messagecontent .= html_writer::start_span('msg-body');
+                $messagecontent .= html_writer::start_span('msg-title');
+                $messagecontent .= html_writer::span($message->from->firstname . ': ', 'msg-sender');
+                $messagecontent .= $message->text;
+                $messagecontent .= html_writer::end_span();
+                $messagecontent .= html_writer::start_span('msg-time');
+                $messagecontent .= html_writer::tag('i', '', array('class' => 'icon-time'));
+                $messagecontent .= html_writer::span($message->date);
+                $messagecontent .= html_writer::end_span();
+
+                $messageurl = new moodle_url('/message/index.php', array('user1' => $USER->id, 'user2' => $message->from->id));
+                $messagemenu->add($messagecontent, $messageurl, $message->text);
+            }
+        }
+
+        $langs = get_string_manager()->get_list_of_translations();
+        if (count($langs) < 2
+        or empty($CFG->langmenu)
+        or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
+            $addlangmenu = false;
+        }
+
+        if ($addlangmenu) {
+            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), 10000);
+            foreach ($langs as $langtype => $langname) {
+                $language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            }
+        }
+
+        if ($addusermenu) {
+            if (isloggedin()) {
+                $usermenu = $menu->add(fullname($USER), new moodle_url('#'), fullname($USER), 10001);
+                $usermenu->add(
+                    '<span class="glyphicon glyphicon-off"></span>' . get_string('logout'),
+                    new moodle_url('/login/logout.php', array('sesskey' => sesskey(), 'alt' => 'logout')),
+                    get_string('logout')
+                );
+
+                $usermenu->add(
+                    '<span class="glyphicon glyphicon-user"></span>' . get_string('viewprofile'),
+                    new moodle_url('/user/profile.php', array('id' => $USER->id)),
+                    get_string('viewprofile')
+                );
+
+                $usermenu->add(
+                    '<span class="glyphicon glyphicon-cog"></span>' . get_string('editmyprofile'),
+                    new moodle_url('/user/edit.php', array('id' => $USER->id)),
+                    get_string('editmyprofile')
+                );
+            } else {
+                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
+            }
+        }
+
+        $content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav navbar-right'));
+        foreach ($menu->get_children() as $item) {
+            $content .= $this->render_custom_menu_item($item, 1);
+        }
+        $content .= html_writer::end_tag('ul');
+
+        return $content;
+    }
+
+    protected function process_user_messages() {
+
+        $messagelist = array();
+
+        foreach ($usermessages as $message) {
+            $cleanmsg = new stdClass();
+            $cleanmsg->from = fullname($message);
+            $cleanmsg->msguserid = $message->id;
+
+            $userpicture = new user_picture($message);
+            $userpicture->link = false;
+            $picture = $this->render($userpicture);
+
+            $cleanmsg->text = $picture . ' ' . $cleanmsg->text;
+
+            $messagelist[] = $cleanmsg;
+        }
+
+        return $messagelist;
+    }
+
+    protected function get_user_messages() {
+        global $USER, $DB;
+        $messagelist = array();
+
+        $newmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
+                            FROM {message}
+                           WHERE useridto = :userid";
+
+        $newmessages = $DB->get_records_sql($newmessagesql, array('userid' => $USER->id));
+
+        foreach ($newmessages as $message) {
+            $messagelist[] = $this->shoehorn_process_message($message);
+        }
+
+        $showoldmessages = (empty($this->page->theme->settings->showoldmessages)) ? 0 : $this->page->theme->settings->showoldmessages;
+        if ($showoldmessages) {
+            $maxmessages = 5;
+            $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
+                                 FROM {message_read}
+                                WHERE useridto = :userid
+                             ORDER BY timecreated DESC
+                                LIMIT $maxmessages";
+
+            $readmessages = $DB->get_records_sql($readmessagesql, array('userid' => $USER->id));
+
+            foreach ($readmessages as $message) {
+                $messagelist[] = $this->shoehorn_process_message($message);
+            }
+        }
+
+        return $messagelist;
+
+    }
+
+    protected function shoehorn_process_message($message) {
+        global $DB;
+        $messagecontent = new stdClass();
+
+        if ($message->notification) {
+            $messagecontent->text = get_string('unreadnewnotification', 'message');
+        } else {
+            if ($message->fullmessageformat == FORMAT_HTML) {
+                $message->smallmessage = html_to_text($message->smallmessage);
+            }
+            if (core_text::strlen($message->smallmessage) > 15) {
+                $messagecontent->text = core_text::substr($message->smallmessage, 0, 15).'...';
+            } else {
+                $messagecontent->text = $message->smallmessage;
+            }
+        }
+
+        if ((time() - $message->timecreated ) <= (3600 * 3)) {
+            $messagecontent->date = format_time(time() - $message->timecreated);
+        } else {
+            $messagecontent->date = userdate($message->timecreated, get_string('strftimetime', 'langconfig'));
+        }
+
+        $messagecontent->from = $DB->get_record('user', array('id' => $message->useridfrom));
+        return $messagecontent;
+    }
+
     function footer_menu() {
         $o = '';
         $items = array();

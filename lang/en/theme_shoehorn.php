@@ -93,6 +93,10 @@ $string['showloginmessage'] = 'Display login message';
 $string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";
 $string['showloginmessage_urlname'] = 'login instructions';
 $string['showloginmessage_urllink'] = 'http://docs.moodle.org/26/en/admin/setting/manageauths#Instructions';
+
+$string['showoldmessages'] = 'Show old messages';
+$string['showoldmessagesdesc'] = 'Show old messages on the message menu.';
+
 $string['loginmessage'] = 'The login message';
 $string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
 $string['loginmessage'] = 'The login message';
