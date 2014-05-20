@@ -33,8 +33,8 @@ $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = shoehorn_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
-$PAGE->requires->jquery();
-$PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
+//$PAGE->requires->jquery();
+//$PAGE->requires->jquery_plugin('bootstrap', 'theme_bootstrap');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 

@@ -53,8 +53,8 @@
  *               --urlprefix=<path> Optional. Explicitly define
  *                                  the path between the domain
  *                                  and the installation in the
- *                                  URL, i.e. /moodle26 being:
- *                                  --urlprefix=/moodle26
+ *                                  URL, i.e. /moodle27 being:
+ *                                  --urlprefix=/moodle27
  *
  * Plumbing tasks & targets:
  * -------------------------
@@ -142,7 +142,7 @@ module.exports = function(grunt) {
                 options: {
                     compress: false,
                     paths: "../bootstrap/less",
-                    report: 'min',                    report: 'min',
+                    report: 'min',
                     sourceMap: true,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'sourcemap-moodle.json'

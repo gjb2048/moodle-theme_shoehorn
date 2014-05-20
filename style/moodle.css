@@ -5056,7 +5056,8 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-heading,
 .box.message table td.heading,
 .box.message .messagearea .messagerecent .singlemessage .otheruser,
-.block .header {
+.block .header,
+#dockeditempanel .dockeditempanel_hd {
   color: #2d70c5;
   background-color: transparent;
   border-color: rgba(31, 77, 135, 0.2);
@@ -5931,6 +5932,47 @@ button.close {
   height: auto;
   width: auto;
 }
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: rgba(0, 0, 0, 0.15);
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown-submenu:hover > a:after {
+  border-left-color: rgba(0, 0, 0, 0.15);
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
 /* some very targetted corrections to roll back nameclashes between
  * Moodle and Bootstrap like .row, .label, .content, .controls
  *
@@ -6048,35 +6090,35 @@ img.icon.hide {
 .layout-option-nocoursefooter .course-content-footer {
   display: none;
 }
-.editing.used-region-side-post.used-region-side-pre #region-main {
+.dir-ltr.editing.used-region-side-post.used-region-side-pre #region-main {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .editing.used-region-side-post.used-region-side-pre #region-main {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .editing.used-region-side-post.used-region-side-pre #region-main {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #region-main {
     float: left;
     width: 50%;
   }
 }
-@media (min-width: 768px) {
-  .editing.used-region-side-post.used-region-side-pre #region-main {
-    left: 33.33333333%;
+@media (min-width: 1200px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #region-main {
+    float: left;
+    width: 66.66666667%;
   }
 }
-@media (min-width: 992px) {
-  .editing.used-region-side-post.used-region-side-pre #region-main {
+@media (min-width: 768px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #region-main {
     left: 25%;
   }
 }
-.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+@media (min-width: 1200px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #region-main {
+    left: 16.66666667%;
+  }
+}
+.dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -6084,18 +6126,18 @@ img.icon.hide {
   min-height: 100px;
 }
 @media (min-width: 768px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-post {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
     float: left;
     width: 25%;
   }
 }
-.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+@media (min-width: 1200px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -6103,26 +6145,196 @@ img.icon.hide {
   min-height: 100px;
 }
 @media (min-width: 768px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
     float: left;
     width: 25%;
   }
 }
-@media (min-width: 768px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
-    right: 33.33333333%;
+@media (min-width: 1200px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    float: left;
+    width: 16.66666667%;
   }
 }
-@media (min-width: 992px) {
-  .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+@media (min-width: 768px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
     right: 50%;
   }
+}
+@media (min-width: 1200px) {
+  .dir-ltr.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    right: 66.66666667%;
+  }
+}
+.dir-rtl.editing.used-region-side-post.used-region-side-pre #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #region-main {
+    float: left;
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #region-main {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #region-main {
+    left: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #region-main {
+    left: 16.66666667%;
+  }
+}
+.dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 100px;
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    left: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
+    left: 16.66666667%;
+  }
+}
+.dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 100px;
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+@media (min-width: 768px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    right: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .dir-rtl.editing.used-region-side-post.used-region-side-pre #block-region-side-post {
+    right: 83.33333333%;
+  }
+}
+.has_dock.used-region-side-post.empty-region-side-pre #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+    float: left;
+    width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+@media (min-width: 768px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+    left: 0%;
+  }
+}
+@media (min-width: 1200px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+    left: 0%;
+  }
+}
+.has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 100px;
+}
+@media (min-width: 768px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.has_dock.used-region-side-post.empty-region-side-pre #block-region-side-pre {
+  display: none;
+}
+.has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+    left: 0%;
+  }
+}
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+    left: 0%;
+  }
+}
+.has_dock.empty-region-side-post.empty-region-side-pre #block-region-side-post {
+  display: none;
+}
+.has_dock.empty-region-side-post.empty-region-side-pre #block-region-side-pre {
+  display: none;
 }
 /** Page layout CSS ends **/
 .mdl-left {
@@ -6338,7 +6550,7 @@ img.icon-post {
   width: 50%;
 }
 .boxwidthwide {
-  width: 80%;
+  width: 100%;
 }
 .headermain {
   font-weight: bold;
@@ -7762,15 +7974,78 @@ img.iconsmall {
   border-width: 1px;
   border-style: solid;
 }
+.path-admin .roleassigntable {
+  width: 100%;
+}
+.path-admin .roleassigntable input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #1f4d87;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #1f4d87;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  margin-bottom: 0.3em;
+}
+.path-admin .roleassigntable input[type="text"]:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.path-admin .roleassigntable input[type="text"]::-moz-placeholder {
+  color: #2965b0;
+  opacity: 1;
+}
+.path-admin .roleassigntable input[type="text"]:-ms-input-placeholder {
+  color: #2965b0;
+}
+.path-admin .roleassigntable input[type="text"]::-webkit-input-placeholder {
+  color: #2965b0;
+}
+.path-admin .roleassigntable input[type="text"][disabled],
+.path-admin .roleassigntable input[type="text"][readonly],
+fieldset[disabled] .path-admin .roleassigntable input[type="text"] {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textarea.path-admin .roleassigntable input[type="text"] {
+  height: auto;
+}
+.path-admin .roleassigntable td {
+  vertical-align: top;
+  padding: 0.2em 0.3em;
+}
+.path-admin .roleassigntable p {
+  text-align: left;
+  margin: 0.2em 0;
+}
 .path-admin .roleassigntable #existingcell,
 .path-admin .roleassigntable #potentialcell {
   width: 42%;
+}
+.path-admin .roleassigntable #existingcell p > label:first-child,
+.path-admin .roleassigntable #potentialcell p > label:first-child {
+  font-weight: bold;
 }
 .path-admin .roleassigntable #buttonscell {
   width: 16%;
 }
 .path-admin .roleassigntable #buttonscell #assignoptions {
   font-size: 12px;
+}
+.path-admin .roleassigntable #removeselect_wrapper,
+.path-admin .roleassigntable #addselect_wrapper {
+  width: 100%;
 }
 .path-admin table.rolecap tr.rolecap th {
   text-align: left;
@@ -8894,12 +9169,12 @@ span.editinstructions {
 .coursebox {
   position: relative;
 }
-.coursebox .courseimage img {
+.coursebox img.courseimage {
   border-radius: 6px;
   float: left;
   height: auto;
   margin-right: 10px;
-  max-width: 240px;
+  max-width: 140px;
 }
 .coursebox .teachers li {
   list-style-type: none;
@@ -9461,6 +9736,18 @@ span.editinstructions {
   color: #555;
   text-decoration: none;
 }
+.filemanager input[type="text"],
+.file-picker input[type="text"] {
+  width: 265px;
+}
+.filemanager .fp-license td,
+.file-picker .fp-setlicense td {
+  max-width: 265px;
+}
+.filemanager .fp-license select,
+.file-picker .fp-setlicense select {
+  max-width: 100%;
+}
 .fp-content-center {
   vertical-align: middle;
 }
@@ -9866,6 +10153,37 @@ a.ygtvspacer:hover {
 .fp-filename {
   padding-right: 10px;
 }
+.file-picker .fp-login-form {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+.file-picker .fp-login-form table {
+  margin: 0 auto;
+}
+.file-picker .fp-login-form p {
+  text-align: center;
+  margin-top: 3em;
+}
+.file-picker .fp-login-form .fp-login-input label {
+  text-align: right;
+  display: block;
+}
+.file-picker .fp-login-form .fp-login-input .input {
+  text-align: left;
+}
+.file-picker .fp-login-form input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+.file-picker .fp-upload-form {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+.file-picker .fp-upload-form table {
+  margin: 0 auto;
+}
 .file-picker.fp-dlg {
   text-align: center;
 }
@@ -9892,9 +10210,16 @@ a.ygtvspacer:hover {
   font-size: 12px;
 }
 .file-picker .fp-content-error {
+  height: 100%;
+  width: 100%;
+  display: table;
   text-align: center;
 }
 .file-picker .fp-content-error .fp-error {
+  height: 100%;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
   padding: 40px 20px 10px 20px;
   font-size: 12px;
 }
@@ -10021,7 +10346,7 @@ a.ygtvspacer:hover {
 .fitem.disabled .filemanager .fm-content-wrapper {
   display: none;
 }
-.fp-restrictions {
+.filemanager .fp-restrictions {
   text-align: right;
 }
 .filemanager .fp-navbar {
@@ -10378,6 +10703,9 @@ a.ygtvspacer:hover {
 .fp-formset .control-label {
   font-size: 14px;
   line-height: 1.42857143;
+}
+.fp-formset {
+  margin: 0 15px;
 }
 .box.message .mdl-align {
   text-align: left;
@@ -11636,19 +11964,21 @@ textareatextarea {
 #chooseqtype .selected .qtypesummary {
   display: block;
 }
-#categoryquestions {
+#page-mod-quiz-edit div.questionbankwindow div.header {
   margin: 0;
 }
-#categoryquestions td,
-#categoryquestions th {
-  padding: 0 0.2em;
-}
-#categoryquestions th {
-  text-align: left;
-  font-weight: normal;
+#page-mod-quiz-edit div.questionbankwindow.block {
+  padding: 0;
 }
 #categoryquestions .checkbox {
-  padding-left: 20px;
+  display: table-cell;
+  width: 19px;
+}
+#categoryquestions .checkbox input[type="checkbox"] {
+  margin-left: 0px;
+}
+#categoryquestions img.iconsmall {
+  margin: 0;
 }
 .questionbank .singleselect {
   margin: 0;
@@ -11993,8 +12323,30 @@ body.path-question-type .fitem_fgroup .accesshide {
   border-radius: 2px;
   overflow: hidden;
 }
-#page-mod-quiz-edit .modulespecificbuttonscontainer {
-  width: 220px;
+#page-mod-quiz-edit div.questionbank .categoryinfo {
+  padding: 0.3em 0;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer {
+  padding: 0;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer strong {
+  display: block;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer hr,
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer br {
+  display: none;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer strong {
+  margin-left: -0.3em;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer strong label {
+  margin-left: 0.3em;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer input {
+  margin-left: 0;
+}
+#page-mod-quiz-edit div.questionbank .modulespecificbuttonscontainer input + input {
+  margin-left: 5px;
 }
 .questionbankwindow .module {
   width: auto;
@@ -12160,9 +12512,6 @@ a#hidebankcmd {
 /* Next style does not work in all browsers but looks nicer when it does */
 .userselector .userselector-infobelow {
   font-size: 0.8em;
-}
-#userselector_options {
-  padding: 0.3em 0;
 }
 #userselector_options .collapsibleregioncaption {
   font-weight: bold;
@@ -13058,6 +13407,10 @@ ol {
 .block .header .block_action {
   float: right;
 }
+.block .header .block_action img {
+  vertical-align: baseline;
+  margin: 0 2px;
+}
 .block .header .commands {
   clear: both;
   text-align: right;
@@ -13647,6 +14000,80 @@ textarea.form-item .form-setting input[type="password"] {
     margin-left: 33.33333333%;
   }
 }
+form select,
+form input[type="text"],
+form.atto_form input[type="url"],
+select.singleselect {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #1f4d87;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #1f4d87;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  width: auto;
+  max-width: 300px;
+  display: inline;
+  margin: 0 0 5px 0;
+}
+form select:focus,
+form input[type="text"]:focus,
+form.atto_form input[type="url"]:focus,
+select.singleselect:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+form select::-moz-placeholder,
+form input[type="text"]::-moz-placeholder,
+form.atto_form input[type="url"]::-moz-placeholder,
+select.singleselect::-moz-placeholder {
+  color: #2965b0;
+  opacity: 1;
+}
+form select:-ms-input-placeholder,
+form input[type="text"]:-ms-input-placeholder,
+form.atto_form input[type="url"]:-ms-input-placeholder,
+select.singleselect:-ms-input-placeholder {
+  color: #2965b0;
+}
+form select::-webkit-input-placeholder,
+form input[type="text"]::-webkit-input-placeholder,
+form.atto_form input[type="url"]::-webkit-input-placeholder,
+select.singleselect::-webkit-input-placeholder {
+  color: #2965b0;
+}
+form select[disabled],
+form input[type="text"][disabled],
+form.atto_form input[type="url"][disabled],
+select.singleselect[disabled],
+form select[readonly],
+form input[type="text"][readonly],
+form.atto_form input[type="url"][readonly],
+select.singleselect[readonly],
+fieldset[disabled] form select,
+fieldset[disabled] form input[type="text"],
+fieldset[disabled] form.atto_form input[type="url"],
+fieldset[disabled] select.singleselect {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textareaform select,
+textareaform input[type="text"],
+textareaform.atto_form input[type="url"],
+textareaselect.singleselect {
+  height: auto;
+}
 .path-admin .buttons,
 .form-buttons {
   position: relative;
@@ -13751,87 +14178,107 @@ input[type="radio"],
 input[type="checkbox"] {
   margin: 0 4px;
 }
-/*
-.mform .fitem fieldset.fgroup label {
-    // see .felement.fdate_selector above
-    display: inline;
-    float: none;
-    width: auto;
+/* Section and module editing forms contain special JS components for the
+   availability system (if enabled). */
+#fitem_id_availabilityconditionsjson {
+  /* Hidden eye icon still takes up space. */
+  /* Eye icons in front of child lists are aligned specially. */
+  /* Add button lines up with child elements. */
+  /* Nested section is grey. */
+  /* Second (and more) levels of nested sections are white. */
+  /* Connecting text needs to be indented. */
 }
-.mform ul.file-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+#fitem_id_availabilityconditionsjson *[aria-hidden=true] {
+  display: none;
 }
-.mform .ftags label.accesshide {
-    display: block;
-    position: static;
+#fitem_id_availabilityconditionsjson select,
+#fitem_id_availabilityconditionsjson input[type=text] {
+  width: auto;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 4px 6px;
 }
-.mform .ftags select {
-    margin-bottom: 0.7em;
-    min-width: 22em;
+#fitem_id_availabilityconditionsjson label {
+  display: inline;
 }
-.mform .helplink img {
-    margin: 0 .45em;
-    padding: 0;
+#fitem_id_availabilityconditionsjson .availability-group {
+  margin: 5px;
 }
-
-form input[type="text"] {
-   .form-control;
-   display: inline-block;
-   width: auto;
-   height: auto;
+#fitem_id_availabilityconditionsjson .availability-item {
+  margin-bottom: 6px;
 }
-
-.loginpanel .error,
-.singleselect label {
-    margin-right: .3em;
+#fitem_id_availabilityconditionsjson .availability-header {
+  padding: 5px;
 }
-#portfolio-add-button {
-    display: inline;
+#fitem_id_availabilityconditionsjson .availability-plugincontrols {
+  padding: 5px;
+  margin: 0 8px;
+  background: none repeat scroll 0% 0% #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  display: inline-block;
 }
-
-
-#page-grade-edit-outcome-course .courseoutcomes {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+#fitem_id_availabilityconditionsjson .availability-eye[aria-hidden=true] {
+  display: inline;
+  visibility: hidden;
 }
-#page-grade-edit-outcome-course .courseoutcomes td {
-    text-align:center;
+#fitem_id_availabilityconditionsjson .availability-list > .availability-eye img {
+  vertical-align: top;
+  margin-top: 12px;
 }
-
-// Checkbox labels. Bootstrap puts the associated checkbox inside the label.
-// Moodle puts it beside the label, so we need to make it inline-block
-// to keep it on the same horizontal level.
-input[type="radio"] + label,
-input[type="checkbox"] + label {
-    display: inline;
-    padding-left: 0.2em;
+#fitem_id_availabilityconditionsjson .availability-button {
+  margin-left: 15px;
 }
-input[type="radio"],
-input[type="checkbox"] {
-    margin-top: -4px; // Dodgy hack, must be better way.
-    margin-right: 7px;
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner {
+  display: inline-block;
+  background: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  padding: 6px;
+  margin-bottom: 6px;
 }
-.singleselect {
-    display: inline-block;
-    form,
-    select{
-        margin: 0;
-    }
+#fitem_id_availabilityconditionsjson .availability-childlist .availability-childlist > .availability-inner {
+  background: white;
 }
-.felement.ffilepicker {
-    margin-top: 5px;
+#fitem_id_availabilityconditionsjson .availability-connector {
+  margin-left: 20px;
+  margin-bottom: 6px;
 }
-div#dateselector-calendar-panel {
-    z-index: 3100; // Set higher than the z-index of the filemanager - see MDL-39047.
+/* This dialogue is used to add an availability condition. */
+.availability-dialogue .moodle-dialogue .moodle-dialogue-bd {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 2px;
 }
-
-fieldset.coursesearchbox label {
-    display: inline;
+.availability-dialogue ul {
+  display: block;
+  margin: 0;
 }
-*/
+.availability-dialogue li {
+  display: block;
+  list-style-type: none;
+  padding: 0 0 4px;
+  clear: both;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 4px;
+}
+.availability-dialogue ul button {
+  float: left;
+  margin: 0 10px;
+  min-width: 140px;
+  margin-top: 4px;
+  display: inline;
+}
+.availability-dialogue label {
+  margin-bottom: 0;
+  display: block;
+}
+.availability-dialogue .availability-buttons button {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 4px;
+}
 /* modules.less */
 select {
   width: auto;
@@ -14011,6 +14458,10 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 }
 .path-mod-data form {
   margin-top: 10px;
+}
+.path-mod-data table.mod-data-default-template th,
+.path-mod-data table.mod-data-default-template td {
+  padding: 5px;
 }
 .template_heading {
   margin-top: 10px;
@@ -14537,6 +14988,13 @@ table#permissions > tbody > tr:hover > th {
 }
 table.flexible .emptyrow {
   display: none;
+}
+.left_scroller .generaltable th,
+.right_scroller .generaltable th,
+.left_scroller .generaltable td,
+.right_scroller .generaltable td {
+  line-height: 20px;
+  box-sizing: content-box;
 }
 .singlebutton div {
   display: inline-block;
@@ -15473,6 +15931,9 @@ input.fp-btn-choose {
     width: 120px;
   }
   .path-mod-forum .forumheaderlist .picture {
+    width: 0px;
+  }
+  .path-mod-forum .forumheaderlist .picture a {
     display: none;
   }
   .panel .courseimage img {
@@ -15545,6 +16006,752 @@ input.fp-btn-choose {
 #page-footer .purgecaches,
 #page-footer .performanceinfo {
   text-align: center;
+}
+.moodlezoom {
+  display: none;
+}
+@media (min-width: 768px) {
+  .moodlezoom {
+    display: block;
+  }
+  .moodlezoom {
+    margin-left: 10px;
+  }
+  .moodlezoom span.zoomout {
+    display: none;
+  }
+  .dir-rtl .moodlezoom {
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+  body.zoomin {
+    padding-top: 0;
+  }
+  body.zoomin .moodlezoom span.zoomout {
+    display: block;
+  }
+  body.zoomin .moodlezoom span.zoomin {
+    display: none;
+  }
+  body.zoomin .block-region {
+    display: none;
+  }
+  body.zoomin #region-main,
+  body.zoomin #region-bs-main-and-pre {
+    width: 100% !important;
+    left: 0 !important;
+  }
+  body.zoomin header.navbar {
+    display: none;
+  }
+  body.zoomin #page-header h1,
+  body.zoomin #page-footer {
+    display: none;
+  }
+  body.zoomin .breadcrumb-nav {
+    margin-top: 4px;
+  }
+}
+.nonsense {
+  left: 0;
+}
+/**
+ * This styles the H2 node the dock creates to test the width before making its title rotation.
+ * We need to apply these EXACT styles to the #dock .dockedtitle h2 to be sure things are spaced correctly.
+ */
+.transform-test-heading {
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 36px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+body.has_dock #page,
+body.has_dock .moodleheader {
+  padding-left: 45px;
+}
+body.has_dock div#dock {
+  display: inline;
+}
+#dock {
+  width: 42px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: transparent;
+  border-right: 0 none;
+}
+#dock .nothingdocked {
+  visibility: hidden;
+  display: none;
+}
+#dock .dockeditem_container {
+  margin-top: 68px;
+}
+#dock .dockeditem .firstdockitem {
+  margin-top: 1em;
+}
+#dock .dockedtitle {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #1f4d87;
+  background-color: #c9e6ff;
+  border-color: #1f4d87;
+  display: block;
+  width: 36px;
+  margin: 3px;
+  padding: 0;
+  cursor: pointer;
+}
+#dock .dockedtitle:focus,
+#dock .dockedtitle:active:focus,
+#dock .dockedtitle.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#dock .dockedtitle:hover,
+#dock .dockedtitle:focus {
+  color: #1f4d87;
+  text-decoration: none;
+}
+#dock .dockedtitle:active,
+#dock .dockedtitle.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#dock .dockedtitle.disabled,
+#dock .dockedtitle[disabled],
+fieldset[disabled] #dock .dockedtitle {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#dock .dockedtitle:hover,
+#dock .dockedtitle:focus,
+#dock .dockedtitle:active,
+#dock .dockedtitle.active,
+.open .dropdown-toggle#dock .dockedtitle {
+  color: #1f4d87;
+  background-color: #a0d3ff;
+  border-color: #143155;
+}
+#dock .dockedtitle:active,
+#dock .dockedtitle.active,
+.open .dropdown-toggle#dock .dockedtitle {
+  background-image: none;
+}
+#dock .dockedtitle.disabled,
+#dock .dockedtitle[disabled],
+fieldset[disabled] #dock .dockedtitle,
+#dock .dockedtitle.disabled:hover,
+#dock .dockedtitle[disabled]:hover,
+fieldset[disabled] #dock .dockedtitle:hover,
+#dock .dockedtitle.disabled:focus,
+#dock .dockedtitle[disabled]:focus,
+fieldset[disabled] #dock .dockedtitle:focus,
+#dock .dockedtitle.disabled:active,
+#dock .dockedtitle[disabled]:active,
+fieldset[disabled] #dock .dockedtitle:active,
+#dock .dockedtitle.disabled.active,
+#dock .dockedtitle[disabled].active,
+fieldset[disabled] #dock .dockedtitle.active {
+  background-color: #c9e6ff;
+  border-color: #1f4d87;
+}
+#dock .dockedtitle .badge {
+  color: #c9e6ff;
+  background-color: #1f4d87;
+}
+#dock .dockedtitle h2 {
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 36px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+#dock .dockedtitle .filterrotate {
+  margin-left: 8px;
+}
+#dock .controls {
+  position: absolute;
+  bottom: 1em;
+  text-align: center;
+  width: 100%;
+}
+#dock .controls img {
+  cursor: pointer;
+}
+#dock .editing_move,
+#dock .moodle-core-dragdrop-draghandle {
+  display: none;
+}
+#dockeditempanel {
+  z-index: 12000;
+  /** Required to place the dock panel above the fixed pos navbar */
+  min-width: 200px;
+  position: relative;
+  left: 100%;
+  padding-left: 5px;
+}
+#dockeditempanel.dockitempanel_hidden {
+  display: none;
+}
+#dockeditempanel .dockeditempanel_content {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#dockeditempanel .dockeditempanel_content > .list-group {
+  margin-bottom: 0;
+}
+#dockeditempanel .dockeditempanel_content > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+#dockeditempanel .dockeditempanel_content > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table {
+  margin-bottom: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_content > .panel-body + .table,
+#dockeditempanel .dockeditempanel_content > .panel-body + .table-responsive {
+  border-top: 1px solid #c9e6ff;
+}
+#dockeditempanel .dockeditempanel_content > .table > tbody:first-child > tr:first-child th,
+#dockeditempanel .dockeditempanel_content > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-bordered,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered {
+  border: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr > td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr > td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr > td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr > td:first-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr > td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr > td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr > td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr > td:last-child,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr:first-child > td,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr:first-child > td,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr:first-child > td,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+#dockeditempanel .dockeditempanel_content > .table-bordered > thead > tr:first-child > th,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > thead > tr:first-child > th,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr:first-child > th,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr:last-child > td,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr:last-child > td,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tbody > tr:last-child > th,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+#dockeditempanel .dockeditempanel_content > .table-bordered > tfoot > tr:last-child > th,
+#dockeditempanel .dockeditempanel_content > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+#dockeditempanel .dockeditempanel_content > .table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+#dockeditempanel .dockeditempanel_bd {
+  overflow: auto;
+  /** Required to make the content scrollable when it flows over the fixed area of the screen */
+  padding: 0;
+}
+#dockeditempanel .dockeditempanel_bd .block_navigation .block_tree li {
+  overflow: visible;
+}
+#dockeditempanel .dockeditempanel_hd {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#dockeditempanel .dockeditempanel_hd > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+#dockeditempanel .dockeditempanel_hd h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+  color: #1f4d87;
+}
+#dockeditempanel .dockeditempanel_hd h2 > a {
+  color: inherit;
+}
+#dockeditempanel .dockeditempanel_hd h2 > a {
+  color: #1f4d87;
+}
+#dockeditempanel .dockeditempanel_hd .commands {
+  display: block;
+  text-align: right;
+}
+#dockeditempanel .dockeditempanel_hd .commands > a,
+#dockeditempanel .dockeditempanel_hd .commands > span {
+  margin-left: 3px;
+  cursor: pointer;
+}
+#dockeditempanel .dockeditempanel_hd .commands img,
+#dockeditempanel .dockeditempanel_hd .commands input {
+  vertical-align: middle;
+  margin-right: 1px;
+}
+#dockeditempanel .dockeditempanel_hd .commands .hidepanemicon img {
+  cursor: pointer;
+}
+.dir-rtl.has_dock #page,
+.dir-rtl.has_dock .moodleheader {
+  padding-left: 0;
+  padding-right: 45px;
+}
+.dir-rtl #dock {
+  left: auto;
+  right: 0%;
+}
+.dir-rtl #dock .dockedtitle h2 {
+  line-height: 25px;
+}
+.dir-rtl #dockeditempanel {
+  right: 100%;
+}
+.dir-rtl #dockeditempanel .dockeditempanel_hd .commands {
+  text-align: left;
+}
+.gradetreebox h4 {
+  font-size: 14px;
+}
+.gradetreebox th.cell,
+.gradetreebox input[type=text] {
+  width: auto;
+}
+.gradetreebox input[type=text],
+.gradetreebox select {
+  margin-bottom: 0;
+}
+#page-grade-report-grader-index .topscrollcontent {
+  height: 1px;
+}
+#page-grade-report-grader-index #user-grades {
+  margin-top: 4px;
+}
+#page-grade-grading-manage #activemethodselector label {
+  display: inline-block;
+}
+#page-grade-grading-manage #activemethodselector .helptooltip {
+  margin-right: 0.5em;
+}
+#page-grade-grading-manage .actions {
+  display: block;
+  text-align: center;
+  margin-bottom: 1em;
+}
+#page-grade-grading-manage .actions .action {
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 150px;
+  text-align: center;
+  overflow: hidden;
+  margin: 0.5em;
+  padding: 1em;
+  border: 1px solid #aaa;
+}
+#page-grade-grading-manage .actions .action:focus,
+#page-grade-grading-manage .actions .action:active:focus,
+#page-grade-grading-manage .actions .action.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#page-grade-grading-manage .actions .action:hover,
+#page-grade-grading-manage .actions .action:focus {
+  color: #1f4d87;
+  text-decoration: none;
+}
+#page-grade-grading-manage .actions .action:active,
+#page-grade-grading-manage .actions .action.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#page-grade-grading-manage .actions .action.disabled,
+#page-grade-grading-manage .actions .action[disabled],
+fieldset[disabled] #page-grade-grading-manage .actions .action {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#page-grade-grading-manage .actions .action .action-icon {
+  display: inline-block;
+  position: relative;
+  height: 64px;
+  width: 64px;
+}
+#page-grade-grading-manage .actions .action .action-text {
+  position: relative;
+  top: 0.4em;
+  font-size: 14px;
+}
+#page-grade-grading-form-rubric-edit .gradingform_rubric_editform .status {
+  font-size: 70%;
+}
+.gradingform_rubric.editor .addlevel input,
+.gradingform_rubric.editor .addcriterion input {
+  background: #ffffff none no-repeat top left;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .score {
+  text-align: right;
+  float: right;
+  margin-left: 28px;
+  margin-right: 0px;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete {
+  float: left;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete input {
+  left: 0;
+  right: auto;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion {
+  margin-right: 5px;
+  margin-left: 0px;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion input {
+  padding-right: 26px;
+  padding-left: 10px;
+  background-position: right 8px top 8px;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric .options .option .value {
+  margin-left: 0px;
+  margin-right: 5px;
+}
+.dir-rtl #rubric-rubric.gradingform_rubric .options .option input {
+  margin-left: 12px;
+  margin-right: 5px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria {
+  margin-bottom: 1em;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .description {
+  vertical-align: top;
+  padding: 6px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .description textarea {
+  margin-bottom: 0px;
+  height: 115px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .definition textarea {
+  width: 80%;
+  margin-bottom: 0px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .score {
+  position: relative;
+  float: left;
+  margin-right: 28px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .score input {
+  margin-bottom: 0px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level {
+  vertical-align: top;
+  padding: 6px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-top: -32px;
+  clear: both;
+  float: right;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete input {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 24px;
+  width: 24px;
+  margin: 0px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete input:hover {
+  background-color: #ddd;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input {
+  float: none;
+  width: 2em;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.hiddenelement,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.pseudotablink {
+  width: 0;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel {
+  vertical-align: middle;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: 0px 0px;
+  height: 30px;
+  margin-right: 5px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input:focus,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input:active:focus,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input:hover,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input:focus {
+  color: #1f4d87;
+  text-decoration: none;
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input:active,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input.disabled,
+#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input[disabled],
+fieldset[disabled] #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel input {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#rubric-rubric.gradingform_rubric .addcriterion {
+  margin-left: 5px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0;
+  margin-bottom: 1em;
+}
+#rubric-rubric.gradingform_rubric .addcriterion:focus,
+#rubric-rubric.gradingform_rubric .addcriterion:active:focus,
+#rubric-rubric.gradingform_rubric .addcriterion.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#rubric-rubric.gradingform_rubric .addcriterion:hover,
+#rubric-rubric.gradingform_rubric .addcriterion:focus {
+  color: #1f4d87;
+  text-decoration: none;
+}
+#rubric-rubric.gradingform_rubric .addcriterion:active,
+#rubric-rubric.gradingform_rubric .addcriterion.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#rubric-rubric.gradingform_rubric .addcriterion.disabled,
+#rubric-rubric.gradingform_rubric .addcriterion[disabled],
+fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#rubric-rubric.gradingform_rubric .addcriterion input {
+  margin: 0;
+  color: inherit;
+  text-shadow: inherit;
+  border: 0px none;
+  line-height: inherit;
+  background: transparent url([[pix:t/add]]) no-repeat 7px 8px;
+  padding-left: 26px;
+}
+#rubric-rubric.gradingform_rubric .options {
+  clear: both;
+}
+#rubric-rubric.gradingform_rubric .options .option label {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 2em;
+  color: inherit;
+  text-shadow: none;
+  background-color: transparent;
+}
+#rubric-rubric.gradingform_rubric .options .option input {
+  margin-left: 5px;
+  margin-right: 12px;
+}
+.path-grade-report-grader .grade_icons {
+  display: inline;
 }
 .breadcrumb {
   background-color: rgba(245, 245, 245, 0.5);
@@ -16961,4 +18168,4 @@ body {
 /*::-webkit-resizer {
     background-color: @page-bottom-bg-dark;
 }*/
-/*# sourceMappingURL=/moodle26/theme/shoehorn/sourcemap-moodle.json */
+/*# sourceMappingURL=/moodle27/theme/shoehorn/sourcemap-moodle.json */
