@@ -88,8 +88,15 @@
     }
     ul {
         li.section.main {
+            border: none;
             border-bottom: 2px solid @page-bottom-bg-light;
         }
+    }
+}
+
+ul {
+    &.topics, &.weeks {
+        padding-left: 0px;
     }
 }
 
@@ -489,4 +496,50 @@ ul, ol {
     padding-top: 1px;
     margin-bottom: -2px;
     padding-bottom: 2px;
+}
+
+// Core plugins.
+// Atto editor - lib\editor\atto\styles.css.
+.editor_atto_content_wrap {
+    background-color: white;
+    color: @text-color;
+}
+
+.editor_atto_content_wrap,
+.editor_atto + textarea {
+    border: 1px solid @page-bottom-bg;
+}
+
+div.editor_atto_toolbar {
+    background: @page-bottom-bg-light;
+    border: 1px solid @page-bottom-bg;
+}
+
+div.editor_atto_toolbar button + button {
+    border-left: 1px solid @page-bottom-bg;
+}
+
+.editor_atto_toolbar button:hover {
+    background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg-light 100%);
+    background-color: darken(@body-bg, 8%);
+}
+
+.editor_atto_toolbar button:active, .editor_atto_toolbar button.highlight {
+    background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg-light 100%);
+    background-color: darken(@body-bg, 12%);
+}
+
+div.editor_atto_toolbar div.atto_group {
+    border: 1px solid @page-bottom-bg;
+    border-bottom: 1px solid @page-bottom-bg-light;
+    background: lighten(@page-bottom-bg-light, 2%);
+}
+
+/* RTL Rules */
+body.dir-rtl div.editor_atto_toolbar button + button {
+    border-right: 1px solid @page-bottom-bg;
+}
+
+.atto_control img {
+    background-color: white;
 }

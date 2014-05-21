@@ -17007,7 +17007,12 @@ label {
   border: 1px solid #1f4d87;
 }
 .course-content ul li.section.main {
+  border: none;
   border-bottom: 2px solid #e3f2ff;
+}
+ul.topics,
+ul.weeks {
+  padding-left: 0px;
 }
 #page-course-index-category .generalbox.info {
   border: 1px dotted #1f4d87;
@@ -17652,6 +17657,42 @@ ol {
   margin-bottom: -2px;
   padding-bottom: 2px;
 }
+.editor_atto_content_wrap {
+  background-color: white;
+  color: #1f4d87;
+}
+.editor_atto_content_wrap,
+.editor_atto + textarea {
+  border: 1px solid #c9e6ff;
+}
+div.editor_atto_toolbar {
+  background: #e3f2ff;
+  border: 1px solid #c9e6ff;
+}
+div.editor_atto_toolbar button + button {
+  border-left: 1px solid #c9e6ff;
+}
+.editor_atto_toolbar button:hover {
+  background-image: radial-gradient(ellipse at center, #ffffff 60%, #e3f2ff 100%);
+  background-color: #ebebeb;
+}
+.editor_atto_toolbar button:active,
+.editor_atto_toolbar button.highlight {
+  background-image: radial-gradient(ellipse at center, #ffffff 40%, #e3f2ff 100%);
+  background-color: #e0e0e0;
+}
+div.editor_atto_toolbar div.atto_group {
+  border: 1px solid #c9e6ff;
+  border-bottom: 1px solid #e3f2ff;
+  background: #edf7ff;
+}
+/* RTL Rules */
+body.dir-rtl div.editor_atto_toolbar button + button {
+  border-right: 1px solid #c9e6ff;
+}
+.atto_control img {
+  background-color: white;
+}
 html {
   background-color: #267f00;
 }
@@ -18125,6 +18166,9 @@ input {
 }
 .copyright:before {
   content: "\00A9";
+}
+.ctopics {
+  padding-left: 0px;
 }
 .debuggingmessage {
   margin-left: 18px;
