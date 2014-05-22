@@ -62,6 +62,12 @@ $THEME->plugins_exclude_sheets = array(
     )
 );
 
+$THEME->parents_exclude_javascripts = array(
+    'bootstrap' => array(
+        'moodlebootstrap'
+    )
+); // Exclude the conflicting YUI JS.
+
 $allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
 $bottomregions = array('page-bottom', 'footer-pre', 'footer-post');

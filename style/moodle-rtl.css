@@ -21111,6 +21111,11 @@ ul.weeks {
   background-color: rgba(201, 230, 255, 0.5);
 }
 
+.loginbox .loginform .form-input input[type="text"],
+.loginbox .loginform .form-input input[type="password"] {
+  max-width: 100%;
+}
+
 #newmessageoverlay {
   border: 1px solid #afdaff;
 }

@@ -91,6 +91,7 @@ Version information
   2.  Switch to using YUI version of Bootstrap theme: https://github.com/bmbrands/theme_bootstrap as master has changed.
       jQuery version is now: https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev and base theme is:
       https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_basetheme
+  3.  Improved svg colour change in Gruntfile.js for plugins too.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
