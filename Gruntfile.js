@@ -85,9 +85,9 @@
  * grunt replace:font_fix    Correct the format for the Moodle font
  *                           loader to pick up the Glyphicon font.
  *
- * grunt replace:svg_colors  Change the color of the SVGs in pix_core by
- *                           text replacing #999 with a new hex color.
- *                           Note this requires the SVGs to be #999 to
+ * grunt svg                 Change the colour of the SVGs in pix_core by
+ *                           text replacing #1F4D87 with a new hex color.
+ *                           Note this requires the SVGs to be #1F4D87 to
  *                           start with or the replace will do nothing
  *                           so should usually be preceded by copying
  *                           a fresh set of the original SVGs.
