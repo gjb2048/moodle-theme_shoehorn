@@ -47,6 +47,8 @@ $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
+$THEME->enable_dock = true;
+
 $THEME->editor_sheets = array('editor');
 
 $THEME->parents_exclude_sheets = array(

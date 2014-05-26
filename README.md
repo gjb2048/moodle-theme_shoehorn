@@ -93,6 +93,7 @@ Version information
       https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_basetheme
   3.  Improved svg colour change in Gruntfile.js for plugins too.
   4.  Converted user icons to svg.
+  5.  Added docking.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

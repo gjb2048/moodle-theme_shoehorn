@@ -49,11 +49,15 @@ body.pagelayout-redirect #page {
     }
 }
 
-// Blocks.
-.block {
-    .block-hider-show, .block-hider-hide {
-        background-color: rgba(255, 255, 255, 0.7);
-        vertical-align: top;
+// Blocks & dock.
+.block, #dockeditempanel {
+    .header, .dockeditempanel_hd {
+        .block_action, .commands {
+            img, input {
+                background-color: rgba(255, 255, 255, 0.7);
+                vertical-align: top;
+            }
+        }
     }
 }
 

@@ -19414,8 +19414,8 @@ input.fp-btn-choose {
 
 .transform-test-heading {
   font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  line-height: 36px;
+  font-size: 14px;
+  line-height: 32px;
   text-align: center;
   font-weight: bold;
   margin: 0;
@@ -19424,7 +19424,7 @@ input.fp-btn-choose {
 
 body.has_dock #page,
 body.has_dock .moodleheader {
-  padding-right: 45px;
+  padding-right: 41px;
 }
 
 body.has_dock div#dock {
@@ -19432,7 +19432,7 @@ body.has_dock div#dock {
 }
 
 #dock {
-  width: 42px;
+  width: 38px;
   position: fixed;
   top: 0;
   right: 0;
@@ -19475,7 +19475,7 @@ body.has_dock div#dock {
   background-color: #c9e6ff;
   border-color: #1f4d87;
   display: block;
-  width: 36px;
+  width: 32px;
   margin: 3px;
   padding: 0;
   cursor: pointer;
@@ -19556,8 +19556,8 @@ fieldset[disabled] #dock .dockedtitle.active {
 
 #dock .dockedtitle h2 {
   font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  line-height: 36px;
+  font-size: 14px;
+  line-height: 32px;
   text-align: center;
   font-weight: bold;
   margin: 0;
@@ -19821,7 +19821,7 @@ fieldset[disabled] #dock .dockedtitle.active {
 .dir-rtl.has_dock #page,
 .dir-rtl.has_dock .moodleheader {
   padding-right: 0;
-  padding-left: 45px;
+  padding-left: 41px;
 }
 
 .dir-rtl #dock {
@@ -19830,7 +19830,7 @@ fieldset[disabled] #dock .dockedtitle.active {
 }
 
 .dir-rtl #dock .dockedtitle h2 {
-  line-height: 25px;
+  line-height: 18px;
 }
 
 .dir-rtl #dockeditempanel {
@@ -20533,6 +20533,26 @@ ul.weeks {
 
 #page-course-index-category .generalbox.info {
   border: 1px dotted #1f4d87;
+}
+
+/* Experimental CSS for big font capability.
+@dock-height: (@dock-width * 5.5);
+#dock .dockedtitle h2 {
+    font-size: @dock-title-font-size !important;
+    top: ((@dock-height / 2) + (@dock-width / 2)) !important;
+}
+#dock .dockedtitle, #dock .dockedtitle div {
+    height: @dock-height !important;
+}
+*/
+
+#dock .dockedtitle h2 {
+  font-size: 14px !important;
+}
+
+#dockeditempanel .dockeditempanel_content {
+  background-color: rgba(201, 230, 255, 0.95);
+  border-color: rgba(31, 77, 135, 0.9);
 }
 
 #page-enrol-users .enrol_user_buttons,
@@ -21386,8 +21406,22 @@ body.pagelayout-redirect #page {
   color: #eeeeee;
 }
 
-.block .block-hider-show,
-.block .block-hider-hide {
+.block .header .block_action img,
+#dockeditempanel .header .block_action img,
+.block .dockeditempanel_hd .block_action img,
+#dockeditempanel .dockeditempanel_hd .block_action img,
+.block .header .commands img,
+#dockeditempanel .header .commands img,
+.block .dockeditempanel_hd .commands img,
+#dockeditempanel .dockeditempanel_hd .commands img,
+.block .header .block_action input,
+#dockeditempanel .header .block_action input,
+.block .dockeditempanel_hd .block_action input,
+#dockeditempanel .dockeditempanel_hd .block_action input,
+.block .header .commands input,
+#dockeditempanel .header .commands input,
+.block .dockeditempanel_hd .commands input,
+#dockeditempanel .dockeditempanel_hd .commands input {
   background-color: rgba(255, 255, 255, 0.7);
   vertical-align: top;
 }

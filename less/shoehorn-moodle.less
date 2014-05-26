@@ -106,6 +106,30 @@ ul {
     }
 }
 
+// dock.less.
+
+/* Experimental CSS for big font capability.
+@dock-height: (@dock-width * 5.5);
+#dock .dockedtitle h2 {
+    font-size: @dock-title-font-size !important;
+    top: ((@dock-height / 2) + (@dock-width / 2)) !important;
+}
+#dock .dockedtitle, #dock .dockedtitle div {
+    height: @dock-height !important;
+}
+*/
+
+#dock .dockedtitle h2 {
+    font-size: @dock-title-font-size !important;
+}
+
+#dockeditempanel {
+    .dockeditempanel_content {
+        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.95);
+        border-color: rgba(red(@page-top-bg), green(@page-top-bg), blue(@page-top-bg), 0.9);
+    }
+}
+
 // enrolement.less.
 #page-enrol-users .enrol_user_buttons, .enrol_user_buttons {
     float: inherit;
