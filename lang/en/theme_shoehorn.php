@@ -86,6 +86,9 @@ $string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  
 $string['fonticons'] = 'Use icon font';
 $string['fonticons_desc'] = 'Enable this option to use the Glyphicon icon font.';
 
+$string['docking'] = 'Use docking';
+$string['docking_desc'] = 'Enable this option to use docking.';
+
 $string['inversenavbar'] = 'Inverse navbar';
 $string['inversenavbar_desc'] = 'Swaps text and background for the navbar at the top of the page.';
 

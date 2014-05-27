@@ -42,13 +42,28 @@ defined('MOODLE_INTERNAL') || die;
         1 => new lang_string('no'),   // No.
         2 => new lang_string('yes')   // Yes.
     );
-    $generalsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
 
     // Use Glyphicon font.
     $name = 'theme_shoehorn/fonticons';
     $title = get_string('fonticons', 'theme_shoehorn');
     $description = get_string('fonticons_desc', 'theme_shoehorn');
     $setting = new admin_setting_configcheckbox($name, $title, $description, '0');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
+    // Use Docking - 1 = no, 2 = yes.
+    $name = 'theme_shoehorn/docking';
+    $title = get_string('docking', 'theme_shoehorn');
+    $description = get_string('docking_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 

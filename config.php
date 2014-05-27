@@ -47,7 +47,11 @@ $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
-$THEME->enable_dock = true;
+if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2))) {
+    $THEME->enable_dock = true;
+} else {
+    $THEME->enable_dock = false;
+}
 
 $THEME->editor_sheets = array('editor');
 
