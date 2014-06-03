@@ -28,25 +28,10 @@
 $knownregionfooterpre = $PAGE->blocks->is_known_region('footer-pre');
 $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
 require_once(dirname(__FILE__).'/social.php');
-/*$numberofsociallinks = (empty($PAGE->theme->settings->numberofsociallinks)) ? false : $PAGE->theme->settings->numberofsociallinks;
-$footershadowmargin = '';
-if ($numberofsociallinks) {
-    $haveicons = false;
-    for ($i = 1; $i <= $numberofsociallinks; $i++) {
-        $name = 'social'.$i;
-        if (!empty($PAGE->theme->settings->$name)) {
-            if (!$haveicons) {
-                $haveicons = true;
-                break;
-            }
-        }
-    }
-    if ($haveicons) {
-        $footershadowmargin = ' sociallinks';
-    }
-}*/
 if ($haveicons) {
     $footershadowmargin = ' sociallinks';
+} else {
+    $footershadowmargin = '';
 }
 ?>
 <div class="row">
@@ -73,10 +58,9 @@ if ($haveicons) {
     </div>
     <div class="<?php echo $cols['centre']; ?>">
     <?php
-if ($haveicons) {
-    echo $icons;
-}
-    //require_once(dirname(__FILE__).'/social.php');
+    if ($haveicons) {
+        echo $icons;
+    }
     ?>
     </div>
     <div class="<?php echo $cols['side']; ?>">

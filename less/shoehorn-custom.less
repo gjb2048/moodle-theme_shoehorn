@@ -42,6 +42,17 @@ body.pagelayout-redirect #page {
     background-color: @body-bg;
     box-shadow: 0 0 8px @page-top-bg;
     padding: 8px;
+    float: left; // Quiz editing sparked this.
+}
+
+ // Quiz editing sparked this.
+aside {
+    float: left;
+}
+@media(max-width: @screen-xs-max) {
+    aside:first-of-type {
+        padding-top: 10px;
+    }
 }
 
 // Breadcrumb.

@@ -323,7 +323,7 @@ img {
   padding: 4px;
   line-height: 1.42857143;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -3084,7 +3084,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #1f4d87;
+  background-color: #e3f2ff;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3492,7 +3492,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #2d70c5;
+  background-color: #e3f2ff;
 }
 .nav > li.disabled > a {
   color: #2965b0;
@@ -3507,7 +3507,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #2d70c5;
+  background-color: #e3f2ff;
   border-color: #1f4d87;
 }
 .nav .nav-divider {
@@ -3520,7 +3520,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #1f4d87;
 }
 .nav-tabs > li,
 .box.message .messagearea .messagehistory .messagehistorytype span.visible,
@@ -3538,15 +3538,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs > li > a:hover,
 .box.message .messagearea .messagehistory .messagehistorytype a.visible:hover {
-  border-color: #2d70c5 #2d70c5 #dddddd;
+  border-color: #2d70c5 #2d70c5 #1f4d87;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus,
 .box.message .messagearea .messagehistory .messagehistorytype span.visible {
-  color: #555555;
+  color: #2d70c5;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -3606,11 +3606,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs.nav-justified > .active > a,
@@ -3626,17 +3626,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
-    border: 1px solid #dddddd;
+    border: 1px solid #1f4d87;
     border-radius: 4px;
   }
 }
 @media (min-width: 992px) {
   .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs.nav-justified > .active > a,
@@ -3658,7 +3658,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #1f4d87;
+  background-color: #e3f2ff;
 }
 .nav-stacked > li {
   float: none;
@@ -3700,11 +3700,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs-justified > .active > a,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .nav-tabs-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs-justified > .active > a,
@@ -4230,7 +4230,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
   color: #1f4d87;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   margin-left: -1px;
 }
 .pagination > li:first-child > a,
@@ -4250,7 +4250,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > span:focus {
   color: #112a49;
   background-color: #2d70c5;
-  border-color: #dddddd;
+  border-color: #1f4d87;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4272,7 +4272,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > .disabled > a:focus {
   color: #2965b0;
   background-color: #ffffff;
-  border-color: #dddddd;
+  border-color: #1f4d87;
   cursor: not-allowed;
 }
 .pagination-lg > li > a,
@@ -4319,7 +4319,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   display: inline-block;
   padding: 5px 14px;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   border-radius: 15px;
 }
 .pager li > a:hover,
@@ -4501,7 +4501,7 @@ a.list-group-item.active > .badge,
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -4707,7 +4707,7 @@ a.thumbnail.active {
   padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 .list-group-item:first-child {
   border-top-right-radius: 4px;
@@ -4740,8 +4740,8 @@ a.list-group-item.active:hover,
 a.list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #1f4d87;
-  border-color: #1f4d87;
+  background-color: #e3f2ff;
+  border-color: #e3f2ff;
 }
 a.list-group-item.active .list-group-item-heading,
 a.list-group-item.active:hover .list-group-item-heading,
@@ -4751,7 +4751,7 @@ a.list-group-item.active:focus .list-group-item-heading {
 a.list-group-item.active .list-group-item-text,
 a.list-group-item.active:hover .list-group-item-text,
 a.list-group-item.active:focus .list-group-item-text {
-  color: #8db4e5;
+  color: #ffffff;
 }
 .list-group-item-success {
   color: #3c763d;
@@ -4883,7 +4883,7 @@ a.list-group-item-danger.active:focus {
 .panel-footer {
   padding: 10px 15px;
   background-color: #f5f5f5;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #1f4d87;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -5040,13 +5040,13 @@ a.list-group-item-danger.active:focus {
   border-bottom: 0;
 }
 .panel-group .panel-heading + .panel-collapse .panel-body {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #1f4d87;
 }
 .panel-group .panel-footer {
   border-top: 0;
 }
 .panel-group .panel-footer + .panel-collapse .panel-body {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #1f4d87;
 }
 .panel-default,
 .block,
@@ -7663,7 +7663,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .moodle-actionmenu[data-enhanced].show .menu a:hover,
 .moodle-actionmenu[data-enhanced].show .menu a:focus {
   color: #ffffff;
-  background-color: #1f4d87;
+  background-color: #e3f2ff;
   text-decoration: none;
 }
 .moodle-actionmenu[data-enhanced].show .menu a.hidden {
@@ -9361,7 +9361,7 @@ span.editinstructions {
   padding: .4rem .6rem .3rem;
   background-color: transparent;
   color: #2d70c5;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #1f4d87;
 }
 #course-category-listings h4 {
   margin: 1rem 0 0;
@@ -11426,7 +11426,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
   margin: 0px 15px 10px;
 }
 .box.message .messagearea .messagehistory .messagehistory {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #1f4d87;
   margin: 0 15px 20px;
   padding: 15px;
   clear: both;
@@ -11520,7 +11520,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
 .box.message .messagearea .messagehistory .messagehistorytype {
   color: #fff;
   padding: 5px 15px;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #1f4d87;
   border: 0;
 }
 .box.message .messagearea .messagehistory .messagehistorytype > li {
@@ -11534,14 +11534,14 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
   border-radius: 4px 4px 0 0;
 }
 .box.message .messagearea .messagehistory .messagehistorytype > li > a:hover {
-  border-color: #2d70c5 #2d70c5 #dddddd;
+  border-color: #2d70c5 #2d70c5 #1f4d87;
 }
 .box.message .messagearea .messagehistory .messagehistorytype > li.active > a,
 .box.message .messagearea .messagehistory .messagehistorytype > li.active > a:hover,
 .box.message .messagearea .messagehistory .messagehistorytype > li.active > a:focus {
-  color: #555555;
+  color: #2d70c5;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -11601,11 +11601,11 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:hover,
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
@@ -11621,17 +11621,17 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:hover,
 .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
-    border: 1px solid #dddddd;
+    border: 1px solid #1f4d87;
     border-radius: 4px;
   }
 }
 @media (min-width: 992px) {
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .box.message .messagearea .messagehistory .messagehistorytype.nav-justified > .active > a,
@@ -15623,17 +15623,17 @@ input.fp-btn-choose {
 .nav-tabs-justified > .active > a,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #1f4d87;
 }
 @media (min-width: 768px) {
   .nav-tabs-justified > li > a {
-    border: 1px solid #dddddd;
+    border: 1px solid #1f4d87;
     border-radius: 4px;
   }
 }
 @media (min-width: 992px) {
   .nav-tabs-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #1f4d87;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs-justified > .active > a,
@@ -17578,6 +17578,11 @@ ul.weeks {
 .container-fluid {
   max-width: none;
 }
+@media (max-width: 767px) {
+  .block {
+    margin-bottom: 10px;
+  }
+}
 ul,
 ol {
   padding-left: 24px;
@@ -17778,6 +17783,15 @@ body.pagelayout-redirect #page {
   background-color: #ffffff;
   box-shadow: 0 0 8px #1f4d87;
   padding: 8px;
+  float: left;
+}
+aside {
+  float: left;
+}
+@media (max-width: 767px) {
+  aside:first-of-type {
+    padding-top: 10px;
+  }
 }
 .breadcrumb span {
   color: #1f4d87;

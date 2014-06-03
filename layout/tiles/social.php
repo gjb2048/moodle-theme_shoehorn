@@ -53,6 +53,5 @@ if ($numberofsociallinks) {
     if ($haveicons) {
         $icons .= '</ul>';
         $icons .= '</div></div>';
-        //echo $icons;
     }
 }
