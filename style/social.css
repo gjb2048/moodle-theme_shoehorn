@@ -27,6 +27,11 @@
 
 div.socialnetworkscontainer {
     min-height: 128px;
+    margin-top: -80px;
+}
+
+#footer-shadow.sociallinks {
+    margin-top: 4em;
 }
 
 div.post-size-0 div.socialnetworkscontainer {

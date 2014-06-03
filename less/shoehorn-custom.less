@@ -38,6 +38,12 @@ body.pagelayout-redirect #page {
     color: @text-color;
 }
 
+#region-main-shoehorn {
+    background-color: @body-bg;
+    box-shadow: 0 0 8px @page-top-bg;
+    padding: 8px;
+}
+
 // Breadcrumb.
 .breadcrumb {
     span {
@@ -50,13 +56,19 @@ body.pagelayout-redirect #page {
 }
 
 // Blocks & dock.
-.block, #dockeditempanel {
-    .header, .dockeditempanel_hd {
-        .block_action, .commands {
-            img, input {
-                background-color: rgba(255, 255, 255, 0.7);
-                vertical-align: top;
-            }
+.block, #dockeditempanel, #dock {
+    .header .block_action, .dockeditempanel_hd .commands, .controls {
+        img, input {
+            background-color: rgba(255, 255, 255, 0.7);
+            vertical-align: top;
+            border-radius: 0px;
+        }
+    }
+    .dockeditempanel_hd .commands .menubar {
+        img, input {
+            margin: 0em;
+            border: 1px solid @page-top-bg;
+            border-radius: 2px;
         }
     }
 }

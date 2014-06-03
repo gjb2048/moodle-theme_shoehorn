@@ -6999,6 +6999,12 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
   min-width: 0;
   background: none;
 }
+.mceEditor.moodleSkin .mceToolbar a span.mceIcon {
+  padding: 7px;
+}
+.mceEditor.moodleSkin .mceToolbar a span.mceIcon img {
+  padding: 0px;
+}
 .initialbar a,
 .initialbar strong {
   padding-left: 3px;
@@ -8793,9 +8799,6 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
   height: 16px;
   width: 16px;
 }
-.section .label {
-  text-align: left;
-}
 .section .activity {
   /* The command block for each activity */
 }
@@ -8815,6 +8818,7 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
              * Add appropriate padding such that nothing overlaps the
              * absolute positioned move icon.
              */
+  padding-left: 32px;
 }
 .section .activity .actions {
   position: absolute;
@@ -8823,8 +8827,8 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
 }
 .section .activity .contentwithoutlink,
 .section .activity .activityinstance {
-  display: block;
   min-width: 40%;
+  display: table-cell;
   padding-right: 4px;
   min-height: 2em;
 }
@@ -8832,6 +8836,16 @@ textarea.path-calendar .maincalendar .cal_courses_flt select {
 .section .activity .activityinstance .dimmed img.activityicon {
   opacity: 0.5;
   filter: alpha(opacity=50);
+}
+.section .label .contentwithoutlink,
+.section .label .activityinstance {
+  padding-right: 32px;
+  display: block;
+  height: inherit;
+}
+.section .label .mod-indent-outer {
+  padding-left: 24px;
+  display: block;
 }
 .section .filler {
   display: none;
@@ -11926,11 +11940,7 @@ textareatextarea {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 400px;
-  max-height: calc(85vh);
-  /* The next line is a workaround because recess is crap. Delete ththe following line once
-  * https://github.com/twitter/recess/issues/59 / https://github.com/twitter/recess/issues/75
-  * is fixed. The previous line is the right one. */
-  max-height: 60vh;
+  max-height: calc(100vh - 15em);
   width: 60%;
 }
 #chooseqtype .qtypeoption {
@@ -13602,6 +13612,10 @@ textarea.searchform input[type="text"] {
 .block_rss_client .list li:first-child {
   border-top-width: 1px;
 }
+.block_myprofile .content .email {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 .block_news_items .content .newlink {
   padding-bottom: 10px;
 }
@@ -14002,6 +14016,7 @@ textarea.form-item .form-setting input[type="password"] {
 }
 form select,
 form input[type="text"],
+form input[type="password"],
 form.atto_form input[type="url"],
 select.singleselect {
   display: block;
@@ -14026,6 +14041,7 @@ select.singleselect {
 }
 form select:focus,
 form input[type="text"]:focus,
+form input[type="password"]:focus,
 form.atto_form input[type="url"]:focus,
 select.singleselect:focus {
   border-color: #66afe9;
@@ -14035,6 +14051,7 @@ select.singleselect:focus {
 }
 form select::-moz-placeholder,
 form input[type="text"]::-moz-placeholder,
+form input[type="password"]::-moz-placeholder,
 form.atto_form input[type="url"]::-moz-placeholder,
 select.singleselect::-moz-placeholder {
   color: #2965b0;
@@ -14042,26 +14059,31 @@ select.singleselect::-moz-placeholder {
 }
 form select:-ms-input-placeholder,
 form input[type="text"]:-ms-input-placeholder,
+form input[type="password"]:-ms-input-placeholder,
 form.atto_form input[type="url"]:-ms-input-placeholder,
 select.singleselect:-ms-input-placeholder {
   color: #2965b0;
 }
 form select::-webkit-input-placeholder,
 form input[type="text"]::-webkit-input-placeholder,
+form input[type="password"]::-webkit-input-placeholder,
 form.atto_form input[type="url"]::-webkit-input-placeholder,
 select.singleselect::-webkit-input-placeholder {
   color: #2965b0;
 }
 form select[disabled],
 form input[type="text"][disabled],
+form input[type="password"][disabled],
 form.atto_form input[type="url"][disabled],
 select.singleselect[disabled],
 form select[readonly],
 form input[type="text"][readonly],
+form input[type="password"][readonly],
 form.atto_form input[type="url"][readonly],
 select.singleselect[readonly],
 fieldset[disabled] form select,
 fieldset[disabled] form input[type="text"],
+fieldset[disabled] form input[type="password"],
 fieldset[disabled] form.atto_form input[type="url"],
 fieldset[disabled] select.singleselect {
   cursor: not-allowed;
@@ -14070,6 +14092,7 @@ fieldset[disabled] select.singleselect {
 }
 textareaform select,
 textareaform input[type="text"],
+textareaform input[type="password"],
 textareaform.atto_form input[type="url"],
 textareaselect.singleselect {
   height: auto;
@@ -16894,6 +16917,12 @@ label {
 .panel-danger {
   background-color: #ebccd1;
 }
+a:hover,
+a:focus {
+  text-decoration: none;
+  background-color: #e3f2ff;
+  border-radius: 4px;
+}
 .path-backup .mform .grouped_settings.section_level {
   margin-left: 0px;
   margin-right: 0px;
@@ -17013,6 +17042,10 @@ label {
 ul.topics,
 ul.weeks {
   padding-left: 0px;
+}
+.editing .section .activity:hover,
+.editing .section .activity.action-menu-shown {
+  background-color: #e3f2ff;
 }
 #page-course-index-category .generalbox.info {
   border: 1px dotted #1f4d87;
@@ -17741,6 +17774,11 @@ header {
 body.pagelayout-redirect #page {
   color: #1f4d87;
 }
+#region-main-shoehorn {
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #1f4d87;
+  padding: 8px;
+}
 .breadcrumb span {
   color: #1f4d87;
 }
@@ -17750,22 +17788,35 @@ body.pagelayout-redirect #page {
 }
 .block .header .block_action img,
 #dockeditempanel .header .block_action img,
-.block .dockeditempanel_hd .block_action img,
-#dockeditempanel .dockeditempanel_hd .block_action img,
-.block .header .commands img,
-#dockeditempanel .header .commands img,
+#dock .header .block_action img,
 .block .dockeditempanel_hd .commands img,
 #dockeditempanel .dockeditempanel_hd .commands img,
+#dock .dockeditempanel_hd .commands img,
+.block .controls img,
+#dockeditempanel .controls img,
+#dock .controls img,
 .block .header .block_action input,
 #dockeditempanel .header .block_action input,
-.block .dockeditempanel_hd .block_action input,
-#dockeditempanel .dockeditempanel_hd .block_action input,
-.block .header .commands input,
-#dockeditempanel .header .commands input,
+#dock .header .block_action input,
 .block .dockeditempanel_hd .commands input,
-#dockeditempanel .dockeditempanel_hd .commands input {
+#dockeditempanel .dockeditempanel_hd .commands input,
+#dock .dockeditempanel_hd .commands input,
+.block .controls input,
+#dockeditempanel .controls input,
+#dock .controls input {
   background-color: rgba(255, 255, 255, 0.7);
   vertical-align: top;
+  border-radius: 0px;
+}
+.block .dockeditempanel_hd .commands .menubar img,
+#dockeditempanel .dockeditempanel_hd .commands .menubar img,
+#dock .dockeditempanel_hd .commands .menubar img,
+.block .dockeditempanel_hd .commands .menubar input,
+#dockeditempanel .dockeditempanel_hd .commands .menubar input,
+#dock .dockeditempanel_hd .commands .menubar input {
+  margin: 0em;
+  border: 1px solid #1f4d87;
+  border-radius: 2px;
 }
 .block.block_fake {
   background-color: rgba(255, 217, 116, 0.8);

@@ -27,6 +27,27 @@
 
 $knownregionfooterpre = $PAGE->blocks->is_known_region('footer-pre');
 $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
+require_once(dirname(__FILE__).'/social.php');
+/*$numberofsociallinks = (empty($PAGE->theme->settings->numberofsociallinks)) ? false : $PAGE->theme->settings->numberofsociallinks;
+$footershadowmargin = '';
+if ($numberofsociallinks) {
+    $haveicons = false;
+    for ($i = 1; $i <= $numberofsociallinks; $i++) {
+        $name = 'social'.$i;
+        if (!empty($PAGE->theme->settings->$name)) {
+            if (!$haveicons) {
+                $haveicons = true;
+                break;
+            }
+        }
+    }
+    if ($haveicons) {
+        $footershadowmargin = ' sociallinks';
+    }
+}*/
+if ($haveicons) {
+    $footershadowmargin = ' sociallinks';
+}
 ?>
 <div class="row">
 <div id="page-info" class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 panel panel-default">
@@ -40,7 +61,7 @@ $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
     ?>
 </div>
 </div>
-<div id="footer-shadow" class="row"></div>
+<div id="footer-shadow" class="row<?php echo $footershadowmargin; ?>"></div>
 <footer id="page-footer" class="row">
     <div class="row">
     <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
@@ -52,7 +73,10 @@ $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
     </div>
     <div class="<?php echo $cols['centre']; ?>">
     <?php
-    require_once(dirname(__FILE__).'/social.php');
+if ($haveicons) {
+    echo $icons;
+}
+    //require_once(dirname(__FILE__).'/social.php');
     ?>
     </div>
     <div class="<?php echo $cols['side']; ?>">

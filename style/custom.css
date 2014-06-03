@@ -16,12 +16,6 @@ a.logo {
     float: right;
 }
 
-#region-main-shoehorn {
-    background-color: #fff;
-    box-shadow: 0 0 8px #888;
-    padding: 8px;
-}
-
 #region-main {
     background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 96% 12px transparent;
     padding-bottom: 12px;
@@ -40,6 +34,16 @@ body.pagelayout-login #region-main.loggedout {
 
 .loginbox .loginpanel .loginsub:before {
     [[setting:theloginmessge]]
+}
+
+/* Styles that should not be flipped for RTL. */
+/* Footer. */
+body.has_dock_left_vertical.has_dock #page-footer {
+    margin-left: 0px;
+}
+
+body.has_dock_right_vertical.has_dock #page-footer {
+    margin-right: 0px;
 }
 
 /* Custom CSS Settings
