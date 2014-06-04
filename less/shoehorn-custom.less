@@ -52,9 +52,11 @@ body.pagelayout-redirect #page {
 aside {
     float: left;
 }
+
 @media(max-width: @screen-xs-max) {
     aside:first-of-type {
         padding-top: 10px;
+        float: none;
     }
 }
 
@@ -85,6 +87,10 @@ aside {
             border-radius: 2px;
         }
     }
+}
+
+.block label {
+    min-width: 70px;
 }
 
 // Fake blocks.

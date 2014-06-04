@@ -21459,6 +21459,7 @@ aside {
 @media (max-width: 767px) {
   aside:first-of-type {
     padding-top: 10px;
+    float: none;
   }
 }
 
@@ -21503,6 +21504,10 @@ aside {
   margin: 0em;
   border: 1px solid #1f4d87;
   border-radius: 2px;
+}
+
+.block label {
+  min-width: 70px;
 }
 
 .block.block_fake {
