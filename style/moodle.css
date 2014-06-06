@@ -17518,11 +17518,11 @@ ul.weeks {
 .path-grade-report-grader .left_scroller table td.topleft {
   border-color: #c9e6ff;
 }
-.path-grade-report-grader table#fixed_column th {
-  border-color: #c9e6ff;
-}
 .path-grade-report-grader table#fixed_column {
   border-top-color: #c9e6ff;
+}
+.path-grade-report-grader table#fixed_column th {
+  border-color: #c9e6ff;
 }
 .path-grade-report-grader table#fixed_column th.user {
   border-right-color: #c9e6ff;
@@ -17533,17 +17533,15 @@ ul.weeks {
 .path-grade-report-grader table tr.heading th.header {
   border-top-color: #c9e6ff;
 }
-.path-grade-report-grader td,
-.path-grade-report-grader th {
+.path-grade-report-grader table td,
+.path-grade-report-grader table th {
   border-left-color: #c9e6ff;
   border-right-color: #c9e6ff;
   border-bottom-color: #c9e6ff;
 }
 table#user-grades th.item,
 table#user-grades th.categoryitem,
-table#user-grades th.courseitem {
-  border-color: #c9e6ff;
-}
+table#user-grades th.courseitem,
 table#user-grades td.cell {
   border-color: #c9e6ff;
 }
