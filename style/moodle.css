@@ -16467,7 +16467,10 @@ fieldset[disabled] #dock .dockedtitle.active {
   height: 1px;
 }
 #page-grade-report-grader-index #user-grades {
-  margin-top: 4px;
+  margin-top: 0px;
+}
+#page-grade-report-grader-index .left_scroller {
+  padding-top: 18px;
 }
 #page-grade-grading-manage #activemethodselector label {
   display: inline-block;
@@ -17512,6 +17515,41 @@ ul.weeks {
     min-width: 220px;
   }
 }
+.path-grade-report-grader .left_scroller table td.topleft {
+  border-color: #c9e6ff;
+}
+.path-grade-report-grader table#fixed_column th {
+  border-color: #c9e6ff;
+}
+.path-grade-report-grader table#fixed_column {
+  border-top-color: #c9e6ff;
+}
+.path-grade-report-grader table#fixed_column th.user {
+  border-right-color: #c9e6ff;
+}
+.path-grade-report-grader table {
+  border-color: #c9e6ff;
+}
+.path-grade-report-grader table tr.heading th.header {
+  border-top-color: #c9e6ff;
+}
+.path-grade-report-grader td,
+.path-grade-report-grader th {
+  border-left-color: #c9e6ff;
+  border-right-color: #c9e6ff;
+  border-bottom-color: #c9e6ff;
+}
+table#user-grades th.item,
+table#user-grades th.categoryitem,
+table#user-grades th.courseitem {
+  border-color: #c9e6ff;
+}
+table#user-grades td.cell {
+  border-color: #c9e6ff;
+}
+table#user-grades tr.heading th.courseitem {
+  border-width: 1px;
+}
 .loginbox.onecolumn {
   position: relative;
   min-height: 1px;
@@ -17760,6 +17798,13 @@ body {
 }
 body.pagelayout-redirect {
   color: #FFF;
+}
+.block a:hover,
+.block a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  border-radius: 0;
+  color: #e3f2ff;
 }
 header {
   color: #eeeeee;
