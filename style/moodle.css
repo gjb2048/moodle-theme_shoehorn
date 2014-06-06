@@ -17065,6 +17065,7 @@ ul.weeks {
 */
 #dock .dockedtitle h2 {
   font-size: 14px !important;
+  margin-top: 4px;
 }
 #dockeditempanel .dockeditempanel_content {
   background-color: rgba(201, 230, 255, 0.95);
@@ -17826,6 +17827,9 @@ body.pagelayout-redirect #page {
   background-color: #ffffff;
   box-shadow: 0 0 8px #1f4d87;
   padding: 8px;
+}
+#region-main-shoehorn aside {
+  float: none;
 }
 #page-mod-quiz-edit #region-main-shoehorn {
   float: left;
