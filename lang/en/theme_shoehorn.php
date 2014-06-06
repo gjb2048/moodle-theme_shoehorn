@@ -146,13 +146,26 @@ $string['loginpage_desc']= 'Login page settings.';
 
 // Settings.
 $string['langpack_urlname'] = 'Language packs';
+
 // Status:....
 $string['draft'] = 'Draft';
 $string['published'] = 'Published';
+
 // Display:....
 $string['loggedout'] = 'Logged out';
 $string['loggedin'] = 'Logged in';
 $string['always'] = 'Always';
+
+// Display My Courses Menu:....
+$string['displaymycourses'] = 'Display my courses menu';
+$string['displaymycourses_desc'] = 'Display the my courses menu on the navigation bar with the given title.';
+$string['myclasses'] = 'My classes';
+$string['mycourses'] = 'My courses';
+$string['mymodules'] = 'My modules';
+$string['mysubjects'] = 'My subjects';
+$string['myunits'] = 'My units';
+$string['noenrolments'] = 'No current enrolments';
+
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';

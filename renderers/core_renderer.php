@@ -125,7 +125,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $messagecount++;
             }
-            $messagemenutext = $messagecount . ' ';
+            $messagemenutext = '<span class="glyphicon glyphicon-envelope"></span> '.$messagecount . ' ';
             if ($messagecount == 1) {
                  $messagemenutext .= get_string('message', 'message');
             } else {
@@ -159,6 +159,78 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 $messageurl = new moodle_url('/message/index.php', array('user1' => $USER->id, 'user2' => $message->from->id));
                 $messagemenu->add($messagecontent, $messageurl, $message->text);
             }
+        }
+
+        $displaymycourses = (empty($this->page->theme->settings->displaymycourses)) ? false : $this->page->theme->settings->displaymycourses;
+        if (isloggedin() && !isguestuser() && $displaymycourses) {
+            switch ($displaymycourses) {
+                case 1:
+                    $branchtitle = get_string('myclasses', 'theme_shoehorn');
+                    break;
+                case 2: 
+                    $branchtitle = get_string('mycourses', 'theme_shoehorn');
+                    break;
+                case 3:
+                    $branchtitle = get_string('mymodules', 'theme_shoehorn');
+                    break;
+                case 4:
+                    $branchtitle = get_string('mysubjects', 'theme_shoehorn');
+                    break;
+                case 5:
+                    $branchtitle = get_string('myunits', 'theme_shoehorn');
+                    break;
+                default:
+                    $branchtitle = get_string('mycourses', 'theme_shoehorn');
+            }
+            $branchlabel = '<span class="glyphicon glyphicon-briefcase"></span> '.$branchtitle;
+            $branchurl   = new moodle_url('/my/index.php');
+            $branchsort  = 10000;
+ 
+            $mycoursesmenu = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+            $mycoursesmenu->add(get_string('myhome'), new moodle_url('/my/index.php'));
+
+            // Info from: /course/renderer.php::frontpage_my_courses().
+            if (!empty($CFG->navsortmycoursessort)) {
+                // sort courses the same as in navigation menu
+                $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
+            } else {
+                $sortorder = 'visible DESC,sortorder ASC';
+            }
+            $courses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
+            $rhosts   = array();
+            $rcourses = array();
+            if (!empty($CFG->mnet_dispatcher_mode) && $CFG->mnet_dispatcher_mode==='strict') {
+                $rcourses = get_my_remotecourses($USER->id);
+                $rhosts   = get_my_remotehosts();
+            }
+            if (!empty($courses) || !empty($rcourses) || !empty($rhosts)) {
+                foreach ($courses as $course) {
+                    if ($course->visible){
+                        $mycoursesmenu->add(format_string($course->fullname), new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                    }
+                }
+                // MNET
+                if (!empty($rcourses)) {
+                    // at the IDP, we know of all the remote courses
+                    foreach ($rcourses as $course) {
+                        $url = new moodle_url('/auth/mnet/jump.php', array(
+                            'hostid' => $course->hostid,
+                            'wantsurl' => '/course/view.php?id='. $course->remoteid
+                        ));
+                        $tooltip = format_string($course->hostname).' : '.format_string($course->cat_name).' : '.format_string($course->shortname);
+                        $mycoursesmenu->add(format_string($course->fullname), $url, $tooltip);
+                    }
+                }
+                if (!empty($rhosts)) {
+                    // non-IDP, we know of all the remote servers, but not courses
+                    foreach ($rhosts as $host) {
+                        $mycoursesmenu->add(format_string($course->fullname), html_writer::link($host['url'], s($host['name']), array('title' => s($host['name']))), $host['count'] . ' ' . get_string('courses'));
+                    }
+                }
+             } else {
+                $noenrolments = get_string('noenrolments', 'theme_shoehorn');
+                $mycoursesmenu->add('<em>'.$noenrolments.'</em>', new moodle_url('/'), $noenrolments);
+             }
         }
 
         $langs = get_string_manager()->get_list_of_translations();

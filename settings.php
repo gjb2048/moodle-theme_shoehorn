@@ -83,6 +83,22 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $generalsettings->add($setting);
 
+    // Display My Courses Menu.
+    $name = 'theme_shoehorn/displaymycourses';
+    $title = get_string('displaymycourses','theme_shoehorn');
+    $description = get_string('displaymycourses_desc', 'theme_shoehorn');
+    $choices = array(
+        0 => new lang_string('no'),
+        1 => new lang_string('myclasses', 'theme_shoehorn'),
+        2 => new lang_string('mycourses', 'theme_shoehorn'),
+        3 => new lang_string('mymodules', 'theme_shoehorn'),
+        4 => new lang_string('mysubjects', 'theme_shoehorn'),
+        5 => new lang_string('myunits', 'theme_shoehorn')
+    );
+    $default = 2;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $generalsettings->add($setting);
+
     // Logo file setting.
     $name = 'theme_shoehorn/logo';
     $title = get_string('logo','theme_shoehorn');
