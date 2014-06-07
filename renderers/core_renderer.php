@@ -281,6 +281,58 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         return $content;
     }
 
+    /**
+     * Returns the HTML for the mycourses area on the 'mydashboard' layout.
+     * Adapted from Elegance by J Ridden and my work on 2014.imoot.org.
+     *
+     * @return string HTML.
+     */
+    protected function mycourses() {
+        global $CFG;
+        //$mycourses = enrol_get_users_courses($_SESSION['USER']->id);
+            // Info from: /course/renderer.php::frontpage_my_courses().
+            if (!empty($CFG->navsortmycoursessort)) {
+                // sort courses the same as in navigation menu
+                $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
+            } else {
+                $sortorder = 'visible DESC,sortorder ASC';
+            }
+            $mycourses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
+
+        //
+        /*$courselist = array();
+        foreach ($mycourses as $key=>$val){
+            $courselist[] = $val->id;
+        }*/
+
+        $content = '';
+
+        if (!empty($mycourses)) {
+        /*for($x=1;$x<=sizeof($courselist);$x++){
+            $course = get_course($courselist[$x-1]);
+            $title = $course->fullname;
+
+            $content .= '<div class="view view-second view-mycourse">
+                            <div class="mask">
+                                <h2>'.$title.'</h2>
+                                <a href="'.$CFG->wwwroot.'/course/view.php?id='.$courselist[$x-1].'" class="info">Enter</a>
+                            </div>
+                        </div>';
+        } */
+                foreach ($mycourses as $course) {
+                    if ($course->visible){
+            $content .= '<div class="view view-second view-mycourse">
+                            <div class="mask">
+                                <h2>'.$course->fullname.'</h2>
+                                <a href="'.$CFG->wwwroot.'/course/view.php?id='.$course->id.'" class="info">Enter</a>
+                            </div>
+                        </div>';
+                    }
+                }
+        }
+        return $content;
+    }
+
     protected function process_user_messages() {
 
         $messagelist = array();
