@@ -149,6 +149,7 @@ aside {
     .mask {
         background-color: @page-bottom-bg-light;
     }
+
     .mask, .content {
         width: 220px;
         height: 175px;
@@ -157,10 +158,12 @@ aside {
         top: 0;
         left: 0;
     }
+
     img {
         display: block;
         position: relative;
     }
+
     h2 {
         color: @text-color;
         text-align: center;
@@ -170,6 +173,7 @@ aside {
         border-bottom: 1px solid @body-bg;
         margin: 10px 14px 0px 10px;
     }
+
     a.info {
         display: inline-block;
         text-decoration: none;
@@ -223,13 +227,13 @@ body.coursetiles {
             color: @text-color; 
             height: 152px !important; 
             width: 192px !important; 
-            font-size: 1em;
             display: block;
             padding: 10px;
             transition: all ease-out .25s;
             &:hover {
                 font-weight: bold;
                 text-decoration: none;
+                background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.75);
             }
         }
         .mod-indent-outer {
@@ -241,7 +245,6 @@ body.coursetiles {
         .commands {
             position: relative;
             top: -25px;
-            z-index: 100;
             left: -20px;
             color: @text-color;
             width: 0px;
@@ -252,7 +255,7 @@ body.coursetiles {
         }
         .mod-indent {
             padding-left: 0px; 
-            height:100%;
+            height: 100%;
         }
         .editing_move {
             top: -15px;
@@ -260,16 +263,15 @@ body.coursetiles {
         }
         .availabilityinfo, .contentafterlink {
             margin-top: -100px;
-            margin-left: -10px;
+            margin-left: 0px;
             border-top: 1px solid @page-bottom-bg;
-            width: 175px;
+            width: 192px;
         }
         .contentafterlink {
             font-size: .85em;
             height: 48px;
             text-overflow: ellipsis;
             overflow: hidden;
-            text-overflow: clip ellipsis;
             line-height: 1.25em;
             padding-top: 5px;
         }
@@ -305,7 +307,7 @@ body.coursetiles {
             top: -185px;
             left: 130px;
             a {
-                color: @page-bottom-bg;
+                color: @text-color;
             }
             input {
                 background: @body-bg;
@@ -329,7 +331,8 @@ body.coursetiles {
     }
 
     .editing .section .activity:hover,
-    .course-content .section .activity:hover {
+    .course-content .section .activity:hover,
+    .sitetopic .section .activity:hover {
         background: @page-bottom-bg;
     }
 
@@ -403,6 +406,11 @@ body.coursetiles {
         &.align-tr-br {
             right: 18px;
             top: -5px;
+        }
+        a {
+            &:hover, &:focus {
+                color: @text-color;
+            }
         }
     }
 
@@ -491,7 +499,6 @@ body.coursetiles {
     img.iconlarge {
         width: 40px; 
         height: 40px;
-        color: @page-bottom-bg;
     }
 
     #completionprogressid {
@@ -500,8 +507,8 @@ body.coursetiles {
 
     &#page-site-index .box.generalbox.sitetopic {
         overflow: hidden; 
-        width: 100%; 
-        clear: both; 
+        width: 100%;
+        clear: both;
         margin-bottom: 10px;
     }
 }

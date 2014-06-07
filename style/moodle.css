@@ -17989,7 +17989,6 @@ body.coursetiles .section .activity .activityinstance > a {
   color: #1f4d87;
   height: 152px !important;
   width: 192px !important;
-  font-size: 1em;
   display: block;
   padding: 10px;
   transition: all ease-out 0.25s;
@@ -17997,6 +17996,7 @@ body.coursetiles .section .activity .activityinstance > a {
 body.coursetiles .section .activity .activityinstance > a:hover {
   font-weight: bold;
   text-decoration: none;
+  background-color: rgba(227, 242, 255, 0.75);
 }
 body.coursetiles .section .activity .mod-indent-outer {
   padding-left: 0;
@@ -18007,7 +18007,6 @@ body.coursetiles .section .activity img.activityicon {
 body.coursetiles .section .activity .commands {
   position: relative;
   top: -25px;
-  z-index: 100;
   left: -20px;
   color: #1f4d87;
   width: 0px;
@@ -18027,16 +18026,15 @@ body.coursetiles .section .activity .editing_move {
 body.coursetiles .section .activity .availabilityinfo,
 body.coursetiles .section .activity .contentafterlink {
   margin-top: -100px;
-  margin-left: -10px;
+  margin-left: 0px;
   border-top: 1px solid #c9e6ff;
-  width: 175px;
+  width: 192px;
 }
 body.coursetiles .section .activity .contentafterlink {
   font-size: .85em;
   height: 48px;
   text-overflow: ellipsis;
   overflow: hidden;
-  text-overflow: clip ellipsis;
   line-height: 1.25em;
   padding-top: 5px;
 }
@@ -18073,7 +18071,7 @@ body.coursetiles .section .activity .actions {
   left: 130px;
 }
 body.coursetiles .section .activity .actions a {
-  color: #c9e6ff;
+  color: #1f4d87;
 }
 body.coursetiles .section .activity .actions input {
   background: #ffffff;
@@ -18090,7 +18088,8 @@ body.coursetiles .editing .section .activity .contentafterlink {
   top: -45px;
 }
 body.coursetiles .editing .section .activity:hover,
-body.coursetiles .course-content .section .activity:hover {
+body.coursetiles .course-content .section .activity:hover,
+body.coursetiles .sitetopic .section .activity:hover {
   background: #c9e6ff;
 }
 body.coursetiles .path-site li.activity > div,
@@ -18158,6 +18157,10 @@ body.coursetiles .moodle-actionmenu[data-enhanced].show .menu {
 body.coursetiles .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
   right: 18px;
   top: -5px;
+}
+body.coursetiles .moodle-actionmenu[data-enhanced].show .menu a:hover,
+body.coursetiles .moodle-actionmenu[data-enhanced].show .menu a:focus {
+  color: #1f4d87;
 }
 body.coursetiles .section .editing_title .iconsmall {
   top: -182px;
@@ -18234,7 +18237,6 @@ body.coursetiles .mdl-align {
 body.coursetiles img.iconlarge {
   width: 40px;
   height: 40px;
-  color: #c9e6ff;
 }
 body.coursetiles #completionprogressid {
   display: none;
