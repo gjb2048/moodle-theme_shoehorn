@@ -108,7 +108,7 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     $html->containerclass = 'container-fluid';
 
-    if (true) {
+    if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
         $html->additionalbodyclasses = array('coursetiles');
     } else {
         $html->additionalbodyclasses = '';

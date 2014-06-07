@@ -187,13 +187,6 @@ aside {
 
 // Course tiles.
 body.coursetiles {
-    .section .activity .activityinstance, 
-    .section .activity .activityinstance div {
-        display: inline-block; 
-        width:100%; 
-        height:100%;
-    }
-
     .section li.activity {
         background: @page-bottom-bg-light;
         height: 160px;
@@ -206,56 +199,138 @@ body.coursetiles {
         border-radius: 5px;
         border: 1px solid @page-bottom-bg;
         transition: all ease-out 0.5s;
+        &.label {
+            width: 100%;
+        }
+        &.label:hover {
+            background: transparent !important; 
+            transition: all ease-out 0.5s;
+        }
     }
 
     .label, .badge {
         font-weight: lighter;
     }
 
-    li.activity.label {
-        width: 100%;
-    }
-
-    .section li.activity.label:hover {
-        background: transparent !important; 
-        transition: all ease-out 0.5s;
-    }
-
-    .section .activity .activityinstance > a {
-        text-align: right; 
-        color: @text-color; 
-        height: 152px !important; 
-        width: 192px !important; 
-        font-size: 1em;
-        display: block;
-        padding: 10px;
-        transition: all ease-out .25s;
-        &:hover {
-            font-weight: bold;
-            text-decoration: none;
+    .section .activity {
+        .activityinstance, .activityinstance div {
+            display: inline-block; 
+            width:100%; 
+            height:100%;
         }
-    }
-
-    .section .activity .mod-indent-outer {
-        padding-left: 0;
-    }
-
-    .section .activity img.activityicon {
-        float: left;
+        .activityinstance > a {
+            text-align: right; 
+            color: @text-color; 
+            height: 152px !important; 
+            width: 192px !important; 
+            font-size: 1em;
+            display: block;
+            padding: 10px;
+            transition: all ease-out .25s;
+            &:hover {
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+        .mod-indent-outer {
+            padding-left: 0;
+        }
+        img.activityicon {
+            float: left;
+        }
+        .commands {
+            position: relative;
+            top: -25px;
+            z-index: 100;
+            left: -20px;
+            color: @text-color;
+            width: 0px;
+            font-weight: bold;
+            a {
+                color: @text-color;
+            }
+        }
+        .mod-indent {
+            padding-left: 0px; 
+            height:100%;
+        }
+        .editing_move {
+            top: -15px;
+            left: -15px;
+        }
+        .availabilityinfo, .contentafterlink {
+            margin-top: -100px;
+            margin-left: -10px;
+            border-top: 1px solid @page-bottom-bg;
+            width: 175px;
+        }
+        .contentafterlink {
+            font-size: .85em;
+            height: 48px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            text-overflow: clip ellipsis;
+            line-height: 1.25em;
+            padding-top: 5px;
+        }
+        .instancename {
+            font-weight: bold;
+        }
+        &.modtype_label.label {
+            width: 90%; 
+            margin-left: auto; 
+            margin-right: auto;
+            &:hover {
+                background: none;
+            }
+            .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
+                top: 0px;
+            }
+            .editing_move {
+                left: -25px;
+                top: 0px;
+            }
+            .commands {
+                margin-left: auto; 
+                margin-right: 20px; 
+                margin-top: 20px; 
+                margin-bottom: 5px; 
+                float: right; 
+                clear: both;
+                top: 107px
+            }
+        }
+        .actions {
+            position: relative;
+            top: -185px;
+            left: 130px;
+            a {
+                color: @page-bottom-bg;
+            }
+            input {
+                background: @body-bg;
+                color: @page-top-bg;
+            }
+        }
     }
 
     .editing .activity .section {
         margin-top: 0;
     }
 
+    .editing .section .activity {
+        .mod-indent-outer {
+            padding-left: 0px;
+        }
+        .contentafterlink {
+            position: relative;
+            top: -45px;
+        }
+    }
+
     .editing .section .activity:hover,
     .course-content .section .activity:hover {
         background: @page-bottom-bg;
-    }
-
-    .section .activity .mod-indent {
-        padding-left: 0px; 
-        height:100%;
     }
 
     .path-site li.activity > div, 
@@ -302,28 +377,10 @@ body.coursetiles {
         text-align: right;
     }
 
-
-    .section .activity .commands {
-        position: relative;
-        top: -25px;
-        z-index: 100;
-        left: -20px;
-        color: @text-color;
-        width: 0px;
-        font-weight: bold;
-        a {
-            color: @text-color;
-        }
-    }
-
     .togglecompletion {
         position: relative;
         top: 15px;
         left: 20px;
-    }
-
-    &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
-        display: none;
     }
 
     &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
@@ -331,63 +388,28 @@ body.coursetiles {
         border-radius: 5px;
         border: 1px solid @page-bottom-bg;
         transition: all ease-out .25s;
-}
-
-    &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
-        background: @page-bottom-bg-light;
-        color: @body-bg;
-    }
-
-    .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
-        right: 18px;
-        top: -5px;
-    }
-
-    .editing .section .activity .mod-indent-outer {
-        padding-left: 0px;
+        &:hover {
+            background: @page-bottom-bg-light;
+            font-weight: bold;
+        }
+        .caret {
+            display: none;
+        }
     }
 
     .moodle-actionmenu[data-enhanced].show .menu {
         box-shadow: none;
-        background: #f1f1f4;
-    }
-
-    .section .activity .editing_move {
-        top: -15px;
-        left: -15px;
+        background: @page-bottom-bg;
+        &.align-tr-br {
+            right: 18px;
+            top: -5px;
+        }
     }
 
     .section .editing_title .iconsmall {
         top: -182px;
         left: 10px;
         position: relative;
-    }
-
-    .section .activity .availabilityinfo, 
-    .section .activity .contentafterlink {
-        margin-top: -100px;
-        margin-left: -10px;
-        border-top: 1px solid @page-bottom-bg;
-        width: 175px;
-    }
-
-    .section .activity .contentafterlink {
-        font-size: .85em;
-        height: 48px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        text-overflow: clip ellipsis;
-        line-height: 1.25em;
-        padding-top: 5px;
-    }
-
-    .section .activity .instancename {
-        font-weight: bold;
-    }
-
-    .editing .section .activity .contentafterlink {
-        position: relative;
-        top: -45px;
     }
 
     .editing .autocompletion {
@@ -420,29 +442,6 @@ body.coursetiles {
         overflow: hidden; 
         float: left;
         margin-bottom: 20px;
-    }
-
-    .section .activity.modtype_label.label {
-        width: 90%; 
-        margin-left: auto; 
-        margin-right: auto;
-    }
-
-    .section .activity.modtype_label.label:hover {
-        background: none;
-    }
-
-    .section .activity.modtype_label.label .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
-        top: 0px;
-    }
-
-    .section .activity.modtype_label .commands {
-        top: 107px
-    }
-
-    .section .activity.modtype_label .editing_move {
-        left: -25px;
-        top: 0px;
     }
 
     .topic_intro {
@@ -489,41 +488,17 @@ body.coursetiles {
         padding: 10px;
     }
 
-    .section .activity.modtype_label .commands {
-        margin-left: auto; 
-        margin-right: 20px; 
-        margin-top: 20px; 
-        margin-bottom: 5px; 
-        float: right; 
-        clear: both;
-    }
-
     img.iconlarge {
         width: 40px; 
         height: 40px;
         color: @page-bottom-bg;
     }
 
-    .section .activity .actions {
-        position: relative;
-        top: -185px;
-        left: 130px;
-    }
-    
-    .section .activity .actions a {
-        color: @page-bottom-bg;
-    }
-
-    .section .activity .actions input {
-        background: @body-bg;
-        color: @page-top-bg;
-    }
-
     #completionprogressid {
         display: none;
     }
 
-    #page-site-index .box.generalbox.sitetopic {
+    &#page-site-index .box.generalbox.sitetopic {
         overflow: hidden; 
         width: 100%; 
         clear: both; 

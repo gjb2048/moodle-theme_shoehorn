@@ -97,7 +97,8 @@ Version information
   6.  Added docking setting.
   7.  Added optional 'My courses' menu.
   8.  Fixed grade report: https://moodle.org/mod/forum/discuss.php?d=261626.
-  9.  Added in and adapted 'mycourses' layout from Elegance theme.
+  9.  Added in and adapted 'mycourses' layout from the Elegance theme.
+ 10.  Added in and adapted 'course tiles' from the Elegance theme.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

@@ -109,7 +109,18 @@ defined('MOODLE_INTERNAL') || die;
         2 => new lang_string('yes')   // Yes.
     );
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
+    // Use course tiles for activities and resources - 1 = no, 2 = yes.
+    $name = 'theme_shoehorn/coursetiles';
+    $title = get_string('coursetiles', 'theme_shoehorn');
+    $description = get_string('coursetiles_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $generalsettings->add($setting);
 
     // Logo file setting.

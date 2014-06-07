@@ -169,7 +169,11 @@ $string['noenrolments'] = 'No current enrolments';
 // My dashboard page.
 $string['enter'] = 'Enter';
 $string['displaymycourses'] = 'Display my courses';
-$string['displaymycourses_desc'] = 'Display my courses on the \'My home\' page.';
+$string['displaymycourses_desc'] = 'Display your courses on the \'My home\' page.';
+
+// Course tiles.
+$string['coursetiles'] = 'Use course tiles';
+$string['coursetiles_desc'] = 'Use course tiles for activities and resources.';
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
