@@ -161,7 +161,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
         }
 
-        $displaymycourses = (empty($this->page->theme->settings->displaymycourses)) ? false : $this->page->theme->settings->displaymycourses;
+        $displaymycourses = (empty($this->page->theme->settings->displaymycoursesmenu)) ? false : $this->page->theme->settings->displaymycoursesmenu;
         if (isloggedin() && !isguestuser() && $displaymycourses) {
             switch ($displaymycourses) {
                 case 1:
@@ -288,47 +288,50 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
      * @return string HTML.
      */
     protected function mycourses() {
-        global $CFG;
-        //$mycourses = enrol_get_users_courses($_SESSION['USER']->id);
-            // Info from: /course/renderer.php::frontpage_my_courses().
-            if (!empty($CFG->navsortmycoursessort)) {
-                // sort courses the same as in navigation menu
-                $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
-            } else {
-                $sortorder = 'visible DESC,sortorder ASC';
-            }
-            $mycourses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
-
-        //
-        /*$courselist = array();
-        foreach ($mycourses as $key=>$val){
-            $courselist[] = $val->id;
-        }*/
-
         $content = '';
+        $displaymycourses = (empty($this->page->theme->settings->displaymycourses)) ? false : $this->page->theme->settings->displaymycourses;
+        if ($displaymycourses == 2) {
+        global $CFG;
+        // Info from: /course/renderer.php::frontpage_my_courses().
+        if (!empty($CFG->navsortmycoursessort)) {
+            // sort courses the same as in navigation menu
+            $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
+        } else {
+            $sortorder = 'visible DESC,sortorder ASC';
+        }
+        $mycourses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
+
+
+        $content .= html_writer::start_tag('div', array('class' => 'block block_dashboardcourses', 'role' => 'complementary'));
+        $content .= html_writer::start_tag('div', array('class' => 'header'));
+        $content .= html_writer::start_tag('div', array('class' => 'title'));
+        $allurl = new moodle_url('/course/');
+        $content .= html_writer::start_tag('div', array('id' => 'allcourses'));
+        $content .= html_writer::link($allurl, get_string('fulllistofcourses'), array('class' => 'btn btn-default'));
+        $content .= html_writer::end_tag('div');
+        $content .= html_writer::tag('h2', get_string('mycourses'));
+        $content .= html_writer::end_tag('div');
+        $content .= html_writer::end_tag('div');
 
         if (!empty($mycourses)) {
-        /*for($x=1;$x<=sizeof($courselist);$x++){
-            $course = get_course($courselist[$x-1]);
-            $title = $course->fullname;
-
-            $content .= '<div class="view view-second view-mycourse">
-                            <div class="mask">
-                                <h2>'.$title.'</h2>
-                                <a href="'.$CFG->wwwroot.'/course/view.php?id='.$courselist[$x-1].'" class="info">Enter</a>
-                            </div>
-                        </div>';
-        } */
-                foreach ($mycourses as $course) {
-                    if ($course->visible){
-            $content .= '<div class="view view-second view-mycourse">
-                            <div class="mask">
-                                <h2>'.$course->fullname.'</h2>
-                                <a href="'.$CFG->wwwroot.'/course/view.php?id='.$course->id.'" class="info">Enter</a>
-                            </div>
-                        </div>';
-                    }
+            $content .= html_writer::start_tag('div', array('class' => 'content'));
+            $content .= html_writer::start_tag('div', array('class' => 'mycourseboxes'));
+            foreach ($mycourses as $course) {
+                if ($course->visible) {
+                    $content .= html_writer::start_tag('div', array('class' => 'view'));
+                    $content .= html_writer::start_tag('div', array('class' => 'mask'));
+                    $content .= html_writer::tag('h2', $course->fullname);
+                    $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+                    $content .= html_writer::link($courseurl, get_string('enter', 'theme_shoehorn'), array('class' => 'info'));
+                    $content .= html_writer::end_tag('div');
+                    $content .= html_writer::end_tag('div');
                 }
+            }
+            $content .= html_writer::end_tag('div');
+            $content .= html_writer::end_tag('div');
+        }
+
+        $content .= '</div>';
         }
         return $content;
     }

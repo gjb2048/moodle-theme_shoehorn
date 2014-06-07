@@ -90,29 +90,10 @@ echo $OUTPUT->doctype() ?>
     <div id="page-content" class="row">
         <div id="region-main" class="<?php echo $regions['content']; ?>">
             <section id="region-main-shoehorn">
-                <?php
+            <?php
                 echo $OUTPUT->course_content_header();
-            ?>
-			<div class="block block_dashboardcourses" role="complementary">
-				<div class="header">
-					<div class="title">
-						<?php
-						echo '<div id="allcourses" class="btn"><a href="'.$CFG->wwwroot.'/course/">All Courses</a></div>';
-   						?>
-   						<h2>My Courses</h2>
-					</div>
-				</div>
-				<div class="content">
-					<div class="mycourseboxes">
-						<?php
-							echo $OUTPUT->mycourses();
-						?>
-					</div>
-				</div>
-			</div>
-
-			<?php
-				echo $OUTPUT->main_content();
+                echo $OUTPUT->mycourses();
+                echo $OUTPUT->main_content();
                 echo $OUTPUT->course_content_footer();
                 ?>
             </section>

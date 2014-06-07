@@ -157,8 +157,8 @@ $string['loggedin'] = 'Logged in';
 $string['always'] = 'Always';
 
 // Display My Courses Menu:....
-$string['displaymycourses'] = 'Display my courses menu';
-$string['displaymycourses_desc'] = 'Display the my courses menu on the navigation bar with the given title.';
+$string['displaymycoursesmenu'] = 'Display my courses menu';
+$string['displaymycoursesmenu_desc'] = 'Display the my courses menu on the navigation bar with the given title.';
 $string['myclasses'] = 'My classes';
 $string['mycourses'] = 'My courses';
 $string['mymodules'] = 'My modules';
@@ -166,6 +166,10 @@ $string['mysubjects'] = 'My subjects';
 $string['myunits'] = 'My units';
 $string['noenrolments'] = 'No current enrolments';
 
+// My dashboard page.
+$string['enter'] = 'Enter';
+$string['displaymycourses'] = 'Display my courses';
+$string['displaymycourses_desc'] = 'Display my courses on the \'My home\' page.';
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';

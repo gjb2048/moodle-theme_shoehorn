@@ -84,9 +84,9 @@ defined('MOODLE_INTERNAL') || die;
     $generalsettings->add($setting);
 
     // Display My Courses Menu.
-    $name = 'theme_shoehorn/displaymycourses';
-    $title = get_string('displaymycourses','theme_shoehorn');
-    $description = get_string('displaymycourses_desc', 'theme_shoehorn');
+    $name = 'theme_shoehorn/displaymycoursesmenu';
+    $title = get_string('displaymycoursesmenu','theme_shoehorn');
+    $description = get_string('displaymycoursesmenu_desc', 'theme_shoehorn');
     $choices = array(
         0 => new lang_string('no'),
         1 => new lang_string('myclasses', 'theme_shoehorn'),
@@ -97,6 +97,19 @@ defined('MOODLE_INTERNAL') || die;
     );
     $default = 2;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $generalsettings->add($setting);
+
+    // Display my courses on the my home page - 1 = no, 2 = yes.
+    $name = 'theme_shoehorn/displaymycourses';
+    $title = get_string('displaymycourses', 'theme_shoehorn');
+    $description = get_string('displaymycourses_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
     // Logo file setting.

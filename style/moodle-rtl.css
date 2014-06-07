@@ -21467,8 +21467,8 @@ body.pagelayout-redirect {
   color: #FFF;
 }
 
-.block a:hover,
-.block a:focus {
+aside .block a:hover,
+aside .block a:focus {
   text-decoration: none;
   background-color: transparent;
   border-radius: 0;
@@ -21582,18 +21582,17 @@ aside {
   color: #1f4d87;
 }
 
+#allcourses {
+  float: left;
+  margin-bottom: 4px;
+}
+
 .mycourseboxes {
   overflow: auto;
   clear: both;
 }
 
-#allcourses {
-  float: left;
-  margin-left: 25px;
-  margin-top: 2px;
-}
-
-.view {
+.mycourseboxes .view {
   width: 220px;
   height: 175px;
   float: right;
@@ -21602,24 +21601,17 @@ aside {
   text-align: center;
   cursor: default;
   background: transparent;
-}
-
-.view-mycourse {
   margin: 0 0 10px 10px;
-  border: 2px solid rgba(236, 237, 240, 0.5);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  border: 2px solid #c9e6ff;
   border-radius: 5px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
 }
 
-.view-nomargin {
-  margin-left: 0 !important;
+.mycourseboxes .view .mask {
+  background-color: #e3f2ff;
 }
 
-.view .mask,
-.view .content {
+.mycourseboxes .view .mask,
+.mycourseboxes .view .content {
   width: 220px;
   height: 175px;
   position: absolute;
@@ -21628,50 +21620,34 @@ aside {
   right: 0;
 }
 
-.view img {
+.mycourseboxes .view img {
   display: block;
   position: relative;
 }
 
-.view h2 {
+.mycourseboxes .view h2 {
   color: #1f4d87;
   text-align: center;
   position: relative;
-  font-size: .95em;
-  font-weight: 400;
   padding: 2px;
   min-height: 110px;
+  border-bottom: 1px solid #ffffff;
+  margin: 10px 10px 0px 14px;
 }
 
-.view a.info {
+.mycourseboxes .view a.info {
   display: inline-block;
   text-decoration: none;
   padding: 5px 9px;
   background: rgba(255, 255, 255, 0.8);
-  font-size: .8em;
   font-weight: bold;
   color: #1f4d87;
   margin-top: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
-.view a.info:hover {
-  background: #FFFFFF;
-}
-
-.view-second .mask {
-  background-color: rgba(0, 152, 224, 0.5);
-}
-
-.view-second h2 {
-  border-bottom: 1px solid #FFFFFF;
-  margin: 10px 10px 0px 14px;
-}
-
-.view-second p {
-  color: #333;
+.mycourseboxes .view a.info:hover {
+  background: #c9e6ff;
 }
 
 #myCourseCarousel .carousel-inner {
