@@ -126,6 +126,9 @@ aside {
 #allcourses {
     float: right;
     margin-bottom: 4px;
+    a {
+        transition: all ease-out 0.25s;
+    }
 }
 
 .mycourseboxes {
@@ -183,6 +186,7 @@ aside {
         color: @text-color;
         margin-top: 10px;
         border-radius: 5px;
+        transition: all ease-out 0.25s;
         &:hover {
             background: @page-bottom-bg;
         }
@@ -245,12 +249,29 @@ body.coursetiles {
         .commands {
             position: relative;
             top: -25px;
-            left: -20px;
+            left: -100px;
             color: @text-color;
             width: 0px;
             font-weight: bold;
+            .iconsmall {
+                padding: 0px;
+                width: 13px;
+                height: 13px;
+            }
+            ul {
+                line-height: 28px;
+            }
             a {
                 color: @text-color;
+                &.editing_moveleft, &.editing_moveright {
+                    display: none;
+                }
+            }
+            &.moodle-actionmenu[data-enhance] {
+                left: -20px;
+                .iconsmall {
+                    margin: 2px 4px 2px 0px;
+                }
             }
         }
         .mod-indent {
@@ -262,7 +283,7 @@ body.coursetiles {
             left: -15px;
         }
         .availabilityinfo, .contentafterlink {
-            margin-top: -100px;
+            margin-top: -30px;
             margin-left: 0px;
             border-top: 1px solid @page-bottom-bg;
             width: 192px;
@@ -285,7 +306,7 @@ body.coursetiles {
             &:hover {
                 background: none;
             }
-            .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
+            .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
                 top: 0px;
             }
             .editing_move {
@@ -306,9 +327,6 @@ body.coursetiles {
             position: relative;
             top: -185px;
             left: 130px;
-            a {
-                color: @text-color;
-            }
             input {
                 background: @body-bg;
                 color: @page-top-bg;
@@ -316,11 +334,11 @@ body.coursetiles {
         }
     }
 
-    .editing .activity .section {
+    &.editing .activity .section {
         margin-top: 0;
     }
 
-    .editing .section .activity {
+    &.editing .section .activity {
         .mod-indent-outer {
             padding-left: 0px;
         }
@@ -328,9 +346,10 @@ body.coursetiles {
             position: relative;
             top: -45px;
         }
+        margin-top: 20px;
     }
 
-    .editing .section .activity:hover,
+    &.editing .section .activity:hover,
     .course-content .section .activity:hover,
     .sitetopic .section .activity:hover {
         background: @page-bottom-bg;
@@ -387,7 +406,6 @@ body.coursetiles {
     }
 
     &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-        background: @body-bg;
         border-radius: 5px;
         border: 1px solid @page-bottom-bg;
         transition: all ease-out .25s;
@@ -395,12 +413,9 @@ body.coursetiles {
             background: @page-bottom-bg-light;
             font-weight: bold;
         }
-        .caret {
-            display: none;
-        }
     }
 
-    .moodle-actionmenu[data-enhanced].show .menu {
+    &.jsenabled .moodle-actionmenu[data-enhance].show .menu {
         box-shadow: none;
         background: @page-bottom-bg;
         &.align-tr-br {
@@ -408,8 +423,17 @@ body.coursetiles {
             top: -5px;
         }
         a {
+            padding: 3px 10px;
+            &:focus {
+                background: @page-bottom-bg;
+                border-radius: 2px;
+            }
+            &:hover {
+                background: @page-bottom-bg-light;
+                font-weight: bold;
+            }
             &:hover, &:focus {
-                color: @text-color;
+                color: @page-top-bg;
             }
         }
     }
@@ -420,7 +444,7 @@ body.coursetiles {
         position: relative;
     }
 
-    .editing .autocompletion {
+    &.editing .autocompletion {
         position: relative;
         top: -20px;
         left: -140px;
@@ -471,16 +495,6 @@ body.coursetiles {
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom: 20px;
-    }
-
-    .topics .section-modchooser-link a:link,
-    .topics .section-modchooser-link a:hover {
-        color: @page-bottom-bg-dark !important;
-    }    
-
-    #section-0 .section-modchooser-link a:link,
-    .section-0 .section-modchooser-link a:hover {
-        color: @page-top-bg !important;
     }
 
     .course-content .single-section .section-navigation .title {

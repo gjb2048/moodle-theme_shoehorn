@@ -29,6 +29,8 @@ include_once($CFG->dirroot . "/theme/bootstrap/renderers/core_renderer.php");
 
 class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
+    protected $enrolledcourses = null;
+
     /**
      * Gets HTML for the page heading.
      *
@@ -125,12 +127,14 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $messagecount++;
             }
-            $messagemenutext = '<span class="glyphicon glyphicon-envelope"></span> '.$messagecount . ' ';
+            $messagemenutext = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
+            $messagemenucount = ' '.$messagecount.' ';
             if ($messagecount == 1) {
-                 $messagemenutext .= get_string('message', 'message');
+                 $messagemenucount .= get_string('message', 'message');
             } else {
-                 $messagemenutext .= get_string('messages', 'message');
+                 $messagemenucount .= get_string('messages', 'message');
             }
+            $messagemenutext .= html_writer::tag('span', $messagemenucount);
             $messagemenu = $menu->add(
                 $messagemenutext,
                 new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
@@ -182,22 +186,16 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 default:
                     $branchtitle = get_string('mycourses', 'theme_shoehorn');
             }
-            $branchlabel = '<span class="glyphicon glyphicon-briefcase"></span> '.$branchtitle;
+            $branchlabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-briefcase'));
+            $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
             $branchurl   = new moodle_url('/my/index.php');
             $branchsort  = 10000;
  
             $mycoursesmenu = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
             $mycoursesmenu->add(get_string('myhome'), new moodle_url('/my/index.php'));
 
-            // Info from: /course/renderer.php::frontpage_my_courses().
-            if (!empty($CFG->navsortmycoursessort)) {
-                // sort courses the same as in navigation menu
-                $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
-            } else {
-                $sortorder = 'visible DESC,sortorder ASC';
-            }
-            $courses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
-            $rhosts   = array();
+            $courses = $this->get_enrolled_courses();
+            $rhosts = array();
             $rcourses = array();
             if (!empty($CFG->mnet_dispatcher_mode) && $CFG->mnet_dispatcher_mode==='strict') {
                 $rcourses = get_my_remotecourses($USER->id);
@@ -250,22 +248,32 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         if ($addusermenu) {
             if (isloggedin()) {
                 $usermenu = $menu->add(fullname($USER), new moodle_url('#'), fullname($USER), 10001);
+
+                $logouttext = get_string('logout');
+                $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
+                $logout .= html_writer::tag('span', $logouttext);
                 $usermenu->add(
-                    '<span class="glyphicon glyphicon-off"></span>' . get_string('logout'),
+                    $logout,
                     new moodle_url('/login/logout.php', array('sesskey' => sesskey(), 'alt' => 'logout')),
-                    get_string('logout')
+                    $logouttext
                 );
 
+                $viewprofiletext = get_string('viewprofile');
+                $viewprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-user'));
+                $viewprofile .= html_writer::tag('span', $viewprofiletext);
                 $usermenu->add(
-                    '<span class="glyphicon glyphicon-user"></span>' . get_string('viewprofile'),
+                    $viewprofile,
                     new moodle_url('/user/profile.php', array('id' => $USER->id)),
-                    get_string('viewprofile')
+                    $viewprofiletext
                 );
 
+                $editmyprofiletext = get_string('editmyprofile');
+                $editmyprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-cog'));
+                $editmyprofile .= html_writer::tag('span', $editmyprofiletext);
                 $usermenu->add(
-                    '<span class="glyphicon glyphicon-cog"></span>' . get_string('editmyprofile'),
+                    $editmyprofile,
                     new moodle_url('/user/edit.php', array('id' => $USER->id)),
-                    get_string('editmyprofile')
+                    $editmyprofiletext
                 );
             } else {
                 $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
@@ -291,53 +299,58 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $content = '';
         $displaymycourses = (empty($this->page->theme->settings->displaymycourses)) ? false : $this->page->theme->settings->displaymycourses;
         if ($displaymycourses == 2) {
-        global $CFG;
-        // Info from: /course/renderer.php::frontpage_my_courses().
-        if (!empty($CFG->navsortmycoursessort)) {
-            // sort courses the same as in navigation menu
-            $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
-        } else {
-            $sortorder = 'visible DESC,sortorder ASC';
-        }
-        $mycourses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
+            $mycourses = $this->get_enrolled_courses();
 
+            $content .= html_writer::start_tag('div', array('class' => 'block block_dashboardcourses', 'role' => 'complementary'));
+            $content .= html_writer::start_tag('div', array('class' => 'header'));
+            $content .= html_writer::start_tag('div', array('class' => 'title'));
+            $allurl = new moodle_url('/course/');
+            $content .= html_writer::start_tag('div', array('id' => 'allcourses'));
+            $content .= html_writer::link($allurl, get_string('fulllistofcourses'), array('class' => 'btn btn-default'));
+            $content .= html_writer::end_tag('div');
+            $content .= html_writer::tag('h2', get_string('mycourses'));
+            $content .= html_writer::end_tag('div');
+            $content .= html_writer::end_tag('div');
 
-        $content .= html_writer::start_tag('div', array('class' => 'block block_dashboardcourses', 'role' => 'complementary'));
-        $content .= html_writer::start_tag('div', array('class' => 'header'));
-        $content .= html_writer::start_tag('div', array('class' => 'title'));
-        $allurl = new moodle_url('/course/');
-        $content .= html_writer::start_tag('div', array('id' => 'allcourses'));
-        $content .= html_writer::link($allurl, get_string('fulllistofcourses'), array('class' => 'btn btn-default'));
-        $content .= html_writer::end_tag('div');
-        $content .= html_writer::tag('h2', get_string('mycourses'));
-        $content .= html_writer::end_tag('div');
-        $content .= html_writer::end_tag('div');
-
-        if (!empty($mycourses)) {
-            $content .= html_writer::start_tag('div', array('class' => 'content'));
-            $content .= html_writer::start_tag('div', array('class' => 'mycourseboxes'));
-            foreach ($mycourses as $course) {
-                if ($course->visible) {
-                    $content .= html_writer::start_tag('div', array('class' => 'view'));
-                    $content .= html_writer::start_tag('div', array('class' => 'mask'));
-                    $content .= html_writer::tag('h2', $course->fullname);
-                    $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
-                    $content .= html_writer::link($courseurl, get_string('enter', 'theme_shoehorn'), array('class' => 'info'));
-                    $content .= html_writer::end_tag('div');
-                    $content .= html_writer::end_tag('div');
+            if (!empty($mycourses)) {
+                $content .= html_writer::start_tag('div', array('class' => 'content'));
+                $content .= html_writer::start_tag('div', array('class' => 'mycourseboxes'));
+                foreach ($mycourses as $course) {
+                    if ($course->visible) {
+                        $content .= html_writer::start_tag('div', array('class' => 'view'));
+                        $content .= html_writer::start_tag('div', array('class' => 'mask'));
+                        $content .= html_writer::tag('h2', $course->fullname);
+                        $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+                        $content .= html_writer::link($courseurl, get_string('enter', 'theme_shoehorn'), array('class' => 'info'));
+                        $content .= html_writer::end_tag('div');
+                        $content .= html_writer::end_tag('div');
+                    }
                 }
+                $content .= html_writer::end_tag('div');
+                $content .= html_writer::end_tag('div');
             }
-            $content .= html_writer::end_tag('div');
-            $content .= html_writer::end_tag('div');
-        }
 
-        $content .= '</div>';
+            $content .= '</div>';
         }
         return $content;
     }
 
-    protected function process_user_messages() {
+    protected function get_enrolled_courses() {
+        if ($this->enrolledcourses == null) {
+            global $CFG;
+            // Info from: /course/renderer.php::frontpage_my_courses().
+            if (!empty($CFG->navsortmycoursessort)) {
+                // sort courses the same as in navigation menu
+                $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
+            } else {
+                $sortorder = 'visible DESC,sortorder ASC';
+            }
+            $this->enrolledcourses = enrol_get_my_courses('summary, summaryformat', $sortorder);
+        }
+        return $this->enrolledcourses;
+    }
 
+    protected function process_user_messages() {
         $messagelist = array();
 
         foreach ($usermessages as $message) {
@@ -413,8 +426,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         } else {
             $messagecontent->date = userdate($message->timecreated, get_string('strftimetime', 'langconfig'));
         }
-
         $messagecontent->from = $DB->get_record('user', array('id' => $message->useridfrom));
+
         return $messagecontent;
     }
 
@@ -477,8 +490,6 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             if (count($items) == 1) {
                 $o .= $items[0];
             } else {
-                /* $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa fa-arrows-h fa-lg')) .
-                                html_writer::end_tag('i'), array('class' => 'divider')); */
                 $divider = html_writer::tag('span', '|', array('class' => 'divider'));
                 $o .= implode("$divider", $items);
             }
@@ -572,7 +583,6 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                         $currentrow = $currentrequiredrow;
                     }
                 }
-                //$bc->attributes['class'] .= ' col-sm-'.$col.' col-md-'.$col.' col-lg-'.$col;
 
                 $output .= html_writer::start_tag('div', array('class' => 'col-sm-'.$col.' col-md-'.$col.' col-lg-'.$col));
                 if ($bc instanceof block_contents) {
