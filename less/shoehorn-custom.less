@@ -238,9 +238,9 @@ body.coursetiles {
         font-weight: lighter;
     }
 
-    .section .activity {
+    .section .activity, .ctopics .section .activity {
         .activityinstance, .activityinstance div {
-            display: inline-block; 
+            display: inline-block;
             width:100%; 
             height:100%;
         }
@@ -356,19 +356,22 @@ body.coursetiles {
         margin-top: 0;
     }
 
-    &.editing .section .activity {
-        .mod-indent-outer {
-            padding-left: 0px;
+    &.editing, &.editing .ctopics {
+        .section .activity {
+            .mod-indent-outer {
+                padding-left: 0px;
+            }
+            .contentafterlink {
+                position: relative;
+                top: -45px;
+            }
+            margin-top: 20px;
         }
-        .contentafterlink {
-            position: relative;
-            top: -45px;
-        }
-        margin-top: 20px;
     }
 
     &.editing .section .activity:hover,
     .course-content .section .activity:hover,
+    .gtopics .section .activity:hover,
     .sitetopic .section .activity:hover {
         background: @page-bottom-bg;
     }

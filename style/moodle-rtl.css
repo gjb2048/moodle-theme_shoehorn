@@ -21698,13 +21698,16 @@ body.coursetiles .badge {
 }
 
 body.coursetiles .section .activity .activityinstance,
-body.coursetiles .section .activity .activityinstance div {
+body.coursetiles .ctopics .section .activity .activityinstance,
+body.coursetiles .section .activity .activityinstance div,
+body.coursetiles .ctopics .section .activity .activityinstance div {
   display: inline-block;
   width: 100%;
   height: 100%;
 }
 
-body.coursetiles .section .activity .activityinstance > a {
+body.coursetiles .section .activity .activityinstance > a,
+body.coursetiles .ctopics .section .activity .activityinstance > a {
   text-align: left;
   color: #1f4d87;
   height: 152px !important;
@@ -21714,21 +21717,25 @@ body.coursetiles .section .activity .activityinstance > a {
   transition: all ease-out 0.25s;
 }
 
-body.coursetiles .section .activity .activityinstance > a:hover {
+body.coursetiles .section .activity .activityinstance > a:hover,
+body.coursetiles .ctopics .section .activity .activityinstance > a:hover {
   font-weight: bold;
   text-decoration: none;
   background-color: rgba(227, 242, 255, 0.75);
 }
 
-body.coursetiles .section .activity .mod-indent-outer {
+body.coursetiles .section .activity .mod-indent-outer,
+body.coursetiles .ctopics .section .activity .mod-indent-outer {
   padding-right: 0;
 }
 
-body.coursetiles .section .activity img.activityicon {
+body.coursetiles .section .activity img.activityicon,
+body.coursetiles .ctopics .section .activity img.activityicon {
   float: right;
 }
 
-body.coursetiles .section .activity .commands {
+body.coursetiles .section .activity .commands,
+body.coursetiles .ctopics .section .activity .commands {
   position: relative;
   top: -25px;
   right: -100px;
@@ -21737,52 +21744,64 @@ body.coursetiles .section .activity .commands {
   font-weight: bold;
 }
 
-body.coursetiles .section .activity .commands .iconsmall {
+body.coursetiles .section .activity .commands .iconsmall,
+body.coursetiles .ctopics .section .activity .commands .iconsmall {
   padding: 0px;
   width: 13px;
   height: 13px;
 }
 
-body.coursetiles .section .activity .commands ul {
+body.coursetiles .section .activity .commands ul,
+body.coursetiles .ctopics .section .activity .commands ul {
   line-height: 28px;
 }
 
-body.coursetiles .section .activity .commands a {
+body.coursetiles .section .activity .commands a,
+body.coursetiles .ctopics .section .activity .commands a {
   color: #1f4d87;
 }
 
 body.coursetiles .section .activity .commands a.editing_moveleft,
-body.coursetiles .section .activity .commands a.editing_moveright {
+body.coursetiles .ctopics .section .activity .commands a.editing_moveleft,
+body.coursetiles .section .activity .commands a.editing_moveright,
+body.coursetiles .ctopics .section .activity .commands a.editing_moveright {
   display: none;
 }
 
-body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance] {
+body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance],
+body.coursetiles .ctopics .section .activity .commands.moodle-actionmenu[data-enhance] {
   right: -20px;
 }
 
-body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall {
+body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall,
+body.coursetiles .ctopics .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall {
   margin: 2px 0px 2px 4px;
 }
 
-body.coursetiles .section .activity .mod-indent {
+body.coursetiles .section .activity .mod-indent,
+body.coursetiles .ctopics .section .activity .mod-indent {
   padding-right: 0px;
   height: 100%;
 }
 
-body.coursetiles .section .activity .editing_move {
+body.coursetiles .section .activity .editing_move,
+body.coursetiles .ctopics .section .activity .editing_move {
   top: -15px;
   right: -15px;
 }
 
 body.coursetiles .section .activity .availabilityinfo,
-body.coursetiles .section .activity .contentafterlink {
+body.coursetiles .ctopics .section .activity .availabilityinfo,
+body.coursetiles .section .activity .contentafterlink,
+body.coursetiles .ctopics .section .activity .contentafterlink {
   margin-top: -30px;
   margin-right: 0px;
   border-top: 1px solid #c9e6ff;
   width: 192px;
 }
 
-body.coursetiles .section .activity .contentafterlink {
+body.coursetiles .section .activity .contentafterlink,
+body.coursetiles .ctopics .section .activity .contentafterlink {
   font-size: .85em;
   height: 48px;
   text-overflow: ellipsis;
@@ -21791,30 +21810,36 @@ body.coursetiles .section .activity .contentafterlink {
   padding-top: 5px;
 }
 
-body.coursetiles .section .activity .instancename {
+body.coursetiles .section .activity .instancename,
+body.coursetiles .ctopics .section .activity .instancename {
   font-weight: bold;
 }
 
-body.coursetiles .section .activity.modtype_label.label {
+body.coursetiles .section .activity.modtype_label.label,
+body.coursetiles .ctopics .section .activity.modtype_label.label {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
 }
 
-body.coursetiles .section .activity.modtype_label.label:hover {
+body.coursetiles .section .activity.modtype_label.label:hover,
+body.coursetiles .ctopics .section .activity.modtype_label.label:hover {
   background: none;
 }
 
-body.coursetiles .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
+body.coursetiles .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br,
+body.coursetiles .ctopics .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
   top: 0px;
 }
 
-body.coursetiles .section .activity.modtype_label.label .editing_move {
+body.coursetiles .section .activity.modtype_label.label .editing_move,
+body.coursetiles .ctopics .section .activity.modtype_label.label .editing_move {
   right: -25px;
   top: 0px;
 }
 
-body.coursetiles .section .activity.modtype_label.label .commands {
+body.coursetiles .section .activity.modtype_label.label .commands,
+body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
   margin-right: auto;
   margin-left: 20px;
   margin-top: 20px;
@@ -21824,13 +21849,15 @@ body.coursetiles .section .activity.modtype_label.label .commands {
   top: 107px;
 }
 
-body.coursetiles .section .activity .actions {
+body.coursetiles .section .activity .actions,
+body.coursetiles .ctopics .section .activity .actions {
   position: relative;
   top: -185px;
   right: 130px;
 }
 
-body.coursetiles .section .activity .actions input {
+body.coursetiles .section .activity .actions input,
+body.coursetiles .ctopics .section .activity .actions input {
   background: #ffffff;
   color: #1f4d87;
 }
@@ -21839,21 +21866,25 @@ body.coursetiles.editing .activity .section {
   margin-top: 0;
 }
 
-body.coursetiles.editing .section .activity {
+body.coursetiles.editing .section .activity,
+body.coursetiles.editing .ctopics .section .activity {
   margin-top: 20px;
 }
 
-body.coursetiles.editing .section .activity .mod-indent-outer {
+body.coursetiles.editing .section .activity .mod-indent-outer,
+body.coursetiles.editing .ctopics .section .activity .mod-indent-outer {
   padding-right: 0px;
 }
 
-body.coursetiles.editing .section .activity .contentafterlink {
+body.coursetiles.editing .section .activity .contentafterlink,
+body.coursetiles.editing .ctopics .section .activity .contentafterlink {
   position: relative;
   top: -45px;
 }
 
 body.coursetiles.editing .section .activity:hover,
 body.coursetiles .course-content .section .activity:hover,
+body.coursetiles .gtopics .section .activity:hover,
 body.coursetiles .sitetopic .section .activity:hover {
   background: #c9e6ff;
 }
