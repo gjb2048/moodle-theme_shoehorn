@@ -17795,11 +17795,20 @@ body.pagelayout-redirect {
   color: #FFF;
 }
 aside .block a:hover,
-aside .block a:focus {
+#dockeditempanel a:hover,
+aside .block a:focus,
+#dockeditempanel a:focus {
   text-decoration: none;
   background-color: transparent;
   border-radius: 0;
+}
+aside .block a:hover,
+aside .block a:focus {
   color: #e3f2ff;
+}
+#dockeditempanel a:hover,
+#dockeditempanel a:focus {
+  color: #267f00;
 }
 header {
   color: #eeeeee;
@@ -17877,6 +17886,14 @@ aside {
   margin: 0em;
   border: 1px solid #1f4d87;
   border-radius: 2px;
+}
+.block .dockeditempanel_hd .commands a:hover,
+#dockeditempanel .dockeditempanel_hd .commands a:hover,
+#dock .dockeditempanel_hd .commands a:hover,
+.block .dockeditempanel_hd .commands a:focus,
+#dockeditempanel .dockeditempanel_hd .commands a:focus,
+#dock .dockeditempanel_hd .commands a:focus {
+  background-color: transparent;
 }
 .block label {
   min-width: 70px;
