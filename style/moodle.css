@@ -16821,8 +16821,8 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   background: #ffffff;
   background: rgba(255, 255, 255, 0.25);
 }
-.dropdown-menu > li > a:hover span,
-.dropdown-menu > li > a:focus span {
+.dropdown-menu > li > a:hover span:first-child,
+.dropdown-menu > li > a:focus span:first-child {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   padding: 2px;
