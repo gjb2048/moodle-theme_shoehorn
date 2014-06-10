@@ -42,6 +42,12 @@
         min-height: 100px;
     }
 }
+.moodle-actionmenu[data-enhanced].show .menu > li > a {
+    &:hover, &:focus {
+        color: @page-top-bg;
+        font-weight: bold;
+    }
+}
 
 .moodle-dialogue-base .moodle-dialogue-wrap {
     border: 1px solid @page-bottom-bg-dark-spin;
@@ -85,8 +91,18 @@ ul {
     }
 }
 
-.editing .section .activity:hover,.editing .section .activity.action-menu-shown {
-    background-color: @page-bottom-bg-light;
+.editing .section {
+    .activity {
+        a:hover, &.action-menu-shown {
+                background-color: @page-bottom-bg;
+        }
+    }
+    .editing_title .iconsmall {
+        width: 13px;
+        height: 13px;
+        margin: 0.3em;
+        padding: 0;
+    }
 }
 
 #page-course-index-category {
@@ -461,14 +477,6 @@ table#user-grades {
 // new.less.
 ul, ol {
     padding-left: 24px;
-}
-
-.course-content .sectionbody ul {
-    padding-left: 18px;
-}
-
-.course-content .sectionbody ul.section {
-    padding-left: 0px;
 }
 
 .dropdown-menu {

@@ -20524,6 +20524,12 @@ a:focus {
   }
 }
 
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus {
+  color: #1f4d87;
+  font-weight: bold;
+}
+
 .moodle-dialogue-base .moodle-dialogue-wrap {
   border: 1px solid #a5e4ff;
   box-shadow: -5px 5px 20px 0 #1f4d87;
@@ -20563,9 +20569,16 @@ ul.weeks {
   padding-right: 0px;
 }
 
-.editing .section .activity:hover,
+.editing .section .activity a:hover,
 .editing .section .activity.action-menu-shown {
-  background-color: #e3f2ff;
+  background-color: #c9e6ff;
+}
+
+.editing .section .editing_title .iconsmall {
+  width: 13px;
+  height: 13px;
+  margin: 0.3em;
+  padding: 0;
 }
 
 #page-course-index-category .generalbox.info {
@@ -21252,14 +21265,6 @@ ol {
   padding-right: 24px;
 }
 
-.course-content .sectionbody ul {
-  padding-right: 18px;
-}
-
-.course-content .sectionbody ul.section {
-  padding-right: 0px;
-}
-
 .dropdown-menu:hover .userpicture,
 .dropdown-menu:focus .userpicture,
 .dropdown-menu:active .userpicture {
@@ -21669,6 +21674,14 @@ aside {
   background: #c9e6ff;
 }
 
+.course-content .ctopics .section ul.section {
+  padding-right: 0px;
+}
+
+.editing .ctopics .section .editing_title .iconsmall {
+  vertical-align: middle;
+}
+
 body.coursetiles .section li.activity {
   background: #e3f2ff;
   height: 160px;
@@ -21739,7 +21752,6 @@ body.coursetiles .ctopics .section .activity .commands {
   position: relative;
   top: -25px;
   right: -100px;
-  color: #1f4d87;
   width: 0px;
   font-weight: bold;
 }
@@ -21754,11 +21766,6 @@ body.coursetiles .ctopics .section .activity .commands .iconsmall {
 body.coursetiles .section .activity .commands ul,
 body.coursetiles .ctopics .section .activity .commands ul {
   line-height: 28px;
-}
-
-body.coursetiles .section .activity .commands a,
-body.coursetiles .ctopics .section .activity .commands a {
-  color: #1f4d87;
 }
 
 body.coursetiles .section .activity .commands a.editing_moveleft,
@@ -21852,7 +21859,7 @@ body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
 body.coursetiles .section .activity .actions,
 body.coursetiles .ctopics .section .activity .actions {
   position: relative;
-  top: -185px;
+  top: -175px;
   right: 130px;
 }
 
@@ -21940,6 +21947,10 @@ body.coursetiles .togglecompletion {
   right: 20px;
 }
 
+body.coursetiles.editing .section .moodle-actionmenu .iconsmall {
+  vertical-align: middle;
+}
+
 body.coursetiles.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
   border-radius: 5px;
   border: 1px solid #c9e6ff;
@@ -21980,10 +21991,14 @@ body.coursetiles.jsenabled .moodle-actionmenu[data-enhance].show .menu a:focus {
   color: #1f4d87;
 }
 
-body.coursetiles .section .editing_title .iconsmall {
-  top: -182px;
+body.coursetiles .section a.editing_title {
+  top: -174px;
   right: 10px;
   position: relative;
+}
+
+body.coursetiles .section a.editing_title .iconsmall {
+  vertical-align: middle;
 }
 
 body.coursetiles.editing .autocompletion {

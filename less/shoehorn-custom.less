@@ -211,6 +211,15 @@ aside {
     }
 }
 
+// Collapsed Topics.
+.course-content .ctopics .section ul.section {
+    padding-left: 0px;
+}
+
+.editing .ctopics .section .editing_title .iconsmall {
+    vertical-align: middle;
+}
+
 // Course tiles.
 body.coursetiles {
     .section li.activity {
@@ -268,7 +277,6 @@ body.coursetiles {
             position: relative;
             top: -25px;
             left: -100px;
-            color: @text-color;
             width: 0px;
             font-weight: bold;
             .iconsmall {
@@ -280,7 +288,6 @@ body.coursetiles {
                 line-height: 28px;
             }
             a {
-                color: @text-color;
                 &.editing_moveleft, &.editing_moveright {
                     display: none;
                 }
@@ -343,7 +350,7 @@ body.coursetiles {
         }
         .actions {
             position: relative;
-            top: -185px;
+            top: -175px;
             left: 130px;
             input {
                 background: @body-bg;
@@ -426,6 +433,10 @@ body.coursetiles {
         left: 20px;
     }
 
+    &.editing .section .moodle-actionmenu .iconsmall {
+        vertical-align: middle;
+    }
+
     &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
         border-radius: 5px;
         border: 1px solid @page-bottom-bg;
@@ -459,10 +470,13 @@ body.coursetiles {
         }
     }
 
-    .section .editing_title .iconsmall {
-        top: -182px;
+    .section a.editing_title {
+        top: -174px;
         left: 10px;
         position: relative;
+        .iconsmall {
+             vertical-align: middle;
+        }
     }
 
     &.editing .autocompletion {
