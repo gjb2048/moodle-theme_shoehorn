@@ -25,5 +25,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $plugins = array(
-    'bootstrap' => array('files' => array('bootstrap_3_1_1_min.js'))
+    'bootstrap' => array('files' => array('bootstrap_3_1_1_min.js')),
+    'backstretch' => array('files' => array('backstretch_2_0_4.js'))
 );

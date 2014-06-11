@@ -15732,20 +15732,15 @@ textarea.loginbox .loginform .form-input input[type="password"] {
 }
 
 .loginbox .desc {
-  font-size: 30px;
   line-height: 30px;
   font-weight: 300;
   color: #1f4d87;
 }
 
 .loginbox .subcontent {
-  text-align: right;
+  text-align: center;
   padding: 0;
   margin: 0;
-}
-
-.loginbox .subcontent .desc {
-  display: none;
 }
 
 #page-tag-coursetags_edit .coursetag_edit_centered {
@@ -19887,11 +19882,7 @@ fieldset[disabled] #dock .dockedtitle.active {
 }
 
 #page-grade-report-grader-index #user-grades {
-  margin-top: 0px;
-}
-
-#page-grade-report-grader-index .left_scroller {
-  padding-top: 18px;
+  margin-top: 4px;
 }
 
 #page-grade-grading-manage #activemethodselector label {
@@ -21464,6 +21455,16 @@ body {
 
 body.pagelayout-redirect {
   color: #FFF;
+}
+
+body.loginpageimages {
+  background-color: transparent;
+}
+
+body.loginpageimages #page,
+body.loginpageimages #page-footer,
+body.loginpageimages #footer-shadow {
+  background-image: none;
 }
 
 aside .block a:hover,

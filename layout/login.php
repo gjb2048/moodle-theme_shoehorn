@@ -39,12 +39,16 @@ $loggedin = isloggedin();
 require_once(dirname(__FILE__).'/tiles/jquery.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$bodyattributes = '';
+if (!empty($loginpageimages)) {
+    $bodyattributes = array('loginpageimages');
+}
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
-<body <?php echo $OUTPUT->body_attributes(); ?>>
+<body <?php echo $OUTPUT->body_attributes($bodyattributes); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
@@ -97,5 +101,16 @@ echo $OUTPUT->doctype() ?>
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 </div>
+<?php
+if (!empty($loginpageimages)) {
+    echo '<script type="text/javascript">';
+    echo '//<![CDATA['.PHP_EOL;
+    echo '$.backstretch([';
+    echo implode(',', $loginpageimages);
+    echo '], {duration: '.$PAGE->theme->settings->loginbackgroundchangerspeed.', fade: 750});'.PHP_EOL;
+    echo '//]]>'.PHP_EOL;
+    echo '</script>';
+}
+?>
 </body>
 </html>

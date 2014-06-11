@@ -221,7 +221,7 @@ defined('MOODLE_INTERNAL') || die;
         16 => '16'
     );
     $slidersettings = new admin_settingpage('theme_shoehorn_slider', get_string('frontpagesliderheading', 'theme_shoehorn'));
-    $slidersettings->add(new admin_setting_heading('theme_moment_slider', get_string('frontpagesliderheadingsub', 'theme_shoehorn'),
+    $slidersettings->add(new admin_setting_heading('theme_shoehorn_slider', get_string('frontpagesliderheadingsub', 'theme_shoehorn'),
             format_text(get_string('frontpagesliderheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $slidersettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
@@ -256,7 +256,7 @@ defined('MOODLE_INTERNAL') || die;
 
     $numberofslides = get_config('theme_shoehorn', 'frontpagenumberofslides');
     for ($i = 1; $i <= $numberofslides; $i++) {
-        $slidersettings->add(new admin_setting_heading('theme_shoehorn_frontpageslidet_heading'.$i, get_string('frontpageslidersettingspageheading', 'theme_shoehorn', array('slide' => $i)), null));
+        $slidersettings->add(new admin_setting_heading('theme_shoehorn_frontpageslide_heading'.$i, get_string('frontpageslidersettingspageheading', 'theme_shoehorn', array('slide' => $i)), null));
 
         // Image.
         $name = 'theme_shoehorn/frontpageslideimage'.$i;
@@ -378,6 +378,73 @@ defined('MOODLE_INTERNAL') || die;
         $imagebanksettings->add($setting);
     }
     $ADMIN->add('theme_shoehorn', $imagebanksettings);
+
+    // Login page background image changer page....
+    // Number of images.
+    $name = 'theme_shoehorn/loginbackgroundchangernumberofimages';
+    $title = get_string('loginbackgroundchangernumberofimages', 'theme_shoehorn');
+    $description = get_string('loginbackgroundchangernumberofimages_desc', 'theme_shoehorn');
+    $default = 3;
+    $choices = array(
+        0 => '0',
+        1 => '1',
+        2 => '2',
+        3 => '3',
+        4 => '4',
+        5 => '5',
+        6 => '6',
+        7 => '7',
+        8 => '8',
+        9 => '9',
+        10 => '10',
+        11 => '11',
+        12 => '12',
+        13 => '13',
+        14 => '14',
+        15 => '15',
+        16 => '16'
+    );
+    $loginpagesettings = new admin_settingpage('theme_shoehorn_loginbackgroundchanger', get_string('loginbackgroundchangerheading', 'theme_shoehorn'));
+    $loginpagesettings->add(new admin_setting_heading('theme_shoehorn_loginbackgroundchanger', get_string('loginbackgroundchangerheadingsub', 'theme_shoehorn'),
+            format_text(get_string('loginbackgroundchangerheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+    $loginpagesettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+    // Image speed.
+    $name = 'theme_shoehorn/loginbackgroundchangerspeed';
+    $title = get_string('loginbackgroundchangerspeed', 'theme_shoehorn');
+    $description = get_string('loginbackgroundchangerspeed_desc', 'theme_shoehorn');
+    $default = 3000;
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $loginpagesettings->add($setting);
+
+    // Show on mobile.
+    $name = 'theme_shoehorn/loginbackgroundchangermobile';
+    $title = get_string('loginbackgroundchangermobile', 'theme_shoehorn');
+    $description = get_string('loginbackgroundchangermobile_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $loginpagesettings->add($setting);
+
+    // Show on tablet.
+    $name = 'theme_shoehorn/loginbackgroundchangertablet';
+    $title = get_string('loginbackgroundchangertablet', 'theme_shoehorn');
+    $description = get_string('loginbackgroundchangertablet_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $loginpagesettings->add($setting);
+
+    $numberofimages = get_config('theme_shoehorn', 'loginbackgroundchangernumberofimages');
+    for ($i = 1; $i <= $numberofimages; $i++) {
+        // Image.
+        $name = 'theme_shoehorn/loginbackgroundchangerimage'.$i;
+        $title = get_string('loginbackgroundchangerimage', 'theme_shoehorn', array('image' => $i));
+        $description = get_string('loginbackgroundchangerimage_desc', 'theme_shoehorn', array('image' => $i));
+        $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundchangerimage'.$i);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $loginpagesettings->add($setting);
+    }
+    $ADMIN->add('theme_shoehorn', $loginpagesettings);
 
     // Marketing spots....
     // Number of marketing spots.

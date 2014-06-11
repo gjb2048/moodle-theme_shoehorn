@@ -12921,18 +12921,14 @@ textarea.loginbox .loginform .form-input input[type="password"] {
   margin: 10px 0 0;
 }
 .loginbox .desc {
-  font-size: 30px;
   line-height: 30px;
   font-weight: 300;
   color: #1f4d87;
 }
 .loginbox .subcontent {
-  text-align: left;
+  text-align: center;
   padding: 0;
   margin: 0;
-}
-.loginbox .subcontent .desc {
-  display: none;
 }
 #page-tag-coursetags_edit .coursetag_edit_centered {
   position: relative;
@@ -16467,10 +16463,7 @@ fieldset[disabled] #dock .dockedtitle.active {
   height: 1px;
 }
 #page-grade-report-grader-index #user-grades {
-  margin-top: 0px;
-}
-#page-grade-report-grader-index .left_scroller {
-  padding-top: 18px;
+  margin-top: 4px;
 }
 #page-grade-grading-manage #activemethodselector label {
   display: inline-block;
@@ -17798,6 +17791,14 @@ body {
 }
 body.pagelayout-redirect {
   color: #FFF;
+}
+body.loginpageimages {
+  background-color: transparent;
+}
+body.loginpageimages #page,
+body.loginpageimages #page-footer,
+body.loginpageimages #footer-shadow {
+  background-image: none;
 }
 aside .block a:hover,
 #dockeditempanel a:hover,

@@ -230,6 +230,40 @@ function shoehorn_shown_frontpageslides() {
 }
 
 /**
+ * States the number of background images (if any).
+ *
+ * @return array of background image urls or empty array if none.
+ */
+function shoehorn_shown_loginbackgroundchanger_images() {
+    $images = array();
+    $theme = theme_config::load('shoehorn');
+
+    $numberofimages = (empty($theme->settings->loginbackgroundchangernumberofimages)) ? false : $theme->settings->loginbackgroundchangernumberofimages;
+    if (($numberofimages) && (shoehorn_showloginbackgroundchanger($theme->settings))) {
+        for ($img = 1; $img <= $numberofimages; $img++) {
+            $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
+            if (!empty($theme->settings->$loginbackgroundchangerimageno)) {
+                $images[] = '"'.$theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno).'"';
+            }
+        }
+    }
+
+    return $images;
+}
+
+function shoehorn_showloginbackgroundchanger($settings) {
+    $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
+    if ($devicetype == "mobile") {
+        $showimages = (empty($settings->loginbackgroundchangermobile)) ? false : $settings->loginbackgroundchangermobile;
+    } else if ($devicetype == "tablet") {
+        $showimages = (empty($settings->loginbackgroundchangertablet)) ? false : $settings->loginbackgroundchangertablet;
+    } else {
+        $showimages = true;
+    }
+    return $showimages;
+}
+
+/**
  * Serves any files associated with the theme settings.
  *
  * @param stdClass $course
@@ -250,6 +284,9 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 14) === 'imagebankimage') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else if (substr($filearea, 0, 27) === 'loginbackgroundchangerimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else {

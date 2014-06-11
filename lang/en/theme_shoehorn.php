@@ -213,6 +213,21 @@ $string['imagebankimage'] = 'Image ';
 $string['imagebankimage_desc'] = 'Image URL to copy: \'{$a->imagedesc}\' and use, i.e. insert in an HTML editor.';
 $string['none'] = 'none';
 
+// Login page background image changer.
+$string['loginbackgroundchangerheading'] = 'Login page background image changer';
+$string['loginbackgroundchangerheadingsub'] = 'Make your login page different with changing background images.';
+$string['loginbackgroundchangerheadingdesc'] = "To change the number of images change the 'Number of images' below and save the page to update.";
+$string['loginbackgroundchangerspeed'] = 'Set the image transition speed in ms';
+$string['loginbackgroundchangerspeed_desc'] = 'Set the image transition speed in milliseconds.';
+$string['loginbackgroundchangermobile'] = 'Display background image changer on mobile';
+$string['loginbackgroundchangermobile_desc'] = 'Display the background image changer on mobile devices.';
+$string['loginbackgroundchangertablet'] = 'Display background image changer on tablet';
+$string['loginbackgroundchangertablet_desc'] = 'Display the background image changer on tablet devices.';
+$string['loginbackgroundchangernumberofimages'] = 'Number of images';
+$string['loginbackgroundchangernumberofimages_desc'] = 'Number of images on the background image changer.';
+$string['loginbackgroundchangerimage'] = 'Image {$a->image}';
+$string['loginbackgroundchangerimage_desc'] = 'The image {$a->image}';
+
 // Marketing spots.
 $string['numberofmarketingspots'] = 'Number of marketing spots';
 $string['numberofmarketingspots_desc'] = 'Number of marketing spots you want to add.';

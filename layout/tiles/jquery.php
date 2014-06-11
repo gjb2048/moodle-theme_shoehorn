@@ -24,5 +24,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once(dirname(__FILE__).'/../../lib.php');
+
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_shoehorn');
+switch ($PAGE->pagelayout) {
+    case 'login': 
+        $loginpageimages = shoehorn_shown_loginbackgroundchanger_images();
+        if (!empty($loginpageimages)) {
+            $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
+        }
+}
