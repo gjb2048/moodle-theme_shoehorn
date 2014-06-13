@@ -67,6 +67,19 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Use Accordion side blocks - 1 = no, 2 = yes.
+    $name = 'theme_shoehorn/accordion';
+    $title = get_string('accordion', 'theme_shoehorn');
+    $description = get_string('accordion_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Invert Navbar to dark background.
     $name = 'theme_shoehorn/inversenavbar';
     $title = get_string('inversenavbar', 'theme_shoehorn');

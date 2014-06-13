@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
-11th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
+13th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.
   2.  Switch to using YUI version of Bootstrap theme: https://github.com/bmbrands/theme_bootstrap as master has changed.
       jQuery version is now: https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev and base theme is:
@@ -99,7 +99,8 @@ Version information
   8.  Fixed grade report: https://moodle.org/mod/forum/discuss.php?d=261626.
   9.  Added in and adapted 'mycourses' layout from the Elegance theme.
  10.  Added in and adapted 'course tiles' from the Elegance theme.
- 11.  Added in optional 'Backstretch' (https://github.com/srobbin/jquery-backstretch) for the login page.
+ 11.  Added optional 'Backstretch' (https://github.com/srobbin/jquery-backstretch) for the login page.
+ 12.  Added optional side block region accordion functionality.  Note: This disables docking for side regions.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

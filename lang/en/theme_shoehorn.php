@@ -89,6 +89,9 @@ $string['fonticons_desc'] = 'Enable this option to use the Glyphicon icon font.'
 $string['docking'] = 'Use docking';
 $string['docking_desc'] = 'Enable this option to use docking.';
 
+$string['accordion'] = 'Use accordion block side regions';
+$string['accordion_desc'] = 'Enable this option to use accordion functionality for the side regions.  Note: Disables docking.';
+
 $string['inversenavbar'] = 'Inverse navbar';
 $string['inversenavbar_desc'] = 'Swaps text and background for the navbar at the top of the page.';
 
@@ -109,6 +112,8 @@ $string['logo'] = 'Logo';
 $string['logo_desc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
 If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
 a.logo {height: 100px;} or whatever height in pixels the logo is.';
+
+$string['langpack_urlname'] = 'Language packs';
 
 // Page bottom region.
 $string['numpagebottomblocks'] = 'Maximum number of blocks per row in the page bottom';
@@ -144,9 +149,6 @@ $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be
 $string['loginpage']= 'Login page';
 $string['loginpage_desc']= 'Login page settings.';
 
-// Settings.
-$string['langpack_urlname'] = 'Language packs';
-
 // Status:....
 $string['draft'] = 'Draft';
 $string['published'] = 'Published';
@@ -174,6 +176,9 @@ $string['displaymycourses_desc'] = 'Display your courses on the \'My home\' page
 // Course tiles.
 $string['coursetiles'] = 'Use course tiles';
 $string['coursetiles_desc'] = 'Use course tiles for activities and resources.';
+
+// Accordion block regions.
+$string['blocktitleunknown'] = 'Block title unknown';
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';

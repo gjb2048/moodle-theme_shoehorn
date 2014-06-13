@@ -47,7 +47,8 @@ $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
-if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2))) {
+if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
+    (empty($THEME->settings->accordion) || ((!empty($THEME->settings->accordion) && ($THEME->settings->accordion == 1))))) {
     $THEME->enable_dock = true;
 } else {
     $THEME->enable_dock = false;

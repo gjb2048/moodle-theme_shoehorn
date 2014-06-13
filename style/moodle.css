@@ -17816,6 +17816,30 @@ aside .block a:focus {
 #dockeditempanel a:focus {
   color: #267f00;
 }
+.collapse-blocks.panel-group .panel {
+  border-radius: 0;
+}
+.collapse-blocks.panel-group .panel + .panel {
+  margin-top: 0;
+}
+.collapse-blocks .block .header {
+  border-bottom: 0;
+}
+.collapse-blocks .block .controlshtml {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.collapse-blocks div.block:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.collapse-blocks div.block:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+body.editing .collapse-blocks .block {
+  min-height: 200px;
+}
 header {
   color: #eeeeee;
 }
@@ -17849,9 +17873,11 @@ aside {
   float: left;
 }
 @media (max-width: 767px) {
+  aside {
+    float: none;
+  }
   aside:first-of-type {
     padding-top: 10px;
-    float: none;
   }
 }
 .breadcrumb span {

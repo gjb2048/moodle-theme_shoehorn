@@ -25,19 +25,19 @@ body.loginpageimages {
 
 // Block specific scaffolding.less as background highlight moves icon on Chrome!
 aside .block a, #dockeditempanel a {
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 0;
-  }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        background-color: transparent;
+        border-radius: 0;
+    }
 }
 
 aside .block a {
-  &:hover,
-  &:focus {
-    color: @page-bottom-bg-light;
-  }
+    &:hover,
+    &:focus {
+        color: @page-bottom-bg-light;
+    }
 }
 
 #dockeditempanel a {
@@ -45,6 +45,36 @@ aside .block a {
   &:focus {
     color: @footer-bottom-bg;
   }
+}
+
+// Accordion block regions.
+.collapse-blocks {
+    &.panel-group .panel {
+        border-radius: 0;
+    }
+    &.panel-group .panel + .panel {
+        margin-top: 0;
+    }
+    .block .header {
+        border-bottom: 0;
+    }
+    .block .controlshtml {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    div.block:first-child {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    div.block:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+}
+body.editing .collapse-blocks {
+    .block {
+        min-height: 200px;
+    }
 }
 
 // Header.
@@ -91,9 +121,11 @@ aside {
 }
 
 @media(max-width: @screen-xs-max) {
+    aside {
+        float: none;
+    }
     aside:first-of-type {
         padding-top: 10px;
-        float: none;
     }
 }
 

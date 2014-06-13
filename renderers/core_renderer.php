@@ -601,4 +601,223 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $output .= html_writer::end_tag('aside');
         return $output;
     }
+
+
+
+    /**
+     * Get the HTML for blocks in the given region.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @param string $region The region to get HTML for.
+     * @return string HTML.
+     */
+    public function blocks($region, $classes = array(), $tag = 'aside') {
+        $output = '';
+        $accordionblocks = (empty($this->page->theme->settings->accordion)) ? false : $this->page->theme->settings->accordion;
+        if ($accordionblocks == 2) {
+            if (($region == 'side-pre') || ($region == 'side-post')) {
+                $output = $this->collapse_blocks($region, $classes, $tag);
+            } else {
+                $output = parent::blocks($region, $classes, $tag);
+            }
+        } else {
+            $output = parent::blocks($region, $classes, $tag);
+        }
+        return $output;
+    }
+
+    /**
+     * Get the HTML for blocks in the given region.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @param string $region The region to get HTML for.
+     * @return string HTML.
+     */
+    public function collapse_blocks($region, $classes = array(), $tag = 'aside') {
+        $displayregion = $this->page->apply_theme_region_manipulations($region);
+        $classes = (array)$classes;
+        $classes[] = 'block-region';
+        $classes[] = 'panel-group';
+        $classes[] = 'collapse-blocks';
+        $regionid = preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $displayregion);
+        $attributes = array(
+            'id' => 'block-region-'.$regionid,
+            'class' => join(' ', $classes),
+            'data-blockregion' => $displayregion,
+            'data-droptarget' => '1'
+        );
+        if ($this->page->blocks->region_has_content($displayregion, $this)) {
+            $content = $this->collapse_blocks_for_region($displayregion, $regionid);
+        } else {
+            $content = '';
+        }
+        return html_writer::tag($tag, $content, $attributes);
+    }
+
+    /**
+     * Output all the blocks in a particular region.
+     *
+     * @param string $region the name of a region on this page.
+     * @return string the HTML to be output.
+     */
+    public function collapse_blocks_for_region($region, $regionid) {
+        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+        $blocks = $this->page->blocks->get_blocks_for_region($region);
+        $lastblock = null;
+        $zones = array();
+        foreach ($blocks as $block) {
+            $zones[] = $block->title;
+        }
+        $output = '';
+
+        $editing = $this->page->user_is_editing();
+
+        foreach ($blockcontents as $bc) {
+            if ($bc instanceof block_contents) {
+                $bc->attributes['regionid'] = $regionid;
+                $bc->attributes['editing'] = $editing;
+                $output .= $this->collapse_block($bc, $region);
+                $lastblock = $bc->title;
+            } else if ($bc instanceof block_move_target) {
+                $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
+            } else {
+                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+            }
+        }
+        return $output;
+    }
+
+    /**
+     * Prints a nice side block with an optional header.
+     *
+     * The content is described
+     * by a {@link core_renderer::block_contents} object.
+     *
+     * <div id="inst{$instanceid}" class="block_{$blockname} block">
+     *      <div class="header"></div>
+     *      <div class="content">
+     *          ...CONTENT...
+     *          <div class="footer">
+     *          </div>
+     *      </div>
+     *      <div class="annotation">
+     *      </div>
+     * </div>
+     *
+     * @param block_contents $bc HTML for the content
+     * @param string $region the region the block is appearing in.
+     * @return string the HTML to be output.
+     */
+    public function collapse_block(block_contents $bc, $region) {
+        $bc = clone($bc); // Avoid messing up the object passed in.
+        if (empty($bc->blockinstanceid) || !strip_tags($bc->title)) {
+            $bc->collapsible = block_contents::NOT_HIDEABLE;
+        }
+        if (!empty($bc->blockinstanceid)) {
+            $bc->attributes['data-instanceid'] = $bc->blockinstanceid;
+        }
+        $skiptitle = strip_tags($bc->title);
+        if ($bc->blockinstanceid && !empty($skiptitle)) {
+            $bc->attributes['aria-labelledby'] = 'instance-'.$bc->blockinstanceid.'-header';
+        } else if (!empty($bc->arialabel)) {
+            $bc->attributes['aria-label'] = $bc->arialabel;
+        }
+        /*if ($bc->dockable) {
+            $bc->attributes['data-dockable'] = 1;
+        }
+        if ($bc->collapsible == block_contents::HIDDEN) {
+            $bc->add_class('hidden');
+        }
+        if (!empty($bc->controls)) {
+            $bc->add_class('block_with_controls');
+        }*/
+        $bc->add_class('panel');
+        $bc->add_class('panel-default');
+
+
+        $output = '';
+        /*if (empty($skiptitle)) {
+            $output = '';
+            $skipdest = '';
+        } else {
+            $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
+            $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
+        }*/
+
+        $output .= html_writer::start_tag('div', $bc->attributes);
+
+        $output .= $this->collapse_block_header($bc);
+        $output .= $this->collapse_block_content($bc);
+
+        $output .= html_writer::end_tag('div');
+
+        $output .= $this->block_annotation($bc);
+
+        //$output .= $skipdest;
+
+        $this->init_block_hider_js($bc);
+        return $output;
+    }
+
+    /**
+     * Produces a header for a block
+     *
+     * @param block_contents $bc
+     * @return string
+     */
+    protected function collapse_block_header(block_contents $bc) {
+        $title = '';
+        $attributes = array();
+        if ($bc->blockinstanceid) {
+            $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
+        }
+        if ($bc->title) {
+            $title = $bc->title;
+        } else if (!empty($bc->arialabel)) {
+            $title = $bc->arialabel;
+        } else {
+            $title = get_string('blocktitleunknown', 'theme_shoehorn');
+        }
+        $title = html_writer::tag('h2', $title, $attributes);
+
+        $blockid = null;
+        if (isset($bc->attributes['id'])) {
+            $blockid = $bc->attributes['id'];
+        }
+        $controlshtml = $this->block_controls($bc->controls, $blockid);
+
+        $output = html_writer::tag('div', html_writer::tag('div', $title, array('class' => 'title panel-title')),
+            array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
+        if ($controlshtml) {
+            $output .= html_writer::tag('div', html_writer::tag('div', $controlshtml, array('class' => 'title')), array('class' => 'header controlshtml'));
+        }
+
+        return $output;
+    }
+
+    /**
+     * Produces the content area for a block
+     *
+     * @param block_contents $bc
+     * @return string
+     */
+    protected function collapse_block_content(block_contents $bc) {
+        $class = 'content panel-collapse collapse';
+        if (($bc->attributes['editing']) || ($this->block_has_class($bc, 'block_adminblock'))) {
+            $class .= ' in';
+        }
+        $output = html_writer::start_tag('div', array('class' => $class, 'id' => 'collapse-'.$bc->blockinstanceid));
+        /*if (!$bc->title && !$this->block_controls($bc->controls)) {
+            $output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
+        }*/
+        $output .= $bc->content;
+        $output .= $this->block_footer($bc);
+        $output .= html_writer::end_tag('div');
+
+        return $output;
+    }
+
+    private function block_has_class(block_contents $bc, $class) {
+        return strpos($bc->attributes['class'], $class ) !== false;
+    }
 }
