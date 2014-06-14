@@ -107,7 +107,7 @@ if (!empty($loginpageimages)) {
     echo '//<![CDATA['.PHP_EOL;
     echo '$.backstretch([';
     echo implode(',', $loginpageimages);
-    echo '], {duration: '.$PAGE->theme->settings->loginbackgroundchangerspeed.', fade: 750});'.PHP_EOL;
+    echo '], {duration: '.$PAGE->theme->settings->loginbackgroundchangerspeed.', fade: '.$PAGE->theme->settings->loginbackgroundchangerfade.'});'.PHP_EOL;
     echo '//]]>'.PHP_EOL;
     echo '</script>';
 }

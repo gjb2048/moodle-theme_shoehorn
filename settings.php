@@ -92,8 +92,12 @@ defined('MOODLE_INTERNAL') || die;
     $name = 'theme_shoehorn/showoldmessages';
     $title = get_string('showoldmessages', 'theme_shoehorn');
     $description = get_string('showoldmessagesdesc', 'theme_shoehorn');
-    $default = '0';
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $generalsettings->add($setting);
 
     // Display My Courses Menu.
@@ -194,7 +198,12 @@ defined('MOODLE_INTERNAL') || die;
     $description = get_string('showloginmessage_desc', 'theme_shoehorn').html_writer::tag('a',
         get_string('showloginmessage_urlname', 'theme_shoehorn'), array('href' => get_string('showloginmessage_urllink', 'theme_shoehorn'),
         'target' => '_blank'))."'.";
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
@@ -427,6 +436,15 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('loginbackgroundchangerspeed', 'theme_shoehorn');
     $description = get_string('loginbackgroundchangerspeed_desc', 'theme_shoehorn');
     $default = 3000;
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $loginpagesettings->add($setting);
+
+    // Image fade.
+    $name = 'theme_shoehorn/loginbackgroundchangerfade';
+    $title = get_string('loginbackgroundchangerfade', 'theme_shoehorn');
+    $description = get_string('loginbackgroundchangerfade_desc', 'theme_shoehorn');
+    $default = 750;
     $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $loginpagesettings->add($setting);

@@ -384,8 +384,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             $messagelist[] = $this->shoehorn_process_message($message);
         }
 
-        $showoldmessages = (empty($this->page->theme->settings->showoldmessages)) ? 0 : $this->page->theme->settings->showoldmessages;
-        if ($showoldmessages) {
+        $showoldmessages = (empty($this->page->theme->settings->showoldmessages)) ? false : $this->page->theme->settings->showoldmessages;
+        if ($showoldmessages == 2) {
             $maxmessages = 5;
             $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
                                  FROM {message_read}
@@ -786,7 +786,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
         $controlshtml = $this->block_controls($bc->controls, $blockid);
 
-        $output = html_writer::tag('div', html_writer::tag('div', $title, array('class' => 'title panel-title')),
+        $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
             array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
         if ($controlshtml) {
             $output .= html_writer::tag('div', html_writer::tag('div', $controlshtml, array('class' => 'title')), array('class' => 'header controlshtml'));

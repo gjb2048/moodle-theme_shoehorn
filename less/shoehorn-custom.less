@@ -20,6 +20,13 @@ body.loginpageimages {
     #page, #page-footer, #footer-shadow {
         background-image: none;
     }
+    #page-footer a {
+        color: @page-bottom-bg;
+        &:hover, &:active, &:focus {
+            color: @page-bottom-bg-light;
+            background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
+        }
+    }
 }
 
 
@@ -57,6 +64,7 @@ aside .block a {
     }
     .block .header {
         border-bottom: 0;
+        display: block;
     }
     .block .controlshtml {
         padding-top: 0px;
@@ -711,6 +719,8 @@ body.editing #block-region-page-bottom .block {
     color: @page-bottom-bg-light;
     &:hover, &:active, &:focus {
         color: lighten(@page-bottom-bg-light, 2%);
+        @footer-top-bg-light: lighten(@footer-top-bg, 20%);
+        background-color: rgba(red(@footer-top-bg-light), green(@footer-top-bg-light), blue(@footer-top-bg-light), 0.25);
     }
 }
 

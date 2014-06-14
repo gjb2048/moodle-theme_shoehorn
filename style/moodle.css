@@ -17800,6 +17800,15 @@ body.loginpageimages #page-footer,
 body.loginpageimages #footer-shadow {
   background-image: none;
 }
+body.loginpageimages #page-footer a {
+  color: #c9e6ff;
+}
+body.loginpageimages #page-footer a:hover,
+body.loginpageimages #page-footer a:active,
+body.loginpageimages #page-footer a:focus {
+  color: #e3f2ff;
+  background-color: rgba(227, 242, 255, 0.4);
+}
 aside .block a:hover,
 #dockeditempanel a:hover,
 aside .block a:focus,
@@ -17824,6 +17833,7 @@ aside .block a:focus {
 }
 .collapse-blocks .block .header {
   border-bottom: 0;
+  display: block;
 }
 .collapse-blocks .block .controlshtml {
   padding-top: 0px;
@@ -18588,6 +18598,7 @@ body.editing #block-region-page-bottom .block {
 #page-footer a:active,
 #page-footer a:focus {
   color: #edf7ff;
+  background-color: rgba(66, 255, 6, 0.25);
 }
 #page-footer .block {
   color: #1f4d87;

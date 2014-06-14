@@ -72,7 +72,7 @@ function theme_shoehorn_set_customcss($css, $customcss) {
 function theme_shoehorn_set_loginmessage($css, $theme) {
     $tag = '[[setting:theloginmessge]]';
 
-    if (!empty($theme->settings->showloginmessage)) {
+    if ((!empty($theme->settings->showloginmessage)) && ($theme->settings->showloginmessage == 2)) {
         $content = "content: '";
         if (!empty($theme->settings->loginmessage)) {
             $replacement = $content.$theme->settings->loginmessage."';";
