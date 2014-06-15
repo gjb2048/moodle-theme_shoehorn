@@ -315,6 +315,15 @@ body.coursetiles {
                 text-decoration: none;
                 background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.75);
             }
+            // https://moodle.org/mod/forum/discuss.php?d=262151.
+            &.dimmed {
+                color: darken(@text-color, 5%); 
+                background: darken(@page-bottom-bg-light, 5%);
+                &:hover, &:focus {
+                    color: darken(@text-color, 10%); 
+                    background: darken(@page-bottom-bg-light, 10%);
+                }
+            }
         }
         .mod-indent-outer {
             padding-left: 0;

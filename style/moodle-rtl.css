@@ -21784,6 +21784,20 @@ body.coursetiles .ctopics .section .activity .activityinstance > a:hover {
   background-color: rgba(227, 242, 255, 0.75);
 }
 
+body.coursetiles .section .activity .activityinstance > a.dimmed,
+body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed {
+  color: #1a4172;
+  background: #c9e6ff;
+}
+
+body.coursetiles .section .activity .activityinstance > a.dimmed:hover,
+body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed:hover,
+body.coursetiles .section .activity .activityinstance > a.dimmed:focus,
+body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed:focus {
+  color: #15355e;
+  background: #b0daff;
+}
+
 body.coursetiles .section .activity .mod-indent-outer,
 body.coursetiles .ctopics .section .activity .mod-indent-outer {
   padding-right: 0;
