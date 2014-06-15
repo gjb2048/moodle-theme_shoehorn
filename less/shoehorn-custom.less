@@ -14,17 +14,28 @@ body.pagelayout-redirect {
     color: #FFF;
 }
 
+// Login box.
 body.loginpageimages {
     background-color: transparent;
+
+    .loginbox.onecolumn {
+        a:hover, a:focus {
+            font-weight: bold;
+        }
+    }
 
     #page, #page-footer, #footer-shadow {
         background-image: none;
     }
-    #page-footer a {
-        color: @page-bottom-bg;
-        &:hover, &:active, &:focus {
-            color: @page-bottom-bg-light;
-            background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
+    #page-footer #footermenu {
+        .panel();
+        .panel-default();
+        a {
+            color: @page-top-bg;
+            &:hover, &:active, &:focus {
+                font-weight: bold;
+                background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
+            }
         }
     }
 }
