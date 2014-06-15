@@ -35,3 +35,7 @@ switch ($PAGE->pagelayout) {
             $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
         }
 }
+$devicetype = core_useragent::get_device_type(); // In moodlelib.php.
+if ($devicetype == "mobile") {
+    $PAGE->requires->yui_module('moodle-theme_shoehorn-mobile', 'M.theme_shoehorn.mobile.init');
+}

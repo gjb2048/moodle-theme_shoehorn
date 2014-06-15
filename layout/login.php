@@ -36,7 +36,7 @@
  */
 
 $loggedin = isloggedin();
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(dirname(__FILE__).'/tiles/jsloader.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 $bodyattributes = '';

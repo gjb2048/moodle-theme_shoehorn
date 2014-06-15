@@ -17,7 +17,7 @@
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = bootstrap_grid($hassidepre, $hassidepost);
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(dirname(__FILE__).'/tiles/jsloader.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 
