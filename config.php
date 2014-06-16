@@ -35,11 +35,13 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
     $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
 }
 $THEME->sheets[] = 'general';
-if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) {
+if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
     $THEME->sheets[] = 'font';
-    $THEME->sheets[] = 'font-awesome';
+    if (!empty($THEME->settings->fontawesome) && ($THEME->settings->fontawesome == 1)) { // Use FontAwesome locally.
+        $THEME->sheets[] = 'font-awesome';
+    }
 }
-$THEME->sheets[] = 'font-local';
+$THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no CDN for them.
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }

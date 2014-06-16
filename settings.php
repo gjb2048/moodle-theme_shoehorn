@@ -46,11 +46,11 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-    // Use Glyphicon font.
-    $name = 'theme_shoehorn/fonticons';
-    $title = get_string('fonticons', 'theme_shoehorn');
-    $description = get_string('fonticons_desc', 'theme_shoehorn');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, '0');
+    // Use FontAwesome font.
+    $name = 'theme_shoehorn/fontawesome';
+    $title = get_string('fontawesome', 'theme_shoehorn');
+    $description = get_string('fontawesome_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 

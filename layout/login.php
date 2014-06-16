@@ -39,16 +39,15 @@ $loggedin = isloggedin();
 require_once(dirname(__FILE__).'/tiles/jquery.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
-$bodyattributes = '';
-if (!empty($loginpageimages)) {
-    $bodyattributes = array('loginpageimages');
+if (!empty($loginpageimages)) {  // $loginpageimages defined in jquery.php.
+    $settingshtml->additionalbodyclasses[] = 'loginpageimages';
 }
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
-<body <?php echo $OUTPUT->body_attributes($bodyattributes); ?>>
+<body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 

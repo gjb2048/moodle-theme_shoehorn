@@ -83,8 +83,8 @@ $string['generalsettings'] = 'General';
 $string['cdnfonts'] = 'Content delivery network fonts where possible';
 $string['cdnfonts_desc'] = 'Use content delivery network fonts where possible.  Thus being a CDN source available.';
 
-$string['fonticons'] = 'Use icon font';
-$string['fonticons_desc'] = 'Enable this option to use the Glyphicon icon font.';
+$string['fontawesome'] = 'Use the FontAwesome icon font';
+$string['fontawesome_desc'] = 'Enable this option to use the FontAwesome icon font.';
 
 $string['docking'] = 'Use docking';
 $string['docking_desc'] = 'Enable this option to use docking.';

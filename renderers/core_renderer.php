@@ -56,13 +56,22 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
      */
     public function navbar() {
         $items = $this->page->navbar->get_items();
-        if (right_to_left()) {
-            $dividericon = 'fa-angle-left';
+        if ($this->page->theme->settings->fontawesome) {
+            if (right_to_left()) {
+                $dividericon = 'fa-angle-left';
+            } else {
+                $dividericon = 'fa-angle-right';
+            }
+            $icon = html_writer::start_tag('i', array('class' => 'fa '. $dividericon .' fa-lg')) . html_writer::end_tag('i');
         } else {
-            $dividericon = 'fa-angle-right';
+            if (right_to_left()) {
+                $dividericon = 'glyphicon-chevron-left';
+            } else {
+                $dividericon = 'glyphicon-chevron-right';
+            }
+            $icon = html_writer::start_tag('span', array('class' => 'glyphicon '. $dividericon)) . html_writer::end_tag('span');
         }
-        $divider = html_writer::tag('span', html_writer::start_tag('i', array('class' => 'fa '. $dividericon .' fa-lg')) .
-                        html_writer::end_tag('i'), array('class' => 'divider'));
+        $divider = html_writer::tag('span', $icon, array('class' => 'divider'));
         $breadcrumbs = array();
         foreach ($items as $item) {
             $item->hideicon = true;
@@ -127,7 +136,11 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $messagecount++;
             }
-            $messagemenutext = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
+            if ($this->page->theme->settings->fontawesome) {
+                $messagemenutext = html_writer::tag('i', '', array('class' => 'fa fa-envelope'));
+            } else {
+                $messagemenutext = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
+            }
             $messagemenucount = ' '.$messagecount.' ';
             if ($messagecount == 1) {
                  $messagemenucount .= get_string('message', 'message');
@@ -186,7 +199,11 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 default:
                     $branchtitle = get_string('mycourses', 'theme_shoehorn');
             }
-            $branchlabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-briefcase'));
+            if ($this->page->theme->settings->fontawesome) {
+                $branchlabel = html_writer::tag('i', '', array('class' => 'fa fa-briefcase'));
+            } else {
+                $branchlabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-briefcase'));
+            }
             $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
             $branchurl   = new moodle_url('/my/index.php');
             $branchsort  = 10000;
@@ -239,7 +256,14 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
 
         if ($addlangmenu) {
-            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), 10000);
+            $languagetext = get_string('language');
+            if ($this->page->theme->settings->fontawesome) {
+                $langhtml = html_writer::tag('i', '', array('class' => 'fa fa-language'));
+            } else {
+                $langhtml = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-book'));
+            }
+            $langhtml .= html_writer::tag('span', ' '.$languagetext);
+            $language = $menu->add($langhtml, new moodle_url('#'), $languagetext, 10000);
             foreach ($langs as $langtype => $langname) {
                 $language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
             }
@@ -247,10 +271,22 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
         if ($addusermenu) {
             if (isloggedin()) {
-                $usermenu = $menu->add(fullname($USER), new moodle_url('#'), fullname($USER), 10001);
+                $usertext = fullname($USER);
+                if ($this->page->theme->settings->fontawesome) {
+                    $userhtml = html_writer::tag('i', '', array('class' => 'fa fa-user'));
+                } else {
+                    $userhtml = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-user'));
+                }
+                $userhtml .= html_writer::tag('span', ' '.$usertext);
+
+                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10001);
 
                 $logouttext = get_string('logout');
-                $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
+                if ($this->page->theme->settings->fontawesome) {
+                    $logout = html_writer::tag('i', '', array('class' => 'fa fa-power-off'));
+                } else {
+                    $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
+                }
                 $logout .= html_writer::tag('span', $logouttext);
                 $usermenu->add(
                     $logout,
@@ -259,7 +295,11 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 );
 
                 $viewprofiletext = get_string('viewprofile');
-                $viewprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-user'));
+                if ($this->page->theme->settings->fontawesome) {
+                    $viewprofile = html_writer::tag('i', '', array('class' => 'fa fa-user'));
+                } else {
+                    $viewprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-user'));
+                }
                 $viewprofile .= html_writer::tag('span', $viewprofiletext);
                 $usermenu->add(
                     $viewprofile,
@@ -268,7 +308,11 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 );
 
                 $editmyprofiletext = get_string('editmyprofile');
-                $editmyprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-cog'));
+                if ($this->page->theme->settings->fontawesome) {
+                    $editmyprofile = html_writer::tag('i', '', array('class' => 'fa fa-suitcase'));
+                } else {
+                    $editmyprofile = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-cog'));
+                }
                 $editmyprofile .= html_writer::tag('span', $editmyprofiletext);
                 $usermenu->add(
                     $editmyprofile,

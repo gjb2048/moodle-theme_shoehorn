@@ -25,6 +25,7 @@
  */
 
 $numberofsociallinks = (empty($PAGE->theme->settings->numberofsociallinks)) ? false : $PAGE->theme->settings->numberofsociallinks;
+$fontawesome = (empty($PAGE->theme->settings->fontawesome)) ? false : $PAGE->theme->settings->fontawesome;
 
 // If there are social links then they are displayed.
 if ($numberofsociallinks) {
@@ -47,7 +48,12 @@ if ($numberofsociallinks) {
             $iconname = 'socialicon'.$i;
             $icons .= '<li><a href="'.$PAGE->theme->settings->$name.'" target="_blank">';
             $icons .= '<span class="sr-only">'.$choices[$PAGE->theme->settings->$iconname].'</span>';
-            $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i></a></li>';
+            if ($fontawesome) {
+                $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i>';
+            } else {
+                $icons .= '<span class="glyphicon glyphicon-2x glyphicon-globe fa-'.$PAGE->theme->settings->$iconname.'"></span>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
+            }
+            $icons .= '</a></li>';
         }
     }
     if ($haveicons) {

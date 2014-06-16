@@ -103,6 +103,11 @@ Version information
  12.  Added optional side block region accordion functionality.  Note: This disables docking for side regions.
  13.  Added FitVids to scale media - http://fitvidsjs.com/
  14.  Added credits to this readme.
+ 15.  Updated to FontAwesome 4.1.
+ 16.  Removed old Glyphicon font setting and introduced a FontAwesome setting that works across the theme.  Note:
+      I have decided to not introduce the icon replacement code that is in other themes for this as it is not yet
+      consistent with being able to replace everything due to the fixed icons in the JavaScript.
+ 17.  Borrowed and adapted the FontAwesome icon styles for components from the Elegance theme as found in elegance.css.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

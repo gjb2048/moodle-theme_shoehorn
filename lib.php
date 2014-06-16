@@ -108,10 +108,15 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     $html->containerclass = 'container-fluid';
 
+    $html->additionalbodyclasses = array();
     if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
-        $html->additionalbodyclasses = array('coursetiles');
+        $html->additionalbodyclasses[] = 'coursetiles';
+    }
+    if (!empty($settings->fontawesome) && ($settings->fontawesome == 1)) {
+        $html->additionalbodyclasses[] = 'fontawesome';
+        $html->fontawesome = true;
     } else {
-        $html->additionalbodyclasses = '';
+        $html->fontawesome = false;
     }
 
     return $html;

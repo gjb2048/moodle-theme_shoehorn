@@ -25,11 +25,13 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-echo $OUTPUT->doctype() ?>
+$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+echo $OUTPUT->doctype() 
+?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
-<body <?php echo $OUTPUT->body_attributes(); ?>>
+<body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 <div id="page" class="container-fluid">
     <div id="page-content" class="clearfix row">
