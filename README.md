@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
-13th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
+16th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.
   2.  Switch to using YUI version of Bootstrap theme: https://github.com/bmbrands/theme_bootstrap as master has changed.
       jQuery version is now: https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev and base theme is:
@@ -101,6 +101,8 @@ Version information
  10.  Added in and adapted 'course tiles' from the Elegance theme.
  11.  Added optional 'Backstretch' (https://github.com/srobbin/jquery-backstretch) for the login page.
  12.  Added optional side block region accordion functionality.  Note: This disables docking for side regions.
+ 13.  Added FitVids to scale media - http://fitvidsjs.com/
+ 14.  Added credits to this readme.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.
@@ -135,6 +137,39 @@ Thanks
 ======
 My thanks go to all the creators and participants of the Bootstrap theme:
 Bas Brands, David Scotson and many other contributors.
+
+Credits
+=======
+
+Bootstrap
+------------
+Authors: Mark Otto and Jacob Thornton
+URL: http://getbootstrap.com/
+License: https://github.com/twbs/bootstrap/blob/master/LICENSE
+
+Bootstrap 3 for Moodle conversion
+------------
+Authors: Bas Brands and David Scotson
+URL: https://github.com/bmbrands/theme_bootstrap
+License: MIT/GPL2 Licensed
+
+Course tiles idea and initial coding
+------------
+Author: Jason La Greca
+URL: http://beenlearning.com/
+License: MIT/GPL2 Licensed
+
+Backstretch.js
+------------
+Author: Scott Robbin
+URL: http://srobbin.com/jquery-plugins/backstretch/
+License: https://raw.githubusercontent.com/srobbin/jquery-backstretch/master/LICENSE-MIT
+
+FitVid.js
+------------
+Authors: Chris Coyier and Paravel
+URL: http://fitvidsjs.com/
+License: None
 
 Me
 ==
