@@ -718,4 +718,13 @@ defined('MOODLE_INTERNAL') || die;
         $setting->set_updatedcallback('theme_reset_all_caches');
         $socialsettings->add($setting);
     }
+
+    // Use the signpost.
+    $name = 'theme_shoehorn/socialsignpost';
+    $title = get_string('socialsignpost', 'theme_shoehorn');
+    $description = get_string('socialsignpost_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $socialsettings->add($setting);
+
     $ADMIN->add('theme_shoehorn', $socialsettings);

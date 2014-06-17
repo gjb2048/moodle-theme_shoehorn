@@ -86,7 +86,7 @@ Todo
 
 Version information
 ===================
-16th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
+17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.
   2.  Switch to using YUI version of Bootstrap theme: https://github.com/bmbrands/theme_bootstrap as master has changed.
       jQuery version is now: https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev and base theme is:
@@ -108,6 +108,7 @@ Version information
       I have decided to not introduce the icon replacement code that is in other themes for this as it is not yet
       consistent with being able to replace everything due to the fixed icons in the JavaScript.
  17.  Borrowed and adapted the FontAwesome icon styles for components from the Elegance theme as found in elegance.css.
+ 18.  Made the social icon signpost optional.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

@@ -289,3 +289,5 @@ $string['socialnetworklink'] = 'Social network link ';
 $string['socialnetworklink_desc'] = 'Social network link number ';
 $string['socialnetworkicon'] = 'Social network icon ';
 $string['socialnetworkicon_desc'] = 'Social network icon number ';
+$string['socialsignpost'] = 'Use the signpost';
+$string['socialsignpost_desc'] = 'Enable this option to use the signpost to surround the social icons.';

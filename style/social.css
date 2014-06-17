@@ -25,45 +25,54 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-div.socialnetworkscontainer {
+body.socialsignpost div.socialnetworkscontainer {
     min-height: 128px;
     margin-top: -80px;
 }
 
-#footer-shadow.sociallinks {
+body.socialsignpost #footer-shadow.sociallinks {
     margin-top: 4em;
 }
 
-div.post-size-0 div.socialnetworkscontainer {
+body.socialsignpost div.post-size-0 div.socialnetworkscontainer {
     background: transparent center top no-repeat scroll url([[pix:theme|post]]);
 }
 
-div.post-size-1 div.socialnetworkscontainer {
+body.socialsignpost div.post-size-1 div.socialnetworkscontainer {
     background: transparent center top no-repeat scroll url([[pix:theme|post-1]]);
 }
 
-div.post-size-2 div.socialnetworkscontainer {
+body.socialsignpost div.post-size-2 div.socialnetworkscontainer {
     background: transparent center top no-repeat scroll url([[pix:theme|post-2]]);
 }
 
 ul.socialnetworks {
-    list-style-type: none;
-    margin: 0px 0px 10px;
     display: inline-block;
-    border: 2px solid black;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
     border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     padding: 4px;
 }
 
-div.post-size-0 ul.socialnetworks {
+body.socialsignpost ul.socialnetworks {
+    list-style-type: none;
+    margin: 0px 0px 10px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+body.socialsignpost div.post-size-0 ul.socialnetworks {
     background: #eee url([[pix:theme|posttop]]) no-repeat 50% 0px;
 }
 
-div.post-size-1 ul.socialnetworks {
+body.socialsignpost div.post-size-1 ul.socialnetworks {
     background: #eee url([[pix:theme|posttop-1]]) no-repeat 50% 0px;
 }
 
-div.post-size-2 ul.socialnetworks {
+body.socialsignpost div.post-size-2 ul.socialnetworks {
     background: #eee url([[pix:theme|posttop-2]]) no-repeat 50% 0px;
 }
 
@@ -77,51 +86,92 @@ ul.socialnetworks li {
     color: #1F4D87;
 }
 
+#page-footer .socialnetworks a:hover {
+    background-color: transparent;
+    color: #2B6EBF;
+}
+
 /* Specific icon colours.... */
 #page-footer .socialnetworks a .fa-dropbox {
     color: #007EE5;
+}
+#page-footer .socialnetworks a:hover .fa-dropbox {
+    color: #0090FF;
 }
 
 #page-footer .socialnetworks a .fa-facebook-square {
    color: #4862A3;
 }
+#page-footer .socialnetworks a:hover .fa-facebook-square {
+   color: #668BE2;
+}
 
 #page-footer .socialnetworks a .fa-github {
     color: #000;
+}
+#page-footer .socialnetworks a:hover .fa-github {
+    color: #707070;
 }
 
 #page-footer .socialnetworks a .fa-google-plus-square {
     color: #DD4B39;
 }
+#page-footer .socialnetworks a:hover .fa-google-plus-square {
+    color: #FF5542;
+}
 
 #page-footer .socialnetworks a .fa-linkedin-square {
     color: #007ABB;
+}
+#page-footer .socialnetworks a:hover .fa-linkedin-square {
+    color: #0097E2;
 }
 
 #page-footer .socialnetworks a .fa-pinterest-square {
     color: #D73532;
 }
+#page-footer .socialnetworks a:hover .fa-pinterest-square {
+    color: #EF3C39;
+}
 
 #page-footer .socialnetworks a .fa-skype {
     color: #01AEF2;
+}
+#page-footer .socialnetworks a:hover .fa-skype {
+    color: #02BBFF;
 }
 
 #page-footer .socialnetworks a .fa-tumblr-square {
     color: #3B5876;
 }
+#page-footer .socialnetworks a:hover .fa-tumblr-square {
+    color: #547EA8;
+}
 
 #page-footer .socialnetworks a .fa-twitter-square {
     color: #55acee;
+}
+#page-footer .socialnetworks a:hover .fa-twitter-square {
+    color: #5BBBFF;
 }
 
 #page-footer .socialnetworks a .fa-vimeo-square {
     color: #20B9EB;
 }
+#page-footer .socialnetworks a:hover .fa-vimeo-square {
+    color: #23CFFF;
+}
 
 #page-footer .socialnetworks a .fa-vk {
     color: #44678D;
 }
+#page-footer .socialnetworks a:hover .fa-vk {
+    color: #5E8EC1;
+}
 
 #page-footer .socialnetworks a .fa-youtube-square {
     color: #E12C27;
+}
+#page-footer .socialnetworks a:hover .fa-youtube-square {
+    color: #FF2D2D;
 }

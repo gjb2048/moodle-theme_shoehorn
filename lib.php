@@ -100,7 +100,7 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     $html = new stdClass;
 
-    if ((!empty($settings->inversenavbar)) and ($settings->inversenavbar == true)) {
+    if (!empty($settings->inversenavbar)) {
         $html->navbarclass = 'navbar navbar-inverse';
     } else {
         $html->navbarclass = 'navbar navbar-default';
@@ -112,11 +112,16 @@ function theme_shoehorn_html_for_settings($PAGE) {
     if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
         $html->additionalbodyclasses[] = 'coursetiles';
     }
+
     if (!empty($settings->fontawesome) && ($settings->fontawesome == 1)) {
         $html->additionalbodyclasses[] = 'fontawesome';
         $html->fontawesome = true;
     } else {
         $html->fontawesome = false;
+    }
+
+    if (!empty($settings->socialsignpost)) {
+        $html->additionalbodyclasses[] = 'socialsignpost';
     }
 
     return $html;
