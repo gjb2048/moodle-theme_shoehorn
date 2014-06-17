@@ -109,6 +109,7 @@ Version information
       consistent with being able to replace everything due to the fixed icons in the JavaScript.
  17.  Borrowed and adapted the FontAwesome icon styles for components from the Elegance theme as found in elegance.css.
  18.  Made the social icon signpost optional.
+ 19.  Added dynamic course icons on the course menu based on course id.
 
 5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Fixed no navbar on the login page.

@@ -16830,8 +16830,10 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 .navbar-inverse .dropdown-menu li > a {
   color: #c9e6ff;
 }
-.navbar-inverse .dropdown-menu li > a:hover span,
-.navbar-inverse .dropdown-menu li > a:focus span {
+.navbar-inverse .dropdown-menu li > a:hover span:first-child,
+.navbar-inverse .dropdown-menu li > a:focus span:first-child,
+.navbar-inverse .dropdown-menu li > a:hover i:first-child,
+.navbar-inverse .dropdown-menu li > a:focus i:first-child {
   background-color: rgba(255, 255, 255, 0.5);
 }
 .dropdown-submenu {

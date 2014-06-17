@@ -200,16 +200,30 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                     $branchtitle = get_string('mycourses', 'theme_shoehorn');
             }
             if ($this->page->theme->settings->fontawesome) {
-                $branchlabel = html_writer::tag('i', '', array('class' => 'fa fa-briefcase'));
+                $branchlabel = html_writer::tag('i', '', array('class' => 'fa fa-dashboard'));
             } else {
-                $branchlabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-briefcase'));
+                $branchlabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-dashboard'));
             }
             $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
             $branchurl   = new moodle_url('/my/index.php');
             $branchsort  = 10000;
  
             $mycoursesmenu = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
-            $mycoursesmenu->add(get_string('myhome'), new moodle_url('/my/index.php'));
+
+            $hometext = get_string('myhome');
+            if ($this->page->theme->settings->fontawesome) {
+                $homelabel = html_writer::tag('i', '', array('class' => 'fa fa-home'));
+            } else {
+                $homelabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-home'));
+            }
+            $homelabel .= html_writer::tag('span', ' '.$hometext);
+            $mycoursesmenu->add($homelabel, new moodle_url('/my/index.php'), $hometext);
+
+            if ($this->page->theme->settings->fontawesome) {
+                $courseicons = array('list', 'list-alt', 'book', 'tasks', 'suitcase');
+            } else {
+                $courseicons = array('list', 'list-alt', 'book', 'tasks', 'briefcase');
+            }
 
             $courses = $this->get_enrolled_courses();
             $rhosts = array();
@@ -221,7 +235,15 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             if (!empty($courses) || !empty($rcourses) || !empty($rhosts)) {
                 foreach ($courses as $course) {
                     if ($course->visible){
-                        $mycoursesmenu->add(format_string($course->fullname), new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                        $coursetext = format_string($course->fullname);
+                        if ($this->page->theme->settings->fontawesome) {
+                            $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-'.$courseicons[$course->id % 5])); // 5 is the courseicons array length.
+                        } else {
+                            $courselabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-'.$courseicons[$course->id % 5]));
+                        }
+                        $courselabel .= html_writer::tag('span', ' '.$coursetext);
+
+                        $mycoursesmenu->add($courselabel, new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
                     }
                 }
                 // MNET
@@ -233,13 +255,30 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                             'wantsurl' => '/course/view.php?id='. $course->remoteid
                         ));
                         $tooltip = format_string($course->hostname).' : '.format_string($course->cat_name).' : '.format_string($course->shortname);
-                        $mycoursesmenu->add(format_string($course->fullname), $url, $tooltip);
+
+                        $coursetext = format_string($course->fullname);
+                        if ($this->page->theme->settings->fontawesome) {
+                            $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-'.$courseicons[$course->remoteid % 5])); // 5 is the courseicons array length.
+                        } else {
+                            $courselabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-'.$courseicons[$course->remoteid % 5]));
+                        }
+                        $courselabel .= html_writer::tag('span', ' '.$coursetext);
+
+                        $mycoursesmenu->add($courselabel, $url, $tooltip);
                     }
                 }
                 if (!empty($rhosts)) {
                     // non-IDP, we know of all the remote servers, but not courses
                     foreach ($rhosts as $host) {
-                        $mycoursesmenu->add(format_string($course->fullname), html_writer::link($host['url'], s($host['name']), array('title' => s($host['name']))), $host['count'] . ' ' . get_string('courses'));
+                        $coursetext = format_string($course->fullname);
+                        if ($this->page->theme->settings->fontawesome) {
+                            $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-'.$courseicons[0]));
+                        } else {
+                            $courselabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-'.$courseicons[0]));
+                        }
+                        $courselabel .= html_writer::tag('span', ' '.$coursetext);
+
+                        $mycoursesmenu->add($courselabel, html_writer::link($host['url'], s($host['name']), array('title' => s($host['name']))), $host['count'] . ' ' . get_string('courses'));
                     }
                 }
              } else {
