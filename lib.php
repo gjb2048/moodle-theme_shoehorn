@@ -299,6 +299,16 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
         } else if (substr($filearea, 0, 27) === 'loginbackgroundchangerimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else if ($filearea === 'syntaxhighlighter') {
+            global $CFG;
+            if (!empty($CFG->themedir)) {
+                $thesyntaxhighlighterpath = $CFG->themedir . '/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+            } else {
+                $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+            }
+
+            // Note: Third parameter is normally 'default' which is the 'lifetime' of the file.  Here set lower for development purposes.
+            send_file($thesyntaxhighlighterpath.$args[1], $args[1], 20 , 0, false, false, 'application/javascript');
         } else {
             send_file_not_found();
         }

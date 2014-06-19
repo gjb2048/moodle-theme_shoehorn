@@ -140,6 +140,18 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $generalsettings->add($setting);
 
+    // Activate syntax highlighting - 1 = no, 2 = yes.
+    $name = 'theme_shoehorn/syntaxhighlight';
+    $title = get_string('syntaxhighlight', 'theme_shoehorn');
+    $description = get_string('syntaxhighlight_desc', 'theme_shoehorn');
+    $default = 1;
+    $choices = array(
+        1 => new lang_string('no'),   // No.
+        2 => new lang_string('yes')   // Yes.
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $generalsettings->add($setting);
+
     // Logo file setting.
     $name = 'theme_shoehorn/logo';
     $title = get_string('logo','theme_shoehorn');

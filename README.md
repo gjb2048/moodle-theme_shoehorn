@@ -14,11 +14,11 @@ About
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2013111800 release 2.6 (Build: 20131118) and above within the 2.6 branch until the
+This version works with Moodle version 2014051200.00 release 2.7 (Build: 20140512) and above within the 2.7 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/26/en/Installing_Moodle'.
+'docs.moodle.org/27/en/Installing_Moodle'.
 
 Required version of Bootstrap 3
 ===============================
@@ -86,6 +86,9 @@ Todo
 
 Version information
 ===================
+19th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
+  1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
+
 17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.
   2.  Switch to using YUI version of Bootstrap theme: https://github.com/bmbrands/theme_bootstrap as master has changed.

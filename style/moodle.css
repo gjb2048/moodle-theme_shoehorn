@@ -12159,6 +12159,7 @@ body.path-question-type .fitem_fgroup .accesshide {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;
+  text-align: left;
 }
 .que .correctness[href]:hover,
 .que .correctness[href]:focus {
@@ -16917,6 +16918,14 @@ label {
 .panel-danger {
   background-color: #ebccd1;
 }
+.label,
+.statusok,
+.statuswarning,
+.statusserious,
+.statuscritical,
+#plugins-control-panel .statusmsg {
+  text-align: left;
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -17798,6 +17807,14 @@ body.pagelayout-redirect {
 }
 .glyphicon-2x {
   font-size: 1.8em;
+}
+table th,
+table td {
+  padding-left: 20px;
+}
+table th:first-of-type,
+table td:first-of-type {
+  padding-left: 0px;
 }
 body.loginpageimages {
   background-color: transparent;
@@ -19234,6 +19251,9 @@ body.editing #block-region-page-bottom .block {
     }
 }
 */
+pre.sh {
+  display: none;
+}
 #page-info {
   margin-top: 1em;
   text-align: center;

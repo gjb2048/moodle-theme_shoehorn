@@ -30,10 +30,12 @@ require_once('../lib.php');
 
 $PAGE->set_context(context_system::instance());
 $thispageurl = new moodle_url('/theme/shoehorn/pages/about.php');
-//$thispageurl->param('sesskey', sesskey());
 $PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
+
+$html = theme_shoehorn_html_for_settings($PAGE);
+$PAGE->add_body_classes($html->additionalbodyclasses);
 
 $PAGE->set_title('About Shoehorn');
 $PAGE->set_heading('About Shoehorn');
@@ -82,7 +84,9 @@ echo html_writer::tag('p', 'Gareth J Barnard - '.
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
+echo html_writer::start_tag('div',  array('class' => 'col-md-12'));
 echo html_writer::tag('p', 'G J Barnard 2014 - '.get_string('gpllicense').' v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/gpl.html', array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')), array ('class' => 'copyright text-center col-md-12'));
+echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 
 echo $OUTPUT->box_end();

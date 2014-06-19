@@ -30,6 +30,7 @@ include_once($CFG->dirroot . "/theme/bootstrap/renderers/core_renderer.php");
 class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
     protected $enrolledcourses = null;
+    protected $syntaxhighlighterenabled = false;
 
     /**
      * Gets HTML for the page heading.
@@ -517,6 +518,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
     function footer_menu() {
         $o = '';
         $items = array();
+        $loggedin = isloggedin();
+        $sesskey = sesskey();
 
         // Footer menu setting.
         if (!empty($this->page->theme->settings->footermenu)) {
@@ -546,10 +549,18 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
         }
 
+        // Syntax highlighting.
+        if ($this->syntaxhighlighterenabled) {
+            $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
+                if ($loggedin) {
+                    $url->param('sesskey', $sesskey);
+                }
+                $url = preg_replace('|^https?://|i', '//', $url->out(false));
+                $items[] .= html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
+        }
+
         // Site page setting.
         $pages = shoehorn_shown_sitepages(); // lib.php.
-        $loggedin = isloggedin();
-        $sesskey = sesskey();
         foreach($pages as $pageid => $status) {
             if ($status == 2) {
                 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
@@ -902,5 +913,82 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
     private function block_has_class(block_contents $bc, $class) {
         return strpos($bc->attributes['class'], $class ) !== false;
+    }
+
+    /**
+     * The standard tags (meta tags, links to stylesheets and JavaScript, etc.)
+     * that should be included in the <head> tag. Designed to be called in theme
+     * layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function standard_head_html() {
+        switch ($this->page->pagelayout) {
+        case 'course':
+        case 'incourse':
+            $this->syntax_highlighter();
+        }
+        return parent::standard_head_html();
+    }
+
+    protected function syntax_highlighter() {
+        if ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2)) {
+            if (strpos($this->page->course->summary, get_string('syntaxsummary', 'theme_shoehorn')) !== false) {
+                $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shCore.js');
+                $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shAutoloader.js');
+                $this->page->requires->css('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/styles/shCore.css');
+                $this->page->requires->css('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/styles/shThemeDefault.css');
+                $this->syntaxhighlighterenabled = true;
+            }
+        }
+    }
+
+    /**
+     * The standard tags (typically script tags that are not needed earlier) that
+     * should be output after everything else. Designed to be called in theme layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function standard_end_of_body_html() {
+        global $CFG;
+        $output = parent::standard_end_of_body_html();
+
+        if ($this->syntaxhighlighterenabled) {
+            $syscontext = context_system::instance();
+            $itemid = theme_get_revision();
+            $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
+            $url = preg_replace('|^https?://|i', '//', $url->out(false));
+
+            $script = 'SyntaxHighlighter.autoloader(';
+            $script .= "[ 'applescript', '".$url."shBrushAppleScript.js' ],";
+            $script .= "[ 'actionscript3', 'as3', '".$url."shBrushAS3.js' ],";
+            $script .= "[ 'bash', 'shell', '".$url."shBrushBash.js' ],";
+            $script .= "[ 'coldfusion', 'cf', '".$url."shBrushColdFusion.js' ],";
+            $script .= "[ 'cpp', 'c', '".$url."shBrushCpp.js' ],";
+            $script .= "[ 'c#', 'c-sharp', 'csharp', '".$url."shBrushCSharp.js' ],";
+            $script .= "[ 'css', '".$url."shBrushCss.js' ],";
+            $script .= "[ 'delphi', 'pascal', '".$url."shBrushDelphi.js' ],";
+            $script .= "[ 'diff', 'patch', 'pas', '".$url."shBrushDiff.js' ],";
+            $script .= "[ 'erl', 'erlang', '".$url."shBrushErlang.js' ],";
+            $script .= "[ 'groovy', '".$url."shBrushGroovy.js' ],";
+            $script .= "[ 'haxe hx', '".$url."shBrushHaxe.js', ],";
+            $script .= "[ 'java', '".$url."shBrushJava.js' ],";
+            $script .= "[ 'jfx', 'javafx', '".$url."shBrushJavaFX.js' ],";
+            $script .= "[ 'js', 'jscript', 'javascript', '".$url."shBrushJScript.js' ],";
+            $script .= "[ 'perl', 'pl', '".$url."shBrushPerl.js' ],";
+            $script .= "[ 'php', '".$url."shBrushPhp.js' ],";
+            $script .= "[ 'text', 'plain', '".$url."shBrushPlain.js' ],";
+            $script .= "[ 'py', 'python', '".$url."shBrushPython.js' ],";
+            $script .= "[ 'ruby', 'rails', 'ror', 'rb', '".$url."shBrushRuby.js' ],";
+            $script .= "[ 'scala', '".$url."shBrushScala.js' ],";
+            $script .= "[ 'sql', '".$url."shBrushSql.js' ],";
+            $script .= "[ 'vb', 'vbnet', '".$url."shBrushVb.js' ],";
+            $script .= "[ 'xml', 'xhtml', 'xslt', 'html', '".$url."shBrushXml.js' ]";
+            $script .= ');';
+            $script .= 'SyntaxHighlighter.all(); console.log("Syntax Highlighter Init");';
+            $output .= html_writer::script($script);
+        }
+
+        return $output;
     }
 }

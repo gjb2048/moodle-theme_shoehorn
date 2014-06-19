@@ -19,6 +19,16 @@ body.pagelayout-redirect {
     font-size: 1.8em;
 }
 
+table {
+    th, td {
+        padding-left: 20px;
+    }
+    th:first-of-type, td:first-of-type {
+        padding-left: 0px;
+    }
+}
+
+
 // Login box.
 body.loginpageimages {
     background-color: transparent;
@@ -877,7 +887,6 @@ body.fontawesome {
     }
 }
 
-
 // Course single page carousel.
 #myCourseCarousel .carousel-inner {
     padding-bottom: 15px;
@@ -956,6 +965,11 @@ body.editing #block-region-page-bottom .block {
     }
 }
 */
+
+// Syntax highlighting.
+pre.sh {
+    display: none;
+}
 
 // Page info.
 #page-info {

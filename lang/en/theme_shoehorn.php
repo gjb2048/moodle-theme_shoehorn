@@ -291,3 +291,16 @@ $string['socialnetworkicon'] = 'Social network icon ';
 $string['socialnetworkicon_desc'] = 'Social network icon number ';
 $string['socialsignpost'] = 'Use the signpost';
 $string['socialsignpost_desc'] = 'Enable this option to use the signpost to surround the social icons.';
+
+// Syntax highlighter.
+$string['syntaxsummary'] = '<pre class="sh"></pre>';
+$string['syntaxhighlight'] = 'Activate syntax highlighting';
+$string['syntaxhighlight_desc'] = 'Activate syntax highlighting in .  A help page will be added to the footer menu.';
+$string['syntaxhighlightpage'] = 'Syntax highlighting help';
+$string['syntaxhelpone'] = 'Add the html \'{$a->html}\' to the course summary.';
+$string['syntaxhelptwo'] = 'Then when editing (such as a label) surround your code with a \'pre\' tag and add the class="brush: alias" where \'alias\' is one of the following:';
+$string['syntaxhelpthree'] = 'Brush name';
+$string['syntaxhelpfour'] = 'Brush alias';
+$string['syntaxhelpfive'] = 'For example:';
+$string['syntaxhelpsix'] = 'becomes:';
+$string['syntaxhelpseven'] = 'More information on';
