@@ -22157,7 +22157,7 @@ body.coursetiles .ctopics .section .activity .instancename {
 body.coursetiles .section .activity .actions,
 body.coursetiles .ctopics .section .activity .actions {
   position: relative;
-  top: -175px;
+  top: -165px;
   left: -130px;
 }
 
@@ -22167,10 +22167,20 @@ body.coursetiles .ctopics .section .activity .actions input {
   color: #1f4d87;
 }
 
+body.coursetiles .section .activity .actions li,
+body.coursetiles .ctopics .section .activity .actions li {
+  padding-right: 4px;
+}
+
+body.coursetiles .section .activity .actions li:first-of-type,
+body.coursetiles .ctopics .section .activity .actions li:first-of-type {
+  padding-right: 0px;
+}
+
 body.coursetiles .section .activity.modtype_label.label,
 body.coursetiles .ctopics .section .activity.modtype_label.label {
   clear: none;
-  width: 90%;
+  width: 100%;
   height: auto;
   background: transparent;
   border: none;
@@ -22184,7 +22194,6 @@ body.coursetiles .ctopics .section .activity.modtype_label.label {
 
 body.coursetiles .section .activity.modtype_label.label:hover,
 body.coursetiles .ctopics .section .activity.modtype_label.label:hover {
-  width: auto;
   background: none;
 }
 
@@ -22203,18 +22212,16 @@ body.coursetiles .section .activity.modtype_label.label .commands,
 body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
   margin-right: auto;
   margin-left: 20px;
-  margin-top: 20px;
   margin-bottom: 5px;
   float: left;
   clear: both;
-  top: 107px;
 }
 
 body.coursetiles .section .activity.modtype_label.label .actions,
 body.coursetiles .ctopics .section .activity.modtype_label.label .actions {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5px;
+  left: 20px;
 }
 
 body.coursetiles.editing .activity .section {
@@ -22267,7 +22274,7 @@ body.coursetiles .resourcelinkdetails {
 
 body.coursetiles .togglecompletion {
   position: relative;
-  top: 15px;
+  top: 0px;
   right: 20px;
 }
 

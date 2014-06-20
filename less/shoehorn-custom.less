@@ -413,17 +413,23 @@ body.coursetiles {
 
         .actions {
             position: relative;
-            top: -175px;
+            top: -165px;
             right: -130px;
             input {
                 background: @body-bg;
                 color: @page-top-bg;
             }
+            li {
+                padding-left: 4px;
+            }
+            li:first-of-type {
+                padding-left: 0px;
+            }
         }
 
         &.modtype_label.label {
             clear: none;
-            width: 90%; 
+            width: 100%; 
             height: auto; 
             background: transparent; 
             border: none; 
@@ -434,7 +440,6 @@ body.coursetiles {
             position: relative;
             top: 10px;
             &:hover {
-                width: auto; 
                 background: none;
             }
             .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
@@ -447,16 +452,14 @@ body.coursetiles {
             .commands {
                 margin-left: auto; 
                 margin-right: 20px; 
-                margin-top: 20px; 
                 margin-bottom: 5px; 
                 float: right; 
                 clear: both;
-                top: 107px
             }
             .actions {
                 position: absolute;
-                top: 0;
-                right: 0;
+                top: 5px;
+                right: 20px;
             }
         }
     }
@@ -508,7 +511,7 @@ body.coursetiles {
 
     .togglecompletion {
         position: relative;
-        top: 15px;
+        top: 0px;
         left: 20px;
     }
 

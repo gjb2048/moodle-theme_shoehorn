@@ -18386,7 +18386,7 @@ body.coursetiles .ctopics .section .activity .instancename {
 body.coursetiles .section .activity .actions,
 body.coursetiles .ctopics .section .activity .actions {
   position: relative;
-  top: -175px;
+  top: -165px;
   right: -130px;
 }
 body.coursetiles .section .activity .actions input,
@@ -18394,10 +18394,18 @@ body.coursetiles .ctopics .section .activity .actions input {
   background: #ffffff;
   color: #1f4d87;
 }
+body.coursetiles .section .activity .actions li,
+body.coursetiles .ctopics .section .activity .actions li {
+  padding-left: 4px;
+}
+body.coursetiles .section .activity .actions li:first-of-type,
+body.coursetiles .ctopics .section .activity .actions li:first-of-type {
+  padding-left: 0px;
+}
 body.coursetiles .section .activity.modtype_label.label,
 body.coursetiles .ctopics .section .activity.modtype_label.label {
   clear: none;
-  width: 90%;
+  width: 100%;
   height: auto;
   background: transparent;
   border: none;
@@ -18410,7 +18418,6 @@ body.coursetiles .ctopics .section .activity.modtype_label.label {
 }
 body.coursetiles .section .activity.modtype_label.label:hover,
 body.coursetiles .ctopics .section .activity.modtype_label.label:hover {
-  width: auto;
   background: none;
 }
 body.coursetiles .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br,
@@ -18426,17 +18433,15 @@ body.coursetiles .section .activity.modtype_label.label .commands,
 body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
   margin-left: auto;
   margin-right: 20px;
-  margin-top: 20px;
   margin-bottom: 5px;
   float: right;
   clear: both;
-  top: 107px;
 }
 body.coursetiles .section .activity.modtype_label.label .actions,
 body.coursetiles .ctopics .section .activity.modtype_label.label .actions {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 20px;
 }
 body.coursetiles.editing .activity .section {
   margin-top: 0;
@@ -18480,7 +18485,7 @@ body.coursetiles .resourcelinkdetails {
 }
 body.coursetiles .togglecompletion {
   position: relative;
-  top: 15px;
+  top: 0px;
   left: 20px;
 }
 body.coursetiles.editing .section .moodle-actionmenu .iconsmall {
