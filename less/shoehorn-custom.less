@@ -97,12 +97,12 @@ aside .block a {
         padding-bottom: 0px;
     }
     div.block:first-child {
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: @border-radius-base;
     }
     div.block:last-child {
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
     }
 }
 body.editing .collapse-blocks {
@@ -320,7 +320,7 @@ body.coursetiles {
         }
     }
 
-    .label, .badge {
+    .modtype_label.label, .badge {
         font-weight: lighter;
     }
 
@@ -410,11 +410,31 @@ body.coursetiles {
         .instancename {
             font-weight: bold;
         }
+
+        .actions {
+            position: relative;
+            top: -175px;
+            right: -130px;
+            input {
+                background: @body-bg;
+                color: @page-top-bg;
+            }
+        }
+
         &.modtype_label.label {
+            clear: none;
             width: 90%; 
+            height: auto; 
+            background: transparent; 
+            border: none; 
+            margin-top: 5px; 
             margin-left: auto; 
             margin-right: auto;
+            float: left;
+            position: relative;
+            top: 10px;
             &:hover {
+                width: auto; 
                 background: none;
             }
             .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
@@ -433,14 +453,10 @@ body.coursetiles {
                 clear: both;
                 top: 107px
             }
-        }
-        .actions {
-            position: relative;
-            top: -175px;
-            left: 130px;
-            input {
-                background: @body-bg;
-                color: @page-top-bg;
+            .actions {
+                position: absolute;
+                top: 0;
+                right: 0;
             }
         }
     }
@@ -473,29 +489,6 @@ body.coursetiles {
     .path-course-view li.activity > div {
         width: 100%; 
         height: 100%;
-    }
-
-    li.activity.label {
-        clear: none;
-        width: auto;
-        height: auto; 
-        background: transparent; 
-        border:none; 
-        margin-top: 5px; 
-        margin-left: -20px; 
-        float: left;
-        position: relative;
-        top: 10px;
-        &:hover {
-            clear: none; 
-            width: auto; 
-            height: auto; 
-            background: transparent; 
-            border: none; 
-            float: left;
-            position: relative;
-            top: 10px;
-        }
     }
 
     .mod-indent-1,
@@ -1040,7 +1033,7 @@ pre.sh {
 // General.
 select, input {
     border-color: @page-bottom-bg;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
 }
 
 .copyright:before {
@@ -1083,7 +1076,7 @@ body {
 
 /*::-webkit-scrollbar-button {
     background-color: @page-bottom-bg;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     border: 2px solid @page-bottom-bg-dark;
 }*/
 

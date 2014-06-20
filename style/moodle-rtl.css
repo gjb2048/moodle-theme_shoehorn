@@ -849,8 +849,8 @@ samp {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
+  color: #1a4172;
+  background-color: #e3f2ff;
   white-space: nowrap;
   border-radius: 4px;
 }
@@ -873,8 +873,8 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   color: #15355e;
-  background-color: #f5f5f5;
-  border: 1px solid #cccccc;
+  background-color: #e3f2ff;
+  border: 1px solid #c9e6ff;
   border-radius: 4px;
 }
 
@@ -2243,7 +2243,7 @@ output {
 .form-control[readonly],
 fieldset[disabled] .form-control {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -9833,7 +9833,7 @@ img.iconsmall {
 .path-admin .roleassigntable input[type="text"][readonly],
 fieldset[disabled] .path-admin .roleassigntable input[type="text"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -10052,7 +10052,7 @@ textarea.path-admin .roleassigntable input[type="text"] {
 }
 
 #plugins-control-panel .disabled .availability {
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
 }
 
 #plugins-control-panel .requiredby,
@@ -10307,7 +10307,7 @@ textarea.path-admin .roleassigntable input[type="text"] {
 .path-calendar .maincalendar .cal_courses_flt select[readonly],
 fieldset[disabled] .path-calendar .maincalendar .cal_courses_flt select {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -13197,7 +13197,7 @@ a.ygtvspacer:hover {
 .box.message .message_form input[type="text"][readonly],
 fieldset[disabled] .box.message .message_form input[type="text"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -13474,7 +13474,7 @@ textarea.box.message .message_form input[type="text"] {
 .box.message .contactselector form#usergroupform fieldset select[readonly],
 fieldset[disabled] .box.message .contactselector form#usergroupform fieldset select {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -14435,7 +14435,7 @@ textarea[disabled],
 textarea[readonly],
 fieldset[disabled] textarea {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -15715,7 +15715,7 @@ a#hidebankcmd {
 fieldset[disabled] .loginbox .loginform .form-input input[type="text"],
 fieldset[disabled] .loginbox .loginform .form-input input[type="password"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -16439,7 +16439,7 @@ ol {
 .block .singleselect select[readonly],
 fieldset[disabled] .block .singleselect select {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -16545,7 +16545,7 @@ textarea.block .singleselect select {
 fieldset[disabled] .blogsearchform input[type="text"],
 fieldset[disabled] .searchform input[type="text"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -16747,7 +16747,7 @@ fieldset[disabled] .mform fieldset .fitem .felement input[type="text"],
 fieldset[disabled] .mform .fcontainer .fitem .felement input[type="password"],
 fieldset[disabled] .mform fieldset .fitem .felement input[type="password"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -16996,7 +16996,7 @@ fieldset[disabled] .form-item .form-setting select,
 fieldset[disabled] .form-item .form-setting input[type="text"],
 fieldset[disabled] .form-item .form-setting input[type="password"] {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -17115,7 +17115,7 @@ fieldset[disabled] form input[type="password"],
 fieldset[disabled] form.atto_form input[type="url"],
 fieldset[disabled] select.singleselect {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -17500,7 +17500,7 @@ select {
 #page-mod-forum-discuss .discussioncontrols .discussioncontrol .singleselect select.singleselect[readonly],
 fieldset[disabled] #page-mod-forum-discuss .discussioncontrols .discussioncontrol .singleselect select.singleselect {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -17556,7 +17556,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol .singlese
 #page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion select.urlselect[readonly],
 fieldset[disabled] #page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion select.urlselect {
   cursor: not-allowed;
-  background-color: #eeeeee;
+  background-color: #e3f2ff;
   opacity: 1;
 }
 
@@ -20928,6 +20928,22 @@ ul.weeks {
   }
 }
 
+.mform .fcontainer .fitem,
+.mform fieldset .fitem {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.mform .fcontainer .fitem .fitemtitle,
+.mform fieldset .fitem .fitemtitle {
+  padding-right: 0px;
+}
+
+.mform .fcontainer .fitem .felement,
+.mform fieldset .fitem .felement {
+  padding-left: 0px;
+}
+
 .breadcrumb-button .forumsearch {
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -21319,6 +21335,11 @@ ol {
   border-radius: 4px;
 }
 
+#page-mod-quiz-edit div.quizpage .pagecontent {
+  border: 1px solid #c9e6ff;
+  border-radius: 4px;
+}
+
 .carousel-caption,
 .carousel-indicators {
   bottom: 0px;
@@ -21421,11 +21442,15 @@ ol {
 .editor_atto_content_wrap,
 .editor_atto + textarea {
   border: 1px solid #c9e6ff;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 div.editor_atto_toolbar {
   background: #e3f2ff;
   border: 1px solid #c9e6ff;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
 }
 
 div.editor_atto_toolbar button + button {
@@ -21447,6 +21472,37 @@ div.editor_atto_toolbar div.atto_group {
   border: 1px solid #c9e6ff;
   border-bottom: 1px solid #e3f2ff;
   background: #edf7ff;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_],
+body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_],
+body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
+  background: #f2f9ff;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_] {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top: 2px solid #c9e6ff;
+  border-right: 2px solid #c9e6ff;
+  border-left: 2px solid #c9e6ff;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_] {
+  border-right: 2px solid #c9e6ff;
+  border-left: 2px solid #c9e6ff;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: 2px solid #c9e6ff;
+  border-left: 2px solid #c9e6ff;
+  border-bottom: 2px solid #c9e6ff;
+}
+
+#page-mod-quiz-edit div.quizpage .pagecontent {
+  background: #e3f2ff;
 }
 
 /* RTL Rules */
@@ -21967,7 +22023,7 @@ body.coursetiles .section li.activity.label:hover {
   transition: all ease-out 0.5s;
 }
 
-body.coursetiles .label,
+body.coursetiles .modtype_label.label,
 body.coursetiles .badge {
   font-weight: lighter;
 }
@@ -22098,15 +22154,37 @@ body.coursetiles .ctopics .section .activity .instancename {
   font-weight: bold;
 }
 
+body.coursetiles .section .activity .actions,
+body.coursetiles .ctopics .section .activity .actions {
+  position: relative;
+  top: -175px;
+  left: -130px;
+}
+
+body.coursetiles .section .activity .actions input,
+body.coursetiles .ctopics .section .activity .actions input {
+  background: #ffffff;
+  color: #1f4d87;
+}
+
 body.coursetiles .section .activity.modtype_label.label,
 body.coursetiles .ctopics .section .activity.modtype_label.label {
+  clear: none;
   width: 90%;
+  height: auto;
+  background: transparent;
+  border: none;
+  margin-top: 5px;
   margin-right: auto;
   margin-left: auto;
+  float: right;
+  position: relative;
+  top: 10px;
 }
 
 body.coursetiles .section .activity.modtype_label.label:hover,
 body.coursetiles .ctopics .section .activity.modtype_label.label:hover {
+  width: auto;
   background: none;
 }
 
@@ -22132,17 +22210,11 @@ body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
   top: 107px;
 }
 
-body.coursetiles .section .activity .actions,
-body.coursetiles .ctopics .section .activity .actions {
-  position: relative;
-  top: -175px;
-  right: 130px;
-}
-
-body.coursetiles .section .activity .actions input,
-body.coursetiles .ctopics .section .activity .actions input {
-  background: #ffffff;
-  color: #1f4d87;
+body.coursetiles .section .activity.modtype_label.label .actions,
+body.coursetiles .ctopics .section .activity.modtype_label.label .actions {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 body.coursetiles.editing .activity .section {
@@ -22176,30 +22248,6 @@ body.coursetiles .path-site li.activity > div,
 body.coursetiles .path-course-view li.activity > div {
   width: 100%;
   height: 100%;
-}
-
-body.coursetiles li.activity.label {
-  clear: none;
-  width: auto;
-  height: auto;
-  background: transparent;
-  border: none;
-  margin-top: 5px;
-  margin-right: -20px;
-  float: right;
-  position: relative;
-  top: 10px;
-}
-
-body.coursetiles li.activity.label:hover {
-  clear: none;
-  width: auto;
-  height: auto;
-  background: transparent;
-  border: none;
-  float: right;
-  position: relative;
-  top: 10px;
 }
 
 body.coursetiles .mod-indent-1,
@@ -23423,7 +23471,7 @@ body {
 
 /*::-webkit-scrollbar-button {
     background-color: @page-bottom-bg;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     border: 2px solid @page-bottom-bg-dark;
 }*/
 

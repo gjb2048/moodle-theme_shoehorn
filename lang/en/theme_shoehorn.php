@@ -297,7 +297,7 @@ $string['syntaxsummary'] = '<pre class="sh"></pre>';
 $string['syntaxhighlight'] = 'Activate syntax highlighting';
 $string['syntaxhighlight_desc'] = 'Activate syntax highlighting in .  A help page will be added to the footer menu.';
 $string['syntaxhighlightpage'] = 'Syntax highlighting help';
-$string['syntaxhelpone'] = 'Add the html \'{$a->html}\' to the course summary.';
+$string['syntaxhelpone'] = 'Add the html \'{$a->html}\' to the course summary in HTML mode.';
 $string['syntaxhelptwo'] = 'Then when editing (such as a label) surround your code with a \'pre\' tag and add the class="brush: alias" where \'alias\' is one of the following:';
 $string['syntaxhelpthree'] = 'Brush name';
 $string['syntaxhelpfour'] = 'Brush alias';

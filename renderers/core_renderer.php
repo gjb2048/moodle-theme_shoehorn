@@ -550,11 +550,12 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
 
         // Syntax highlighting.
-        if ($this->syntaxhighlighterenabled) {
+        if (($this->syntaxhighlighterenabled) || 
+            ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2) && ($this->page->pagetype == 'course-edit'))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
-                if ($loggedin) {
+                /*if ($loggedin) {
                     $url->param('sesskey', $sesskey);
-                }
+                }*/
                 $url = preg_replace('|^https?://|i', '//', $url->out(false));
                 $items[] .= html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
         }

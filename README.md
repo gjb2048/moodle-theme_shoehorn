@@ -86,8 +86,9 @@ Todo
 
 Version information
 ===================
-19th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
+20th June 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
+  2.  Tweaks to question styling, specifically multiple choice.
 
 17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.

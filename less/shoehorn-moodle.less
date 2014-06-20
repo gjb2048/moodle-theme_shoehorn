@@ -178,7 +178,7 @@ ul {
 
 .fp-iconview .fp-thumbnail {
     border: 1px solid @page-bottom-bg-light;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
 }
 
 .fp-iconview .fp-thumbnail img {
@@ -347,6 +347,19 @@ ul {
                 .make-lg-column-offset(1);
             }
     }
+    .fcontainer,
+    fieldset {
+        .fitem {
+            margin-left: 0px;
+            margin-right: 0px;
+            .fitemtitle {
+                padding-left: 0px;
+            }
+            .felement {
+                padding-right: 0px;
+            }
+        }
+    }
 }
 
 .breadcrumb-button .forumsearch {
@@ -483,7 +496,7 @@ ul, ol {
     &:hover .userpicture, &:focus .userpicture, &:active .userpicture {
         background-color: #fff;
         border: solid 2px #fff;
-        border-radius: 4px;
+        border-radius: @border-radius-base;
     }
     &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
     &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
@@ -511,7 +524,12 @@ ul, ol {
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
     background-color: @page-bottom-bg;
     border: 1px solid @page-bottom-bg-dark-spin;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
+}
+
+#page-mod-quiz-edit div.quizpage .pagecontent {
+    border: 1px solid @page-bottom-bg;
+    border-radius: @border-radius-base;
 }
 
 // tags.less.
@@ -540,7 +558,7 @@ ul, ol {
     color: @text-color;
     background-color: @page-bottom-bg;
     border: 1px solid @page-bottom-bg-dark-spin;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     border-color: @page-top-bg;
 }
 
@@ -552,14 +570,14 @@ ul, ol {
 }
 
 .yui-skin-sam .yui-panel .ft {
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px @border-radius-base @border-radius-base;
 }
 
 .yui-skin-sam .yui-panel .hd {
     #gradient > .vertical(#fff, @navbar-default-bg);
     //background: @navbar-default-bg;
     border-color: @navbar-default-border;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     border-bottom: solid 1px @page-top-bg;
     margin-top: -1px;
     padding-top: 1px;
@@ -577,11 +595,15 @@ ul, ol {
 .editor_atto_content_wrap,
 .editor_atto + textarea {
     border: 1px solid @page-bottom-bg;
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
 }
 
 div.editor_atto_toolbar {
     background: @page-bottom-bg-light;
     border: 1px solid @page-bottom-bg;
+    border-top-left-radius: @border-radius-base;
+    border-top-right-radius: @border-radius-base;
 }
 
 div.editor_atto_toolbar button + button {
@@ -602,6 +624,36 @@ div.editor_atto_toolbar div.atto_group {
     border: 1px solid @page-bottom-bg;
     border-bottom: 1px solid @page-bottom-bg-light;
     background: lighten(@page-bottom-bg-light, 2%);
+}
+
+// Quiz.
+body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_], body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_], body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
+    background: lighten(@page-bottom-bg-light, 3%);
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_] {
+    border-top-left-radius: @border-radius-base;
+    border-top-right-radius: @border-radius-base;
+    border-top: 2px solid @page-bottom-bg;
+    border-left: 2px solid @page-bottom-bg;
+    border-right: 2px solid @page-bottom-bg;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_] {
+    border-left: 2px solid @page-bottom-bg;
+    border-right: 2px solid @page-bottom-bg;
+}
+
+body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+    border-left: 2px solid @page-bottom-bg;
+    border-right: 2px solid @page-bottom-bg;
+    border-bottom: 2px solid @page-bottom-bg;
+}
+
+#page-mod-quiz-edit div.quizpage .pagecontent {
+    background: @page-bottom-bg-light;
 }
 
 /* RTL Rules */
