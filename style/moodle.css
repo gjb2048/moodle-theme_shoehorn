@@ -18275,16 +18275,13 @@ body.coursetiles .modtype_label.label,
 body.coursetiles .badge {
   font-weight: lighter;
 }
-body.coursetiles .section .activity .activityinstance,
-body.coursetiles .ctopics .section .activity .activityinstance,
-body.coursetiles .section .activity .activityinstance div,
-body.coursetiles .ctopics .section .activity .activityinstance div {
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance,
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance div {
   display: inline-block;
   width: 100%;
   height: 100%;
 }
-body.coursetiles .section .activity .activityinstance > a,
-body.coursetiles .ctopics .section .activity .activityinstance > a {
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a {
   text-align: right;
   color: #1f4d87;
   height: 152px !important;
@@ -18293,85 +18290,67 @@ body.coursetiles .ctopics .section .activity .activityinstance > a {
   padding: 10px;
   transition: all ease-out 0.25s;
 }
-body.coursetiles .section .activity .activityinstance > a:hover,
-body.coursetiles .ctopics .section .activity .activityinstance > a:hover {
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a:hover {
   font-weight: bold;
   text-decoration: none;
   background-color: rgba(227, 242, 255, 0.75);
 }
-body.coursetiles .section .activity .activityinstance > a.dimmed,
-body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed {
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a.dimmed {
   color: #1a4172;
   background: #c9e6ff;
 }
-body.coursetiles .section .activity .activityinstance > a.dimmed:hover,
-body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed:hover,
-body.coursetiles .section .activity .activityinstance > a.dimmed:focus,
-body.coursetiles .ctopics .section .activity .activityinstance > a.dimmed:focus {
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a.dimmed:hover,
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a.dimmed:focus {
   color: #15355e;
   background: #b0daff;
 }
-body.coursetiles .section .activity .mod-indent-outer,
-body.coursetiles .ctopics .section .activity .mod-indent-outer {
+body.coursetiles ul[class*="topics"] .section .activity .mod-indent-outer {
   padding-left: 0;
 }
-body.coursetiles .section .activity img.activityicon,
-body.coursetiles .ctopics .section .activity img.activityicon {
+body.coursetiles ul[class*="topics"] .section .activity img.activityicon {
   float: left;
 }
-body.coursetiles .section .activity .commands,
-body.coursetiles .ctopics .section .activity .commands {
+body.coursetiles ul[class*="topics"] .section .activity .commands {
   position: relative;
   top: -25px;
   left: -100px;
   width: 0px;
   font-weight: bold;
 }
-body.coursetiles .section .activity .commands .iconsmall,
-body.coursetiles .ctopics .section .activity .commands .iconsmall {
+body.coursetiles ul[class*="topics"] .section .activity .commands .iconsmall {
   padding: 0px;
   width: 13px;
   height: 13px;
 }
-body.coursetiles .section .activity .commands ul,
-body.coursetiles .ctopics .section .activity .commands ul {
+body.coursetiles ul[class*="topics"] .section .activity .commands ul {
   line-height: 28px;
 }
-body.coursetiles .section .activity .commands a.editing_moveleft,
-body.coursetiles .ctopics .section .activity .commands a.editing_moveleft,
-body.coursetiles .section .activity .commands a.editing_moveright,
-body.coursetiles .ctopics .section .activity .commands a.editing_moveright {
+body.coursetiles ul[class*="topics"] .section .activity .commands a.editing_moveleft,
+body.coursetiles ul[class*="topics"] .section .activity .commands a.editing_moveright {
   display: none;
 }
-body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance],
-body.coursetiles .ctopics .section .activity .commands.moodle-actionmenu[data-enhance] {
+body.coursetiles ul[class*="topics"] .section .activity .commands.moodle-actionmenu[data-enhance] {
   left: -20px;
 }
-body.coursetiles .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall,
-body.coursetiles .ctopics .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall {
+body.coursetiles ul[class*="topics"] .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall {
   margin: 2px 4px 2px 0px;
 }
-body.coursetiles .section .activity .mod-indent,
-body.coursetiles .ctopics .section .activity .mod-indent {
+body.coursetiles ul[class*="topics"] .section .activity .mod-indent {
   padding-left: 0px;
   height: 100%;
 }
-body.coursetiles .section .activity .editing_move,
-body.coursetiles .ctopics .section .activity .editing_move {
+body.coursetiles ul[class*="topics"] .section .activity .editing_move {
   top: -15px;
   left: -15px;
 }
-body.coursetiles .section .activity .availabilityinfo,
-body.coursetiles .ctopics .section .activity .availabilityinfo,
-body.coursetiles .section .activity .contentafterlink,
-body.coursetiles .ctopics .section .activity .contentafterlink {
+body.coursetiles ul[class*="topics"] .section .activity .availabilityinfo,
+body.coursetiles ul[class*="topics"] .section .activity .contentafterlink {
   margin-top: -30px;
   margin-left: 0px;
   border-top: 1px solid #c9e6ff;
   width: 192px;
 }
-body.coursetiles .section .activity .contentafterlink,
-body.coursetiles .ctopics .section .activity .contentafterlink {
+body.coursetiles ul[class*="topics"] .section .activity .contentafterlink {
   font-size: .85em;
   height: 48px;
   text-overflow: ellipsis;
@@ -18379,31 +18358,25 @@ body.coursetiles .ctopics .section .activity .contentafterlink {
   line-height: 1.25em;
   padding-top: 5px;
 }
-body.coursetiles .section .activity .instancename,
-body.coursetiles .ctopics .section .activity .instancename {
+body.coursetiles ul[class*="topics"] .section .activity .instancename {
   font-weight: bold;
 }
-body.coursetiles .section .activity .actions,
-body.coursetiles .ctopics .section .activity .actions {
+body.coursetiles ul[class*="topics"] .section .activity .actions {
   position: relative;
   top: -165px;
   right: -130px;
 }
-body.coursetiles .section .activity .actions input,
-body.coursetiles .ctopics .section .activity .actions input {
+body.coursetiles ul[class*="topics"] .section .activity .actions input {
   background: #ffffff;
   color: #1f4d87;
 }
-body.coursetiles .section .activity .actions li,
-body.coursetiles .ctopics .section .activity .actions li {
+body.coursetiles ul[class*="topics"] .section .activity .actions li {
   padding-left: 4px;
 }
-body.coursetiles .section .activity .actions li:first-of-type,
-body.coursetiles .ctopics .section .activity .actions li:first-of-type {
+body.coursetiles ul[class*="topics"] .section .activity .actions li:first-of-type {
   padding-left: 0px;
 }
-body.coursetiles .section .activity.modtype_label.label,
-body.coursetiles .ctopics .section .activity.modtype_label.label {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label {
   clear: none;
   width: 100%;
   height: auto;
@@ -18416,29 +18389,24 @@ body.coursetiles .ctopics .section .activity.modtype_label.label {
   position: relative;
   top: 10px;
 }
-body.coursetiles .section .activity.modtype_label.label:hover,
-body.coursetiles .ctopics .section .activity.modtype_label.label:hover {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label:hover {
   background: none;
 }
-body.coursetiles .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br,
-body.coursetiles .ctopics .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
   top: 0px;
 }
-body.coursetiles .section .activity.modtype_label.label .editing_move,
-body.coursetiles .ctopics .section .activity.modtype_label.label .editing_move {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .editing_move {
   left: -25px;
   top: 0px;
 }
-body.coursetiles .section .activity.modtype_label.label .commands,
-body.coursetiles .ctopics .section .activity.modtype_label.label .commands {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .commands {
   margin-left: auto;
   margin-right: 20px;
   margin-bottom: 5px;
   float: right;
   clear: both;
 }
-body.coursetiles .section .activity.modtype_label.label .actions,
-body.coursetiles .ctopics .section .activity.modtype_label.label .actions {
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .actions {
   position: absolute;
   top: 5px;
   right: 20px;
