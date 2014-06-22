@@ -1,3 +1,4 @@
+/* shoehorn-custom.less */
 // Shoehorn custom additions / changes.
 
 // HTML.
@@ -149,7 +150,13 @@ body.pagelayout-redirect #page {
     float: left; // Quiz editing sparked this.
 }
 
- // Quiz editing sparked this.
+// Course.
+.course-content .right a {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+// Quiz editing sparked this.
 aside {
     float: left;
 }
@@ -361,7 +368,7 @@ body.coursetiles {
         }
         .commands {
             position: relative;
-            top: -25px;
+            top: -20px;
             left: -100px;
             width: 0px;
             font-weight: bold;
@@ -413,7 +420,7 @@ body.coursetiles {
 
         .actions {
             position: relative;
-            top: -165px;
+            top: -180px;
             right: -130px;
             input {
                 background: @body-bg;
@@ -850,7 +857,7 @@ body.fontawesome {
     }
 }
 
-// Course single page carousel.
+// Course single page.
 #myCourseCarousel .carousel-inner {
     padding-bottom: 15px;
     li.item {
@@ -868,6 +875,18 @@ body.fontawesome {
 
 #myCourseCarousel .carousel-control {
     color: @page-bottom-bg;
+}
+
+@media(min-width: (@screen-xs-min + 1)) {
+    .shoehorn-single-course-page {
+        .section .activity .mod-indent-outer {
+            padding-left: 0px;
+        }
+    }
+}
+
+.course-content .shoehorn-single-course-page ul.section {
+    margin-left: 0px;
 }
 
 //.course-content #myCourseCarousel ul li.section.main {

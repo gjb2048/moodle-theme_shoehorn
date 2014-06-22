@@ -101,8 +101,20 @@ if ($speed == 0) {
                 }
             } ?>
         </div>
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <?php if ($PAGE->theme->settings->fontawesome) { ?>
+        <i class="fa fa-chevron-circle-left"></i>
+        <?php } else { ?>
+        <span class="glyphicon glyphicon-chevron-left"></i>
+        <?php } ?>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <?php if ($PAGE->theme->settings->fontawesome) { ?>
+        <i class="fa fa-chevron-circle-right"></i>
+        <?php } else { ?>
+        <span class="glyphicon glyphicon-chevron-right"></i>
+        <?php } ?>
+        </a>
     </div>
 </div>
 <?php } ?>

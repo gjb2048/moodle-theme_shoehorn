@@ -1,3 +1,4 @@
+/* shoehorn-moodle.less */
 // Moodle overrides.
 // backup-restore.less.
 .path-backup .mform .grouped_settings {
@@ -42,6 +43,22 @@
         min-height: 100px;
     }
 }
+
+/* Icon styles */
+img.icon {
+    margin-right: 0px;
+}
+
+img.iconsmall {
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+img.iconhelp,
+.helplink img {
+    margin-left: 0px;
+}
+
 .moodle-actionmenu[data-enhanced].show .menu > li > a {
     &:hover, &:focus {
         color: @page-top-bg;
@@ -103,6 +120,13 @@ ul {
         margin: 0.3em;
         padding: 0;
     }
+}
+
+.section .moodle-actionmenu .iconsmall {
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    margin-bottom: 7px;
 }
 
 #page-course-index-category {
@@ -654,6 +678,11 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 
 #page-mod-quiz-edit div.quizpage .pagecontent {
     background: @page-bottom-bg-light;
+}
+
+/* Topics format */
+.course-content ul.topics li.section .right img.icon {
+    padding: 0 0 0 0;
 }
 
 /* RTL Rules */

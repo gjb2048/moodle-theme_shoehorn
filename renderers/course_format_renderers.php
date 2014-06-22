@@ -126,7 +126,7 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
     echo $that->course_activity_clipboard($course, $displaysection);
 
     // Start single-section div
-    echo html_writer::start_tag('div', array('class' => ''));
+    echo html_writer::start_tag('div', array('class' => 'shoehorn-single-course-page'));
 
     $sections = $modinfo->get_section_info_all();
 
@@ -190,13 +190,19 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
 
         echo html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
                                                'data-slide' => 'prev'));
-        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-left'));
-        echo html_writer::end_tag('i');
+        if ($PAGE->theme->settings->fontawesome) {
+            echo html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-left'));
+        } else {
+            echo html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-left'));
+        }
         echo html_writer::end_tag('a');
         echo html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
                                                'data-slide' => 'next'));
-        echo html_writer::start_tag('i', array('class' => 'fa fa-chevron-circle-right'));
-        echo html_writer::end_tag('i');
+        if ($PAGE->theme->settings->fontawesome) {
+            echo html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-right'));
+        } else {
+            echo html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-right'));
+        }
         echo html_writer::end_tag('a');
         echo html_writer::end_tag('div');
         echo html_writer::end_tag('div');

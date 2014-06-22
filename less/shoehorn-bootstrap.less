@@ -1,3 +1,4 @@
+/* shoehorn-bootstrap.less */
 // Bootstrap 3 overrides.
 
 // breadcrumbs.less.
@@ -30,12 +31,12 @@
 .carousel-control {
   background: none;  // Removes background that was used to surround original control.
   border: none; // No border required.
-  width: auto; // Using Font Awesome.
-  height: auto; // Using Font Awesome.
+  width: 26px;
+  height: 26px;
 
   top: 40%;
   margin-top: -20px;
-  font-size: 52px;
+  font-size: 26px;
   font-weight: 100;
   line-height: 30px;
 
@@ -45,11 +46,40 @@
     background-repeat: none;
   }
 
+  .icon-prev, .glyphicon-chevron-left {
+    left: auto;
+  }
+
+  .icon-next, .glyphicon-chevron-right {
+    right: auto;
+  }
+
   // Hover/focus state.
   &:hover,
   &:focus {
     color: lighten(@carousel-control-color, 5%);
   }
+}
+
+@media(min-width: @screen-sm-min) {
+    .carousel-control {
+        width: 52px;
+        height: 52px;
+        font-size: 52px;
+    }
+}
+
+.carouselslider a.carousel-control {
+    display: none;
+}
+.carouselslider:hover a.carousel-control {
+    display: block;
+}
+
+.carousel-control 
+
+.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right {
+    right: auto;
 }
 
 // Carousel indicator pips.
@@ -205,7 +235,7 @@ a {
   &:hover,
   &:focus {
     text-decoration: none;
-    background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
+    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
     border-radius: @border-radius-base;
   }
 }

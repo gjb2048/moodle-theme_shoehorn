@@ -20240,6 +20240,8 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   display: inline;
 }
 
+/* shoehorn-bootstrap.less */
+
 .breadcrumb {
   background-color: rgba(245, 245, 245, 0.5);
 }
@@ -20260,11 +20262,11 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 .carousel-control {
   background: none;
   border: none;
-  width: auto;
-  height: auto;
+  width: 26px;
+  height: 26px;
   top: 40%;
   margin-top: -20px;
-  font-size: 52px;
+  font-size: 26px;
   font-weight: 100;
   line-height: 30px;
 }
@@ -20275,9 +20277,40 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   background-repeat: none;
 }
 
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  right: auto;
+}
+
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  left: auto;
+}
+
 .carousel-control:hover,
 .carousel-control:focus {
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .carousel-control {
+    width: 52px;
+    height: 52px;
+    font-size: 52px;
+  }
+}
+
+.carouselslider a.carousel-control {
+  display: none;
+}
+
+.carouselslider:hover a.carousel-control {
+  display: block;
+}
+
+.carousel-control .carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  left: auto;
 }
 
 .carousel-indicators li {
@@ -20428,9 +20461,11 @@ label {
 a:hover,
 a:focus {
   text-decoration: none;
-  background-color: rgba(227, 242, 255, 0.4);
+  background-color: rgba(201, 230, 255, 0.7);
   border-radius: 4px;
 }
+
+/* shoehorn-moodle.less */
 
 .path-backup .mform .grouped_settings.section_level {
   margin-right: 0px;
@@ -20529,6 +20564,22 @@ a:focus {
   }
 }
 
+/* Icon styles */
+
+img.icon {
+  margin-left: 0px;
+}
+
+img.iconsmall {
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+
+img.iconhelp,
+.helplink img {
+  margin-right: 0px;
+}
+
 .moodle-actionmenu[data-enhanced].show .menu > li > a:hover,
 .moodle-actionmenu[data-enhanced].show .menu > li > a:focus {
   color: #1f4d87;
@@ -20584,6 +20635,13 @@ ul.weeks {
   height: 13px;
   margin: 0.3em;
   padding: 0;
+}
+
+.section .moodle-actionmenu .iconsmall {
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  margin-bottom: 7px;
 }
 
 #page-course-index-category .generalbox.info {
@@ -21505,6 +21563,12 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
   background: #e3f2ff;
 }
 
+/* Topics format */
+
+.course-content ul.topics li.section .right img.icon {
+  padding: 0 0 0 0;
+}
+
 /* RTL Rules */
 
 body.dir-rtl div.editor_atto_toolbar button + button {
@@ -21514,6 +21578,8 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 .atto_control img {
   background-color: white;
 }
+
+/* shoehorn-custom.less */
 
 html {
   background-color: #267f00;
@@ -21833,6 +21899,11 @@ body.pagelayout-redirect #page {
   float: right;
 }
 
+.course-content .right a {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
 aside {
   float: right;
 }
@@ -22072,7 +22143,7 @@ body.coursetiles ul[class*="topics"] .section .activity img.activityicon {
 
 body.coursetiles ul[class*="topics"] .section .activity .commands {
   position: relative;
-  top: -25px;
+  top: -20px;
   right: -100px;
   width: 0px;
   font-weight: bold;
@@ -22134,7 +22205,7 @@ body.coursetiles ul[class*="topics"] .section .activity .instancename {
 
 body.coursetiles ul[class*="topics"] .section .activity .actions {
   position: relative;
-  top: -165px;
+  top: -180px;
   left: -130px;
 }
 
@@ -22668,6 +22739,16 @@ body.fontawesome #frontpage-category-names h2:before {
 
 #myCourseCarousel .carousel-control {
   color: #c9e6ff;
+}
+
+@media (min-width: 481px) {
+  .shoehorn-single-course-page .section .activity .mod-indent-outer {
+    padding-right: 0px;
+  }
+}
+
+.course-content .shoehorn-single-course-page ul.section {
+  margin-right: 0px;
 }
 
 #myCourseCarousel .carousel-indicators {
