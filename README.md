@@ -86,12 +86,13 @@ Todo
 
 Version information
 ===================
-22nd June 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
+23rd June 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
   2.  Tweaks to question styling, specifically multiple choice.
   3.  Fixed frontpage and single page course slider with glyphicons.
   4.  Tweaks to course styling when editing.
   5.  Made slider previous and next icons only appear when slider hovered over.
+  6.  Added custom Collapsed Topics icons.
 
 17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.

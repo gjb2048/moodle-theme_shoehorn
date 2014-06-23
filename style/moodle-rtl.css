@@ -22101,16 +22101,25 @@ body.coursetiles .badge {
 
 body.coursetiles ul[class*="topics"] .section .activity .activityinstance,
 body.coursetiles ul[class*="topics"] .section .activity .activityinstance div {
-  display: inline-block;
   width: 100%;
   height: 100%;
+}
+
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance {
+  padding-left: 2px;
+}
+
+body.coursetiles ul[class*="topics"] .section .activity .activityinstance > span {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 body.coursetiles ul[class*="topics"] .section .activity .activityinstance > a {
   text-align: left;
   color: #1f4d87;
-  height: 152px !important;
-  width: 192px !important;
+  height: 152px;
+  width: 192px;
   display: block;
   padding: 10px;
   transition: all ease-out 0.25s;
@@ -22143,7 +22152,7 @@ body.coursetiles ul[class*="topics"] .section .activity img.activityicon {
 
 body.coursetiles ul[class*="topics"] .section .activity .commands {
   position: relative;
-  top: -20px;
+  top: -18px;
   right: -100px;
   width: 0px;
   font-weight: bold;
@@ -22165,7 +22174,8 @@ body.coursetiles ul[class*="topics"] .section .activity .commands a.editing_move
 }
 
 body.coursetiles ul[class*="topics"] .section .activity .commands.moodle-actionmenu[data-enhance] {
-  right: -20px;
+  top: -20px;
+  right: 0px;
 }
 
 body.coursetiles ul[class*="topics"] .section .activity .commands.moodle-actionmenu[data-enhance] .iconsmall {
@@ -22175,6 +22185,7 @@ body.coursetiles ul[class*="topics"] .section .activity .commands.moodle-actionm
 body.coursetiles ul[class*="topics"] .section .activity .mod-indent {
   padding-right: 0px;
   height: 100%;
+  display: block;
 }
 
 body.coursetiles ul[class*="topics"] .section .activity .editing_move {
@@ -22205,7 +22216,7 @@ body.coursetiles ul[class*="topics"] .section .activity .instancename {
 
 body.coursetiles ul[class*="topics"] .section .activity .actions {
   position: relative;
-  top: -180px;
+  top: -158px;
   left: -130px;
 }
 
@@ -22220,6 +22231,12 @@ body.coursetiles ul[class*="topics"] .section .activity .actions li {
 
 body.coursetiles ul[class*="topics"] .section .activity .actions li:first-of-type {
   padding-right: 0px;
+}
+
+body.coursetiles ul[class*="topics"] .section .activity .togglecompletion {
+  position: relative;
+  top: -12px;
+  right: 20px;
 }
 
 body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label {
@@ -22241,7 +22258,7 @@ body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label:hove
 }
 
 body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
-  top: 0px;
+  margin-top: 0px;
 }
 
 body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .editing_move {
@@ -22257,18 +22274,23 @@ body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .com
   clear: both;
 }
 
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .commands.moodle-actionmenu[data-enhance] {
+  right: -20px;
+}
+
 body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .actions {
   position: absolute;
   top: 5px;
   left: 20px;
 }
 
-body.coursetiles.editing .activity .section {
-  margin-top: 0;
+body.coursetiles ul[class*="topics"] .section .activity.modtype_label.label .togglecompletion {
+  top: 0px;
 }
 
 body.coursetiles.editing .section .activity,
 body.coursetiles.editing .ctopics .section .activity {
+  margin-top: 0;
   margin-top: 20px;
 }
 
@@ -22283,6 +22305,28 @@ body.coursetiles.editing .ctopics .section .activity .contentafterlink {
   top: -45px;
 }
 
+body.coursetiles.editing .section .activity .autocompletion,
+body.coursetiles.editing .ctopics .section .activity .autocompletion {
+  position: relative;
+  top: -20px;
+  right: -90px;
+}
+
+body.coursetiles.editing .section .activity .moodle-actionmenu[data-enhance] .autocompletion,
+body.coursetiles.editing .ctopics .section .activity .moodle-actionmenu[data-enhance] .autocompletion {
+  right: -140px;
+}
+
+body.coursetiles.editing .section .activity.modtype_label.label .autocompletion,
+body.coursetiles.editing .ctopics .section .activity.modtype_label.label .autocompletion {
+  right: 50px;
+}
+
+body.coursetiles.editing .section .moodle-actionmenu .iconsmall,
+body.coursetiles.editing .ctopics .section .moodle-actionmenu .iconsmall {
+  vertical-align: middle;
+}
+
 body.coursetiles.editing .section .activity:hover,
 body.coursetiles .course-content .section .activity:hover,
 body.coursetiles .gtopics .section .activity:hover,
@@ -22290,10 +22334,11 @@ body.coursetiles .sitetopic .section .activity:hover {
   background: #c9e6ff;
 }
 
-body.coursetiles .path-site li.activity > div,
-body.coursetiles .path-course-view li.activity > div {
+body.coursetiles.path-site li.activity > div,
+body.coursetiles.path-course-view li.activity > div {
   width: 100%;
   height: 100%;
+  padding: 0px;
 }
 
 body.coursetiles .mod-indent-1,
@@ -22309,16 +22354,6 @@ body.coursetiles .resourcelinkdetails {
   position: relative;
   top: -100px;
   text-align: left;
-}
-
-body.coursetiles .togglecompletion {
-  position: relative;
-  top: 0px;
-  right: 20px;
-}
-
-body.coursetiles.editing .section .moodle-actionmenu .iconsmall {
-  vertical-align: middle;
 }
 
 body.coursetiles.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
@@ -22362,19 +22397,13 @@ body.coursetiles.jsenabled .moodle-actionmenu[data-enhance].show .menu a:focus {
 }
 
 body.coursetiles .section a.editing_title {
-  top: -174px;
+  top: -22px;
   right: 10px;
   position: relative;
 }
 
 body.coursetiles .section a.editing_title .iconsmall {
   vertical-align: middle;
-}
-
-body.coursetiles.editing .autocompletion {
-  position: relative;
-  top: -20px;
-  right: -140px;
 }
 
 body.coursetiles .availabilityinfo {

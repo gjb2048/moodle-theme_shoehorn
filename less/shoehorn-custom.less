@@ -333,15 +333,22 @@ body.coursetiles {
 
     ul[class*="topics"] .section .activity {
         .activityinstance, .activityinstance div {
-            display: inline-block;
             width:100%; 
             height:100%;
+        }
+        .activityinstance {
+            padding-right: 2px;
+        }
+        .activityinstance > span {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .activityinstance > a {
             text-align: right; 
             color: @text-color; 
-            height: 152px !important; 
-            width: 192px !important; 
+            height: 152px; 
+            width: 192px; 
             display: block;
             padding: 10px;
             transition: all ease-out .25s;
@@ -368,7 +375,7 @@ body.coursetiles {
         }
         .commands {
             position: relative;
-            top: -20px;
+            top: -18px;
             left: -100px;
             width: 0px;
             font-weight: bold;
@@ -386,7 +393,8 @@ body.coursetiles {
                 }
             }
             &.moodle-actionmenu[data-enhance] {
-                left: -20px;
+                top: -20px;
+                left: 0px;
                 .iconsmall {
                     margin: 2px 4px 2px 0px;
                 }
@@ -395,6 +403,7 @@ body.coursetiles {
         .mod-indent {
             padding-left: 0px; 
             height: 100%;
+            display: block;
         }
         .editing_move {
             top: -15px;
@@ -420,7 +429,7 @@ body.coursetiles {
 
         .actions {
             position: relative;
-            top: -180px;
+            top: -158px;
             right: -130px;
             input {
                 background: @body-bg;
@@ -432,6 +441,12 @@ body.coursetiles {
             li:first-of-type {
                 padding-left: 0px;
             }
+        }
+
+        .togglecompletion {
+            position: relative;
+            top: -12px;
+            left: 20px;
         }
 
         &.modtype_label.label {
@@ -450,7 +465,7 @@ body.coursetiles {
                 background: none;
             }
             .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
-                top: 0px;
+                margin-top: 0px;
             }
             .editing_move {
                 left: -25px;
@@ -462,21 +477,24 @@ body.coursetiles {
                 margin-bottom: 5px; 
                 float: right; 
                 clear: both;
+                &.moodle-actionmenu[data-enhance] {
+                    left: -20px;
+                }
             }
             .actions {
                 position: absolute;
                 top: 5px;
                 right: 20px;
             }
+            .togglecompletion {
+                top: 0px;
+            }
         }
-    }
-
-    &.editing .activity .section {
-        margin-top: 0;
     }
 
     &.editing, &.editing .ctopics {
         .section .activity {
+            margin-top: 0;
             .mod-indent-outer {
                 padding-left: 0px;
             }
@@ -485,6 +503,20 @@ body.coursetiles {
                 top: -45px;
             }
             margin-top: 20px;
+            .autocompletion {
+                position: relative;
+                top: -20px;
+                left: -90px;
+            }
+            .moodle-actionmenu[data-enhance] .autocompletion {
+                left: -140px;
+            }
+            &.modtype_label.label .autocompletion {
+                left: 50px;
+            }
+        }
+        .section .moodle-actionmenu .iconsmall {
+            vertical-align: middle;
         }
     }
 
@@ -495,10 +527,11 @@ body.coursetiles {
         background: @page-bottom-bg;
     }
 
-    .path-site li.activity > div, 
-    .path-course-view li.activity > div {
+    &.path-site li.activity > div, 
+    &.path-course-view li.activity > div {
         width: 100%; 
         height: 100%;
+        padding: 0px;
     }
 
     .mod-indent-1,
@@ -516,62 +549,47 @@ body.coursetiles {
         text-align: right;
     }
 
-    .togglecompletion {
-        position: relative;
-        top: 0px;
-        left: 20px;
-    }
-
-    &.editing .section .moodle-actionmenu .iconsmall {
-        vertical-align: middle;
-    }
-
-    &.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-        border-radius: 5px;
-        border: 1px solid @page-bottom-bg;
-        transition: all ease-out .25s;
-        &:hover {
-            background: @page-bottom-bg-light;
-            font-weight: bold;
-        }
-    }
-
-    &.jsenabled .moodle-actionmenu[data-enhance].show .menu {
-        box-shadow: none;
-        background: @page-bottom-bg;
-        &.align-tr-br {
-            right: 18px;
-            top: -5px;
-        }
-        a {
-            padding: 3px 10px;
-            &:focus {
-                background: @page-bottom-bg;
-                border-radius: 2px;
-            }
+    &.jsenabled .moodle-actionmenu[data-enhance] {
+        .toggle-display.textmenu {
+            border-radius: 5px;
+            border: 1px solid @page-bottom-bg;
+            transition: all ease-out .25s;
             &:hover {
                 background: @page-bottom-bg-light;
                 font-weight: bold;
             }
-            &:hover, &:focus {
-                color: @page-top-bg;
+        }
+        &.show .menu {
+            box-shadow: none;
+            background: @page-bottom-bg;
+            &.align-tr-br {
+                right: 18px;
+                top: -5px;
+            }
+            a {
+                padding: 3px 10px;
+                &:focus {
+                    background: @page-bottom-bg;
+                    border-radius: 2px;
+                }
+                &:hover {
+                    background: @page-bottom-bg-light;
+                    font-weight: bold;
+                }
+                &:hover, &:focus {
+                    color: @page-top-bg;
+                }
             }
         }
     }
 
     .section a.editing_title {
-        top: -174px;
+        top: -22px;
         left: 10px;
         position: relative;
         .iconsmall {
              vertical-align: middle;
         }
-    }
-
-    &.editing .autocompletion {
-        position: relative;
-        top: -20px;
-        left: -140px;
     }
 
     .availabilityinfo {
