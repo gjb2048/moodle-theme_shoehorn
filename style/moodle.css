@@ -17676,6 +17676,9 @@ table#user-grades tr.heading th.courseitem {
 .loginbox .loginform .form-input input[type="password"] {
   max-width: 100%;
 }
+.loginbox .subcontent {
+  text-align: center;
+}
 #newmessageoverlay {
   border: 1px solid #afdaff;
 }

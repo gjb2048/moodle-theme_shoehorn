@@ -21319,6 +21319,10 @@ table#user-grades tr.heading th.courseitem {
   max-width: 100%;
 }
 
+.loginbox .subcontent {
+  text-align: center;
+}
+
 #newmessageoverlay {
   border: 1px solid #afdaff;
 }
