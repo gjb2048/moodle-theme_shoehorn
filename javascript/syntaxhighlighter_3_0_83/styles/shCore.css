@@ -83,6 +83,7 @@
 }
 .syntaxhighlighter table td.code .container {
   position: relative !important;
+  display: -moz-groupbox; /* Firefox only. */
 }
 .syntaxhighlighter table td.code .container textarea {
   box-sizing: border-box !important;
