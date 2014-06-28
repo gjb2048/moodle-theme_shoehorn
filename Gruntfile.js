@@ -145,7 +145,7 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: true,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
-                    sourceMapFilename: 'sourcemap-moodle.json'
+                    sourceMapFilename: 'style/moodle.css.map'
                 },
                 src: 'less/moodleallshoehorn.less',
                 dest: 'style/moodle.css'
@@ -158,11 +158,31 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: true,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
-                    sourceMapFilename: 'sourcemap-editor.json'
+                    sourceMapFilename: 'style/editor.css.map'
                 },
                 src: 'less/editorallshoehorn.less',
                 dest: 'style/editor.css'
             }
+        },
+        autoprefixer: {
+          options: {
+            browsers: [
+              'Android 2.3',
+              'Android >= 4',
+              'Chrome >= 20',
+              'Firefox >= 24', // Firefox 24 is the latest ESR
+              'Explorer >= 8',
+              'iOS >= 6',
+              'Opera >= 12',
+              'Safari >= 6'
+            ]
+          },
+          core: {
+            options: {
+              map: true
+            },
+            src: ['style/moodle.css', "style/moodle-rtl.css", "style/editor.css"],
+          },
         },
         exec: {
             decache: {
@@ -263,11 +283,20 @@ module.exports = function(grunt) {
                         from: 'glyphicons-halflings-regular.woff',
                         to:   'glyphicons-halflings-regular.woff]]',
                     }]
+            },
+            sourcemap: {
+                src: ['style/moodle.css', 'style/moodle-rtl.css', 'style/editor.css'],
+                    overwrite: true,
+                    replacements: [{
+                        from: 'sourceMappingURL=',
+                        to: 'sourceMappingURL=' + MOODLEURLPREFIX + '/theme/'+ THEMEDIR + '/style/'
+                    }]
             }
         }
     });
 
     // Load contrib tasks.
+    grunt.loadNpmTasks("grunt-autoprefixer");
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-exec");
@@ -279,6 +308,6 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", "decache"]);
+    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", "autoprefixer", "replace:sourcemap", "decache"]);
     grunt.registerTask("svg", ["copy:svg_core", "copy:svg_plugins", "replace:svg_colours_core", "replace:svg_colours_plugins"]);
 };

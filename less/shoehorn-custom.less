@@ -306,7 +306,7 @@ aside {
 
 // Course tiles.
 body.coursetiles {
-    .section li.activity {
+    #region-main .section li.activity {
         background: @page-bottom-bg-light;
         height: 160px;
         width: 200px;
@@ -327,11 +327,11 @@ body.coursetiles {
         }
     }
 
-    .modtype_label.label, .badge {
+    #region-main .modtype_label.label, .badge {
         font-weight: lighter;
     }
 
-    ul[class*="topics"] .section .activity, div.sitetopic .section .activity {
+    #region-main ul[class*="topics"] .section .activity, #region-main div.sitetopic .section .activity {
         .activityinstance, .activityinstance div {
             width:100%; 
             height:100%;
@@ -492,7 +492,7 @@ body.coursetiles {
         }
     }
 
-    &.editing, &.editing .ctopics {
+    &.editing #region-main, &.editing #region-main .ctopics {
         .section .activity {
             margin-top: 0;
             .mod-indent-outer {
@@ -520,36 +520,36 @@ body.coursetiles {
         }
     }
 
-    &.editing .section .activity:hover,
-    .course-content .section .activity:hover,
-    .gtopics .section .activity:hover,
-    .sitetopic .section .activity:hover {
+    &.editing #region-main .section .activity:hover,
+    #region-main .course-content .section .activity:hover,
+    #region-main .gtopics .section .activity:hover,
+    #region-main .sitetopic .section .activity:hover {
         background: @page-bottom-bg;
     }
 
-    &.path-site li.activity > div, 
-    &.path-course-view li.activity > div {
+    &.path-site #region-main li.activity > div, 
+    &.path-course-view #region-main li.activity > div {
         width: 100%; 
         height: 100%;
         padding: 0px;
     }
 
-    .mod-indent-1,
-    .mod-indent-2,
-    .mod-indent-3,
-    .mod-indent-4,
-    .mod-indent-5 {
+    #region-main .mod-indent-1,
+    #region-main .mod-indent-2,
+    #region-main .mod-indent-3
+    #region-main .mod-indent-4,
+    #region-main .mod-indent-5 {
         margin-left: 0;
     }
 
-    .resourcelinkdetails {
+    #region-main .resourcelinkdetails {
         float: right; 
         position: relative; 
         top: -100px; 
         text-align: right;
     }
 
-    &.jsenabled .moodle-actionmenu[data-enhance] {
+    &.jsenabled #region-main .moodle-actionmenu[data-enhance] {
         .toggle-display.textmenu {
             border-radius: 5px;
             border: 1px solid @page-bottom-bg;
@@ -583,7 +583,7 @@ body.coursetiles {
         }
     }
 
-    .section a.editing_title {
+    #region-main .section a.editing_title {
         top: -22px;
         left: 10px;
         position: relative;
@@ -592,15 +592,15 @@ body.coursetiles {
         }
     }
 
-    .availabilityinfo {
+    #region-main .availabilityinfo {
         display: none;
     }
 
-    .sectionname {
+    #region-main .sectionname {
         font-size: 1.5em;
     }
 
-    .centre_text {
+    #region-main .centre_text {
         clear: both; 
         width: 100%; 
         padding-top: 50px; 
@@ -610,7 +610,7 @@ body.coursetiles {
         border-radius: 15px 0px 0px;
     }
 
-    .introvideo {
+    #region-main .introvideo {
         width: auto; 
         height: 315px;
         overflow: hidden; 
@@ -618,7 +618,7 @@ body.coursetiles {
         margin-bottom: 20px;
     }
 
-    .topic_intro {
+    #region-main .topic_intro {
         float: right; 
         width: auto;
         max-width: 350px;
@@ -630,7 +630,7 @@ body.coursetiles {
         margin-bottom:    20px;
     }
 
-    .section-modchooser-link {
+    #region-main .section-modchooser-link {
         top: 20px; 
         position:relative;
         float:right;
@@ -639,29 +639,29 @@ body.coursetiles {
         margin-bottom: 20px;
     }
 
-    .course-content .single-section .section-navigation .title {
+    #region-main .course-content .single-section .section-navigation .title {
         text-align: left;
     }
 
-    #add, #remove, .centerpara, .mdl-align {
+    #region-main #add, #region-main #remove, #region-main .centerpara, #region-main .mdl-align {
         text-align: left;
     }
 
-    .mdl-align {
+    #region-main .mdl-align {
         width: 25%;
         padding: 10px;
     }
 
-    img.iconlarge {
+    #region-main img.iconlarge {
         width: 40px; 
         height: 40px;
     }
 
-    #completionprogressid {
+    #region-main #completionprogressid {
         display: none;
     }
 
-    &#page-site-index .box.generalbox.sitetopic {
+    &#page-site-index #region-main .box.generalbox.sitetopic {
         overflow: hidden; 
         width: 100%;
         clear: both;
