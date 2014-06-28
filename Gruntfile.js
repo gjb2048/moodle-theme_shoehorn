@@ -179,7 +179,10 @@ module.exports = function(grunt) {
           },
           core: {
             options: {
-              map: true
+              map: {
+                prev: 'style/',
+                sourceContent: true
+              }
             },
             src: ['style/moodle.css', "style/moodle-rtl.css", "style/editor.css"],
           },
