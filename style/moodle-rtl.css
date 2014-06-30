@@ -7674,7 +7674,8 @@ img.icon.hide {
   }
 }
 
-.has_dock.used-region-side-post.empty-region-side-pre #region-main {
+.has_dock.empty-region-side-pre #region-main,
+.has_dock.empty-region-side-post #region-main {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -7682,96 +7683,149 @@ img.icon.hide {
 }
 
 @media (min-width: 768px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    float: right;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    float: right;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    right: 0%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    right: 0%;
+  }
+}
+
+.has_dock.empty-region-side-pre.used-region-side-post #region-main,
+.has_dock.empty-region-side-post.used-region-side-pre #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.empty-region-side-post.used-region-side-pre #region-main {
     float: right;
     width: 75%;
   }
 }
 
 @media (min-width: 1200px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
+  .has_dock.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.empty-region-side-post.used-region-side-pre #region-main {
     float: right;
-    width: 66.66666667%;
+    width: 83.33333333%;
   }
 }
 
-@media (min-width: 768px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
-    right: 0%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #region-main {
-    right: 0%;
-  }
-}
-
-.has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  min-height: 100px;
-}
-
-@media (min-width: 768px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
-    float: right;
-    width: 25%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .has_dock.used-region-side-post.empty-region-side-pre #block-region-side-post {
-    float: right;
-    width: 16.66666667%;
-  }
-}
-
-.has_dock.used-region-side-post.empty-region-side-pre #block-region-side-pre {
+.has_dock.empty-region-side-pre #block-region-side-pre {
   display: none;
 }
 
-.has_dock.empty-region-side-post.empty-region-side-pre #region-main {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+.has_dock.empty-region-side-post #block-region-side-post {
+  display: none;
 }
 
 @media (min-width: 768px) {
-  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
-    float: right;
-    width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
-    float: right;
-    width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+  .has_dock.dir-ltr.empty-region-side-pre.used-region-side-post #region-main {
     right: 0%;
   }
 }
 
 @media (min-width: 1200px) {
-  .has_dock.empty-region-side-post.empty-region-side-pre #region-main {
+  .has_dock.dir-ltr.empty-region-side-pre.used-region-side-post #region-main {
     right: 0%;
   }
 }
 
-.has_dock.empty-region-side-post.empty-region-side-pre #block-region-side-post {
-  display: none;
+@media (min-width: 768px) {
+  .has_dock.dir-ltr.empty-region-side-post.used-region-side-pre #region-main {
+    right: 25%;
+  }
 }
 
-.has_dock.empty-region-side-post.empty-region-side-pre #block-region-side-pre {
-  display: none;
+@media (min-width: 1200px) {
+  .has_dock.dir-ltr.empty-region-side-post.used-region-side-pre #region-main {
+    right: 16.66666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-ltr.empty-region-side-post.used-region-side-pre #block-region-side-pre {
+    left: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-ltr.empty-region-side-post.used-region-side-pre #block-region-side-pre {
+    left: 83.33333333%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #region-main {
+    right: 25%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #region-main {
+    right: 16.66666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #region-main {
+    right: 0%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #region-main {
+    right: 0%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #block-region-side-pre {
+    right: 0%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #block-region-side-pre {
+    right: 0%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #block-region-side-post {
+    left: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #block-region-side-post {
+    left: 83.33333333%;
+  }
 }
 
 /** Page layout CSS ends **/
@@ -15682,7 +15736,6 @@ a#hidebankcmd {
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   width: 100%;
-  max-width: none;
 }
 
 .loginbox .loginform .form-input input[type="text"]:focus,
@@ -15735,10 +15788,12 @@ textarea.loginbox .loginform .form-input input[type="password"] {
 
 .loginbox .desc {
   line-height: 30px;
+  font-weight: 300;
   color: #1f4d87;
 }
 
 .loginbox .subcontent {
+  text-align: center;
   padding: 0;
   margin: 0;
 }
@@ -17206,7 +17261,6 @@ textareaselect.singleselect {
   .mform .fcontainer .fitem .felement > select {
     width: auto;
     min-width: 480px;
-    margin-bottom: 5px;
   }
 
   #page-mod-quiz-mod #id_reviewoptionshdr .fitem.fitem_fgroup {
@@ -17672,10 +17726,6 @@ div#dock {
 
 .path-mod-wiki .wiki_contentbox {
   width: 100%;
-}
-
-.path-mod-quiz .questioncontainer input[type="text"] {
-  height: 1.5em;
 }
 
 .path-mod-survey .surveytable .r1 {
@@ -18179,6 +18229,33 @@ table.flexible > tbody > tr:nth-child(odd) > th,
   background-color: #e3f2ff;
 }
 
+#page-report-loglive-index .generaltable > thead > tr > th,
+#page-admin-report-log-index .generaltable > thead > tr > th,
+#page-report-log-user .generaltable > thead > tr > th,
+#page-admin-user table > thead > tr > th,
+#page-report-loglive-index .generaltable > tbody > tr > th,
+#page-admin-report-log-index .generaltable > tbody > tr > th,
+#page-report-log-user .generaltable > tbody > tr > th,
+#page-admin-user table > tbody > tr > th,
+#page-report-loglive-index .generaltable > tfoot > tr > th,
+#page-admin-report-log-index .generaltable > tfoot > tr > th,
+#page-report-log-user .generaltable > tfoot > tr > th,
+#page-admin-user table > tfoot > tr > th,
+#page-report-loglive-index .generaltable > thead > tr > td,
+#page-admin-report-log-index .generaltable > thead > tr > td,
+#page-report-log-user .generaltable > thead > tr > td,
+#page-admin-user table > thead > tr > td,
+#page-report-loglive-index .generaltable > tbody > tr > td,
+#page-admin-report-log-index .generaltable > tbody > tr > td,
+#page-report-log-user .generaltable > tbody > tr > td,
+#page-admin-user table > tbody > tr > td,
+#page-report-loglive-index .generaltable > tfoot > tr > td,
+#page-admin-report-log-index .generaltable > tfoot > tr > td,
+#page-report-log-user .generaltable > tfoot > tr > td,
+#page-admin-user table > tfoot > tr > td {
+  padding: 5px;
+}
+
 .user-enroller-panel .uep-search-results .users > tbody > tr:hover > td,
 table.grading-report > tbody > tr:hover > td,
 .forumheaderlist > tbody > tr:hover > td,
@@ -18192,39 +18269,6 @@ table.grading-report > tbody > tr:hover > th,
 table.flexible > tbody > tr:hover > th,
 table#permissions > tbody > tr:hover > th {
   background-color: #c9e6ff;
-}
-
-#page-report-loglive-index .generaltable > thead > tr > th,
-#page-admin-report-log-index .generaltable > thead > tr > th,
-#page-report-log-index .generaltable > thead > tr > th,
-#page-report-log-user .generaltable > thead > tr > th,
-#page-admin-user table > thead > tr > th,
-#page-report-loglive-index .generaltable > tbody > tr > th,
-#page-admin-report-log-index .generaltable > tbody > tr > th,
-#page-report-log-index .generaltable > tbody > tr > th,
-#page-report-log-user .generaltable > tbody > tr > th,
-#page-admin-user table > tbody > tr > th,
-#page-report-loglive-index .generaltable > tfoot > tr > th,
-#page-admin-report-log-index .generaltable > tfoot > tr > th,
-#page-report-log-index .generaltable > tfoot > tr > th,
-#page-report-log-user .generaltable > tfoot > tr > th,
-#page-admin-user table > tfoot > tr > th,
-#page-report-loglive-index .generaltable > thead > tr > td,
-#page-admin-report-log-index .generaltable > thead > tr > td,
-#page-report-log-index .generaltable > thead > tr > td,
-#page-report-log-user .generaltable > thead > tr > td,
-#page-admin-user table > thead > tr > td,
-#page-report-loglive-index .generaltable > tbody > tr > td,
-#page-admin-report-log-index .generaltable > tbody > tr > td,
-#page-report-log-index .generaltable > tbody > tr > td,
-#page-report-log-user .generaltable > tbody > tr > td,
-#page-admin-user table > tbody > tr > td,
-#page-report-loglive-index .generaltable > tfoot > tr > td,
-#page-admin-report-log-index .generaltable > tfoot > tr > td,
-#page-report-log-index .generaltable > tfoot > tr > td,
-#page-report-log-user .generaltable > tfoot > tr > td,
-#page-admin-user table > tfoot > tr > td {
-  padding: 5px;
 }
 
 table.flexible .emptyrow {
@@ -19853,7 +19897,7 @@ fieldset[disabled] #dock .dockedtitle.active {
 
 .dir-rtl.has_dock #page,
 .dir-rtl.has_dock .moodleheader {
-  padding-right: 0;
+  padding-right: 15px;
   padding-left: 41px;
 }
 
@@ -20571,6 +20615,141 @@ a:focus {
   .editing.used-region-side-post.used-region-side-pre #block-region-side-pre {
     float: right;
     width: 16.66666667%;
+  }
+}
+
+.has_dock.empty-region-side-pre #region-main,
+.has_dock.empty-region-side-post #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    float: right;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    float: right;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    float: right;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    right: 0%;
+  }
+}
+
+@media (min-width: 992px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    right: 0%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-pre #region-main,
+  .has_dock.empty-region-side-post #region-main {
+    right: 0%;
+  }
+}
+
+.has_dock.empty-region-side-pre.used-region-side-post #region-main,
+.has_dock.empty-region-side-post.used-region-side-pre #region-main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .has_dock.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.empty-region-side-post.used-region-side-pre #region-main {
+    float: right;
+    width: 66.66666667%;
+  }
+}
+
+@media (min-width: 992px) {
+  .has_dock.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.empty-region-side-post.used-region-side-pre #region-main {
+    float: right;
+    width: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.empty-region-side-post.used-region-side-pre #region-main {
+    float: right;
+    width: 83.33333333%;
+  }
+}
+
+.has_dock.empty-region-side-pre #block-region-side-pre {
+  display: none;
+}
+
+.has_dock.empty-region-side-post #block-region-side-post {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #region-main {
+    right: 33.33333333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #region-main {
+    right: 25%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #region-main,
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #region-main {
+    right: 16.66666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #block-region-side-pre,
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #block-region-side-post {
+    left: 66.66666667%;
+  }
+}
+
+@media (min-width: 992px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #block-region-side-pre,
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #block-region-side-post {
+    left: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .has_dock.dir-rtl.empty-region-side-post.used-region-side-pre #block-region-side-pre,
+  .has_dock.dir-rtl.empty-region-side-pre.used-region-side-post #block-region-side-post {
+    left: 83.33333333%;
   }
 }
 
@@ -23368,4 +23547,4 @@ body {
     background-color: @page-bottom-bg-dark;
 }*/
 
-/*# sourceMappingURL=/moodle27/theme/shoehorn/style/moodle.treasure.map */
+/*# sourceMappingURL=/theme/shoehorn/style/moodle.treasure.map */

@@ -114,7 +114,7 @@ $THEME->layouts = array(
     // The site home page.
     'frontpage' => array(
         'file' => 'frontpage.php',
-        'regions' => $sidepreregions,
+        'regions' => $allregions,
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar'=>true),
     ),

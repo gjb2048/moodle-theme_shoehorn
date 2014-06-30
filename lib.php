@@ -145,6 +145,22 @@ function shoehorn_grid($hassidepre, $hassidepost) {
         $regions['pre'] = 'empty';
         $regions['post'] = 'empty';
     }
+    
+    if ('rtl' === get_string('thisdirection', 'langconfig')) {
+        if ($hassidepre && $hassidepost) {
+            $regions = array('content' => 'col-sm-4 col-sm-push-8 col-md-6 col-md-push-6 col-lg-8 col-lg-push-4');
+            $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
+            $regions['post'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
+        } else if ($hassidepre && !$hassidepost) {
+            $regions = array('content' => 'col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 col-lg-10 col-lg-push-2');
+            $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
+            $regions['post'] = 'empty';
+        } else if (!$hassidepre && $hassidepost) {
+            $regions = array('content' => 'col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 col-lg-10 col-lg-push-2');
+            $regions['pre'] = 'empty';
+            $regions['post'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
+        }
+    }
     return $regions;
 }
 
