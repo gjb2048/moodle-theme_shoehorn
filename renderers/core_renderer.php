@@ -881,8 +881,13 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
         $controlshtml = $this->block_controls($bc->controls, $blockid);
 
-        $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
-            array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
+        if (!$this->block_has_class($bc, 'block_fake')) {
+            $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
+                array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
+        } else {
+            $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
+                array('class' => 'header panel-heading', 'data-parent' => '#block-region-'.$bc->attributes['regionid']));
+        }
         if ($controlshtml) {
             $output .= html_writer::tag('div', html_writer::tag('div', $controlshtml, array('class' => 'title')), array('class' => 'header controlshtml'));
         }
@@ -897,11 +902,16 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
      * @return string
      */
     protected function collapse_block_content(block_contents $bc) {
-        $class = 'content panel-collapse collapse';
-        if (($bc->attributes['editing']) || ($this->block_has_class($bc, 'block_adminblock'))) {
-            $class .= ' in';
+        $class = 'content panel-collapse';
+        if (!$this->block_has_class($bc, 'block_fake')) {
+            $class .= ' collapse';
+            if (($bc->attributes['editing']) || ($this->block_has_class($bc, 'block_adminblock'))) {
+                $class .= ' in';
+            }
+            $output = html_writer::start_tag('div', array('class' => $class, 'id' => 'collapse-'.$bc->blockinstanceid));
+        } else {
+            $output = html_writer::start_tag('div', array('class' => $class));
         }
-        $output = html_writer::start_tag('div', array('class' => $class, 'id' => 'collapse-'.$bc->blockinstanceid));
         /*if (!$bc->title && !$this->block_controls($bc->controls)) {
             $output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
         }*/

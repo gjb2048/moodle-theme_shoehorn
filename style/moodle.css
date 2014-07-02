@@ -17899,8 +17899,25 @@ ol {
 .que .info,
 .path-mod-quiz .qnbutton {
   background-color: #c9e6ff;
-  border: 1px solid #a5e4ff;
+  border: 1px solid #1f4d87;
   border-radius: 4px;
+}
+.que .info.thispage,
+.path-mod-quiz .qnbutton.thispage {
+  border-color: #1f4d87;
+}
+.que .info.thispage .thispageholder,
+.path-mod-quiz .qnbutton.thispage .thispageholder {
+  border-color: #1f4d87;
+}
+.que .info:hover,
+.path-mod-quiz .qnbutton:hover {
+  border-radius: 2px;
+  color: #2965b0;
+}
+.que .info.free:hover,
+.path-mod-quiz .qnbutton.free:hover {
+  text-decoration: none;
 }
 #page-mod-quiz-edit div.quizpage .pagecontent {
   border: 1px solid #c9e6ff;

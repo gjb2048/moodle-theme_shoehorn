@@ -593,8 +593,21 @@ ul, ol {
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
     background-color: @page-bottom-bg;
-    border: 1px solid @page-bottom-bg-dark-spin;
+    border: 1px solid @page-top-bg;
     border-radius: @border-radius-base;
+    &.thispage {
+        border-color: @page-top-bg;
+        .thispageholder {
+            border-color: @page-top-bg;
+        }
+    }
+    &:hover {
+        border-radius: (@border-radius-base / 2);
+        color: lighten(@text-color, 10%);
+    }
+	&.free:hover {
+        text-decoration: none;
+    }
 }
 
 #page-mod-quiz-edit div.quizpage .pagecontent {

@@ -90,7 +90,7 @@ $THEME->layouts = array(
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'default.php',
-        'regions' => $allregions,
+        'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
     ),
     // Main course page.

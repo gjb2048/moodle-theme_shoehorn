@@ -92,7 +92,7 @@ Todo
 
 Version information
 ===================
-30th June 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
+ 2nd July 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
   2.  Tweaks to question styling, specifically multiple choice.
   3.  Fixed frontpage and single page course slider with glyphicons.
@@ -102,6 +102,8 @@ Version information
   7.  Fixed issue with course tiles and front page blocks in editing mode.
   8.  Updated Gruntfile.js and package.json.
   9.  Fixed docking issues as reported on https://moodle.org/mod/forum/discuss.php?d=263080#p1139975.
+ 10.  Fixed fake block issue: https://github.com/gjb2048/moodle-theme_shoehorn/issues/1 and quiz number
+      navigation hovering / borders.
 
 17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Update development to Moodle 2.7.
