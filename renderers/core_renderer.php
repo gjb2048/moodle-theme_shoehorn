@@ -57,6 +57,9 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
      */
     public function navbar() {
         $items = $this->page->navbar->get_items();
+        if (empty($items)) { // MDL-46107
+            return '';
+        }
         if ($this->page->theme->settings->fontawesome) {
             if (right_to_left()) {
                 $dividericon = 'fa-angle-left';
@@ -89,8 +92,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
            are configured in the global theme settings page. */
         global $CFG;
 
-        if (!empty($CFG->custommenuitems)) {
-            $custommenuitems .= $CFG->custommenuitems;
+        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) { // MDL-45507
+            $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
         return $this->render_custom_menu($custommenu);
