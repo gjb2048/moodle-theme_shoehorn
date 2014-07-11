@@ -524,6 +524,11 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $loggedin = isloggedin();
         $sesskey = sesskey();
 
+        // Home.
+        $url = new moodle_url('/');
+        $url = preg_replace('|^https?://|i', '//', $url->out(false));
+        $items[] = html_writer::tag('a', get_string('home'), array('href' => $url, 'target' => '_self'));
+
         // Footer menu setting.
         if (!empty($this->page->theme->settings->footermenu)) {
             $lang = current_language();
@@ -556,11 +561,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         if (($this->syntaxhighlighterenabled) || 
             ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2) && ($this->page->pagetype == 'course-edit'))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
-                /*if ($loggedin) {
-                    $url->param('sesskey', $sesskey);
-                }*/
-                $url = preg_replace('|^https?://|i', '//', $url->out(false));
-                $items[] .= html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
+            $url = preg_replace('|^https?://|i', '//', $url->out(false));
+            $items[] = html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
         }
 
         // Site page setting.
@@ -574,13 +576,13 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $url = preg_replace('|^https?://|i', '//', $url->out(false));
                 $sitepagetitle = 'sitepagetitle'.$pageid;
-                $items[] .= html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
+                $items[] = html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
             }
         }
 
         // Copyright setting.
         if (!empty($this->page->theme->settings->copyright)) {
-            $items[] .= html_writer::tag('span', ' '.$this->page->theme->settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
+            $items[] = html_writer::tag('span', ' '.$this->page->theme->settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
         }
 
         if (count($items) > 0) {
@@ -884,12 +886,12 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         }
         $controlshtml = $this->block_controls($bc->controls, $blockid);
 
-		$headerattributes = array('class' => 'header panel-heading', 'data-parent' => '#block-region-'.$bc->attributes['regionid']);
+        $headerattributes = array('class' => 'header panel-heading', 'data-parent' => '#block-region-'.$bc->attributes['regionid']);
         if (!$this->block_has_class($bc, 'block_fake')) {
             //$output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
             //    array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
-			$headerattributes['data-toggle'] = 'collapse';
-			$headerattributes['href'] = '#collapse-'.$bc->blockinstanceid;
+            $headerattributes['data-toggle'] = 'collapse';
+            $headerattributes['href'] = '#collapse-'.$bc->blockinstanceid;
         }
         $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')), $headerattributes);
 
