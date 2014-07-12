@@ -7589,6 +7589,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 }
 .moodle-actionmenu[data-enhanced].show {
   position: relative;
+  display: inline-block !important;
 }
 .moodle-actionmenu[data-enhanced].show .menu {
   position: absolute;
@@ -7748,6 +7749,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
   top: 100% !important;
   right: 0;
+  left: inherit;
   margin-top: 4px;
 }
 .moodle-actionmenu[data-enhanced].show .menu.align-bl-br {
@@ -9513,7 +9515,6 @@ span.editinstructions {
 #course-category-listings .item-actions {
   margin-right: 1em;
   display: inline-block;
-  display: initial;
 }
 #course-category-listings .item-actions img {
   margin: 0 4px;
@@ -12368,6 +12369,9 @@ body.path-question-type .fitem_fgroup .accesshide {
 #page-mod-quiz-edit div.question div.content div.points label {
   display: inline-block;
 }
+#page-mod-quiz-edit .question .questioncontentcontainer .singlequestion label {
+  display: inherit;
+}
 #page-mod-quiz-edit div.quizpage .pagecontent .pagestatus {
   background-color: #ffffff;
 }
@@ -14376,7 +14380,7 @@ select {
 .path-mod-forum .forumheaderlist .discussion .lastpost {
   vertical-align: top;
 }
-.path-mod-feedback .feedback_bar_image {
+.path-mod-feedback .generalbox div table tbody img {
   height: 5px;
 }
 .forumpost {
@@ -18791,36 +18795,36 @@ body.coursetiles #region-main .resourcelinkdetails {
   top: -100px;
   text-align: right;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
   border-radius: 5px;
   border: 1px solid #c9e6ff;
   transition: all ease-out 0.25s;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
   background: #e3f2ff;
   font-weight: bold;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu {
   box-shadow: none;
   background: #c9e6ff;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
   right: 18px;
   top: -5px;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a {
   padding: 3px 10px;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:focus {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus {
   background: #c9e6ff;
   border-radius: 2px;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:hover {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover {
   background: #e3f2ff;
   font-weight: bold;
 }
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:hover,
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:focus {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover,
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus {
   color: #1f4d87;
 }
 body.coursetiles #region-main .section a.editing_title {

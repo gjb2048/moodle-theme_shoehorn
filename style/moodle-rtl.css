@@ -9316,6 +9316,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 
 .moodle-actionmenu[data-enhanced].show {
   position: relative;
+  display: inline-block !important;
 }
 
 .moodle-actionmenu[data-enhanced].show .menu {
@@ -9504,6 +9505,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .moodle-actionmenu[data-enhanced].show .menu.align-tr-br {
   top: 100% !important;
   left: 0;
+  right: inherit;
   margin-top: 4px;
 }
 
@@ -11652,7 +11654,6 @@ span.editinstructions {
 #course-category-listings .item-actions {
   margin-left: 1em;
   display: inline-block;
-  display: initial;
 }
 
 #course-category-listings .item-actions img {
@@ -15067,6 +15068,10 @@ body.path-question-type .fitem_fgroup .accesshide {
   display: inline-block;
 }
 
+#page-mod-quiz-edit .question .questioncontentcontainer .singlequestion label {
+  display: inherit;
+}
+
 #page-mod-quiz-edit div.quizpage .pagecontent .pagestatus {
   background-color: #ffffff;
 }
@@ -17467,7 +17472,7 @@ select {
   vertical-align: top;
 }
 
-.path-mod-feedback .feedback_bar_image {
+.path-mod-feedback .generalbox div table tbody img {
   height: 5px;
 }
 
@@ -22642,43 +22647,43 @@ body.coursetiles #region-main .resourcelinkdetails {
   text-align: left;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
   border-radius: 5px;
   border: 1px solid #c9e6ff;
   transition: all ease-out 0.25s;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover {
   background: #e3f2ff;
   font-weight: bold;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu {
   box-shadow: none;
   background: #c9e6ff;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
   left: 18px;
   top: -5px;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a {
   padding: 3px 10px;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:focus {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus {
   background: #c9e6ff;
   border-radius: 2px;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:hover {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover {
   background: #e3f2ff;
   font-weight: bold;
 }
 
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:hover,
-body.coursetiles.jsenabled #region-main .moodle-actionmenu[data-enhance].show .menu a:focus {
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover,
+body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus {
   color: #1f4d87;
 }
 
