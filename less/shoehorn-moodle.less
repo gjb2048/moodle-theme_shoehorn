@@ -101,13 +101,6 @@ img.iconhelp,
     margin-left: 0px;
 }
 
-.moodle-actionmenu[data-enhanced].show .menu > li > a {
-    &:hover, &:focus {
-        color: @page-top-bg;
-        font-weight: bold;
-    }
-}
-
 .moodle-dialogue-base .moodle-dialogue-wrap {
     border: 1px solid @page-bottom-bg-dark-spin;
     //border: 1px solid @page-bottom-bg-light;
@@ -130,6 +123,17 @@ img.iconhelp,
     }
 }
 
+.moodle-actionmenu[data-enhanced].show {
+    .menu {
+        position: relative;
+        > li > a {
+            &:hover, &:focus {
+                color: @page-top-bg;
+                font-weight: bold;
+            }
+        }
+    }
+}
 
 // course.less.
 .course-content {

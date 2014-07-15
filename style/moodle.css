@@ -14380,7 +14380,7 @@ select {
 .path-mod-forum .forumheaderlist .discussion .lastpost {
   vertical-align: top;
 }
-.path-mod-feedback .generalbox div table tbody img {
+.path-mod-feedback .feedback_bar_image {
   height: 5px;
 }
 .forumpost {
@@ -17251,11 +17251,6 @@ img.iconhelp,
 .helplink img {
   margin-left: 0px;
 }
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus {
-  color: #1f4d87;
-  font-weight: bold;
-}
 .moodle-dialogue-base .moodle-dialogue-wrap {
   border: 1px solid #a5e4ff;
   box-shadow: 5px 5px 20px 0 #1f4d87;
@@ -17276,6 +17271,14 @@ img.iconhelp,
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd input {
   border-radius: 4px;
   border-color: #e3f2ff;
+}
+.moodle-actionmenu[data-enhanced].show .menu {
+  position: relative;
+}
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus {
+  color: #1f4d87;
+  font-weight: bold;
 }
 .course-content .section-summary {
   border: 1px solid #1f4d87;
@@ -18109,6 +18112,7 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 .atto_control img {
   background-color: white;
 }
+/* shoehorn-mixins.less */
 /* shoehorn-custom.less */
 html {
   background-color: #267f00;
@@ -19357,8 +19361,10 @@ pre.sh {
   content: '';
 }
 #page-footer {
-  background-image: -webkit-linear-gradient(top, #269f00 0%, #267f00 100%);
-  background-image: linear-gradient(to bottom, #269f00 0%, #267f00 100%);
+  background-image: -webkit-linear-gradient(top, #269f00 0.5, #267f00 100%);
+  background-image: linear-gradient(to bottom, #269f00 0.5, #267f00 100%);
+  background-image: -webkit-linear-gradient(top, rgba(38, 159, 0, 0.5) 0%, rgba(38, 127, 0, 0.5) 100%);
+  background-image: linear-gradient(to bottom, rgba(38, 159, 0, 0.5) 0%, rgba(38, 127, 0, 0.5) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff269f00', endColorstr='#ff267f00', GradientType=0);
   color: #e3f2ff;

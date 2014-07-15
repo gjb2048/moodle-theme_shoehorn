@@ -26,6 +26,10 @@ a.logo {
     background: url([[pix:theme|shadow_footer]]) no-repeat scroll 50% 0% / 100% 12px transparent;
     padding-top: 12px;
     margin-top: 1em;
+    /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
 }
 
 body.pagelayout-login #region-main.loggedout {

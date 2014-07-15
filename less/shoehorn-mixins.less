@@ -1,0 +1,11 @@
+/* shoehorn-mixins.less */
+// Shoehorn custom mixins.
+
+#gradient {
+  .vertical(@start-color: #555; @end-color: #333; @opacity: 1; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-linear-gradient(top, rgba(red(@start-color), green(@start-color), blue(@start-color), @opacity) @start-percent, rgba(red(@end-color), green(@end-color), blue(@end-color), @opacity) @end-percent);  // Safari 5.1-6, Chrome 10+
+    background-image: linear-gradient(to bottom, rgba(red(@start-color), green(@start-color), blue(@start-color), @opacity) @start-percent, rgba(red(@end-color), green(@end-color), blue(@end-color), @opacity) @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+}
