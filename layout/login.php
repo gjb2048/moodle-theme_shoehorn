@@ -61,7 +61,7 @@ echo $OUTPUT->doctype() ?>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->fullname; ?></a>
     </div>
 
     <div id="moodle-navbar" class="navbar-collapse collapse">
@@ -75,10 +75,6 @@ echo $OUTPUT->doctype() ?>
 </nav>
 
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
-
-    <header id="page-header" class="clearfix">
-        <?php echo $OUTPUT->page_heading(); ?>
-    </header>
 
     <div id="page-content" class="row">
         <div id="region-main" class="col-md-12<?php if (!$loggedin) { echo ' loggedout';} ?>">

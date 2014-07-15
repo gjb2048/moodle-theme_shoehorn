@@ -5033,7 +5033,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #855fc8;
-  background-color: transparent;
+  background-color: #ffd974;
 }
 
 .navbar-default .navbar-text {
@@ -9338,6 +9338,7 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
+  background-color: rgba(255, 255, 255, 0.75);
   display: block;
   text-align: right;
   /** bottom left of button **/
@@ -9401,6 +9402,17 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 
 .moodle-actionmenu[data-enhanced].show .menu .glyphicon {
   margin-left: 5px;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover span:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus span:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover i:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus i:first-child {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 2px;
+  margin-right: -2px;
+  margin-left: 3px;
 }
 
 .moodle-actionmenu[data-enhanced].show .menu:hover .userpicture,
@@ -20418,6 +20430,10 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   background: rgba(255, 255, 255, 0.25);
 }
 
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 .dropdown-menu > li > a:hover span:first-child,
 .dropdown-menu > li > a:focus span:first-child,
 .dropdown-menu > li > a:hover i:first-child,
@@ -20430,7 +20446,7 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 }
 
 .navbar-inverse .dropdown-menu {
-  background-color: #222222;
+  background-color: rgba(34, 34, 34, 0.75);
 }
 
 .navbar-inverse .dropdown-menu li > a {
@@ -20516,6 +20532,39 @@ label {
   margin-left: 0px;
 }
 
+.label,
+.statusok,
+.statuswarning,
+.statusserious,
+.statuscritical,
+#plugins-control-panel .statusmsg {
+  text-align: right;
+}
+
+.navbar-default {
+  background-color: #ffd974;
+  background-color: rgba(255, 217, 116, 0.75);
+  border-color: #ffd053;
+  border-color: rgba(255, 208, 83, 0.75);
+}
+
+.navbar-default .navbar-brand {
+  color: #653cae;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #855fc8;
+  background-color: #ffd974;
+  background-color: rgba(255, 217, 116, 0.75);
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffd053;
+  border-color: rgba(255, 208, 83, 0.75);
+}
+
 .panel-title {
   color: #1f4d87;
 }
@@ -20542,15 +20591,6 @@ label {
 
 .panel-danger {
   background-color: #ebccd1;
-}
-
-.label,
-.statusok,
-.statuswarning,
-.statusserious,
-.statuscritical,
-#plugins-control-panel .statusmsg {
-  text-align: right;
 }
 
 a:hover,
@@ -21536,6 +21576,7 @@ table#user-grades tr.heading th.courseitem {
 .loginbox.onecolumn {
   float: none;
   background-color: rgba(201, 230, 255, 0.5);
+  margin-top: 60px;
 }
 
 .loginbox .loginform .form-input input[type="text"],
@@ -21843,7 +21884,7 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 /* shoehorn-custom.less */
 
 html {
-  background-color: #267f00;
+  background-color: rgba(38, 127, 0, 0.6);
 }
 
 body {

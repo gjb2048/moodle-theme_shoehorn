@@ -362,7 +362,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                     new moodle_url('/user/edit.php', array('id' => $USER->id)),
                     $editmyprofiletext
                 );
-            } else {
+            } elseif ($this->page->pagelayout != 'login') {
                 $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
             }
         }

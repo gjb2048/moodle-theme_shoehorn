@@ -139,21 +139,24 @@
 }
 
 // Technicially dropdowns.less.
-.dropdown-menu > li > a {
-  &:hover,
-  &:focus {
-    span:first-child, i:first-child {
-      background-color: rgba(red(@dropdown-link-active-color), green(@dropdown-link-active-color), blue(@dropdown-link-active-color), 0.5);
-      border-radius: @border-radius-base;
-      padding: 2px;
-      margin-left: -2px;
-      margin-right: 3px;
+.dropdown-menu {
+  background-color: rgba(red(@dropdown-bg), green(@dropdown-bg), blue(@dropdown-bg), 0.75);
+  > li > a {
+    &:hover,
+    &:focus {
+      span:first-child, i:first-child {
+        background-color: rgba(red(@dropdown-link-active-color), green(@dropdown-link-active-color), blue(@dropdown-link-active-color), 0.5);
+        border-radius: @border-radius-base;
+        padding: 2px;
+        margin-left: -2px;
+        margin-right: 3px;
+      }
     }
   }
 }
 
 .navbar-inverse .dropdown-menu {
-    background-color: @navbar-inverse-bg;
+    background-color: rgba(red(@navbar-inverse-bg), green(@navbar-inverse-bg), blue(@navbar-inverse-bg), 0.75);
     li > a {
         color: @navbar-inverse-color;
         &:hover,
@@ -242,6 +245,35 @@ label {
   margin-right: 0px;
 }
 
+// labels.less.
+.label {
+  text-align: left;
+}
+
+// navbar.less.
+.navbar-default {
+  //background-color: @navbar-default-bg;
+  #shoehorn > .background-opacity(@navbar-default-bg; 0.75);
+  //border-color: @navbar-default-border;
+  #shoehorn > .border-opacity(@navbar-default-border; 0.75);
+
+  .navbar-brand {
+    color: @navbar-default-brand-color;
+    &:hover,
+    &:focus {
+      color: @navbar-default-brand-hover-color;
+      //background-color: @navbar-default-brand-hover-bg;
+      #shoehorn > .background-opacity(@navbar-default-brand-hover-bg; 0.75);
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    //border-color: @navbar-default-border;
+    #shoehorn > .border-opacity(@navbar-default-border; 0.75);
+  }
+}
+
 // panels.less.
 .panel-title {
   color: @text-color;
@@ -265,11 +297,6 @@ label {
 }
 .panel-danger {
   background-color: @panel-danger-border;
-}
-
-// labels.less.
-.label {
-  text-align: left;
 }
 
 // scaffolding.less.
