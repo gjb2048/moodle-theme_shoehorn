@@ -54,31 +54,32 @@ echo $OUTPUT->doctype() ?>
 
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
-    <header id="page-header" class="clearfix">
-        <?php echo $OUTPUT->page_heading(); ?>
-    </header>
+    <div id="page-area" class="row">
+        <header class="moodleheader col-md-12">
+            <?php echo $OUTPUT->page_heading(); ?>
+        </header>
 
-    <div id="page-content" class="row">
-        <div id="region-main" class="<?php echo $regions['content']; ?>">
-            <section id="region-main-shoehorn">
-                <?php
-                echo $OUTPUT->course_content_header();
-                echo $OUTPUT->main_content();
-                echo $OUTPUT->course_content_footer();
-                ?>
-            </section>
-            <div id="region-main-shoehorn-shadow"></div>
-        </div>
+        <div id="page-content" class="row">
+            <div id="region-main" class="<?php echo $regions['content']; ?>">
+                <section id="region-main-shoehorn">
+                    <?php
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+                    ?>
+                </section>
+                <div id="region-main-shoehorn-shadow"></div>
+            </div>
 
-        <?php
-        if ($hassidepre) {
+            <?php
+            if ($hassidepre) {
             echo $OUTPUT->blocks('side-pre', $regions['pre']);
-        }?>
-        <?php
-        if ($hassidepost) {
-            echo $OUTPUT->blocks('side-post', $regions['post']);
-        }?>
-        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+            }
+            if ($hassidepost) {
+                echo $OUTPUT->blocks('side-post', $regions['post']);
+            }?>
+            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+        </div>
     </div>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
