@@ -93,6 +93,7 @@ echo $OUTPUT->doctype() ?>
                 echo $OUTPUT->course_content_footer();
                 ?>
             </section>
+            <div id="region-main-shoehorn-shadow"></div>
         </div>
 
         <?php

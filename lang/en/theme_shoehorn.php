@@ -145,7 +145,7 @@ $string['copyright_desc'] = 'Copyright statement, leave blank for none.';
 $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
-// Headings
+// General settings headings.
 $string['loginpage']= 'Login page';
 $string['loginpage_desc']= 'Login page settings.';
 
@@ -157,6 +157,29 @@ $string['published'] = 'Published';
 $string['loggedout'] = 'Logged out';
 $string['loggedin'] = 'Logged in';
 $string['always'] = 'Always';
+
+// Percentages:....
+$string['zeropercent'] =        '  0%';
+$string['fivepercent'] =        '  5%';
+$string['tenpercent'] =         ' 10%';
+$string['fifteenpercent'] =    ' 15%';
+$string['twentypercent'] =      ' 20%';
+$string['twentyfivepercent'] =  ' 25%';
+$string['thirtypercent'] =      ' 30%';
+$string['thirtyfivepercent'] =  ' 35%';
+$string['fortypercent'] =       ' 40%';
+$string['fortyfivepercent'] =   ' 45%';
+$string['fiftypercent'] =       ' 50%';
+$string['fifyfivepercent'] =    ' 55%';
+$string['sixtypercent'] =       ' 60%';
+$string['sixtyfivepercent'] =   ' 65%';
+$string['seventypercent'] =     ' 70%';
+$string['seventyfivepercent'] = ' 75%';
+$string['eightypercent'] =      ' 80%';
+$string['eightyfivepercent'] =  ' 85%';
+$string['ninetypercent'] =      ' 90%';
+$string['ninetyfivepercent'] =  ' 95%';
+$string['onehundredpercent'] =  '100%';
 
 // Display My Courses Menu:....
 $string['displaymycoursesmenu'] = 'Display my courses menu';
@@ -234,6 +257,23 @@ $string['loginbackgroundchangernumberofimages'] = 'Number of images';
 $string['loginbackgroundchangernumberofimages_desc'] = 'Number of images on the background image changer.';
 $string['loginbackgroundchangerimage'] = 'Image {$a->image}';
 $string['loginbackgroundchangerimage_desc'] = 'The image {$a->image}';
+
+// Look and feel settings.
+$string['landfheading'] = 'Look and feel settings';
+$string['landfheadingsub'] = 'Change various aspects with these look and feel settings';
+$string['landfheadingdesc'] = 'Change various aspects of the look and feel with these settings.';
+$string['landffontpage'] = 'Front page';
+$string['landffontpage_desc'] = 'Front page look and feel settings.';
+$string['landffrontpagebackgroundimage'] = 'Front page background image';
+$string['landffrontpagebackgroundimage_desc'] = 'Set the front page background image.';
+$string['landffrontpagecontenttransparency'] = 'Front page content transparency';
+$string['landffrontpagecontenttransparency_desc'] = 'Set the front page content transparency.';
+$string['landfallpages'] = 'All pages';
+$string['landfallpages_desc'] = 'All pages look and feel settings bar the front.';
+$string['landfallpagesbackgroundimage'] = 'All pages background image';
+$string['landfallpagesbackgroundimage_desc'] = 'Set all pages background image.';
+$string['landfallpagescontenttransparency'] = 'All pages content transparency';
+$string['landfallpagescontenttransparency_desc'] = 'Set all pages content transparency.';
 
 // Marketing spots.
 $string['numberofmarketingspots'] = 'Number of marketing spots';

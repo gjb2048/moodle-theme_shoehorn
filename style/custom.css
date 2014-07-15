@@ -1,7 +1,7 @@
 /* Shoehorn Custom CSS
 -------------------------*/
 a.logo {
-    background: url([[setting:logo]]) no-repeat 0 0;
+    background: url('[[setting:logo]]') no-repeat 0 0;
     display: block;
     float: left;
     height: 75px;
@@ -11,12 +11,12 @@ a.logo {
 }
 
 .dir-rtl a.logo {
-    background: url([[setting:logo]]) no-repeat 100% 0;
+    background: url('[[setting:logo]]') no-repeat 100% 0;
     display: block;
     float: right;
 }
 
-#region-main {
+#region-main-shoehorn-shadow {
     background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 96% 12px transparent;
     padding-bottom: 12px;
     margin: 0 auto;
@@ -48,6 +48,20 @@ body.has_dock_left_vertical.has_dock #page-footer {
 
 body.has_dock_right_vertical.has_dock #page-footer {
     margin-right: 0px;
+}
+
+/* Look and feel settings
+-------------------------*/
+body.pagelayout-frontpage #page-area {
+    [[setting:landffrontpagebackgroundimage]]
+}
+
+body.pagelayout-frontpage #region-main-shoehorn {
+    [[setting:landffrontpagecontenttransparency]]
+}
+
+body.pagelayout-frontpage #region-main-shoehorn-shadow {
+    [[setting:landffrontpagecontenttransparencymain]]
 }
 
 /* Custom CSS Settings

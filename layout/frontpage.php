@@ -71,11 +71,12 @@ echo $OUTPUT->doctype() ?>
 
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
-<header class="moodleheader">
-<?php echo $OUTPUT->page_heading(); ?>
-</header>
+    <div id="page-area" class="row">
+    <header class="moodleheader col-md-12">
+        <?php echo $OUTPUT->page_heading(); ?>
+    </header>
 
-    <header id="page-header" class="clearfix">
+    <header id="page-header" class="clearfix col-md-12">
         <div id="page-navbar" class="clearfix">
             <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
             <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
@@ -101,6 +102,7 @@ echo $OUTPUT->doctype() ?>
                 echo $OUTPUT->course_content_footer();
                 ?>
             </section>
+            <div id="region-main-shoehorn-shadow"></div>
         </div>
 
         <?php
@@ -111,9 +113,11 @@ echo $OUTPUT->doctype() ?>
         if ($knownregionpost) {
             echo $OUTPUT->blocks('side-post', $regions['post']);
         }?>
-    </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+
+    </div>
+    </div>
 
     <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 

@@ -33,6 +33,9 @@ function theme_shoehorn_process_css($css, $theme) {
     // Show login message if desired.
     $css = theme_shoehorn_set_loginmessage($css, $theme);
 
+    // Process look and feel.
+    $css = theme_shoehorn_set_landf($css, $theme);
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
@@ -45,7 +48,6 @@ function theme_shoehorn_process_css($css, $theme) {
 }
 
 function theme_shoehorn_set_logo($css, $logo) {
-    global $OUTPUT;
     $tag = '[[setting:logo]]';
     $replacement = $logo;
     if (is_null($replacement)) {
@@ -84,6 +86,43 @@ function theme_shoehorn_set_loginmessage($css, $theme) {
     }
 
     $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+function theme_shoehorn_set_landf($css, $theme) {
+
+    // Front page image.
+    $tag = '[[setting:landffrontpagebackgroundimage]]';
+    $landffrontpagebackgroundimage = $theme->setting_file_url('landffrontpagebackgroundimage', 'landffrontpagebackgroundimage');
+    if ($landffrontpagebackgroundimage) {
+        $replacement = 'background:  url(\''.$landffrontpagebackgroundimage.'\') repeat; margin-bottom: -26px;';
+    } else {
+        $replacement = '';
+    }
+    $css = str_replace($tag, $replacement, $css);
+
+    // Front page transparency.
+    $tag = '[[setting:landffrontpagecontenttransparency]]';
+    $tagmain = '[[setting:landffrontpagecontenttransparencymain]]';
+
+    $replacement = 'background-color: rgba(255, 255, 255, ';
+    /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
+    $replacementmain = 'zoom: 1; filter: alpha(opacity=';
+    if (!empty($theme->settings->landffrontpagecontenttransparency)) {
+        $replacement .= $theme->settings->landffrontpagecontenttransparency;
+        $replacementmain .= $theme->settings->landffrontpagecontenttransparency * 100;
+        $replacementmain .= '); opacity: ';
+        $replacementmain .= $theme->settings->landffrontpagecontenttransparency;
+    } else {
+        $replacementmain .= '100); opacity: 1.0';
+        $replacement = '1.0';
+    }
+    $replacement .= ');';
+    $replacementmain .= ';';
+
+    $css = str_replace($tag, $replacement, $css);
+    $css = str_replace($tagmain, $replacementmain, $css);
 
     return $css;
 }
@@ -325,6 +364,9 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
 
             // Note: Third parameter is normally 'default' which is the 'lifetime' of the file.  Here set lower for development purposes.
             send_file($thesyntaxhighlighterpath.$args[1], $args[1], 20 , 0, false, false, 'application/javascript');
+        } else if ($filearea === 'landffrontpagebackgroundimage') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve('landffrontpagebackgroundimage', $args, $forcedownload, $options);
         } else {
             send_file_not_found();
         }
@@ -359,4 +401,22 @@ function shoehorn_social_footer($settings) {
     }
 
     return $cols;
+}
+
+function shoehorn_hex2rgb($hex) {
+    // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
+    $hex = str_replace("#", "", $hex);
+
+    if(strlen($hex) == 3) {
+        $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+        $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+        $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+    } else {
+        $r = hexdec(substr($hex,0,2));
+        $g = hexdec(substr($hex,2,2));
+        $b = hexdec(substr($hex,4,2));
+    }
+    $rgb = array($r, $g, $b);
+    return implode(",", $rgb); // returns the rgb values separated by commas
+    //return $rgb; // returns an array with the rgb values
 }

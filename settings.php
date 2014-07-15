@@ -489,6 +489,98 @@ defined('MOODLE_INTERNAL') || die;
     }
     $ADMIN->add('theme_shoehorn', $loginpagesettings);
 
+    // Look and feel.
+    $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
+    //$landfsettings->add(new admin_setting_heading('theme_shoehorn_landf', get_string('landfheadingsub', 'theme_shoehorn'),
+    //        format_text(get_string('landfheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    // Front page.
+    $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_frontpage', get_string('landffontpage', 'theme_shoehorn'),
+            format_text(get_string('landffontpage_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    // Front page background image.
+    $name = 'theme_shoehorn/landffrontpagebackgroundimage';
+    $title = get_string('landffrontpagebackgroundimage', 'theme_shoehorn');
+    $description = get_string('landffrontpagebackgroundimage_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'landffrontpagebackgroundimage');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Front page content transparency.
+    $name = 'theme_shoehorn/landffrontpagecontenttransparency';
+    $title = get_string('landffrontpagecontenttransparency', 'theme_shoehorn');
+    $description = get_string('landffrontpagecontenttransparency_desc', 'theme_shoehorn');
+    $default = '1.0';
+    $choices = array(
+        '1.0' => get_string('onehundredpercent', 'theme_shoehorn'),
+        '0.95' => get_string('ninetyfivepercent', 'theme_shoehorn'),
+        '0.9' => get_string('ninetypercent', 'theme_shoehorn'),
+        '0.85' => get_string('eightyfivepercent', 'theme_shoehorn'),
+        '0.8' => get_string('eightypercent', 'theme_shoehorn'),
+        '0.75' => get_string('seventyfivepercent', 'theme_shoehorn'),
+        '0.7' => get_string('seventypercent', 'theme_shoehorn'),
+        '0.65' => get_string('sixtyfivepercent', 'theme_shoehorn'),
+        '0.6' => get_string('sixtypercent', 'theme_shoehorn'),
+        '0.55' => get_string('fifyfivepercent', 'theme_shoehorn'),
+        '0.5' => get_string('fiftypercent', 'theme_shoehorn'),
+        '0.45' => get_string('fortyfivepercent', 'theme_shoehorn'),
+        '0.4' => get_string('fortypercent', 'theme_shoehorn'),
+        '0.35' => get_string('thirtyfivepercent', 'theme_shoehorn'),
+        '0.3' => get_string('thirtypercent', 'theme_shoehorn'),
+        '0.25' => get_string('twentyfivepercent', 'theme_shoehorn'),
+        '0.2' => get_string('twentypercent', 'theme_shoehorn'),
+        '0.15' => get_string('fifteenpercent', 'theme_shoehorn'),
+        '0.1' => get_string('tenpercent', 'theme_shoehorn'),
+        '0.05' => get_string('fivepercent', 'theme_shoehorn'),
+        '0.0' => get_string('zeropercent', 'theme_shoehorn')
+    );
+    $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+    // All other pages.
+    $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_allpages', get_string('landfallpages', 'theme_shoehorn'),
+            format_text(get_string('landfallpages_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    // All other pages background image.
+    $name = 'theme_shoehorn/landfallpagesbackgroundimage';
+    $title = get_string('landfallpagesbackgroundimage', 'theme_shoehorn');
+    $description = get_string('landfallpagesbackgroundimage_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'landfallpagesbackgroundimage');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // All other pages content transparency.
+    $name = 'theme_shoehorn/landfallpagescontenttransparency';
+    $title = get_string('landfallpagescontenttransparency', 'theme_shoehorn');
+    $description = get_string('landfallpagescontenttransparency_desc', 'theme_shoehorn');
+    $default = '1.0';
+    $choices = array(
+        '1.0' => get_string('onehundredpercent', 'theme_shoehorn'),
+        '0.95' => get_string('ninetyfivepercent', 'theme_shoehorn'),
+        '0.9' => get_string('ninetypercent', 'theme_shoehorn'),
+        '0.85' => get_string('eightyfivepercent', 'theme_shoehorn'),
+        '0.8' => get_string('eightypercent', 'theme_shoehorn'),
+        '0.75' => get_string('seventyfivepercent', 'theme_shoehorn'),
+        '0.7' => get_string('seventypercent', 'theme_shoehorn'),
+        '0.65' => get_string('sixtyfivepercent', 'theme_shoehorn'),
+        '0.6' => get_string('sixtypercent', 'theme_shoehorn'),
+        '0.55' => get_string('fifyfivepercent', 'theme_shoehorn'),
+        '0.5' => get_string('fiftypercent', 'theme_shoehorn'),
+        '0.45' => get_string('fortyfivepercent', 'theme_shoehorn'),
+        '0.4' => get_string('fortypercent', 'theme_shoehorn'),
+        '0.35' => get_string('thirtyfivepercent', 'theme_shoehorn'),
+        '0.3' => get_string('thirtypercent', 'theme_shoehorn'),
+        '0.25' => get_string('twentyfivepercent', 'theme_shoehorn'),
+        '0.2' => get_string('twentypercent', 'theme_shoehorn'),
+        '0.15' => get_string('fifteenpercent', 'theme_shoehorn'),
+        '0.1' => get_string('tenpercent', 'theme_shoehorn'),
+        '0.05' => get_string('fivepercent', 'theme_shoehorn'),
+        '0.0' => get_string('zeropercent', 'theme_shoehorn')
+    );
+    $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+    $ADMIN->add('theme_shoehorn', $landfsettings);
+
+
     // Marketing spots....
     // Number of marketing spots.
     $name = 'theme_shoehorn/numberofmarketingspots';
