@@ -34,12 +34,14 @@ echo $OUTPUT->doctype()
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 <div id="page" class="container-fluid">
-    <div id="page-content" class="clearfix row">
-        <div id="region-main" class="col-md-12">
+    <div id="page-area" class="row">
+        <div id="page-content" class="clearfix row">
+            <div id="region-main" class="col-md-12">
             <section id="region-main-shoehorn">
-                <?php echo $OUTPUT->main_content(); ?>
-            </section>
-            <div id="region-main-shoehorn-shadow"></div>
+                    <?php echo $OUTPUT->main_content(); ?>
+                </section>
+                <div id="region-main-shoehorn-shadow"></div>
+            </div>
         </div>
     </div>
     <div id="footer-shadow" class="row"></div>

@@ -92,6 +92,11 @@ Todo
 
 Version information
 ===================
+15th July 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+  1.  Added look and feel settings to control background image and content transparency for the content area
+      for all pages and the front page as an individual separate.
+  2.  Various transparency changes to navbar, menu and footer.
+
 11th July 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
   2.  Tweaks to question styling, specifically multiple choice.

@@ -52,6 +52,18 @@ body.has_dock_right_vertical.has_dock #page-footer {
 
 /* Look and feel settings
 -------------------------*/
+body #page-area {
+    [[setting:landfallpagesbackgroundimage]]
+}
+
+body #region-main-shoehorn {
+    [[setting:landfallpagescontenttransparency]]
+}
+
+body #region-main-shoehorn-shadow {
+    [[setting:landfallpagescontenttransparencymain]]
+}
+
 body.pagelayout-frontpage #page-area {
     [[setting:landffrontpagebackgroundimage]]
 }

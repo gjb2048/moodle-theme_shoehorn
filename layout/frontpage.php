@@ -72,51 +72,50 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <div id="page-area" class="row">
-    <header class="moodleheader col-md-12">
-        <?php echo $OUTPUT->page_heading(); ?>
-    </header>
+        <header class="moodleheader col-md-12">
+            <?php echo $OUTPUT->page_heading(); ?>
+        </header>
 
-    <header id="page-header" class="clearfix col-md-12">
-        <div id="page-navbar" class="clearfix">
-            <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
-            <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
-        </div>
+        <header id="page-header" class="clearfix col-md-12">
+            <div id="page-navbar" class="clearfix">
+                <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
+                <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
+            </div>
 
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
-        </div>
-    </header>
+            <div id="course-header">
+                <?php echo $OUTPUT->course_header(); ?>
+            </div>
+        </header>
 
-    <div id="page-content" class="row">
-        <div id="region-main" class="<?php echo $regions['content']; ?>">
-            <?php
-            if ($showslider) {
-                require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
-            }
-            require_once(dirname(__FILE__).'/tiles/marketingspots.php');
-            ?>
-            <section id="region-main-shoehorn">
+        <div id="page-content" class="row">
+            <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <?php
-                echo $OUTPUT->course_content_header();
-                echo $OUTPUT->main_content();
-                echo $OUTPUT->course_content_footer();
+                if ($showslider) {
+                    require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
+                }
+                require_once(dirname(__FILE__).'/tiles/marketingspots.php');
                 ?>
-            </section>
-            <div id="region-main-shoehorn-shadow"></div>
+                <section id="region-main-shoehorn">
+                    <?php
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+                    ?>
+                </section>
+                <div id="region-main-shoehorn-shadow"></div>
+            </div>
+
+            <?php
+            if ($knownregionpre) {
+                echo $OUTPUT->blocks('side-pre', $regions['pre']);
+            }
+            if ($knownregionpost) {
+                echo $OUTPUT->blocks('side-post', $regions['post']);
+            }?>
+
+            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
         </div>
 
-        <?php
-        if ($knownregionpre) {
-            echo $OUTPUT->blocks('side-pre', $regions['pre']);
-        }?>
-        <?php
-        if ($knownregionpost) {
-            echo $OUTPUT->blocks('side-post', $regions['post']);
-        }?>
-
-        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
-
-    </div>
     </div>
 
     <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>

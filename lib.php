@@ -92,6 +92,38 @@ function theme_shoehorn_set_loginmessage($css, $theme) {
 
 function theme_shoehorn_set_landf($css, $theme) {
 
+    // All pages image.
+    $tag = '[[setting:landfallpagesbackgroundimage]]';
+    $landfallpagesbackgroundimage = $theme->setting_file_url('landfallpagesbackgroundimage', 'landfallpagesbackgroundimage');
+    if ($landfallpagesbackgroundimage) {
+        $replacement = 'background:  url(\''.$landfallpagesbackgroundimage.'\') repeat; margin-bottom: -26px;';
+    } else {
+        $replacement = '';
+    }
+    $css = str_replace($tag, $replacement, $css);
+
+    // All pages transparency.
+    $tag = '[[setting:landfallpagescontenttransparency]]';
+    $tagmain = '[[setting:landfallpagescontenttransparencymain]]';
+
+    $replacement = 'background-color: rgba(255, 255, 255, ';
+    /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
+    $replacementmain = 'zoom: 1; filter: alpha(opacity=';
+    if (!empty($theme->settings->landfallpagescontenttransparency)) {
+        $replacement .= $theme->settings->landfallpagescontenttransparency / 100;
+        $replacementmain .= $theme->settings->landfallpagescontenttransparency;
+        $replacementmain .= '); opacity: ';
+        $replacementmain .= $theme->settings->landfallpagescontenttransparency / 100;
+    } else {
+        $replacementmain .= '100); opacity: 1.0';
+        $replacement = '1.0';
+    }
+    $replacement .= ');';
+    $replacementmain .= ';';
+
+    $css = str_replace($tag, $replacement, $css);
+    $css = str_replace($tagmain, $replacementmain, $css);
+
     // Front page image.
     $tag = '[[setting:landffrontpagebackgroundimage]]';
     $landffrontpagebackgroundimage = $theme->setting_file_url('landffrontpagebackgroundimage', 'landffrontpagebackgroundimage');
@@ -110,10 +142,10 @@ function theme_shoehorn_set_landf($css, $theme) {
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     if (!empty($theme->settings->landffrontpagecontenttransparency)) {
-        $replacement .= $theme->settings->landffrontpagecontenttransparency;
-        $replacementmain .= $theme->settings->landffrontpagecontenttransparency * 100;
-        $replacementmain .= '); opacity: ';
+        $replacement .= $theme->settings->landffrontpagecontenttransparency / 100;
         $replacementmain .= $theme->settings->landffrontpagecontenttransparency;
+        $replacementmain .= '); opacity: ';
+        $replacementmain .= $theme->settings->landffrontpagecontenttransparency / 100;
     } else {
         $replacementmain .= '100); opacity: 1.0';
         $replacement = '1.0';
