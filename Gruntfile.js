@@ -164,6 +164,30 @@ module.exports = function(grunt) {
                 dest: 'style/editor.css'
             }
         },
+        cssmin: {
+            options: {
+                compatibility: 'ie8',
+                keepSpecialComments: '*',
+                noAdvanced: true
+            }, 
+            core: {
+                files: {
+                    'style/moodle_min.css': 'style/moodle.css',
+                    'style/editor_min.css': 'style/editor.css'
+                }
+            }
+        },
+        csscomb: {
+            options: {
+                config: '../bootstrap/less/bootstrap3/.csscomb.json'
+            },
+            dist: {
+                expand: true,
+                cwd: 'style/',
+                src: ['moodle.css', 'editor.css'],
+                dest: 'style/'
+            }
+        },
         exec: {
             decache: {
                 cmd: 'php -r "' + decachephp + '"',
@@ -274,11 +298,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-text-replace");
     grunt.loadNpmTasks("grunt-css-flip");
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-csscomb');
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", "decache"]);
+    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", 'csscomb', 'cssmin', "decache"]);
     grunt.registerTask("svg", ["copy:svg_core", "copy:svg_plugins", "replace:svg_colours_core", "replace:svg_colours_plugins"]);
 };
