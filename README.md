@@ -15,7 +15,7 @@ About
 Customisation
 =============
 If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme
-from scratch, then I offer competitive rates.  Please contact me via http://about.me/gjbarnard or gjbarnard at gmail dot com
+from scratch, then I offer competitive rates.  Please contact me via www.gjbarnard.co.uk/contact/ or gjbarnard at gmail dot com
 to discuss your requirements.
 
 Required version of Moodle
@@ -92,10 +92,12 @@ Todo
 
 Version information
 ===================
-15th July 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+18th July 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added look and feel settings to control background image and content transparency for the content area
       for all pages and the front page as an individual separate.
   2.  Various transparency changes to navbar, menu and footer.
+  3.  Fixed the slider minimum height at varying device widths as so to prevent transition jitter in the content area.
+  4.  Added IE detection with request to upgrade.
 
 11th July 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.

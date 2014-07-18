@@ -29,6 +29,10 @@ defined('MOODLE_INTERNAL') || die;
 
 // Settings
     $settings = null;
+
+    $readme = new moodle_url('/theme/shoehorn/Readme.md');
+    $readme = html_writer::link($readme, 'Readme.md', array('target' => '_blank'));
+
     $ADMIN->add('themes', new admin_category('theme_shoehorn', 'Shoehorn'));
 
     $generalsettings = new admin_settingpage('theme_shoehorn_general', get_string('generalsettings', 'theme_shoehorn'));
@@ -226,6 +230,9 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
+
+    $generalsettings->add(new admin_setting_heading('theme_shoehorn_generalreadme', get_string('readme_title', 'theme_shoehorn'),
+            get_string('readme_desc', 'theme_shoehorn', array('url' => $readme))));
 
     $ADMIN->add('theme_shoehorn', $generalsettings);
 
@@ -512,27 +519,27 @@ defined('MOODLE_INTERNAL') || die;
     $description = get_string('landffrontpagecontenttransparency_desc', 'theme_shoehorn');
     $default = 100;
     $choices = array(
-        100 => get_string('onehundredpercent', 'theme_shoehorn'),
-        95 => get_string('ninetyfivepercent', 'theme_shoehorn'),
-        90 => get_string('ninetypercent', 'theme_shoehorn'),
-        85 => get_string('eightyfivepercent', 'theme_shoehorn'),
-        80 => get_string('eightypercent', 'theme_shoehorn'),
-        75 => get_string('seventyfivepercent', 'theme_shoehorn'),
-        70 => get_string('seventypercent', 'theme_shoehorn'),
-        65 => get_string('sixtyfivepercent', 'theme_shoehorn'),
-        60 => get_string('sixtypercent', 'theme_shoehorn'),
-        55 => get_string('fifyfivepercent', 'theme_shoehorn'),
-        50 => get_string('fiftypercent', 'theme_shoehorn'),
-        45 => get_string('fortyfivepercent', 'theme_shoehorn'),
-        40 => get_string('fortypercent', 'theme_shoehorn'),
-        35 => get_string('thirtyfivepercent', 'theme_shoehorn'),
-        30 => get_string('thirtypercent', 'theme_shoehorn'),
-        25 => get_string('twentyfivepercent', 'theme_shoehorn'),
-        20 => get_string('twentypercent', 'theme_shoehorn'),
-        15 => get_string('fifteenpercent', 'theme_shoehorn'),
-        10 => get_string('tenpercent', 'theme_shoehorn'),
-        5 => get_string('fivepercent', 'theme_shoehorn'),
-        0 => get_string('zeropercent', 'theme_shoehorn')
+        100 => get_string('zeropercent', 'theme_shoehorn'),
+        95  => get_string('fivepercent', 'theme_shoehorn'),
+        90  => get_string('tenpercent', 'theme_shoehorn'),
+        85  => get_string('fifteenpercent', 'theme_shoehorn'),
+        80  => get_string('twentypercent', 'theme_shoehorn'),
+        75  => get_string('twentyfivepercent', 'theme_shoehorn'),
+        70  => get_string('thirtypercent', 'theme_shoehorn'),
+        65  => get_string('thirtyfivepercent', 'theme_shoehorn'),
+        60  => get_string('fortypercent', 'theme_shoehorn'),
+        55  => get_string('fortyfivepercent', 'theme_shoehorn'),
+        50  => get_string('fiftypercent', 'theme_shoehorn'),
+        45  => get_string('fifyfivepercent', 'theme_shoehorn'),
+        40  => get_string('sixtypercent', 'theme_shoehorn'),
+        35  => get_string('sixtyfivepercent', 'theme_shoehorn'),
+        30  => get_string('seventypercent', 'theme_shoehorn'),
+        25  => get_string('seventyfivepercent', 'theme_shoehorn'),
+        20  => get_string('eightypercent', 'theme_shoehorn'),
+        15  => get_string('eightyfivepercent', 'theme_shoehorn'),
+        10  => get_string('ninetypercent', 'theme_shoehorn'),
+        5   => get_string('ninetyfivepercent', 'theme_shoehorn'),
+        0   => get_string('onehundredpercent', 'theme_shoehorn')
     );
     $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
@@ -554,27 +561,27 @@ defined('MOODLE_INTERNAL') || die;
     $description = get_string('landfallpagescontenttransparency_desc', 'theme_shoehorn');
     $default = 100;
     $choices = array(
-        100 => get_string('onehundredpercent', 'theme_shoehorn'),
-        95 => get_string('ninetyfivepercent', 'theme_shoehorn'),
-        90 => get_string('ninetypercent', 'theme_shoehorn'),
-        85 => get_string('eightyfivepercent', 'theme_shoehorn'),
-        80 => get_string('eightypercent', 'theme_shoehorn'),
-        75 => get_string('seventyfivepercent', 'theme_shoehorn'),
-        70 => get_string('seventypercent', 'theme_shoehorn'),
-        65 => get_string('sixtyfivepercent', 'theme_shoehorn'),
-        60 => get_string('sixtypercent', 'theme_shoehorn'),
-        55 => get_string('fifyfivepercent', 'theme_shoehorn'),
-        50 => get_string('fiftypercent', 'theme_shoehorn'),
-        45 => get_string('fortyfivepercent', 'theme_shoehorn'),
-        40 => get_string('fortypercent', 'theme_shoehorn'),
-        35 => get_string('thirtyfivepercent', 'theme_shoehorn'),
-        30 => get_string('thirtypercent', 'theme_shoehorn'),
-        25 => get_string('twentyfivepercent', 'theme_shoehorn'),
-        20 => get_string('twentypercent', 'theme_shoehorn'),
-        15 => get_string('fifteenpercent', 'theme_shoehorn'),
-        10 => get_string('tenpercent', 'theme_shoehorn'),
-        5 => get_string('fivepercent', 'theme_shoehorn'),
-        0 => get_string('zeropercent', 'theme_shoehorn')
+        100 => get_string('zeropercent', 'theme_shoehorn'),
+        95  => get_string('fivepercent', 'theme_shoehorn'),
+        90  => get_string('tenpercent', 'theme_shoehorn'),
+        85  => get_string('fifteenpercent', 'theme_shoehorn'),
+        80  => get_string('twentypercent', 'theme_shoehorn'),
+        75  => get_string('twentyfivepercent', 'theme_shoehorn'),
+        70  => get_string('thirtypercent', 'theme_shoehorn'),
+        65  => get_string('thirtyfivepercent', 'theme_shoehorn'),
+        60  => get_string('fortypercent', 'theme_shoehorn'),
+        55  => get_string('fortyfivepercent', 'theme_shoehorn'),
+        50  => get_string('fiftypercent', 'theme_shoehorn'),
+        45  => get_string('fifyfivepercent', 'theme_shoehorn'),
+        40  => get_string('sixtypercent', 'theme_shoehorn'),
+        35  => get_string('sixtyfivepercent', 'theme_shoehorn'),
+        30  => get_string('seventypercent', 'theme_shoehorn'),
+        25  => get_string('seventyfivepercent', 'theme_shoehorn'),
+        20  => get_string('eightypercent', 'theme_shoehorn'),
+        15  => get_string('eightyfivepercent', 'theme_shoehorn'),
+        10  => get_string('ninetypercent', 'theme_shoehorn'),
+        5   => get_string('ninetyfivepercent', 'theme_shoehorn'),
+        0   => get_string('onehundredpercent', 'theme_shoehorn')
     );
     $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 

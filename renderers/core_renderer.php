@@ -48,6 +48,14 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         } else {
             $o .= parent::page_heading($tag);
         }
+
+        $ieprop = core_useragent::check_ie_properties();
+        if (is_array($ieprop)) {
+            if ($ieprop['version'] < 10) {
+               $o .= html_writer::tag('h2', get_string('iewarning', 'theme_shoehorn', array('ieversion' => $ieprop['version'])));
+            }
+        }
+
         return $o;
     }
 
@@ -741,7 +749,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $classes[] = 'collapse-blocks';
         $regionid = preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $displayregion);
         $attributes = array(
-            'id' => 'block-region-'.$regionid,
+            'id' => 'block-region-'.$regionid.' collapse-block',
             'class' => join(' ', $classes),
             'data-blockregion' => $displayregion,
             'data-droptarget' => '1'

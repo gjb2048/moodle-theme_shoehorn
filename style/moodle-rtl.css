@@ -20867,30 +20867,46 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 }
 
 @media (min-width: 480px) {
+  .carousel-inner {
+    min-height: 200px;
+  }
+
   .carousel-inner > .item > img {
     max-width: 400px;
-    max-height: 300px;
+    max-height: 200px;
   }
 }
 
 @media (min-width: 768px) {
+  .carousel-inner {
+    min-height: 280px;
+  }
+
   .carousel-inner > .item > img {
     max-width: 506px;
-    max-height: 380px;
+    max-height: 280px;
   }
 }
 
 @media (min-width: 992px) {
+  .carousel-inner {
+    min-height: 400px;
+  }
+
   .carousel-inner > .item > img {
     max-width: 744px;
-    max-height: 558px;
+    max-height: 400px;
   }
 }
 
 @media (min-width: 1200px) {
+  .carousel-inner {
+    min-height: 500px;
+  }
+
   .carousel-inner > .item > img {
     max-width: 980px;
-    max-height: 720px;
+    max-height: 500px;
   }
 }
 

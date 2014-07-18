@@ -53,7 +53,9 @@ echo $OUTPUT->box_start();
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'), 'class' => 'col-sm-4 col-md-3 col-lg-2'));
 echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-10 lead'));
-echo html_writer::tag('p', 'Shoehorn is a Bootstrap v3 based theme that has many innovative features:');
+$readme = new moodle_url('/theme/shoehorn/Readme.md');
+$readme = html_writer::link($readme, 'Shoehorn', array('target' => '_blank'));
+echo html_writer::tag('p', '\''.$readme.'\' is a Bootstrap v3 based theme that has many innovative features:');
 echo html_writer::start_tag('ul');
 echo html_writer::tag('li', 'Bespoke copyright statement.');
 echo html_writer::tag('li', 'Bespoke login page message.');
@@ -79,7 +81,13 @@ echo html_writer::tag('p', 'Gareth J Barnard - '.
                         ' - '.
                         html_writer::tag('a', 'Moodle Profile', (array('href' => '//moodle.org/user/profile.php?id=442195', 'target' => '_blank'))).
                         ' - '.
-                        html_writer::tag('a', 'LinkedIn', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank')))
+                        html_writer::tag('a', 'Google+', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
+                        ' - '.
+                        html_writer::tag('a', 'LinkedIn', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
+                        ' - '.
+                        html_writer::tag('a', 'Twitter', (array('href' => '//twitter.com/gjbarnard', 'target' => '_blank'))).
+                        ' - '.
+                        html_writer::tag('a', 'Website', (array('href' => '//www.gjbarnard.co.uk/', 'target' => '_blank')))
                         );
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');

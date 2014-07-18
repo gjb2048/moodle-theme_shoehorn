@@ -344,3 +344,11 @@ $string['syntaxhelpfour'] = 'Brush alias';
 $string['syntaxhelpfive'] = 'For example:';
 $string['syntaxhelpsix'] = 'becomes:';
 $string['syntaxhelpseven'] = 'More information on';
+
+
+// Readme.
+$string['readme_title'] = 'Shoehorn read-me';
+$string['readme_desc'] = 'Please click on \'{$a->url}\' for lots more information about Shoehorn.';
+
+// IE.
+$string['iewarning'] = 'Shoehorn requires Internet Explorer 10+, you are using IE{$a->ieversion}, please upgrade.';
