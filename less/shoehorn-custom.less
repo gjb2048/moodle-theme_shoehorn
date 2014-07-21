@@ -34,7 +34,7 @@ table {
 body.loginpageimages {
     background-color: transparent;
 
-    .loginbox.onecolumn {
+    .loginbox {
         a:hover, a:focus {
             font-weight: bold;
         }
@@ -53,6 +53,11 @@ body.loginpageimages {
                 background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
             }
         }
+    }
+    #page-footer #footermenu {
+        // Separate to override above.
+        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
+        border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
     }
 }
 
@@ -975,6 +980,8 @@ pre.sh {
 #page-info {
     margin-top: 1em;
     text-align: center;
+    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
+    border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
 
     .validators ul li {
         display: inline;
@@ -1019,6 +1026,13 @@ pre.sh {
         }
     }
 }
+
+// Social networks.
+ul.socialnetworks {
+    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
+    border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+}
+
 
 // Footer menu.
 #footermenu .divider {

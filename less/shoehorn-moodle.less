@@ -506,28 +506,60 @@ table#user-grades {
 }
 
 // login.less
-.loginbox.onecolumn {
-    .make-sm-column(8);
-    .make-sm-column-push(2);
-    .make-md-column(6);
-    .make-md-column-push(3);
-    .make-lg-column(4);
-    .make-lg-column-push(4);
+.loginbox {
+    &.onecolumn  {
+        .make-sm-column(8);
+        .make-sm-column-push(2);
+        .make-md-column(6);
+        .make-md-column-push(3);
+        .make-lg-column(4);
+        .make-lg-column-push(4);
+    }
+
+    &.twocolumns {
+        .make-sm-column(10);
+        .make-sm-column-push(1);
+        .make-md-column(8);
+        .make-md-column-push(2);
+        .make-lg-column(6);
+        .make-lg-column-push(3);
+    }
+
+    &.twocolumns .loginpanel {
+        .make-sm-column(6);
+        .make-md-column(5);
+        .make-lg-column(4);
+        border: none;
+        background-color: transparent;
+    }
+
+    &.twocolumns .signuppanel {
+        .make-sm-column(6);
+        .make-md-column(7);
+        .make-lg-column(8);
+        left: 0;
+        padding: 19px;
+    }
 }
 
-.loginbox.onecolumn {
-    // Separate to override above.
-    float: none;
-    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
-    margin-top: 60px;
+.loginbox {
+    &.onecolumn, &.twocolumns {
+        // Separate to override above.
+        float: none;
+        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
+        border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+        margin-top: 60px;
+    }
 }
 
 .loginbox .loginform .form-input input[type="text"], .loginbox .loginform .form-input input[type="password"] {
     max-width: 100%;
 }
 
-.loginbox .subcontent {
-    text-align: center;  // See: https://github.com/bmbrands/theme_bootstrap/pull/289.
+.loginbox {
+    .loginsub, .guestsub {
+        text-align: center;
+    }
 }
 
 // message.less.
