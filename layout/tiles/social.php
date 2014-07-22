@@ -26,6 +26,7 @@
 
 $numberofsociallinks = (empty($PAGE->theme->settings->numberofsociallinks)) ? false : $PAGE->theme->settings->numberofsociallinks;
 $fontawesome = (empty($PAGE->theme->settings->fontawesome)) ? false : $PAGE->theme->settings->fontawesome;
+$haveicons = false; // Define here for footer.php scope.
 
 // If there are social links then they are displayed.
 if ($numberofsociallinks) {
@@ -35,7 +36,6 @@ if ($numberofsociallinks) {
         'pinterest-square' => 'Pinterest', 'skype' => 'Skype', 'tumblr-square' => 'Tumblr', 'twitter-square' => 'Twitter',
         'users' => 'Unlisted', 'vimeo-square' => 'Vimeo', 'vk' => 'Vk', 'globe' => 'Website', 'youtube-square' => 'YouTube'
     );
-    $haveicons = false;
     for ($i = 1; $i <= $numberofsociallinks; $i++) {
         $name = 'social'.$i;
         if (!empty($PAGE->theme->settings->$name)) {
