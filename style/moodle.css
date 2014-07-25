@@ -19014,6 +19014,20 @@ header {
 .moodleheader .logoheading {
   display: inline-block;
 }
+body.allpagesbackgroundimage .moodleheader .heading,
+body.frontpagebackgroundimage .moodleheader .heading,
+body.allpagesbackgroundimage .moodleheader .logoheading,
+body.frontpagebackgroundimage .moodleheader .logoheading {
+  padding: 4px;
+  color: #1f4d87;
+  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, .5);
+  border-color: #e3e3e3;
+  border-color: rgba(227, 227, 227, .7);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
 .logoheading {
   display: inline-block;
 }

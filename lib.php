@@ -195,6 +195,15 @@ function theme_shoehorn_html_for_settings($PAGE) {
         $html->additionalbodyclasses[] = 'socialsignpost';
     }
 
+    if ($PAGE->pagelayout == 'frontpage') {
+        if (!empty($settings->landffrontpagebackgroundimage)) {
+            $html->additionalbodyclasses[] = 'frontpagebackgroundimage';
+        }
+    } else {
+        if (!empty($settings->landfallpagesbackgroundimage)) {
+            $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
+        }
+    }
     return $html;
 }
 
