@@ -86,7 +86,7 @@
  *                           loader to pick up the Glyphicon font.
  *
  * grunt svg                 Change the colour of the SVGs in pix_core by
- *                           text replacing #1F4D87 with a new hex color.
+ *                           text replacing #1F4D87 with a new hex colour.
  *                           Note this requires the SVGs to be #1F4D87 to
  *                           start with or the replace will do nothing
  *                           so should usually be preceded by copying
@@ -94,7 +94,7 @@
  *
  *                           Options:
  *
- *                           --svgcolor=<hexcolor> Hex color to use for SVGs
+ *                           --svgcolour=<hexcolour> Hex colour to use for SVGs
  *
  * grunt cssflip    Create moodle-rtl.css by flipping the direction styles
  *                  in moodle.css.
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
     decachephp += 'require(\'' + configfile  + '\');';
     decachephp += 'theme_reset_all_caches();';
 
-    var svgcolor = grunt.option('svgcolor') || '#1F4D87';
+    var svgcolour = grunt.option('svgcolour') || '#1F4D87';
 
     grunt.initConfig({
         less: {
@@ -228,6 +228,36 @@ module.exports = function(grunt) {
                  dest: 'pix_plugins/',
             }
         },
+        svgmin: {                       // Task
+            options: {                  // Configuration that will be passed directly to SVGO
+                plugins: [{
+                    removeViewBox: false
+                }, {
+                    removeUselessStrokeAndFill: false
+                }, {
+                    convertPathData: { 
+                        straightCurves: false // advanced SVGO plugin option
+                   }
+                }]
+            },
+            dist: {                     // Target
+                files: [{               // Dictionary of files
+                    expand: true,       // Enable dynamic expansion.
+                    cwd: 'pix_core',     // Src matches are relative to this path.
+                    src: ['**/*.svg'],  // Actual pattern(s) to match.
+                    dest: 'pix_core/',       // Destination path prefix.
+                    ext: '.svg'     // Dest filepaths will have this extension.
+                    // ie: optimise img/src/branding/logo.svg and store it in img/branding/logo.min.svg
+                }, {               // Dictionary of files
+                    expand: true,       // Enable dynamic expansion.
+                    cwd: 'pix_plugins',     // Src matches are relative to this path.
+                    src: ['**/*.svg'],  // Actual pattern(s) to match.
+                    dest: 'pix_plugins/',       // Destination path prefix.
+                    ext: '.svg'     // Dest filepaths will have this extension.
+                    // ie: optimise img/src/branding/logo.svg and store it in img/branding/logo.min.svg
+                }]
+            }
+        },
         replace: {
             rtl_images: {
                 src: 'style/moodle-rtl.css',
@@ -260,7 +290,7 @@ module.exports = function(grunt) {
                     overwrite: true,
                     replacements: [{
                         from: '#1F4D87',
-                        to: svgcolor
+                        to: svgcolour
                     }]
             },
             svg_colours_plugins: {
@@ -268,7 +298,7 @@ module.exports = function(grunt) {
                     overwrite: true,
                     replacements: [{
                         from: '#1F4D87',
-                        to: svgcolor
+                        to: svgcolour
                     }]
             },
             font_fix: {
@@ -300,11 +330,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-csscomb');
+    grunt.loadNpmTasks('grunt-svgmin');
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
     grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", 'csscomb', 'cssmin', "decache"]);
-    grunt.registerTask("svg", ["copy:svg_core", "copy:svg_plugins", "replace:svg_colours_core", "replace:svg_colours_plugins"]);
+    grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
+    grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
+    grunt.registerTask("svg", ["copy:svg", "svgmin", "replace:svg_colours"]);
 };

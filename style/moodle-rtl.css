@@ -22586,6 +22586,8 @@ body.dir-rtl div.editor_atto_toolbar button + button {
   border-left: 1px solid #c9e6ff;
 }
 
+/* Misc. */
+
 .atto_control img {
   background-color: white;
 }
@@ -22888,6 +22890,11 @@ body.editing .collapse-blocks .block {
 
 header {
   color: #eeeeee;
+}
+
+.moodleheader .heading,
+.moodleheader .logoheading {
+  display: inline-block;
 }
 
 .logoheading {
@@ -24077,8 +24084,12 @@ pre.sh {
 #page-info {
   margin-top: 1em;
   text-align: center;
+  background-color: #c9e6ff;
   background-color: rgba(201, 230, 255, 0.5);
-  border: 1px solid rgba(201, 230, 255, 0.7);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c9e6ff;
+  border-color: rgba(201, 230, 255, 0.7);
 }
 
 #page-info .validators ul li {
@@ -24113,6 +24124,7 @@ pre.sh {
 #page-footer a:active,
 #page-footer a:focus {
   color: #edf7ff;
+  background-color: #42ff06;
   background-color: rgba(66, 255, 6, 0.25);
 }
 
@@ -24137,8 +24149,12 @@ pre.sh {
 }
 
 ul.socialnetworks {
+  background-color: #c9e6ff;
   background-color: rgba(201, 230, 255, 0.5);
-  border: 1px solid rgba(201, 230, 255, 0.7);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c9e6ff;
+  border-color: rgba(201, 230, 255, 0.7);
 }
 
 #footermenu .divider {
