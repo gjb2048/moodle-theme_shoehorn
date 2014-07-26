@@ -228,36 +228,6 @@ module.exports = function(grunt) {
                  dest: 'pix_plugins/',
             }
         },
-        svgmin: {                       // Task
-            options: {                  // Configuration that will be passed directly to SVGO
-                plugins: [{
-                    removeViewBox: false
-                }, {
-                    removeUselessStrokeAndFill: false
-                }, {
-                    convertPathData: { 
-                        straightCurves: false // advanced SVGO plugin option
-                   }
-                }]
-            },
-            dist: {                     // Target
-                files: [{               // Dictionary of files
-                    expand: true,       // Enable dynamic expansion.
-                    cwd: 'pix_core',     // Src matches are relative to this path.
-                    src: ['**/*.svg'],  // Actual pattern(s) to match.
-                    dest: 'pix_core/',       // Destination path prefix.
-                    ext: '.svg'     // Dest filepaths will have this extension.
-                    // ie: optimise img/src/branding/logo.svg and store it in img/branding/logo.min.svg
-                }, {               // Dictionary of files
-                    expand: true,       // Enable dynamic expansion.
-                    cwd: 'pix_plugins',     // Src matches are relative to this path.
-                    src: ['**/*.svg'],  // Actual pattern(s) to match.
-                    dest: 'pix_plugins/',       // Destination path prefix.
-                    ext: '.svg'     // Dest filepaths will have this extension.
-                    // ie: optimise img/src/branding/logo.svg and store it in img/branding/logo.min.svg
-                }]
-            }
-        },
         replace: {
             rtl_images: {
                 src: 'style/moodle-rtl.css',
@@ -317,6 +287,34 @@ module.exports = function(grunt) {
                         from: 'glyphicons-halflings-regular.woff',
                         to:   'glyphicons-halflings-regular.woff]]',
                     }]
+            }
+        },
+        svgmin: {                       // Task
+            options: {                  // Configuration that will be passed directly to SVGO
+                plugins: [{
+                    removeViewBox: false
+                }, {
+                    removeUselessStrokeAndFill: false
+                }, {
+                    convertPathData: { 
+                        straightCurves: false // advanced SVGO plugin option
+                   }
+                }]
+            },
+            dist: {                     // Target
+                files: [{               // Dictionary of files
+                    expand: true,       // Enable dynamic expansion.
+                    cwd: 'pix_core',     // Src matches are relative to this path.
+                    src: ['**/*.svg'],  // Actual pattern(s) to match.
+                    dest: 'pix_core/',       // Destination path prefix.
+                    ext: '.svg'     // Dest filepaths will have this extension.
+                }, {               // Dictionary of files
+                    expand: true,       // Enable dynamic expansion.
+                    cwd: 'pix_plugins',     // Src matches are relative to this path.
+                    src: ['**/*.svg'],  // Actual pattern(s) to match.
+                    dest: 'pix_plugins/',       // Destination path prefix.
+                    ext: '.svg'     // Dest filepaths will have this extension.
+                }]
             }
         }
     });
