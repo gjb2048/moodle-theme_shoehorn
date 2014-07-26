@@ -18755,6 +18755,7 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 body.dir-rtl div.editor_atto_toolbar button + button {
   border-right: 1px solid #c9e6ff;
 }
+/* Misc. */
 .atto_control img {
   background-color: white;
 }
@@ -19008,6 +19009,24 @@ body.editing .collapse-blocks .block {
 }
 header {
   color: #eee;
+}
+.moodleheader .heading,
+.moodleheader .logoheading {
+  display: inline-block;
+}
+body.allpagesbackgroundimage .moodleheader .heading,
+body.frontpagebackgroundimage .moodleheader .heading,
+body.allpagesbackgroundimage .moodleheader .logoheading,
+body.frontpagebackgroundimage .moodleheader .logoheading {
+  padding: 4px;
+  color: #1f4d87;
+  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, .5);
+  border-color: #e3e3e3;
+  border-color: rgba(227, 227, 227, .7);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
 }
 .logoheading {
   display: inline-block;
@@ -20020,8 +20039,12 @@ pre.sh {
 #page-info {
   margin-top: 1em;
   text-align: center;
+  background-color: #c9e6ff;
   background-color: rgba(201, 230, 255, .5);
-  border: 1px solid rgba(201, 230, 255, .7);
+  border-color: #c9e6ff;
+  border-color: rgba(201, 230, 255, .7);
+  border-style: solid;
+  border-width: 1px;
 }
 #page-info .validators ul li {
   display: inline;
@@ -20050,6 +20073,7 @@ pre.sh {
 #page-footer a:active,
 #page-footer a:focus {
   color: #edf7ff;
+  background-color: #42ff06;
   background-color: rgba(66, 255, 6, .25);
 }
 #page-footer .block {
@@ -20069,8 +20093,12 @@ pre.sh {
   color: #2760a8;
 }
 ul.socialnetworks {
+  background-color: #c9e6ff;
   background-color: rgba(201, 230, 255, .5);
-  border: 1px solid rgba(201, 230, 255, .7);
+  border-color: #c9e6ff;
+  border-color: rgba(201, 230, 255, .7);
+  border-style: solid;
+  border-width: 1px;
 }
 #footermenu .divider {
   padding-right: 3px;

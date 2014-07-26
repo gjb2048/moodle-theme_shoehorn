@@ -195,6 +195,15 @@ function theme_shoehorn_html_for_settings($PAGE) {
         $html->additionalbodyclasses[] = 'socialsignpost';
     }
 
+    if ($PAGE->pagelayout == 'frontpage') {
+        if (!empty($settings->landffrontpagebackgroundimage)) {
+            $html->additionalbodyclasses[] = 'frontpagebackgroundimage';
+        }
+    } else {
+        if (!empty($settings->landfallpagesbackgroundimage)) {
+            $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
+        }
+    }
     return $html;
 }
 
@@ -399,6 +408,9 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
         } else if ($filearea === 'landffrontpagebackgroundimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('landffrontpagebackgroundimage', $args, $forcedownload, $options);
+        } else if ($filearea === 'landfallpagesbackgroundimage') {
+            $theme = theme_config::load('shoehorn');
+            return $theme->setting_file_serve('landfallpagesbackgroundimage', $args, $forcedownload, $options);
         } else {
             send_file_not_found();
         }

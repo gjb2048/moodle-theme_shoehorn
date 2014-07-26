@@ -46,7 +46,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             $o .= html_writer::empty_tag('img', array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'), 'class' => 'logo'));
             $o .= html_writer::tag($tag, $this->page->heading, array('class' => 'logoheading'));
         } else {
-            $o .= parent::page_heading($tag);
+            $o .= html_writer::tag($tag, $this->page->heading, array('class' => 'heading'));
         }
 
         $ieprop = core_useragent::check_ie_properties();
