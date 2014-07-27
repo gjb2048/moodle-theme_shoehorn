@@ -18606,6 +18606,12 @@ ol {
   border: 1px solid #c9e6ff;
   border-radius: 4px;
 }
+#page-mod-quiz-edit div.question div.content div.points {
+  top: 0;
+  display: inline-table;
+  padding-bottom: 0;
+  margin-top: 0;
+}
 .carousel-caption,
 .carousel-indicators {
   bottom: 0;
@@ -18769,6 +18775,13 @@ body {
 }
 body.pagelayout-redirect {
   color: #fff;
+}
+body.compactnavbar .navbar {
+  display: inline-block;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 0;
 }
 .glyphicon-2x {
   font-size: 1.8em;

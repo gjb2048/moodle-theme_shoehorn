@@ -92,8 +92,10 @@ $string['docking_desc'] = 'Enable this option to use docking.';
 $string['accordion'] = 'Use accordion block side regions';
 $string['accordion_desc'] = 'Enable this option to use accordion functionality for the side regions.  Note: Disables docking.';
 
+$string['compactnavbar'] = 'Compact navbar';
+$string['compactnavbar_desc'] = 'Compact navigation bar';
 $string['inversenavbar'] = 'Inverse navbar';
-$string['inversenavbar_desc'] = 'Swaps text and background for the navbar at the top of the page.';
+$string['inversenavbar_desc'] = 'Swaps text and background for the navigation bar at the top of the page.';
 
 $string['showloginmessage'] = 'Display login message';
 $string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";
@@ -114,6 +116,9 @@ If the height of your logo is more than 75px add the following CSS rule to the C
 a.logo {height: 100px;} or whatever height in pixels the logo is.';
 
 $string['langpack_urlname'] = 'Language packs';
+
+// Navbar.
+$string['togglenavigation'] = 'Toggle navigation';
 
 // Page bottom region.
 $string['numpagebottomblocks'] = 'Maximum number of blocks per row in the page bottom';

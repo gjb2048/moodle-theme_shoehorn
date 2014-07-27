@@ -24,14 +24,26 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+?>
+<nav role="navigation" class="<?php echo $settingshtml->navbarclass; ?>"">
+    <div class="<?php echo $settingshtml->containerclass; ?>">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only"><?php echo get_string('togglenavigation', 'theme_shoehorn'); ?></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
 
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2014072700;
-$plugin->requires  = 2014051200.00; // 2.7 (Build: 20140512).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_BETA;
-$plugin->release = '2.7.0.3';
-$plugin->dependencies = array(
-    'theme_bootstrap'  => 2014051301
-);
+    <div id="moodle-navbar" class="navbar-collapse collapse">
+        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        <?php echo $OUTPUT->custom_menu(); ?>
+        <?php echo $OUTPUT->user_menu(); ?>
+        <ul class="nav pull-right">
+            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+        </ul>
+    </div>
+    </div>
+</nav>

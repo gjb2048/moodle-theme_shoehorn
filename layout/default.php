@@ -45,32 +45,10 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<nav role="navigation" class="<?php echo $settingshtml->navbarclass; ?>"">
-    <div class="<?php echo $settingshtml->containerclass; ?>">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
-    </div>
-
-    <div id="moodle-navbar" class="navbar-collapse collapse">
-        <?php echo $OUTPUT->custom_menu(); ?>
-        <?php echo $OUTPUT->user_menu(); ?>
-        <ul class="nav pull-right">
-            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-        </ul>
-    </div>
-    </div>
-</nav>
-
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
-
     <div id="page-area" class="row">
+        <?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+
         <header class="moodleheader col-md-12">
             <?php echo $OUTPUT->page_heading(); ?>
         </header>
