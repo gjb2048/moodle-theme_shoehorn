@@ -195,6 +195,10 @@ function theme_shoehorn_html_for_settings($PAGE) {
         $html->additionalbodyclasses[] = 'socialsignpost';
     }
 
+    if (!empty($settings->compactnavbar)) {
+        $html->additionalbodyclasses[] = 'compactnavbar';
+    }
+
     if ($PAGE->pagelayout == 'frontpage') {
         if (!empty($settings->landffrontpagebackgroundimage)) {
             $html->additionalbodyclasses[] = 'frontpagebackgroundimage';

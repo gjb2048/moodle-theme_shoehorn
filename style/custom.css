@@ -20,6 +20,8 @@ a.logo {
     background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 96% 12px transparent;
     padding-bottom: 12px;
     margin: 0 auto;
+    display: block;
+    clear: both; /* Clear floats that are sometimes used to make the #region-main-shoehorn fit the content, i.e Editing Quiz. */
 }
 
 #footer-shadow {
