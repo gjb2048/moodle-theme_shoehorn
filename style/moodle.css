@@ -18783,6 +18783,16 @@ body.compactnavbar .navbar {
   border-bottom-right-radius: 24px;
   border-bottom-left-radius: 0;
 }
+body.compactnavbar .navbar.navbar-fixed-top {
+  display: inline-table;
+}
+body.compactnavbar.dir-rtl .navbar.navbar-fixed-top {
+  /*@noflip*/
+  left: inherit;
+}
+body.navbarfixedtop header.moodleheader {
+  padding-top: 50px;
+}
 .glyphicon-2x {
   font-size: 1.8em;
 }

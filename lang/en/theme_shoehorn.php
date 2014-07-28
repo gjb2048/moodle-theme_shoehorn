@@ -93,7 +93,9 @@ $string['accordion'] = 'Use accordion block side regions';
 $string['accordion_desc'] = 'Enable this option to use accordion functionality for the side regions.  Note: Disables docking.';
 
 $string['compactnavbar'] = 'Compact navbar';
-$string['compactnavbar_desc'] = 'Compact navigation bar';
+$string['compactnavbar_desc'] = 'Compact navigation bar.';
+$string['navbarfixedtop'] = 'Navbar fixed top';
+$string['navbarfixedtop_desc'] = 'Fix the navigation bar at the top of the page.';
 $string['inversenavbar'] = 'Inverse navbar';
 $string['inversenavbar_desc'] = 'Swaps text and background for the navigation bar at the top of the page.';
 

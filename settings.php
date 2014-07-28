@@ -92,6 +92,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Navbar fixed at the top of the page.
+    $name = 'theme_shoehorn/navbarfixedtop';
+    $title = get_string('navbarfixedtop', 'theme_shoehorn');
+    $description = get_string('navbarfixedtop_desc', 'theme_shoehorn');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Invert Navbar to dark background.
     $name = 'theme_shoehorn/inversenavbar';
     $title = get_string('inversenavbar', 'theme_shoehorn');
