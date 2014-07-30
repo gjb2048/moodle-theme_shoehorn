@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         less: {
-            // Compile moodle styles.
+            // Compile moodle styles for development.
             moodle: {
                 options: {
                     compress: false,
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
                 src: 'less/moodleallshoehorn.less',
                 dest: 'style/moodle.css'
             },
-            // Compile editor styles.
+            // Compile editor styles for development.
             editor: {
                 options: {
                     compress: false,
@@ -173,6 +173,7 @@ module.exports = function(grunt) {
             core: {
                 files: {
                     'style/moodle_min.css': 'style/moodle.css',
+                    'style/moodle-rtl_min.css': 'style/moodle-rtl.css',
                     'style/editor_min.css': 'style/editor.css'
                 }
             }
@@ -184,7 +185,7 @@ module.exports = function(grunt) {
             dist: {
                 expand: true,
                 cwd: 'style/',
-                src: ['moodle.css', 'editor.css'],
+                src: ['moodle.css', 'moodle-rtl.css', 'editor.css'],
                 dest: 'style/'
             }
         },
@@ -301,19 +302,19 @@ module.exports = function(grunt) {
                    }
                 }]
             },
-            dist: {                     // Target
-                files: [{               // Dictionary of files
-                    expand: true,       // Enable dynamic expansion.
-                    cwd: 'pix_core',     // Src matches are relative to this path.
-                    src: ['**/*.svg'],  // Actual pattern(s) to match.
-                    dest: 'pix_core/',       // Destination path prefix.
-                    ext: '.svg'     // Dest filepaths will have this extension.
-                }, {               // Dictionary of files
-                    expand: true,       // Enable dynamic expansion.
-                    cwd: 'pix_plugins',     // Src matches are relative to this path.
-                    src: ['**/*.svg'],  // Actual pattern(s) to match.
-                    dest: 'pix_plugins/',       // Destination path prefix.
-                    ext: '.svg'     // Dest filepaths will have this extension.
+            dist: {                       // Target
+                files: [{                 // Dictionary of files
+                    expand: true,         // Enable dynamic expansion.
+                    cwd: 'pix_core',      // Source matches are relative to this path.
+                    src: ['**/*.svg'],    // Actual pattern(s) to match.
+                    dest: 'pix_core/',    // Destination path prefix.
+                    ext: '.svg'           // Destination file paths will have this extension.
+                }, {                      // Dictionary of files
+                    expand: true,         // Enable dynamic expansion.
+                    cwd: 'pix_plugins',   // Source matches are relative to this path.
+                    src: ['**/*.svg'],    // Actual pattern(s) to match.
+                    dest: 'pix_plugins/', // Destination path prefix.
+                    ext: '.svg'           // Destination file paths will have this extension.
                 }]
             }
         }
@@ -334,7 +335,7 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["less", "replace:font_fix", "cssflip", "replace:rtl_images", 'csscomb', 'cssmin', "decache"]);
+    grunt.registerTask("compile", ["less:moodle", "less:editor", "replace:font_fix", "cssflip", "replace:rtl_images", "csscomb", "cssmin", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
     grunt.registerTask("svg", ["copy:svg", "svgmin", "replace:svg_colours"]);
