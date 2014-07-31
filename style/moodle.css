@@ -17556,6 +17556,11 @@ label {
   border-color: #ffd053;
   border-color: rgba(255, 208, 83, .75);
 }
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: inline-block !important;
+  }
+}
 .panel-title {
   color: #1f4d87;
 }

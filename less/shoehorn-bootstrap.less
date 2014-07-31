@@ -300,6 +300,12 @@ label {
   }
 }
 
+@media(min-width: @screen-sm-min) {
+  .navbar-collapse.collapse {
+    display: inline-block !important;  // IE.
+  }
+}
+
 // panels.less.
 .panel-title {
   color: @text-color;
