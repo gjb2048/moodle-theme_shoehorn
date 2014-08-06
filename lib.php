@@ -218,6 +218,8 @@ function theme_shoehorn_html_for_settings($PAGE) {
 }
 
 function shoehorn_grid($hassidepre, $hassidepost) {
+    global $PAGE;
+
     if ($hassidepre && $hassidepost) {
         $regions = array('content' => 'col-sm-4 col-md-6 col-lg-8');
         $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
@@ -235,8 +237,8 @@ function shoehorn_grid($hassidepre, $hassidepost) {
         $regions['pre'] = 'empty';
         $regions['post'] = 'empty';
     }
-    
-    if ('rtl' === get_string('thisdirection', 'langconfig')) {
+
+    if (('rtl' === get_string('thisdirection', 'langconfig')) && (empty($PAGE->theme->settings->dynamiclang))) {
         if ($hassidepre && $hassidepost) {
             $regions = array('content' => 'col-sm-4 col-sm-push-8 col-md-6 col-md-push-6 col-lg-8 col-lg-push-4');
             $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
@@ -253,6 +255,27 @@ function shoehorn_grid($hassidepre, $hassidepost) {
     }
     return $regions;
 }
+
+// Moodle CSS file serving.
+function theme_shoehorn_get_csswww() {
+    global $CFG;
+
+    if (right_to_left()) {
+        $moodlecss = 'moodle-rtl.css';
+    } else {
+        $moodlecss = 'moodle.css';
+    }
+
+    $syscontext = context_system::instance();
+    $itemid = theme_get_revision();
+    $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/style/$itemid/$moodlecss");
+    // Now this is tricky because the we can not hard code http or https here, lets use the relative link.
+    // Note: unfortunately moodle_url does not support //urls yet.
+    $url = preg_replace('|^https?://|i', '//', $url->out(false));
+
+    return $url;
+}
+
 
 function shoehorn_showslider($settings) {
     $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
@@ -396,6 +419,14 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
         if ($filearea === 'logo') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if ($filearea === 'style') {
+            global $CFG;
+            if (!empty($CFG->themedir)) {
+                $thestylepath = $CFG->themedir . '/shoehorn/style/experimental/';
+            } else {
+                $thestylepath = $CFG->dirroot . '/theme/shoehorn/style/experimental/';
+            }
+            send_file($thestylepath.$args[1], $args[1], 20 , 0, false, false, 'text/css');
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);

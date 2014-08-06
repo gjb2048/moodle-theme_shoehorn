@@ -162,6 +162,32 @@ module.exports = function(grunt) {
                 },
                 src: 'less/editorallshoehorn.less',
                 dest: 'style/editor.css'
+            },
+            // Experimental styles.
+            // Compile moodle styles.
+            moodle_e: {
+                options: {
+                    compress: false,
+                    paths: "../bootstrap/less",
+                    report: 'min',
+                    sourceMap: true,
+                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapFilename: 'style/experimental/moodle.treasure.map'
+                },
+                src: 'less/experimental/moodle.less',
+                dest: 'style/experimental/moodle.css'
+            },
+            // Compile theme styles.
+            theme_e: {
+                options: {
+                    compress: false,
+                    report: 'min',
+                    sourceMap: true,
+                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapFilename: 'style/theme.treasure.map'
+                },
+                src: 'less/experimental/theme.less',
+                dest: 'style/theme.css'
             }
         },
         cssmin: {
@@ -182,11 +208,17 @@ module.exports = function(grunt) {
             options: {
                 config: '../bootstrap/less/bootstrap3/.csscomb.json'
             },
-            dist: {
+            theme: {
                 expand: true,
                 cwd: 'style/',
                 src: ['moodle.css', 'moodle-rtl.css', 'editor.css'],
                 dest: 'style/'
+            },
+            experimental: {
+                expand: true,
+                cwd: 'style/experimental/',
+                src: ['moodle.css', 'moodle-rtl.css'],
+                dest: 'style/experimental/'
             }
         },
         exec: {
@@ -213,6 +245,10 @@ module.exports = function(grunt) {
             rtl: {
                 src:  'style/moodle.css',
                 dest: 'style/moodle-rtl.css'
+            },
+            rtl_e: {
+                src:  'style/experimental/moodle.css',
+                dest: 'style/experimental/moodle-rtl.css'
             }
         },
         copy: {
@@ -288,6 +324,20 @@ module.exports = function(grunt) {
                         from: 'glyphicons-halflings-regular.woff',
                         to:   'glyphicons-halflings-regular.woff]]',
                     }]
+            },
+            font_fix_e: {
+                src: 'style/experimental/moodle.css',
+                    overwrite: true,
+                    replacements: [{
+                        from: 'src: url(\'.eot\');',
+                        to: '',
+                    }, {
+                        from: 'src: url(\'.eot?#iefix\') format(\'embedded-opentype\'), url(\'.woff\') format(\'woff\'), url(\'.ttf\') format(\'truetype\'), url(\'.svg#\') format(\'svg\');',
+                        to: '',
+                    }, {
+                        from: '@font-face \{[^\n]font-family: \'Glyphicons Halflings\';[^\n]\}', // TODO: Intent is to remove with REGEX, but not working.  Leaves empty font-face declaration in CSS.
+                        to: '',
+                    }]
             }
         },
         svgmin: {                       // Task
@@ -335,7 +385,8 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["less:moodle", "less:editor", "replace:font_fix", "cssflip", "replace:rtl_images", "csscomb", "cssmin", "decache"]);
+    grunt.registerTask("experimental", ["less:moodle_e", "less:theme_e", "replace:font_fix_e", "cssflip:rtl_e", "csscomb:experimental"]);
+    grunt.registerTask("compile", ["less:moodle", "less:editor", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme", "cssmin", "experimental", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
     grunt.registerTask("svg", ["copy:svg", "svgmin", "replace:svg_colours"]);

@@ -29,10 +29,15 @@
 $THEME->doctype = 'html5';
 $THEME->name = 'shoehorn';
 $THEME->parents = array('bootstrap');
-if ('ltr' === get_string('thisdirection', 'langconfig')) {
-    $THEME->sheets = array('moodle');
+
+if (empty($THEME->settings->dynamiclang)) {
+    if ('ltr' === get_string('thisdirection', 'langconfig')) {
+        $THEME->sheets = array('moodle');
+    } else {
+        $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
+    }
 } else {
-    $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
+    $THEME->sheets = array('theme');  // moodle / moodle-rtl served in layout/tiles/header.php separately.
 }
 $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.

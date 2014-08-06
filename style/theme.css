@@ -1,0 +1,222 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('[[font:theme|glyphicons-halflings-regular]].eot');
+  src: url('[[font:theme|glyphicons-halflings-regular]].eot?#iefix') format('embedded-opentype'), url('[[font:theme|glyphicons-halflings-regular]].woff') format('woff'), url('[[font:theme|glyphicons-halflings-regular]].ttf') format('truetype'), url('[[font:theme|glyphicons-halflings-regular]].svg#glyphicons_halflingsregular') format('svg');
+}
+[dir=ltr] .collapsible-actions .collapseexpand {
+  background-image: url([[pix:t/collapsed]]);
+}
+[dir=ltr] .collapse-all {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=ltr] .smartselect .smartselect_submenuitem {
+  background-image: url([[pix:t/collapsed]]);
+}
+[dir=ltr] .moodle-dialogue-base .closebutton {
+  background-image: url([[pix:theme|sprite]]);
+}
+[dir=ltr] .path-course-view li.activity form.togglecompletion .ajaxworking {
+  background: url([[pix:i/ajaxloader]]) no-repeat;
+}
+[dir=ltr] .coursebox.remotehost > .info > .categoryname a {
+  background-image: url([[pix:moodle|i/mnethost]]);
+}
+[dir=ltr] .course_category_tree .category > .info > .categoryname {
+  background-image: url([[pix:t/collapsed_empty]]);
+}
+[dir=ltr] .course_category_tree .category.with_children > .info > .categoryname {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=ltr] .course_category_tree .category.with_children.collapsed > .info > .categoryname {
+  background-image: url([[pix:t/collapsed]]);
+}
+[dir=ltr] .fp-toolbar .fp-tb-search input {
+  background: #ffffff url('[[pix:a/search]]') no-repeat 7px 7px;
+}
+[dir=ltr] .fp-pathbar .fp-path-folder {
+  background-image: url('[[pix:theme|fp/path_folder]]');
+}
+[dir=ltr] .file-picker .ygtvtn,
+[dir=ltr] .filemanager .ygtvtn {
+  background-image: url('[[pix:y/tn]]');
+}
+[dir=ltr] .file-picker .ygtvtm,
+[dir=ltr] .filemanager .ygtvtm {
+  background-image: url('[[pix:y/tm]]');
+}
+[dir=ltr] .file-picker .ygtvtmh,
+[dir=ltr] .filemanager .ygtvtmh {
+  background-image: url('[[pix:y/tm]]');
+}
+[dir=ltr] .file-picker .ygtvtp,
+[dir=ltr] .filemanager .ygtvtp {
+  background-image: url('[[pix:y/tp]]');
+}
+[dir=ltr] .file-picker .ygtvtph,
+[dir=ltr] .filemanager .ygtvtph {
+  background-image: url('[[pix:y/tp]]');
+}
+[dir=ltr] .file-picker .ygtvln,
+[dir=ltr] .filemanager .ygtvln {
+  background-image: url('[[pix:y/ln]]');
+}
+[dir=ltr] .file-picker .ygtvlm,
+[dir=ltr] .filemanager .ygtvlm {
+  background-image: url('[[pix:y/lm]]');
+}
+[dir=ltr] .file-picker .ygtvlmh,
+[dir=ltr] .filemanager .ygtvlmh {
+  background-image: url('[[pix:y/lm]]');
+}
+[dir=ltr] .file-picker .ygtvlp,
+[dir=ltr] .filemanager .ygtvlp {
+  background-image: url('[[pix:y/lp]]');
+}
+[dir=ltr] .file-picker .ygtvlph,
+[dir=ltr] .filemanager .ygtvlph {
+  background-image: url('[[pix:y/lp]]');
+}
+[dir=ltr] .file-picker .ygtvloading,
+[dir=ltr] .filemanager .ygtvloading {
+  background: transparent url('[[pix:y/loading]]') 0 0 no-repeat;
+}
+[dir=ltr] .file-picker .ygtvdepthcell,
+[dir=ltr] .filemanager .ygtvdepthcell {
+  background: url('[[pix:y/vline]]') 0 0 no-repeat;
+}
+[dir=ltr] .fp-iconview .fp-file.fp-hasreferences .fp-reficons1 {
+  background: url('[[pix:theme|fp/link]]') no-repeat;
+}
+[dir=ltr] .fp-iconview .fp-file.fp-isreference .fp-reficons2 {
+  background: url('[[pix:theme|fp/alias]]') no-repeat;
+}
+[dir=ltr] .filemanager .fp-iconview .fp-file.fp-originalmissing .fp-thumbnail {
+  background: url([[pix:s/dead]]) no-repeat;
+}
+[dir=ltr] .filemanager .fp-filename-icon.fp-hasreferences .fp-reficons1 {
+  background: url('[[pix:theme|fp/link_sm]]') no-repeat 0 0;
+}
+[dir=ltr] .filemanager .fp-filename-icon.fp-isreference .fp-reficons2 {
+  background: url('[[pix:theme|fp/alias_sm]]') no-repeat 0 0;
+}
+[dir=ltr] .dndupload-arrow {
+  background: url([[pix:theme|fp/dnd_arrow]]) center no-repeat;
+}
+[dir=ltr] .mform fieldset.collapsible legend a.fheader {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=ltr] .mform fieldset.collapsed legend a.fheader {
+  background-image: url([[pix:t/collapsed]]);
+}
+[dir=ltr] #rubric-rubric.gradingform_rubric .addcriterion input {
+  background: transparent url([[pix:t/add]]) no-repeat 7px 8px;
+}
+[dir=rtl] .collapsible-actions .collapseexpand {
+  background-image: url([[pix:t/collapsed_rtl]]);
+}
+[dir=rtl] .collapse-all {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=rtl] .smartselect .smartselect_submenuitem {
+  background-image: url([[pix:t/collapsed_rtl]]);
+}
+[dir=rtl] .moodle-dialogue-base .closebutton {
+  background-image: url([[pix:theme|sprite]]);
+}
+[dir=rtl] .path-course-view li.activity form.togglecompletion .ajaxworking {
+  background: url([[pix:i/ajaxloader]]) no-repeat;
+}
+[dir=rtl] .coursebox.remotehost > .info > .categoryname a {
+  background-image: url([[pix:moodle|i/mnethost]]);
+}
+[dir=rtl] .course_category_tree .category > .info > .categoryname {
+  background-image: url([[pix:t/collapsed_empty_rtl]]);
+}
+[dir=rtl] .course_category_tree .category.with_children > .info > .categoryname {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=rtl] .course_category_tree .category.with_children.collapsed > .info > .categoryname {
+  background-image: url([[pix:t/collapsed_rtl]]);
+}
+[dir=rtl] .fp-toolbar .fp-tb-search input {
+  background: #ffffff url('[[pix:a/search]]') no-repeat 7px 7px;
+}
+[dir=rtl] .fp-pathbar .fp-path-folder {
+  background-image: url('[[pix:theme|fp/path_folder_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvtn,
+[dir=rtl] .filemanager .ygtvtn {
+  background-image: url('[[pix:y/tn_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvtm,
+[dir=rtl] .filemanager .ygtvtm {
+  background-image: url('[[pix:y/tm]]');
+}
+[dir=rtl] .file-picker .ygtvtmh,
+[dir=rtl] .filemanager .ygtvtmh {
+  background-image: url('[[pix:y/tm]]');
+}
+[dir=rtl] .file-picker .ygtvtp,
+[dir=rtl] .filemanager .ygtvtp {
+  background-image: url('[[pix:y/tp_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvtph,
+[dir=rtl] .filemanager .ygtvtph {
+  background-image: url('[[pix:y/tp_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvln,
+[dir=rtl] .filemanager .ygtvln {
+  background-image: url('[[pix:y/ln_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvlm,
+[dir=rtl] .filemanager .ygtvlm {
+  background-image: url('[[pix:y/lm]]');
+}
+[dir=rtl] .file-picker .ygtvlmh,
+[dir=rtl] .filemanager .ygtvlmh {
+  background-image: url('[[pix:y/lm]]');
+}
+[dir=rtl] .file-picker .ygtvlp,
+[dir=rtl] .filemanager .ygtvlp {
+  background-image: url('[[pix:y/lp_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvlph,
+[dir=rtl] .filemanager .ygtvlph {
+  background-image: url('[[pix:y/lp_rtl]]');
+}
+[dir=rtl] .file-picker .ygtvloading,
+[dir=rtl] .filemanager .ygtvloading {
+  background: transparent url('[[pix:y/loading]]') 0 0 no-repeat;
+}
+[dir=rtl] .file-picker .ygtvdepthcell,
+[dir=rtl] .filemanager .ygtvdepthcell {
+  background: url('[[pix:y/vline]]') 0 0 no-repeat;
+}
+[dir=rtl] .fp-iconview .fp-file.fp-hasreferences .fp-reficons1 {
+  background: url('[[pix:theme|fp/link]]') no-repeat;
+}
+[dir=rtl] .fp-iconview .fp-file.fp-isreference .fp-reficons2 {
+  background: url('[[pix:theme|fp/alias]]') no-repeat;
+}
+[dir=rtl] .filemanager .fp-iconview .fp-file.fp-originalmissing .fp-thumbnail {
+  background: url([[pix:s/dead]]) no-repeat;
+}
+[dir=rtl] .filemanager .fp-filename-icon.fp-hasreferences .fp-reficons1 {
+  background: url('[[pix:theme|fp/link_sm]]') no-repeat 0 0;
+}
+[dir=rtl] .filemanager .fp-filename-icon.fp-isreference .fp-reficons2 {
+  background: url('[[pix:theme|fp/alias_sm]]') no-repeat 0 0;
+}
+[dir=rtl] .dndupload-arrow {
+  background: url([[pix:theme|fp/dnd_arrow]]) center no-repeat;
+}
+[dir=rtl] .mform fieldset.collapsible legend a.fheader {
+  background-image: url([[pix:t/expanded]]);
+}
+[dir=rtl] .mform fieldset.collapsed legend a.fheader {
+  background-image: url([[pix:t/collapsed_rtl]]);
+}
+[dir=rtl] #rubric-rubric.gradingform_rubric .addcriterion input {
+  background: transparent url([[pix:t/add]]) no-repeat 7px 8px;
+}
+/*# sourceMappingURL=/theme/shoehorn/style/theme.treasure.map */
