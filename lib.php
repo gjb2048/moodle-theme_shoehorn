@@ -171,10 +171,11 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     $html = new stdClass;
 
+    $html->navbarclass = array('navbar');
     if (!empty($settings->inversenavbar)) {
-        $html->navbarclass = 'navbar navbar-inverse';
+        $html->navbarclass[] = 'navbar-inverse';
     } else {
-        $html->navbarclass = 'navbar navbar-default';
+        $html->navbarclass[] = 'navbar-default';
     }
 
     $html->containerclass = 'container-fluid';
@@ -197,6 +198,11 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     if (!empty($settings->compactnavbar)) {
         $html->additionalbodyclasses[] = 'compactnavbar';
+    }
+
+    if (!empty($settings->navbarfixedtop)) {
+        $html->additionalbodyclasses[] = 'navbarfixedtop';
+        $html->navbarclass[] = 'navbar-fixed-top'; 
     }
 
     if ($PAGE->pagelayout == 'frontpage') {

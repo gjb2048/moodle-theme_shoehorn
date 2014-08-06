@@ -25,25 +25,17 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<nav role="navigation" class="<?php echo implode(' ',$settingshtml->navbarclass); ?>">
-    <div class="<?php echo $settingshtml->containerclass; ?>">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-            <span class="sr-only"><?php echo get_string('togglenavigation', 'theme_shoehorn'); ?></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+<header class="moodleheader col-md-12">
+    <?php echo $OUTPUT->page_heading(); ?>
+</header>
+
+<header id="page-header" class="clearfix col-md-12">
+    <div id="page-navbar" class="clearfix">
+        <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
+        <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
     </div>
 
-    <div id="moodle-navbar" class="navbar-collapse collapse">
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
-        <?php echo $OUTPUT->custom_menu(); ?>
-        <?php echo $OUTPUT->user_menu(); ?>
-        <ul class="nav pull-right">
-            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-        </ul>
+    <div id="course-header">
+        <?php echo $OUTPUT->course_header(); ?>
     </div>
-    </div>
-</nav>
+</header>

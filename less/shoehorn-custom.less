@@ -38,12 +38,24 @@ body.pagelayout-redirect {
 }
 
 // Navbar.
-body.compactnavbar .navbar {
-    display: inline-block;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: @border-radius-large * 4;
+body.compactnavbar {
+    .navbar {
+        display: inline-block;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: @border-radius-large * 4;
+    }
+    .navbar.navbar-fixed-top {
+        display: inline-table;
+    }
+    &.dir-rtl .navbar.navbar-fixed-top {
+        /*@noflip*/ left: inherit;
+    }
+}
+
+body.navbarfixedtop header.moodleheader {
+    padding-top: 50px;
 }
 
 // General.
@@ -1116,6 +1128,11 @@ select, input {
 
 .copyright:before {
     content: "\00A9"; // Copyright symbol.
+}
+
+// XML DB Editor - Essential Issue #90.
+a[name="lastused"] {
+    padding-top: 50px;
 }
 
 // Course formats.

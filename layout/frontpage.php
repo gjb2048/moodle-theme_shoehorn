@@ -51,20 +51,7 @@ echo $OUTPUT->doctype() ?>
     <div id="page-area" class="row">
         <?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
 
-        <header class="moodleheader col-md-12">
-            <?php echo $OUTPUT->page_heading(); ?>
-        </header>
-
-        <header id="page-header" class="clearfix col-md-12">
-            <div id="page-navbar" class="clearfix">
-                <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
-                <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
-            </div>
-
-            <div id="course-header">
-                <?php echo $OUTPUT->course_header(); ?>
-            </div>
-        </header>
+        <?php require_once(dirname(__FILE__).'/tiles/pageheader.php'); ?>
 
         <div id="page-content" class="row">
             <div id="region-main" class="<?php echo $regions['content']; ?>">
