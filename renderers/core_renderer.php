@@ -533,7 +533,14 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $sesskey = sesskey();
 
         // Home.
-        $url = new moodle_url('/');
+        switch($this->page->pagelayout) {
+            case 'course':
+            case 'incourse':
+                $url = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
+            break;
+            default:
+                $url = new moodle_url('/');
+        }
         $url = preg_replace('|^https?://|i', '//', $url->out(false));
         $items[] = html_writer::tag('a', get_string('home'), array('href' => $url, 'target' => '_self'));
 
