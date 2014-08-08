@@ -598,6 +598,10 @@ table#user-grades {
     background-color: @page-bottom-bg-light;
 }
 
+.box.message .messagearea .messagehistory .messagehistorytype {
+    border-bottom: none;
+}
+
 // modules.less.
 #page-footer {
     margin-top: 0;
@@ -627,17 +631,20 @@ ul, ol {
         border: solid 2px #fff;
         border-radius: @border-radius-base;
     }
-    &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
-    &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
-    &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
-        background: transparent;
-        color: #fff;
-    }
-    &:hover .msg-time, &:focus .msg-time, &:active .msg-time {
-        background: transparent;
-        color: #fff;
-        span {
+
+    li {
+        &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
+        &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
+        &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
             background: transparent;
+            color: #fff;
+        }
+        &:hover .msg-time, &:focus .msg-time, &:active .msg-time {
+            background: transparent;
+            color: #fff;
+            span {
+                background: transparent;
+            }
         }
     }
     .msg-sender {

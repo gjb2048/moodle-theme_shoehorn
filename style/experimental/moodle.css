@@ -7782,27 +7782,27 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   border: solid 2px #fff;
   border-radius: 4px;
   }
-.moodle-actionmenu[data-enhanced].show .menu:hover .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu:focus .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu:active .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu:hover .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu:focus .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu:active .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu:hover .msg-sender,
-.moodle-actionmenu[data-enhanced].show .menu:focus .msg-sender,
-.moodle-actionmenu[data-enhanced].show .menu:active .msg-sender {
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-sender {
   color: #fff;
   background: transparent;
   }
-.moodle-actionmenu[data-enhanced].show .menu:hover .msg-time,
-.moodle-actionmenu[data-enhanced].show .menu:focus .msg-time,
-.moodle-actionmenu[data-enhanced].show .menu:active .msg-time {
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time {
   color: #fff;
   background: transparent;
   }
-.moodle-actionmenu[data-enhanced].show .menu:hover .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu:focus .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu:active .msg-time span {
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time span {
   background: transparent;
   }
 .moodle-actionmenu[data-enhanced].show .menu .msg-sender {
@@ -18143,6 +18143,9 @@ table#user-grades tr.heading th.courseitem {
 #newmessageoverlay {
   background-color: #e3f2ff;
   }
+.box.message .messagearea .messagehistory .messagehistorytype {
+  border-bottom: none;
+  }
 #page-footer {
   padding-top: 1em;
   padding-bottom: 1.5em;
@@ -18168,27 +18171,27 @@ ol {
   border: solid 2px #fff;
   border-radius: 4px;
   }
-.dropdown-menu:hover .msg-title,
-.dropdown-menu:focus .msg-title,
-.dropdown-menu:active .msg-title,
-.dropdown-menu:hover .msg-body,
-.dropdown-menu:focus .msg-body,
-.dropdown-menu:active .msg-body,
-.dropdown-menu:hover .msg-sender,
-.dropdown-menu:focus .msg-sender,
-.dropdown-menu:active .msg-sender {
+.dropdown-menu li:hover .msg-title,
+.dropdown-menu li:focus .msg-title,
+.dropdown-menu li:active .msg-title,
+.dropdown-menu li:hover .msg-body,
+.dropdown-menu li:focus .msg-body,
+.dropdown-menu li:active .msg-body,
+.dropdown-menu li:hover .msg-sender,
+.dropdown-menu li:focus .msg-sender,
+.dropdown-menu li:active .msg-sender {
   color: #fff;
   background: transparent;
   }
-.dropdown-menu:hover .msg-time,
-.dropdown-menu:focus .msg-time,
-.dropdown-menu:active .msg-time {
+.dropdown-menu li:hover .msg-time,
+.dropdown-menu li:focus .msg-time,
+.dropdown-menu li:active .msg-time {
   color: #fff;
   background: transparent;
   }
-.dropdown-menu:hover .msg-time span,
-.dropdown-menu:focus .msg-time span,
-.dropdown-menu:active .msg-time span {
+.dropdown-menu li:hover .msg-time span,
+.dropdown-menu li:focus .msg-time span,
+.dropdown-menu li:active .msg-time span {
   background: transparent;
   }
 .dropdown-menu .msg-sender {
@@ -19201,13 +19204,8 @@ body.coursetiles #region-main .course-content .single-section .section-navigatio
   }
 body.coursetiles #region-main #add,
 body.coursetiles #region-main #remove,
-body.coursetiles #region-main .centerpara,
-body.coursetiles #region-main .mdl-align {
+body.coursetiles #region-main .centerpara {
   text-align: left;
-  }
-body.coursetiles #region-main .mdl-align {
-  width: 25%;
-  padding: 10px;
   }
 body.coursetiles #region-main img.iconlarge {
   width: 40px;

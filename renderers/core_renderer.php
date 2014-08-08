@@ -129,7 +129,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
     }
 
     protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER, $DB;
+        global $CFG, $USER;
 
         $addusermenu = true;
         $addlangmenu = true;
@@ -163,7 +163,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             $messagemenu = $menu->add(
                 $messagemenutext,
                 new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
-                get_string('messages', 'message'),
+                ($messagecount != 1) ? get_string('messages', 'message') : get_string('message', 'message'),
                 9999
             );
             foreach ($messages as $message) {
