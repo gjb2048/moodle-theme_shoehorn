@@ -102,17 +102,33 @@ if ($speed == 0) {
             } ?>
         </div>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <?php if ($PAGE->theme->settings->fontawesome) { ?>
-        <i class="fa fa-chevron-circle-left"></i>
+        <?php if (!right_to_left()) { ?>
+            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <i class="fa fa-chevron-circle-left"></i>
+            <?php } else { ?>
+            <span class="glyphicon glyphicon-chevron-left"></i>
+            <?php } ?>
         <?php } else { ?>
-        <span class="glyphicon glyphicon-chevron-left"></i>
+            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <i class="fa fa-chevron-circle-right"></i>
+            <?php } else { ?>
+            <span class="glyphicon glyphicon-chevron-right"></i>
+            <?php } ?>
         <?php } ?>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <?php if ($PAGE->theme->settings->fontawesome) { ?>
-        <i class="fa fa-chevron-circle-right"></i>
+        <?php if (!right_to_left()) { ?>
+            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <i class="fa fa-chevron-circle-right"></i>
+            <?php } else { ?>
+            <span class="glyphicon glyphicon-chevron-right"></i>
+            <?php } ?>
         <?php } else { ?>
-        <span class="glyphicon glyphicon-chevron-right"></i>
+            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <i class="fa fa-chevron-circle-left"></i>
+            <?php } else { ?>
+            <span class="glyphicon glyphicon-chevron-left"></i>
+            <?php } ?>
         <?php } ?>
         </a>
     </div>

@@ -214,10 +214,20 @@ body.pagelayout-redirect #page {
     aside {
         float: none; // My home page.
     }
+
+    .block, .panel-default, .info {
+        background-color: rgba(red(#fff), green(#fff), blue(#fff), 0.9);
+    }
 }
 
 #page-mod-quiz-edit #region-main-shoehorn {
     float: left; // Quiz editing sparked this.
+}
+
+// Categories.
+#navsearchbox {
+    border-top-left-radius: @border-radius-base;
+    border-bottom-left-radius: @border-radius-base;
 }
 
 // Course.
@@ -249,7 +259,7 @@ aside {
         padding: 0 4px;
     }
     .divider, .divider .glyphicon {
-        color: @gray-lighter;
+        color: @text-color;
     }
 }
 
@@ -713,13 +723,8 @@ body.coursetiles {
         text-align: left;
     }
 
-    #region-main #add, #region-main #remove, #region-main .centerpara, #region-main .mdl-align {
+    #region-main #add, #region-main #remove, #region-main .centerpara {
         text-align: left;
-    }
-
-    #region-main .mdl-align {
-        width: 25%;
-        padding: 10px;
     }
 
     #region-main img.iconlarge {
@@ -970,6 +975,9 @@ body.fontawesome {
         .section .activity .mod-indent-outer {
             padding-left: 0px;
         }
+    }
+    #moodle-navbar {
+        margin-bottom: -5px;
     }
 }
 

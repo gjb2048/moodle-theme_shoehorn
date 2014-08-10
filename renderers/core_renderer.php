@@ -129,7 +129,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
     }
 
     protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER, $DB;
+        global $CFG, $USER;
 
         $addusermenu = true;
         $addlangmenu = true;
@@ -149,21 +149,27 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 $messagecount++;
             }
             if ($this->page->theme->settings->fontawesome) {
-                $messagemenutext = html_writer::tag('i', '', array('class' => 'fa fa-envelope'));
+                $class = 'fa fa-envelope';
+                if ($messagecount == 0) {
+                    $class .= '-o';
+                }
+                $messagemenutext = html_writer::tag('i', '', array('class' => $class));
+                $timeicon = 'fa fa-clock-o';
             } else {
                 $messagemenutext = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
+                $timeicon = 'glyphicon glyphicon-time';
             }
-            $messagemenucount = ' '.$messagecount.' ';
+            $messagemenucount = $messagecount.' ';
             if ($messagecount == 1) {
                  $messagemenucount .= get_string('message', 'message');
             } else {
                  $messagemenucount .= get_string('messages', 'message');
             }
-            $messagemenutext .= html_writer::tag('span', $messagemenucount);
+            $messagemenutext .= html_writer::tag('span', ' '.$messagemenucount);
             $messagemenu = $menu->add(
                 $messagemenutext,
                 new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
-                get_string('messages', 'message'),
+                $messagemenucount,
                 9999
             );
             foreach ($messages as $message) {
@@ -181,7 +187,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 $messagecontent .= $message->text;
                 $messagecontent .= html_writer::end_span();
                 $messagecontent .= html_writer::start_span('msg-time');
-                $messagecontent .= html_writer::tag('i', '', array('class' => 'icon-time'));
+                $messagecontent .= html_writer::tag('i', '', array('class' => $timeicon));
                 $messagecontent .= html_writer::span($message->date);
                 $messagecontent .= html_writer::end_span();
 
@@ -533,7 +539,16 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $sesskey = sesskey();
 
         // Home.
-        $url = new moodle_url('/');
+        switch($this->page->pagelayout) {
+            case 'course':
+                $url = new moodle_url('/my/');
+            break;
+            case 'incourse':
+                $url = new moodle_url('/course/view.php', array('id' => $this->page->course->id));
+            break;
+            default:
+                $url = new moodle_url('/');
+        }
         $url = preg_replace('|^https?://|i', '//', $url->out(false));
         $items[] = html_writer::tag('a', get_string('home'), array('href' => $url, 'target' => '_self'));
 

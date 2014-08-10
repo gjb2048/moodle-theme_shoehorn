@@ -107,11 +107,6 @@ $string['showloginmessage_urllink'] = 'http://docs.moodle.org/26/en/admin/settin
 $string['showoldmessages'] = 'Show old messages';
 $string['showoldmessagesdesc'] = 'Show old messages on the message menu.';
 
-$string['loginmessage'] = 'The login message';
-$string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
-$string['loginmessage'] = 'The login message';
-$string['theloginmessage'] = 'Login here using your username and password';
-
 $string['logo'] = 'Logo';
 $string['logo_desc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
 If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
@@ -152,9 +147,21 @@ $string['copyright_desc'] = 'Copyright statement, leave blank for none.';
 $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
-// General settings headings.
+// Login page.
 $string['loginpage']= 'Login page';
 $string['loginpage_desc']= 'Login page settings.';
+
+$string['loginmessage'] = 'The login message';
+$string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
+$string['loginmessage'] = 'The login message';
+$string['theloginmessage'] = 'Login here using your username and password';
+
+// Experimental settings.
+$string['experimental']= 'Experimental';
+$string['experimental_desc']= 'Experimental settings.';
+
+$string['dynamiclang']= 'Dynamic LTR / RTL language';
+$string['dynamiclang_desc']= 'Dynamic LTR / RTL language swapping as described on: moodle.org/mod/forum/discuss.php?d=264955.';
 
 // Status:....
 $string['draft'] = 'Draft';
