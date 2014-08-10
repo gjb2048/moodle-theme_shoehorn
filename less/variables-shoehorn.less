@@ -49,7 +49,7 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            #1F4D87;
+@text-color:            @brand-primary;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -163,8 +163,8 @@
 @btn-default-bg:                 @page-bottom-bg; // #C9E6FF was #B8D2E9.  But lighter.
 @btn-default-border:             @page-top-bg;
 
-@btn-primary-color:              #fff;
-@btn-primary-bg:                 @brand-primary;
+@btn-primary-color:              @text-color;
+@btn-primary-bg:                 @page-bottom-bg; // #C9E6FF was #B8D2E9.  But lighter.
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
@@ -695,7 +695,7 @@
 @panel-default-border:        rgba(red(@text-color), green(@text-color), blue(@text-color), 0.2);
 @panel-default-heading-bg:    transparent;
 
-@panel-primary-text:          #fff;
+@panel-primary-text:          @brand-primary;
 @panel-primary-border:        @brand-primary;
 @panel-primary-heading-bg:    @brand-primary;
 

@@ -3613,9 +3613,9 @@ fieldset[disabled] .btn-default.active {
   }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1f4d87;
-  border-color: #1a4172;
+  color: #1f4d87;
+  background-color: #c9e6ff;
+  border-color: #afdaff;
   }
 
 .btn-primary:hover,
@@ -3623,9 +3623,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #15355e;
-  border-color: #0f2540;
+  color: #1f4d87;
+  background-color: #96ceff;
+  border-color: #72beff;
   }
 
 .btn-primary:active,
@@ -3649,13 +3649,13 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #1f4d87;
-  border-color: #1a4172;
+  background-color: #c9e6ff;
+  border-color: #afdaff;
   }
 
 .btn-primary .badge {
-  color: #1f4d87;
-  background-color: #fff;
+  color: #c9e6ff;
+  background-color: #1f4d87;
   }
 
 .btn-success {
@@ -6554,7 +6554,7 @@ a.list-group-item-danger.active:focus {
   }
 
 .panel-primary > .panel-heading {
-  color: #fff;
+  color: #1f4d87;
   background-color: #1f4d87;
   border-color: #1f4d87;
   }
@@ -6565,7 +6565,7 @@ a.list-group-item-danger.active:focus {
 
 .panel-primary > .panel-heading .badge {
   color: #1f4d87;
-  background-color: #fff;
+  background-color: #1f4d87;
   }
 
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
@@ -9450,6 +9450,8 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   float: right;
   min-width: 160px;
   padding: 5px 0;
+  padding-top: 0;
+  padding-bottom: 0;
   margin: 2px 0 0;
   font-size: 14px;
   text-align: right;
@@ -9532,15 +9534,22 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
   padding: 2px;
   margin-right: -2px;
   margin-left: 3px;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 4px;
   }
 
-.moodle-actionmenu[data-enhanced].show .menu:hover .userpicture,
-.moodle-actionmenu[data-enhanced].show .menu:focus .userpicture,
-.moodle-actionmenu[data-enhanced].show .menu:active .userpicture {
+.moodle-actionmenu[data-enhanced].show .menu li a:hover,
+.moodle-actionmenu[data-enhanced].show .menu li a:focus,
+.moodle-actionmenu[data-enhanced].show .menu li a:active {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  }
+
+.moodle-actionmenu[data-enhanced].show .menu li a:hover .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu li a:focus .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu li a:active .userpicture {
+  width: 31px;
+  height: 31px;
   background-color: #fff;
-  border: solid 2px #fff;
+  border: solid 2px rgba(255, 255, 255, .5);
   border-radius: 4px;
   }
 
@@ -9554,20 +9563,23 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 .moodle-actionmenu[data-enhanced].show .menu li:focus .msg-sender,
 .moodle-actionmenu[data-enhanced].show .menu li:active .msg-sender {
   color: #fff;
-  background: transparent;
+  background: none;
   }
 
 .moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time,
 .moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time,
 .moodle-actionmenu[data-enhanced].show .menu li:active .msg-time {
   color: #fff;
-  background: transparent;
+  background: none;
   }
 
 .moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time span,
 .moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time span {
-  background: transparent;
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time i,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time i,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time i {
+  background: none;
   }
 
 .moodle-actionmenu[data-enhanced].show .menu .msg-sender {
@@ -12044,8 +12056,8 @@ span.editinstructions {
   }
 
 #course-category-listings .listing-pagination .yui3-button.active-page {
-  color: #fff;
-  background-color: #1f4d87;
+  color: #1f4d87;
+  background-color: #c9e6ff;
   }
 
 #course-category-listings .listing-pagination-totals {
@@ -18805,9 +18817,9 @@ input#id_submitbutton,
 input#id_submitbutton2,
 .path-admin .buttons input[type="submit"],
 td.submit input {
-  color: #fff;
-  background-color: #1f4d87;
-  border-color: #1a4172;
+  color: #1f4d87;
+  background-color: #c9e6ff;
+  border-color: #afdaff;
   }
 
 input.form-submit:hover,
@@ -18835,9 +18847,9 @@ td.submit input.active,
 .open > .dropdown-toggleinput#id_submitbutton2,
 .open > .dropdown-toggle.path-admin .buttons input[type="submit"],
 .open > .dropdown-toggletd.submit input {
-  color: #fff;
-  background-color: #15355e;
-  border-color: #0f2540;
+  color: #1f4d87;
+  background-color: #96ceff;
+  border-color: #72beff;
   }
 
 input.form-submit:active,
@@ -18933,8 +18945,8 @@ fieldset[disabled] input#id_submitbutton.active,
 fieldset[disabled] input#id_submitbutton2.active,
 fieldset[disabled] .path-admin .buttons input[type="submit"].active,
 fieldset[disabled] td.submit input.active {
-  background-color: #1f4d87;
-  border-color: #1a4172;
+  background-color: #c9e6ff;
+  border-color: #afdaff;
   }
 
 input.form-submit .badge,
@@ -18942,8 +18954,8 @@ input#id_submitbutton .badge,
 input#id_submitbutton2 .badge,
 .path-admin .buttons input[type="submit"] .badge,
 td.submit input .badge {
-  color: #1f4d87;
-  background-color: #fff;
+  color: #c9e6ff;
+  background-color: #1f4d87;
   }
 
 #notice .singlebutton + .singlebutton input,
@@ -20578,6 +20590,8 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   }
 
 .dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: rgba(255, 255, 255, .75);
   }
 
@@ -20588,8 +20602,6 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   padding: 2px;
   margin-right: -2px;
   margin-left: 3px;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 4px;
   }
 
 .navbar-inverse .dropdown-menu {
@@ -20598,13 +20610,6 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 
 .navbar-inverse .dropdown-menu li > a {
   color: #c9e6ff;
-  }
-
-.navbar-inverse .dropdown-menu li > a:hover span:first-child,
-.navbar-inverse .dropdown-menu li > a:focus span:first-child,
-.navbar-inverse .dropdown-menu li > a:hover i:first-child,
-.navbar-inverse .dropdown-menu li > a:focus i:first-child {
-  background-color: rgba(255, 255, 255, .5);
   }
 
 .dropdown-submenu {
@@ -20674,6 +20679,14 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 label {
   margin-right: 4px;
   margin-left: 4px;
+  }
+
+form select,
+form input[type="text"],
+form input[type="password"],
+form.atto_form input[type="url"],
+select.singleselect {
+  margin: 0 2px 5px 0;
   }
 
 .row > .row {
@@ -21433,9 +21446,7 @@ ul.weeks {
   }
 
 .breadcrumb-button .forumsearch {
-  padding-top: 4px;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding: 4px;
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, .5);
   border: 1px solid transparent;
@@ -21898,11 +21909,20 @@ ol {
   padding-right: 24px;
   }
 
-.dropdown-menu:hover .userpicture,
-.dropdown-menu:focus .userpicture,
-.dropdown-menu:active .userpicture {
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus,
+.dropdown-menu li a:active {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  }
+
+.dropdown-menu li a:hover .userpicture,
+.dropdown-menu li a:focus .userpicture,
+.dropdown-menu li a:active .userpicture {
+  width: 31px;
+  height: 31px;
   background-color: #fff;
-  border: solid 2px #fff;
+  border: solid 2px rgba(255, 255, 255, .5);
   border-radius: 4px;
   }
 
@@ -21916,20 +21936,23 @@ ol {
 .dropdown-menu li:focus .msg-sender,
 .dropdown-menu li:active .msg-sender {
   color: #fff;
-  background: transparent;
+  background: none;
   }
 
 .dropdown-menu li:hover .msg-time,
 .dropdown-menu li:focus .msg-time,
 .dropdown-menu li:active .msg-time {
   color: #fff;
-  background: transparent;
+  background: none;
   }
 
 .dropdown-menu li:hover .msg-time span,
 .dropdown-menu li:focus .msg-time span,
-.dropdown-menu li:active .msg-time span {
-  background: transparent;
+.dropdown-menu li:active .msg-time span,
+.dropdown-menu li:hover .msg-time i,
+.dropdown-menu li:focus .msg-time i,
+.dropdown-menu li:active .msg-time i {
+  background: none;
   }
 
 .dropdown-menu .msg-sender {
@@ -21938,6 +21961,10 @@ ol {
 
 .dropdown-menu .msg-time {
   color: #1f4d87;
+  }
+
+.forumsearch input[type=text] {
+  vertical-align: middle;
   }
 
 .que .info,
@@ -22076,43 +22103,47 @@ ol {
   }
 
 .editor_atto_content_wrap {
-  color: #1f4d87;
-  background-color: white;
+  color: #1f4d87 !important;
+  background-color: white !important;
   }
 
 .editor_atto_content_wrap,
 .editor_atto + textarea {
-  border: 1px solid #c9e6ff;
+  border: 1px solid #c9e6ff !important;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
   }
 
 div.editor_atto_toolbar {
-  background: #e3f2ff;
-  border: 1px solid #c9e6ff;
+  background: #e3f2ff !important;
+  border: 1px solid #c9e6ff !important;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   }
 
+div.editor_atto_toolbar button {
+  background: transparent !important;
+  }
+
+div.editor_atto_toolbar button:hover {
+  background-color: #ebebeb !important;
+  background-image: radial-gradient(ellipse at center, #fff 60%, #e3f2ff 100%) !important;
+  }
+
+div.editor_atto_toolbar button:active,
+div.editor_atto_toolbar button.highlight {
+  background-color: #e0e0e0 !important;
+  background-image: radial-gradient(ellipse at center, #fff 40%, #e3f2ff 100%) !important;
+  }
+
 div.editor_atto_toolbar button + button {
-  border-right: 1px solid #c9e6ff;
-  }
-
-.editor_atto_toolbar button:hover {
-  background-color: #ebebeb;
-  background-image: radial-gradient(ellipse at center, #fff 60%, #e3f2ff 100%);
-  }
-
-.editor_atto_toolbar button:active,
-.editor_atto_toolbar button.highlight {
-  background-color: #e0e0e0;
-  background-image: radial-gradient(ellipse at center, #fff 40%, #e3f2ff 100%);
+  border-right: 1px solid #c9e6ff !important;
   }
 
 div.editor_atto_toolbar div.atto_group {
-  background: #edf7ff;
-  border: 1px solid #c9e6ff;
-  border-bottom: 1px solid #e3f2ff;
+  background: #edf7ff !important;
+  border: 1px solid #c9e6ff !important;
+  border-bottom: 1px solid #e3f2ff !important;
   }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_],
@@ -22535,8 +22566,19 @@ body.pagelayout-redirect #page {
   float: none;
   }
 
+#region-main-shoehorn .block,
+#region-main-shoehorn .panel-default,
+#region-main-shoehorn .info {
+  background-color: rgba(255, 255, 255, .9);
+  }
+
 #page-mod-quiz-edit #region-main-shoehorn {
   float: right;
+  }
+
+#navsearchbox {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   }
 
 .course-content .right a {
@@ -22568,7 +22610,7 @@ aside {
 
 .breadcrumb .divider,
 .breadcrumb .divider .glyphicon {
-  color: #eee;
+  color: #1f4d87;
   }
 
 .block .header .block_action img,
@@ -23453,6 +23495,10 @@ body.fontawesome #frontpage-category-names h2:before {
 @media (min-width: 481px) {
   .shoehorn-single-course-page .section .activity .mod-indent-outer {
     padding-right: 0;
+    }
+
+  #moodle-navbar {
+    margin-bottom: -5px;
     }
   }
 

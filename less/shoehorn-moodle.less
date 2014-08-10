@@ -457,9 +457,7 @@ ul {
 .breadcrumb-button .forumsearch {
     .panel;
     .panel-default;
-    padding-left: 4px;
-    padding-top: 4px;
-    padding-right: 4px;
+    padding: 4px;
 }
 
 .mform .iconhelp {
@@ -626,24 +624,32 @@ ul, ol {
 }
 
 .dropdown-menu {
-    &:hover .userpicture, &:focus .userpicture, &:active .userpicture {
-        background-color: #fff;
-        border: solid 2px #fff;
-        border-radius: @border-radius-base;
+    li a {
+        &:hover, &:focus, &:active {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            .userpicture {
+                background-color: #fff;
+                border: solid 2px rgba(red(#fff), green(#fff), blue(#fff), 0.5);
+                border-radius: @border-radius-base;
+                height: 31px;
+                width: 31px;
+            }
+        }
     }
 
     li {
         &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
         &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
         &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
-            background: transparent;
+            background: none;
             color: #fff;
         }
         &:hover .msg-time, &:focus .msg-time, &:active .msg-time {
-            background: transparent;
+            background: none;
             color: #fff;
-            span {
-                background: transparent;
+            span, i {
+                background: none;
             }
         }
     }
@@ -653,6 +659,11 @@ ul, ol {
     .msg-time {
         color: @text-color;
     }
+}
+
+// modules.less.
+.forumsearch input[type=text] {
+    vertical-align: middle;
 }
 
 // question.less.
@@ -744,42 +755,44 @@ ul, ol {
 // Core plugins.
 // Atto editor - lib\editor\atto\styles.css.
 .editor_atto_content_wrap {
-    background-color: white;
-    color: @text-color;
+    background-color: white !important;
+    color: @text-color !important;
 }
 
 .editor_atto_content_wrap,
 .editor_atto + textarea {
-    border: 1px solid @page-bottom-bg;
+    border: 1px solid @page-bottom-bg !important;
     border-bottom-left-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
 }
 
 div.editor_atto_toolbar {
-    background: @page-bottom-bg-light;
-    border: 1px solid @page-bottom-bg;
+    background: @page-bottom-bg-light !important; // I hate using important but see no other way.
+    border: 1px solid @page-bottom-bg !important;
     border-top-left-radius: @border-radius-base;
     border-top-right-radius: @border-radius-base;
-}
 
-div.editor_atto_toolbar button + button {
-    border-left: 1px solid @page-bottom-bg;
-}
+    button {
+        background: transparent !important;
+        &:hover {
+            background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg-light 100%) !important;
+            background-color: darken(@body-bg, 8%) !important;
+        }
+        &:active, &.highlight {
+            background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg-light 100%) !important;
+            background-color: darken(@body-bg, 12%) !important;
+        }
+    }
 
-.editor_atto_toolbar button:hover {
-    background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg-light 100%);
-    background-color: darken(@body-bg, 8%);
-}
+    button + button {
+        border-left: 1px solid @page-bottom-bg !important;
+    }
 
-.editor_atto_toolbar button:active, .editor_atto_toolbar button.highlight {
-    background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg-light 100%);
-    background-color: darken(@body-bg, 12%);
-}
-
-div.editor_atto_toolbar div.atto_group {
-    border: 1px solid @page-bottom-bg;
-    border-bottom: 1px solid @page-bottom-bg-light;
-    background: lighten(@page-bottom-bg-light, 2%);
+    div.atto_group {
+        border: 1px solid @page-bottom-bg !important;
+        border-bottom: 1px solid @page-bottom-bg-light !important;
+        background: lighten(@page-bottom-bg-light, 2%) !important;
+    }
 }
 
 // Quiz.
