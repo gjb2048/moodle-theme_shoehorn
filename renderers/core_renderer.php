@@ -764,7 +764,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $classes[] = 'collapse-blocks';
         $regionid = preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $displayregion);
         $attributes = array(
-            'id' => 'block-region-'.$regionid.' collapse-block',
+            'id' => 'block-region-'.$regionid,
             'class' => join(' ', $classes),
             'data-blockregion' => $displayregion,
             'data-droptarget' => '1'
