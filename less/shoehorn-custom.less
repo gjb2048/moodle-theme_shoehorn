@@ -115,10 +115,15 @@ aside .block a, #dockeditempanel a {
     }
 }
 
-aside .block a {
-    &:hover,
-    &:focus {
-        color: @page-bottom-bg-light;
+aside .block {
+    a {
+        &:hover,
+        &:focus {
+            font-weight: bold;
+        }
+    }
+    li.contains_branch > p:hover {
+        font-weight: bold;
     }
 }
 

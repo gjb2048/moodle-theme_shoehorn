@@ -18647,7 +18647,10 @@ aside .block a:focus,
   }
 aside .block a:hover,
 aside .block a:focus {
-  color: #e3f2ff;
+  font-weight: bold;
+  }
+aside .block li.contains_branch > p:hover {
+  font-weight: bold;
   }
 #dockeditempanel a:hover,
 #dockeditempanel a:focus {
