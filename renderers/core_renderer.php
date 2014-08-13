@@ -148,15 +148,16 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $messagecount++;
             }
+            $messagemenutext = html_writer::tag('span', $messagecount.' ');
             if ($this->page->theme->settings->fontawesome) {
                 $class = 'fa fa-envelope';
                 if ($messagecount == 0) {
                     $class .= '-o';
                 }
-                $messagemenutext = html_writer::tag('i', '', array('class' => $class));
+                $messagemenutext .= html_writer::tag('i', '', array('class' => $class));
                 $timeicon = 'fa fa-clock-o';
             } else {
-                $messagemenutext = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
+                $messagemenutext .= html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-envelope'));
                 $timeicon = 'glyphicon glyphicon-time';
             }
             $messagemenucount = $messagecount.' ';
@@ -165,7 +166,6 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             } else {
                  $messagemenucount .= get_string('messages', 'message');
             }
-            $messagemenutext .= html_writer::tag('span', ' '.$messagemenucount);
             $messagemenu = $menu->add(
                 $messagemenutext,
                 new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
