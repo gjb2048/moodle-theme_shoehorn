@@ -51,7 +51,7 @@ echo $OUTPUT->header();
 echo $OUTPUT->box_start();
 
 echo html_writer::start_tag('div', array('class' => 'row'));
-echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'), 'class' => 'col-sm-4 col-md-3 col-lg-2'));
+echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'), 'class' => 'img-responsive col-sm-4 col-md-3 col-lg-2'));
 echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-10 lead'));
 $readme = new moodle_url('/theme/shoehorn/Readme.md');
 $readme = html_writer::link($readme, 'Shoehorn', array('target' => '_blank'));
