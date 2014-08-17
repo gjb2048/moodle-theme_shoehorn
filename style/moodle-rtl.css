@@ -21042,7 +21042,9 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 
 .carousel-caption {
   background: #fff;
-  background: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .7);
+  border: 1px solid rgba(201, 230, 255, .65);
+  border-radius: 6px;
   }
 
 .dropdown-menu {
