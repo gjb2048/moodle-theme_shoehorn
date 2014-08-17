@@ -56,6 +56,8 @@ echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-1
 $readme = new moodle_url('/theme/shoehorn/Readme.md');
 $readme = html_writer::link($readme, 'Shoehorn', array('target' => '_blank'));
 echo html_writer::tag('p', '\''.$readme.'\' is a Bootstrap v3 based theme that has many innovative features:');
+echo html_writer::start_tag('div', array('class' => 'row'));
+echo html_writer::start_tag('div',  array('class' => 'col-sm-6 col-md-6 col-lg-6 lead'));
 echo html_writer::start_tag('ul');
 echo html_writer::tag('li', 'Accordion block regions.');
 echo html_writer::tag('li', 'Bespoke copyright statement.');
@@ -75,6 +77,10 @@ echo html_writer::tag('li', '\'Draft\' / \'Published\' state.');
 echo html_writer::tag('li', '\'before login\', \'after login\' or \'always\' visibility.');
 echo html_writer::tag('li', 'Set specific language only visibility.');
 echo html_writer::end_tag('ul');
+echo html_writer::end_tag('ul');
+echo html_writer::end_tag('div');
+echo html_writer::start_tag('div',  array('class' => 'col-sm-6 col-md-6 col-lg-6 lead'));
+echo html_writer::start_tag('ul');
 echo html_writer::tag('li', 'Intelligent home footer link that goes back to the most appropriate location.');
 echo html_writer::tag('li', 'Login page changing background images option.');
 echo html_writer::tag('li', 'Marketing spots.');
@@ -87,6 +93,8 @@ echo html_writer::tag('li', 'Social icons with dynamic signpost if desired.');
 echo html_writer::tag('li', 'Syntax highlighting on content if desired.');
 echo html_writer::tag('li', 'Transparency control of front and other pages.');
 echo html_writer::end_tag('ul');
+echo html_writer::end_tag('div');
+echo html_writer::end_tag('div');
 echo html_writer::tag('p', 'I hope that you enjoy this theme,');
 echo html_writer::tag('p', 'Gareth J Barnard - '.
                         html_writer::tag('a', 'About.me', (array('href' => '//about.me/gjbarnard', 'target' => '_blank'))).
