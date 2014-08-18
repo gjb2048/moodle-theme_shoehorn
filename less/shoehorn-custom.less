@@ -115,10 +115,15 @@ aside .block a, #dockeditempanel a {
     }
 }
 
-aside .block a {
-    &:hover,
-    &:focus {
-        color: @page-bottom-bg-light;
+aside .block {
+    a {
+        &:hover,
+        &:focus {
+            font-weight: bold;
+        }
+    }
+    li.contains_branch > p:hover {
+        font-weight: bold;
     }
 }
 
@@ -228,6 +233,7 @@ body.pagelayout-redirect #page {
 #navsearchbox {
     border-top-left-radius: @border-radius-base;
     border-bottom-left-radius: @border-radius-base;
+    float: right;
 }
 
 // Course.
