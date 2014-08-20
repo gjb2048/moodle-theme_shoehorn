@@ -146,8 +146,8 @@ img.iconhelp,
 }
 
 .moodle-actionmenu[data-enhanced].show {
+    display: inline !important; // TODO: Undo change in upstream bootstrap theme.
     .menu {
-        position: relative;
         > li > a {
             &:hover, &:focus {
                 color: @page-top-bg;
@@ -155,6 +155,9 @@ img.iconhelp,
             }
         }
     }
+}
+.block .moodle-actionmenu[data-enhanced].show {
+    display: block !important; // TODO: Undo change in upstream bootstrap theme.
 }
 
 // course.less.
@@ -178,8 +181,8 @@ ul {
 
 .editing .section {
     .activity {
-        a:hover, &.action-menu-shown {
-                background-color: @page-bottom-bg;
+        &:hover, &.action-menu-shown {
+            background-color: transparent;
         }
     }
     .editing_title .iconsmall {
