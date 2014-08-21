@@ -91,7 +91,7 @@ function shoehorn_section_footer() {
  * @param array $modnamesused (argument not used)
  * @param int $displaysection The section number in the course which is being displayed
  */
-function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, $nbformat = false) {
     global $PAGE;
 
     if ($PAGE->user_is_editing()) {
@@ -169,11 +169,24 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
             $thissection = $sections[$shownsections[$loopsection]];
             $loopsection++;
             if ($thissection->section == 0) {
-                // 0-section is displayed a little different than the others
-                if ($thissection->summary or !empty($modinfo->sections[0])) {
+                // 0-section is displayed a little different than the others.
+                if (!$nbformat) {
+                    if ($thissection->summary or !empty($modinfo->sections[0])) {
+                        echo shoehorn_section_header($that, $thissection, $course, $format, $displaysection);
+                        echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
+                        echo $that->courserenderer->course_section_add_cm_control($course, 0, 0);
+                        echo shoehorn_section_footer();
+                    }
+                } else {
                     echo shoehorn_section_header($that, $thissection, $course, $format, $displaysection);
-                    echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
-                    echo $that->courserenderer->course_section_add_cm_control($course, 0, 0);
+                    if ($thissection->summary or !empty($modinfo->sections[0])) {
+                        echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
+                        echo $that->courserenderer->course_section_add_cm_control($course, 0, 0);
+                    }
+                    // See if we are using a version of the format's renderer where the method 'print_noticeboard' is public.
+                    if (in_array('print_noticeboard', get_class_methods($that))) {
+                        $that->print_noticeboard($course);
+                    }
                     echo shoehorn_section_footer();
                 }
                 continue;
@@ -386,7 +399,7 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, true);
         }
     }
 }
