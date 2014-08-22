@@ -69,12 +69,28 @@
  *
  * grunt decache      Clears the Moodle theme cache.
  *
- *                    Options:
+ * grunt compile Run the .less files through the compiler, create the
+ *               RTL version of the output, then run decache so that
+ *               the results can be seen on the next page load.
  *
- *                    --dirroot=<path>  Optional. Explicitly define
- *                                      the path to your Moodle root
- *                                      directory when your theme is
- *                                      not in the standard location.
+ *               Options:
+ *
+ *               --dirroot=<path>  Optional. Explicitly define
+ *                                 the path to your Moodle root
+ *                                 directory when your theme is
+ *                                 not in the standard location.
+ *
+ *               --build=<type>    Optional. 'p'(default) or 'd'. If 'p'
+ *                                 then 'production' CSS files.  If 'd'
+ *                                 then 'development' CSS files unminified
+ *                                 and with source map to less files.
+ *
+ *               --urlprefix=<path> Optional. Explicitly define
+ *                                  the path between the domain
+ *                                  and the installation in the
+ *                                  URL, i.e. /moodle27 being:
+ *                                  --urlprefix=/moodle27
+ *
  *
  * grunt replace             Run all text replace tasks.
  *
@@ -127,6 +143,25 @@ module.exports = function(grunt) {
         moodleroot = path.resolve(dirrootopt);
     }
 
+    // Production / development.
+    var build = grunt.option('build') || 'p';
+
+    if ((build != 'p') && (build != 'd')) {
+        build = 'p';
+        console.log('-build switch only accepts \'p\' for production or \'d\' for development,');
+        console.log('e.g. -build=p or -build=d.  Defaulting to production.');
+    }
+
+    var COMPRESS = true;
+    var SOURCEMAP = false;
+    if (build == 'd') {
+        COMPRESS = false;
+        SOURCEMAP = true;
+        console.log('Creating development version.');
+    } else {
+        console.log('Creating production version.');
+    }
+
     configfile = path.join(moodleroot, 'config.php');
 
     decachephp += 'define(\'CLI_SCRIPT\', true);';
@@ -140,10 +175,10 @@ module.exports = function(grunt) {
             // Compile moodle styles for development.
             moodle: {
                 options: {
-                    compress: false,
+                    compress: COMPRESS,
                     paths: "../bootstrap/less",
                     report: 'min',
-                    sourceMap: true,
+                    sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'style/moodle.treasure.map'
                 },
@@ -153,10 +188,10 @@ module.exports = function(grunt) {
             // Compile editor styles for development.
             editor: {
                 options: {
-                    compress: false,
+                    compress: COMPRESS,
                     paths: "../bootstrap/less",
                     report: 'min',
-                    sourceMap: true,
+                    sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'style/editor.treasure.map'
                 },
@@ -167,10 +202,10 @@ module.exports = function(grunt) {
             // Compile moodle styles.
             moodle_e: {
                 options: {
-                    compress: false,
+                    compress: COMPRESS,
                     paths: "../bootstrap/less",
                     report: 'min',
-                    sourceMap: true,
+                    sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'style/experimental/moodle.treasure.map'
                 },
@@ -180,9 +215,9 @@ module.exports = function(grunt) {
             // Compile theme styles.
             theme_e: {
                 options: {
-                    compress: false,
+                    compress: COMPRESS,
                     report: 'min',
-                    sourceMap: true,
+                    sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
                     sourceMapFilename: 'style/theme.treasure.map'
                 },
