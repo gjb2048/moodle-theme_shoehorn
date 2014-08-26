@@ -84,6 +84,7 @@ function shoehorn_section_footer() {
  * Output the html for a single section page.
  *
  * @param stdClass $that theme_shoehorn_format_XXXXX_renderer instance.
+ * @param stdClass $courserenderer course renderer instance.
  * @param stdClass $course The course entry from DB
  * @param array $sections (argument not used)
  * @param array $mods (argument not used)
@@ -91,7 +92,7 @@ function shoehorn_section_footer() {
  * @param array $modnamesused (argument not used)
  * @param int $displaysection The section number in the course which is being displayed
  */
-function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, $nbformat = false) {
+function shoehorn_print_single_section_page(&$that, &$courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, $nbformat = false) {
     global $PAGE;
 
     if ($PAGE->user_is_editing()) {
@@ -173,15 +174,15 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
                 if (!$nbformat) {
                     if ($thissection->summary or !empty($modinfo->sections[0])) {
                         echo shoehorn_section_header($that, $thissection, $course, $format, $displaysection);
-                        echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
-                        echo $that->courserenderer->course_section_add_cm_control($course, 0, 0);
+                        echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                        echo $courserenderer->course_section_add_cm_control($course, 0, 0);
                         echo shoehorn_section_footer();
                     }
                 } else {
                     echo shoehorn_section_header($that, $thissection, $course, $format, $displaysection);
                     if ($thissection->summary or !empty($modinfo->sections[0])) {
-                        echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
-                        echo $that->courserenderer->course_section_add_cm_control($course, 0, 0);
+                        echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                        echo $courserenderer->course_section_add_cm_control($course, 0, 0);
                     }
                     // See if we are using a version of the format's renderer where the method 'print_noticeboard' is public.
                     if (in_array('print_noticeboard', get_class_methods($that))) {
@@ -194,8 +195,8 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
 
             echo shoehorn_section_header($that, $thissection, $course, $format, $displaysection);
             if ($thissection->uservisible) {
-                echo $that->courserenderer->course_section_cm_list($course, $thissection, 0);
-                echo $that->courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
+                echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                echo $courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
             }
             echo shoehorn_section_footer();
         }
@@ -232,8 +233,6 @@ function shoehorn_print_single_section_page(&$that, $course, $sections, $mods, $
    they are passed a reference to the $this object. */
 include_once($CFG->dirroot . "/theme/bootstrap/renderers/course_format_renderer.php");
 class theme_shoehorn_format_topics_renderer extends theme_bootstrap_format_topics_renderer {
-    public $courserenderer;
-
     protected function get_nav_links($course, $sections, $sectionno) {
         return array();
     }
@@ -259,13 +258,11 @@ class theme_shoehorn_format_topics_renderer extends theme_bootstrap_format_topic
     }
 
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-        shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
     }
 }
 
 class theme_shoehorn_format_weeks_renderer extends theme_bootstrap_format_weeks_renderer {
-    public $courserenderer;
-
     protected function get_nav_links($course, $sections, $sectionno) {
         return array();
     }
@@ -291,7 +288,7 @@ class theme_shoehorn_format_weeks_renderer extends theme_bootstrap_format_weeks_
     }
 
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-        shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+        shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
     }
 }
 
@@ -300,8 +297,6 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/topcoll/renderer.php");
 
     class theme_shoehorn_format_topcoll_renderer extends format_topcoll_renderer {
-        public $courserenderer;
-
         protected function get_nav_links($course, $sections, $sectionno) {
             return array();
         }
@@ -327,7 +322,7 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+            shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
     }
 }
@@ -336,8 +331,6 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/grid/renderer.php");
 
     class theme_shoehorn_format_grid_renderer extends format_grid_renderer {
-        public $courserenderer;
-
         protected function get_nav_links($course, $sections, $sectionno) {
             return array();
         }
@@ -363,7 +356,7 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+            shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
     }
 }
@@ -372,8 +365,6 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/noticebd/renderer.php");
 
     class theme_shoehorn_format_noticebd_renderer extends format_noticebd_renderer {
-        public $courserenderer;
-
         protected function get_nav_links($course, $sections, $sectionno) {
             return array();
         }
@@ -399,7 +390,7 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, true);
+            shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, true);
         }
     }
 }
@@ -409,8 +400,6 @@ if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/columns/renderer.php");
 
     class theme_shoehorn_format_columns_renderer extends format_columns_renderer {
-        public $courserenderer;
-
         protected function get_nav_links($course, $sections, $sectionno) {
             return array();
         }
@@ -436,7 +425,7 @@ if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
         }
 
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            shoehorn_print_single_section_page($this, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
+            shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
     }
 }
