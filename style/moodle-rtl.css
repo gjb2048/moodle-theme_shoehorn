@@ -22221,6 +22221,26 @@ ul.weeks {
   border-color: #c9e6ff;
   }
 
+.path-grade-report-grader div.left_scroller th.user a {
+  margin-left: 10px;
+  }
+
+.path-grade-report-grader div.left_scroller th.user a:hover,
+.path-grade-report-grader div.left_scroller th.user a:focus {
+  background-color: transparent;
+  border-radius: 0;
+  }
+
+.path-grade-report-grader div.left_scroller th.user a:hover img.userpicture,
+.path-grade-report-grader div.left_scroller th.user a:focus img.userpicture {
+  background-color: rgba(201, 230, 255, .7);
+  border-radius: 4px;
+  }
+
+.path-grade-report-grader th.user img.userpicture {
+  margin-left: 0;
+  }
+
 .path-grade-report-grader table#fixed_column {
   border-top-color: #c9e6ff;
   }
@@ -22248,14 +22268,14 @@ ul.weeks {
   border-left-color: #c9e6ff;
   }
 
-table#user-grades th.item,
-table#user-grades th.categoryitem,
-table#user-grades th.courseitem,
-table#user-grades td.cell {
+.path-grade-report-grader div.left_scroller th.user a .path-grade-report-grader th.user img.userpicture table#user-grades th.item,
+.path-grade-report-grader div.left_scroller th.user a .path-grade-report-grader th.user img.userpicture table#user-grades th.categoryitem,
+.path-grade-report-grader div.left_scroller th.user a .path-grade-report-grader th.user img.userpicture table#user-grades th.courseitem,
+.path-grade-report-grader div.left_scroller th.user a .path-grade-report-grader th.user img.userpicture table#user-grades td.cell {
   border-color: #c9e6ff;
   }
 
-table#user-grades tr.heading th.courseitem {
+.path-grade-report-grader div.left_scroller th.user a .path-grade-report-grader th.user img.userpicture table#user-grades tr.heading th.courseitem {
   border-width: 1px;
   }
 

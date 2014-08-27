@@ -34,5 +34,5 @@
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
 <?php 
 if (!empty($settingshtml->fontawesome) && ($settingshtml->fontawesome == true)) { // Use FontAwesome CDN.
-    echo '<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">';
+    echo '<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">';
 } ?>

@@ -492,10 +492,24 @@ ul {
     }
 }
 
-// Effectively grade.less
+// Effectively grade\report\grader\styles.css.
 .path-grade-report-grader {
     .left_scroller table td.topleft {
         border-color: @page-bottom-bg;
+    }
+    div.left_scroller th.user a {
+        margin-right: 10px;
+        &:hover, &:focus {
+            img.userpicture {
+                background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+                border-radius: @border-radius-base;
+            }
+            background-color: transparent;
+            border-radius: 0;
+        }
+    }
+    th.user img.userpicture {
+        margin-right: 0px; // Effectively move the margin to parent element for hover purposes.
     }
     table#fixed_column {
         border-top-color: @page-bottom-bg;
@@ -518,7 +532,8 @@ ul {
         }
     }
 }
-
+.path-grade-report-grader div.left_scroller th.user a
+.path-grade-report-grader th.user img.userpicture 
 table#user-grades {
     th.item, th.categoryitem, th.courseitem, td.cell {
         border-color: @page-bottom-bg;

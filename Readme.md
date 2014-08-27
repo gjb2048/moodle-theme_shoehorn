@@ -92,7 +92,7 @@ Todo
 
 Version information
 ===================
-7th August 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
+27th August 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added look and feel settings to control background image and content transparency for the content area
       for all pages and the front page as an individual separate.
   2.  Various transparency changes to navbar, menu and footer.
@@ -105,6 +105,8 @@ Version information
   9.  Added option to compact the navigation bar.
  10.  Added option to fix the navigation bar at the top of the page.
  11.  Added experimental dynamic language option to test: https://moodle.org/mod/forum/discuss.php?d=264955.
+ 12.  Updated to FontAwesome 4.2.0.
+ 13.  Fix user svg images for IE11.
 
 11th July 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added syntax highlighting to courses - http://alexgorbatchev.com/SyntaxHighlighter/.
