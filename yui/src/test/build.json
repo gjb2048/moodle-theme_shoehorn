@@ -1,0 +1,10 @@
+{
+  "name": "moodle-theme_shoehorn-test",
+  "builds": {
+    "moodle-theme_shoehorn-test": {
+        "jsfiles": [
+            "test.js"
+        ]
+    }
+  }
+}

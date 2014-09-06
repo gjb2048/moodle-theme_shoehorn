@@ -7,25 +7,34 @@ The Shoehorn theme's test JavaScript
 @module theme_shoehorn.test
 **/
 
+M.theme_shoehorn = M.theme_shoehorn || {};
+M.theme_shoehorn.test = M.theme_shoehorn.test || {};
+M.theme_shoehorn.test = {
+    init: function() {
+        showInheritance(Y);
+    }
+};
+
 /**
 @class Moodle.theme_shoehorn.test
 @uses node
 @uses selector-css3
 @constructor
 **/
-var NS = Y.namespace('Moodle.theme_shoehorn.test');
+/* var NS = Y.namespace('M.theme_shoehorn.test'); */
 
 /**
  * Initialise the Moodle Bootstrap theme JavaScript
  *
  * @method init
  */
-NS.init = function() {
+/*NS.init = function() {
+    showInheritance(Y);
 };
 
 var MYCLASS = function() {
      MYCLASS.superclass.constructor.apply(this, arguments);
-};
+};*/
 
 /* https://yuilibrary.com/yui/docs/yui/yui-extend.html */
 function Bird(name) {
@@ -59,7 +68,5 @@ function showInheritance(Y) {
 
 }
 
-showInheritance(Y);
 
-
-}, '@VERSION@', {"requires": ["node", "selector-css3"]});
+}, '@VERSION@', {"requires": [""]});

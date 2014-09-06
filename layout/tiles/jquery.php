@@ -36,3 +36,4 @@ switch ($PAGE->pagelayout) {
             $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
         }
 }
+$PAGE->requires->yui_module('moodle-theme_shoehorn-test', 'M.theme_shoehorn.test.init');
