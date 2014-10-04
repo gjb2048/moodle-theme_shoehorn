@@ -28,13 +28,8 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
 
 Required version of Bootstrap 3
 ===============================
-The Bootstrap 3 theme for Moodle is currently under development, so I maintain a 'fork' upon which I test against.  This is
-here: https://github.com/gjb2048/theme_bootstrap
-
-Each time I make a release I will 'tag' the version to use.  Please see the 'Version information' below for details on the
-'tag' to use and install in the same way as Shoehorn.
-
-The main development is maintained here: https://github.com/bmbrands/theme_bootstrap
+You will need to get and install the correct version of the parent Bootstrap theme from:
+https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip, in order to install and use Shoehorn.
 
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
 Mark Aberdour, Paul Hibbitts, Mary Evans and Joby Harding.
@@ -85,6 +80,15 @@ It is essential that you provide as much information as possible, the critical i
 'version.php' file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
 
+Known issues
+============
+1. RTL functionality is not quite ready.  In the 'General' settings there is an experimental switch 'dynamiclang' which is my first
+   attempt at implementing an idea as described on: https://moodle.org/mod/forum/discuss.php?d=264955.  This idea has further been
+   developed by me in the Essential theme: https://github.com/DBezemer/moodle-theme_essential/issues/249.  The main area of issue
+   has been the quiz.  Once Essential 2.7.8 is released and any other issues resolved, I will take what I have learnt there and apply
+   to Shoehorn.  Or it might be the case that the parent Bootstrap theme in https://github.com/bmbrands/theme_bootstrap/issues/262 will
+   help to resolve this.
+
 Todo
 ====
 1. Consider moving fluid container setting from Bootstrap 3 settings.
@@ -92,6 +96,11 @@ Todo
 
 Version information
 ===================
+4th October 2014 - Version 2.7.0.4 - DO NOT INSTALL ON PRODUCTION SERVERS.
+  1.  With the release of a stable parent Bootstrap on: https://moodle.org/mod/forum/discuss.php?d=271448, I have decided to release
+      this release candidate version of Shoehorn.
+  2.  You will need the parent theme from: https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip.
+
 27th August 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Added look and feel settings to control background image and content transparency for the content area
       for all pages and the front page as an individual separate.

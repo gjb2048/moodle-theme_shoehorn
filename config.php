@@ -30,11 +30,16 @@ $THEME->doctype = 'html5';
 $THEME->name = 'shoehorn';
 $THEME->parents = array('bootstrap');
 
+$tdm = '';
+if (!get_config('core', 'themedesignermode')) {
+    $tdm = '_min';
+}
+
 if (empty($THEME->settings->dynamiclang)) {
     if ('ltr' === get_string('thisdirection', 'langconfig')) {
-        $THEME->sheets = array('moodle');
+        $THEME->sheets = array('moodle'.$tdm);
     } else {
-        $THEME->sheets = array('moodle-rtl', 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
+        $THEME->sheets = array('moodle-rtl'.$tdm, 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
     }
 } else {
     $THEME->sheets = array('theme');  // moodle / moodle-rtl served in layout/tiles/header.php separately.
@@ -61,7 +66,7 @@ if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
     $THEME->enable_dock = false;
 }
 
-$THEME->editor_sheets = array('editor');
+$THEME->editor_sheets = array('editor'.$tdm);
 
 $THEME->parents_exclude_sheets = array(
     'bootstrap' => array(

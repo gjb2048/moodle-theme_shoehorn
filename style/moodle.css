@@ -6017,8 +6017,6 @@ button.close {
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:before,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
-.userprofile .userprofilebox:before,
-.userprofile .userprofilebox:after,
 .mform .fitem_actionbuttons:before,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:before,
@@ -6051,7 +6049,6 @@ button.close {
 .modal-footer:after,
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
-.userprofile .userprofilebox:after,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:after,
 .path-backup .mform .grouped_settings .fitem:after,
@@ -6479,6 +6476,23 @@ img.icon.hide {
   }
 .section .label {
   text-align: center;
+  }
+.atto_image_size input[type="text"] {
+  width: auto;
+  }
+div[role="main"] ul,
+div[role="main"] ol {
+  padding-left: 20px;
+  overflow: hidden;
+  }
+div[role="main"] ul.section,
+div[role="main"] ol.section,
+div[role="main"] ul.weeks,
+div[role="main"] ol.weeks,
+div[role="main"] ul.topics,
+div[role="main"] ol.topics {
+  padding: 0;
+  overflow: visible;
   }
 /** core.less */
 /** Page layout CSS starts **/
@@ -7882,101 +7896,6 @@ body.jsenabled .formlisting {
   /** JS is enabled, we'll be using it so return display to normal **/
   opacity: .5;
   }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-  display: inline-block;
-  display: block;
-  padding: 6px 12px;
-  padding: 5px 10px;
-  padding-right: 4px;
-  padding-left: 4px;
-  margin-bottom: 0;
-  margin-left: 4px;
-  font-size: 14px;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  line-height: 1.5;
-  color: #1f4d87;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-color: #c9e6ff;
-  background-image: none;
-  border: 1px solid transparent;
-  border-color: #1f4d87;
-  border-radius: 4px;
-  border-radius: 3px;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:focus,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active:focus,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:focus {
-  color: #1f4d87;
-  text-decoration: none;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active {
-  background-image: none;
-  outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled],
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-  pointer-events: none;
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  opacity: .65;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:focus,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active,
-.open > .dropdown-toggle.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-  color: #1f4d87;
-  background-color: #96ceff;
-  border-color: #143155;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active,
-.open > .dropdown-toggle.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
-  background-image: none;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled],
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled:hover,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled]:hover,
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:hover,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled:focus,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled]:focus,
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:focus,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled:active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled]:active,
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu:active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.disabled.active,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu[disabled].active,
-fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu.active {
-  background-color: #c9e6ff;
-  border-color: #1f4d87;
-  }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .badge {
-  color: #c9e6ff;
-  background-color: #1f4d87;
-  }
 .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall {
   padding: 8px 4px 0 2px;
   margin: 4px 4px 4px 0;
@@ -9323,9 +9242,6 @@ textarea.path-admin .roleassigntable input[type="text"] {
   }
 .path-course-view .single-section .completionprogress {
   margin-right: 5px;
-  }
-.path-course-view .section .summary {
-  line-height: normal;
   }
 .path-course-view li.activity span.autocompletion img {
   vertical-align: text-bottom;
@@ -13206,47 +13122,115 @@ body.path-question-type .mform fieldset.hidden {
 .userprofile > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: rgba(31, 77, 135, .2);
   }
-.userprofile .userprofilebox {
-  margin-right: -15px;
-  margin-left: -15px;
-  }
 .userprofile .userprofilebox .profilepicture {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  }
-@media (min-width: 992px) {
-  .userprofile .userprofilebox .profilepicture {
-    float: left;
-    width: 16.66666667%;
-    }
+  float: left;
   }
 .userprofile .userprofilebox .profilepicture a {
-  display: block;
+  display: inline-block;
   margin: 10px;
   }
 .userprofile .userprofilebox .profilepicture a img {
   border-radius: 6px;
   }
-.userprofile .userprofilebox .descriptionbox {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  }
-@media (min-width: 992px) {
-  .userprofile .userprofilebox .descriptionbox {
-    float: left;
-    width: 83.33333333%;
-    }
-  }
 .userprofile .userprofilebox .descriptionbox .description {
   margin: 10px;
+  }
+.userprofile .userprofilebox .descriptionbox .list {
+  margin: 0 10px;
   }
 .userprofile .fullprofilelink {
   margin: 10px;
   text-align: center;
+  }
+.userprofile .messagebox {
+  margin: 10px;
+  }
+.userprofile .messagebox a {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #1f4d87;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #c9e6ff;
+  background-image: none;
+  border: 1px solid transparent;
+  border-color: #1f4d87;
+  border-radius: 4px;
+  }
+.userprofile .messagebox a:focus,
+.userprofile .messagebox a:active:focus,
+.userprofile .messagebox a.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  }
+.userprofile .messagebox a:hover,
+.userprofile .messagebox a:focus {
+  color: #1f4d87;
+  text-decoration: none;
+  }
+.userprofile .messagebox a:active,
+.userprofile .messagebox a.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  }
+.userprofile .messagebox a.disabled,
+.userprofile .messagebox a[disabled],
+fieldset[disabled] .userprofile .messagebox a {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+  }
+.userprofile .messagebox a:hover,
+.userprofile .messagebox a:focus,
+.userprofile .messagebox a:active,
+.userprofile .messagebox a.active,
+.open > .dropdown-toggle.userprofile .messagebox a {
+  color: #1f4d87;
+  background-color: #96ceff;
+  border-color: #143155;
+  }
+.userprofile .messagebox a:active,
+.userprofile .messagebox a.active,
+.open > .dropdown-toggle.userprofile .messagebox a {
+  background-image: none;
+  }
+.userprofile .messagebox a.disabled,
+.userprofile .messagebox a[disabled],
+fieldset[disabled] .userprofile .messagebox a,
+.userprofile .messagebox a.disabled:hover,
+.userprofile .messagebox a[disabled]:hover,
+fieldset[disabled] .userprofile .messagebox a:hover,
+.userprofile .messagebox a.disabled:focus,
+.userprofile .messagebox a[disabled]:focus,
+fieldset[disabled] .userprofile .messagebox a:focus,
+.userprofile .messagebox a.disabled:active,
+.userprofile .messagebox a[disabled]:active,
+fieldset[disabled] .userprofile .messagebox a:active,
+.userprofile .messagebox a.disabled.active,
+.userprofile .messagebox a[disabled].active,
+fieldset[disabled] .userprofile .messagebox a.active {
+  background-color: #c9e6ff;
+  border-color: #1f4d87;
+  }
+.userprofile .messagebox a .badge {
+  color: #c9e6ff;
+  background-color: #1f4d87;
   }
 .loginbox {
   margin-bottom: 15px;
@@ -13931,6 +13915,7 @@ ol {
   }
 .block .content {
   padding: 4px 14px;
+  word-wrap: break-word;
   }
 .block .content hr {
   margin: 5px 0;
@@ -14619,9 +14604,7 @@ textareaselect.singleselect {
   .form-item .form-setting > input[type="text"],
   .mform .fcontainer .fitem .felement > input[type="text"],
   .form-item .form-setting > input[type="password"],
-  .mform .fcontainer .fitem .felement > input[type="password"],
-  .form-item .form-setting > select,
-  .mform .fcontainer .fitem .felement > select {
+  .mform .fcontainer .fitem .felement > input[type="password"] {
     width: auto;
     min-width: 480px;
     margin-bottom: 5px;
