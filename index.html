@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Moodle-theme shoehorn by gjb2048</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Moodle-theme shoehorn</h1>
+        <h2></h2>
+        <a href="https://github.com/gjb2048/moodle-theme_shoehorn" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>Shoehorn theme.</p>
+
+<p><img src="pix/screenshot.png" alt="image1" title="Shoehorn screenshot"></p>
+
+<h1>
+<a name="about" class="anchor" href="#about"><span class="octicon octicon-link"></span></a>About</h1>
+
+<p><img src="pix/Shoehorn_logo_sm.png" alt="image2" title="Shoehorn logo"></p>
+
+<ul>
+<li>copyright  © 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme for Moodle.</li>
+<li>author     G J Barnard - <a href="http://about.me/gjbarnard">http://about.me/gjbarnard</a> and <a href="http://moodle.org/user/profile.php?id=442195">http://moodle.org/user/profile.php?id=442195</a>
+</li>
+<li>author     Based on code originally written by Bas Brands, David Scotson and many other contributors.</li>
+<li>license    <a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a> GNU GPL v3 or later</li>
+</ul>
+
+<h1>
+<a name="customisation" class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation</h1>
+
+<p>If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme
+from scratch, then I offer competitive rates.  Please contact me via <a href="http://www.gjbarnard.co.uk/contact/">www.gjbarnard.co.uk/contact/</a> or gjbarnard at gmail dot com
+to discuss your requirements.</p>
+
+<h1>
+<a name="required-version-of-moodle" class="anchor" href="#required-version-of-moodle"><span class="octicon octicon-link"></span></a>Required version of Moodle</h1>
+
+<p>This version works with Moodle version 2014051200.00 release 2.7 (Build: 20140512) and above within the 2.7 branch until the
+next release.</p>
+
+<p>Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
+'docs.moodle.org/27/en/Installing_Moodle'.</p>
+
+<h1>
+<a name="required-version-of-bootstrap-3" class="anchor" href="#required-version-of-bootstrap-3"><span class="octicon octicon-link"></span></a>Required version of Bootstrap 3</h1>
+
+<p>You will need to get and install the correct version of the parent Bootstrap theme from:
+<a href="https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip">https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip</a>, in order to install and use Shoehorn.</p>
+
+<p>I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
+Mark Aberdour, Paul Hibbitts and Joby Harding.</p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<ol>
+<li>Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
+theme relies on underlying core code that is out of my control.</li>
+<li>Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.</li>
+<li>Copy the extracted 'shoehorn' folder to the '/theme/' folder.</li>
+<li>Go to 'Site administration' -&gt; 'Notifications' and follow standard the 'plugin' update notification.</li>
+<li>Select as the theme for the site.</li>
+<li>Put Moodle out of Maintenance Mode.</li>
+</ol>
+
+<p>Note: If you get no CSS whatsoever, then please add the following to your Apache web server httpd.conf file after loading the modules
+and restart (without the ` if you see them):</p>
+
+<pre><code>&lt;IfModule mpm_winnt_module&gt;
+   ThreadStackSize 8388608
+&lt;/IfModule&gt;
+</code></pre>
+
+<p>Ref: <a href="https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495">https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495</a> and <a href="https://code.google.com/p/minify/issues/detail?id=62">https://code.google.com/p/minify/issues/detail?id=62</a>.</p>
+
+<h1>
+<a name="upgrading" class="anchor" href="#upgrading"><span class="octicon octicon-link"></span></a>Upgrading</h1>
+
+<ol>
+<li>Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
+theme relies on underlying core code that is out of my control.</li>
+<li>Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.</li>
+<li>Make a backup of your old 'shoehorn' folder in '/theme/' and then delete the folder.</li>
+<li>Copy the replacement extracted 'shoehorn' folder to the '/theme/' folder.</li>
+<li>Go to 'Site administration' -&gt; 'Notifications' and follow standard the 'plugin' update notification.</li>
+<li>If automatic 'Purge all caches' appears not to work by lack of display etc. then perform a manual 'Purge all caches'
+under 'Home -&gt; Site administration -&gt; Development -&gt; Purge all caches'.</li>
+<li>Put Moodle out of Maintenance Mode.</li>
+</ol>
+
+<h1>
+<a name="uninstallation" class="anchor" href="#uninstallation"><span class="octicon octicon-link"></span></a>Uninstallation</h1>
+
+<ol>
+<li>Put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.</li>
+<li>Change the theme to another theme of your choice.</li>
+<li>In '/theme/' remove the folder 'shoehorn'.</li>
+<li>Put Moodle out of Maintenance Mode.</li>
+</ol>
+
+<h1>
+<a name="reporting-issues" class="anchor" href="#reporting-issues"><span class="octicon octicon-link"></span></a>Reporting issues</h1>
+
+<p>Before reporting an issue, please ensure that you are running the latest version for your release of Moodle.  It is essential
+that you are operating the required version of Moodle as stated at the top - this is because the theme relies on core
+functionality that is out of its control.</p>
+
+<p>I operate a policy that I will fix all genuine issues for free.  Improvements are at my discretion.  I am happy to make bespoke
+customisations / improvements for a negotiated fee. </p>
+
+<p>When reporting an issue you can post in the theme's forum on Moodle.org (currently 'moodle.org/mod/forum/view.php?id=46')
+or check the issue list <a href="https://github.com/gjb2048/moodle-theme_shoehorn/issues">https://github.com/gjb2048/moodle-theme_shoehorn/issues</a> and if the problem does not exist, create an
+issue.</p>
+
+<p>It is essential that you provide as much information as possible, the critical information being the contents of the theme's 
+'version.php' file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
+can be really useful in visualising the issue along with any files you consider to be relevant.</p>
+
+<h1>
+<a name="known-issues" class="anchor" href="#known-issues"><span class="octicon octicon-link"></span></a>Known issues</h1>
+
+<ol>
+<li>RTL functionality is not quite ready.  In the 'General' settings there is an experimental switch 'dynamiclang' which is my first
+attempt at implementing an idea as described on: <a href="https://moodle.org/mod/forum/discuss.php?d=264955">https://moodle.org/mod/forum/discuss.php?d=264955</a>.  This idea has further been
+developed by me in the Essential theme: <a href="https://github.com/gjb2048/moodle-theme_essential/issues/249">https://github.com/gjb2048/moodle-theme_essential/issues/249</a>.  The main area of issue
+has been the quiz.  Once Essential 2.7.8 is released and any other issues resolved, I will take what I have learnt there and apply
+to Shoehorn.  Or it might be the case that the parent Bootstrap theme in <a href="https://github.com/bmbrands/theme_bootstrap/issues/262">https://github.com/bmbrands/theme_bootstrap/issues/262</a> will
+help to resolve this.</li>
+</ol>
+
+<h1>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>Todo</h1>
+
+<ol>
+<li>Consider moving fluid container setting from Bootstrap 3 settings.</li>
+<li>Fix D&amp;D moving blocks into the page-bottom region and moving around not having the right width / position.</li>
+</ol>
+
+<h1>
+<a name="version-information" class="anchor" href="#version-information"><span class="octicon octicon-link"></span></a>Version information</h1>
+
+<p>12th October 2014 - Version 2.7.1 - First stable release.</p>
+
+<ol>
+<li> Tweaks to editing the quiz as a result of: <a href="https://github.com/gjb2048/moodle-theme_essential/issues/318">https://github.com/gjb2048/moodle-theme_essential/issues/318</a>.</li>
+</ol>
+
+<p>4th October 2014 - Version 2.7.0.4 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+
+<ol>
+<li> With the release of a stable parent Bootstrap on: <a href="https://moodle.org/mod/forum/discuss.php?d=271448">https://moodle.org/mod/forum/discuss.php?d=271448</a>, I have decided to release
+  this release candidate version of Shoehorn.</li>
+<li> You will need the parent theme from: <a href="https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip">https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip</a>.</li>
+</ol>
+
+<p>27th August 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+
+<ol>
+<li> Added look and feel settings to control background image and content transparency for the content area
+  for all pages and the front page as an individual separate.</li>
+<li> Various transparency changes to navbar, menu and footer.</li>
+<li> Fixed the slider minimum height at varying device widths as so to prevent transition jitter in the content area.</li>
+<li> Added IE detection with request to upgrade.</li>
+<li> Use Bootstrap JS way of data-toggle for course summary on front page, see: <a href="https://github.com/bmbrands/theme_bootstrap/issues/301">https://github.com/bmbrands/theme_bootstrap/issues/301</a>.</li>
+<li> Fixed two column login page when 'auth_instructions' setting is set.</li>
+<li> Fixed all pages image showing on front page when it has none.</li>
+<li> Placed a panel around the page heading when an image is shown and change the text to the text colour.</li>
+<li> Added option to compact the navigation bar.
+
+<ol>
+<li> Added option to fix the navigation bar at the top of the page.</li>
+<li> Added experimental dynamic language option to test: <a href="https://moodle.org/mod/forum/discuss.php?d=264955">https://moodle.org/mod/forum/discuss.php?d=264955</a>.</li>
+<li> Updated to FontAwesome 4.2.0.</li>
+<li> Fix user svg images for IE11.</li>
+</ol>
+</li>
+</ol>
+
+<p>11th July 2014 - Version 2.7.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+
+<ol>
+<li> Added syntax highlighting to courses - <a href="http://alexgorbatchev.com/SyntaxHighlighter/">http://alexgorbatchev.com/SyntaxHighlighter/</a>.</li>
+<li> Tweaks to question styling, specifically multiple choice.</li>
+<li> Fixed front page and single page course slider with glyphicons.</li>
+<li> Tweaks to course styling when editing.</li>
+<li> Made slider previous and next icons only appear when slider hovered over.</li>
+<li> Added custom Collapsed Topics icons.</li>
+<li> Fixed issue with course tiles and front page blocks in editing mode.</li>
+<li> Updated Gruntfile.js and package.json.</li>
+<li> Fixed docking issues as reported on <a href="https://moodle.org/mod/forum/discuss.php?d=263080#p1139975">https://moodle.org/mod/forum/discuss.php?d=263080#p1139975</a>.
+
+<ol>
+<li> Fixed fake block issue: <a href="https://github.com/gjb2048/moodle-theme_shoehorn/issues/1">https://github.com/gjb2048/moodle-theme_shoehorn/issues/1</a> and quiz number
+navigation hovering / borders.</li>
+<li> Made slider image max sizes responsive.</li>
+<li> Added 'Home' link to footer menu.  Thanks to Natalie Denmeade for reminding me about this.</li>
+</ol>
+</li>
+</ol>
+
+<p>17th June 2014 - Version 2.7.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+
+<ol>
+<li> Update development to Moodle 2.7.</li>
+<li> Switch to using YUI version of Bootstrap theme: <a href="https://github.com/bmbrands/theme_bootstrap">https://github.com/bmbrands/theme_bootstrap</a> as master has changed.
+  jQuery version is now: <a href="https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev">https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_dev</a> and base theme is:
+  <a href="https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_basetheme">https://github.com/bmbrands/theme_bootstrap/tree/bootstrap3_basetheme</a>
+</li>
+<li> Improved svg colour change in Gruntfile.js for plugins too.</li>
+<li> Converted user icons to svg.</li>
+<li> Added docking.</li>
+<li> Added docking setting.</li>
+<li> Added optional 'My courses' menu.</li>
+<li> Fixed grade report: <a href="https://moodle.org/mod/forum/discuss.php?d=261626">https://moodle.org/mod/forum/discuss.php?d=261626</a>.</li>
+<li> Added in and adapted 'mycourses' layout from the Elegance theme.
+
+<ol>
+<li> Added in and adapted 'course tiles' from the Elegance theme.</li>
+<li> Added optional 'Backstretch' (<a href="https://github.com/srobbin/jquery-backstretch">https://github.com/srobbin/jquery-backstretch</a>) for the login page.</li>
+<li> Added optional side block region accordion functionality.  Note: This disables docking for side regions.</li>
+<li> Added FitVids to scale media - <a href="http://fitvidsjs.com/">http://fitvidsjs.com/</a>
+</li>
+<li> Added credits to this readme.</li>
+<li> Updated to FontAwesome 4.1.</li>
+<li> Removed old Glyphicon font setting and introduced a FontAwesome setting that works across the theme.  Note:
+I have decided to not introduce the icon replacement code that is in other themes for this as it is not yet
+consistent with being able to replace everything due to the fixed icons in the JavaScript.</li>
+<li> Borrowed and adapted the FontAwesome icon styles for components from the Elegance theme as found in elegance.css.</li>
+<li> Made the social icon signpost optional.</li>
+<li> Added dynamic course icons on the course menu based on course id.</li>
+</ol>
+</li>
+</ol>
+
+<p>5th May 2014 - Version 2.6.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+
+<ol>
+<li> Fixed no navbar on the login page.</li>
+<li> Fixed enrolment button not showing background colour.</li>
+<li> Fixed search box and icon at the top of forums.</li>
+<li> Fixed hover over messages in message drop-down.</li>
+<li> Fixed user profile picture on view profile page of course participants.</li>
+<li> Fixed pop-up user message.</li>
+<li> Fixed bottom colour needing to be the footer colour and the body background the top of page for the 'navbar' by applying the
+  bottom footer colour to the 'html' tag.</li>
+<li> Fixed validator links to be inline in page info section with dividers.</li>
+<li>
+<p>Added favicon.</p>
+
+<ol>
+<li> Separated out course format renderers and updated for bootstrap fix <a href="https://github.com/bmbrands/theme_bootstrap/pull/250">https://github.com/bmbrands/theme_bootstrap/pull/250</a>.</li>
+<li> Created 'imagebank.php' to serve image bank images so that theme designer mode off can be used and therefore
+using 'purge all caches' will not affect the url.  Need to think of perhaps shortening the process by somehow using
+'$theme-&gt;setting_file_serve' in 'theme_shoehorn_pluginfile' of lib.php, but current process has safeguards.  However,
+this is implementation-al and should not affect 'imagebank.php' URLs.</li>
+<li> Collapsed Topics inspired CONTRIB-4099 to look again at the course layout and fix.</li>
+<li> Bootstrap parent: <a href="https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100_2">https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100_2</a>
+</li>
+<li> Implemented show old messages setting I developed on: <a href="https://github.com/gjb2048/theme_bootstrap/commit/86ca17108e5f03daf9697899188dffc7f8e5b7f2">https://github.com/gjb2048/theme_bootstrap/commit/86ca17108e5f03daf9697899188dffc7f8e5b7f2</a>
+</li>
+</ol>
+
+<p>2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+</li>
+<li> Bootstrap parent: <a href="https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100">https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100</a>
+</li>
+<li>
+<p>Beta development version.</p>
+
+<p>8th March 2014 - Version 2.6.0.1 - DO NOT INSTALL ON PRODUCTION SERVERS.</p>
+</li>
+<li> Alpha development version.</li>
+<li> Dynamic social icon colour footer sign.</li>
+<li> Dynamic customisable footer menu.</li>
+</ol>
+
+<h1>
+<a name="thanks" class="anchor" href="#thanks"><span class="octicon octicon-link"></span></a>Thanks</h1>
+
+<p>My thanks go to all the creators and participants of the Bootstrap theme:
+Bas Brands, David Scotson and many other contributors.</p>
+
+<h1>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h1>
+
+<h2>
+<a name="bootstrap" class="anchor" href="#bootstrap"><span class="octicon octicon-link"></span></a>Bootstrap</h2>
+
+<p>Authors: Mark Otto and Jacob Thornton
+URL: <a href="http://getbootstrap.com/">http://getbootstrap.com/</a>
+License: <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">https://github.com/twbs/bootstrap/blob/master/LICENSE</a></p>
+
+<h2>
+<a name="bootstrap-3-for-moodle-conversion" class="anchor" href="#bootstrap-3-for-moodle-conversion"><span class="octicon octicon-link"></span></a>Bootstrap 3 for Moodle conversion</h2>
+
+<p>Authors: Bas Brands and David Scotson
+URL: <a href="https://github.com/bmbrands/theme_bootstrap">https://github.com/bmbrands/theme_bootstrap</a>
+License: MIT/GPL2 Licensed</p>
+
+<h2>
+<a name="course-tiles-idea-and-initial-coding" class="anchor" href="#course-tiles-idea-and-initial-coding"><span class="octicon octicon-link"></span></a>Course tiles idea and initial coding</h2>
+
+<p>Author: Jason La Greca
+URL: <a href="http://beenlearning.com/">http://beenlearning.com/</a>
+License: MIT/GPL2 Licensed</p>
+
+<h2>
+<a name="backstretchjs" class="anchor" href="#backstretchjs"><span class="octicon octicon-link"></span></a>Backstretch.js</h2>
+
+<p>Author: Scott Robbin
+URL: <a href="http://srobbin.com/jquery-plugins/backstretch/">http://srobbin.com/jquery-plugins/backstretch/</a>
+License: <a href="https://raw.githubusercontent.com/srobbin/jquery-backstretch/master/LICENSE-MIT">https://raw.githubusercontent.com/srobbin/jquery-backstretch/master/LICENSE-MIT</a></p>
+
+<h2>
+<a name="fitvidjs" class="anchor" href="#fitvidjs"><span class="octicon octicon-link"></span></a>FitVid.js</h2>
+
+<p>Authors: Chris Coyier and Paravel
+URL: <a href="http://fitvidsjs.com/">http://fitvidsjs.com/</a>
+License: None</p>
+
+<h1>
+<a name="me" class="anchor" href="#me"><span class="octicon octicon-link"></span></a>Me</h1>
+
+<p>G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.
+Moodle profile: <a href="http://moodle.org/user/profile.php?id=442195">http://moodle.org/user/profile.php?id=442195</a>
+Web profile   : <a href="http://about.me/gjbarnard">http://about.me/gjbarnard</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/gjb2048/moodle-theme_shoehorn/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/gjb2048/moodle-theme_shoehorn/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/gjb2048/moodle-theme_shoehorn"></a> is maintained by <a href="https://github.com/gjb2048">gjb2048</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
