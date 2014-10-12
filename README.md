@@ -32,7 +32,7 @@ You will need to get and install the correct version of the parent Bootstrap the
 https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip, in order to install and use Shoehorn.
 
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
-Mark Aberdour, Paul Hibbitts, Mary Evans and Joby Harding.
+Mark Aberdour, Paul Hibbitts and Joby Harding.
 
 Installation
 ============
@@ -43,6 +43,17 @@ Installation
  4. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
  5. Select as the theme for the site.
  6. Put Moodle out of Maintenance Mode.
+
+Note: If you get no CSS whatsoever, then please add the following to your Apache web server httpd.conf file after loading the modules
+and restart (without the ` if you see them):
+
+```
+<IfModule mpm_winnt_module>
+   ThreadStackSize 8388608
+</IfModule>
+```
+
+Ref: https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495 and https://code.google.com/p/minify/issues/detail?id=62.
 
 Upgrading
 =========
@@ -84,7 +95,7 @@ Known issues
 ============
 1. RTL functionality is not quite ready.  In the 'General' settings there is an experimental switch 'dynamiclang' which is my first
    attempt at implementing an idea as described on: https://moodle.org/mod/forum/discuss.php?d=264955.  This idea has further been
-   developed by me in the Essential theme: https://github.com/DBezemer/moodle-theme_essential/issues/249.  The main area of issue
+   developed by me in the Essential theme: https://github.com/gjb2048/moodle-theme_essential/issues/249.  The main area of issue
    has been the quiz.  Once Essential 2.7.8 is released and any other issues resolved, I will take what I have learnt there and apply
    to Shoehorn.  Or it might be the case that the parent Bootstrap theme in https://github.com/bmbrands/theme_bootstrap/issues/262 will
    help to resolve this.
@@ -96,6 +107,9 @@ Todo
 
 Version information
 ===================
+12th October 2014 - Version 2.7.1 - First stable release.
+  1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
+
 4th October 2014 - Version 2.7.0.4 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  With the release of a stable parent Bootstrap on: https://moodle.org/mod/forum/discuss.php?d=271448, I have decided to release
       this release candidate version of Shoehorn.

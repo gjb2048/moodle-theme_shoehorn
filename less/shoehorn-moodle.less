@@ -705,16 +705,73 @@ ul, ol {
     }
 }
 
-#page-mod-quiz-edit div.quizpage .pagecontent {
+#page-mod-quiz-edit div.quizpage {
+  .pagecontent {
     border: 1px solid @page-bottom-bg;
     border-radius: @border-radius-base;
+  }
+  span.pagetitle {
+    min-width: 4em;
+  }
 }
 
-#page-mod-quiz-edit div.question div.content div.points {
+#page-mod-quiz-edit div.question div.content {
+  div.points {
     padding-bottom: 0;
     margin-top: 0;
     top: 0;
     display: inline-table;
+  }
+  div.questioncontrols {
+    background-color: transparent;
+    width: 70px;
+    padding: 0;
+  }
+  div.qorder {
+    right: 74px;
+    background-color: transparent;
+    input[type="text"] {
+      height: 20px;
+      font-size: 12px;
+    }
+  }
+  .questionpreview a {
+    background-color: transparent;
+  }
+}
+
+
+#page-mod-quiz-edit div.question div.content .questiontext,
+#categoryquestions .questiontext {
+    padding-left: 0.3em;
+    max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    vertical-align: bottom;
+}
+
+#page-mod-quiz-edit div.question div.content .questionname,
+#categoryquestions .questionname {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 24%;
+    display: inline;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+}
+
+#page-mod-quiz-edit div.reorder div.question {
+  div.content {
+    width: 90%;
+  }
+  div.qnum {
+    width: 4em;
+  }
+}
+
+#page-mod-quiz-edit .reorder .questioncontentcontainer label {
+  display: inline;
 }
 
 // tags.less.

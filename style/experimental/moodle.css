@@ -18357,11 +18357,57 @@ ol {
   border: 1px solid #c9e6ff;
   border-radius: 4px;
   }
+#page-mod-quiz-edit div.quizpage span.pagetitle {
+  min-width: 4em;
+  }
 #page-mod-quiz-edit div.question div.content div.points {
   top: 0;
   display: inline-table;
   padding-bottom: 0;
   margin-top: 0;
+  }
+#page-mod-quiz-edit div.question div.content div.questioncontrols {
+  width: 70px;
+  padding: 0;
+  background-color: transparent;
+  }
+#page-mod-quiz-edit div.question div.content div.qorder {
+  right: 74px;
+  background-color: transparent;
+  }
+#page-mod-quiz-edit div.question div.content div.qorder input[type="text"] {
+  height: 20px;
+  font-size: 12px;
+  }
+#page-mod-quiz-edit div.question div.content .questionpreview a {
+  background-color: transparent;
+  }
+#page-mod-quiz-edit div.question div.content .questiontext,
+#categoryquestions .questiontext {
+  display: inline;
+  max-width: 40%;
+  padding-left: .3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  }
+#page-mod-quiz-edit div.question div.content .questionname,
+#categoryquestions .questionname {
+  display: inline;
+  max-width: 24%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  }
+#page-mod-quiz-edit div.reorder div.question div.content {
+  width: 90%;
+  }
+#page-mod-quiz-edit div.reorder div.question div.qnum {
+  width: 4em;
+  }
+#page-mod-quiz-edit .reorder .questioncontentcontainer label {
+  display: inline;
   }
 .carousel-caption,
 .carousel-indicators {
