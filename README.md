@@ -34,6 +34,36 @@ https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
 Mark Aberdour, Paul Hibbitts and Joby Harding.
 
+Licenses used
+=============
+GPLv3 - http://www.gnu.org/licenses/license-list.html#GNUGPL
+-----
+Shoehorn theme code and icons (including altered core icons) - https://moodle.org/mod/forum/discuss.php?d=135896, 
+http://www.gnu.org/licenses/gpl-faq.html#GPLPluginsInNF and http://www.gnu.org/licenses/license-list.html#OtherLicenses
+
+LGPLv3 - http://www.gnu.org/licenses/license-list.html#LGPL
+------
+Syntax Highlighter - http://alexgorbatchev.com/SyntaxHighlighter/download/
+
+MIT - http://www.gnu.org/licenses/license-list.html#Expat
+---
+FontAwesome LESS - http://fontawesome.io/license/
+backstretch.js - http://srobbin.com/jquery-plugins/backstretch/
+Bootstrap - http://getbootstrap.com
+Syntax Highlighter - http://alexgorbatchev.com/SyntaxHighlighter/download/
+
+WTFPL - http://www.gnu.org/licenses/license-list.html#WTFPL - http://sam.zoy.org/wtfpl/
+-----
+fitvids.js - Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com and credit to Thierry Koblentz
+- http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/.
+
+SIL - http://www.gnu.org/licenses/license-list.html#SILOFL
+---
+Fonts:
+Cabin - http://www.fontsquirrel.com/fonts/cabin
+Railway - http://www.fontsquirrel.com/fonts/railway
+FontAwesome - http://fontawesome.io/license/
+
 Installation
 ============
  1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
