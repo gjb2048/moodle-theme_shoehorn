@@ -17142,7 +17142,7 @@ input[type="reset"] {
 .carouselslider:hover a.carousel-control {
   display: block;
   }
-.carousel-control .carousel-control .icon-next,
+.carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
   right: auto;
   }
