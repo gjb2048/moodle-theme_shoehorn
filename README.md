@@ -137,6 +137,10 @@ Todo
 
 Version information
 ===================
+21st October 2014 - Version 2.7.1.1
+  1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
+  2. Update readme license details.  Thanks to Antony Borrow.
+
 12th October 2014 - Version 2.7.1 - First stable release.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
 

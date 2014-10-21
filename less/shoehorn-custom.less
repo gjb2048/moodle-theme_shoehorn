@@ -66,6 +66,8 @@ body.navbarfixedtop header.moodleheader {
 table {
     th, td {
         padding-left: 20px;
+        word-break: break-word;
+        word-wrap: break-word;
     }
     th:first-of-type, td:first-of-type {
         padding-left: 0px;
@@ -379,6 +381,12 @@ aside {
             background: @page-bottom-bg;
         }
     }
+}
+
+// Scorm.
+#page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td {
+    display: inline-block;
+    padding-left: 0px;
 }
 
 // Collapsed Topics.

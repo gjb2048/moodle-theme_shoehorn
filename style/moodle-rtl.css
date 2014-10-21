@@ -20893,6 +20893,14 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   content: none;
   }
 
+button,
+input.form-submit,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  margin: 0 5px 10px 0;
+  }
+
 .carousel-inner > .item > img {
   width: 100%;
   padding: 0;
@@ -20958,7 +20966,7 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 .carousel-control.left,
 .carousel-control.right {
   background-image: none;
-  background-repeat: none;
+  background-repeat: no-repeat;
   }
 
 .carousel-control .icon-prev,
@@ -22743,6 +22751,8 @@ body.navbarfixedtop header.moodleheader {
 table th,
 table td {
   padding-right: 20px;
+  word-break: break-word;
+  word-wrap: break-word;
   }
 
 table th:first-of-type,
@@ -23252,6 +23262,11 @@ aside {
 
 .mycourseboxes .view a.info:hover {
   background: #c9e6ff;
+  }
+
+#page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td {
+  display: inline-block;
+  padding-right: 0;
   }
 
 .course-content .ctopics .section ul.section {
