@@ -20691,11 +20691,6 @@ input[type="reset"] {
   display: block;
   }
 
-.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-right {
-  left: auto;
-  }
-
 .carousel-indicators li {
   background: #1f4d87;
   background: rgba(31, 77, 135, .75);
@@ -23976,6 +23971,13 @@ pre.sh {
 
 #page-info .validators ul li:last-of-type a:after {
   content: '';
+  }
+
+#page-theme-shoehorn-pages-sitepage .sitepagecontent img {
+  padding: 8px;
+  margin: 0 0 !important;
+  background-color: white;
+  box-shadow: 0 0 8px #1f4d87;
   }
 
 #page-footer {

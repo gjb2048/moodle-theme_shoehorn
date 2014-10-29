@@ -144,7 +144,7 @@ module.exports = function(grunt) {
     }
 
     // Production / development.
-    var build = grunt.option('build') || 'p';
+    var build = grunt.option('build') || 'd'; // Default of development for watch task.
 
     if ((build != 'p') && (build != 'd')) {
         build = 'p';

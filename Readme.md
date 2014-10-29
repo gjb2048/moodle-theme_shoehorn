@@ -104,6 +104,11 @@ Uninstallation
  3. In '/theme/' remove the folder 'shoehorn'.
  4. Put Moodle out of Maintenance Mode.
 
+Videos and FitVids
+==================
+Shoehorn uses FitVids.js - http://fitvidsjs.com/ - to make embedded videos responsive.  If you do not want this feature for a particular
+video, then please add the class 'fitvidsignore' to the video element.
+
 Reporting issues
 ================
 Before reporting an issue, please ensure that you are running the latest version for your release of Moodle.  It is essential
@@ -137,9 +142,10 @@ Todo
 
 Version information
 ===================
-21st October 2014 - Version 2.7.1.1
+28th October 2014 - Version 2.7.1.1
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
   2. Update readme license details.  Thanks to Antony Borrow.
+  3. Tidy up site page images.
 
 12th October 2014 - Version 2.7.1 - First stable release.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
