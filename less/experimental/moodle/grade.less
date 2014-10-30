@@ -17,16 +17,6 @@
     }
 }
 
-#page-grade-report-grader-index {
-    .topscrollcontent {
-        height: 1px;
-    }
-
-    #user-grades {
-        margin-top: 4px;
-    }
-}
-
 // Rubrics
 #page-grade-grading-manage {
     #activemethodselector {
@@ -88,10 +78,11 @@
     &.gradingform_rubric {
         #rubric-criteria {
             margin-bottom: 1em;
+            @rubricPadding: 6px;
             .criterion {
                 .description {
                     vertical-align: top;
-                    padding: 6px;
+                    padding: @rubricPadding;
                     textarea {
                         margin-bottom: 0px;
                         height: 115px;
@@ -113,7 +104,7 @@
                 }
                 .level {
                     vertical-align: top;
-                    padding: 6px;
+                    padding: @rubricPadding;
                     .delete {
                         position: relative;
                         width: 32px;
@@ -194,7 +185,6 @@
         }
     }
 }
-
 .path-grade-report-grader .grade_icons {
     display: inline;
 }
