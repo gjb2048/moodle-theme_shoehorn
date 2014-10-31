@@ -336,6 +336,8 @@ $string['unknownsitepage'] = 'Unknown site page number ';
 $string['unknownsitepagecontent'] = 'Site page number {$a->pageid} is not known, ask an an administrator to check the settings for the theme.';
 $string['pagenotdisplayedtitle'] = 'Site page number {$a->pageid} not displayed';
 $string['pagenotdisplayedcontent'] = 'Site page number {$a->pageid} has not been set for the current criteria, ask an an administrator to check the settings for the theme.';
+$string['pagenotdisplayedcontentnotitle'] = 'Site page number {$a->pageid} has no title, ask an an administrator to check the settings for the theme.';
+$string['pagenotdisplayedcontentnotpublished'] = 'Site page number {$a->pageid} has not been published, ask an an administrator to check the settings for the theme.';
 
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';

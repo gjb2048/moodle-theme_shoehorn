@@ -321,8 +321,17 @@ function shoehorn_shown_sitepages() {
                             // Page is not shown.
                             $pages[$sp] = 1;
                         }
+                    } else {
+                        // Page is known but not shown.
+                        $pages[$sp] = 1;
                     }
+                } else {
+                    // Page is known but has no title.
+                    $pages[$sp] = 3;
                 }
+            } else {
+                // Page is known but not published.
+                $pages[$sp] = 4;
             }
         }
     }
