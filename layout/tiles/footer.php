@@ -64,3 +64,12 @@ if ($haveicons) {
     </div>
     </div>
 </footer>
+<script type="text/javascript">
+<?php
+if ($fitvids) {
+    echo '$(document).ready(function() {';
+    echo '$("#page").fitVids();';
+    echo '});';
+}
+?>
+</script>

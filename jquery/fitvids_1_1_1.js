@@ -8,7 +8,9 @@
 * Released under the WTFPL license - http://sam.zoy.org/wtfpl/
 *
 */
-
+/**
+ * FitVids http://fitvidsjs.com/ and https://github.com/davatron5000/FitVids.js
+ */
 (function( $ ){
 
   "use strict";
@@ -81,11 +83,3 @@
   };
 // Works with either jQuery or Zepto
 })( window.jQuery || window.Zepto );
-
-/**
- * FitVids http://fitvidsjs.com/ and https://github.com/davatron5000/FitVids.js
- * Moodle class to target.
-*/
-$(document).ready(function(){
-  $(".mediaplugin").fitVids();
-});

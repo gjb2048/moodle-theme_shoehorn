@@ -139,6 +139,10 @@ About|[[site]]/about.html|About my site<br>
 Anleitung|http://mymoodle/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
 Home|//mymoodle/index.php';
 
+// FitVids.
+$string['fitvids'] = 'Use FitVids';
+$string['fitvidsdesc'] = 'Enable FitVids (fitvidsjs.com) to make your embedded videos responsive.  If FitVids is on and you want a video to be excluded then add \'class="fitvidsignore"\' to the \'iframe\' tag in the HTML mode of the editor.  For example: \'iframe class="fitvidsignore" width="420" height="315" src="//www.youtube.com/embed/enmEmym85xc" frameborder="0" allowfullscreen=""></iframe\'.';
+
 // Copyright text.
 $string['copyright'] = 'Copyright';
 $string['copyright_desc'] = 'Copyright statement, leave blank for none.';

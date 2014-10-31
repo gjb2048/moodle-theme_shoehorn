@@ -27,5 +27,5 @@
 $plugins = array(
     'bootstrap' => array('files' => array('bootstrap_3_2_0_min.js')),
     'backstretch' => array('files' => array('backstretch_2_0_4.js')),
-    'fitvids' => array('files' => array('fitvids_1_1.js'))
+    'fitvids' => array('files' => array('fitvids_1_1_1.js'))
 );
