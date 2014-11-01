@@ -149,6 +149,7 @@ Version information
   4. Applied MDL-43824 grade.less to experimental CSS and raised https://github.com/bmbrands/theme_bootstrap/pull/347 for parent Bootstrap.
   5. Applied same Essential FitVids solution: https://github.com/gjb2048/moodle-theme_essential/issues/354.
   6. Site page improvements for when they cannot be displayed.
+  7. Update to Bootstrap 3.3.0 - https://github.com/twbs/bootstrap/releases/tag/v3.3.0.
 
 12th October 2014 - Version 2.7.1 - First stable release.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
