@@ -19592,25 +19592,35 @@ body.coursetiles #region-main div.sitetopic .section .activity .editing_move {
   left: -15px;
 }
 body.coursetiles #region-main ul[class*="topics"] .section .activity .availabilityinfo,
+body.coursetiles #region-main div.sitetopic .section .activity .availabilityinfo {
+  margin-top: -30px;
+}
+body.coursetiles #region-main ul[class*="topics"] .section .activity .availabilityinfo,
 body.coursetiles #region-main div.sitetopic .section .activity .availabilityinfo,
 body.coursetiles #region-main ul[class*="topics"] .section .activity .contentafterlink,
 body.coursetiles #region-main div.sitetopic .section .activity .contentafterlink {
   width: 192px;
-  margin-top: -30px;
   margin-left: 0;
   border-top: 1px solid #c9e6ff;
 }
 body.coursetiles #region-main ul[class*="topics"] .section .activity .contentafterlink,
 body.coursetiles #region-main div.sitetopic .section .activity .contentafterlink {
-  height: 48px;
-  padding-top: 5px;
-  overflow: hidden;
+  position: relative;
+  top: -120px;
+  height: 94px;
+  padding-top: 0;
+  margin-top: 0;
+  overflow: auto;
   font-size: .85em;
   line-height: 1.25em;
   text-overflow: ellipsis;
 }
 body.coursetiles #region-main ul[class*="topics"] .section .activity .instancename,
 body.coursetiles #region-main div.sitetopic .section .activity .instancename {
+  float: right;
+  width: 124px;
+  max-height: 40px;
+  overflow: hidden;
   font-weight: bold;
 }
 body.coursetiles #region-main ul[class*="topics"] .section .activity .actions,
@@ -19696,11 +19706,6 @@ body.coursetiles.editing #region-main .section .activity .mod-indent-outer,
 body.coursetiles.editing #region-main .ctopics .section .activity .mod-indent-outer {
   padding-left: 0;
 }
-body.coursetiles.editing #region-main .section .activity .contentafterlink,
-body.coursetiles.editing #region-main .ctopics .section .activity .contentafterlink {
-  position: relative;
-  top: -45px;
-}
 body.coursetiles.editing #region-main .section .activity .autocompletion,
 body.coursetiles.editing #region-main .ctopics .section .activity .autocompletion {
   position: relative;
@@ -19718,6 +19723,10 @@ body.coursetiles.editing #region-main .ctopics .section .activity.modtype_label.
 body.coursetiles.editing #region-main .section .moodle-actionmenu .iconsmall,
 body.coursetiles.editing #region-main .ctopics .section .moodle-actionmenu .iconsmall {
   vertical-align: middle;
+}
+body.coursetiles.editing #region-main ul[class*="topics"] .section .activity .contentafterlink,
+body.coursetiles.editing #region-main div.sitetopic .section .activity .contentafterlink {
+  top: -134px;
 }
 body.coursetiles.editing #region-main .section .activity:hover,
 body.coursetiles #region-main .course-content .section .activity:hover,

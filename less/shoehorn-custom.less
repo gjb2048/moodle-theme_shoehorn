@@ -503,22 +503,31 @@ body.coursetiles {
             top: -15px;
             left: -15px;
         }
-        .availabilityinfo, .contentafterlink {
+        .availabilityinfo {
             margin-top: -30px;
+        }
+        .availabilityinfo, .contentafterlink {
             margin-left: 0px;
             border-top: 1px solid @page-bottom-bg;
             width: 192px;
         }
         .contentafterlink {
+            position: relative;
+            margin-top: 0px;
             font-size: .85em;
-            height: 48px;
+            height: 94px;
             text-overflow: ellipsis;
-            overflow: hidden;
+            overflow: auto;
             line-height: 1.25em;
-            padding-top: 5px;
+            padding-top: 0px;
+            top: -120px;
         }
         .instancename {
             font-weight: bold;
+            max-height: 40px;
+            overflow: hidden;
+            width: 124px;
+            float: right;
         }
 
         .actions {
@@ -592,10 +601,6 @@ body.coursetiles {
             .mod-indent-outer {
                 padding-left: 0px;
             }
-            .contentafterlink {
-                position: relative;
-                top: -45px;
-            }
             margin-top: 20px;
             .autocompletion {
                 position: relative;
@@ -611,6 +616,13 @@ body.coursetiles {
         }
         .section .moodle-actionmenu .iconsmall {
             vertical-align: middle;
+        }
+    }
+    &.editing #region-main ul[class*="topics"], &.editing #region-main div.sitetopic {
+        .section .activity {
+            .contentafterlink {
+                top: -134px;
+            }
         }
     }
 

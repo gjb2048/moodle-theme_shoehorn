@@ -142,7 +142,7 @@ Todo
 
 Version information
 ===================
-28th October 2014 - Version 2.7.1.1
+2nd November 2014 - Version 2.7.1.1
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
   2. Update readme license details.  Thanks to Antony Borrow.
   3. Tidy up site page images.
@@ -150,6 +150,7 @@ Version information
   5. Applied same Essential FitVids solution: https://github.com/gjb2048/moodle-theme_essential/issues/354.
   6. Site page improvements for when they cannot be displayed.
   7. Update to Bootstrap 3.3.0 - https://github.com/twbs/bootstrap/releases/tag/v3.3.0.
+  8. Fixed #8 - Course tile description too low.
 
 12th October 2014 - Version 2.7.1 - First stable release.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
