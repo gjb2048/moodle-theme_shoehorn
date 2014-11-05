@@ -12,6 +12,32 @@ About
  * author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
+Free Software
+=============
+The Shoehorn theme is 'free' software under the terms of the GNU GPLv3 License, please see 'COPYING.txt'.
+
+It can be obtained for free from:
+https://moodle.org/plugins/view.php?plugin=theme_shoehorn
+and
+https://github.com/gjb2048/moodle-theme_shoehorn/releases
+
+You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
+FAQ - http://www.gnu.org/licenses/gpl-faq.html - is a good place to look.
+
+If you reuse any of the code then I kindly ask that you make reference to the theme.
+
+If you make improvements or bug fixes then I would appreciate if you would send them back to me by forking from
+https://github.com/gjb2048/moodle-theme_shoehorn and doing a 'Pull Request' so that the rest of the
+Moodle community benefits.
+
+Donations
+=========
+This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+
+Flattr - https://flattr.com/profile/gjb2048
+
+Donations may allow me to provide you with more or better features in less time.
+
 Customisation
 =============
 If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme
