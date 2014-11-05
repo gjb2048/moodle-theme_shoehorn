@@ -12589,7 +12589,7 @@
   border-top: 1px solid #c9e6ff;
 }body.coursetiles #region-main ul[class*="topics"] .section .activity .contentafterlink,body.coursetiles #region-main div.sitetopic .section .activity .contentafterlink {
   position: relative;
-  top: -120px;
+  top: -102px;
   height: 94px;
   padding-top: 0;
   margin-top: 0;
@@ -12597,6 +12597,8 @@
   font-size: .85em;
   line-height: 1.25em;
   text-overflow: ellipsis;
+}body.coursetiles #region-main ul[class*="topics"] .section .activity span.actions + .contentafterlink,body.coursetiles #region-main div.sitetopic .section .activity span.actions + .contentafterlink {
+  top: -120px;
 }body.coursetiles #region-main ul[class*="topics"] .section .activity .instancename,body.coursetiles #region-main div.sitetopic .section .activity .instancename {
   float: right;
   width: 124px;
