@@ -203,6 +203,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // Fitvids.
+    $name = 'theme_shoehorn/fitvids';
+    $title = get_string('fitvids', 'theme_shoehorn');
+    $description = get_string('fitvidsdesc', 'theme_shoehorn');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Copyright text.
     $name = 'theme_shoehorn/copyright';
     $title = get_string('copyright', 'theme_shoehorn');

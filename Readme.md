@@ -12,6 +12,32 @@ About
  * author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
+Free Software
+=============
+The Shoehorn theme is 'free' software under the terms of the GNU GPLv3 License, please see 'COPYING.txt'.
+
+It can be obtained for free from:
+https://moodle.org/plugins/view.php?plugin=theme_shoehorn
+and
+https://github.com/gjb2048/moodle-theme_shoehorn/releases
+
+You have all the rights granted to you by the GPLv3 license.  If you are unsure about anything, then the
+FAQ - http://www.gnu.org/licenses/gpl-faq.html - is a good place to look.
+
+If you reuse any of the code then I kindly ask that you make reference to the theme.
+
+If you make improvements or bug fixes then I would appreciate if you would send them back to me by forking from
+https://github.com/gjb2048/moodle-theme_shoehorn and doing a 'Pull Request' so that the rest of the
+Moodle community benefits.
+
+Donations
+=========
+This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+
+Flattr - https://flattr.com/profile/gjb2048
+
+Donations may allow me to provide you with more or better features in less time.
+
 Customisation
 =============
 If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme
@@ -33,6 +59,36 @@ https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300
 
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
 Mark Aberdour, Paul Hibbitts and Joby Harding.
+
+Licenses used
+=============
+GPLv3 - http://www.gnu.org/licenses/license-list.html#GNUGPL
+-----
+Shoehorn theme code and icons (including altered core icons) - https://moodle.org/mod/forum/discuss.php?d=135896, 
+http://www.gnu.org/licenses/gpl-faq.html#GPLPluginsInNF and http://www.gnu.org/licenses/license-list.html#OtherLicenses
+
+LGPLv3 - http://www.gnu.org/licenses/license-list.html#LGPL
+------
+Syntax Highlighter - http://alexgorbatchev.com/SyntaxHighlighter/download/
+
+MIT - http://www.gnu.org/licenses/license-list.html#Expat
+---
+FontAwesome LESS - http://fontawesome.io/license/
+backstretch.js - http://srobbin.com/jquery-plugins/backstretch/
+Bootstrap - http://getbootstrap.com
+Syntax Highlighter - http://alexgorbatchev.com/SyntaxHighlighter/download/
+
+WTFPL - http://www.gnu.org/licenses/license-list.html#WTFPL - http://sam.zoy.org/wtfpl/
+-----
+fitvids.js - Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com and credit to Thierry Koblentz
+- http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/.
+
+SIL - http://www.gnu.org/licenses/license-list.html#SILOFL
+---
+Fonts:
+Cabin - http://www.fontsquirrel.com/fonts/cabin
+Railway - http://www.fontsquirrel.com/fonts/railway
+FontAwesome - http://fontawesome.io/license/
 
 Installation
 ============
@@ -74,6 +130,11 @@ Uninstallation
  3. In '/theme/' remove the folder 'shoehorn'.
  4. Put Moodle out of Maintenance Mode.
 
+Videos and FitVids
+==================
+Shoehorn uses FitVids.js - http://fitvidsjs.com/ - to make embedded videos responsive.  If you do not want this feature for a particular
+video, then please add the class 'fitvidsignore' to the video element.
+
 Reporting issues
 ================
 Before reporting an issue, please ensure that you are running the latest version for your release of Moodle.  It is essential
@@ -107,6 +168,16 @@ Todo
 
 Version information
 ===================
+2nd November 2014 - Version 2.7.1.1
+  1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
+  2. Update readme license details.  Thanks to Antony Borrow.
+  3. Tidy up site page images.
+  4. Applied MDL-43824 grade.less to experimental CSS and raised https://github.com/bmbrands/theme_bootstrap/pull/347 for parent Bootstrap.
+  5. Applied same Essential FitVids solution: https://github.com/gjb2048/moodle-theme_essential/issues/354.
+  6. Site page improvements for when they cannot be displayed.
+  7. Update to Bootstrap 3.3.0 - https://github.com/twbs/bootstrap/releases/tag/v3.3.0.
+  8. Fixed #8 - Course tile description too low.
+
 12th October 2014 - Version 2.7.1 - First stable release.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
 

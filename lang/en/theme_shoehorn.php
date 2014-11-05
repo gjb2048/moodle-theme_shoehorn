@@ -139,6 +139,10 @@ About|[[site]]/about.html|About my site<br>
 Anleitung|http://mymoodle/anleitung.html|Wie man mit dieser Website verwenden.|de<br>
 Home|//mymoodle/index.php';
 
+// FitVids.
+$string['fitvids'] = 'Use FitVids';
+$string['fitvidsdesc'] = 'Enable FitVids (fitvidsjs.com) to make your embedded videos responsive.  If FitVids is on and you want a video to be excluded then add \'class="fitvidsignore"\' to the \'iframe\' tag in the HTML mode of the editor.  For example: \'iframe class="fitvidsignore" width="420" height="315" src="//www.youtube.com/embed/enmEmym85xc" frameborder="0" allowfullscreen=""></iframe\'.';
+
 // Copyright text.
 $string['copyright'] = 'Copyright';
 $string['copyright_desc'] = 'Copyright statement, leave blank for none.';
@@ -332,6 +336,8 @@ $string['unknownsitepage'] = 'Unknown site page number ';
 $string['unknownsitepagecontent'] = 'Site page number {$a->pageid} is not known, ask an an administrator to check the settings for the theme.';
 $string['pagenotdisplayedtitle'] = 'Site page number {$a->pageid} not displayed';
 $string['pagenotdisplayedcontent'] = 'Site page number {$a->pageid} has not been set for the current criteria, ask an an administrator to check the settings for the theme.';
+$string['pagenotdisplayedcontentnotitle'] = 'Site page number {$a->pageid} has no title, ask an an administrator to check the settings for the theme.';
+$string['pagenotdisplayedcontentnotpublished'] = 'Site page number {$a->pageid} has not been published, ask an an administrator to check the settings for the theme.';
 
 // Social links settings.
 $string['numberofsociallinks'] = 'Number of social network links';

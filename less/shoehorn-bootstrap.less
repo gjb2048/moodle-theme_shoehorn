@@ -35,6 +35,11 @@
   }
 }
 
+// buttons.less.
+button, input.form-submit, input[type="button"], input[type="submit"], input[type="reset"] {
+  margin: 0 0 10px 5px;
+}
+
 // Carousel.less.
 // Centre the image.
 .carousel-inner {
@@ -111,7 +116,7 @@
   &.left,
   &.right {
     background-image: none;
-    background-repeat: none;
+    background-repeat: no-repeat;
   }
 
   .icon-prev, .glyphicon-chevron-left {
@@ -142,12 +147,6 @@
 }
 .carouselslider:hover a.carousel-control {
     display: block;
-}
-
-.carousel-control 
-
-.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right {
-    right: auto;
 }
 
 // Carousel indicator pips.

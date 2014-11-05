@@ -68,6 +68,16 @@ if (array_key_exists($ourpageid, $pages)) {
         // Content.
         $sitepagecontent = 'sitepagecontent'.$ourpageid;
         $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
+    } else if ($pages[$ourpageid] == 3) {
+        $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
+        $PAGE->set_title($text);
+        $PAGE->set_heading($text);
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotitle', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
+    } else if ($pages[$ourpageid] == 4) {
+        $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
+        $PAGE->set_title($text);
+        $PAGE->set_heading($text);
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotpublished', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     } else {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);

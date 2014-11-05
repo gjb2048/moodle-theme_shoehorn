@@ -28,7 +28,10 @@ require_once(dirname(__FILE__).'/../../lib.php');
 
 $PAGE->requires->jquery();
 $PAGE->requires->jquery_plugin('bootstrap', 'theme_shoehorn');
-$PAGE->requires->jquery_plugin('fitvids', 'theme_shoehorn');
+$fitvids = (!isset($PAGE->theme->settings->fitvids)) ? true : $PAGE->theme->settings->fitvids;
+if ($fitvids) {
+    $PAGE->requires->jquery_plugin('fitvids', 'theme_shoehorn');
+}
 switch ($PAGE->pagelayout) {
     case 'login': 
         $loginpageimages = shoehorn_shown_loginbackgroundchanger_images();
