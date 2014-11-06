@@ -23142,6 +23142,13 @@ body.compactnavbar .navbar {
   border-bottom-left-radius: 24px;
 }
 
+body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:hover,
+body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:hover,
+body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:focus,
+body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:focus {
+  border-bottom-left-radius: 24px;
+}
+
 body.compactnavbar .navbar.navbar-fixed-top {
   display: inline-table;
 }

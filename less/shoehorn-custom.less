@@ -45,6 +45,15 @@ body.compactnavbar {
         border-top-right-radius: 0px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: @border-radius-large * 4;
+        &-default, &-inverse {
+            .navbar-nav.navbar-right {
+                > li:last-of-type > a {
+                    &:hover, &:focus {
+                        border-bottom-right-radius: @border-radius-large * 4;
+                    }
+                }
+            }
+        }
     }
     .navbar.navbar-fixed-top {
         display: inline-table;
