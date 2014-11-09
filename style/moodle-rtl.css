@@ -21542,7 +21542,7 @@ select.singleselect {
 }
 
 @media (min-width: 768px) {
-  .navbar-collapse.collapse {
+  body.ie.compactnavbar .navbar-collapse.collapse {
     display: inline-block !important;
   }
 }
@@ -24733,10 +24733,14 @@ body.fontawesome #frontpage-category-names h2:before {
   margin-top: 1em;
 }
 
+#block-region-page-bottom .block .input-group {
+  display: block;
+}
+
 body.editing #block-region-page-bottom .block {
   min-height: 200px;
   max-height: 200px;
-  overflow-y: overlay;
+  overflow-y: scroll;
 }
 
 /*

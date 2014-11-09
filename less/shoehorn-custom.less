@@ -1054,12 +1054,15 @@ body.fontawesome {
 // Page bottom region.
 #block-region-page-bottom {
     margin-top: 1em;
+    .block .input-group {
+        display: block; // Might need global not sure yet!  Affects 'Search in settings' 'Go' button.
+    }
 }
 
 body.editing #block-region-page-bottom .block {
     min-height: 200px;
     max-height: 200px;
-    overflow-y: overlay;
+    overflow-y: scroll;
     //.make-sm-column(3);
     //.make-md-column(3);
     //.make-lg-column(3);
