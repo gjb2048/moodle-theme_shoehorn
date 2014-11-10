@@ -23889,6 +23889,11 @@ body.coursetiles#page-site-index #region-main .box.generalbox.sitetopic {
   clear: both;
 }
 
+body.coursetiles #gridiconcontainer {
+  padding-top: 20px;
+  clear: both;
+}
+
 body.fontawesome .sfa {
   display: inline-block;
   padding-left: 4px;
