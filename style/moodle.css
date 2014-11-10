@@ -7516,7 +7516,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
   }
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
-  padding: 5px;
+  padding: 2px 5px;
   margin: 0;
   font-size: 12px;
   font-weight: normal;
@@ -10085,7 +10085,7 @@ span.editinstructions {
   display: inline-block;
   float: left;
   width: 180px;
-  height: 525px;
+  height: 490px;
   overflow: auto;
   border-right: 1px solid #bbb;
   }
@@ -10094,16 +10094,16 @@ span.editinstructions {
   width: 693px;
   }
 .file-picker .fp-navbar {
-  min-height: 40px;
+  min-height: 36px;
   background: #f2f2f2;
   border-bottom: 1px solid #bbb;
   }
 .file-picker .fp-navbar .fp-viewbar {
-  margin: 4px;
+  margin: 2px 4px;
   }
 .file-picker .fp-content {
   height: 452px;
-  padding-top: 15px;
+  padding-top: 0;
   overflow: auto;
   }
 .filepicker.moodle-dialogue-fullscreen .file-picker .fp-content {
@@ -10647,7 +10647,7 @@ a.ygtvspacer:hover {
   border-top: 1px solid #bbb;
   }
 .file-picker .fp-toolbar {
-  padding: 4px;
+  padding: 2px 4px;
   }
 .fp-toolbar .fp-btn-add,
 .fp-toolbar .fp-btn-download,
@@ -18857,16 +18857,19 @@ body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > 
 body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:focus {
   border-bottom-right-radius: 24px;
   }
+body.compactnavbar .navbar .container-fluid,
+body.compactnavbar .navbar .navbar-collapse {
+  padding-right: 0;
+  }
+body.compactnavbar .navbar .navbar-brand {
+  margin-right: 15px;
+  }
 body.compactnavbar .navbar.navbar-fixed-top {
   display: inline-table;
   }
 body.compactnavbar.dir-rtl .navbar.navbar-fixed-top {
   /*@noflip*/
   left: inherit;
-  }
-body.compactnavbar .container-fluid,
-body.compactnavbar .navbar-collapse {
-  padding-right: 0;
   }
 body.navbarfixedtop header.moodleheader {
   padding-top: 50px;
