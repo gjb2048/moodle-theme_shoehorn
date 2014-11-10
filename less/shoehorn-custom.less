@@ -45,6 +45,15 @@ body.compactnavbar {
         border-top-right-radius: 0px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: @border-radius-large * 4;
+        &-default, &-inverse {
+            .navbar-nav.navbar-right {
+                > li:last-of-type > a {
+                    &:hover, &:focus {
+                        border-bottom-right-radius: @border-radius-large * 4;
+                    }
+                }
+            }
+        }
     }
     .navbar.navbar-fixed-top {
         display: inline-table;
@@ -623,7 +632,7 @@ body.coursetiles {
     }
     &.editing #region-main ul[class*="topics"], &.editing #region-main div.sitetopic {
         .section .activity {
-            .contentafterlink {
+            span.actions + .contentafterlink {
                 top: -134px;
             }
         }
@@ -1045,12 +1054,15 @@ body.fontawesome {
 // Page bottom region.
 #block-region-page-bottom {
     margin-top: 1em;
+    .block .input-group {
+        display: block; // Might need global not sure yet!  Affects 'Search in settings' 'Go' button.
+    }
 }
 
 body.editing #block-region-page-bottom .block {
     min-height: 200px;
     max-height: 200px;
-    overflow-y: overlay;
+    overflow-y: scroll;
     //.make-sm-column(3);
     //.make-md-column(3);
     //.make-lg-column(3);

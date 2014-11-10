@@ -168,7 +168,11 @@ Todo
 
 Version information
 ===================
-2nd November 2014 - Version 2.7.1.1
+9th November 2014 - Version 2.7.1.2
+  1. Fixed bottom right hover border of last menu item of the compact navbar.
+  2. Fixed 'Go' button on the right when administration block in page bottom region.
+
+5th November 2014 - Version 2.7.1.1
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
   2. Update readme license details.  Thanks to Antony Borrow.
   3. Tidy up site page images.
