@@ -206,6 +206,27 @@ ul {
     }
 }
 
+.coursebox {
+    .content {
+        .summary, .coursecat {
+            float: right;
+            width: 55%;
+        }
+        .teachers, .courseimage, .coursefile {
+            clear: left;
+            float: left;
+            width: 40%;
+        }
+        .summary.noteachers { // Class 'noteachers' is an Shoehorn special in the overridded course_renderer.php.
+            width: 100%;
+            float: none;
+        }
+        .teachers, .summary.noteachers {
+            margin-left: 0px;
+        }
+    }
+}
+
 // dock.less.
 
 /* Experimental CSS for big font capability.

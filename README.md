@@ -34,6 +34,8 @@ Donations
 =========
 This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
 
+PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have 'donation' / 'buy me now' buttons under their terms.
+
 Flattr - https://flattr.com/profile/gjb2048
 
 Donations may allow me to provide you with more or better features in less time.
@@ -46,11 +48,11 @@ to discuss your requirements.
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2014051200.00 release 2.7 (Build: 20140512) and above within the 2.7 branch until the
+This version works with Moodle version 2014111000.00 release 2.8 (Build: 20141110) and above within the 2.8 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/27/en/Installing_Moodle'.
+'docs.moodle.org/28/en/Installing_Moodle'.
 
 Required version of Bootstrap 3
 ===============================
@@ -168,9 +170,10 @@ Todo
 
 Version information
 ===================
-9th November 2014 - Version 2.7.1.2
+10th November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
   2. Fixed 'Go' button on the right when administration block in page bottom region.
+  3. Fixed float issue with section 0 in the Grid format and course tiles.
 
 5th November 2014 - Version 2.7.1.1
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.

@@ -81,7 +81,7 @@ class theme_shoehorn_core_course_renderer extends core_course_renderer {
                 'class' => 'panel-collapse collapse out'));
         }
 
-        $content .= html_writer::start_tag('div', array('class' => 'panel-body'));
+        $content .= html_writer::start_tag('div', array('class' => 'panel-body content'));
 
         // This gets the course image or files.
         $content .= $this->coursecat_coursebox_content($chelper, $course);
@@ -141,7 +141,13 @@ class theme_shoehorn_core_course_renderer extends core_course_renderer {
 
         // Display course summary.
         if ($course->has_summary()) {
+            $summaryclass = 'summary';
+            if (!$course->has_course_contacts()) {
+                $summaryclass .= ' noteachers';
+            }
+            $content .= html_writer::start_tag('div', array('class' => $summaryclass));
             $content .= $chelper->get_course_formatted_summary($course);
+            $content .= html_writer::end_tag('div'); // .summary
         }
 
         // Display course contacts. See course_in_list::get_course_contacts().
