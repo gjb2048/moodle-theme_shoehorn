@@ -358,7 +358,7 @@ $string['socialsignpost_desc'] = 'Enable this option to use the signpost to surr
 // Syntax highlighter.
 $string['syntaxsummary'] = '<pre class="sh"></pre>';
 $string['syntaxhighlight'] = 'Activate syntax highlighting';
-$string['syntaxhighlight_desc'] = 'Activate syntax highlighting in .  A help page will be added to the footer menu.';
+$string['syntaxhighlight_desc'] = 'Activate syntax highlighting in courses.  A help page will be added to the footer menu of courses.';
 $string['syntaxhighlightpage'] = 'Syntax highlighting help';
 $string['syntaxhelpone'] = 'Add the html \'{$a->html}\' to the course summary in HTML mode.';
 $string['syntaxhelptwo'] = 'Then when editing (such as a label) surround your code with a \'pre\' tag and add the class="brush: alias" where \'alias\' is one of the following:';
