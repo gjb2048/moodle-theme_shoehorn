@@ -123,6 +123,7 @@ img.iconhelp,
     margin-left: 0px;
 }
 
+/* core.less */
 .moodle-dialogue-base .moodle-dialogue-wrap {
     border: 1px solid @page-bottom-bg-dark-spin;
     //border: 1px solid @page-bottom-bg-light;
@@ -135,6 +136,7 @@ img.iconhelp,
     border-bottom: 1px solid @navbar-default-border;
     //background: @page-bottom-bg-light;
     #gradient > .vertical(#fff, @navbar-default-bg);
+    padding: 2px 5px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
 }
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
@@ -275,10 +277,24 @@ ul {
 .file-picker .fp-navbar {
     background: @page-bottom-bg-light;
     border-bottom: 1px solid @page-bottom-bg;
+    min-height: 36px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
+}
+
+.file-picker .fp-navbar .fp-viewbar {
+    margin: 2px 4px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
 }
 
 .file-picker .fp-repo-area {
     border-right: 1px solid @page-bottom-bg-light;
+    height: 490px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
+}
+
+.file-picker .fp-content {
+    padding-top: 0px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
+}
+
+.file-picker .fp-toolbar {
+    padding: 2px 4px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
 }
 
 .fp-pathbar {
@@ -924,6 +940,12 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 /* mod_resource css */
 .path-mod-resource .resourcecontent {
     overflow: auto;
+}
+
+/* Grader report */
+.path-grade-report-grader #region-main {
+    width: auto;
+    float: left;
 }
 
 /* Topics format */

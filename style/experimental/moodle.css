@@ -17509,6 +17509,7 @@ img.iconhelp,
 .helplink img {
   margin-left: 0;
   }
+/* core.less */
 .moodle-dialogue-base .moodle-dialogue-wrap {
   background-color: #c9e6ff;
   border: 1px solid #a5e4ff;
@@ -17516,6 +17517,7 @@ img.iconhelp,
   }
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
+  padding: 2px 5px;
   color: #1f4d87;
   background-image:      -o-linear-gradient(top, #fff 0%, #ffd974 100%);
   background-image: -webkit-linear-gradient(top, #fff 0%, #ffd974 100%);
@@ -17627,11 +17629,22 @@ ul.weeks {
   border: 1px solid #c9e6ff;
   }
 .file-picker .fp-navbar {
+  min-height: 36px;
   background: #e3f2ff;
   border-bottom: 1px solid #c9e6ff;
   }
+.file-picker .fp-navbar .fp-viewbar {
+  margin: 2px 4px;
+  }
 .file-picker .fp-repo-area {
+  height: 490px;
   border-right: 1px solid #e3f2ff;
+  }
+.file-picker .fp-content {
+  padding-top: 0;
+  }
+.file-picker .fp-toolbar {
+  padding: 2px 4px;
   }
 .fp-pathbar {
   border-top: 1px solid #c9e6ff;
@@ -18574,6 +18587,11 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 .path-mod-resource .resourcecontent {
   overflow: auto;
   }
+/* Grader report */
+.path-grade-report-grader #region-main {
+  float: left;
+  width: auto;
+  }
 /* Topics format */
 .course-content ul.topics li.section .right img.icon {
   padding: 0 0 0 0;
@@ -18589,10 +18607,14 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 /* shoehorn-mixins.less */
 /* shoehorn-custom.less */
 html {
-  background-color: rgba(38, 127, 0, .6);
+  background-image:      -o-linear-gradient(top, #1f4d87 0%, #c9e6ff 100%);
+  background-image: -webkit-linear-gradient(top, #1f4d87 0%, #c9e6ff 100%);
+  background-image:         linear-gradient(to bottom, #1f4d87 0%, #c9e6ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f4d87', endColorstr='#ffc9e6ff', GradientType=0);
+  background-repeat: repeat-x;
   }
 body {
-  background-color: #1f4d87;
+  background-color: transparent;
   }
 body.pagelayout-redirect {
   color: #fff;
@@ -18895,13 +18917,6 @@ body.frontpagebackgroundimage .moodleheader .logoheading {
   }
 #frontpageslider {
   padding: 10px;
-  }
-#page {
-  background-image:      -o-linear-gradient(top, #1f4d87 0%, #c9e6ff 100%);
-  background-image: -webkit-linear-gradient(top, #1f4d87 0%, #c9e6ff 100%);
-  background-image:         linear-gradient(to bottom, #1f4d87 0%, #c9e6ff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f4d87', endColorstr='#ffc9e6ff', GradientType=0);
-  background-repeat: repeat-x;
   }
 body.pagelayout-redirect #page {
   color: #1f4d87;
