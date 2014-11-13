@@ -117,6 +117,9 @@ $string['langpack_urlname'] = 'Language packs';
 // Navbar.
 $string['togglenavigation'] = 'Toggle navigation';
 
+// Messages.
+$string['unreadnewnotification'] = 'New notification';
+
 // Page bottom region.
 $string['numpagebottomblocks'] = 'Maximum number of blocks per row in the page bottom';
 $string['numpagebottomblocks_desc'] = 'The maximum blocks per row in the page bottom.';

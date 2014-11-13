@@ -510,7 +510,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $messagecontent = new stdClass();
 
         if ($message->notification) {
-            $messagecontent->text = get_string('unreadnewnotification', 'message');
+            $messagecontent->text = get_string('unreadnewnotification', 'theme_shoehorn');
         } else {
             if ($message->fullmessageformat == FORMAT_HTML) {
                 $message->smallmessage = html_to_text($message->smallmessage);

@@ -170,6 +170,12 @@ Todo
 
 Version information
 ===================
+14th November 2014 - Version 2.8.0.2 - Release candidate.
+  1. Release candidate for Moodle 2.8.
+
+12th November 2014 - Version 2.8.0.1.
+  1. First version for Moodle 2.8.
+
 10th November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
   2. Fixed 'Go' button on the right when administration block in page bottom region.

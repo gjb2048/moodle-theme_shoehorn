@@ -531,20 +531,6 @@ ul {
 
 // Effectively grade\report\grader\styles.css.
 .path-grade-report-grader {
-    .left_scroller table td.topleft {
-        border-color: @page-bottom-bg;
-    }
-    div.left_scroller th.user a {
-        margin-right: 10px;
-        &:hover, &:focus {
-            img.userpicture {
-                background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
-                border-radius: @border-radius-base;
-            }
-            background-color: transparent;
-            border-radius: 0;
-        }
-    }
     th.user img.userpicture {
         margin-right: 0px; // Effectively move the margin to parent element for hover purposes.
     }
@@ -569,14 +555,25 @@ ul {
         }
     }
 }
-.path-grade-report-grader div.left_scroller th.user a
-.path-grade-report-grader th.user img.userpicture 
-table#user-grades {
+.path-grade-report-grader .gradeparent .user.cell .userpicture {
     th.item, th.categoryitem, th.courseitem, td.cell {
         border-color: @page-bottom-bg;
     }
     tr.heading th.courseitem {
         border-width: 1px;
+    }
+}
+
+.path-grade-report-grader .gradeparent tr:nth-of-type(even) .cell {
+    background-color: @page-bottom-bg-light;
+}
+
+.path-grade-report-grader .gradeparent .floater {
+    .cell:nth-of-type(odd), &.lastrow .cell.header {
+        background-color: #fff;
+    }
+    .cell:nth-of-type(even), .cell.header {
+        background-color: @page-bottom-bg-light;
     }
 }
 
