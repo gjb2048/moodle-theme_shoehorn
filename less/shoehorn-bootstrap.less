@@ -44,20 +44,31 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 // Centre the image.
 .carousel-inner {
   > .item {
-    > img {
-       width: 100%;
+    .carousel-image-container {
+      text-align: center;
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    img {
+       width: auto;
+       height: auto;
        margin: 0 auto;
        padding: 0;
+       vertical-align: middle; // See: http://www.vanseodesign.com/css/vertical-centering/.
+       max-width: 100%;
     }
   }
 }
 
 @media(min-width: @screen-xs-min) {
   .carousel-inner {
-    min-height: 200px;
     > .item {
-      > img {
-         max-width: 400px;
+      height: 200px;
+      .carousel-image-container {
+        line-height: 200px; // See: http://www.vanseodesign.com/css/vertical-centering/.
+      }
+      img {
          max-height: 200px;
       }
     }
@@ -66,10 +77,12 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 
 @media(min-width: @screen-sm-min) {
   .carousel-inner {
-    min-height: 280px;
     > .item {
-      > img {
-         max-width: 506px;
+      height: 280px;
+      .carousel-image-container {
+        line-height: 280px; // See: http://www.vanseodesign.com/css/vertical-centering/.
+      }
+      img {
          max-height: 280px;
       }
     }
@@ -78,10 +91,12 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 
 @media(min-width: @screen-md-min) {
   .carousel-inner {
-    min-height: 400px;
     > .item {
-      > img {
-         max-width: 744px;
+      height: 400px;
+      .carousel-image-container {
+        line-height: 400px; // See: http://www.vanseodesign.com/css/vertical-centering/.
+      }
+      img {
          max-height: 400px;
       }
     }
@@ -90,10 +105,12 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 
 @media(min-width: @screen-lg-min) {
   .carousel-inner {
-    min-height: 500px;
     > .item {
-      > img {
-         max-width: 980px;
+      height: 500px;
+      .carousel-image-container {
+        line-height: 500px; // See: http://www.vanseodesign.com/css/vertical-centering/.
+      }
+      img {
          max-height: 500px;
       }
     }
@@ -134,7 +151,7 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
   }
 }
 
-@media(min-width: @screen-sm-min) {
+@media(min-width: @screen-md-min) {
     .carousel-control {
         width: 52px;
         height: 52px;

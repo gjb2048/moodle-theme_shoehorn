@@ -61,6 +61,7 @@ echo $OUTPUT->doctype() ?>
             <section id="region-main-shoehorn">
                 <?php echo $OUTPUT->main_content(); ?>
             </section>
+            <div id="region-main-shoehorn-shadow"></div>
         </div>
     </div>
 

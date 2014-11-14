@@ -20988,52 +20988,74 @@ input[type="reset"] {
   margin: 0 5px 10px 0;
 }
 
-.carousel-inner > .item > img {
+.carousel-inner > .item .carousel-image-container {
   width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+  text-align: center;
+}
+
+.carousel-inner > .item img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
   padding: 0;
   margin: 0 auto;
+  vertical-align: middle;
 }
 
 @media (min-width: 480px) {
-  .carousel-inner {
-    min-height: 200px;
+  .carousel-inner > .item {
+    height: 200px;
   }
 
-  .carousel-inner > .item > img {
-    max-width: 400px;
+  .carousel-inner > .item .carousel-image-container {
+    line-height: 200px;
+  }
+
+  .carousel-inner > .item img {
     max-height: 200px;
   }
 }
 
 @media (min-width: 768px) {
-  .carousel-inner {
-    min-height: 280px;
+  .carousel-inner > .item {
+    height: 280px;
   }
 
-  .carousel-inner > .item > img {
-    max-width: 506px;
+  .carousel-inner > .item .carousel-image-container {
+    line-height: 280px;
+  }
+
+  .carousel-inner > .item img {
     max-height: 280px;
   }
 }
 
 @media (min-width: 992px) {
-  .carousel-inner {
-    min-height: 400px;
+  .carousel-inner > .item {
+    height: 400px;
   }
 
-  .carousel-inner > .item > img {
-    max-width: 744px;
+  .carousel-inner > .item .carousel-image-container {
+    line-height: 400px;
+  }
+
+  .carousel-inner > .item img {
     max-height: 400px;
   }
 }
 
 @media (min-width: 1200px) {
-  .carousel-inner {
-    min-height: 500px;
+  .carousel-inner > .item {
+    height: 500px;
   }
 
-  .carousel-inner > .item > img {
-    max-width: 980px;
+  .carousel-inner > .item .carousel-image-container {
+    line-height: 500px;
+  }
+
+  .carousel-inner > .item img {
     max-height: 500px;
   }
 }
@@ -21071,7 +21093,7 @@ input[type="reset"] {
   color: #fff;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .carousel-control {
     width: 52px;
     height: 52px;
@@ -24172,9 +24194,10 @@ body.fontawesome #frontpage-category-names h2:before {
 }
 
 #myCourseCarousel .carousel-inner li.item {
+  height: auto;
   min-height: 200px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 5%;
+  padding-left: 5%;
 }
 
 #myCourseCarousel .carousel-inner > .item.hidden {
