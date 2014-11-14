@@ -102,7 +102,7 @@ $string['inversenavbar_desc'] = 'Swaps text and background for the navigation ba
 $string['showloginmessage'] = 'Display login message';
 $string['showloginmessage_desc'] = "Display a brief login message just below the 'Log in' title.  This is not meant to replace the '";
 $string['showloginmessage_urlname'] = 'login instructions';
-$string['showloginmessage_urllink'] = 'http://docs.moodle.org/26/en/admin/setting/manageauths#Instructions';
+$string['showloginmessage_urllink'] = 'http://docs.moodle.org/27/en/admin/setting/manageauths#Instructions';
 
 $string['showoldmessages'] = 'Show old messages';
 $string['showoldmessagesdesc'] = 'Show old messages on the message menu.';
@@ -116,6 +116,7 @@ $string['langpack_urlname'] = 'Language packs';
 
 // Navbar.
 $string['togglenavigation'] = 'Toggle navigation';
+$string['gotobottom'] = 'Go to the bottom of the page';
 
 // Messages.
 $string['unreadnewnotification'] = 'New notification';
@@ -227,7 +228,7 @@ $string['blocktitleunknown'] = 'Block title unknown';
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
 $string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';
-$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of slides change the 'Number of front page slides' below and save the page to update.";
+$string['frontpagesliderheadingdesc'] = "Present your portfolio with slides containing an image, URL and text.  To change the number of slides change the 'Number of front page slides' below and save the page to update.  The best height for an image is 500px as this is the maximum space at greater than 1200px wide window resolution.  The dimensions are then calculated based on the available space and image ratio.";
 $string['frontpageslidersettingspageheading'] = 'Slide {$a->slide}';
 $string['frontpagesliderspeed'] = 'Set the slider transition speed in ms';
 $string['frontpagesliderspeed_desc'] = 'Set the slide transition speed in milliseconds.  Set to 0 for manual control.';

@@ -38,9 +38,9 @@ echo $OUTPUT->doctype()
         <div id="page-content" class="clearfix row">
             <div id="region-main" class="col-md-12">
             <section id="region-main-shoehorn">
-                    <?php echo $OUTPUT->main_content(); ?>
-                </section>
-                <div id="region-main-shoehorn-shadow"></div>
+                <?php echo $OUTPUT->main_content(); ?>
+            </section>
+            <div id="region-main-shoehorn-shadow"></div>
             </div>
         </div>
     </div>

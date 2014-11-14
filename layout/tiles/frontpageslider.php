@@ -83,7 +83,9 @@ if ($speed == 0) {
                         $imgalt = 'No caption title';
                     }
                     ?>
-                    <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
+                    <div class="carousel-image-container">
+                        <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
+                    </div>
                     <?php
                     $slidecaptiontext = 'frontpageslidecaptiontext'.$slideid;
                     if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>

@@ -170,6 +170,10 @@ Todo
 
 Version information
 ===================
+14th November 2014 - Version 2.8.0.3 - Release candidate.
+  1. Tidied up slider such that it does not cause the content to jump on the frontpage and the images are centred.
+  2. Added a 'Go to bottom of page' icon in the navbar to make it easier when on settings and course pages.
+
 14th November 2014 - Version 2.8.0.2 - Release candidate.
   1. Release candidate for Moodle 2.8.
 

@@ -326,6 +326,15 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
         }
 
+        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'admin')) { // Go to bottom.
+            if ($this->page->theme->settings->fontawesome) {
+                $gotobottom = html_writer::tag('i', '', array('class' => 'fa fa-arrow-circle-o-down'));
+            } else {
+                $gotobottom = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-circle-arrow-down'));
+            }
+            $menu->add($gotobottom, new moodle_url('#region-main-shoehorn-shadow'), get_string('gotobottom', 'theme_shoehorn'), 10001);
+        }
+
         if ($addusermenu) {
             if (isloggedin()) {
                 $usertext = fullname($USER);
@@ -336,7 +345,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $userhtml .= html_writer::tag('span', ' '.$usertext);
 
-                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10001);
+                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10002);
 
                 $logouttext = get_string('logout');
                 if ($this->page->theme->settings->fontawesome) {
