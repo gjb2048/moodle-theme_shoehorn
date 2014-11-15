@@ -181,6 +181,14 @@ function theme_shoehorn_html_for_settings($PAGE) {
     $html->containerclass = 'container-fluid';
 
     $html->additionalbodyclasses = array();
+
+    $devicetype = core_useragent::get_device_type(); // In /lib/classes/useragent.php.
+    if ($devicetype == "mobile") {
+        $html->additionalbodyclasses[] = 'mobiledevice';
+    } else if ($devicetype == "tablet") {
+        $html->additionalbodyclasses[] = 'tabletdevice';
+    }
+
     if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
         $html->additionalbodyclasses[] = 'coursetiles';
     }
