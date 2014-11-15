@@ -998,8 +998,8 @@ body.fontawesome {
     padding-bottom: 15px;
     li.item {
         min-height: 200px;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 27px;
+        padding-right: 27px;
         height: auto;
     }
     > .item.hidden {
@@ -1007,6 +1007,11 @@ body.fontawesome {
     }
     > .item.hidden.active {
         display: block !important; // I do not like '!important' but no choice here.
+    }
+    .section .label {
+        .contentwithoutlink, .activityinstance {
+            padding-right: 0px;
+        }
     }
 }
 
@@ -1018,6 +1023,12 @@ body.fontawesome {
     .shoehorn-single-course-page {
         .section .activity .mod-indent-outer {
             padding-left: 0px;
+        }
+    }
+    #myCourseCarousel .carousel-inner {
+        li.item {
+            padding-left: 54px;
+            padding-right: 54px;
         }
     }
     #moodle-navbar {

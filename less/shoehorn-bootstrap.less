@@ -44,11 +44,13 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 // Centre the image.
 .carousel-inner {
   > .item {
+    height: 160px;
     .carousel-image-container {
       text-align: center;
       width: 100%;
-      padding-left: 5%;
-      padding-right: 5%;
+      padding-left: 27px;
+      padding-right: 27px;
+      line-height: 160px; // See: http://www.vanseodesign.com/css/vertical-centering/.
     }
     img {
        width: auto;
@@ -95,6 +97,8 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
       height: 400px;
       .carousel-image-container {
         line-height: 400px; // See: http://www.vanseodesign.com/css/vertical-centering/.
+        padding-left: 54px;
+        padding-right: 54px;
       }
       img {
          max-height: 400px;
@@ -162,8 +166,12 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
 .carouselslider a.carousel-control {
     display: none;
 }
-.carouselslider:hover a.carousel-control {
-    display: block;
+body {
+    .carouselslider:hover, &.mobiledevice .carouselslider, &.tabletdevice .carouselslider {
+        a.carousel-control {
+            display: block;
+        }
+    }
 }
 
 // Carousel indicator pips.
@@ -174,12 +182,24 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
   }
 }
 
-// Caption for text below images.
+// Caption for text.
 .carousel-caption {
   background: @carousel-control-color;
   background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.7);
   border-radius: @border-radius-large;
   border: 1px solid rgba(red(@page-bottom-bg),green(@page-bottom-bg),blue(@page-bottom-bg),.65);
+}
+
+@media(max-width: @screen-sm-max) {
+  .carousel-caption {
+    padding-top: 5px;
+    h4 {
+        font-size: 14px;
+    }
+    p {
+        font-size: 12px;
+    }
+  }
 }
 
 // Technically dropdowns.less.

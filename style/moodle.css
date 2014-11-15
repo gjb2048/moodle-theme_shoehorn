@@ -17670,10 +17670,14 @@ input[type="submit"],
 input[type="reset"] {
   margin: 0 0 10px 5px;
 }
+.carousel-inner > .item {
+  height: 160px;
+}
 .carousel-inner > .item .carousel-image-container {
   width: 100%;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 27px;
+  padding-left: 27px;
+  line-height: 160px;
   text-align: center;
 }
 .carousel-inner > .item img {
@@ -17711,6 +17715,8 @@ input[type="reset"] {
     height: 400px;
   }
   .carousel-inner > .item .carousel-image-container {
+    padding-right: 54px;
+    padding-left: 54px;
     line-height: 400px;
   }
   .carousel-inner > .item img {
@@ -17766,7 +17772,9 @@ input[type="reset"] {
 .carouselslider a.carousel-control {
   display: none;
 }
-.carouselslider:hover a.carousel-control {
+body .carouselslider:hover a.carousel-control,
+body.mobiledevice .carouselslider a.carousel-control,
+body.tabletdevice .carouselslider a.carousel-control {
   display: block;
 }
 .carousel-indicators li {
@@ -17778,6 +17786,17 @@ input[type="reset"] {
   background: rgba(255, 255, 255, .7);
   border: 1px solid rgba(201, 230, 255, .65);
   border-radius: 6px;
+}
+@media (max-width: 991px) {
+  .carousel-caption {
+    padding-top: 5px;
+  }
+  .carousel-caption h4 {
+    font-size: 14px;
+  }
+  .carousel-caption p {
+    font-size: 12px;
+  }
 }
 .dropdown-menu {
   padding-top: 0;
@@ -20362,8 +20381,8 @@ body.fontawesome #frontpage-category-names h2:before {
 #myCourseCarousel .carousel-inner li.item {
   height: auto;
   min-height: 200px;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 27px;
+  padding-left: 27px;
 }
 #myCourseCarousel .carousel-inner > .item.hidden {
   display: none !important;
@@ -20371,12 +20390,20 @@ body.fontawesome #frontpage-category-names h2:before {
 #myCourseCarousel .carousel-inner > .item.hidden.active {
   display: block !important;
 }
+#myCourseCarousel .carousel-inner .section .label .contentwithoutlink,
+#myCourseCarousel .carousel-inner .section .label .activityinstance {
+  padding-right: 0;
+}
 #myCourseCarousel .carousel-control {
   color: #c9e6ff;
 }
 @media (min-width: 481px) {
   .shoehorn-single-course-page .section .activity .mod-indent-outer {
     padding-left: 0;
+  }
+  #myCourseCarousel .carousel-inner li.item {
+    padding-right: 54px;
+    padding-left: 54px;
   }
   #moodle-navbar {
     margin-bottom: -5px;
