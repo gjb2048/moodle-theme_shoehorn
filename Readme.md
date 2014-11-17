@@ -175,6 +175,7 @@ Version information
   2. Added a 'Go to bottom of page' icon in the navbar to make it easier when on settings and course pages.
   3. Tidy up course slider for one page per section courses - always show arrows on mobiles and tablets.
   4. Always show arrows on mobiles and tablets for the front page slider.
+  5. Added a 'Go to top of page' icon that shows when the page is scrolled down.
 
 14th November 2014 - Version 2.8.0.2 - Release candidate.
   1. Release candidate for Moodle 2.8.

@@ -17655,6 +17655,18 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 .path-grade-report-grader .grade_icons {
   display: inline;
 }
+/* Grader report */
+.path-grade-report-grader .gradeparent tr:nth-of-type(even) .cell {
+  background-color: #f9f9f9;
+}
+.path-grade-report-grader .gradeparent .floater .cell:nth-of-type(odd),
+.path-grade-report-grader .gradeparent .floater.lastrow .cell.header {
+  background-color: #fff;
+}
+.path-grade-report-grader .gradeparent .floater .cell:nth-of-type(even),
+.path-grade-report-grader .gradeparent .floater .cell.header {
+  background-color: #f9f9f9;
+}
 /* shoehorn-bootstrap.less */
 .breadcrumb {
   background-color: rgba(245, 245, 245, .5);
@@ -20963,6 +20975,29 @@ input {
 }
 .copyright:before {
   content: "\00A9";
+}
+.antiGravity {
+  position: fixed;
+  right: 40px;
+  bottom: 32px;
+  display: none;
+  padding: 10px 10px 6px 10px;
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(201, 230, 255, .6);
+  border-color: #e3f2ff;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1em;
+}
+.antiGravity:hover {
+  text-decoration: none;
+  border-radius: 1em;
+}
+.antiGravity i.fa {
+  padding-bottom: 2px;
 }
 a[name="lastused"] {
   padding-top: 50px;
