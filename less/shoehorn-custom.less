@@ -1204,6 +1204,32 @@ select, input {
     content: "\00A9"; // Copyright symbol.
 }
 
+// Anti gravity.
+.antiGravity {
+    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.6);
+    border-color: @page-bottom-bg-light;
+    //border-radius: @border-radius-base;
+    border-radius: 1em;
+    border-style: solid;
+    border-width: 1px;
+    bottom: 32px;
+    display: none;
+    font-size: 32px;
+    line-height: 1;
+    padding: 10px 10px 6px 10px; 
+    position: fixed;
+    right: 40px;
+    text-align: center; 
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        border-radius: 1em;
+    }
+    i.fa {
+        padding-bottom: 2px;
+    }
+}
+
 // XML DB Editor - Essential Issue #90.
 a[name="lastused"] {
     padding-top: 50px;

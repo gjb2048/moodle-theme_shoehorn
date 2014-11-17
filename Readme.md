@@ -168,7 +168,7 @@ Todo
 
 Version information
 ===================
-15th November 2014 - Version 2.7.1.2
+17th November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
   2. Fixed 'Go' button on the right when administration block in page bottom region.
   3. Fixed float issue with section 0 in the Grid format and course tiles.
@@ -176,6 +176,7 @@ Version information
   5. Added a 'Go to bottom of page' icon in the navbar to make it easier when on settings and course pages.
   6. Tidy up course slider for one page per section courses - always show arrows on mobiles and tablets.
   7. Always show arrows on mobiles and tablets for the front page slider.
+  8. Added a 'Go to top of page' icon that shows when the page is scrolled down.
 
 5th November 2014 - Version 2.7.1.1
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.

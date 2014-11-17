@@ -39,3 +39,4 @@ switch ($PAGE->pagelayout) {
             $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
         }
 }
+$PAGE->requires->jquery_plugin('antigravity', 'theme_shoehorn');

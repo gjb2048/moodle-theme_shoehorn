@@ -64,6 +64,7 @@ if ($haveicons) {
     </div>
     </div>
 </footer>
+<?php echo $OUTPUT->anti_gravity(); ?>
 <script type="text/javascript">
 <?php
 if ($fitvids) {

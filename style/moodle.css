@@ -20914,6 +20914,29 @@ input {
 .copyright:before {
   content: "\00A9";
 }
+.antiGravity {
+  position: fixed;
+  right: 40px;
+  bottom: 32px;
+  display: none;
+  padding: 10px 10px 6px 10px;
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(201, 230, 255, .6);
+  border-color: #e3f2ff;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1em;
+}
+.antiGravity:hover {
+  text-decoration: none;
+  border-radius: 1em;
+}
+.antiGravity i.fa {
+  padding-bottom: 2px;
+}
 a[name="lastused"] {
   padding-top: 50px;
 }
