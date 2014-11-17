@@ -1042,13 +1042,12 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
     }
 
     public function anti_gravity() {
-        $icon = html_writer::start_tag('span', array('class' => 'sr-only')) . get_string('antigravity', 'theme_shoehorn') . html_writer::end_tag('span');
         if ($this->page->theme->settings->fontawesome) {
-            $icon .= html_writer::start_tag('i', array('class' => 'fa fa-arrow-circle-o-up')) . html_writer::end_tag('i');
+            $icon = html_writer::start_tag('i', array('class' => 'fa fa-arrow-circle-o-up')) . html_writer::end_tag('i');
         } else {
-            $icon .= html_writer::start_tag('span', array('class' => 'glyphicon glyphicon-upload')) . html_writer::end_tag('span');
+            $icon = html_writer::start_tag('span', array('class' => 'glyphicon glyphicon-upload')) . html_writer::end_tag('span');
         }
-        $anti_gravity = html_writer::tag('a', $icon, array('class' => 'antiGravity'));
+        $anti_gravity = html_writer::tag('a', $icon, array('class' => 'antiGravity', 'title' => get_string('antigravity', 'theme_shoehorn')));
 
         return $anti_gravity;
     }
