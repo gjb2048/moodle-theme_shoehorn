@@ -2414,56 +2414,25 @@ textarea.form-control {
 input[type="search"] {
   -webkit-appearance: none;
 }
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
-  line-height: 34px;
-  line-height: 1.42857143 \0;
-}
-input[type="date"].input-sm,
-input[type="time"].input-sm,
-input[type="datetime-local"].input-sm,
-input[type="month"].input-sm {
-  line-height: 30px;
-  line-height: 1.5 \0;
-}
-input[type="date"].input-lg,
-input[type="time"].input-lg,
-input[type="datetime-local"].input-lg,
-input[type="month"].input-lg {
-  line-height: 46px;
-  line-height: 1.33 \0;
-}
-_:-ms-fullscreen,
-:root input[type="date"],
-_:-ms-fullscreen,
-:root input[type="time"],
-_:-ms-fullscreen,
-:root input[type="datetime-local"],
-_:-ms-fullscreen,
-:root input[type="month"] {
-  line-height: 1.42857143;
-}
-_:-ms-fullscreen.input-sm,
-:root input[type="date"].input-sm,
-_:-ms-fullscreen.input-sm,
-:root input[type="time"].input-sm,
-_:-ms-fullscreen.input-sm,
-:root input[type="datetime-local"].input-sm,
-_:-ms-fullscreen.input-sm,
-:root input[type="month"].input-sm {
-  line-height: 1.5;
-}
-_:-ms-fullscreen.input-lg,
-:root input[type="date"].input-lg,
-_:-ms-fullscreen.input-lg,
-:root input[type="time"].input-lg,
-_:-ms-fullscreen.input-lg,
-:root input[type="datetime-local"].input-lg,
-_:-ms-fullscreen.input-lg,
-:root input[type="month"].input-lg {
-  line-height: 1.33;
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"] {
+    line-height: 34px;
+  }
+  input[type="date"].input-sm,
+  input[type="time"].input-sm,
+  input[type="datetime-local"].input-sm,
+  input[type="month"].input-sm {
+    line-height: 30px;
+  }
+  input[type="date"].input-lg,
+  input[type="time"].input-lg,
+  input[type="datetime-local"].input-lg,
+  input[type="month"].input-lg {
+    line-height: 46px;
+  }
 }
 .form-group,
 .mform .fitem,
@@ -3384,10 +3353,6 @@ tbody.collapse.in {
 .btn-group-vertical > .btn.active {
   z-index: 2;
 }
-.btn-group > .btn:focus,
-.btn-group-vertical > .btn:focus {
-  outline: 0;
-}
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
@@ -4228,6 +4193,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -4722,10 +4689,16 @@ a.badge:focus {
   text-decoration: none;
   cursor: pointer;
 }
-a.list-group-item.active > .badge,
+.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #1f4d87;
   background-color: #fff;
+}
+.list-group-item > .badge {
+  float: right;
+}
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
@@ -4759,7 +4732,8 @@ a.list-group-item.active > .badge,
   .jumbotron {
     padding: 48px 0;
   }
-  .container .jumbotron {
+  .container .jumbotron,
+  .container-fluid .jumbotron {
     padding-right: 60px;
     padding-left: 60px;
   }
@@ -5008,12 +4982,6 @@ a.thumbnail.active {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-}
-.list-group-item > .badge {
-  float: right;
-}
-.list-group-item > .badge + .badge {
-  margin-right: 5px;
 }
 a.list-group-item {
   color: #555;
@@ -5632,10 +5600,9 @@ button.close {
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
 .modal-backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   background-color: #000;
 }
@@ -5707,7 +5674,9 @@ button.close {
   position: absolute;
   z-index: 1030;
   display: block;
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
+  font-weight: normal;
   line-height: 1.4;
   visibility: visible;
   filter: alpha(opacity=0);
@@ -5757,14 +5726,16 @@ button.close {
   border-top-color: #000;
 }
 .tooltip.top-left .tooltip-arrow {
+  right: 5px;
   bottom: 0;
-  left: 5px;
+  margin-bottom: -5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
 }
 .tooltip.top-right .tooltip-arrow {
-  right: 5px;
   bottom: 0;
+  left: 5px;
+  margin-bottom: -5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
 }
@@ -5791,13 +5762,15 @@ button.close {
 }
 .tooltip.bottom-left .tooltip-arrow {
   top: 0;
-  left: 5px;
+  right: 5px;
+  margin-top: -5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
 .tooltip.bottom-right .tooltip-arrow {
   top: 0;
-  right: 5px;
+  left: 5px;
+  margin-top: -5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
@@ -5809,6 +5782,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -12217,6 +12191,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select {
   width: 276px;
   max-width: 276px;
   padding: 1px;
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -16523,6 +16498,7 @@ input.fp-btn-choose {
   width: 276px;
   max-width: 276px;
   padding: 1px;
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -17654,18 +17630,6 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
 }
 .path-grade-report-grader .grade_icons {
   display: inline;
-}
-/* Grader report */
-.path-grade-report-grader .gradeparent tr:nth-of-type(even) .cell {
-  background-color: #f9f9f9;
-}
-.path-grade-report-grader .gradeparent .floater .cell:nth-of-type(odd),
-.path-grade-report-grader .gradeparent .floater.lastrow .cell.header {
-  background-color: #fff;
-}
-.path-grade-report-grader .gradeparent .floater .cell:nth-of-type(even),
-.path-grade-report-grader .gradeparent .floater .cell.header {
-  background-color: #f9f9f9;
 }
 /* shoehorn-bootstrap.less */
 .breadcrumb {
