@@ -24,9 +24,16 @@
 // Bootstrap 3 overrides.
 
 // breadcrumbs.less.
-.breadcrumb {
+.breadcrumb, .breadcrumb-button > a {
   background-color: rgba(red(@breadcrumb-bg), green(@breadcrumb-bg), blue(@breadcrumb-bg), 0.5);
+}
 
+.breadcrumb-button > a {
+  padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+  border-radius: @border-radius-base;
+}
+
+.breadcrumb {
   > li {
     + li:before {
       content: none;

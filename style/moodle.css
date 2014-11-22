@@ -17632,8 +17632,13 @@ fieldset[disabled] #rubric-rubric.gradingform_rubric .addcriterion {
   display: inline;
 }
 /* shoehorn-bootstrap.less */
-.breadcrumb {
+.breadcrumb,
+.breadcrumb-button > a {
   background-color: rgba(245, 245, 245, .5);
+}
+.breadcrumb-button > a {
+  padding: 8px 15px;
+  border-radius: 4px;
 }
 .breadcrumb > li + li:before {
   padding: 0;
