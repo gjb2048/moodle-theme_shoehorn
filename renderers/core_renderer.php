@@ -326,7 +326,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
         }
 
-        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'admin')) { // Go to bottom.
+        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout == 'admin')) { // Go to bottom.
             if ($this->page->theme->settings->fontawesome) {
                 $gotobottom = html_writer::tag('i', '', array('class' => 'fa fa-arrow-circle-o-down'));
             } else {
