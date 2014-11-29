@@ -22941,6 +22941,12 @@ ol {
   vertical-align: bottom;
 }
 
+#page-mod-quiz-edit div.question div.content .questionname label,
+#categoryquestions .questionname label {
+  overflow: inherit;
+  text-overflow: inherit;
+}
+
 #page-mod-quiz-edit div.reorder div.question div.content {
   width: 90%;
 }
