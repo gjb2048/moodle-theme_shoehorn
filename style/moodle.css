@@ -17277,7 +17277,7 @@ fieldset[disabled] #dock .dockedtitle.active {
   margin-right: 1px;
   vertical-align: middle;
 }
-#dockeditempanel .dockeditempanel_hd .commands .hidepanemicon img {
+#dockeditempanel .dockeditempanel_hd .commands .hidepanelicon img {
   cursor: pointer;
 }
 .dir-rtl.has_dock #page,
@@ -17649,7 +17649,7 @@ input.form-submit,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  margin: 0 0 10px 5px;
+  margin: 0 0 4px 5px;
 }
 .carousel-inner > .item {
   height: 160px;
@@ -19631,9 +19631,6 @@ body.pagelayout-redirect #page {
 #region-main-shoehorn .panel-default,
 #region-main-shoehorn .info {
   background-color: rgba(255, 255, 255, .9);
-}
-#page-mod-quiz-edit #region-main-shoehorn {
-  float: left;
 }
 #navsearchbox {
   float: right;
