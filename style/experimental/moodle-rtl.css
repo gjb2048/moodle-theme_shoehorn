@@ -22946,11 +22946,6 @@ body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > 
   border-bottom-left-radius: 24px;
 }
 
-body.compactnavbar .navbar .container-fluid,
-body.compactnavbar .navbar .navbar-collapse {
-  padding-left: 0;
-}
-
 body.compactnavbar .navbar .navbar-brand {
   margin-left: 15px;
 }
