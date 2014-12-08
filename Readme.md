@@ -168,6 +168,9 @@ Todo
 
 Version information
 ===================
+ 8th December 2014 - Version 2.7.1.3
+  1. Fixed blocks in footer not being wide enough.
+
 22nd November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
   2. Fixed 'Go' button on the right when administration block in page bottom region.
