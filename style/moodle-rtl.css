@@ -24917,6 +24917,10 @@ pre.sh {
   background-color: rgba(66, 255, 6, .25);
 }
 
+#page-footer .block-region {
+  width: 100%;
+}
+
 #page-footer .block {
   color: #1f4d87;
 }
