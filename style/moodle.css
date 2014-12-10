@@ -19304,6 +19304,10 @@ body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > 
 body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:focus {
   border-bottom-right-radius: 24px;
 }
+body.compactnavbar .navbar .container-fluid,
+body.compactnavbar .navbar .navbar-collapse {
+  padding-right: 0;
+}
 body.compactnavbar .navbar .navbar-brand {
   margin-right: 15px;
 }
