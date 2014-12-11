@@ -37,7 +37,7 @@ require_once(dirname(__FILE__).'/tiles/jquery.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 
-echo $OUTPUT->doctype() ?>
+echo $OUTPUT->doctype(); ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
