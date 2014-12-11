@@ -25,19 +25,35 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-echo $OUTPUT->doctype() ?>
+require_once(dirname(__FILE__).'/tiles/jquery.php');
+
+$regions = shoehorn_grid(false, false);
+$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+echo $OUTPUT->doctype();
+?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
 
-<body <?php echo $OUTPUT->body_attributes(); ?>>
+<body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
 <?php
-echo $OUTPUT->standard_top_of_body_html();
-echo $OUTPUT->main_content();
-echo $OUTPUT->standard_footer_html();
-echo $OUTPUT->standard_end_of_body_html();
-?>
+echo $OUTPUT->standard_top_of_body_html(); ?>
+<div id="page" class="<?php echo $settingshtml->containerclass; ?>">
+    <div id="page-area" class="row">
+        <?php require_once(dirname(__FILE__).'/tiles/pageheader.php'); ?>
 
+        <div id="page-content" class="row">
+            <div id="region-main" class="<?php echo $regions['content']; ?>">
+                <section id="region-main-shoehorn">
+                <?php echo $OUTPUT->main_content(); ?>
+                </section>
+                <div id="region-main-shoehorn-shadow"></div>
+            </div>
+            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+        </div>
+    </div>
+
+    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
 </div>
 </body>
 </html>
