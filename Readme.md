@@ -170,7 +170,7 @@ Todo
 
 Version information
 ===================
- 8th December 2014 - Version 2.8.0.3 - Release candidate.
+15th December 2014 - Version 2.8.0.3 - Release candidate.
   1. Tidied up slider such that it does not cause the content to jump on the frontpage and the images are centred.
   2. Added a 'Go to bottom of page' icon in the navbar to make it easier when on settings and course pages.
   3. Tidy up course slider for one page per section courses - always show arrows on mobiles and tablets.
@@ -179,6 +179,7 @@ Version information
   6. Update to Bootstrap 3.3.1: https://github.com/twbs/bootstrap/releases/tag/v3.3.1.
   7. Fixed 'Exit activity' in a SCORM activity not appearing the same as the breadcrumb.
   8. Fixed blocks in footer not being wide enough.
+  9. Fixed issue #406 from Essential: Assignment types: Online Audio Recording.
 
 14th November 2014 - Version 2.8.0.2 - Release candidate.
   1. Release candidate for Moodle 2.8.
