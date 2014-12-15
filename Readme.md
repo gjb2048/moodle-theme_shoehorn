@@ -168,8 +168,9 @@ Todo
 
 Version information
 ===================
- 8th December 2014 - Version 2.7.1.3
+15th December 2014 - Version 2.7.1.3
   1. Fixed blocks in footer not being wide enough.
+  2. Fixed issue #406 from Essential: Assignment types: Online Audio Recording.
 
 22nd November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
