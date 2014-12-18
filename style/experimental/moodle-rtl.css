@@ -22672,7 +22672,6 @@ ol {
 
 #page-mod-quiz-edit div.question div.content .questiontext,
 #categoryquestions .questiontext {
-  display: inline;
   max-width: 40%;
   padding-right: .3em;
   overflow: hidden;
