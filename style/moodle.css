@@ -19040,7 +19040,6 @@ ol {
 }
 #page-mod-quiz-edit div.question div.content .questiontext,
 #categoryquestions .questiontext {
-  display: inline;
   max-width: 40%;
   padding-left: .3em;
   overflow: hidden;
