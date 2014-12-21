@@ -20032,6 +20032,10 @@ body.fontawesome .block_online_users .header .title h2:before {
 body.fontawesome .block_html .header .title h2:before {
   content: "\f022";
 }
+body.fontawesome .block_iconic_html .header .title h2:before {
+  padding-right: 0;
+  content: none;
+}
 body.fontawesome .block_section_links .header .title h2:before {
   content: "\f02e";
 }
