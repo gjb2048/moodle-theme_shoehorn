@@ -49,9 +49,9 @@ if ($numberofsociallinks) {
             $icons .= '<li><a href="'.$PAGE->theme->settings->$name.'" target="_blank">';
             $icons .= '<span class="sr-only">'.$choices[$PAGE->theme->settings->$iconname].'</span>';
             if ($fontawesome) {
-                $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i>';
+                $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
             } else {
-                $icons .= '<span class="glyphicon glyphicon-2x glyphicon-globe fa-'.$PAGE->theme->settings->$iconname.'"></span>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
+                $icons .= '<span class="glyphicon glyphicon-2x glyphicon-globe"></span>';
             }
             $icons .= '</a></li>';
         }
