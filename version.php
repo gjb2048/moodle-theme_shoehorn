@@ -33,5 +33,5 @@ $plugin->component = 'theme_shoehorn';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '2.7.1.3';
 $plugin->dependencies = array(
-    'theme_bootstrap'  => 2014100300
+    'theme_bootstrap'  => 2014120803
 );

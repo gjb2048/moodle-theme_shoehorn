@@ -54,8 +54,13 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
 
 Required version of Bootstrap 3
 ===============================
-You will need to get and install the correct version of the parent Bootstrap theme from:
-https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip, in order to install and use Shoehorn.
+You will need to get and install the parent Bootstrap theme from:
+
+https://moodle.org/plugins/view.php?plugin=theme_bootstrap - Currently release 2014120803.
+or
+https://github.com/gjb2048/theme_bootstrap
+
+in order to install and use Shoehorn.
 
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
 Mark Aberdour, Paul Hibbitts and Joby Harding.
@@ -168,10 +173,15 @@ Todo
 
 Version information
 ===================
-18th December 2014 - Version 2.7.1.3
+18th January 2015 - Version 2.7.1.3
   1. Fixed blocks in footer not being wide enough.
   2. Fixed issue #406 from Essential: Assignment types: Online Audio Recording.
   3. Fixed issue #408 from Essential with regards to the background.
+  4. Fixed issue with social icons with glyphicons.
+  5. Rectified need to have separated M2.7 specific Bootstrap as parent theme.  Now can use:
+     https://github.com/gjb2048/theme_bootstrap or https://moodle.org/plugins/view.php?plugin=theme_bootstrap
+  6. Update grunt packages to latest versions.
+  7. Added BCU theme 'This course' menu for courses.
 
 22nd November 2014 - Version 2.7.1.2
   1. Fixed bottom right hover border of last menu item of the compact navbar.
