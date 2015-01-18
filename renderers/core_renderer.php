@@ -326,13 +326,58 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             }
         }
 
+        if ($this->page->pagelayout == 'course') {
+            if (!isguestuser()) {
+                if (isset($this->page->course->id) && $this->page->course->id > 1) {
+                    $branchtitle = get_string('thiscourse', 'theme_shoehorn');
+                    if ($this->page->theme->settings->fontawesome) {
+                        $branchlabel = '<i class="fa fa-book"></i>';
+                    } else {
+                        $branchlabel = '<span class="glyphicon glyphicon-book"></span>';
+                    }
+                    $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
+                    $branchurl = new moodle_url('#');
+                    $activitystreammenu = $menu->add($branchlabel, $branchurl, $branchtitle, 10001);
+                    $branchtitle = get_string('people', 'theme_shoehorn');
+                    if ($this->page->theme->settings->fontawesome) {
+                        $branchlabel = '<i class="fa fa-users"></i>';
+                    } else {
+                        $branchlabel = '<span class="glyphicon glyphicon-user"></span>';
+                    }
+                    $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
+                    $branchurl = new moodle_url('/user/index.php', array('id' => $this->page->course->id));
+                    $activitystreammenu->add($branchlabel, $branchurl, $branchtitle, 100003);
+                    $branchtitle = get_string('grades');
+                    if ($this->page->theme->settings->fontawesome) {
+                        $branchlabel = '<i class="fa fa-list-alt icon"></i>';
+                    } else {
+                        $branchlabel = '<span class="glyphicon glyphicon-list"></span>';
+                    }
+                    $branchlabel .= html_writer::tag('span', ' '.$branchtitle);
+                    $branchurl = new moodle_url('/grade/report/index.php', array('id' => $this->page->course->id));
+                    $activitystreammenu->add($branchlabel, $branchurl, $branchtitle, 100004);
+
+                    $data = $this->get_course_activities();
+                    foreach ($data as $modname => $modfullname) {
+                        if ($modname === 'resources') {
+                            $icon = $this->pix_icon('icon', '', 'mod_page', array('class' => 'icon'));
+                            $activitystreammenu->add($icon.$modfullname, new moodle_url('/course/resources.php', array('id' => $this->page->course->id)));
+                        } else {
+                            $icon = '<img src="'.$this->pix_url('icon', $modname) . '" class="icon" alt="" />';
+                            $activitystreammenu->add($icon.$modfullname, new moodle_url('/mod/'.$modname.'/index.php', array('id' => $this->page->course->id)));
+                        }
+                    }
+                }
+            }
+        }
+
         if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout == 'admin')) { // Go to bottom.
             if ($this->page->theme->settings->fontawesome) {
                 $gotobottom = html_writer::tag('i', '', array('class' => 'fa fa-arrow-circle-o-down'));
             } else {
                 $gotobottom = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-circle-arrow-down'));
             }
-            $menu->add($gotobottom, new moodle_url('#region-main-shoehorn-shadow'), get_string('gotobottom', 'theme_shoehorn'), 10001);
+            $menu->add($gotobottom, new moodle_url('#region-main-shoehorn-shadow'), get_string('gotobottom', 'theme_shoehorn'), 10002);
         }
 
         if ($addusermenu) {
@@ -345,7 +390,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                 }
                 $userhtml .= html_writer::tag('span', ' '.$usertext);
 
-                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10002);
+                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
 
                 $logouttext = get_string('logout');
                 if ($this->page->theme->settings->fontawesome) {
@@ -386,7 +431,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
                     $editmyprofiletext
                 );
             } elseif ($this->page->pagelayout != 'login') {
-                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
+                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10003);
             }
         }
 
@@ -397,6 +442,37 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $content .= html_writer::end_tag('ul');
 
         return $content;
+    }
+
+    private function get_course_activities() {
+        // A copy of block_activity_modules.
+        $course = $this->page->course;
+        $content = new stdClass();
+        $modinfo = get_fast_modinfo($course);
+        $modfullnames = array();
+        $archetypes = array();
+        foreach ($modinfo->cms as $cm) {
+            // Exclude activities which are not visible or have no link (=label).
+            if (!$cm->uservisible or !$cm->has_view()) {
+                continue;
+            }
+            if (array_key_exists($cm->modname, $modfullnames)) {
+                continue;
+            }
+            if (!array_key_exists($cm->modname, $archetypes)) {
+                $archetypes[$cm->modname] = plugin_supports('mod', $cm->modname, FEATURE_MOD_ARCHETYPE, MOD_ARCHETYPE_OTHER);
+            }
+            if ($archetypes[$cm->modname] == MOD_ARCHETYPE_RESOURCE) {
+                if (!array_key_exists('resources', $modfullnames)) {
+                    $modfullnames['resources'] = get_string('resources');
+                }
+            } else {
+                $modfullnames[$cm->modname] = $cm->modplural;
+            }
+        }
+        core_collator::asort($modfullnames);
+
+        return $modfullnames;
     }
 
     /**

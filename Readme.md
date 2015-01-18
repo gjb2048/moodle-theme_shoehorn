@@ -56,8 +56,13 @@ Please ensure that your hardware and software complies with 'Requirements' in 'I
 
 Required version of Bootstrap 3
 ===============================
-You will need to get and install the correct version of the parent Bootstrap theme from:
-https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip, in order to install and use Shoehorn.
+You will need to get and install the parent Bootstrap theme from:
+
+https://moodle.org/plugins/view.php?plugin=theme_bootstrap - Currently release 2014120803.
+or
+https://github.com/gjb2048/theme_bootstrap
+
+in order to install and use Shoehorn.
 
 I would like to thank Bas Brands and David Scotson for their work on the theme.  With a special mention to: Stuart Lamour,
 Mark Aberdour, Paul Hibbitts and Joby Harding.
@@ -170,7 +175,7 @@ Todo
 
 Version information
 ===================
-18th December 2014 - Version 2.8.0.3 - Release candidate.
+18th January 2015 - Version 2.8.1 - Stable.
   1. Tidied up slider such that it does not cause the content to jump on the frontpage and the images are centred.
   2. Added a 'Go to bottom of page' icon in the navbar to make it easier when on settings and course pages.
   3. Tidy up course slider for one page per section courses - always show arrows on mobiles and tablets.
@@ -181,6 +186,11 @@ Version information
   8. Fixed blocks in footer not being wide enough.
   9. Fixed issue #406 from Essential: Assignment types: Online Audio Recording.
  10. Fixed issue #408 from Essential with regards to the background.
+ 11. Fixed issue with social icons with glyphicons.
+ 12. Rectified need to have separated M2.7 specific Bootstrap as parent theme.  Now can use:
+     https://github.com/gjb2048/theme_bootstrap or https://moodle.org/plugins/view.php?plugin=theme_bootstrap
+ 13. Update grunt packages to latest versions.
+ 14. Added BCU theme 'This course' menu for courses.
 
 14th November 2014 - Version 2.8.0.2 - Release candidate.
   1. Release candidate for Moodle 2.8.

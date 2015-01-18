@@ -221,6 +221,10 @@ $string['enter'] = 'Enter';
 $string['displaymycourses'] = 'Display my courses';
 $string['displaymycourses_desc'] = 'Display your courses on the \'My home\' page.';
 
+// This course menu.
+$string['thiscourse'] = 'This course';
+$string['people'] = 'People';
+
 // Course tiles.
 $string['coursetiles'] = 'Use course tiles';
 $string['coursetiles_desc'] = 'Use course tiles for activities and resources.';
