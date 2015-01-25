@@ -173,6 +173,9 @@ Todo
 
 Version information
 ===================
+ 7th February 2015 - Version 2.7.1.4
+  1. Fix source map URL for development version after upgrading to 'grunt-contrib-less' version '~1.0.0'.
+
 18th January 2015 - Version 2.7.1.3
   1. Fixed blocks in footer not being wide enough.
   2. Fixed issue #406 from Essential: Assignment types: Online Audio Recording.

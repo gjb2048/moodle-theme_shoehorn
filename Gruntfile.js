@@ -158,6 +158,8 @@ module.exports = function(grunt) {
         COMPRESS = false;
         SOURCEMAP = true;
         console.log('Creating development version.');
+        console.log('Theme directory is: ' + THEMEDIR);
+        console.log('URL prefix is     : ' + MOODLEURLPREFIX);
     } else {
         console.log('Creating production version.');
     }
@@ -180,6 +182,7 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/moodle.treasure.map',
                     sourceMapFilename: 'style/moodle.treasure.map'
                 },
                 src: 'less/moodleallshoehorn.less',
@@ -193,6 +196,7 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/editor.treasure.map',
                     sourceMapFilename: 'style/editor.treasure.map'
                 },
                 src: 'less/editorallshoehorn.less',
@@ -207,6 +211,7 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/experimental/moodle.treasure.map',
                     sourceMapFilename: 'style/experimental/moodle.treasure.map'
                 },
                 src: 'less/experimental/moodle.less',
@@ -219,6 +224,7 @@ module.exports = function(grunt) {
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/theme.treasure.map',
                     sourceMapFilename: 'style/theme.treasure.map'
                 },
                 src: 'less/experimental/theme.less',
