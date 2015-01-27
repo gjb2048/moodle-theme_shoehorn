@@ -109,8 +109,8 @@ $string['showoldmessagesdesc'] = 'Show old messages on the message menu.';
 
 $string['logo'] = 'Logo';
 $string['logo_desc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
-If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
-a.logo {height: 100px;} or whatever height in pixels the logo is.';
+The image will be scaled and responsive to fit the allocated space given to it by the Bootstrap styles in the<br>
+\'page_heading()\' method of \'core_renderer.php\'.  If you want to make the space bigger, then adapt that code.';
 
 $string['langpack_urlname'] = 'Language packs';
 

@@ -185,11 +185,8 @@ body.editing .collapse-blocks {
 // Header.
 header {
     color: @gray-lighter;
-}
-
-.moodleheader {
-    .heading, .logoheading {
-        display: inline-block;
+    &.moodleheader {
+        margin-bottom: 10px;
     }
 }
 
@@ -209,9 +206,9 @@ body {
     }
 }
 
-// Logo.
-.logoheading {
-    display: inline-block;
+// Heading with logo / no logo.
+a.logoarea {
+    color: inherit;
 }
 
 // Front page slider.

@@ -1,21 +1,5 @@
 /* Shoehorn Custom CSS
 -------------------------*/
-a.logo {
-    background: url('[[setting:logo]]') no-repeat 0 0;
-    display: block;
-    float: left;
-    height: 75px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.dir-rtl a.logo {
-    background: url('[[setting:logo]]') no-repeat 100% 0;
-    display: block;
-    float: right;
-}
-
 #region-main-shoehorn-shadow {
     background: url([[pix:theme|shadow]]) no-repeat scroll 50% 100% / 96% 12px transparent;
     padding-bottom: 12px;
