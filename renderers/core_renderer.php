@@ -1092,7 +1092,8 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
 
-            $script = 'SyntaxHighlighter.autoloader(';
+            $script = "$('document').ready(function(){";  // Can use jQuery as included on every page.
+			$script .= "SyntaxHighlighter.autoloader(";
             $script .= "[ 'applescript', '".$url."shBrushAppleScript.js' ],";
             $script .= "[ 'actionscript3', 'as3', '".$url."shBrushAS3.js' ],";
             $script .= "[ 'bash', 'shell', '".$url."shBrushBash.js' ],";
@@ -1119,6 +1120,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
             $script .= "[ 'xml', 'xhtml', 'xslt', 'html', '".$url."shBrushXml.js' ]";
             $script .= ');';
             $script .= 'SyntaxHighlighter.all(); console.log("Syntax Highlighter Init");';
+            $script .= '});';
             $output .= html_writer::script($script);
         }
 
