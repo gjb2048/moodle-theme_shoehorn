@@ -30,7 +30,7 @@
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
     <?php
         if (!empty($PAGE->theme->settings->dynamiclang)) {
-            echo '<link rel="stylesheet" href="'.theme_shoehorn_get_csswww().'">';
+            echo '<link rel="stylesheet" href="'.$OUTPUT->get_csswww().'">';
         }
         echo $OUTPUT->standard_head_html();
         if (!empty($PAGE->theme->settings->cdnfonts) && ($PAGE->theme->settings->cdnfonts == 2)) {

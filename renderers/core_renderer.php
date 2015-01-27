@@ -675,7 +675,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
         // Syntax highlighting.
         if (($this->syntaxhighlighterenabled) || 
-            ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2) && ($this->page->pagetype == 'course-edit'))) {
+            ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2) && ($this->page->user_is_editing()))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
             $items[] = html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
@@ -1134,5 +1134,22 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         $anti_gravity = html_writer::tag('a', $icon, array('class' => 'antiGravity', 'title' => get_string('antigravity', 'theme_shoehorn')));
 
         return $anti_gravity;
+    }
+
+    // Moodle CSS file serving.
+    public function get_csswww() {
+        global $CFG;
+
+        if (right_to_left()) {
+            $moodlecss = 'moodle-rtl.css';
+        } else {
+            $moodlecss = 'moodle.css';
+        }
+
+        $syscontext = context_system::instance();
+        $itemid = theme_get_revision();
+        $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/style/$itemid/$moodlecss");
+        $url = preg_replace('|^https?://|i', '//', $url->out(false));
+        return $url;
     }
 }
