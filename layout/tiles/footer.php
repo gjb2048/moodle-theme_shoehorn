@@ -37,7 +37,7 @@ if ($haveicons) {
 <div id="footer-shadow" class="row<?php echo $footershadowmargin; ?>"></div>
 <footer id="page-footer" class="row">
     <div class="row">
-    <?php $cols = shoehorn_social_footer($PAGE->theme->settings); ?>
+    <?php $cols = theme_shoehorn_social_footer($PAGE->theme->settings); ?>
     <div class="<?php echo $cols['side']; ?>">
     <?php
     if ($knownregionfooterpre) {

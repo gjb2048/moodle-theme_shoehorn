@@ -437,13 +437,7 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'style') {
-            global $CFG;
-            if (!empty($CFG->themedir)) {
-                $thestylepath = $CFG->themedir . '/shoehorn/style/experimental/';
-            } else {
-                $thestylepath = $CFG->dirroot . '/theme/shoehorn/style/experimental/';
-            }
-            send_file($thestylepath.$args[1], $args[1], 20 , 0, false, false, 'text/css');
+            theme_shoehorn_serve_css($args[1]);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
@@ -454,15 +448,7 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if ($filearea === 'syntaxhighlighter') {
-            global $CFG;
-            if (!empty($CFG->themedir)) {
-                $thesyntaxhighlighterpath = $CFG->themedir . '/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
-            } else {
-                $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
-            }
-
-            // Note: Third parameter is normally 'default' which is the 'lifetime' of the file.  Here set lower for development purposes.
-            send_file($thesyntaxhighlighterpath.$args[1], $args[1], 20 , 0, false, false, 'application/javascript');
+            theme_shoehorn_serve_syntaxhighlighter($args[1]);
         } else if ($filearea === 'landffrontpagebackgroundimage') {
             $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('landffrontpagebackgroundimage', $args, $forcedownload, $options);
@@ -477,7 +463,94 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
     }
 }
 
-function shoehorn_social_footer($settings) {
+function theme_shoehorn_serve_css($filename) {
+    global $CFG;
+    if (!empty($CFG->themedir)) {
+        $thestylepath = $CFG->themedir . '/shoehorn/style/experimental/';
+    } else {
+        $thestylepath = $CFG->dirroot . '/theme/shoehorn/style/experimental/';
+    }
+    $thesheet = $thestylepath . $filename;
+
+    /* http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static file who's
+      contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for the moment if
+      that decision is a factor. */
+
+    $etagfile = md5_file($thesheet);
+    // File.
+    $lastmodified = filemtime($thesheet);
+    // Header.
+    $ifmodifiedsince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
+    $etagheader = (isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
+
+    if ((($ifmodifiedsince) && (strtotime($ifmodifiedsince) == $lastmodified)) || $etagheader == $etagfile) {
+        theme_shoehorn_send_unmodified($lastmodified, $etagfile, 'text/css');
+    }
+    theme_shoehorn_send_cached($thestylepath, $filename, $lastmodified, $etagfile, 'text/css');
+}
+
+function theme_shoehorn_serve_syntaxhighlighter($filename) {
+    global $CFG;
+    if (!empty($CFG->themedir)) {
+        $thesyntaxhighlighterpath = $CFG->themedir . '/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+    } else {
+        $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+    }
+    $thefile = $thesyntaxhighlighterpath . $filename;
+
+    /* http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static file who's
+      contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for the moment if
+      that decision is a factor. */
+
+    $etagfile = md5_file($thefile);
+    // File.
+    $lastmodified = filemtime($thefile);
+    // Header.
+    $ifmodifiedsince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
+    $etagheader = (isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
+
+    if ((($ifmodifiedsince) && (strtotime($ifmodifiedsince) == $lastmodified)) || $etagheader == $etagfile) {
+        theme_shoehorn_send_unmodified($lastmodified, $etagfile, 'application/javascript');
+    }
+    theme_shoehorn_send_cached($thesyntaxhighlighterpath, $filename, $lastmodified, $etagfile, 'application/javascript');
+}
+
+function theme_shoehorn_send_unmodified($lastmodified, $etag, $contenttype) {
+    $lifetime = 60 * 60 * 24 * 60;
+    header('HTTP/1.1 304 Not Modified');
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
+    header('Cache-Control: public, max-age=' . $lifetime);
+    header('Content-Type: '.$contenttype.'; charset=utf-8');
+    header('Etag: "' . $etag . '"');
+    if ($lastmodified) {
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
+    }
+    die;
+}
+
+function theme_shoehorn_send_cached($path, $filename, $lastmodified, $etag, $contenttype) {
+    global $CFG;
+    require_once($CFG->dirroot . '/lib/configonlylib.php'); // For min_enable_zlib_compression().
+    // 60 days only - the revision may get incremented quite often.
+    $lifetime = 60 * 60 * 24 * 60;
+
+    header('Etag: "' . $etag . '"');
+    header('Content-Disposition: inline; filename="'.$filename.'"');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
+    header('Pragma: ');
+    header('Cache-Control: public, max-age=' . $lifetime);
+    header('Accept-Ranges: none');
+    header('Content-Type: '.$contenttype.'; charset=utf-8');
+    if (!min_enable_zlib_compression()) {
+        header('Content-Length: ' . filesize($path . $filename));
+    }
+
+    readfile($path . $filename);
+    die;
+}
+
+function theme_shoehorn_social_footer($settings) {
     $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
     $haveicons = false;
     if ($numberofsociallinks) {
