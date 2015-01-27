@@ -19618,6 +19618,13 @@ body.frontpagebackgroundimage .moodleheader .logoheading {
 a.logoarea {
   color: inherit;
 }
+a.logoarea:hover,
+a.logoarea:focus {
+  background-color: transparent;
+}
+header.moodleheader .heading {
+  display: inline-block;
+}
 #frontpageslider {
   padding: 10px;
 }
