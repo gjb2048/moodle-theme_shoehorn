@@ -43,14 +43,14 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
 
         $logo = $this->page->theme->setting_file_url('logo', 'logo');
         if (!is_null($logo)) {
-            $o .= html_writer::link(new moodle_url('/'),
-                  html_writer::start_tag('div', array('class' => 'row')).
+            $o .= html_writer::start_tag('div', array('class' => 'row')).
                   html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-2 col-md-1')).
-                  html_writer::empty_tag('img', array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'), 'class' => 'logo img-responsive')).
+                  html_writer::link(new moodle_url('/'),
+                  html_writer::empty_tag('img', array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'), 'class' => 'logo img-responsive')),
+                  array('title' => get_string('home'), 'class' => 'logoarea')).
                   html_writer::end_tag('div').
                   html_writer::tag($tag, $this->page->heading, array('class' => 'logoheading')).
-                  html_writer::end_tag('div'),
-                  array('title' => get_string('home'), 'class' => 'logoarea'));
+                  html_writer::end_tag('div');
         } else {
             $o .= html_writer::link(new moodle_url('/'),
                   html_writer::tag($tag, $this->page->heading, array('class' => 'heading')),
