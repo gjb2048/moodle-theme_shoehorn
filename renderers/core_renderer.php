@@ -625,7 +625,7 @@ class theme_shoehorn_core_renderer extends theme_bootstrap_core_renderer {
         return $messagecontent;
     }
 
-    function footer_menu() {
+    public function footer_menu() {
         $o = '';
         $items = array();
         $loggedin = isloggedin();
