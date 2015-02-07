@@ -114,6 +114,8 @@ and restart (without the ` if you see them):
 </IfModule>
 ```
 
+I have created a screencast to help: https://www.youtube.com/watch?v=nI3LsN0XwKY
+
 Ref: https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495 and https://code.google.com/p/minify/issues/detail?id=62.
 
 Upgrading
@@ -156,6 +158,14 @@ issue.
 It is essential that you provide as much information as possible, the critical information being the contents of the theme's 
 'version.php' file.  Other version information such as specific Moodle version, theme name and version also helps.  A screen shot
 can be really useful in visualising the issue along with any files you consider to be relevant.
+
+Customising the LESS
+====================
+To help you, I have created two screen casts, one 'Production' and one 'Development'. The latter follows the former, so watch
+'Production' first.
+
+Production:  https://www.youtube.com/watch?v=8uwYn2im008
+Development: https://www.youtube.com/watch?v=6yFAS5-a3o4
 
 Known issues
 ============

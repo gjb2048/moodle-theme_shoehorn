@@ -17,6 +17,10 @@
  *
  * node dependencies: run `npm install` in the root directory.
  *
+ * To help you, I have created two screen casts, one 'Production' and one 'Development'.
+ * The latter follows the former, so watch 'Production' first.
+ * Production:  https://www.youtube.com/watch?v=8uwYn2im008
+ * Development: https://www.youtube.com/watch?v=6yFAS5-a3o4
  *
  * Usage:
  * ------
