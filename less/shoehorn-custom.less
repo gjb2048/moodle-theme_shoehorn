@@ -56,10 +56,18 @@ body.compactnavbar {
                 }
             }
         }
-        .container-fluid, .navbar-collapse {
+        .navbar-collapse, > .container-fluid, > .container-fluid > .navbar-header {
+            padding-left: 0px;
             padding-right: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .navbar-nav {
+            margin-left: 0px;
+            margin-right: 0px;
         }
         .navbar-brand {
+            margin-left: 0px;
             margin-right: 15px;
         }
     }
@@ -1056,10 +1064,6 @@ body.fontawesome {
 .course-content .shoehorn-single-course-page ul.section {
     margin-left: 0px;
 }
-
-//.course-content #myCourseCarousel ul li.section.main {
-//    border-bottom: none;
-//}
 
 // Carousel indicator pips.
 #myCourseCarousel .carousel-indicators {
