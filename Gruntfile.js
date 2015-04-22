@@ -182,7 +182,7 @@ module.exports = function(grunt) {
             moodle: {
                 options: {
                     compress: COMPRESS,
-                    paths: "../bootstrap/less",
+                    paths: ".",
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
@@ -196,7 +196,7 @@ module.exports = function(grunt) {
             editor: {
                 options: {
                     compress: COMPRESS,
-                    paths: "../bootstrap/less",
+                    paths: ".",
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
@@ -211,7 +211,7 @@ module.exports = function(grunt) {
             moodle_e: {
                 options: {
                     compress: COMPRESS,
-                    paths: "../bootstrap/less",
+                    paths: ".",
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
@@ -225,6 +225,7 @@ module.exports = function(grunt) {
             theme_e: {
                 options: {
                     compress: COMPRESS,
+                    paths: ".",
                     report: 'min',
                     sourceMap: SOURCEMAP,
                     sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
@@ -251,7 +252,7 @@ module.exports = function(grunt) {
         },
         csscomb: {
             options: {
-                config: '../bootstrap/less/bootstrap3/.csscomb.json'
+                config: './bootstrap3/.csscomb.json'
             },
             theme: {
                 expand: true,

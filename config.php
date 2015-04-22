@@ -28,7 +28,7 @@
 
 $THEME->doctype = 'html5';
 $THEME->name = 'shoehorn';
-$THEME->parents = array('bootstrap');
+$THEME->parents = array();
 
 $tdm = '';
 if (!get_config('core', 'themedesignermode')) {
@@ -68,24 +68,11 @@ if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
 
 $THEME->editor_sheets = array('editor'.$tdm);
 
-$THEME->parents_exclude_sheets = array(
-    'bootstrap' => array(
-        'moodle',
-        'editor'
-    )
-);
-
 $THEME->plugins_exclude_sheets = array(
     'block' => array(
         'html'
     )
 );
-
-$THEME->parents_exclude_javascripts = array(
-    'bootstrap' => array(
-        'moodlebootstrap'
-    )
-); // Exclude the conflicting YUI JS.
 
 $allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');

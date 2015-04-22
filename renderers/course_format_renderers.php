@@ -229,16 +229,27 @@ function shoehorn_print_single_section_page(&$that, &$courserenderer, $course, $
     echo html_writer::end_tag('div');
 }
 
+
 /* Now the really clever bit to expose parts of the renderer interface such that they can be accessed by a global function if
    they are passed a reference to the $this object. */
-include_once($CFG->dirroot . "/theme/bootstrap/renderers/course_format_renderer.php");
-class theme_shoehorn_format_topics_renderer extends theme_bootstrap_format_topics_renderer {
+require_once($CFG->dirroot . "/course/format/topics/renderer.php");
+class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
+
     protected function get_nav_links($course, $sections, $sectionno) {
         return array();
     }
 
     public function section_left_content($section, $course, $onsectionpage) {
-        return parent::section_left_content($section, $course, $onsectionpage);
+        $o = $this->output->spacer();
+
+        if ($section->section != 0) {
+            // Only in the non-general sections.
+            if (course_get_format($course)->is_section_current($section)) {
+                $o .= get_accesshide(get_string('currentsection', 'format_'.$course->format));
+            }
+        }
+
+        return $o;
     }
 
     public function section_right_content($section, $course, $onsectionpage) {
@@ -262,13 +273,24 @@ class theme_shoehorn_format_topics_renderer extends theme_bootstrap_format_topic
     }
 }
 
-class theme_shoehorn_format_weeks_renderer extends theme_bootstrap_format_weeks_renderer {
+require_once($CFG->dirroot . "/course/format/weeks/renderer.php");
+class theme_shoehorn_format_weeks_renderer extends format_weeks_renderer {
+
     protected function get_nav_links($course, $sections, $sectionno) {
         return array();
     }
 
     public function section_left_content($section, $course, $onsectionpage) {
-        return parent::section_left_content($section, $course, $onsectionpage);
+        $o = $this->output->spacer();
+
+        if ($section->section != 0) {
+            // Only in the non-general sections.
+            if (course_get_format($course)->is_section_current($section)) {
+                $o .= get_accesshide(get_string('currentsection', 'format_'.$course->format));
+            }
+        }
+
+        return $o;
     }
 
     public function section_right_content($section, $course, $onsectionpage) {
