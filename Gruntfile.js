@@ -358,17 +358,20 @@ module.exports = function(grunt) {
                 src: 'style/moodle.css',
                     overwrite: true,
                     replacements: [{
-                        from: 'glyphicons-halflings-regular.eot',
-                        to:   'glyphicons-halflings-regular.eot]]',
+                        from: "glyphicons-halflings-regular.eot",
+                        to:   "glyphicons-halflings-regular.eot]]",
                     }, {
-                        from: 'glyphicons-halflings-regular.svg',
-                        to:   'glyphicons-halflings-regular.svg]]',
+                        from: "glyphicons-halflings-regular.svg",
+                        to:   "glyphicons-halflings-regular.svg]]",
                     }, {
-                        from: 'glyphicons-halflings-regular.ttf',
-                        to:   'glyphicons-halflings-regular.ttf]]',
+                        from: "glyphicons-halflings-regular.ttf2",
+                        to:   "glyphicons-halflings-regular.ttf]]",
                     }, {
-                        from: 'glyphicons-halflings-regular.woff',
-                        to:   'glyphicons-halflings-regular.woff]]',
+                        from: "glyphicons-halflings-regular.woff2'",
+                        to:   "glyphicons-halflings-regular.woff2]]'",
+                    }, {
+                        from: "glyphicons-halflings-regular.woff'",
+                        to:   "glyphicons-halflings-regular.woff]]'",
                     }]
             },
             font_fix_e: {
@@ -378,7 +381,7 @@ module.exports = function(grunt) {
                         from: 'src: url(\'.eot\');',
                         to: '',
                     }, {
-                        from: 'src: url(\'.eot?#iefix\') format(\'embedded-opentype\'), url(\'.woff\') format(\'woff\'), url(\'.ttf\') format(\'truetype\'), url(\'.svg#\') format(\'svg\');',
+                        from: 'src: url(\'.eot?#iefix\') format(\'embedded-opentype\'), url(\'.woff2\') format(\'woff2\'), url(\'.woff\') format(\'woff\'), url(\'.ttf\') format(\'truetype\'), url(\'.svg#\') format(\'svg\');',
                         to: '',
                     }, {
                         from: '@font-face \{[^\n]font-family: \'Glyphicons Halflings\';[^\n]\}', // TODO: Intent is to remove with REGEX, but not working.  Leaves empty font-face declaration in CSS.
@@ -432,7 +435,8 @@ module.exports = function(grunt) {
     grunt.registerTask("decache", ["exec:decache"]);
 
     grunt.registerTask("experimental", ["less:moodle_e", "less:theme_e", "replace:font_fix_e", "cssflip:rtl_e", "csscomb:experimental"]);
-    grunt.registerTask("compile", ["less:moodle", "less:editor", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme", "cssmin", "experimental", "decache"]);
+    grunt.registerTask("main", ["less:moodle", "less:editor", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme", "cssmin"]);
+    grunt.registerTask("compile", ["main", "experimental", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
     grunt.registerTask("svg", ["copy:svg", "svgmin", "replace:svg_colours"]);

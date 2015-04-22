@@ -59,6 +59,9 @@ a:focus
 .sr-only-focusable:focus
 {
     position: static;overflow: visible;clip: auto;width: auto;height: auto;margin: 0;
+}[role='button']
+{
+    cursor: pointer;
 }h1,
 h2,
 h3,
@@ -461,7 +464,7 @@ samp
 .table-bordered > thead > tr > td
 {
     border-bottom-width: 2px;
-}.table-striped > tbody > tr:nth-child(odd)
+}.table-striped > tbody > tr:nth-of-type(odd)
 {
     background-color: #e3f2ff;
 }.table-hover > tbody > tr:hover
@@ -1060,7 +1063,7 @@ a.thumbnail.active
     font: 0/0 a;color: transparent;border: 0;background-color: transparent;text-shadow: none;
 }.hidden
 {
-    display: none !important;visibility: hidden !important;
+    display: none !important;
 }.affix
 {
     position: fixed;

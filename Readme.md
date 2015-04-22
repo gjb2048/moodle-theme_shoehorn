@@ -182,6 +182,7 @@ Version 2.8.1.1.
   6. Messages popup on the left to avoid anti-gravity icon.
   7. Tidy up compact navbar.
   8. Remove dependancy on parent 'bootstrap' theme.
+  9. Update to Bootstrap 3.3.4.
 
 18th January 2015 - Version 2.8.1 - Stable.
   1. Tidied up slider such that it does not cause the content to jump on the frontpage and the images are centred.
