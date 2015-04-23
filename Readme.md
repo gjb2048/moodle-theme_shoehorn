@@ -183,6 +183,7 @@ Version 2.8.1.1.
   7. Tidy up compact navbar.
   8. Remove dependancy on parent 'bootstrap' theme.
   9. Update to Bootstrap 3.3.4.
+ 10. Update to Font Awesome 4.3.0.
 
 18th January 2015 - Version 2.8.1 - Stable.
   1. Tidied up slider such that it does not cause the content to jump on the frontpage and the images are centred.

@@ -48,7 +48,7 @@ $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
     $THEME->sheets[] = 'font';
     if (!empty($THEME->settings->fontawesome) && ($THEME->settings->fontawesome == 1)) { // Use FontAwesome locally.
-        $THEME->sheets[] = 'font-awesome';
+        $THEME->sheets[] = 'font-awesome'.$tdm;
     }
 }
 $THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no CDN for them.

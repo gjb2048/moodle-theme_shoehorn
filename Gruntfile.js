@@ -206,6 +206,19 @@ module.exports = function(grunt) {
                 src: 'less/editorallshoehorn.less',
                 dest: 'style/editor.css'
             },
+            fontawesome: {
+                options: {
+                    compress: COMPRESS,
+                    paths: ".",
+                    report: 'min',
+                    sourceMap: SOURCEMAP,
+                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
+                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/font-awesome.treasure.map',
+                    sourceMapFilename: 'style/font-awesome.treasure.map'
+                },
+                src: 'less/fontawesome.less',
+                dest: 'style/font-awesome.css'
+            },
             // Experimental styles.
             // Compile moodle styles.
             moodle_e: {
@@ -246,7 +259,8 @@ module.exports = function(grunt) {
                 files: {
                     'style/moodle_min.css': 'style/moodle.css',
                     'style/moodle-rtl_min.css': 'style/moodle-rtl.css',
-                    'style/editor_min.css': 'style/editor.css'
+                    'style/editor_min.css': 'style/editor.css',
+                    'style/font-awesome_min.css': 'style/font-awesome.css'
                 }
             }
         },
@@ -257,7 +271,7 @@ module.exports = function(grunt) {
             theme: {
                 expand: true,
                 cwd: 'style/',
-                src: ['moodle.css', 'moodle-rtl.css', 'editor.css'],
+                src: ['moodle.css', 'moodle-rtl.css', 'editor.css', 'font-awesome.css'],
                 dest: 'style/'
             },
             experimental: {
@@ -435,7 +449,7 @@ module.exports = function(grunt) {
     grunt.registerTask("decache", ["exec:decache"]);
 
     grunt.registerTask("experimental", ["less:moodle_e", "less:theme_e", "replace:font_fix_e", "cssflip:rtl_e", "csscomb:experimental"]);
-    grunt.registerTask("main", ["less:moodle", "less:editor", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme", "cssmin"]);
+    grunt.registerTask("main", ["less:moodle", "less:editor", "less:fontawesome", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme", "cssmin"]);
     grunt.registerTask("compile", ["main", "experimental", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
