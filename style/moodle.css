@@ -239,7 +239,7 @@ th
     }
 }@font-face
 {
-    font-family: 'Glyphicons Halflings';src: url('[[font:theme|glyphicons-halflings-regular.eot]]');src: url('[[font:theme|glyphicons-halflings-regular.eot]]?#iefix') format('embedded-opentype'),url('[[font:theme|glyphicons-halflings-regular.woff2]]') format('woff2'),url('[[font:theme|glyphicons-halflings-regular.woff]]') format('woff'),url('[[font:theme|glyphicons-halflings-regular.ttf') format('truetype'),url('[[font:theme|glyphicons-halflings-regular.svg]]#glyphicons_halflingsregular') format('svg');
+    font-family: 'Glyphicons Halflings';src: url('[[font:theme|glyphicons-halflings-regular.eot]]');src: url('[[font:theme|glyphicons-halflings-regular.eot]]?#iefix') format('embedded-opentype'),url('[[font:theme|glyphicons-halflings-regular.woff2]]') format('woff2'),url('[[font:theme|glyphicons-halflings-regular.woff]]') format('woff'),url('[[font:theme|glyphicons-halflings-regular.ttf]]') format('truetype'),url('[[font:theme|glyphicons-halflings-regular.svg]]#glyphicons_halflingsregular') format('svg');
 }.glyphicon
 {font-family: 'Glyphicons Halflings';font-weight: normal;font-style: normal;line-height: 1;
 

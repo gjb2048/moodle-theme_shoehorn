@@ -364,7 +364,7 @@ module.exports = function(grunt) {
                         from: "glyphicons-halflings-regular.svg",
                         to:   "glyphicons-halflings-regular.svg]]",
                     }, {
-                        from: "glyphicons-halflings-regular.ttf2",
+                        from: "glyphicons-halflings-regular.ttf",
                         to:   "glyphicons-halflings-regular.ttf]]",
                     }, {
                         from: "glyphicons-halflings-regular.woff2'",
