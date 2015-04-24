@@ -38,5 +38,10 @@ switch ($PAGE->pagelayout) {
         if (!empty($loginpageimages)) {
             $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
         }
+
+        $dtparm = new stdClass();
+        $dtparm->a = "This is a";
+        $dtparm->b = "This is b";
+        $PAGE->requires->js_call_amd('theme_shoehorn/dynamictest', 'init', array($dtparm));
 }
 $PAGE->requires->jquery_plugin('antigravity', 'theme_shoehorn');

@@ -59,9 +59,13 @@ $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
+$THEME->javascripts_footer = array(
+    'shoehorn'
+);
 if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
     (empty($THEME->settings->accordion) || ((!empty($THEME->settings->accordion) && ($THEME->settings->accordion == 1))))) {
     $THEME->enable_dock = true;
+    $THEME->javascripts_footer[] = 'dock';
 } else {
     $THEME->enable_dock = false;
 }
