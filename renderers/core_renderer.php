@@ -1207,7 +1207,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
 
             $script = "$('document').ready(function(){";  // Can use jQuery as included on every page.
-			$script .= "SyntaxHighlighter.autoloader(";
+            $script .= "SyntaxHighlighter.autoloader(";
             $script .= "[ 'applescript', '".$url."shBrushAppleScript.js' ],";
             $script .= "[ 'actionscript3', 'as3', '".$url."shBrushAS3.js' ],";
             $script .= "[ 'bash', 'shell', '".$url."shBrushBash.js' ],";

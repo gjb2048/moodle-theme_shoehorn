@@ -36,10 +36,10 @@
  */
 
 $loggedin = isloggedin();
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
-if (!empty($loginpageimages)) {  // $loginpageimages defined in jquery.php.
+if (!empty($loginpageimages)) {  // $loginpageimages defined in additionaljs.php.
     $settingshtml->additionalbodyclasses[] = 'loginpageimages';
 }
 

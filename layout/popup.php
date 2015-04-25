@@ -25,7 +25,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $regions = shoehorn_grid(false, false);
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);

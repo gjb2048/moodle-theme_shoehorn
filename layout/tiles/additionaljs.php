@@ -26,17 +26,15 @@
 
 require_once(dirname(__FILE__).'/../../lib.php');
 
-$PAGE->requires->jquery();
-$PAGE->requires->jquery_plugin('bootstrap', 'theme_shoehorn');
 $fitvids = (!isset($PAGE->theme->settings->fitvids)) ? true : $PAGE->theme->settings->fitvids;
 if ($fitvids) {
-    $PAGE->requires->jquery_plugin('fitvids', 'theme_shoehorn');
+    $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
 switch ($PAGE->pagelayout) {
     case 'login': 
         $loginpageimages = shoehorn_shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {
-            $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
+            $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init');
         }
 
         $dtparm = new stdClass();
@@ -44,4 +42,3 @@ switch ($PAGE->pagelayout) {
         $dtparm->b = "This is b";
         $PAGE->requires->js_call_amd('theme_shoehorn/dynamictest', 'init', array($dtparm));
 }
-$PAGE->requires->jquery_plugin('antigravity', 'theme_shoehorn');

@@ -30,7 +30,7 @@ $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 
 $regions = shoehorn_grid($hassidepre, false);
 $PAGE->set_popup_notification_allowed(false);
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 

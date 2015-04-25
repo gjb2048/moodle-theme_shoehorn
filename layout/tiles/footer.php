@@ -66,12 +66,3 @@ if ($haveicons) {
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 </footer>
 <?php echo $OUTPUT->anti_gravity(); ?>
-<script type="text/javascript">
-<?php
-if ($fitvids) {
-    echo '$(document).ready(function() {';
-    echo '$("#page").fitVids();';
-    echo '});';
-}
-?>
-</script>
