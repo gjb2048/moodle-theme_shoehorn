@@ -448,7 +448,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
-        if ($this->page->pagelayout == 'course') {
+        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse')){
             if (!isguestuser()) {
                 if (isset($this->page->course->id) && $this->page->course->id > 1) {
                     $branchtitle = get_string('thiscourse', 'theme_shoehorn');

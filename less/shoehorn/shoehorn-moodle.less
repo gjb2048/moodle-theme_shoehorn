@@ -957,9 +957,15 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 }
 
 /* Grader report */
-.path-grade-report-grader #region-main {
-    width: auto;
-    float: left;
+.path-grade-report-grader {
+    #region-main {
+        width: auto;
+        float: left;
+    }
+    .yui3-overlay {
+        background-color: transparent;
+        border: 0px solid transparent;
+    }
 }
 
 /* Topics format */
@@ -976,3 +982,14 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 .atto_control img {
     background-color: white;
 }
+
+.helptooltip {
+    margin-left: 4px;
+}
+
+body.dir-rtl .helptooltip {
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+
