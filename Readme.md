@@ -32,9 +32,11 @@ Moodle community benefits.
 
 Donations
 =========
-This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating
+by:
 
-PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have 'donation' / 'buy me now' buttons under their terms.
+PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have
+'donation' / 'buy me now' buttons under their terms.
 
 Flattr - https://flattr.com/profile/gjb2048
 
@@ -48,11 +50,11 @@ to discuss your requirements.
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2014111000.00 release 2.8 (Build: 20141110) and above within the 2.8 branch until the
+This version works with Moodle version 2015042400.00 release 2.9beta+ (Build: 20150424) and above within the 2.9 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/28/en/Installing_Moodle'.
+'docs.moodle.org/29/en/Installing_Moodle'.
 
 Licenses used
 =============

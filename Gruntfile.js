@@ -482,6 +482,6 @@ module.exports = function(grunt) {
     grunt.registerTask("compile", ["main", "experimental", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
-    grunt.registerTask("svg", ["copy:svg", "svgmin", "replace:svg_colours"]);
+    grunt.registerTask("svg", ["copy:svg", "replace:svg_colours", "svgmin"]);
     grunt.registerTask("amd", ["jshint", "uglify"]);
 };
