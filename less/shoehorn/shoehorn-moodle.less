@@ -569,10 +569,10 @@ ul {
 }
 
 .path-grade-report-grader .gradeparent .floater {
-    .cell:nth-of-type(odd), &.lastrow .cell.header {
+    .cell:nth-of-type(odd), .cell:nth-of-type(odd).header, &.lastrow .cell.header {
         background-color: #fff;
     }
-    .cell:nth-of-type(even), .cell.header {
+    .cell:nth-of-type(even), .cell.header, &.heading .cell:nth-of-type(odd).header {
         background-color: @page-bottom-bg-light;
     }
 }
@@ -685,10 +685,6 @@ ul {
 }
 
 // new.less.
-ul, ol {
-    padding-left: 24px;
-}
-
 .dropdown-menu {
     li a {
         &:hover, &:focus, &:active {

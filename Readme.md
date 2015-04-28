@@ -175,6 +175,13 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.2.
+  1. Fix some svg core icons.
+  2. Tidy up.
+
+Version 2.9.0.1.
+  1. Moodle 2.9 development version.
+
 Version 2.8.1.1.
   1. Fix source map URL for development version after upgrading to 'grunt-contrib-less' version '~1.0.0'.
   2. Tidy up logo code and information in language file.
