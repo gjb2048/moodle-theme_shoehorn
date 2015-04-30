@@ -1,9 +1,9 @@
 /* jshint ignore:start */
-define(['jquery'], function($) {
+define(['jquery', 'core/log'], function($, log) {
 
   "use strict"; // jshint ;_;
 
-  console.log('Shoehorn backstretch AMD jQuery initialised');
+  log.debug('Shoehorn backstretch AMD jQuery initialised');
 
 /*! Backstretch - v2.0.4 - 2013-06-19
 * http://srobbin.com/jquery-plugins/backstretch/
@@ -386,7 +386,7 @@ define(['jquery'], function($) {
 
   return {
     init: function() {
-      console.log('Shoehorn backstretch AMD jQuery init initialised');
+      log.debug('Shoehorn backstretch AMD jQuery init initialised');
     }
   }
  });

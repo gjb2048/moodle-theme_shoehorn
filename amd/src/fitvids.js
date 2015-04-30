@@ -1,9 +1,9 @@
 /* jshint ignore:start */
-define(['jquery'], function($) {
+define(['jquery', 'core/log'], function($, log) {
 
   "use strict"; // jshint ;_;
 
-  console.log('Shoehorn fitvids AMD jQuery initialised');
+  log.debug('Shoehorn fitvids AMD jQuery initialised');
 
 /*!
 * FitVids 1.1
@@ -103,8 +103,8 @@ define(['jquery'], function($) {
 });
 
   return {
-    init: function($) {
-      console.log('Shoehorn fitvids AMD jQuery init initialised');
+    init: function() {
+      log.debug('Shoehorn fitvids AMD jQuery init initialised');
     }
   }
  });

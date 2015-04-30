@@ -1,8 +1,8 @@
 /* jshint ignore:start */
-define(['jquery'], function($) {
+define(['jquery', 'core/log'], function($, log) {
   "use strict"; // jshint ;_;
 
-  console.log('Shoehorn Anti-gravity AMD initialised');
+  log.debug('Shoehorn Anti-gravity AMD initialised');
 
   $(document).ready(function() {
     var showposition = 480;
