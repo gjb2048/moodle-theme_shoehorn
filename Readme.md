@@ -178,6 +178,7 @@ Version information
 Version 2.9.0.2.
   1. Fix some svg core icons.
   2. Tidy up.
+  3. Fix maintenance layout after Bootstrap theme separation.
 
 Version 2.9.0.1.
   1. Moodle 2.9 development version.
