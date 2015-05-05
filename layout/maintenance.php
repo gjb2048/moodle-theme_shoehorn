@@ -35,7 +35,7 @@
  * breaking installation or upgrade unwittingly.
  */
 
-$regions = bootstrap_grid(false, false);
+$regions = shoehorn_grid(false, false);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
