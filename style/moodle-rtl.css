@@ -27442,6 +27442,12 @@ select.singleselect
     {
         margin-left: 0;
     }
+
+    body.compactnavbar .navbar-right .dropdown-menu
+    {
+        right: 0;
+        left: auto;
+    }
 }
 
 .panel-title

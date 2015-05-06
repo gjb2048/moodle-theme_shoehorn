@@ -177,6 +177,7 @@ Version information
 ===================
 Version 2.9.0.3.
   1. Fix renderers after Bootstrap theme separation.
+  2. Fix 'My courses' drop down going off screen when you have a long course name and a compact navbar.
 
 Version 2.9.0.2.
   1. Fix some svg core icons.

@@ -23761,6 +23761,11 @@ select.singleselect
     {
         margin-right: 0;
     }
+    body.compactnavbar .navbar-right .dropdown-menu
+    {
+        right: auto;
+        left: 0;
+    }
 }
 .panel-title
 {
