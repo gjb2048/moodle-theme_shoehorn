@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Shoehorn theme with the underlying Bootstrap theme.
+ * Shoehorn theme.
  *
  * @package    theme
  * @subpackage shoehorn

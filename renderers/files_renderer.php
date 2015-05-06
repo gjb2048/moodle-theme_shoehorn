@@ -1,5 +1,5 @@
 <?php
-// This file is part of The Bootstrap 3 Moodle theme
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,10 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Rendering of files viewer related widgets.
+ * Shoehorn theme.
  *
- * @package    theme_bootstrap
- * @copyright  2012
+ * @package    theme
+ * @subpackage shoehorn
+ * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
+ * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . "/files/renderer.php");
 
-class theme_bootstrap_core_files_renderer extends core_files_renderer {
+class theme_shoehorn_core_files_renderer extends core_files_renderer {
 
     /**
      * Returns html for displaying one file manager

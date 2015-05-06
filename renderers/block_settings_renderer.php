@@ -15,8 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Settings block renderers
+ * Shoehorn theme.
  *
+ * @package    theme
+ * @subpackage shoehorn
+ * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
+ * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -24,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . "/blocks/settings/renderer.php");
 
-class theme_bootstrap_block_settings_renderer extends block_settings_renderer {
+class theme_shoehorn_block_settings_renderer extends block_settings_renderer {
 
     public function search_form(moodle_url $formtarget, $searchvalue) {
         $content = html_writer::start_tag('form',

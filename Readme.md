@@ -173,6 +173,9 @@ Todo
 
 Version information
 ===================
+Version 2.8.1.3.
+  1. Fix renderers after Bootstrap theme separation.
+
 Version 2.8.1.2.
   1. Fix minor issue when compiling LESS with no parent Bootstrap theme.
   2. Fix issue in maintenance.php where a function in the Bootstrap theme is used.
