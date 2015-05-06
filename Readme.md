@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.3.
+  1. Fix renderers after Bootstrap theme separation.
+
 Version 2.9.0.2.
   1. Fix some svg core icons.
   2. Tidy up.
