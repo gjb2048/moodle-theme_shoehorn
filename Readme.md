@@ -186,6 +186,7 @@ Version 2.9.0.3.
   7. Remove AMD dynamic loading test code.
   8. PHP mess detector changes - https://github.com/bmbrands/theme_bootstrap/commit/bd9c68b2b4cadad569ae1d5ed969295cdfb62ca1
   9. Run through CodeChecker 2.3.2 - 2014081500.
+ 10. Converted renderers to autoloading ones.
 
 Version 2.9.0.2.
   1. Fix some svg core icons.
