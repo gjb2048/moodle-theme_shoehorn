@@ -74,7 +74,6 @@ class theme_shoehorn_core_enrol_renderer extends core_enrol_renderer {
             $content .= html_writer::start_tag('div', array('class' => 'singleselect bulkuserop'));
             $content .= html_writer::start_tag('select', array('name' => 'bulkuserop'));
             $content .= html_writer::tag('option', get_string('withselectedusers', 'enrol'), array('value' => ''));
-            $options = array('' => get_string('withselectedusers', 'enrol'));
             foreach ($table->get_bulk_user_enrolment_operations() as $operation) {
                 $content .= html_writer::tag('option', $operation->get_title(), array('value' => $operation->get_identifier()));
             }
@@ -97,7 +96,6 @@ class theme_shoehorn_core_enrol_renderer extends core_enrol_renderer {
     }
 
     public function user_roles_and_actions($userid, $roles, $assignableroles, $canassign, $pageurl) {
-        $iconenroladd    = $this->output->pix_url('t/enroladd');
         $iconenrolremove = $this->output->pix_url('t/delete');
 
         // Get list of roles.
@@ -139,7 +137,6 @@ class theme_shoehorn_core_enrol_renderer extends core_enrol_renderer {
 
 
     public function user_groups_and_actions($userid, $groups, $allgroups, $canmanagegroups, $pageurl) {
-        $iconenroladd    = $this->output->pix_url('t/enroladd');
         $iconenrolremove = $this->output->pix_url('t/delete');
         $straddgroup = get_string('addgroup', 'group');
 

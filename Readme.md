@@ -182,6 +182,9 @@ Version 2.9.0.3.
   4. Fix AMD clash with SyntaxHighlighter, ref: https://github.com/syntaxhighlighter/syntaxhighlighter/issues/62
      and https://github.com/syntaxhighlighter/syntaxhighlighter/commit/556c909a9c258ba9ca59c62fc241e97acbe28a8f
   5. Fix SyntaxHighlighter autoloading jQuery with AMD.
+  6. Remove old jQuery mechanism.
+  7. Remove AMD dynamic loading test code.
+  8. PHP mess detector changes - https://github.com/bmbrands/theme_bootstrap/commit/bd9c68b2b4cadad569ae1d5ed969295cdfb62ca1
 
 Version 2.9.0.2.
   1. Fix some svg core icons.
