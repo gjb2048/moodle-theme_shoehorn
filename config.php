@@ -42,7 +42,7 @@ if (empty($THEME->settings->dynamiclang)) {
         $THEME->sheets = array('moodle-rtl'.$tdm, 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
     }
 } else {
-    $THEME->sheets = array('theme');  // moodle / moodle-rtl served in layout/tiles/header.php separately.
+    $THEME->sheets = array('theme');  // Sheets moodle / moodle-rtl served in layout/tiles/header.php separately.
 }
 $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
@@ -99,7 +99,7 @@ $THEME->layouts = array(
         'file' => 'default.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu' => true),
     ),
     'coursecategory' => array(
         'file' => 'default.php',
@@ -117,21 +117,21 @@ $THEME->layouts = array(
         'file' => 'frontpage.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar'=>true),
+        'options' => array('nonavbar' => true),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'default.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
-        'options' => array('fluid'=>true),
+        'options' => array('fluid' => true),
     ),
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'mydashboard.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu' => true),
     ),
     // My public page.
     'mypublic' => array(
@@ -142,20 +142,20 @@ $THEME->layouts = array(
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu'=>true, 'nonavbar'=>true),
+        'options' => array('langmenu' => true, 'nonavbar' => true),
     ),
 
     // Pages that appear in pop-up windows - no navigation, no blocks, no header.
     'popup' => array(
         'file' => 'popup.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>true),
+        'options' => array('nofooter' => true, 'nonavbar' => true),
     ),
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => array(
         'file' => 'default.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nocoursefooter'=>true),
+        'options' => array('nofooter' => true, 'nocoursefooter' => true),
     ),
     // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
     'embedded' => array(
@@ -173,7 +173,7 @@ $THEME->layouts = array(
     'print' => array(
         'file' => 'default.php',
         'regions' => array(),
-        'options' => array('nofooter'=>true, 'nonavbar'=>false),
+        'options' => array('nofooter' => true, 'nonavbar' => false),
     ),
     // The pagelayout used when a redirection is occuring.
     'redirect' => array(
@@ -185,7 +185,7 @@ $THEME->layouts = array(
         'file' => 'default.php',
         'regions' => $bottomregions,
         'defaultregion' => 'page-bottom',
-        'options' => array('fluid'=>true),
+        'options' => array('fluid' => true),
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(

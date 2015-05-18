@@ -27,7 +27,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-// Settings
+// Settings.
     $settings = null;
 
     $readme = new moodle_url('/theme/shoehorn/Readme.md');
@@ -122,7 +122,7 @@ defined('MOODLE_INTERNAL') || die;
 
     // Display My Courses Menu.
     $name = 'theme_shoehorn/displaymycoursesmenu';
-    $title = get_string('displaymycoursesmenu','theme_shoehorn');
+    $title = get_string('displaymycoursesmenu', 'theme_shoehorn');
     $description = get_string('displaymycoursesmenu_desc', 'theme_shoehorn');
     $choices = array(
         0 => new lang_string('no'),
@@ -174,7 +174,7 @@ defined('MOODLE_INTERNAL') || die;
 
     // Logo file setting.
     $name = 'theme_shoehorn/logo';
-    $title = get_string('logo','theme_shoehorn');
+    $title = get_string('logo', 'theme_shoehorn');
     $description = get_string('logo_desc', 'theme_shoehorn');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -182,7 +182,7 @@ defined('MOODLE_INTERNAL') || die;
 
     // Number of page bottom blocks.
     $name = 'theme_shoehorn/numpagebottomblocks';
-    $title = get_string('numpagebottomblocks','theme_shoehorn');
+    $title = get_string('numpagebottomblocks', 'theme_shoehorn');
     $description = get_string('numpagebottomblocks_desc', 'theme_shoehorn');
     $choices = array(
         1 => new lang_string('one', 'theme_shoehorn'),
@@ -442,7 +442,7 @@ defined('MOODLE_INTERNAL') || die;
     for ($i = 1; $i <= $numberofimagebankimages; $i++) {
         $name = 'imagebankimage'.$i;
         $settingname = 'theme_shoehorn/'.$name;
-        $title = get_string('imagebankimage','theme_shoehorn').$i;
+        $title = get_string('imagebankimage', 'theme_shoehorn').$i;
         if (empty($theme->settings->$name)) {
             $imagedesc = get_string('none', 'theme_shoehorn');
         } else {
@@ -535,8 +535,6 @@ defined('MOODLE_INTERNAL') || die;
 
     // Look and feel.
     $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
-    //$landfsettings->add(new admin_setting_heading('theme_shoehorn_landf', get_string('landfheadingsub', 'theme_shoehorn'),
-    //        format_text(get_string('landfheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
 
     // Front page.
     $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_frontpage', get_string('landffontpage', 'theme_shoehorn'),

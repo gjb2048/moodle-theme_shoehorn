@@ -210,7 +210,7 @@ function theme_shoehorn_html_for_settings($PAGE) {
 
     if (!empty($settings->navbarfixedtop)) {
         $html->additionalbodyclasses[] = 'navbarfixedtop';
-        $html->navbarclass[] = 'navbar-fixed-top'; 
+        $html->navbarclass[] = 'navbar-fixed-top';
     }
 
     if ($PAGE->pagelayout == 'frontpage') {
@@ -317,7 +317,7 @@ function shoehorn_shown_sitepages() {
                 if (!empty($theme->settings->$sitepagetitle)) {
                     $sitepagedisplay = 'sitepagedisplay'.$sp;
                     if (empty($theme->settings->$sitepagedisplay)
-                        or ($theme->settings->$sitepagedisplay == 1) // Always 
+                        or ($theme->settings->$sitepagedisplay == 1) // Always.
                         or (($theme->settings->$sitepagedisplay == 2) and ($loggedin == false)) // Logged out.
                         or (($theme->settings->$sitepagedisplay == 3) and ($loggedin == true)) // Logged in.
                     ) {
@@ -365,7 +365,7 @@ function shoehorn_shown_frontpageslides() {
             if (empty($theme->settings->$frontpageslidestatus) or ($theme->settings->$frontpageslidestatus == 2)) { // 2 is published.
                 $frontpageslidedisplay = 'frontpageslidedisplay'.$sl;
                 if (empty($theme->settings->$frontpageslidedisplay)
-                    or ($theme->settings->$frontpageslidedisplay == 1) // Always 
+                    or ($theme->settings->$frontpageslidedisplay == 1) // Always.
                     or (($theme->settings->$frontpageslidedisplay == 2) and ($loggedin == false)) // Logged out.
                     or (($theme->settings->$frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
                 ) {
@@ -583,15 +583,14 @@ function shoehorn_hex2rgb($hex) {
     $hex = str_replace("#", "", $hex);
 
     if(strlen($hex) == 3) {
-        $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-        $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-        $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+        $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
+        $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
+        $b = hexdec(substr($hex, 2, 1).substr($hex, 2, 1));
     } else {
-        $r = hexdec(substr($hex,0,2));
-        $g = hexdec(substr($hex,2,2));
-        $b = hexdec(substr($hex,4,2));
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
     }
     $rgb = array($r, $g, $b);
-    return implode(",", $rgb); // returns the rgb values separated by commas
-    //return $rgb; // returns an array with the rgb values
+    return implode(",", $rgb); // Returns the rgb values separated by commas.
 }

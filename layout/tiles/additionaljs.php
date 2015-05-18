@@ -31,7 +31,7 @@ if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
 switch ($PAGE->pagelayout) {
-    case 'login': 
+    case 'login':
         $loginpageimages = shoehorn_shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init');

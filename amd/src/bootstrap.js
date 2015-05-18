@@ -117,7 +117,6 @@ define(['jquery', 'core/log'], function($, log) {
       removeElement()
   }
 
-
   // ALERT PLUGIN DEFINITION
   // =======================
 

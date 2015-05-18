@@ -152,7 +152,7 @@ class theme_shoehorn_core_course_renderer extends core_course_renderer {
             }
             $content .= html_writer::start_tag('div', array('class' => $summaryclass));
             $content .= $chelper->get_course_formatted_summary($course);
-            $content .= html_writer::end_tag('div'); // .summary
+            $content .= html_writer::end_tag('div');
         }
 
         // Display course contacts. See course_in_list::get_course_contacts().

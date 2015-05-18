@@ -43,24 +43,24 @@ function shoehorn_section_header(&$that, $section, $course, $format, $displaysec
     if ($section->section == $displaysection) {
         $sectionstyle .= ' active';
     }
-    $o.= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
-        'class' => 'section main clearfix'.$sectionstyle.' item', 'role'=>'region',
+    $o .= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
+        'class' => 'section main clearfix'.$sectionstyle.' item', 'role' => 'region',
         'aria-label'=> $format->get_section_name($section)));
 
     $leftcontent = $that->section_left_content($section, $course, true);
-    $o.= html_writer::tag('div', $leftcontent, array('class' => 'left side'));
+    $o .= html_writer::tag('div', $leftcontent, array('class' => 'left side'));
 
     $rightcontent = $that->section_right_content($section, $course, true);
-    $o.= html_writer::tag('div', $rightcontent, array('class' => 'right side'));
-    $o.= html_writer::start_tag('div', array('class' => 'content'));
+    $o .= html_writer::tag('div', $rightcontent, array('class' => 'right side'));
+    $o .= html_writer::start_tag('div', array('class' => 'content'));
 
-    $o.= html_writer::tag('h3', $format->get_section_name($section), array('class' => 'sectionname'));
+    $o .= html_writer::tag('h3', $format->get_section_name($section), array('class' => 'sectionname'));
 
-    $o.= html_writer::start_tag('div', array('class' => 'summary'));
-    $o.= $that->format_summary_text($section);
+    $o .= html_writer::start_tag('div', array('class' => 'summary'));
+    $o .= $that->format_summary_text($section);
 
     $context = context_course::instance($course->id);
-    $o.= html_writer::end_tag('div');
+    $o .= html_writer::end_tag('div');
 
     $o .= $that->section_availability_message($section,
             has_capability('moodle/course:viewhiddensections', $context));
@@ -75,7 +75,7 @@ function shoehorn_section_header(&$that, $section, $course, $format, $displaysec
  */
 function shoehorn_section_footer() {
     $o = html_writer::end_tag('div');
-    $o.= html_writer::end_tag('li');
+    $o .= html_writer::end_tag('li');
 
     return $o;
 }
@@ -108,7 +108,7 @@ function shoehorn_print_single_section_page(&$that, &$courserenderer, $course, $
 
     // Can we view the section in question?
     if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
-        // This section doesn't exist
+        // This section doesn't exist.
         print_error('unknowncoursesection', 'error', null, $course->fullname);
         return;
     }
@@ -126,7 +126,7 @@ function shoehorn_print_single_section_page(&$that, &$courserenderer, $course, $
     // Copy activity clipboard..
     echo $that->course_activity_clipboard($course, $displaysection);
 
-    // Start single-section div
+    // Start single-section div.
     echo html_writer::start_tag('div', array('class' => 'shoehorn-single-course-page'));
 
     $sections = $modinfo->get_section_info_all();
@@ -267,7 +267,6 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
     public function format_summary_text($section) {
         return parent::format_summary_text($section);
     }
-
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
     }
@@ -308,7 +307,6 @@ class theme_shoehorn_format_weeks_renderer extends format_weeks_renderer {
     public function format_summary_text($section) {
         return parent::format_summary_text($section);
     }
-
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
     }
@@ -342,7 +340,6 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
         public function format_summary_text($section) {
             return parent::format_summary_text($section);
         }
-
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
             shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
@@ -376,7 +373,6 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
         public function format_summary_text($section) {
             return parent::format_summary_text($section);
         }
-
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
             shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
@@ -410,7 +406,6 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
         public function format_summary_text($section) {
             return parent::format_summary_text($section);
         }
-
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
             shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection, true);
         }
@@ -445,7 +440,6 @@ if (file_exists("$CFG->dirroot/course/format/columns/renderer.php")) {
         public function format_summary_text($section) {
             return parent::format_summary_text($section);
         }
-
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
             shoehorn_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames, $modnamesused, $displaysection);
         }

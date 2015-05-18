@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// http://docs.moodle.org/dev/Page_API.
+// Ref: http://docs.moodle.org/dev/Page_API.
 require_once('../../../config.php');
 require_once('../lib.php');
 

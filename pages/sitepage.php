@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// http://docs.moodle.org/dev/Page_API.
+// Ref: http://docs.moodle.org/dev/Page_API.
 require_once('../../../config.php');
 require_once('../lib.php');
 
@@ -52,7 +52,7 @@ $html = theme_shoehorn_html_for_settings($PAGE);
 $PAGE->add_body_classes($html->additionalbodyclasses);
 
 $o = '';
-$pages = shoehorn_shown_sitepages(); // lib.php.
+$pages = shoehorn_shown_sitepages(); // In lib.php.
 $loggedin = isloggedin();
 
 $theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
@@ -92,17 +92,14 @@ if (array_key_exists($ourpageid, $pages)) {
 }
 
 $courseid = SITEID;
-/// locate course information
-//$course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
-//$PAGE->set_course($course);
 
-// Navigation.  See: http://docs.moodle.org/dev/Navigation_API
+// Navigation.  See: http://docs.moodle.org/dev/Navigation_API.
 if (!$loggedin) {
     // Not logged in, so create a container....
     $USER->editing = $edit = 0;
 } else {
     // Logged in....
-    // Toggle the editing state and switches
+    // Toggle the editing state and switches.
     if (($sesskeyvalid) && ($PAGE->user_allowed_editing())) {
         if ($edit !== null) {             // Editing state was specified
             $USER->editing = $edit;       // Change editing state
@@ -116,7 +113,7 @@ if (!$loggedin) {
             $edit = 0;
         }
 
-        // Add button for editing page
+        // Add button for editing page.
         if (empty($edit)) {
             $editstring = get_string('blocksediton');
         } else {
@@ -135,8 +132,8 @@ if (!$loggedin) {
         $settingnode->add_class('hasicon');
         $settingnode->remove_class('root_node');
         $settingnode->make_active();
-    } else {                          // Editing state is in session
-        $USER->editing = $edit = 0;          // Disable editing completely, just to be safe
+    } else { // Editing state is in session.
+        $USER->editing = $edit = 0; // Disable editing completely, just to be safe.
     }
 }
 

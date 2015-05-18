@@ -65,4 +65,4 @@ if ($haveicons) {
     </div>
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 </footer>
-<?php echo $OUTPUT->anti_gravity(); ?>
+<?php echo $OUTPUT->anti_gravity();
