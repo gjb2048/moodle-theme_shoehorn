@@ -50,7 +50,7 @@ to discuss your requirements.
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2015042400.00 release 2.9beta+ (Build: 20150424) and above within the 2.9 branch until the
+This version works with Moodle version 2015051100.00 release 2.9 (Build: 20150511) and above within the 2.9 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
