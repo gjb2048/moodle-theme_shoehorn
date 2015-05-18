@@ -36,9 +36,4 @@ switch ($PAGE->pagelayout) {
         if (!empty($loginpageimages)) {
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init');
         }
-
-        $dtparm = new stdClass();
-        $dtparm->a = "This is a";
-        $dtparm->b = "This is b";
-        $PAGE->requires->js_call_amd('theme_shoehorn/dynamictest', 'init', array($dtparm));
 }
