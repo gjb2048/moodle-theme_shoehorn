@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Moodle-theme shoehorn by gjb2048</title>
+    <title>Shoehorn theme for Moodle by gjb2048</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Moodle-theme shoehorn</h1>
+        <h1>Shoehorn theme for Moodle</h1>
         <h2></h2>
         <a href="https://github.com/gjb2048/moodle-theme_shoehorn" class="button"><small>View project on</small> GitHub</a>
       </div>
@@ -70,9 +70,11 @@ Moodle community benefits.</p>
 <h1>
 <a id="donations" class="anchor" href="#donations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donations</h1>
 
-<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:</p>
+<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating
+by:</p>
 
-<p>PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have 'donation' / 'buy me now' buttons under their terms.</p>
+<p>PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have
+'donation' / 'buy me now' buttons under their terms.</p>
 
 <p>Flattr - <a href="https://flattr.com/profile/gjb2048">https://flattr.com/profile/gjb2048</a></p>
 
@@ -88,11 +90,11 @@ to discuss your requirements.</p>
 <h1>
 <a id="required-version-of-moodle" class="anchor" href="#required-version-of-moodle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Required version of Moodle</h1>
 
-<p>This version works with Moodle version 2014111000.00 release 2.8 (Build: 20141110) and above within the 2.8 branch until the
+<p>This version works with Moodle version 2015051100.00 release 2.9 (Build: 20150511) and above within the 2.9 branch until the
 next release.</p>
 
 <p>Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/28/en/Installing_Moodle'.</p>
+'docs.moodle.org/29/en/Installing_Moodle'.</p>
 
 <h1>
 <a id="licenses-used" class="anchor" href="#licenses-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licenses used</h1>
@@ -245,6 +247,42 @@ this, but do intend in the furture to make this happen with Shoehorn.</li>
 
 <h1>
 <a id="version-information" class="anchor" href="#version-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version information</h1>
+
+<p>Version 2.9.0.3.</p>
+
+<ol>
+<li>Fix renderers after Bootstrap theme separation.</li>
+<li>Fix 'My courses' drop down going off screen when you have a long course name and a compact navbar.</li>
+<li>Fix multiple definitions of 'Plugin' in amd/src/bootstrap.js.</li>
+<li>Fix AMD clash with SyntaxHighlighter, ref: <a href="https://github.com/syntaxhighlighter/syntaxhighlighter/issues/62">https://github.com/syntaxhighlighter/syntaxhighlighter/issues/62</a>
+ and <a href="https://github.com/syntaxhighlighter/syntaxhighlighter/commit/556c909a9c258ba9ca59c62fc241e97acbe28a8f">https://github.com/syntaxhighlighter/syntaxhighlighter/commit/556c909a9c258ba9ca59c62fc241e97acbe28a8f</a>
+</li>
+<li>Fix SyntaxHighlighter autoloading jQuery with AMD.</li>
+<li>Remove old jQuery mechanism.</li>
+<li>Remove AMD dynamic loading test code.</li>
+<li>PHP mess detector changes - <a href="https://github.com/bmbrands/theme_bootstrap/commit/bd9c68b2b4cadad569ae1d5ed969295cdfb62ca1">https://github.com/bmbrands/theme_bootstrap/commit/bd9c68b2b4cadad569ae1d5ed969295cdfb62ca1</a>
+</li>
+<li>Run through CodeChecker 2.3.2 - 2014081500.
+
+<ol>
+<li>Converted renderers to autoloading ones.</li>
+</ol>
+</li>
+</ol>
+
+<p>Version 2.9.0.2.</p>
+
+<ol>
+<li>Fix some svg core icons.</li>
+<li>Tidy up.</li>
+<li>Fix maintenance layout after Bootstrap theme separation.</li>
+</ol>
+
+<p>Version 2.9.0.1.</p>
+
+<ol>
+<li>Moodle 2.9 development version.</li>
+</ol>
 
 <p>Version 2.8.1.1.</p>
 
