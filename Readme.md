@@ -179,6 +179,8 @@ Version 2.9.0.3.
   1. Fix renderers after Bootstrap theme separation.
   2. Fix 'My courses' drop down going off screen when you have a long course name and a compact navbar.
   3. Fix multiple definitions of 'Plugin' in amd/src/bootstrap.js.
+  4. Fix AMD clash with SyntaxHighligter, ref: https://github.com/syntaxhighlighter/syntaxhighlighter/issues/62
+     and https://github.com/syntaxhighlighter/syntaxhighlighter/commit/556c909a9c258ba9ca59c62fc241e97acbe28a8f
 
 Version 2.9.0.2.
   1. Fix some svg core icons.
