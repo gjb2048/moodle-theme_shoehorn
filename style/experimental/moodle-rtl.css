@@ -27397,6 +27397,13 @@ img.iconhelp,
     color: #1f4d87;
 }
 
+.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd ul,
+.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd ol
+{
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+}
+
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd input
 {
     border-color: #e3f2ff;

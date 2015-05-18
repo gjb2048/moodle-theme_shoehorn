@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.4.
+  1. Fix padding of lists in popup dialogues.
+
 Version 2.9.0.3.
   1. Fix renderers after Bootstrap theme separation.
   2. Fix 'My courses' drop down going off screen when you have a long course name and a compact navbar.
