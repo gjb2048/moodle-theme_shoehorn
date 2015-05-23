@@ -212,10 +212,12 @@ body {
             .heading, .logoheading {
                 color: @text-color;
                 padding: 4px;
-                #shoehorn > .background-opacity(@well-bg; 0.5);
+                @rgbwbaba: %("rgba(%d, %d, %d, %d);", round(red(@well-bg)), round(green(@well-bg)), round(blue(@well-bg)), 0.5);
+                #shoehorn > .background-opacity(@well-bg; @rgbwbaba);
                 border-style: solid;
                 border-width: 1px;
-                #shoehorn > .border-opacity(@well-border; 0.7);
+                @rgbwbobo: %("rgba(%d, %d, %d, %d);", round(red(@well-border)), round(green(@well-border)), round(blue(@well-border)), 0.7);
+                #shoehorn > .border-opacity(@well-border; @rgbwbobo);
                 border-radius: @border-radius-base;
             }
         }
@@ -1132,10 +1134,12 @@ pre.sh {
 #page-info {
     margin-top: 1em;
     text-align: center;
-    #shoehorn > .background-opacity(@page-bottom-bg; 0.5);
+    @rgbwpiba: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.5);
+    #shoehorn > .background-opacity(@page-bottom-bg; @rgbwpiba);
     border-style: solid;
     border-width: 1px;
-    #shoehorn > .border-opacity(@page-bottom-bg; 0.7);
+    @rgbwpibo: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.7);
+    #shoehorn > .border-opacity(@page-bottom-bg; @rgbwpibo);
 
     .validators ul li {
         display: inline;
@@ -1170,7 +1174,8 @@ pre.sh {
     &:hover, &:active, &:focus {
         color: lighten(@page-bottom-bg-light, 2%);
         @footer-top-bg-light: lighten(@footer-top-bg, 20%);
-        #shoehorn > .background-opacity(@footer-top-bg-light; 0.25);
+        @rgbwpfbo: %("rgba(%d, %d, %d, %d);", round(red(@footer-top-bg-light)), round(green(@footer-top-bg-light)), round(blue(@footer-top-bg-light)), 0.25);
+        #shoehorn > .background-opacity(@footer-top-bg-light; @rgbwpfbo);
     }
 }
 
@@ -1196,10 +1201,12 @@ pre.sh {
 
 // Social networks.
 ul.socialnetworks {
-    #shoehorn > .background-opacity(@page-bottom-bg; 0.5);
+    @rgbsnba: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.5);
+    #shoehorn > .background-opacity(@page-bottom-bg; @rgbsnba);
     border-style: solid;
     border-width: 1px;
-    #shoehorn > .border-opacity(@page-bottom-bg; 0.7);
+    @rgbsnbo: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.7);
+    #shoehorn > .border-opacity(@page-bottom-bg; @rgbsnbo);
 }
 
 // Footer menu.

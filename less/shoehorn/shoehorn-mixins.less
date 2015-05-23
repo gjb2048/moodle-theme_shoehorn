@@ -33,12 +33,12 @@
 }
 
 #shoehorn {
-  .background-opacity(@colour; @opacity) {
-    background-color: @colour;
-    background-color: rgba(red(@colour), green(@colour), blue(@colour), @opacity);
+  .background-opacity(@colour; @rgba) {
+    background-color: e(@colour);
+    background-color: e(@rgba);
   }
-  .border-opacity(@colour; @opacity) {
-    border-color: @colour;
-    border-color: rgba(red(@colour), green(@colour), blue(@colour), @opacity);
+  .border-opacity(@colour; @rgba) {
+    border-color: e(@colour);
+    border-color: e(@rgba);
   }
 }

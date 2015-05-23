@@ -28,7 +28,7 @@
 function theme_shoehorn_process_css($css, $theme) {
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_shoehorn_set_logo($css, $logo);
+    $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
 
     // Show login message if desired.
     $css = theme_shoehorn_set_loginmessage($css, $theme);
@@ -42,26 +42,12 @@ function theme_shoehorn_process_css($css, $theme) {
     } else {
         $customcss = null;
     }
-    $css = theme_shoehorn_set_customcss($css, $customcss);
+    $css = theme_shoehorn_set_setting($css, '[[setting:customcss]]', $customcss);
 
     return $css;
 }
 
-function theme_shoehorn_set_logo($css, $logo) {
-    $tag = '[[setting:logo]]';
-    $replacement = $logo;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-function theme_shoehorn_set_customcss($css, $customcss) {
-    $tag = '[[setting:customcss]]';
-    $replacement = $customcss;
+function theme_shoehorn_set_setting($css, $tag, $replacement) {
     if (is_null($replacement)) {
         $replacement = '';
     }
@@ -578,6 +564,12 @@ function theme_shoehorn_social_footer($settings) {
     return $cols;
 }
 
+/**
+ * Returns the RGB for the given hex.
+ *
+ * @param string $hex
+ * @return string
+ */
 function shoehorn_hex2rgb($hex) {
     // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
     $hex = str_replace("#", "", $hex);
@@ -592,5 +584,29 @@ function shoehorn_hex2rgb($hex) {
         $b = hexdec(substr($hex, 4, 2));
     }
     $rgb = array($r, $g, $b);
-    return implode(",", $rgb); // Returns the rgb values separated by commas.
+    return implode(",", $rgba); // Returns the rgb values separated by commas.
+}
+
+/**
+ * Returns the RGBA for the given hex and alpha.
+ *
+ * @param string $hex
+ * @param double $alpha
+ * @return string
+ */
+function shoehorn_hex2rgba($hex, $alpha) {
+    // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
+    $hex = str_replace("#", "", $hex);
+
+    if(strlen($hex) == 3) {
+        $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
+        $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
+        $b = hexdec(substr($hex, 2, 1).substr($hex, 2, 1));
+    } else {
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
+    }
+    $rgba = array($r, $g, $b, $alpha);
+    return 'rgba('.implode(",", $rgba).')'; // Returns the rgba values separated by commas.
 }

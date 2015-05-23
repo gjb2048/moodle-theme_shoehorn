@@ -354,25 +354,24 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
 
 // navbar.less.
 .navbar-default {
-  //background-color: @navbar-default-bg;
-  #shoehorn > .background-opacity(@navbar-default-bg; 0.75);
-  //border-color: @navbar-default-border;
-  #shoehorn > .border-opacity(@navbar-default-border; 0.75);
+  @rgbnbba: %('rgba(%d, %d, %d, %d);', round(red(@navbar-default-bg)), round(green(@navbar-default-bg)), round(blue(@navbar-default-bg)), 0.75);
+  #shoehorn > .background-opacity(@navbar-default-bg; @rgbnbba);
+  @rgbnbbo: %("rgba(%d, %d, %d, %d);", round(red(@navbar-default-border)), round(green(@navbar-default-border)), round(blue(@navbar-default-border)), 0.75);
+  #shoehorn > .border-opacity(@navbar-default-border; @rgbnbbo);
 
   .navbar-brand {
     color: @navbar-default-brand-color;
     &:hover,
     &:focus {
       color: @navbar-default-brand-hover-color;
-      //background-color: @navbar-default-brand-hover-bg;
-      #shoehorn > .background-opacity(@navbar-default-brand-hover-bg; 0.75);
+      @rgbnbbba: %("rgba(%d, %d, %d, %d);", round(red(@navbar-default-brand-hover-bg)), round(green(@navbar-default-brand-hover-bg)), round(blue(@navbar-default-brand-hover-bg)), 0.75);
+      #shoehorn > .background-opacity(@navbar-default-brand-hover-bg; @rgbnbbba);
     }
   }
 
   .navbar-collapse,
   .navbar-form {
-    //border-color: @navbar-default-border;
-    #shoehorn > .border-opacity(@navbar-default-border; 0.75);
+    #shoehorn > .border-opacity(@navbar-default-border; @rgbnbbo);
   }
 }
 .navbar {
