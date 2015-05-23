@@ -25,17 +25,23 @@
 
 // HTML.
 html {
-    background-color: ~"[[setting:pagebottom]]";
-    #shoehorn > .verticalrgba(~"[[setting:pagetoprgba]]", ~"[[setting:pagebottomrgba]]");
+    background-color: ~"[[setting:htmlbackground]]";
+    background-color: ~"[[setting:htmlbackgroundrgba]]";
 }
 
-// Body.
+// Body and scaffolding.
 body {
-    background-color: transparent;
+    color: ~"[[setting:textcolour]]";
+    background-color: ~"[[setting:pagebottombackground]]";
+    #shoehorn > .verticalrgba(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
 }
 
 body.pagelayout-redirect {
     color: #FFF;
+}
+
+a {
+   color: ~"[[setting:linkcolour]]";
 }
 
 // Navbar.
@@ -122,17 +128,17 @@ body.loginpageimages {
         .panel();
         .panel-default();
         a {
-            color: @page-top-bg;
+            color: ~"[[setting:pagetopbackground]]";
             &:hover, &:active, &:focus {
                 font-weight: bold;
-                background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.4);
+                background-color: ~"[[setting:pagebottombackgroundlight4rgba]]";
             }
         }
     }
     #page-footer #footermenu {
         // Separate to override above.
-        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
-        border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+        background-color: ~"[[setting:pagebottombackground5rgba]]";
+        border: 1px solid ~"[[setting:pagebottombackground7rgba]]";
     }
 }
 
@@ -162,7 +168,7 @@ aside .block {
 #dockeditempanel a {
   &:hover,
   &:focus {
-    color: @footer-bottom-bg;
+    color: ~"[[setting:footerbottombackground]]";
   }
 }
 
@@ -209,7 +215,7 @@ body {
     &.allpagesbackgroundimage, &.frontpagebackgroundimage {
         .moodleheader {
             .heading, .logoheading {
-                color: @text-color;
+                color: ~"[[setting:textcolour]]";
                 padding: 4px;
                 @rgbwbaba: %("rgba(%d, %d, %d, %d);", round(red(@well-bg)), round(green(@well-bg)), round(blue(@well-bg)), 0.5);
                 #shoehorn > .background-opacity(@well-bg; @rgbwbaba);
@@ -244,12 +250,12 @@ header.moodleheader {
 
 // Page.
 body.pagelayout-redirect #page {
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
 }
 
 #region-main-shoehorn {
     background-color: @body-bg;
-    box-shadow: 0 0 8px @page-top-bg;
+    box-shadow: 0 0 8px ~"[[setting:pagetopbackground]]";
     padding: 8px;
 
     aside {
@@ -291,13 +297,13 @@ aside {
 // Breadcrumb.
 .breadcrumb {
     span {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
     }
     .divider {
         padding: 0 4px;
     }
     .divider, .divider .glyphicon {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
     }
 }
 
@@ -313,7 +319,7 @@ aside {
     .dockeditempanel_hd .commands .menubar {
         img, input {
             margin: 0em;
-            border: 1px solid @page-top-bg;
+            border: 1px solid ~"[[setting::pagetopbackground]]";
             border-radius: 2px;
         }
     }
@@ -330,15 +336,15 @@ aside {
 
 // Fake blocks.
 .block.block_fake {
-    background-color: rgba(red(@navbar-default-bg), green(@navbar-default-bg), blue(@navbar-default-bg), 0.8);
+    background-color: ~"[[setting:navbardefaultbackground8rgba]]";
 }
 
 // My home.
 #region-main .block {
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
 
     .header {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
     }
 }
 
@@ -366,11 +372,11 @@ aside {
     cursor: default;
     background: transparent;
     margin: 0 10px 10px 0;
-    border: 2px solid @page-bottom-bg;
+    border: 2px solid ~"[[setting:pagebottombackground]]";
     border-radius: 5px;
 
     .mask {
-        background-color: @page-bottom-bg-light;
+        background-color: ~"[[setting:pagebottombackgroundlight]]";
     }
 
     .mask, .content {
@@ -388,7 +394,7 @@ aside {
     }
 
     h2 {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
         text-align: center;
         position: relative;
         padding: 2px;
@@ -403,12 +409,12 @@ aside {
         padding: 5px 9px;
         background: rgba(255, 255, 255, 0.8);
         font-weight: bold;
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
         margin-top: 10px;
         border-radius: 5px;
         transition: all ease-out 0.25s;
         &:hover {
-            background: @page-bottom-bg;
+            background: ~"[[setting:pagebottombackground]]";
         }
     }
 }
@@ -431,7 +437,7 @@ aside {
 // Course tiles.
 body.coursetiles {
     #region-main .section li.activity {
-        background: @page-bottom-bg-light;
+        background: ~"[[setting:pagebottombackgroundlight]]";
         height: 160px;
         width: 200px;
         float: left;
@@ -440,7 +446,7 @@ body.coursetiles {
         display: inline;
         clear: none;
         border-radius: 5px;
-        border: 1px solid @page-bottom-bg;
+        border: 1px solid ~"[[setting:pagebottombackground]]";
         transition: all ease-out 0.5s;
         &.label {
             width: 100%;
@@ -470,7 +476,7 @@ body.coursetiles {
         }
         .activityinstance > a {
             text-align: right; 
-            color: @text-color; 
+            color: ~"[[setting:textcolour]]"; 
             height: 152px; 
             width: 192px; 
             display: block;
@@ -479,15 +485,15 @@ body.coursetiles {
             &:hover {
                 font-weight: bold;
                 text-decoration: none;
-                background-color: rgba(red(@page-bottom-bg-light), green(@page-bottom-bg-light), blue(@page-bottom-bg-light), 0.75);
+                background-color: ~"[[setting:pagebottombackgroundlight75rgba]]";
             }
             // https://moodle.org/mod/forum/discuss.php?d=262151.
             &.dimmed {
-                color: darken(@text-color, 5%); 
-                background: darken(@page-bottom-bg-light, 5%);
+                color: ~"[[setting:textcolour5dark]]"; 
+                background: ~"[[setting:pagebottombackgroundlight5dark]]";
                 &:hover, &:focus {
-                    color: darken(@text-color, 10%); 
-                    background: darken(@page-bottom-bg-light, 10%);
+                    color: ~"[[setting:textcolour10dark]]"; 
+                    background: ~"[[setting:pagebottombackgroundlight10dark]]";
                 }
             }
         }
@@ -538,7 +544,7 @@ body.coursetiles {
         }
         .availabilityinfo, .contentafterlink {
             margin-left: 0px;
-            border-top: 1px solid @page-bottom-bg;
+            border-top: 1px solid ~"[[setting:pagebottombackground]]";
             width: 192px;
         }
         .contentafterlink {
@@ -569,7 +575,7 @@ body.coursetiles {
             right: -130px;
             input {
                 background: @body-bg;
-                color: @page-top-bg;
+                color: ~"[[setting:pagetopbackground]]";
             }
             li {
                 padding-left: 4px;
@@ -663,7 +669,7 @@ body.coursetiles {
     #region-main .course-content .section .activity:hover,
     #region-main .gtopics .section .activity:hover,
     #region-main .sitetopic .section .activity:hover {
-        background: @page-bottom-bg;
+        background: ~"[[setting:pagebottombackground]]";
     }
 
     &.path-site #region-main li.activity > div, 
@@ -691,16 +697,16 @@ body.coursetiles {
     &.jsenabled #region-main .section .moodle-actionmenu[data-enhance] {
         .toggle-display.textmenu {
             border-radius: 5px;
-            border: 1px solid @page-bottom-bg;
+            border: 1px solid ~"[[setting:pagebottombackground]]";
             transition: all ease-out .25s;
             &:hover {
-                background: @page-bottom-bg-light;
+                background: ~"[[setting:pagebottombackgroundlight]]";
                 font-weight: bold;
             }
         }
         &.show .menu {
             box-shadow: none;
-            background: @page-bottom-bg;
+            background: ~"[[setting:pagebottombackground]]";
             &.align-tr-br {
                 right: 18px;
                 top: -5px;
@@ -708,15 +714,15 @@ body.coursetiles {
             a {
                 padding: 3px 10px;
                 &:focus {
-                    background: @page-bottom-bg;
+                    background: ~"[[setting:pagebottombackground]]";
                     border-radius: 2px;
                 }
                 &:hover {
-                    background: @page-bottom-bg-light;
+                    background: ~"[[setting:pagebottombackgroundlight]]";
                     font-weight: bold;
                 }
                 &:hover, &:focus {
-                    color: @page-top-bg;
+                    color: ~"[[setting:pagetopbackground]]";
                 }
             }
         }
@@ -762,7 +768,7 @@ body.coursetiles {
         width: auto;
         max-width: 350px;
         min-width: 150px; 
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
         font-size: 1.5em;
         height: auto;
         min-height: 300px;
@@ -1042,7 +1048,7 @@ body.fontawesome {
 }
 
 #myCourseCarousel .carousel-control {
-    color: @page-bottom-bg;
+    color: ~"[[setting:pagebottombackground]]";
 }
 
 @media(min-width: (@screen-xs-min + 1)) {
@@ -1070,10 +1076,10 @@ body.fontawesome {
 #myCourseCarousel .carousel-indicators {
     bottom: -15px;
     li {
-        border-color: @page-bottom-bg;
+        border-color: ~"[[setting:pagebottombackground]]";
 
         &.active {
-            background-color: @page-bottom-bg;
+            background-color: ~"[[setting:pagebottombackground]]";
             border-width: 2px;
         }
     }
@@ -1133,12 +1139,10 @@ pre.sh {
 #page-info {
     margin-top: 1em;
     text-align: center;
-    @rgbwpiba: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.5);
-    #shoehorn > .background-opacity(@page-bottom-bg; @rgbwpiba);
+    #shoehorn > .background-opacity(~"[[setting:pagebottombackground]]"; ~"[[setting:pagebottombackground5rgba]]");
     border-style: solid;
     border-width: 1px;
-    @rgbwpibo: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.7);
-    #shoehorn > .border-opacity(@page-bottom-bg; @rgbwpibo);
+    #shoehorn > .border-opacity(~"[[setting:pagebottombackground]]"; ~"[[setting:pagebottombackground7rgba]]");
 
     .validators ul li {
         display: inline;
@@ -1157,24 +1161,22 @@ pre.sh {
 // Site pages.
 #page-theme-shoehorn-pages-sitepage .sitepagecontent img {
   padding: 8px;
-  box-shadow: 0px 0px 8px @page-top-bg;
+  box-shadow: 0px 0px 8px ~"[[setting:pagetopbackground]]";
   background-color: white;
   margin: 0 0 !important; // I do not like importants but has to override core editor inline style.
 }
 
 // Footer.
 #page-footer {
-    #shoehorn > .verticalrgba(~"[[setting:footertoprgba]]"; ~"[[setting:footerbottomrgba]]");
-    color: @page-bottom-bg-light;
+    #shoehorn > .verticalrgba(~"[[setting:footertopbackgroundrgba]]"; ~"[[setting:footerbottombackgroundrgba]]");
+    color: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 #page-footer a {
-    color: @page-bottom-bg-light;
-    &:hover, &:active, &:focus {
-        color: lighten(@page-bottom-bg-light, 2%);
-        @footer-top-bg-light: lighten(@footer-top-bg, 20%);
-        @rgbwpfbo: %("rgba(%d, %d, %d, %d);", round(red(@footer-top-bg-light)), round(green(@footer-top-bg-light)), round(blue(@footer-top-bg-light)), 0.25);
-        #shoehorn > .background-opacity(@footer-top-bg-light; @rgbwpfbo);
+    color: ~"[[setting:pagebottombackgroundlight]]";
+    &:hover, &:focus {
+        color: ~"[[setting:pagebottombackgroundlighthover]]";
+        #shoehorn > .background-opacity(~"[[setting:footertopbackgroundlight]]"; ~"[[setting:footertopbackgroundlightrgba]]");
     }
 }
 
@@ -1184,28 +1186,26 @@ pre.sh {
 
 #page-footer .block {
     width: 100%;
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
     a {
-        color: @link-color;
+        color: ~"[[setting:linkcolour]]";
         &:hover, &:active, &:focus {
             color: darken(@body-bg, 8%);
         }
     }
     .hasevent a {
         &:hover, &:active, &:focus {
-            color: lighten(@text-color, 8%);
+            color: ~"[[setting:textcolour8light]]";
         }
     }
 }
 
 // Social networks.
 ul.socialnetworks {
-    @rgbsnba: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.5);
-    #shoehorn > .background-opacity(@page-bottom-bg; @rgbsnba);
+    #shoehorn > .background-opacity(~"[[setting:pagebottombackground]]"; ~"[[setting:pagebottombackground5rgba]]");
     border-style: solid;
     border-width: 1px;
-    @rgbsnbo: %("rgba(%d, %d, %d, %d);", round(red(@page-bottom-bg)), round(green(@page-bottom-bg)), round(blue(@page-bottom-bg)), 0.7);
-    #shoehorn > .border-opacity(@page-bottom-bg; @rgbsnbo);
+    #shoehorn > .border-opacity(~"[[setting:pagebottombackground]]"; ~"[[setting:pagebottombackground7rgba]]");
 }
 
 // Footer menu.
@@ -1227,7 +1227,7 @@ ul.socialnetworks {
 
 // General.
 select, input {
-    border-color: @page-bottom-bg;
+    border-color: ~"[[setting:pagebottombackground]]";
     border-radius: @border-radius-base;
 }
 
@@ -1237,9 +1237,8 @@ select, input {
 
 // Anti gravity.
 .antiGravity {
-    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.6);
-    border-color: @page-bottom-bg-light;
-    //border-radius: @border-radius-base;
+    background-color: ~"[[setting:pagebottombackground6rgba]]";
+    border-color: ~"[[setting:pagebottombackgroundlight]]";
     border-radius: 1em;
     border-style: solid;
     border-width: 1px;
@@ -1287,39 +1286,30 @@ a[name="lastused"] {
 // Way off piste...
 // http://css-tricks.com/custom-scrollbars-in-webkit/ and http://stackoverflow.com/questions/7725652/css-scrollbar-style-cross-browser
 body {
-    scrollbar-face-color: @page-bottom-bg;
-    scrollbar-shadow-color: @page-top-bg;
-    scrollbar-highlight-color: @page-bottom-bg-light;
-    scrollbar-3dlight-color: @page-bottom-bg-light;
-    scrollbar-darkshadow-color: @page-bottom-bg-dark;
-    scrollbar-track-color: @page-bottom-bg;
-    scrollbar-arrow-color: @text-color;
+    scrollbar-face-color: ~"[[setting:pagebottombackground]]";
+    scrollbar-shadow-color: ~"[[setting:pagetopbackground]]";
+    scrollbar-highlight-color: ~"[[setting:pagebottombackgroundlight]]";
+    scrollbar-3dlight-color: ~"[[setting:pagebottombackgroundlight]]";
+    scrollbar-darkshadow-color: ~"[[setting:pagebottombackgrounddark]]";
+    scrollbar-track-color: ~"[[setting:pagebottombackground]]";
+    scrollbar-arrow-color: ~"[[setting:textcolour]]";
 }
 
 ::-webkit-scrollbar {
-    background-color: @page-bottom-bg-dark;
+    background-color: ~"[[setting:pagebottombackgrounddark]]";
 }
-
-/*::-webkit-scrollbar-button {
-    background-color: @page-bottom-bg;
-    border-radius: @border-radius-base;
-    border: 2px solid @page-bottom-bg-dark;
-}*/
 
 ::-webkit-scrollbar-track {
-    background-color: @page-bottom-bg;
+    background-color: ~"[[setting:pagebottombackground]]";
 }
 ::-webkit-scrollbar-track-piece {
-    background-color: @page-bottom-bg-light;
+    background-color: ~"[[setting:pagebottombackgroundlight]]";
 }
 ::-webkit-scrollbar-thumb {
-    background-color: @page-bottom-bg;
+    background-color: ~"[[setting:pagebottombackground]]";
     border-radius: 5px;
-    border: 2px solid @page-bottom-bg-dark;
+    border: 2px solid ~"[[setting:pagebottombackgrounddark]]";
 }
 ::-webkit-scrollbar-corner {
-    background-color: @page-bottom-bg-light;
+    background-color: ~"[[setting:pagebottombackgroundlight]]";
 }
-/*::-webkit-resizer {
-    background-color: @page-bottom-bg-dark;
-}*/

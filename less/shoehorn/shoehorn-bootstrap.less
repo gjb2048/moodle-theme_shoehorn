@@ -208,8 +208,8 @@ body {
 // Carousel indicator pips.
 .carousel-indicators {
   li {
-    background: @text-color;
-    background: rgba(red(@text-color),green(@text-color),blue(@text-color),.75);
+    background: ~"[[setting:textcolour]]";
+    background: ~"[[setting:textcolour75rgba]]";
   }
 }
 
@@ -218,7 +218,7 @@ body {
   background: @carousel-control-color;
   background: rgba(red(@carousel-control-color),green(@carousel-control-color),blue(@carousel-control-color),.7);
   border-radius: @border-radius-large;
-  border: 1px solid rgba(red(@page-bottom-bg),green(@page-bottom-bg),blue(@page-bottom-bg),.65);
+  border: 1px solid ~"[[setting:pagebottombackground65rgba]]";
 }
 
 @media(max-width: @screen-sm-max) {
@@ -235,15 +235,12 @@ body {
 
 // Technically dropdowns.less.
 .dropdown-menu {
-  //background-color: rgba(red(@dropdown-bg), green(@dropdown-bg), blue(@dropdown-bg), 0.75);
   padding-top: 0px;
   padding-bottom: 0px;
   > li > a {
     &:hover,
     &:focus {
       span:first-child, i:first-child {
-        //background-color: rgba(red(@dropdown-link-active-color), green(@dropdown-link-active-color), blue(@dropdown-link-active-color), 0.5);
-        //border-radius: @border-radius-base;
         padding: 2px;
         margin-left: -2px;
         margin-right: 3px;
@@ -299,7 +296,7 @@ body {
     border-color: transparent;
     border-style: solid;
     border-width: 5px 0 5px 5px;
-    border-left-color: @navbar-default-color;
+    border-left-color: ~"[[setting:navbardefaultcolour]]";
     margin-top: 5px;
     margin-right: -10px;
 }
@@ -357,11 +354,15 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
   #shoehorn > .background-opacity(~"[[setting:navbardefaultbackground]]"; ~"[[setting:navbardefaultbackgroundrgba]]");
   #shoehorn > .border-opacity(~"[[setting:navbardefaultborder]]"; ~"[[setting:navbardefaultborderrgba]]");
 
+  .navbar-text {
+    color: ~"[[setting:navbardefaultcolour]]";
+  }
+
   .navbar-brand, .navbar-nav > li > a {
-    color: @navbar-default-brand-color;
+    color: ~"[[setting:navbardefaultcolour]]";
     &:hover,
     &:focus {
-      color: @navbar-default-brand-hover-color;
+      color: ~"[[setting:navbardefaultcolourlight]]";
       #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
     }
   }

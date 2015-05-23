@@ -37,17 +37,51 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_landf($css, $theme);
 
     // Colour settings.
+    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackground]]', '#267F00');  // Footer bottom background.
+    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackgroundrgba]]', shoehorn_hex2rgba('#267F00', 0.6));
+
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour]]', '#1F4D87');
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour8light]]', shoehorn_hexadjust('#1F4D87', -8));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10light]]', shoehorn_hexadjust('#1F4D87', -10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour5dark]]', shoehorn_hexadjust('#1F4D87', 5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10dark]]', shoehorn_hexadjust('#1F4D87', 10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour75rgba]]', shoehorn_hex2rgba('#1F4D87', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', '#1F4D87');
+
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolour]]', '#653cae');
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolourlight]]', shoehorn_hexadjust('#653cae', -10));
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', '#ffd974');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba('#ffd974', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]', shoehorn_hex2rgba('#ffd974', 0.8));
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', '#ffd053');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborderrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', '#855fc8');
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba('#855fc8', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagetoprgba]]', shoehorn_hex2rgba('#1F4D87', 1));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottom]]', '#C9E6FF');
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottomrgba]]', shoehorn_hex2rgba('#C9E6FF', 1));
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertoprgba]]', shoehorn_hex2rgba('#269F00', 0.5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottomrgba]]', shoehorn_hex2rgba('#267F00', 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', '#ffd053');
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', '#1F4D87');
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba('#1F4D87', 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground]]', '#C9E6FF');
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundrgba]]', shoehorn_hex2rgba('#C9E6FF', 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground5rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground6rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.6));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground65rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.65));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground7rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.7));
+
+    $pagebottombackgroundlight = shoehorn_hexadjust('#C9E6FF', -5);
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight]]', $pagebottombackgroundlight); // Page bottom light #e3f2ff.
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight4rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.4));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight75rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight5dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight10dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust('#C9E6FF', 5));
+
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]', shoehorn_hex2rgba('#269F00', 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', '#267F00');
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]', shoehorn_hex2rgba('#267F00', 0.5));
+
+    $footertopbackgroundlight = shoehorn_hexadjust('#269F00', 20);
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlight]]', $footertopbackgroundlight);
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]', shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -581,7 +615,7 @@ function theme_shoehorn_social_footer($settings) {
  * Returns the RGB for the given hex.
  *
  * @param string $hex
- * @return string
+ * @return array
  */
 function shoehorn_hex2rgb($hex) {
     // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
@@ -596,8 +630,20 @@ function shoehorn_hex2rgb($hex) {
         $g = hexdec(substr($hex, 2, 2));
         $b = hexdec(substr($hex, 4, 2));
     }
-    $rgb = array($r, $g, $b);
-    return implode(", ", $rgba); // Returns the rgb values separated by commas.
+    $rgb = array('r' => $r, 'g' => $g, 'b' => $b);
+    return $rgb; // Returns the rgb as an array.
+}
+
+function shoehorn_hexadjust($hex, $percentage) {
+    $percentage = round($percentage / 100, 2);
+    $rgb = shoehorn_hex2rgb($hex);
+    $r = round($rgb['r'] - ($rgb['r'] * $percentage));
+    $g = round($rgb['g'] - ($rgb['g'] * $percentage));
+    $b = round($rgb['b'] - ($rgb['b'] * $percentage));
+
+    return '#'.str_pad(dechex(max(0, min(255, $r))), 2, '0', STR_PAD_LEFT)
+              .str_pad(dechex(max(0, min(255, $g))), 2, '0', STR_PAD_LEFT)
+              .str_pad(dechex(max(0, min(255, $b))), 2, '0', STR_PAD_LEFT);
 }
 
 /**
@@ -608,18 +654,7 @@ function shoehorn_hex2rgb($hex) {
  * @return string
  */
 function shoehorn_hex2rgba($hex, $alpha) {
-    // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
-    $hex = str_replace("#", "", $hex);
-
-    if(strlen($hex) == 3) {
-        $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
-        $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
-        $b = hexdec(substr($hex, 2, 1).substr($hex, 2, 1));
-    } else {
-        $r = hexdec(substr($hex, 0, 2));
-        $g = hexdec(substr($hex, 2, 2));
-        $b = hexdec(substr($hex, 4, 2));
-    }
-    $rgba = array($r, $g, $b, $alpha);
+    $rgba = shoehorn_hex2rgb($hex);
+    $rgba[] = $alpha;
     return 'rgba('.implode(", ", $rgba).')'; // Returns the rgba values separated by commas.
 }

@@ -32,7 +32,7 @@
 
 // calendar.less.
 .block .minicalendar td.weekend {
-    color: lighten(@text-color, 10%);
+    color: ~"[[setting:textcolour10light]]";
 }
 
 // core.less.
@@ -125,14 +125,13 @@ img.iconhelp,
 
 /* core.less */
 .moodle-dialogue-base .moodle-dialogue-wrap {
-    border: 1px solid @page-bottom-bg-dark-spin;
-    //border: 1px solid @page-bottom-bg-light;
-    box-shadow: 5px 5px 20px 0 @text-color;
-    background-color: @page-bottom-bg;
+    border: 1px solid ~"[[setting:pagebottombackgrounddark]]";
+    box-shadow: 5px 5px 20px 0 ~"[[setting:textcolour]]";
+    background-color: ~"[[setting:pagebottombackground]]";
 }
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
     border-bottom: 1px solid @navbar-default-border;
     background-color: #fff;
     #gradient > .vertical(#fff, @navbar-default-bg);
@@ -140,14 +139,14 @@ img.iconhelp,
 }
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
     ul, ol {
         padding-left: 1.5em;
         padding-right: 1.5em;
     }
     input {
         border-radius: @border-radius-base;
-        border-color: @page-bottom-bg-light;
+        border-color: ~"[[setting:pagebottombackgroundlight]]";
     }
 }
 
@@ -169,12 +168,12 @@ img.iconhelp,
 // course.less.
 .course-content {
     .section-summary {
-        border: 1px solid @text-color;
+        border: 1px solid ~"[[setting:textcolour]]";
     }
     ul {
         li.section.main {
             border: none;
-            border-bottom: 2px solid @page-bottom-bg-light;
+            border-bottom: 2px solid ~"[[setting:pagebottombackgroundlight]]";
         }
     }
 }
@@ -208,7 +207,7 @@ ul {
 
 #page-course-index-category {
     .generalbox.info {
-        border: 1px dotted @text-color;
+        border: 1px dotted ~"[[setting:textcolour]]";
     }
 }
 
@@ -270,17 +269,17 @@ ul {
 .file-picker a,
 .filemanager a:hover,
 .file-picker a:hover {
-    color: @text-color;
+    color: ~"[[setting:textcolour]]";
 }
 
 .filemanager .fp-navbar {
-    background: @page-bottom-bg-light;
-    border: 1px solid @page-bottom-bg;
+    background: ~"[[setting:pagebottombackgroundlight]]";
+    border: 1px solid ~"[[setting:pagebottombackground]]";
 }
 
 .file-picker .fp-navbar {
-    background: @page-bottom-bg-light;
-    border-bottom: 1px solid @page-bottom-bg;
+    background: ~"[[setting:pagebottombackgroundlight]]";
+    border-bottom: 1px solid ~"[[setting:pagebottombackground]]";
     min-height: 36px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
 }
 
@@ -289,7 +288,7 @@ ul {
 }
 
 .file-picker .fp-repo-area {
-    border-right: 1px solid @page-bottom-bg-light;
+    border-right: 1px solid ~"[[setting:pagebottombackgroundlight]]";
     height: 490px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
 }
 
@@ -302,28 +301,28 @@ ul {
 }
 
 .fp-pathbar {
-    border-top: 1px solid @page-bottom-bg;
+    border-top: 1px solid ~"[[setting:pagebottombackground]]";
 }
 
 .fp-iconview .fp-filename-field .fp-filename {
-    background: @page-bottom-bg-light;
+    background: ~"[[setting:pagebottombackgroundlight]]";
     padding-top: 0px;
     padding-bottom: 0px;
     min-height: 44px;
 }
 
 .fp-iconview .fp-thumbnail {
-    border: 1px solid @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackgroundlight]]";
     border-radius: @border-radius-base;
 }
 
 .fp-iconview .fp-thumbnail img {
-    border: 1px solid @page-bottom-bg;
-    box-shadow: 1px 1px 2px 0 @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
+    box-shadow: 1px 1px 2px 0 ~"[[setting:pagebottombackgroundlight]]";
 }
 .fp-iconview .fp-thumbnail:hover {
-    border: 1px solid @page-bottom-bg;
-    box-shadow: inset 0 0 10px 0px @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
+    box-shadow: inset 0 0 10px 0px ~"[[setting:pagebottombackgroundlight]]";
 }
 .fp-iconview .fp-filename-field {
     height: 44px;
@@ -343,8 +342,8 @@ ul {
 .fp-toolbar .fp-tb-logout,
 .fp-toolbar .fp-tb-refresh
  {
-    border: 1px solid @page-bottom-bg;
-    border-bottom: 1px solid @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
+    border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
 }
 
 .fp-toolbar a:hover {
@@ -358,19 +357,19 @@ ul {
 }
 
 .file-picker .fp-list .fp-repo.active {
-    background: @page-bottom-bg-light;
+    background: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 .filepicker-filelist,
 .filemanager-container {
     background: @body-bg;
-    border: 1px solid @page-bottom-bg;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
     min-height: 170px;
 }
 
 .file-picker .ygtvfocus,
 .filemanager .ygtvfocus {
-    background-color: @page-bottom-bg-light;
+    background-color: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 .filemanager .fp-content{
@@ -380,15 +379,15 @@ ul {
 }
 
 .fp-select .fp-hr {
-    border-bottom: 1px solid @page-bottom-bg-light;
+    border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
 }
 
 .fp-select .fp-thumbnail {
-    border: 1px solid @page-bottom-bg-dark;
-    box-shadow: inset 0 0 10px 0 @page-bottom-bg;
+    border: 1px solid ~"[[setting:pagebottombackgrounddark]]";
+    box-shadow: inset 0 0 10px 0 ~"[[setting:pagebottombackground]]";
 }
 .fp-select .fp-thumbnail img {
-    border: 1px solid @page-bottom-bg-dark;
+    border: 1px solid ~"[[setting:pagebottombackgrounddark]]";
 }
 
 .fp-toolbar .fp-btn-add,
@@ -399,38 +398,38 @@ ul {
 .fp-toolbar .fp-tb-logout,
 .fp-toolbar .fp-tb-refresh
 {
-    border: 1px solid @page-bottom-bg;
-    border-bottom: 1px solid @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
+    border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
     background: lighten(@page-bottom-bg-light, 2%);
 }
 
 .fp-viewbar {
-    border: 1px solid @page-bottom-bg;
-    border-bottom: 1px solid @page-bottom-bg-light;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
+    border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
     background: lighten(@page-bottom-bg-light, 2%);
 }
 
 .fp-viewbar a {
-    border-right: 1px solid @page-bottom-bg;
+    border-right: 1px solid ~"[[setting:pagebottombackground]]";
 }
 
 .fp-viewbar a.checked:hover,
 .fp-viewbar a:hover {
     background-image: radial-gradient(ellipse at center, #fff 60%, @page-bottom-bg 100%);
-    background-color: @page-bottom-bg;
+    background-color: ~"[[setting:pagebottombackground]]";
 }
 
 .fp-viewbar a.checked,
 .fp-viewbar a:active {
     background-image: radial-gradient(ellipse at center, #fff 40%, @page-bottom-bg 100%);
-    background-color: @page-bottom-bg;
+    background-color: ~"[[setting:pagebottombackground]]";
 }
 
 // Drag and drop support (filemanager and filepicker form elements)
 .filepicker-filelist .filepicker-container,
 .filemanager.fm-noitems .fm-empty-container {
     padding-top: 75px;  // Allows for two lines in the file picker (for different languages) without hitting the border on certain screen sizes.
-    border: 2px dotted @page-bottom-bg;
+    border: 2px dotted ~"[[setting:pagebottombackground]]";
 }
 
 
@@ -539,29 +538,29 @@ ul {
         margin-right: 0px; // Effectively move the margin to parent element for hover purposes.
     }
     table#fixed_column {
-        border-top-color: @page-bottom-bg;
+        border-top-color: ~"[[setting:pagebottombackground]]";
         th {
-            border-color: @page-bottom-bg;
+            border-color: ~"[[setting:pagebottombackground]]";
             &.user {
-                border-right-color: @page-bottom-bg;
+                border-right-color: ~"[[setting:pagebottombackground]]";
             }
         }
     }
     table {
-        border-color: @page-bottom-bg;
+        border-color: ~"[[setting:pagebottombackground]]";
         tr.heading th.header {
-            border-top-color: @page-bottom-bg;
+            border-top-color: ~"[[setting:pagebottombackground]]";
         }
         td, th {
-            border-left-color: @page-bottom-bg;
-            border-right-color: @page-bottom-bg;
-            border-bottom-color: @page-bottom-bg;
+            border-left-color: ~"[[setting:pagebottombackground]]";
+            border-right-color: ~"[[setting:pagebottombackground]]";
+            border-bottom-color: ~"[[setting:pagebottombackground]]";
         }
     }
 }
 .path-grade-report-grader .gradeparent .user.cell .userpicture {
     th.item, th.categoryitem, th.courseitem, td.cell {
-        border-color: @page-bottom-bg;
+        border-color: ~"[[setting:pagebottombackground]]";
     }
     tr.heading th.courseitem {
         border-width: 1px;
@@ -569,7 +568,7 @@ ul {
 }
 
 .path-grade-report-grader .gradeparent tr:nth-of-type(even) .cell {
-    background-color: @page-bottom-bg-light;
+    background-color: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 .path-grade-report-grader .gradeparent .floater {
@@ -577,7 +576,7 @@ ul {
         background-color: #fff;
     }
     .cell:nth-of-type(even), .cell.header, &.heading .cell:nth-of-type(odd).header {
-        background-color: @page-bottom-bg-light;
+        background-color: ~"[[setting:pagebottombackgroundlight]]";
     }
 }
 
@@ -652,16 +651,16 @@ ul {
 
 // message.less.
 #newmessageoverlay {
-    border: 1px solid @page-bottom-bg-dark;
+    border: 1px solid ~"[[setting:pagebottombackgrounddark]]";
 }
 
 #newmessageoverlay #newmessagetext {
-    background-color: @page-bottom-bg;
-    border-bottom: 1px solid @page-bottom-bg-dark;
+    background-color: ~"[[setting:pagebottombackground]]";
+    border-bottom: 1px solid ~"[[setting:pagebottombackgrounddark]]";
 }
 
 #newmessageoverlay {
-    background-color: @page-bottom-bg-light;
+    background-color: ~"[[setting:pagebottombackgroundlight]]";
     left: 5px;
     right: auto;
 }
@@ -720,10 +719,10 @@ ul {
         }
     }
     .msg-sender {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
     }
     .msg-time {
-        color: @text-color;
+        color: ~"[[setting:textcolour]]";
     }
 }
 
@@ -735,7 +734,7 @@ ul {
 // question.less.
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
-    background-color: @page-bottom-bg;
+    background-color: ~"[[setting:pagebottombackground]]";
     border: 1px solid @page-top-bg;
     border-radius: @border-radius-base;
     &.thispage {
@@ -746,7 +745,7 @@ ul {
     }
     &:hover {
         border-radius: (@border-radius-base / 2);
-        color: lighten(@text-color, 10%);
+        color: ~"[[setting:textcolour10light]]";
     }
     &.free:hover {
         text-decoration: none;
@@ -755,7 +754,7 @@ ul {
 
 #page-mod-quiz-edit div.quizpage {
   .pagecontent {
-    border: 1px solid @page-bottom-bg;
+    border: 1px solid ~"[[setting:pagebottombackground]]";
     border-radius: @border-radius-base;
   }
   span.pagetitle {
@@ -848,18 +847,18 @@ ul {
 
 // YUI.
 .yui-skin-sam .yui-panel {
-    color: @text-color;
-    background-color: @page-bottom-bg;
-    border: 1px solid @page-bottom-bg-dark-spin;
+    color: ~"[[setting:textcolour]]";
+    background-color: ~"[[setting:pagebottombackground]]";
+    border: 1px solid ~"[[setting:pagebottombackgrounddark]]";
     border-radius: @border-radius-base;
-    border-color: @page-top-bg;
+    border-color: ~"[[setting:pagetopbackground]]";
 }
 
 .yui-skin-sam .yui-panel .hd,
 .yui-skin-sam .yui-panel .bd,
 .yui-skin-sam .yui-panel .ft {
-    color: @text-color;
-    background-color: @page-bottom-bg;
+    color: ~"[[setting:textcolour]]";
+    background-color: ~"[[setting:pagebottombackground]]";
 }
 
 .yui-skin-sam .yui-panel .ft {
@@ -881,19 +880,19 @@ ul {
 // Atto editor - lib\editor\atto\styles.css.
 .editor_atto_content_wrap {
     background-color: white !important;
-    color: @text-color !important;
+    color: ~"[[setting:textcolour]]" !important;
 }
 
 .editor_atto_content_wrap,
 .editor_atto + textarea {
-    border: 1px solid @page-bottom-bg !important;
+    border: 1px solid ~"[[setting:pagebottombackground]]" !important;
     border-bottom-left-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
 }
 
 div.editor_atto_toolbar {
-    background: @page-bottom-bg-light !important; // I hate using important but see no other way.
-    border: 1px solid @page-bottom-bg !important;
+    background: ~"[[setting:pagebottombackgroundlight]]" !important; // I hate using important but see no other way.
+    border: 1px solid ~"[[setting:pagebottombackground]]" !important;
     border-top-left-radius: @border-radius-base;
     border-top-right-radius: @border-radius-base;
 
@@ -910,44 +909,44 @@ div.editor_atto_toolbar {
     }
 
     button + button {
-        border-left: 1px solid @page-bottom-bg !important;
+        border-left: 1px solid ~"[[setting:pagebottombackground]]" !important;
     }
 
     div.atto_group {
-        border: 1px solid @page-bottom-bg !important;
-        border-bottom: 1px solid @page-bottom-bg-light !important;
+        border: 1px solid ~"[[setting:pagebottombackground]]" !important;
+        border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]" !important;
         background: lighten(@page-bottom-bg-light, 2%) !important;
     }
 }
 
 // Quiz.
 body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_], body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_], body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
-    background: lighten(@page-bottom-bg-light, 3%);
+    background: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_] {
     border-top-left-radius: @border-radius-base;
     border-top-right-radius: @border-radius-base;
-    border-top: 2px solid @page-bottom-bg;
-    border-left: 2px solid @page-bottom-bg;
-    border-right: 2px solid @page-bottom-bg;
+    border-top: 2px solid ~"[[setting:pagebottombackground]]";
+    border-left: 2px solid ~"[[setting:pagebottombackground]]";
+    border-right: 2px solid ~"[[setting:pagebottombackground]]";
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_] {
-    border-left: 2px solid @page-bottom-bg;
-    border-right: 2px solid @page-bottom-bg;
+    border-left: 2px solid ~"[[setting:pagebottombackground]]";
+    border-right: 2px solid ~"[[setting:pagebottombackground]]";
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
     border-bottom-left-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
-    border-left: 2px solid @page-bottom-bg;
-    border-right: 2px solid @page-bottom-bg;
-    border-bottom: 2px solid @page-bottom-bg;
+    border-left: 2px solid ~"[[setting:pagebottombackground]]";
+    border-right: 2px solid ~"[[setting:pagebottombackground]]";
+    border-bottom: 2px solid ~"[[setting:pagebottombackground]]";
 }
 
 #page-mod-quiz-edit div.quizpage .pagecontent {
-    background: @page-bottom-bg-light;
+    background: ~"[[setting:pagebottombackgroundlight]]";
 }
 
 /* mod_resource css */
@@ -974,7 +973,7 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
 
 /* RTL Rules */
 body.dir-rtl div.editor_atto_toolbar button + button {
-    border-right: 1px solid @page-bottom-bg;
+    border-right: 1px solid ~"[[setting:pagebottombackground]]";
 }
 
 /* Misc. */

@@ -12493,12 +12493,12 @@ fieldset[disabled] .jsenabled .moodle-actionmenu[data-enhance] .toggle-display.t
 
 .moodle-actionmenu[data-enhanced].show .menu .msg-sender
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .moodle-actionmenu[data-enhanced].show .menu .msg-time
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .moodle-actionmenu[data-enhanced].show .menu .icon
@@ -26774,13 +26774,13 @@ body.tabletdevice .carouselslider a.carousel-control
 
 .carousel-indicators li
 {
-    background: #1f4d87;
-    background: rgba(31, 77, 135, .75);
+    background: [[setting:textcolour]];
+    background: [[setting:textcolour75rgba]];
 }
 
 .carousel-caption
 {
-    border: 1px solid rgba(201, 230, 255, .65);
+    border: 1px solid [[setting:pagebottombackground65rgba]];
     border-radius: 6px;
     background: #fff;
     background: rgba(255, 255, 255, .7);
@@ -26876,7 +26876,7 @@ body.tabletdevice .carouselslider a.carousel-control
     border-width: 5px 5px 5px 0;
     border-style: solid;
     border-color: transparent;
-    border-right-color: #653cae;
+    border-right-color: [[setting:navbardefaultcolour]];
 }
 
 .navbar-inverse .dropdown-submenu > a:after
@@ -26950,10 +26950,15 @@ select.singleselect
     background-color: [[setting:navbardefaultbackgroundrgba]];
 }
 
+.navbar-default .navbar-text
+{
+    color: [[setting:navbardefaultcolour]];
+}
+
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a
 {
-    color: #653cae;
+    color: [[setting:navbardefaultcolour]];
 }
 
 .navbar-default .navbar-brand:hover,
@@ -26961,7 +26966,7 @@ select.singleselect
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-nav > li > a:focus
 {
-    color: #855fc8;
+    color: [[setting:navbardefaultcolourlight]];
     background-color: [[setting:navbardefaulthover]];
     background-color: [[setting:navbardefaulthoverrgba]];
 }
@@ -27051,7 +27056,7 @@ a:focus
 
 .block .minicalendar td.weekend
 {
-    color: #2965b0;
+    color: [[setting:textcolour10light]];
 }
 
 .editing.used-region-side-post.used-region-side-pre #region-main
@@ -27375,9 +27380,9 @@ img.iconhelp,
 
 .moodle-dialogue-base .moodle-dialogue-wrap
 {
-    border: 1px solid #a5e4ff;
-    background-color: #c9e6ff;
-    box-shadow: -5px 5px 20px 0 #1f4d87;
+    border: 1px solid [[setting:pagebottombackgrounddark]];
+    background-color: [[setting:pagebottombackground]];
+    box-shadow: -5px 5px 20px 0 [[setting:textcolour]];
 }
 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
@@ -27385,7 +27390,7 @@ img.iconhelp,
 {
     padding: 2px 5px;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
     border-bottom: 1px solid #ffd053;
     background-color: #fff;
     background-image: -webkit-linear-gradient(top, #fff 0%, #ffd974 100%);
@@ -27398,7 +27403,7 @@ img.iconhelp,
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd ul,
@@ -27410,7 +27415,7 @@ img.iconhelp,
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd input
 {
-    border-color: #e3f2ff;
+    border-color: [[setting:pagebottombackgroundlight]];
     border-radius: 4px;
 }
 
@@ -27434,13 +27439,13 @@ img.iconhelp,
 
 .course-content .section-summary
 {
-    border: 1px solid #1f4d87;
+    border: 1px solid [[setting:textcolour]];
 }
 
 .course-content ul li.section.main
 {
     border: none;
-    border-bottom: 2px solid #e3f2ff;
+    border-bottom: 2px solid [[setting:pagebottombackgroundlight]];
 }
 
 ul.topics,
@@ -27473,7 +27478,7 @@ ul.weeks
 
 #page-course-index-category .generalbox.info
 {
-    border: 1px dotted #1f4d87;
+    border: 1px dotted [[setting:textcolour]];
 }
 
 .coursebox .content .summary,
@@ -27545,21 +27550,21 @@ ul.weeks
 .filemanager a:hover,
 .file-picker a:hover
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .filemanager .fp-navbar
 {
-    border: 1px solid #c9e6ff;
-    background: #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 .file-picker .fp-navbar
 {
     min-height: 36px;
 
-    border-bottom: 1px solid #c9e6ff;
-    background: #e3f2ff;
+    border-bottom: 1px solid [[setting:pagebottombackground]];
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 .file-picker .fp-navbar .fp-viewbar
@@ -27571,7 +27576,7 @@ ul.weeks
 {
     height: 490px;
 
-    border-left: 1px solid #e3f2ff;
+    border-left: 1px solid [[setting:pagebottombackgroundlight]];
 }
 
 .file-picker .fp-content
@@ -27586,7 +27591,7 @@ ul.weeks
 
 .fp-pathbar
 {
-    border-top: 1px solid #c9e6ff;
+    border-top: 1px solid [[setting:pagebottombackground]];
 }
 
 .fp-iconview .fp-filename-field .fp-filename
@@ -27595,25 +27600,25 @@ ul.weeks
     padding-top: 0;
     padding-bottom: 0;
 
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 .fp-iconview .fp-thumbnail
 {
-    border: 1px solid #e3f2ff;
+    border: 1px solid [[setting:pagebottombackgroundlight]];
     border-radius: 4px;
 }
 
 .fp-iconview .fp-thumbnail img
 {
-    border: 1px solid #c9e6ff;
-    box-shadow: -1px 1px 2px 0 #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    box-shadow: -1px 1px 2px 0 [[setting:pagebottombackgroundlight]];
 }
 
 .fp-iconview .fp-thumbnail:hover
 {
-    border: 1px solid #c9e6ff;
-    box-shadow: inset 0 0 10px 0 #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    box-shadow: inset 0 0 10px 0 [[setting:pagebottombackgroundlight]];
 }
 
 .fp-iconview .fp-filename-field
@@ -27636,8 +27641,8 @@ ul.weeks
 .fp-toolbar .fp-tb-logout,
 .fp-toolbar .fp-tb-refresh
 {
-    border: 1px solid #c9e6ff;
-    border-bottom: 1px solid #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
 }
 
 .fp-toolbar a:hover
@@ -27654,7 +27659,7 @@ ul.weeks
 
 .file-picker .fp-list .fp-repo.active
 {
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 .filepicker-filelist,
@@ -27662,14 +27667,14 @@ ul.weeks
 {
     min-height: 170px;
 
-    border: 1px solid #c9e6ff;
+    border: 1px solid [[setting:pagebottombackground]];
     background: #fff;
 }
 
 .file-picker .ygtvfocus,
 .filemanager .ygtvfocus
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 .filemanager .fp-content
@@ -27682,18 +27687,18 @@ ul.weeks
 
 .fp-select .fp-hr
 {
-    border-bottom: 1px solid #e3f2ff;
+    border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
 }
 
 .fp-select .fp-thumbnail
 {
-    border: 1px solid #afdaff;
-    box-shadow: inset 0 0 10px 0 #c9e6ff;
+    border: 1px solid [[setting:pagebottombackgrounddark]];
+    box-shadow: inset 0 0 10px 0 [[setting:pagebottombackground]];
 }
 
 .fp-select .fp-thumbnail img
 {
-    border: 1px solid #afdaff;
+    border: 1px solid [[setting:pagebottombackgrounddark]];
 }
 
 .fp-toolbar .fp-btn-add,
@@ -27704,34 +27709,34 @@ ul.weeks
 .fp-toolbar .fp-tb-logout,
 .fp-toolbar .fp-tb-refresh
 {
-    border: 1px solid #c9e6ff;
-    border-bottom: 1px solid #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
     background: #edf7ff;
 }
 
 .fp-viewbar
 {
-    border: 1px solid #c9e6ff;
-    border-bottom: 1px solid #e3f2ff;
+    border: 1px solid [[setting:pagebottombackground]];
+    border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
     background: #edf7ff;
 }
 
 .fp-viewbar a
 {
-    border-left: 1px solid #c9e6ff;
+    border-left: 1px solid [[setting:pagebottombackground]];
 }
 
 .fp-viewbar a.checked:hover,
 .fp-viewbar a:hover
 {
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
     background-image: radial-gradient(ellipse at center, #fff 60%, #c9e6ff 100%);
 }
 
 .fp-viewbar a.checked,
 .fp-viewbar a:active
 {
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
     background-image: radial-gradient(ellipse at center, #fff 40%, #c9e6ff 100%);
 }
 
@@ -27740,7 +27745,7 @@ ul.weeks
 {
     padding-top: 75px;
 
-    border: 2px dotted #c9e6ff;
+    border: 2px dotted [[setting:pagebottombackground]];
 }
 
 .mform fieldset .fitem .fitemtitle .fgrouplabel label
@@ -28262,35 +28267,35 @@ ul.weeks
 
 .path-grade-report-grader table#fixed_column
 {
-    border-top-color: #c9e6ff;
+    border-top-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader table#fixed_column th
 {
-    border-color: #c9e6ff;
+    border-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader table#fixed_column th.user
 {
-    border-left-color: #c9e6ff;
+    border-left-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader table
 {
-    border-color: #c9e6ff;
+    border-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader table tr.heading th.header
 {
-    border-top-color: #c9e6ff;
+    border-top-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader table td,
 .path-grade-report-grader table th
 {
-    border-right-color: #c9e6ff;
-    border-bottom-color: #c9e6ff;
-    border-left-color: #c9e6ff;
+    border-right-color: [[setting:pagebottombackground]];
+    border-bottom-color: [[setting:pagebottombackground]];
+    border-left-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader .gradeparent .user.cell .userpicture th.item,
@@ -28298,7 +28303,7 @@ ul.weeks
 .path-grade-report-grader .gradeparent .user.cell .userpicture th.courseitem,
 .path-grade-report-grader .gradeparent .user.cell .userpicture td.cell
 {
-    border-color: #c9e6ff;
+    border-color: [[setting:pagebottombackground]];
 }
 
 .path-grade-report-grader .gradeparent .user.cell .userpicture tr.heading th.courseitem
@@ -28308,7 +28313,7 @@ ul.weeks
 
 .path-grade-report-grader .gradeparent tr:nth-of-type(even) .cell
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 .path-grade-report-grader .gradeparent .floater .cell:nth-of-type(odd),
@@ -28322,7 +28327,7 @@ ul.weeks
 .path-grade-report-grader .gradeparent .floater .cell.header,
 .path-grade-report-grader .gradeparent .floater.heading .cell:nth-of-type(odd).header
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 #region-main .input-group #coursesearchbox
@@ -28572,13 +28577,13 @@ ul.weeks
 
 #newmessageoverlay
 {
-    border: 1px solid #afdaff;
+    border: 1px solid [[setting:pagebottombackgrounddark]];
 }
 
 #newmessageoverlay #newmessagetext
 {
-    border-bottom: 1px solid #afdaff;
-    background-color: #c9e6ff;
+    border-bottom: 1px solid [[setting:pagebottombackgrounddark]];
+    background-color: [[setting:pagebottombackground]];
 }
 
 #newmessageoverlay
@@ -28586,7 +28591,7 @@ ul.weeks
     right: 5px;
     left: auto;
 
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 .box.message .messagearea .messagehistory .messagehistorytype
@@ -28670,12 +28675,12 @@ ul.weeks
 
 .dropdown-menu .msg-sender
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .dropdown-menu .msg-time
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .forumsearch input[type=text]
@@ -28688,7 +28693,7 @@ ul.weeks
 {
     border: 1px solid #1f4d87;
     border-radius: 4px;
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
 }
 
 .que .info.thispage,
@@ -28706,7 +28711,7 @@ ul.weeks
 .que .info:hover,
 .path-mod-quiz .qnbutton:hover
 {
-    color: #2965b0;
+    color: [[setting:textcolour10light]];
     border-radius: 2px;
 }
 
@@ -28718,7 +28723,7 @@ ul.weeks
 
 #page-mod-quiz-edit div.quizpage .pagecontent
 {
-    border: 1px solid #c9e6ff;
+    border: 1px solid [[setting:pagebottombackground]];
     border-radius: 4px;
 }
 
@@ -28898,19 +28903,19 @@ ul.weeks
 
 .yui-skin-sam .yui-panel
 {
-    color: #1f4d87;
-    border: 1px solid #a5e4ff;
-    border-color: #1f4d87;
+    color: [[setting:textcolour]];
+    border: 1px solid [[setting:pagebottombackgrounddark]];
+    border-color: [[setting:pagetopbackground]];
     border-radius: 4px;
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
 }
 
 .yui-skin-sam .yui-panel .hd,
 .yui-skin-sam .yui-panel .bd,
 .yui-skin-sam .yui-panel .ft
 {
-    color: #1f4d87;
-    background-color: #c9e6ff;
+    color: [[setting:textcolour]];
+    background-color: [[setting:pagebottombackground]];
 }
 
 .yui-skin-sam .yui-panel .ft
@@ -28938,24 +28943,24 @@ ul.weeks
 
 .editor_atto_content_wrap
 {
-    color: #1f4d87 !important;
+    color: [[setting:textcolour]] !important;
     background-color: white !important;
 }
 
 .editor_atto_content_wrap,
 .editor_atto + textarea
 {
-    border: 1px solid #c9e6ff !important;
+    border: 1px solid [[setting:pagebottombackground]] !important;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
 
 div.editor_atto_toolbar
 {
-    border: 1px solid #c9e6ff !important;
+    border: 1px solid [[setting:pagebottombackground]] !important;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background: #e3f2ff !important;
+    background: [[setting:pagebottombackgroundlight]] !important;
 }
 
 div.editor_atto_toolbar button
@@ -28978,13 +28983,13 @@ div.editor_atto_toolbar button.highlight
 
 div.editor_atto_toolbar button + button
 {
-    border-right: 1px solid #c9e6ff !important;
+    border-right: 1px solid [[setting:pagebottombackground]] !important;
 }
 
 div.editor_atto_toolbar div.atto_group
 {
-    border: 1px solid #c9e6ff !important;
-    border-bottom: 1px solid #e3f2ff !important;
+    border: 1px solid [[setting:pagebottombackground]] !important;
+    border-bottom: 1px solid [[setting:pagebottombackgroundlight]] !important;
     background: #edf7ff !important;
 }
 
@@ -28992,36 +28997,36 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_],
 body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_],
 body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 {
-    background: #f2f9ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_]
 {
-    border-top: 2px solid #c9e6ff;
-    border-right: 2px solid #c9e6ff;
-    border-left: 2px solid #c9e6ff;
+    border-top: 2px solid [[setting:pagebottombackground]];
+    border-right: 2px solid [[setting:pagebottombackground]];
+    border-left: 2px solid [[setting:pagebottombackground]];
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_]
 {
-    border-right: 2px solid #c9e6ff;
-    border-left: 2px solid #c9e6ff;
+    border-right: 2px solid [[setting:pagebottombackground]];
+    border-left: 2px solid [[setting:pagebottombackground]];
 }
 
 body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 {
-    border-right: 2px solid #c9e6ff;
-    border-bottom: 2px solid #c9e6ff;
-    border-left: 2px solid #c9e6ff;
+    border-right: 2px solid [[setting:pagebottombackground]];
+    border-bottom: 2px solid [[setting:pagebottombackground]];
+    border-left: 2px solid [[setting:pagebottombackground]];
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
 
 #page-mod-quiz-edit div.quizpage .pagecontent
 {
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 /* mod_resource css */
@@ -29057,7 +29062,7 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 
 body.dir-rtl div.editor_atto_toolbar button + button
 {
-    border-left: 1px solid #c9e6ff;
+    border-left: 1px solid [[setting:pagebottombackground]];
 }
 
 /* Misc. */
@@ -29084,20 +29089,27 @@ body.dir-rtl .helptooltip
 
 html
 {
-    background-color: [[setting:pagebottom]];
-    background-image: -webkit-linear-gradient(top, [[setting:pagetoprgba]] 0%, [[setting:pagebottomrgba]] 100%);
-    background-image:         linear-gradient(to bottom, [[setting:pagetoprgba]] 0%, [[setting:pagebottomrgba]] 100%);
-    background-repeat: repeat-x;
+    background-color: [[setting:htmlbackground]];
+    background-color: [[setting:htmlbackgroundrgba]];
 }
 
 body
 {
-    background-color: transparent;
+    color: [[setting:textcolour]];
+    background-color: [[setting:pagebottombackground]];
+    background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0%, [[setting:pagebottombackgroundrgba]] 100%);
+    background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0%, [[setting:pagebottombackgroundrgba]] 100%);
+    background-repeat: repeat-x;
 }
 
 body.pagelayout-redirect
 {
     color: #fff;
+}
+
+a
+{
+    color: [[setting:linkcolour]];
 }
 
 body.compactnavbar .navbar
@@ -29443,7 +29455,7 @@ body.loginpageimages #page-footer #footermenu > .panel-footer + .panel-collapse 
 
 body.loginpageimages #page-footer #footermenu a
 {
-    color: #1f4d87;
+    color: [[setting:pagetopbackground]];
 }
 
 body.loginpageimages #page-footer #footermenu a:hover,
@@ -29452,13 +29464,13 @@ body.loginpageimages #page-footer #footermenu a:focus
 {
     font-weight: bold;
 
-    background-color: rgba(227, 242, 255, .4);
+    background-color: [[setting:pagebottombackgroundlight4rgba]];
 }
 
 body.loginpageimages #page-footer #footermenu
 {
-    border: 1px solid rgba(201, 230, 255, .7);
-    background-color: rgba(201, 230, 255, .5);
+    border: 1px solid [[setting:pagebottombackground7rgba]];
+    background-color: [[setting:pagebottombackground5rgba]];
 }
 
 aside .block a:hover,
@@ -29486,7 +29498,7 @@ aside .block li.contains_branch > p:hover
 #dockeditempanel a:hover,
 #dockeditempanel a:focus
 {
-    color: #267f00;
+    color: [[setting:footerbottombackground]];
 }
 
 .collapse-blocks.panel-group .panel
@@ -29546,7 +29558,7 @@ body.frontpagebackgroundimage .moodleheader .logoheading
 {
     padding: 4px;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
     border-width: 1px;
     border-style: solid;
     border-color: #e3e3e3;
@@ -29579,7 +29591,7 @@ header.moodleheader .heading
 
 body.pagelayout-redirect #page
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 #region-main-shoehorn
@@ -29587,7 +29599,7 @@ body.pagelayout-redirect #page
     padding: 8px;
 
     background-color: #fff;
-    box-shadow: 0 0 8px #1f4d87;
+    box-shadow: 0 0 8px [[setting:pagetopbackground]];
 }
 
 #region-main-shoehorn aside
@@ -29637,7 +29649,7 @@ aside
 
 .breadcrumb span
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .breadcrumb .divider
@@ -29648,7 +29660,7 @@ aside
 .breadcrumb .divider,
 .breadcrumb .divider .glyphicon
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 .block .header .block_action img,
@@ -29685,7 +29697,7 @@ aside
 {
     margin: 0;
 
-    border: 1px solid #1f4d87;
+    border: 1px solid [[setting::pagetopbackground]];
     border-radius: 2px;
 }
 
@@ -29706,17 +29718,17 @@ aside
 
 .block.block_fake
 {
-    background-color: rgba(255, 217, 116, .8);
+    background-color: [[setting:navbardefaultbackground8rgba]];
 }
 
 #region-main .block
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 #region-main .block .header
 {
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 #allcourses
@@ -29751,14 +29763,14 @@ aside
     cursor: default;
     text-align: center;
 
-    border: 2px solid #c9e6ff;
+    border: 2px solid [[setting:pagebottombackground]];
     border-radius: 5px;
     background: transparent;
 }
 
 .mycourseboxes .view .mask
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 .mycourseboxes .view .mask,
@@ -29791,7 +29803,7 @@ aside
 
     text-align: center;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
     border-bottom: 1px solid #fff;
 }
 
@@ -29807,14 +29819,14 @@ aside
     transition: all ease-out .25s;
     text-decoration: none;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
     border-radius: 5px;
     background: rgba(255, 255, 255, .8);
 }
 
 .mycourseboxes .view a.info:hover
 {
-    background: #c9e6ff;
+    background: [[setting:pagebottombackground]];
 }
 
 #page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td
@@ -29847,9 +29859,9 @@ body.coursetiles #region-main .section li.activity
 
     transition: all ease-out .5s;
 
-    border: 1px solid #c9e6ff;
+    border: 1px solid [[setting:pagebottombackground]];
     border-radius: 5px;
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 body.coursetiles #region-main .section li.activity.label
@@ -29905,7 +29917,7 @@ body.coursetiles #region-main div.sitetopic .section .activity .activityinstance
     transition: all ease-out .25s;
     text-align: left;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 body.coursetiles #region-main ul[class*='topics'] .section .activity .activityinstance > a:hover,
@@ -29915,14 +29927,14 @@ body.coursetiles #region-main div.sitetopic .section .activity .activityinstance
 
     text-decoration: none;
 
-    background-color: rgba(227, 242, 255, .75);
+    background-color: [[setting:pagebottombackgroundlight75rgba]];
 }
 
 body.coursetiles #region-main ul[class*='topics'] .section .activity .activityinstance > a.dimmed,
 body.coursetiles #region-main div.sitetopic .section .activity .activityinstance > a.dimmed
 {
-    color: #1a4172;
-    background: #c9e6ff;
+    color: [[setting:textcolour5dark]];
+    background: [[setting:pagebottombackgroundlight5dark]];
 }
 
 body.coursetiles #region-main ul[class*='topics'] .section .activity .activityinstance > a.dimmed:hover,
@@ -29930,8 +29942,8 @@ body.coursetiles #region-main div.sitetopic .section .activity .activityinstance
 body.coursetiles #region-main ul[class*='topics'] .section .activity .activityinstance > a.dimmed:focus,
 body.coursetiles #region-main div.sitetopic .section .activity .activityinstance > a.dimmed:focus
 {
-    color: #15355e;
-    background: #b0daff;
+    color: [[setting:textcolour10dark]];
+    background: [[setting:pagebottombackgroundlight10dark]];
 }
 
 body.coursetiles #region-main ul[class*='topics'] .section .activity .mod-indent-outer,
@@ -30023,7 +30035,7 @@ body.coursetiles #region-main div.sitetopic .section .activity .contentafterlink
     width: 192px;
     margin-right: 0;
 
-    border-top: 1px solid #c9e6ff;
+    border-top: 1px solid [[setting:pagebottombackground]];
 }
 
 body.coursetiles #region-main ul[class*='topics'] .section .activity .contentafterlink,
@@ -30073,7 +30085,7 @@ body.coursetiles #region-main div.sitetopic .section .activity .actions
 body.coursetiles #region-main ul[class*='topics'] .section .activity .actions input,
 body.coursetiles #region-main div.sitetopic .section .activity .actions input
 {
-    color: #1f4d87;
+    color: [[setting:pagetopbackground]];
     background: #fff;
 }
 
@@ -30216,7 +30228,7 @@ body.coursetiles #region-main .course-content .section .activity:hover,
 body.coursetiles #region-main .gtopics .section .activity:hover,
 body.coursetiles #region-main .sitetopic .section .activity:hover
 {
-    background: #c9e6ff;
+    background: [[setting:pagebottombackground]];
 }
 
 body.coursetiles.path-site #region-main li.activity > div,
@@ -30249,7 +30261,7 @@ body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance
 {
     transition: all ease-out .25s;
 
-    border: 1px solid #c9e6ff;
+    border: 1px solid [[setting:pagebottombackground]];
     border-radius: 5px;
 }
 
@@ -30257,12 +30269,12 @@ body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance
 {
     font-weight: bold;
 
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu
 {
-    background: #c9e6ff;
+    background: [[setting:pagebottombackground]];
     box-shadow: none;
 }
 
@@ -30280,20 +30292,20 @@ body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance
 body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus
 {
     border-radius: 2px;
-    background: #c9e6ff;
+    background: [[setting:pagebottombackground]];
 }
 
 body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover
 {
     font-weight: bold;
 
-    background: #e3f2ff;
+    background: [[setting:pagebottombackgroundlight]];
 }
 
 body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:hover,
 body.coursetiles.jsenabled #region-main .section .moodle-actionmenu[data-enhance].show .menu a:focus
 {
-    color: #1f4d87;
+    color: [[setting:pagetopbackground]];
 }
 
 body.coursetiles #region-main .section a.editing_title
@@ -30354,7 +30366,7 @@ body.coursetiles #region-main .topic_intro
     min-height: 300px;
     margin-bottom: 20px;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 body.coursetiles #region-main .section-modchooser-link
@@ -30792,7 +30804,7 @@ body.fontawesome #frontpage-category-names h2:before
 
 #myCourseCarousel .carousel-control
 {
-    color: #c9e6ff;
+    color: [[setting:pagebottombackground]];
 }
 
 @media (min-width: 481px)
@@ -30826,13 +30838,13 @@ body.fontawesome #frontpage-category-names h2:before
 
 #myCourseCarousel .carousel-indicators li
 {
-    border-color: #c9e6ff;
+    border-color: [[setting:pagebottombackground]];
 }
 
 #myCourseCarousel .carousel-indicators li.active
 {
     border-width: 2px;
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
 }
 
 .marketingspot
@@ -31131,10 +31143,10 @@ pre.sh
 
     border-width: 1px;
     border-style: solid;
-    border-color: #c9e6ff;
-    border-color: rgba(201, 230, 255, .7);
-    background-color: #c9e6ff;
-    background-color: rgba(201, 230, 255, .5);
+    border-color: [[setting:pagebottombackground]];
+    border-color: [[setting:pagebottombackground7rgba]];
+    background-color: [[setting:pagebottombackground]];
+    background-color: [[setting:pagebottombackground5rgba]];
 }
 
 #page-info .validators ul li
@@ -31160,29 +31172,28 @@ pre.sh
     padding: 8px;
 
     background-color: white;
-    box-shadow: 0 0 8px #1f4d87;
+    box-shadow: 0 0 8px [[setting:pagetopbackground]];
 }
 
 #page-footer
 {
-    color: #e3f2ff;
-    background-image: -webkit-linear-gradient(top, [[setting:footertoprgba]] 0%, [[setting:footerbottomrgba]] 100%);
-    background-image:         linear-gradient(to bottom, [[setting:footertoprgba]] 0%, [[setting:footerbottomrgba]] 100%);
+    color: [[setting:pagebottombackgroundlight]];
+    background-image: -webkit-linear-gradient(top, [[setting:footertopbackgroundrgba]] 0%, [[setting:footerbottombackgroundrgba]] 100%);
+    background-image:         linear-gradient(to bottom, [[setting:footertopbackgroundrgba]] 0%, [[setting:footerbottombackgroundrgba]] 100%);
     background-repeat: repeat-x;
 }
 
 #page-footer a
 {
-    color: #e3f2ff;
+    color: [[setting:pagebottombackgroundlight]];
 }
 
 #page-footer a:hover,
-#page-footer a:active,
 #page-footer a:focus
 {
-    color: #edf7ff;
-    background-color: #42ff06;
-    background-color: rgba(66, 255, 6, .25);
+    color: [[setting:pagebottombackgroundlighthover]];
+    background-color: [[setting:footertopbackgroundlight]];
+    background-color: [[setting:footertopbackgroundlightrgba]];
 }
 
 #page-footer .block-region
@@ -31194,12 +31205,12 @@ pre.sh
 {
     width: 100%;
 
-    color: #1f4d87;
+    color: [[setting:textcolour]];
 }
 
 #page-footer .block a
 {
-    color: #1f4d87;
+    color: [[setting:linkcolour]];
 }
 
 #page-footer .block a:hover,
@@ -31213,17 +31224,17 @@ pre.sh
 #page-footer .block .hasevent a:active,
 #page-footer .block .hasevent a:focus
 {
-    color: #2760a8;
+    color: [[setting:textcolour8light]];
 }
 
 ul.socialnetworks
 {
     border-width: 1px;
     border-style: solid;
-    border-color: #c9e6ff;
-    border-color: rgba(201, 230, 255, .7);
-    background-color: #c9e6ff;
-    background-color: rgba(201, 230, 255, .5);
+    border-color: [[setting:pagebottombackground]];
+    border-color: [[setting:pagebottombackground7rgba]];
+    background-color: [[setting:pagebottombackground]];
+    background-color: [[setting:pagebottombackground5rgba]];
 }
 
 #footermenu .divider
@@ -31483,7 +31494,7 @@ ul.socialnetworks
 select,
 input
 {
-    border-color: #c9e6ff;
+    border-color: [[setting:pagebottombackground]];
     border-radius: 4px;
 }
 
@@ -31510,9 +31521,9 @@ input
 
     border-width: 1px;
     border-style: solid;
-    border-color: #e3f2ff;
+    border-color: [[setting:pagebottombackgroundlight]];
     border-radius: 1em;
-    background-color: rgba(201, 230, 255, .6);
+    background-color: [[setting:pagebottombackground6rgba]];
 }
 
 .antiGravity:hover
@@ -31551,50 +31562,40 @@ a[name='lastused']
 
 body
 {
-    scrollbar-face-color: #c9e6ff;
-    scrollbar-shadow-color: #1f4d87;
-    scrollbar-highlight-color: #e3f2ff;
-    scrollbar-3dlight-color: #e3f2ff;
-    scrollbar-darkshadow-color: #afdaff;
-    scrollbar-track-color: #c9e6ff;
-    scrollbar-arrow-color: #1f4d87;
+    scrollbar-face-color: [[setting:pagebottombackground]];
+    scrollbar-shadow-color: [[setting:pagetopbackground]];
+    scrollbar-highlight-color: [[setting:pagebottombackgroundlight]];
+    scrollbar-3dlight-color: [[setting:pagebottombackgroundlight]];
+    scrollbar-darkshadow-color: [[setting:pagebottombackgrounddark]];
+    scrollbar-track-color: [[setting:pagebottombackground]];
+    scrollbar-arrow-color: [[setting:textcolour]];
 }
 
 ::-webkit-scrollbar
 {
-    background-color: #afdaff;
+    background-color: [[setting:pagebottombackgrounddark]];
 }
-
-/*::-webkit-scrollbar-button {
-    background-color: @page-bottom-bg;
-    border-radius: @border-radius-base;
-    border: 2px solid @page-bottom-bg-dark;
-}*/
 
 ::-webkit-scrollbar-track
 {
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
 }
 
 ::-webkit-scrollbar-track-piece
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
 
 ::-webkit-scrollbar-thumb
 {
-    border: 2px solid #afdaff;
+    border: 2px solid [[setting:pagebottombackgrounddark]];
     border-radius: 5px;
-    background-color: #c9e6ff;
+    background-color: [[setting:pagebottombackground]];
 }
 
 ::-webkit-scrollbar-corner
 {
-    background-color: #e3f2ff;
+    background-color: [[setting:pagebottombackgroundlight]];
 }
-
-/*::-webkit-resizer {
-    background-color: @page-bottom-bg-dark;
-}*/
 
 /*# sourceMappingURL=/theme/shoehorn/style/experimental/moodle.treasure.map */
