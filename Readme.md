@@ -32,9 +32,11 @@ Moodle community benefits.
 
 Donations
 =========
-This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating
+by:
 
-PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have 'donation' / 'buy me now' buttons under their terms.
+PayPal - Please contact me via my 'Moodle profile' (above) for details as I am an individual and therefore am unable to have
+'donation' / 'buy me now' buttons under their terms.
 
 Flattr - https://flattr.com/profile/gjb2048
 
@@ -88,14 +90,15 @@ Installation
 ============
  1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
     theme relies on underlying core code that is out of my control.
- 2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.
+ 2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the
+    administrator.
  3. Copy the extracted 'shoehorn' folder to the '/theme/' folder.
  4. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
  5. Select as the theme for the site.
  6. Put Moodle out of Maintenance Mode.
 
-Note: If you get no CSS whatsoever, then please add the following to your Apache web server httpd.conf file after loading the modules
-and restart (without the ` if you see them):
+Note: If you get no CSS whatsoever, then please add the following to your Apache web server httpd.conf file after loading the
+      modules and restart (without the ` if you see them):
 
 ```
 <IfModule mpm_winnt_module>
@@ -105,13 +108,15 @@ and restart (without the ` if you see them):
 
 I have created a screencast to help: https://www.youtube.com/watch?v=nI3LsN0XwKY
 
-Ref: https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495 and https://code.google.com/p/minify/issues/detail?id=62.
+Ref: https://github.com/bmbrands/theme_bootstrap/issues/342#issuecomment-58152495 and
+     https://code.google.com/p/minify/issues/detail?id=62.
 
 Upgrading
 =========
  1. Ensure you have the version of Moodle as stated above in 'Required version of Moodle'.  This is essential as the
     theme relies on underlying core code that is out of my control.
- 2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the administrator.
+ 2. Login as an administrator and put Moodle in 'Maintenance Mode' so that there are no users using it bar you as the
+    administrator.
  3. Make a backup of your old 'shoehorn' folder in '/theme/' and then delete the folder.
  4. Copy the replacement extracted 'shoehorn' folder to the '/theme/' folder.
  5. Go to 'Site administration' -> 'Notifications' and follow standard the 'plugin' update notification.
@@ -128,8 +133,8 @@ Uninstallation
 
 Videos and FitVids
 ==================
-Shoehorn uses FitVids.js - http://fitvidsjs.com/ - to make embedded videos responsive.  If you do not want this feature for a particular
-video, then please add the class 'fitvidsignore' to the video element.
+Shoehorn uses FitVids.js - http://fitvidsjs.com/ - to make embedded videos responsive.  If you do not want this feature for a
+particular video, then please add the class 'fitvidsignore' to the video element.
 
 Reporting issues
 ================
@@ -224,7 +229,8 @@ Version 2.8.1.1.
   1. Fix #5 - Scorm report button issues.  Thanks to Kirk Chapman for reporting.
   2. Update readme license details.  Thanks to Antony Borrow.
   3. Tidy up site page images.
-  4. Applied MDL-43824 grade.less to experimental CSS and raised https://github.com/bmbrands/theme_bootstrap/pull/347 for parent Bootstrap.
+  4. Applied MDL-43824 grade.less to experimental CSS and raised https://github.com/bmbrands/theme_bootstrap/pull/347 for parent
+     Bootstrap.
   5. Applied same Essential FitVids solution: https://github.com/gjb2048/moodle-theme_essential/issues/354.
   6. Site page improvements for when they cannot be displayed.
   7. Update to Bootstrap 3.3.0 - https://github.com/twbs/bootstrap/releases/tag/v3.3.0.
@@ -234,8 +240,8 @@ Version 2.8.1.1.
   1.  Tweaks to editing the quiz as a result of: https://github.com/gjb2048/moodle-theme_essential/issues/318.
 
 4th October 2014 - Version 2.7.0.4 - DO NOT INSTALL ON PRODUCTION SERVERS.
-  1.  With the release of a stable parent Bootstrap on: https://moodle.org/mod/forum/discuss.php?d=271448, I have decided to release
-      this release candidate version of Shoehorn.
+  1.  With the release of a stable parent Bootstrap on: https://moodle.org/mod/forum/discuss.php?d=271448, I have decided to
+      release this release candidate version of Shoehorn.
   2.  You will need the parent theme from: https://moodle.org/plugins/download.php/6987/theme_bootstrap_moodle27_2014100300.zip.
 
 27th August 2014 - Version 2.7.0.3 - DO NOT INSTALL ON PRODUCTION SERVERS.
@@ -244,7 +250,8 @@ Version 2.8.1.1.
   2.  Various transparency changes to navbar, menu and footer.
   3.  Fixed the slider minimum height at varying device widths as so to prevent transition jitter in the content area.
   4.  Added IE detection with request to upgrade.
-  5.  Use Bootstrap JS way of data-toggle for course summary on front page, see: https://github.com/bmbrands/theme_bootstrap/issues/301.
+  5.  Use Bootstrap JS way of data-toggle for course summary on front page, see:
+      https://github.com/bmbrands/theme_bootstrap/issues/301.
   6.  Fixed two column login page when 'auth_instructions' setting is set.
   7.  Fixed all pages image showing on front page when it has none.
   8.  Placed a panel around the page heading when an image is shown and change the text to the text colour.
@@ -312,7 +319,8 @@ Version 2.8.1.1.
       this is implementation-al and should not affect 'imagebank.php' URLs.
  12.  Collapsed Topics inspired CONTRIB-4099 to look again at the course layout and fix.
  13.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100_2
- 14.  Implemented show old messages setting I developed on: https://github.com/gjb2048/theme_bootstrap/commit/86ca17108e5f03daf9697899188dffc7f8e5b7f2
+ 14.  Implemented show old messages setting I developed on:
+      https://github.com/gjb2048/theme_bootstrap/commit/86ca17108e5f03daf9697899188dffc7f8e5b7f2
 
  2nd April 2014 - Version 2.6.0.2 - DO NOT INSTALL ON PRODUCTION SERVERS.
   1.  Bootstrap parent: https://github.com/gjb2048/theme_bootstrap/releases/tag/V2014032100
