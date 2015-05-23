@@ -177,6 +177,7 @@ Version information
 ===================
 Version 2.9.0.4.
   1. Fix padding of lists in popup dialogues.
+  2. Conversion to some colour UI settings - work in progress.
 
 Version 2.9.0.3.
   1. Fix renderers after Bootstrap theme separation.

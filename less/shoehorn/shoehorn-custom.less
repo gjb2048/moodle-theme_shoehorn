@@ -25,9 +25,8 @@
 
 // HTML.
 html {
-    background-color: @footer-bottom-bg;
-    background-color: rgba(red(@footer-bottom-bg), green(@footer-bottom-bg), blue(@footer-bottom-bg), 0.6);
-    #gradient > .vertical(@page-top-bg, @page-bottom-bg);
+    background-color: ~"[[setting:pagebottom]]";
+    #shoehorn > .verticalrgba(~"[[setting:pagetoprgba]]", ~"[[setting:pagebottomrgba]]");
 }
 
 // Body.
@@ -1165,7 +1164,7 @@ pre.sh {
 
 // Footer.
 #page-footer {
-    #gradient > .vertical(@footer-top-bg, @footer-bottom-bg, 0.5);
+    #shoehorn > .verticalrgba(~"[[setting:footertoprgba]]"; ~"[[setting:footerbottomrgba]]");
     color: @page-bottom-bg-light;
 }
 

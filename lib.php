@@ -36,6 +36,19 @@ function theme_shoehorn_process_css($css, $theme) {
     // Process look and feel.
     $css = theme_shoehorn_set_landf($css, $theme);
 
+    // Colour settings.
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', '#ffd974');
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba('#ffd974', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', '#ffd053');
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborderrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', '#855fc8');
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba('#855fc8', 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetoprgba]]', shoehorn_hex2rgba('#1F4D87', 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottom]]', '#C9E6FF');
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottomrgba]]', shoehorn_hex2rgba('#C9E6FF', 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertoprgba]]', shoehorn_hex2rgba('#269F00', 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottomrgba]]', shoehorn_hex2rgba('#267F00', 0.5));
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
@@ -584,7 +597,7 @@ function shoehorn_hex2rgb($hex) {
         $b = hexdec(substr($hex, 4, 2));
     }
     $rgb = array($r, $g, $b);
-    return implode(",", $rgba); // Returns the rgb values separated by commas.
+    return implode(", ", $rgba); // Returns the rgb values separated by commas.
 }
 
 /**
@@ -608,5 +621,5 @@ function shoehorn_hex2rgba($hex, $alpha) {
         $b = hexdec(substr($hex, 4, 2));
     }
     $rgba = array($r, $g, $b, $alpha);
-    return 'rgba('.implode(",", $rgba).')'; // Returns the rgba values separated by commas.
+    return 'rgba('.implode(", ", $rgba).')'; // Returns the rgba values separated by commas.
 }
