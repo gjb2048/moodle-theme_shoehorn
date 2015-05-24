@@ -41,7 +41,10 @@ body.pagelayout-redirect {
 }
 
 a {
-   color: ~"[[setting:linkcolour]]";
+    color: ~"[[setting:linkcolour]]";
+    &:hover, &:active, &:focus {
+        color: ~"[[setting:linkcolourhover]]";
+    }
 }
 
 // Navbar.
@@ -213,18 +216,22 @@ header {
 
 body {
     &.allpagesbackgroundimage, &.frontpagebackgroundimage {
+        @rgbwbaba: %("rgba(%d, %d, %d, %d);", round(red(@well-bg)), round(green(@well-bg)), round(blue(@well-bg)), 0.5);
+        @rgbwbobo: %("rgba(%d, %d, %d, %d);", round(red(@well-border)), round(green(@well-border)), round(blue(@well-border)), 0.7);
         .moodleheader {
             .heading, .logoheading {
                 color: ~"[[setting:textcolour]]";
                 padding: 4px;
-                @rgbwbaba: %("rgba(%d, %d, %d, %d);", round(red(@well-bg)), round(green(@well-bg)), round(blue(@well-bg)), 0.5);
                 #shoehorn > .background-opacity(@well-bg; @rgbwbaba);
                 border-style: solid;
                 border-width: 1px;
-                @rgbwbobo: %("rgba(%d, %d, %d, %d);", round(red(@well-border)), round(green(@well-border)), round(blue(@well-border)), 0.7);
                 #shoehorn > .border-opacity(@well-border; @rgbwbobo);
                 border-radius: @border-radius-base;
             }
+        }
+        .panel-default, .block, .forumpost {
+            #shoehorn > .background-opacity(@well-bg; @rgbwbaba);
+            #shoehorn > .border-opacity(@well-border; @rgbwbobo);
         }
     }
 }
@@ -262,8 +269,8 @@ body.pagelayout-redirect #page {
         float: none; // My home page.
     }
 
-    .block, .panel-default, .info {
-        background-color: rgba(red(#fff), green(#fff), blue(#fff), 0.9);
+    .block, .panel-default {
+        background-color: rgba(red(@body-bg), green(@body-bg), blue(@body-bg), 0.9);
     }
 }
 
@@ -1190,7 +1197,7 @@ pre.sh {
     a {
         color: ~"[[setting:linkcolour]]";
         &:hover, &:active, &:focus {
-            color: darken(@body-bg, 8%);
+            color: ~"[[setting:linkcolourhover]]";
         }
     }
     .hasevent a {

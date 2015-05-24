@@ -47,6 +47,7 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10dark]]', shoehorn_hexadjust('#1F4D87', 10));
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour75rgba]]', shoehorn_hex2rgba('#1F4D87', 0.75));
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', '#1F4D87');
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolourhover]]', '#1F4D87');
 
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolour]]', '#653cae');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolourlight]]', shoehorn_hexadjust('#653cae', -10));
@@ -59,17 +60,20 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', '#1F4D87');
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba('#1F4D87', 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground90rgba]]', shoehorn_hex2rgba('#1F4D87', .9));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground]]', '#C9E6FF');
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundrgba]]', shoehorn_hex2rgba('#C9E6FF', 1));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground5rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.5));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground6rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.6));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground65rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.65));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground7rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.7));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground95rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.95));
 
     $pagebottombackgroundlight = shoehorn_hexadjust('#C9E6FF', -5);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight]]', $pagebottombackgroundlight); // Page bottom light #e3f2ff.
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight4rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.4));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight75rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight2light]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight5dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 5));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight10dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 10));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust('#C9E6FF', 5));

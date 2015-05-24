@@ -24112,17 +24112,16 @@ img.iconhelp,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd
 {
+    min-height: 28px;
     padding: 2px 5px;
 
     color: [[setting:textcolour]];
-    border-bottom: 1px solid #ffd053;
+    border-bottom: 1px solid [[setting:navbardefaultborder]];
     background-color: #fff;
-    background-image: -webkit-linear-gradient(top, #fff 0%, #ffd974 100%);
-    background-image:      -o-linear-gradient(top, #fff 0%, #ffd974 100%);
-    background-image:         linear-gradient(to bottom, #fff 0%, #ffd974 100%);
+    background-image: -webkit-linear-gradient(top, #fff 0%, [[setting:navbardefaultbackground]] 100%);
+    background-image:      -o-linear-gradient(top, #fff 0%, [[setting:navbardefaultbackground]] 100%);
+    background-image:         linear-gradient(to bottom, #fff 0%, [[setting:navbardefaultbackground]] 100%);
     background-repeat: repeat-x;
-
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffd974', GradientType=0);
 }
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd
 {
@@ -24148,7 +24147,7 @@ img.iconhelp,
 {
     font-weight: bold;
 
-    color: #1f4d87;
+    color: [[setting:pagetopbackground]];
 }
 .block .moodle-actionmenu[data-enhanced].show
 {
@@ -24237,8 +24236,8 @@ ul.weeks
 }
 #dockeditempanel .dockeditempanel_content
 {
-    border-color: rgba(31, 77, 135, .9);
-    background-color: rgba(201, 230, 255, .95);
+    border-color: [[setting:pagetopbackground90rgba]];
+    background-color: [[setting:pagebottombackground95rgba]];
 }
 #page-enrol-users .enrol_user_buttons,
 .enrol_user_buttons
@@ -24389,13 +24388,13 @@ ul.weeks
 {
     border: 1px solid [[setting:pagebottombackground]];
     border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
-    background: #edf7ff;
+    background: [[setting:pagebottombackgroundlight2light]];
 }
 .fp-viewbar
 {
     border: 1px solid [[setting:pagebottombackground]];
     border-bottom: 1px solid [[setting:pagebottombackgroundlight]];
-    background: #edf7ff;
+    background: [[setting:pagebottombackgroundlight2light]];
 }
 .fp-viewbar a
 {
@@ -25136,8 +25135,8 @@ ul.weeks
 
     margin-top: 60px;
 
-    border: 1px solid rgba(201, 230, 255, .7);
-    background-color: rgba(201, 230, 255, .5);
+    border: 1px solid [[setting:pagebottombackground7rgba]];
+    background-color: [[setting:pagebottombackground5rgba]];
 }
 .loginbox .loginform .form-input input[type='text'],
 .loginbox .loginform .form-input input[type='password']
@@ -25250,19 +25249,19 @@ ul.weeks
 .que .info,
 .path-mod-quiz .qnbutton
 {
-    border: 1px solid #1f4d87;
+    border: 1px solid [[setting:pagetopbackground]];
     border-radius: 4px;
     background-color: [[setting:pagebottombackground]];
 }
 .que .info.thispage,
 .path-mod-quiz .qnbutton.thispage
 {
-    border-color: #1f4d87;
+    border-color: [[setting:pagetopbackground]];
 }
 .que .info.thispage .thispageholder,
 .path-mod-quiz .qnbutton.thispage .thispageholder
 {
-    border-color: #1f4d87;
+    border-color: [[setting:pagetopbackground]];
 }
 .que .info:hover,
 .path-mod-quiz .qnbutton:hover
@@ -25459,15 +25458,13 @@ ul.weeks
     padding-top: 1px;
     padding-bottom: 2px;
 
-    border-color: #ffd053;
-    border-bottom: solid 1px #1f4d87;
+    border-color: [[setting:navbardefaultborder]];
+    border-bottom: solid 1px [[setting:pagetopbackground]];
     border-radius: 4px;
-    background-image: -webkit-linear-gradient(top, #fff 0%, #ffd974 100%);
-    background-image:      -o-linear-gradient(top, #fff 0%, #ffd974 100%);
-    background-image:         linear-gradient(to bottom, #fff 0%, #ffd974 100%);
+    background-image: -webkit-linear-gradient(top, fff 0%, [[setting:navbardefaultbackground]] 100%);
+    background-image:      -o-linear-gradient(top, fff 0%, [[setting:navbardefaultbackground]] 100%);
+    background-image:         linear-gradient(to bottom, fff 0%, [[setting:navbardefaultbackground]] 100%);
     background-repeat: repeat-x;
-
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffd974', GradientType=0);
 }
 .editor_atto_content_wrap
 {
@@ -25511,7 +25508,7 @@ div.editor_atto_toolbar div.atto_group
 {
     border: 1px solid [[setting:pagebottombackground]] !important;
     border-bottom: 1px solid [[setting:pagebottombackgroundlight]] !important;
-    background: #edf7ff !important;
+    background: [[setting:pagebottombackgroundlight2light]] !important;
 }
 body#page-question-type-multichoice div[id^=fitem_id_][id*=answer_],
 body#page-question-type-multichoice div[id^=fitem_id_][id*=fraction_],
@@ -25607,6 +25604,12 @@ body.pagelayout-redirect
 a
 {
     color: [[setting:linkcolour]];
+}
+a:hover,
+a:active,
+a:focus
+{
+    color: [[setting:linkcolourhover]];
 }
 body.compactnavbar .navbar
 {
@@ -26005,6 +26008,18 @@ body.frontpagebackgroundimage .moodleheader .logoheading
     background-color: #f5f5f5;
     background-color: rgba(245, 245, 245, .5);;;
 }
+body.allpagesbackgroundimage .panel-default,
+body.frontpagebackgroundimage .panel-default,
+body.allpagesbackgroundimage .block,
+body.frontpagebackgroundimage .block,
+body.allpagesbackgroundimage .forumpost,
+body.frontpagebackgroundimage .forumpost
+{
+    border-color: #e3e3e3;
+    border-color: rgba(227, 227, 227, .7);
+    background-color: #f5f5f5;
+    background-color: rgba(245, 245, 245, .5);;;
+}
 a.logoarea
 {
     color: inherit;
@@ -26038,8 +26053,7 @@ body.pagelayout-redirect #page
     float: none;
 }
 #region-main-shoehorn .block,
-#region-main-shoehorn .panel-default,
-#region-main-shoehorn .info
+#region-main-shoehorn .panel-default
 {
     background-color: rgba(255, 255, 255, .9);
 }
@@ -27444,7 +27458,7 @@ pre.sh
 #page-footer .block a:active,
 #page-footer .block a:focus
 {
-    color: #ebebeb;
+    color: [[setting:linkcolourhover]];
 }
 #page-footer .block .hasevent a:hover,
 #page-footer .block .hasevent a:active,

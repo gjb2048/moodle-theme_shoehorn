@@ -42,7 +42,7 @@ body.allpagesbackgroundimage #page-area {
     [[setting:landfallpagesbackgroundimage]]
 }
 
-body #region-main-shoehorn {
+body #region-main-shoehorn, body.allpagesbackgroundimage .panel-default, .block, .forumpost {
     [[setting:landfallpagescontenttransparency]]
 }
 
@@ -54,7 +54,7 @@ body.frontpagebackgroundimage #page-area {
     [[setting:landffrontpagebackgroundimage]]
 }
 
-body.pagelayout-frontpage #region-main-shoehorn {
+body.pagelayout-frontpage #region-main-shoehorn, body.frontpagebackgroundimage .panel-default, .block, .forumpost {
     [[setting:landffrontpagecontenttransparency]]
 }
 

@@ -132,10 +132,11 @@ img.iconhelp,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
     color: ~"[[setting:textcolour]]";
-    border-bottom: 1px solid @navbar-default-border;
+    border-bottom: 1px solid ~"[[setting:navbardefaultborder]]";
     background-color: #fff;
-    #gradient > .vertical(#fff, @navbar-default-bg);
+    #shoehorn > .verticalsettting(~"#fff", ~"[[setting:navbardefaultbackground]]");
     padding: 2px 5px; // Until https://github.com/bmbrands/theme_bootstrap/pull/350 accepted.
+    min-height: 28px;
 }
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
@@ -155,7 +156,7 @@ img.iconhelp,
     .menu {
         > li > a {
             &:hover, &:focus {
-                color: @page-top-bg;
+                color: ~"[[setting:pagetopbackground]]";
                 font-weight: bold;
             }
         }
@@ -253,8 +254,8 @@ ul {
 
 #dockeditempanel {
     .dockeditempanel_content {
-        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.95);
-        border-color: rgba(red(@page-top-bg), green(@page-top-bg), blue(@page-top-bg), 0.9);
+        background-color: ~"[[setting:pagebottombackground95rgba]]";
+        border-color: ~"[[setting:pagetopbackground90rgba]]";
     }
 }
 
@@ -400,13 +401,13 @@ ul {
 {
     border: 1px solid ~"[[setting:pagebottombackground]]";
     border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
-    background: lighten(@page-bottom-bg-light, 2%);
+    background: ~"[[setting:pagebottombackgroundlight2light]]";
 }
 
 .fp-viewbar {
     border: 1px solid ~"[[setting:pagebottombackground]]";
     border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]";
-    background: lighten(@page-bottom-bg-light, 2%);
+    background: ~"[[setting:pagebottombackgroundlight2light]]";
 }
 
 .fp-viewbar a {
@@ -633,8 +634,8 @@ ul {
     &.onecolumn, &.twocolumns {
         // Separate to override above.
         float: none;
-        background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.5);
-        border: 1px solid rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+        background-color: ~"[[setting:pagebottombackground5rgba]]";
+        border: 1px solid ~"[[setting:pagebottombackground7rgba]]";
         margin-top: 60px;
     }
 }
@@ -694,8 +695,8 @@ ul {
             border-top-left-radius: 0px;
             border-top-right-radius: 0px;
             .userpicture {
-                background-color: #fff;
-                border: solid 2px rgba(red(#fff), green(#fff), blue(#fff), 0.5);
+                background-color: @body-bg;
+                border: solid 2px rgba(red(@body-bg), green(@body-bg), blue(@body-bg), 0.5);
                 border-radius: @border-radius-base;
                 height: 31px;
                 width: 31px;
@@ -735,12 +736,12 @@ ul {
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
     background-color: ~"[[setting:pagebottombackground]]";
-    border: 1px solid @page-top-bg;
+    border: 1px solid ~"[[setting:pagetopbackground]]";
     border-radius: @border-radius-base;
     &.thispage {
-        border-color: @page-top-bg;
+        border-color: ~"[[setting:pagetopbackground]]";
         .thispageholder {
-            border-color: @page-top-bg;
+            border-color: ~"[[setting:pagetopbackground]]";
         }
     }
     &:hover {
@@ -866,10 +867,10 @@ ul {
 }
 
 .yui-skin-sam .yui-panel .hd {
-    #gradient > .vertical(#fff, @navbar-default-bg);
-    border-color: @navbar-default-border;
+    #shoehorn > .verticalsettting(~"fff", ~"[[setting:navbardefaultbackground]]");
+    border-color: ~"[[setting:navbardefaultborder]]";
     border-radius: @border-radius-base;
-    border-bottom: solid 1px @page-top-bg;
+    border-bottom: solid 1px ~"[[setting:pagetopbackground]]";
     margin-top: -1px;
     padding-top: 1px;
     margin-bottom: -2px;
@@ -915,7 +916,7 @@ div.editor_atto_toolbar {
     div.atto_group {
         border: 1px solid ~"[[setting:pagebottombackground]]" !important;
         border-bottom: 1px solid ~"[[setting:pagebottombackgroundlight]]" !important;
-        background: lighten(@page-bottom-bg-light, 2%) !important;
+        background: ~"[[setting:pagebottombackgroundlight2light]]" !important;
     }
 }
 
