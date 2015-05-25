@@ -37,53 +37,71 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_landf($css, $theme);
 
     // Colour settings.
-    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackground]]', '#267F00');  // Footer bottom background.
-    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackgroundrgba]]', shoehorn_hex2rgba('#267F00', 0.6));
+    $footerbottomcolour = (!empty($theme->settings->footerbottomcolour)) ? $theme->settings->footerbottomcolour : '#267F00';
+    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackground]]', $footerbottomcolour);  // Footer bottom background.
+    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.6));
 
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour]]', '#1F4D87');
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour8light]]', shoehorn_hexadjust('#1F4D87', -8));
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10light]]', shoehorn_hexadjust('#1F4D87', -10));
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour5dark]]', shoehorn_hexadjust('#1F4D87', 5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10dark]]', shoehorn_hexadjust('#1F4D87', 10));
-    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour75rgba]]', shoehorn_hex2rgba('#1F4D87', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', '#1F4D87');
-    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolourhover]]', '#1F4D87');
+    $textcolour = (!empty($theme->settings->textcolour)) ? $theme->settings->textcolour : '#1F4D87';
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour]]', $textcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour8light]]', shoehorn_hexadjust($textcolour, -8));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10light]]', shoehorn_hexadjust($textcolour, -10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour5dark]]', shoehorn_hexadjust($textcolour, 5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10dark]]', shoehorn_hexadjust($textcolour, 10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:textcolour75rgba]]', shoehorn_hex2rgba($textcolour, 0.75));
 
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolour]]', '#653cae');
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolourlight]]', shoehorn_hexadjust('#653cae', -10));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', '#ffd974');
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba('#ffd974', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]', shoehorn_hex2rgba('#ffd974', 0.8));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', '#ffd053');
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborderrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', '#ffd053');
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba('#ffd053', 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', '#1F4D87');
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba('#1F4D87', 1));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground90rgba]]', shoehorn_hex2rgba('#1F4D87', .9));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground]]', '#C9E6FF');
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundrgba]]', shoehorn_hex2rgba('#C9E6FF', 1));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground5rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground6rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.6));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground65rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.65));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground7rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.7));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground95rgba]]', shoehorn_hex2rgba('#C9E6FF', 0.95));
+    $linkcolour = (!empty($theme->settings->linkcolour)) ? $theme->settings->linkcolour : '#1F4D87';
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', $linkcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolourhover]]', $linkcolour);
 
-    $pagebottombackgroundlight = shoehorn_hexadjust('#C9E6FF', -5);
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight]]', $pagebottombackgroundlight); // Page bottom light #e3f2ff.
+    $navbartextcolour = (!empty($theme->settings->navbartextcolour)) ? $theme->settings->navbartextcolour : '#653CAE';
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolour]]', $navbartextcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolourlight]]', shoehorn_hexadjust($navbartextcolour, -10));
+
+    $navbarbackgroundcolour = (!empty($theme->settings->navbarbackgroundcolour)) ? $theme->settings->navbarbackgroundcolour : '#FFD974';
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', $navbarbackgroundcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.8));
+
+    $navbarbordercolour = (!empty($theme->settings->navbarbordercolour)) ? $theme->settings->navbarbordercolour : '#FFD053';
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', $navbarbordercolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborderrgba]]', shoehorn_hex2rgba($navbarbordercolour, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', $navbarbordercolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba($navbarbordercolour, 0.75));
+
+    $pagetopcolour = (!empty($theme->settings->pagetopcolour)) ? $theme->settings->pagetopcolour : '#1F4D87';
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', $pagetopcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba($pagetopcolour, 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground90rgba]]', shoehorn_hex2rgba($pagetopcolour, .9));
+
+    $pagebottomcolour = (!empty($theme->settings->pagebottomcolour)) ? $theme->settings->pagebottomcolour : '#C9E6FF';
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground]]', $pagebottomcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundrgba]]', shoehorn_hex2rgba($pagebottomcolour, 1));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground5rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground6rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.6));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground65rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.65));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground7rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.7));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground95rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.95));
+
+    $pagebottombackgroundlight = shoehorn_hexadjust($pagebottomcolour, -5);
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight]]', $pagebottombackgroundlight);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight4rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.4));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight75rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.75));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight2light]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight5dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 5));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight10dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 10));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust('#C9E6FF', 5));
-
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust($pagebottomcolour, 5));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]', shoehorn_hex2rgba('#269F00', 0.5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', '#267F00');
-    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]', shoehorn_hex2rgba('#267F00', 0.5));
 
-    $footertopbackgroundlight = shoehorn_hexadjust('#269F00', 20);
+    $footertextcolour = (!empty($theme->settings->footertextcolour)) ? $theme->settings->footertextcolour : '#B8D2E9';
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolour]]', $footertextcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolourlight]]', shoehorn_hexadjust($footertextcolour, -10));
+
+    $footertopcolour = (!empty($theme->settings->footertopcolour)) ? $theme->settings->footertopcolour : '#269F00';
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]', shoehorn_hex2rgba($footertopcolour, 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', $footerbottomcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.5));
+
+    $footertopbackgroundlight = shoehorn_hexadjust($footertopcolour, 20);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlight]]', $footertopbackgroundlight);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]', shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
 
@@ -147,10 +165,11 @@ function theme_shoehorn_set_landf($css, $theme) {
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     if (!empty($theme->settings->landfallpagescontenttransparency)) {
-        $replacement .= $theme->settings->landfallpagescontenttransparency / 100;
-        $replacementmain .= $theme->settings->landfallpagescontenttransparency;
+        $allpages = round($theme->settings->landfallpagescontenttransparency, 2);
+        $replacement .= $allpages / 100;
+        $replacementmain .= $allpages;
         $replacementmain .= '); opacity: ';
-        $replacementmain .= $theme->settings->landfallpagescontenttransparency / 100;
+        $replacementmain .= $allpages / 100;
     } else {
         $replacementmain .= '100); opacity: 1.0';
         $replacement = '1.0';
@@ -179,10 +198,11 @@ function theme_shoehorn_set_landf($css, $theme) {
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     if (!empty($theme->settings->landffrontpagecontenttransparency)) {
-        $replacement .= $theme->settings->landffrontpagecontenttransparency / 100;
-        $replacementmain .= $theme->settings->landffrontpagecontenttransparency;
+        $frontpage = round($theme->settings->landffrontpagecontenttransparency, 2);
+        $replacement .= $frontpage / 100;
+        $replacementmain .= $frontpage;
         $replacementmain .= '); opacity: ';
-        $replacementmain .= $theme->settings->landffrontpagecontenttransparency / 100;
+        $replacementmain .= $frontpage / 100;
     } else {
         $replacementmain .= '100); opacity: 1.0';
         $replacement = '1.0';

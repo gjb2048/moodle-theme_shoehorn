@@ -237,10 +237,9 @@ body {
 }
 
 // Heading with logo / no logo.
-a.logoarea {
-    color: inherit;
-    &:hover, &:focus {
-        background-color: transparent;
+.moodleheader {
+    .logoheading, .heading {
+        color: ~"[[setting:textcolour]]";
     }
 }
 
@@ -1176,13 +1175,13 @@ pre.sh {
 // Footer.
 #page-footer {
     #shoehorn > .verticalrgba(~"[[setting:footertopbackgroundrgba]]"; ~"[[setting:footerbottombackgroundrgba]]");
-    color: ~"[[setting:pagebottombackgroundlight]]";
+    color: ~"[[setting:footertextcolour]]";
 }
 
 #page-footer a {
-    color: ~"[[setting:pagebottombackgroundlight]]";
+    color: ~"[[setting:footertextcolour]]";
     &:hover, &:focus {
-        color: ~"[[setting:pagebottombackgroundlighthover]]";
+        color: ~"[[setting:footertextcolourlight]]";
         #shoehorn > .background-opacity(~"[[setting:footertopbackgroundlight]]"; ~"[[setting:footertopbackgroundlightrgba]]");
     }
 }

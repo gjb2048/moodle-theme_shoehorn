@@ -358,10 +358,12 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
     color: ~"[[setting:navbardefaultcolour]]";
   }
 
-  .navbar-brand, .navbar-nav > li > a {
+  .navbar-brand, .navbar-nav > li > a, .navbar-nav > .open > a {
     color: ~"[[setting:navbardefaultcolour]]";
+    background-color: inherit;
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       color: ~"[[setting:navbardefaultcolourlight]]";
       #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
     }
@@ -412,6 +414,10 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
 }
 .panel-danger {
   background-color: @panel-danger-border;
+}
+
+.form-defaultinfo, .form-label .form-shortname {
+    color: ~"[[setting:textcolour]]";
 }
 
 // scaffolding.less.

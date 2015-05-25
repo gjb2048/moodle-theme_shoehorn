@@ -536,6 +536,110 @@ defined('MOODLE_INTERNAL') || die;
     // Look and feel.
     $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
 
+    // Colours.
+    $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_colours', get_string('landfcolours', 'theme_shoehorn'),
+            format_text(get_string('landfcolours_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    // Text.
+    $name = 'theme_shoehorn/textcolour';
+    $title = get_string('textcolour', 'theme_shoehorn');
+    $description = get_string('textcolourdesc', 'theme_shoehorn');
+    $default = '#1F4D87';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Link.
+    $name = 'theme_shoehorn/linkcolour';
+    $title = get_string('linkcolour', 'theme_shoehorn');
+    $description = get_string('linkcolourdesc', 'theme_shoehorn');
+    $default = '#1F4D87';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Navbar Text.
+    $name = 'theme_shoehorn/navbartextcolour';
+    $title = get_string('navbartextcolour', 'theme_shoehorn');
+    $description = get_string('navbartextcolourdesc', 'theme_shoehorn');
+    $default = '#653CAE';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Navbar Background.
+    $name = 'theme_shoehorn/navbarbackgroundcolour';
+    $title = get_string('navbarbackgroundcolour', 'theme_shoehorn');
+    $description = get_string('navbarbackgroundcolourdesc', 'theme_shoehorn');
+    $default = '#FFD974';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Navbar Border.
+    $name = 'theme_shoehorn/navbarbordercolour';
+    $title = get_string('navbarbordercolour', 'theme_shoehorn');
+    $description = get_string('navbarbordercolourdesc', 'theme_shoehorn');
+    $default = '#FFD053';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Page Top.
+    $name = 'theme_shoehorn/pagetopcolour';
+    $title = get_string('pagetopcolour', 'theme_shoehorn');
+    $description = get_string('pagetopcolourdesc', 'theme_shoehorn');
+    $default = '#1F4D87';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Page Bottom.
+    $name = 'theme_shoehorn/pagebottomcolour';
+    $title = get_string('pagebottomcolour', 'theme_shoehorn');
+    $description = get_string('pagebottomcolourdesc', 'theme_shoehorn');
+    $default = '#C9E6FF';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Footer Text.
+    $name = 'theme_shoehorn/footertextcolour';
+    $title = get_string('footertextcolour', 'theme_shoehorn');
+    $description = get_string('footertextcolourdesc', 'theme_shoehorn');
+    $default = '#B8D2E9';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Footer top.
+    $name = 'theme_shoehorn/footertopcolour';
+    $title = get_string('footertopcolour', 'theme_shoehorn');
+    $description = get_string('footertopcolourdesc', 'theme_shoehorn');
+    $default = '#269F00';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
+    // Footer bottom.
+    $name = 'theme_shoehorn/footerbottomcolour';
+    $title = get_string('footerbottomcolour', 'theme_shoehorn');
+    $description = get_string('footerbottomcolourdesc', 'theme_shoehorn');
+    $default = '#267F00';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
     // Front page.
     $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_frontpage', get_string('landffontpage', 'theme_shoehorn'),
             format_text(get_string('landffontpage_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));

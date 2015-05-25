@@ -27412,15 +27412,22 @@ select.singleselect
 }
 
 .navbar-default .navbar-brand,
-.navbar-default .navbar-nav > li > a
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > .open > a
 {
     color: [[setting:navbardefaultcolour]];
+    background-color: inherit;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-brand:focus,
-.navbar-default .navbar-nav > li > a:focus
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > .open > a:active
 {
     color: [[setting:navbardefaultcolourlight]];
     background-color: [[setting:navbardefaulthover]];
@@ -27493,6 +27500,12 @@ select.singleselect
     background-color: #ebccd1;
 }
 
+.form-defaultinfo,
+.form-label .form-shortname
+{
+    color: [[setting:textcolour]];
+}
+
 a:hover,
 a:focus
 {
@@ -27508,6 +27521,22 @@ a:focus
 {
     margin-right: 0;
     margin-left: 0;
+}
+
+.block .header h2
+{
+    color: [[setting:linkcolour]];
+}
+
+legend,
+#adminsettings h3,
+.backup-restore .backup-section > h2.header,
+.backup-restore .backup-section .backup-sub-section h3,
+#adminsettings h3,
+.backup-restore .backup-section > h2.header,
+.backup-restore .backup-section .backup-sub-section h3
+{
+    color: [[setting:textcolour]];
 }
 
 .block .minicalendar td.weekend
@@ -30041,15 +30070,10 @@ body.frontpagebackgroundimage .forumpost
     background-color: rgba(245, 245, 245, .5);
 }
 
-a.logoarea
+.moodleheader .logoheading,
+.moodleheader .heading
 {
-    color: inherit;
-}
-
-a.logoarea:hover,
-a.logoarea:focus
-{
-    background-color: transparent;
+    color: [[setting:textcolour]];
 }
 
 header.moodleheader .heading
@@ -31649,7 +31673,7 @@ pre.sh
 
 #page-footer
 {
-    color: [[setting:pagebottombackgroundlight]];
+    color: [[setting:footertextcolour]];
     background-image: -webkit-linear-gradient(top, [[setting:footertopbackgroundrgba]] 0%, [[setting:footerbottombackgroundrgba]] 100%);
     background-image:         linear-gradient(to bottom, [[setting:footertopbackgroundrgba]] 0%, [[setting:footerbottombackgroundrgba]] 100%);
     background-repeat: repeat-x;
@@ -31657,13 +31681,13 @@ pre.sh
 
 #page-footer a
 {
-    color: [[setting:pagebottombackgroundlight]];
+    color: [[setting:footertextcolour]];
 }
 
 #page-footer a:hover,
 #page-footer a:focus
 {
-    color: [[setting:pagebottombackgroundlighthover]];
+    color: [[setting:footertextcolourlight]];
     background-color: [[setting:footertopbackgroundlight]];
     background-color: [[setting:footertopbackgroundlightrgba]];
 }

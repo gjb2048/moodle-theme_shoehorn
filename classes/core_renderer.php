@@ -168,7 +168,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
         } else {
             $o .= html_writer::link(new moodle_url('/'),
                   html_writer::tag($tag, $this->page->heading, array('class' => 'heading')),
-                  array('title' => get_string('home'), 'class' => 'logoarea'));
+                  array('title' => get_string('home')));
         }
 
         $ieprop = core_useragent::check_ie_properties();

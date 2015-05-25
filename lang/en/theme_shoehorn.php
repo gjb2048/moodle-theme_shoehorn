@@ -291,12 +291,37 @@ $string['loginbackgroundchangerimage_desc'] = 'The image {$a->image}';
 $string['landfheading'] = 'Look and feel settings';
 $string['landfheadingsub'] = 'Change various aspects with these look and feel settings';
 $string['landfheadingdesc'] = 'Change various aspects of the look and feel with these settings.';
+
+$string['landfcolours'] = 'Colours';
+$string['landfcolours_desc'] = 'Colour settings.';
+$string['textcolour'] = 'Text';
+$string['textcolourdesc'] = 'Text colour.';
+$string['linkcolour'] = 'Link';
+$string['linkcolourdesc'] = 'Link colour.';
+$string['navbartextcolour'] = 'Navbar text';
+$string['navbartextcolourdesc'] = 'Navbar text colour.';
+$string['navbarbackgroundcolour'] = 'Navbar background';
+$string['navbarbackgroundcolourdesc'] = 'Navbar background colour.';
+$string['navbarbordercolour'] = 'Navbar border';
+$string['navbarbordercolourdesc'] = 'Navbar border colour.';
+$string['pagetopcolour'] = 'Page top';
+$string['pagetopcolourdesc'] = 'Page top colour.';
+$string['pagebottomcolour'] = 'Page bottom';
+$string['pagebottomcolourdesc'] = 'Page bottom colour.';
+$string['footertextcolour'] = 'Footer text';
+$string['footertextcolourdesc'] = 'Footer text colour.';
+$string['footertopcolour'] = 'Footer top';
+$string['footertopcolourdesc'] = 'Footer top colour.';
+$string['footerbottomcolour'] = 'Footer bottom';
+$string['footerbottomcolourdesc'] = 'Footer bottom colour.';
+
 $string['landffontpage'] = 'Front page';
 $string['landffontpage_desc'] = 'Front page look and feel settings.';
 $string['landffrontpagebackgroundimage'] = 'Front page background image';
 $string['landffrontpagebackgroundimage_desc'] = 'Set the front page background image.';
 $string['landffrontpagecontenttransparency'] = 'Front page content transparency';
 $string['landffrontpagecontenttransparency_desc'] = 'Set the front page content transparency.';
+
 $string['landfallpages'] = 'All pages';
 $string['landfallpages_desc'] = 'All pages look and feel settings bar the front.';
 $string['landfallpagesbackgroundimage'] = 'All pages background image';
