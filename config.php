@@ -55,6 +55,7 @@ $THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }
+$THEME->sheets[] = 'chartist_min';
 $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
@@ -124,7 +125,7 @@ $THEME->layouts = array(
         'file' => 'default.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
-        'options' => array('fluid' => true),
+        'options' => array('fluid' => true, 'chart' => true),
     ),
     // My dashboard page.
     'mydashboard' => array(

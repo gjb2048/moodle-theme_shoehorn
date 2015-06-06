@@ -36,4 +36,8 @@ switch ($PAGE->pagelayout) {
         if (!empty($loginpageimages)) {
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init');
         }
+        break;
+    case 'admin':
+        $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init');
+        break;
 }
