@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.5.
+  1. Added 'Chartist' to display 'User load' on admin pages.  TODO: Have a setting for this.
+
 Version 2.9.0.4.
   1. Fix padding of lists in popup dialogues.
   2. Conversion to some colour UI settings - work in progress.

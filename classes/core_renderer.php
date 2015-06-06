@@ -952,6 +952,45 @@ class theme_shoehorn_core_renderer extends core_renderer {
     }
 
     /**
+     * Output all the blocks in a particular region.
+     *
+     * @param string $region the name of a region on this page.
+     * @return string the HTML to be output.
+     */
+    public function blocks_for_region($region) {
+        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+        $blocks = $this->page->blocks->get_blocks_for_region($region);
+        $lastblock = null;
+        $zones = array();
+        foreach ($blocks as $block) {
+            $zones[] = $block->title;
+        }
+        $output = '';
+
+        $chartblock = false;
+        foreach ($blockcontents as $bc) {
+            if ($bc instanceof block_contents) {
+                if (!empty($bc->attributes['chart'])) {
+                    $chartblock = $bc;
+                } else {
+                    $output .= $this->block($bc, $region);
+                    $lastblock = $bc->title;
+                }
+            } else if ($bc instanceof block_move_target) {
+                $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
+            } else {
+                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+            }
+        }
+
+        if ($chartblock) {
+            $output .= $this->block($chartblock, $region);
+        }
+
+        return $output;
+    }
+
+   /**
      * Get the HTML for blocks in the given region.
      *
      * @since Moodle 2.5.1 2.6
@@ -997,18 +1036,28 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
         $editing = $this->page->user_is_editing();
 
+        $chartblock = false;
         foreach ($blockcontents as $bc) {
             if ($bc instanceof block_contents) {
                 $bc->attributes['regionid'] = $regionid;
                 $bc->attributes['editing'] = $editing;
-                $output .= $this->collapse_block($bc, $region);
-                $lastblock = $bc->title;
+                if (!empty($bc->attributes['chart'])) {
+                    $chartblock = $bc;
+                } else {
+                    $output .= $this->collapse_block($bc, $region);
+                    $lastblock = $bc->title;
+                }
             } else if ($bc instanceof block_move_target) {
                 $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
             } else {
                 throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
             }
         }
+
+        if ($chartblock) {
+            $output .= $this->collapse_block($chartblock, $region);
+        }
+
         return $output;
     }
 

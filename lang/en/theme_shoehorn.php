@@ -401,6 +401,8 @@ $string['syntaxhelpfive'] = 'For example:';
 $string['syntaxhelpsix'] = 'becomes:';
 $string['syntaxhelpseven'] = 'More information on';
 
+// Charts.
+$string['userload'] = 'User load';
 
 // Readme.
 $string['readme_title'] = 'Shoehorn read-me';

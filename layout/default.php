@@ -25,6 +25,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once(dirname(__FILE__).'/tiles/additionaljs.php');
+
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
@@ -33,7 +35,6 @@ $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = shoehorn_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
-require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 
@@ -70,6 +71,7 @@ echo $OUTPUT->doctype(); ?>
             if ($knownregionpost) {
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
+
             <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
         </div>
     </div>
