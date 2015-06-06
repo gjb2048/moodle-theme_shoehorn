@@ -997,18 +997,28 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
         $editing = $this->page->user_is_editing();
 
+        $chartblock = false;
         foreach ($blockcontents as $bc) {
             if ($bc instanceof block_contents) {
                 $bc->attributes['regionid'] = $regionid;
                 $bc->attributes['editing'] = $editing;
-                $output .= $this->collapse_block($bc, $region);
-                $lastblock = $bc->title;
+                if (!empty($bc->attributes['chart'])) {
+                    $chartblock = $bc;
+                } else {
+                    $output .= $this->collapse_block($bc, $region);
+                    $lastblock = $bc->title;
+                }
             } else if ($bc instanceof block_move_target) {
                 $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
             } else {
                 throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
             }
         }
+
+        if ($chartblock) {
+            $output .= $this->collapse_block($chartblock, $region);
+        }
+
         return $output;
     }
 

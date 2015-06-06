@@ -24,14 +24,23 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+$haschart = (!empty($PAGE->layout_options['chart']));
+if ($haschart) {
+    $bc = new block_contents();
+    $bc->title = 'Chart';
+    $bc->attributes['class'] = 'block block_chart';
+    $bc->attributes['chart'] = true;
+    $bc->content = '<div class="ct-chart ct-perfect-fourth"></div>';
+
+    $defaultregion = $PAGE->blocks->get_default_region();
+    $PAGE->blocks->add_fake_block($bc, $defaultregion);
+}
 
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
 $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 $knownregionpost = $PAGE->blocks->is_known_region('side-post');
-
-$haschart = (!empty($PAGE->layout_options['chart']));
 
 $regions = shoehorn_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
@@ -73,11 +82,6 @@ echo $OUTPUT->doctype(); ?>
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
 
-            <?php if ($haschart) { ?>
-            <div class="row"><div class="col-sm-4 col-md-3 col-lg-2">
-                <div class="ct-chart ct-perfect-fourth"></div>
-            </div></div>
-            <?php } ?>
             <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
         </div>
     </div>

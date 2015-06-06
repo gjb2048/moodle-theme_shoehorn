@@ -38,6 +38,15 @@ switch ($PAGE->pagelayout) {
         }
         break;
     case 'admin':
-        $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init');
+        /*
+              var data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        series: [
+                  [5, 2, 4, 2, 0]
+                ]
+              }; */
+        $data = array('data' => array('labels' => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), 'series' => array(array(5, 2.5, 4, 2, 3, 3, 5))));
+
+        $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init', $data);
         break;
 }
