@@ -24,17 +24,8 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$haschart = (!empty($PAGE->layout_options['chart']));
-if ($haschart) {
-    $bc = new block_contents();
-    $bc->title = 'Chart';
-    $bc->attributes['class'] = 'block block_chart';
-    $bc->attributes['chart'] = true;
-    $bc->content = '<div class="ct-chart ct-perfect-fourth"></div>';
 
-    $defaultregion = $PAGE->blocks->get_default_region();
-    $PAGE->blocks->add_fake_block($bc, $defaultregion);
-}
+require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
@@ -44,7 +35,6 @@ $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = shoehorn_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
-require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $settingshtml = theme_shoehorn_html_for_settings($PAGE);
 

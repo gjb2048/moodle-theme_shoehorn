@@ -30217,6 +30217,11 @@ aside
     background-color: [[setting:navbardefaultbackground8rgba]];
 }
 
+.block.block_shoehorn_chart
+{
+    background-color: rgba(255, 255, 255, .5);
+}
+
 #region-main .block
 {
     color: [[setting:textcolour]];
@@ -31127,6 +31132,11 @@ body.fontawesome .block_recent_activity .header .title h2:before
 body.fontawesome .block_search_forums .header .title h2:before
 {
     content: '\f0e6';
+}
+
+body.fontawesome .block_shoehorn_chart .header .title h2:before
+{
+    content: '\f201';
 }
 
 body.fontawesome .block_adminblock .header .title h2:before

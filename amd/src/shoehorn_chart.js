@@ -20,7 +20,19 @@ define(['jquery', 'theme_shoehorn/chartist', 'core/log'], function($, Chartist, 
               }; */
 
         var options = {
-          showPoint: false
+          axisX: {
+            showLabel: true
+          },
+          axisY: {
+            onlyInteger: true
+          },
+          chartPadding: {
+            top: 15,
+            right: 5,
+            bottom: 5,
+            left: 5
+          },
+          showPoint: true
         };
         new Chartist.Line('.ct-chart', data, options);
       });
