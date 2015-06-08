@@ -45,10 +45,11 @@ switch ($PAGE->pagelayout) {
                   [5, 2, 4, 2, 0]
                 ]
               }; */
+        //$data = array('data' => array('labels' => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), 'series' => array(array(5, 2.5, 4, 2, 3, 3, 5))));
 
         if (!empty($PAGE->layout_options['chart'])) {
             $bc = new block_contents();
-            $bc->title = 'Chart';
+            $bc->title = get_string('userload', 'theme_shoehorn');
             $bc->attributes['class'] = 'block block_shoehorn_chart';
             $bc->attributes['chart'] = true;
             $bc->content = '<div class="ct-chart ct-perfect-fourth"></div>';
@@ -57,10 +58,8 @@ switch ($PAGE->pagelayout) {
             $PAGE->blocks->add_fake_block($bc, $defaultregion);
         }
 
-        //$data = array('data' => array('labels' => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), 'series' => array(array(5, 2.5, 4, 2, 3, 3, 5))));
-
         $now = time();
-        $then = 100 * floor(($now - (2 * 60 * 60)) / 100);  // Round to nearest 100 seconds for better query cache.
+        $then = 100 * floor(($now - (2 * 60 * 60)) / 100);  // Round to the nearest 100 seconds for better query cache.
         $params = array('then' => $then);
         $sql = 'SELECT u.currentlogin, u.lastaccess FROM {user} u WHERE u.lastaccess >= :then';
 
@@ -88,7 +87,6 @@ switch ($PAGE->pagelayout) {
         }
 
         $data = array('data' => array('labels' => array_keys($tally), 'series' => array(array_values($tally))));
-        //$data = array('data' => array('series' => array(array_values($tally))));
 
         $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init', $data);
         break;
