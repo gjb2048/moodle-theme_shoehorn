@@ -38,56 +38,51 @@ switch ($PAGE->pagelayout) {
         }
         break;
     case 'admin':
-        /*
-              var data = {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-        series: [
-                  [5, 2, 4, 2, 0]
-                ]
-              }; */
-        //$data = array('data' => array('labels' => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), 'series' => array(array(5, 2.5, 4, 2, 3, 3, 5))));
+        $userload = (!isset($PAGE->theme->settings->userload)) ? true : $PAGE->theme->settings->userload;
+        if ($userload) {
+            $userloadpostfix = get_string('userloadpostfix', 'theme_shoehorn');
+            if (!empty($PAGE->layout_options['chart'])) {
+                $bc = new block_contents();
+                $bc->title = get_string('userload', 'theme_shoehorn');
+                $bc->attributes['class'] = 'block block_shoehorn_chart';
+                $bc->attributes['chart'] = true;
+                $bc->content = '<div class="ct-chart ct-perfect-fourth"></div>';
 
-        if (!empty($PAGE->layout_options['chart'])) {
-            $bc = new block_contents();
-            $bc->title = get_string('userload', 'theme_shoehorn');
-            $bc->attributes['class'] = 'block block_shoehorn_chart';
-            $bc->attributes['chart'] = true;
-            $bc->content = '<div class="ct-chart ct-perfect-fourth"></div>';
+                $defaultregion = $PAGE->blocks->get_default_region();
+                $PAGE->blocks->add_fake_block($bc, $defaultregion);
+            }
 
-            $defaultregion = $PAGE->blocks->get_default_region();
-            $PAGE->blocks->add_fake_block($bc, $defaultregion);
-        }
+            $now = time();
+            $then = 100 * floor(($now - (2 * 60 * 60)) / 100);  // Round to the nearest 100 seconds for better query cache.
+            $params = array('then' => $then);
+            $sql = 'SELECT u.currentlogin, u.lastaccess FROM {user} u WHERE u.lastaccess >= :then';
 
-        $now = time();
-        $then = 100 * floor(($now - (2 * 60 * 60)) / 100);  // Round to the nearest 100 seconds for better query cache.
-        $params = array('then' => $then);
-        $sql = 'SELECT u.currentlogin, u.lastaccess FROM {user} u WHERE u.lastaccess >= :then';
+            global $DB;
+            if (!$users = $DB->get_records_sql($sql, $params)) {
+                $users = array();
+            }
 
-        global $DB;
-        if (!$users = $DB->get_records_sql($sql, $params)) {
-            $users = array();
-        }
-
-        $tally = array();
-        for ($interval = (2 * 60); $interval >= 15; $interval -= 15) {
-            $intervaltime = $now - (60 * $interval);
-            $tally[strval($interval).'m'] = 0;
-            foreach ($users as $user) {
-                if (($user->currentlogin <= $intervaltime) && ($user->lastaccess >= $intervaltime)) {
-                    $tally[strval($interval).'m']++;
+            $tally = array();
+            for ($interval = (2 * 60); $interval >= 15; $interval -= 15) {
+                $intervaltime = $now - (60 * $interval);
+                $tally[strval($interval).$userloadpostfix] = 0;
+                foreach ($users as $user) {
+                    if (($user->currentlogin <= $intervaltime) && ($user->lastaccess >= $intervaltime)) {
+                        $tally[strval($interval).$userloadpostfix]++;
+                    }
                 }
             }
-        }
-        $tally['0m'] = 0;
-        $then = 100 * floor(($now - (15 * 60)) / 100);;
-        foreach ($users as $user) {
-            if (($user->lastaccess <= $now) && ($user->lastaccess >= $then)) {
-                $tally['0m']++;
+            $tally['0'.$userloadpostfix] = 0;
+            $then = 100 * floor(($now - (15 * 60)) / 100);;
+            foreach ($users as $user) {
+                if (($user->lastaccess <= $now) && ($user->lastaccess >= $then)) {
+                    $tally['0'.$userloadpostfix]++;
+                }
             }
+
+            $data = array('data' => array('labels' => array_keys($tally), 'series' => array(array_values($tally))));
+
+            $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init', $data);
         }
-
-        $data = array('data' => array('labels' => array_keys($tally), 'series' => array(array_values($tally))));
-
-        $PAGE->requires->js_call_amd('theme_shoehorn/shoehorn_chart', 'init', $data);
         break;
 }

@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.6.
+  1. Added setting for 'User load' chart.
+
 Version 2.9.0.5.
   1. Added 'Chartist' to display 'User load' on admin pages.  TODO: Have a setting for this.
 

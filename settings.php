@@ -221,6 +221,15 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
+    // User load chart.
+    $name = 'theme_shoehorn/userload';
+    $title = get_string('userload', 'theme_shoehorn');
+    $description = get_string('userloaddesc', 'theme_shoehorn');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $generalsettings->add($setting);
+
     // Custom CSS file.
     $name = 'theme_shoehorn/customcss';
     $title = get_string('customcss', 'theme_shoehorn');

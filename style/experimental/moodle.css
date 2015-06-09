@@ -27399,6 +27399,21 @@ a[name='lastused']
     margin-bottom: 0;
     margin-left: 0;
 }
+.ct-chart .ct-series.ct-series-a .ct-bar,
+.ct-chart .ct-series.ct-series-a .ct-line,
+.ct-chart .ct-series.ct-series-a .ct-point,
+.ct-chart .ct-series.ct-series-a .ct-slice.ct-donut
+{
+    stroke: [[setting:linkcolour8rgba]];
+}
+.ct-chart .ct-label
+{
+    color: [[setting:linkcolour4rgba]];
+}
+.ct-chart .ct-grid
+{
+    stroke: [[setting:linkcolour2rgba]];
+}
 body
 {
     scrollbar-face-color: [[setting:pagebottombackground]];

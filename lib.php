@@ -51,6 +51,9 @@ function theme_shoehorn_process_css($css, $theme) {
 
     $linkcolour = (!empty($theme->settings->linkcolour)) ? $theme->settings->linkcolour : '#1F4D87';
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', $linkcolour);
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour2rgba]]', shoehorn_hex2rgba($linkcolour, 0.2));
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour4rgba]]', shoehorn_hex2rgba($linkcolour, 0.4));
+    $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour8rgba]]', shoehorn_hex2rgba($linkcolour, 0.8));
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolourhover]]', $linkcolour);
 
     $navbartextcolour = (!empty($theme->settings->navbartextcolour)) ? $theme->settings->navbartextcolour : '#653CAE';

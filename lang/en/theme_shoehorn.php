@@ -403,6 +403,8 @@ $string['syntaxhelpseven'] = 'More information on';
 
 // Charts.
 $string['userload'] = 'User load';
+$string['userloaddesc'] = 'User load chart';
+$string['userloadpostfix'] = 'm';
 
 // Readme.
 $string['readme_title'] = 'Shoehorn read-me';

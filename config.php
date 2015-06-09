@@ -35,14 +35,19 @@ if (!get_config('core', 'themedesignermode')) {
     $tdm = '_min';
 }
 
+$THEME->sheets = array();
+$THEME->sheets[] = 'chartist_min';
 if (empty($THEME->settings->dynamiclang)) {
     if ('ltr' === get_string('thisdirection', 'langconfig')) {
-        $THEME->sheets = array('moodle'.$tdm);
+        $THEME->sheets[] = 'moodle'.$tdm;
     } else {
-        $THEME->sheets = array('moodle-rtl'.$tdm, 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
+        $THEME->sheets[] = 'moodle-rtl'.$tdm;
+        $THEME->sheets[] = 'tinymce-rtl';
+        $THEME->sheets[] = 'yui2-rtl';
+        $THEME->sheets[] = 'forms-rtl';
     }
 } else {
-    $THEME->sheets = array('theme');  // Sheets moodle / moodle-rtl served in layout/tiles/header.php separately.
+    $THEME->sheets[] = 'theme';  // Sheets moodle / moodle-rtl served in layout/tiles/header.php separately.
 }
 $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
@@ -55,7 +60,6 @@ $THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no
 if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }
-$THEME->sheets[] = 'chartist_min';
 $THEME->sheets[] = 'custom';
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();

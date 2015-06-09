@@ -1297,6 +1297,21 @@ a[name="lastused"] {
     margin-left: 0px;
 }
 
+// Chart.
+.ct-chart {
+  .ct-series.ct-series-a {
+    .ct-bar, .ct-line, .ct-point, .ct-slice.ct-donut {
+      stroke: ~"[[setting:linkcolour8rgba]]";
+    }
+  }
+  .ct-label {
+    color: ~"[[setting:linkcolour4rgba]]";
+  }
+  .ct-grid {
+    stroke: ~"[[setting:linkcolour2rgba]]";
+  }
+}
+
 // Way off piste...
 // http://css-tricks.com/custom-scrollbars-in-webkit/ and http://stackoverflow.com/questions/7725652/css-scrollbar-style-cross-browser
 body {
