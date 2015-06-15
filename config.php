@@ -30,18 +30,13 @@ $THEME->doctype = 'html5';
 $THEME->name = 'shoehorn';
 $THEME->parents = array();
 
-$tdm = '';
-if (!get_config('core', 'themedesignermode')) {
-    $tdm = '_min';
-}
-
 $THEME->sheets = array();
 $THEME->sheets[] = 'chartist_min';
 if (empty($THEME->settings->dynamiclang)) {
     if ('ltr' === get_string('thisdirection', 'langconfig')) {
-        $THEME->sheets[] = 'moodle'.$tdm;
+        $THEME->sheets[] = 'moodle';
     } else {
-        $THEME->sheets[] = 'moodle-rtl'.$tdm;
+        $THEME->sheets[] = 'moodle-rtl';
         $THEME->sheets[] = 'tinymce-rtl';
         $THEME->sheets[] = 'yui2-rtl';
         $THEME->sheets[] = 'forms-rtl';
@@ -53,7 +48,7 @@ $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
     $THEME->sheets[] = 'font';
     if (!empty($THEME->settings->fontawesome) && ($THEME->settings->fontawesome == 1)) { // Use FontAwesome locally.
-        $THEME->sheets[] = 'font-awesome'.$tdm;
+        $THEME->sheets[] = 'font-awesome';
     }
 }
 $THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no CDN for them.
@@ -75,7 +70,7 @@ if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
     $THEME->enable_dock = false;
 }
 
-$THEME->editor_sheets = array('editor'.$tdm);
+$THEME->editor_sheets = array('editor');
 
 $THEME->plugins_exclude_sheets = array(
     'block' => array(

@@ -177,6 +177,8 @@ Version information
 ===================
 Version 2.9.0.6.
   1. Added setting for 'User load' chart.
+  2. Removed 'grunt-css-min' as causing 'background:0 0' issues that are too complex to resolve here - #11.
+  3. Updated 'grunt-contrib-less' to version '1.0.1'.
 
 Version 2.9.0.5.
   1. Added 'Chartist' to display 'User load' on admin pages.  TODO: Have a setting for this.
