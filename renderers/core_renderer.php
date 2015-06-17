@@ -729,6 +729,10 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
+        $options = new stdClass();
+        $options->para = false;
+        $messagecontent->text = format_text($messagecontent->text, FORMAT_PLAIN, $options);
+
         if ((time() - $message->timecreated ) <= (3600 * 3)) {
             $messagecontent->date = format_time(time() - $message->timecreated);
         } else {

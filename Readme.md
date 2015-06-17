@@ -178,6 +178,9 @@ Todo
 
 Version information
 ===================
+Version 2.8.1.4.
+  1. Fix small security issue.
+
 Version 2.8.1.3.
   1. Fix renderers after Bootstrap theme separation.
 
