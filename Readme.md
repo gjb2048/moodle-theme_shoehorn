@@ -183,6 +183,9 @@ Todo
 
 Version information
 ===================
+Version 2.7.1.5.
+  1. Fix small security issue.
+
  7th February 2015 - Version 2.7.1.4
   1. Fix source map URL for development version after upgrading to 'grunt-contrib-less' version '~1.0.0'.
   2. Tidy up logo code and information in language file.
