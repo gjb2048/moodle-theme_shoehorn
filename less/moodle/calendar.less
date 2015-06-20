@@ -1,23 +1,17 @@
 /* calendar.less */
 
-// Calendar colour variables defined.
-@calendarEventCourseColor: #ffd3bd; // Pale red.
-@calendarEventGlobalColor: #d6f8cd; // Pale green.
-@calendarEventGroupColor:  #fee7ae; // Pale yellow.
-@calendarEventUserColor:   #dce7ec; // Pale blue.
-
 // Calendar event background colours defined.
 .calendar_event_course {
-    background-color: @calendarEventCourseColor;
+    background-color: @calendar-event-course-color;
 }
 .calendar_event_global {
-    background-color: @calendarEventGlobalColor;
+    background-color: @calendar-event-global-color;
 }
 .calendar_event_group {
-    background-color: @calendarEventGroupColor;
+    background-color: @calendar-event-group-color;
 }
 .calendar_event_user {
-    background-color: @calendarEventUserColor;
+    background-color: @calendar-event-user-color;
 }
 
 // Calendar restyling.
@@ -58,8 +52,6 @@
         }
     }
     .cal_courses_flt {
-        float: left;
-
         label {
             margin-right: .45em;
         }
@@ -112,16 +104,16 @@
             border-style: solid;
         }
         .calendar_event_course {
-            border-color: @calendarEventCourseColor;
+            border-color: @calendar-event-course-color;
         }
         .calendar_event_global {
-            border-color: @calendarEventGlobalColor;
+            border-color: @calendar-event-global-color;
         }
         .calendar_event_group {
-            border-color: @calendarEventGroupColor;
+            border-color: @calendar-event-group-color;
         }
         .calendar_event_user {
-            border-color: @calendarEventUserColor;
+            border-color: @calendar-event-user-color;
         }
         .calendar-event-panel {
             background-color: @gray-lighter;
@@ -159,37 +151,34 @@
             }
         }
         .eventlist {
-            margin: 0;
-
             .event {
+                width: 100%;
                 border-spacing: 0;
                 border-collapse: separate;
                 position: relative;
-                padding: 20px 4%;
+                padding: 19px;
                 margin-bottom: 20px;
                 background-color: lighten(@well-bg, 3%);
                 border: 1px solid darken(@well-bg, 7%);
                 border-radius: @border-radius-base;
                 .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
-                list-style-type: none;
-
-                > img {
-                    padding-top: 3px;
-                    float: left;
+                .picture {
+                    vertical-align: text-top;
                 }
-                .name {
-                    font-size: @font-size-large;
-                    font-weight: 200;
-                    line-height: 24px;
-                    float: left;
-                    margin: 0;
-                }
-                .name,
-                .course {
-                    margin-bottom: 5px;
-                }
-                .date {
-                    float: right;
+                .topic {
+                    .name {
+                        font-size: @font-size-large;
+                        font-weight: 200;
+                        line-height: 24px;
+                        float: left;
+                    }
+                    .name,
+                    .course {
+                        margin-bottom: 5px;
+                    }
+                    .date {
+                        float: right;
+                    }
                 }
                 .course,
                 .subscription {
@@ -200,9 +189,8 @@
                     width: 22px;
                 }
                 .description {
-                    background-color: @white;
+                    background-color: #FFF;
                     padding: 5px;
-                    clear: both;
                     .commands {
                         position: absolute;
                         right: 0;
@@ -211,9 +199,6 @@
                     }
                 }
                 .commands {
-                    position: absolute;
-                    top: 2px;
-                    right: 2px;
                     a {
                         margin: 0 3px;
                     }
@@ -226,7 +211,6 @@
 // RTL overrides for main calendar.
 .dir-rtl.path-calendar {
     .cal_courses_flt {
-        float: right;
         label {
             margin-left: .45em;
             margin-right: 0;
@@ -264,14 +248,13 @@
         }
         .eventlist {
             .event {
-                > img {
-                    float: right;
-                }
-                .name {
-                    float: right;
-                }
-                .date {
-                    float: left;
+                .topic {
+                    .name {
+                        float: right;
+                    }
+                    .date {
+                        float: left;
+                    }
                 }
                 .description {
                     .commands {
@@ -283,10 +266,6 @@
                 .subscription {
                     float: right;
                     clear: right;
-                }
-                .commands {
-                    left: 2px;
-                    right: inherit;
                 }
             }
         }
@@ -382,47 +361,6 @@
             }
         }
     }
-}
-
-// RTL overrides for block minicalendar.
-.dir-rtl {
-    .block {
-        .calendar_filters {
-            .eventname {
-                padding-right: 0.2em;
-                padding-left: 0;
-            }
-        }
-        .calendar-event-panel {
-            .yui3-overlay-content {
-                .eventcontent {
-                    img {
-                        padding-right: 0;
-                        padding-left: 5px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.ical-link {
-    font-size: 10px;
-    font-weight: bold;
-    background-color: #f60;
-    padding: 0px 5px;
-    color: #fff;
-    border-top: 1px solid #f93;
-    border-left: 1px solid #f93;
-    border-bottom: 1px solid #013;
-    border-right: 1px solid #013;
-}
-.ical-link:hover,
-.ical-link:active,
-.ical-link:focus,
-.ical-link:visited {
-    color: #fff;
-    text-decoration: none;
 }
 
 @media (min-width: 768px) {
