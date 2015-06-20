@@ -21,13 +21,18 @@ define(['jquery', 'theme_shoehorn/chartist', 'core/log'], function($, Chartist, 
 
         var options = {
           axisX: {
-            showLabel: true
+            showLabel: true,
+            offset: 45,
+            labelOffset: {
+                x: 0,
+                y: 0
+            }
           },
           axisY: {
             onlyInteger: true
           },
           chartPadding: {
-            top: 15,
+            top: 10,
             right: 5,
             bottom: 5,
             left: 5

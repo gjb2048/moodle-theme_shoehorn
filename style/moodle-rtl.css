@@ -29067,7 +29067,7 @@ body.frontpagebackgroundimage .forumpost
 .moodleheader .logoheading,
 .moodleheader .heading
 {
-    color: [[setting:textcolour]];
+    color: #fff;
 }
 
 header.moodleheader .heading
@@ -31058,6 +31058,11 @@ a[name='lastused']
     margin-top: 2px;
     margin-right: 0;
     margin-bottom: 0;
+}
+
+.block.block_shoehorn_chart .content
+{
+    padding: 0 0;
 }
 
 .ct-chart .ct-series.ct-series-a .ct-bar,

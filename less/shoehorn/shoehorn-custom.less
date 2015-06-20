@@ -239,7 +239,7 @@ body {
 // Heading with logo / no logo.
 .moodleheader {
     .logoheading, .heading {
-        color: ~"[[setting:textcolour]]";
+        color: @white;
     }
 }
 
@@ -1298,6 +1298,11 @@ a[name="lastused"] {
 }
 
 // Chart.
+
+.block.block_shoehorn_chart .content {
+  padding: 0px 0px;
+}
+
 .ct-chart {
   .ct-series.ct-series-a {
     .ct-bar, .ct-line, .ct-point, .ct-slice.ct-donut {
