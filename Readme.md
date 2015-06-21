@@ -177,10 +177,9 @@ Version information
 ===================
 Version 2.9.0.7.
   1. Tidy up user profile and fix messaging.
-  2. Implement MDL-50554.
-  3. Fix RTL.
-  4. Tidy up logo and heading area.
-  5. Tidy up chart.
+  2. Fix RTL.
+  3. Tidy up logo and heading area.
+  4. Tidy up chart.
 
 Version 2.9.0.6.
   1. Added setting for 'User load' chart.
