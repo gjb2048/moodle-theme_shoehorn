@@ -32,7 +32,7 @@ define(['jquery', 'theme_shoehorn/chartist', 'core/log'], function($, Chartist, 
             onlyInteger: true
           },
           chartPadding: {
-            top: 10,
+            top: 15,
             right: 5,
             bottom: 5,
             left: 5
