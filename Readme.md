@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.8.
+  1. More tidy up.
+
 Version 2.9.0.7.
   1. Tidy up user profile, calendar and fix messaging.
   2. Fix RTL.

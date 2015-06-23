@@ -18120,11 +18120,6 @@ textareatextarea
     bottom: 0;
 }
 
-.dir-rtl .core_message-messenger-sendmessage .message-send
-{
-    float: right;
-}
-
 .questionbank h2
 {
     margin-top: 0;
