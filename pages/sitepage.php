@@ -48,11 +48,11 @@ $PAGE->set_other_editing_capability('moodle/course:update');
 $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
 
-$html = theme_shoehorn_html_for_settings($PAGE);
-$PAGE->add_body_classes($html->additionalbodyclasses);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$PAGE->add_body_classes($settingshtml->additionalbodyclasses);
 
 $o = '';
-$pages = shoehorn_shown_sitepages(); // In lib.php.
+$pages = \theme_shoehorn\toolbox::shown_sitepages($PAGE);
 $loggedin = isloggedin();
 
 $theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.

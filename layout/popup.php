@@ -27,8 +27,8 @@
 
 require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
-$regions = shoehorn_grid(false, false);
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$regions = \theme_shoehorn\toolbox::grid(false, false, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 echo $OUTPUT->doctype();
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

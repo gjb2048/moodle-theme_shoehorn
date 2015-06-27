@@ -34,8 +34,8 @@ $PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
 
-$html = theme_shoehorn_html_for_settings($PAGE);
-$PAGE->add_body_classes($html->additionalbodyclasses);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$PAGE->add_body_classes($settingshtml->additionalbodyclasses);
 
 $syntaxhighlighttitle = get_string('syntaxhighlightpage', 'theme_shoehorn');
 $PAGE->set_title($syntaxhighlighttitle);

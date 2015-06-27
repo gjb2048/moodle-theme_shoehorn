@@ -18,9 +18,9 @@ require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
-$regions = bootstrap_grid($hassidepre, $hassidepost);
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

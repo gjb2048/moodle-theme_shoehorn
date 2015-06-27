@@ -30,10 +30,10 @@ require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 
-$regions = shoehorn_grid($hassidepre, false);
 $PAGE->set_popup_notification_allowed(false);
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, false, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

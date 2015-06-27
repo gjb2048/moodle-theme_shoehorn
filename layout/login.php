@@ -38,7 +38,7 @@
 $loggedin = isloggedin();
 require_once(dirname(__FILE__).'/tiles/additionaljs.php');
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 if (!empty($loginpageimages)) {  // Variable $loginpageimages defined in additionaljs.php.
     $settingshtml->additionalbodyclasses[] = 'loginpageimages';
 }

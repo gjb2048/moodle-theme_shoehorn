@@ -803,7 +803,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
         }
 
         // Site page setting.
-        $pages = shoehorn_shown_sitepages(); // lib.php.
+        $pages = \theme_shoehorn\toolbox::shown_sitepages($this->page);
         foreach ($pages as $pageid => $status) {
             if ($status == 2) {
                 $url = new moodle_url('/theme/shoehorn/pages/sitepage.php');
