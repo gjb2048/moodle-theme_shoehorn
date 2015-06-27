@@ -264,6 +264,15 @@ body.pagelayout-redirect #page {
     box-shadow: 0 0 8px ~"[[setting:pagetopbackground]]";
     padding: 8px;
 
+    // Make the background fill the whole area when the region contains floated elements,
+    // thus making sure the height covers the entire area.
+    // http://stackoverflow.com/questions/7817269/css-container-div-not-getting-height.
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+
     aside {
         float: none; // My home page.
     }

@@ -518,9 +518,14 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
                 }
                 $logout .= html_writer::tag('span', $logouttext);
+                if (\core\session\manager::is_loggedinas()) {
+                    $logouturl = new moodle_url('/course/loginas.php', array('id' => $this->page->course->id, 'sesskey' => sesskey()));
+                } else {
+                    $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+                }
                 $usermenu->add(
                     $logout,
-                    new moodle_url('/login/logout.php', array('sesskey' => sesskey(), 'alt' => 'logout')),
+                    $logouturl,
                     $logouttext
                 );
 
@@ -701,12 +706,13 @@ class theme_shoehorn_core_renderer extends core_renderer {
             $readmessages = $DB->get_records_sql($readmessagesql, array('userid' => $USER->id));
 
             foreach ($readmessages as $message) {
-                $messagelist[] = $this->shoehorn_process_message($message);
+                if (!$message->notification) {
+                    $messagelist[] = $this->shoehorn_process_message($message);
+                }
             }
         }
 
         return $messagelist;
-
     }
 
     protected function shoehorn_process_message($message) {

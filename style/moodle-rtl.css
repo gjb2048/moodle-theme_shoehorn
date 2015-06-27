@@ -29499,6 +29499,14 @@ body.pagelayout-redirect #page
     box-shadow: 0 0 8px [[setting:pagetopbackground]];
 }
 
+#region-main-shoehorn:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
 #region-main-shoehorn aside
 {
     float: none;

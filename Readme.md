@@ -177,6 +177,9 @@ Version information
 ===================
 Version 2.9.0.8.
   1. More tidy up.
+  2. Fix groups page: https://moodle.org/mod/forum/discuss.php?d=315577#p1265731.
+  3. Fix no 'loginas' URL when logged in as another user.
+  4. Fix top menu bar message update notifications messages blank.
 
 Version 2.9.0.7.
   1. Tidy up user profile, calendar and fix messaging.
