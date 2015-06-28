@@ -181,7 +181,7 @@ Version 2.9.0.8.
   3. Fix no 'loginas' URL when logged in as another user.
   4. Fix top menu bar message update notifications messages blank.
   5. Update to Bootstrap 3.3.5.
-  6. Implement class autoloading and namespace for 'toolbox' like functionality for speed.
+  6. Implement class autoloading and namespace for 'toolbox' like functionality for performance and reduces memory footprint.
      Ref: https://docs.moodle.org/dev/Automatic_class_loading.
   7. Fix $CFG->themedir for syntax highlighting.
   8. Fix bootstrap_grid() in layout\secure.php.
