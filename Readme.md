@@ -178,6 +178,9 @@ Todo
 
 Version information
 ===================
+Version 2.8.1.5.
+  1. Fix bootstrap_grid() -> shoehorn_grid() in layout/secure.php.
+
 Version 2.8.1.4.
   1. Fix small security issue.
 
