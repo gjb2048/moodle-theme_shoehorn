@@ -34,7 +34,10 @@ switch ($PAGE->pagelayout) {
     case 'login':
         $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images($PAGE);
         if (!empty($loginpageimages)) {
-            $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init');
+            $data = array('data' => array('images' => array_values($loginpageimages),
+                                          'duration' => $PAGE->theme->settings->loginbackgroundchangerspeed,
+                                          'fade' => $PAGE->theme->settings->loginbackgroundchangerfade));
+            $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init', $data);
         }
         break;
     case 'admin':

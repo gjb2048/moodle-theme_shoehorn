@@ -175,6 +175,10 @@ Todo
 
 Version information
 ===================
+Version 2.9.0.9.
+  1. Child theme support.
+  2. Improve backstretch on login page.
+
 Version 2.9.0.8.
   1. More tidy up.
   2. Fix groups page: https://moodle.org/mod/forum/discuss.php?d=315577#p1265731.

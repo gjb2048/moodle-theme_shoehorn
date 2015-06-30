@@ -5,12 +5,9 @@ define(['jquery', 'core/log'], function($, log) {
 
   log.debug('Shoehorn backstretch AMD jQuery initialised');
 
-/*! Backstretch - v2.0.4 - 2013-06-19
-* http://srobbin.com/jquery-plugins/backstretch/
-* Copyright (c) 2013 Scott Robbin; Licensed MIT */
-
-;(function ($, window, undefined) {
-  'use strict';
+  /*! Backstretch - v2.0.4 - 2013-06-19
+   * http://srobbin.com/jquery-plugins/backstretch/
+   * Copyright (c) 2013 Scott Robbin; Licensed MIT */
 
   /* PLUGIN DEFINITION
    * ========================= */
@@ -381,11 +378,13 @@ define(['jquery', 'core/log'], function($, log) {
     );
   }());
 
-}(jQuery, window));
-
   return {
-    init: function() {
+    init: function(data) {
       log.debug('Shoehorn backstretch AMD jQuery init initialised');
+      log.debug(data);
+      $(document).ready(function() {
+        $.backstretch(data.images, {duration: data.duration, fade: data.fade});
+      });
     }
   }
  });

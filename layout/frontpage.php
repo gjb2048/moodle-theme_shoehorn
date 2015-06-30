@@ -25,7 +25,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__).'/tiles/additionaljs.php');
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
@@ -41,7 +41,7 @@ $settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
@@ -50,17 +50,17 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <div id="page-area" class="row">
-        <?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('navbar')); ?>
 
-        <?php require_once(dirname(__FILE__).'/tiles/pageheader.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pageheader')); ?>
 
         <div id="page-content" class="row">
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <?php
                 if ($showslider) {
-                    require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
+                    require_once(\theme_shoehorn\toolbox::get_tile_file('frontpageslider'));
                 }
-                require_once(dirname(__FILE__).'/tiles/marketingspots.php');
+                require_once(\theme_shoehorn\toolbox::get_tile_file('marketingspots'));
                 ?>
                 <section id="region-main-shoehorn">
                     <?php
@@ -80,12 +80,12 @@ echo $OUTPUT->doctype() ?>
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
 
-            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+            <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>
 
     </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(\theme_shoehorn\toolbox::get_tile_file('footer')); ?>
 
 </div>
 </body>

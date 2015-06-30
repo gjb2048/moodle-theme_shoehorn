@@ -27,7 +27,7 @@
 
 $knownregionfooterpre = $PAGE->blocks->is_known_region('footer-pre');
 $knownregionfooterpost = $PAGE->blocks->is_known_region('footer-post');
-require_once(dirname(__FILE__).'/social.php');
+require_once(\theme_shoehorn\toolbox::get_tile_file('social'));
 if ($haveicons) {
     $footershadowmargin = ' sociallinks';
 } else {

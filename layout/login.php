@@ -36,7 +36,7 @@
  */
 
 $loggedin = isloggedin();
-require_once(dirname(__FILE__).'/tiles/additionaljs.php');
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 if (!empty($loginpageimages)) {  // Variable $loginpageimages defined in additionaljs.php.
@@ -45,13 +45,13 @@ if (!empty($loginpageimages)) {  // Variable $loginpageimages defined in additio
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('navbar')); ?>
 
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
@@ -67,22 +67,11 @@ echo $OUTPUT->doctype() ?>
             }
             ?>
         </div>
-        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
     </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(\theme_shoehorn\toolbox::get_tile_file('footer')); ?>
 
 </div>
-<?php
-if (!empty($loginpageimages)) {
-    echo '<script type="text/javascript">';
-    echo '//<![CDATA['.PHP_EOL;
-    echo '$.backstretch([';
-    echo implode(',', $loginpageimages);
-    echo '], {duration: '.$PAGE->theme->settings->loginbackgroundchangerspeed.', fade: '.$PAGE->theme->settings->loginbackgroundchangerfade.'});'.PHP_EOL;
-    echo '//]]>'.PHP_EOL;
-    echo '</script>';
-}
-?>
 </body>
 </html>

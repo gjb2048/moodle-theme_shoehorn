@@ -29232,6 +29232,7 @@ table td:first-of-type
 body.loginpageimages
 {
     background-color: transparent;
+    background-image: none;
 }
 
 body.loginpageimages .loginbox a:hover,

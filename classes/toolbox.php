@@ -30,6 +30,34 @@ namespace theme_shoehorn;
 class toolbox {
 
     /**
+     * Finds the given tile file in the theme.  If it does not exist for the Shoehorn child theme then the parent is checked.
+     * @param string $filename Filename without extension to get.
+     * @return string Complete path of the file.
+     */
+    static public function get_tile_file($filename) {
+        global $CFG, $PAGE;
+        $themedir = $PAGE->theme->dir;
+        $themename = $PAGE->theme->name;
+        //error_log('filename: '.$filename.', dir: '.$themedir.', name: '.$themename);
+        $filename .= '.php';
+        if (file_exists("$themedir/layout/tiles/$filename")) {
+            return "$themedir/layout/tiles/$filename";
+        } else if (file_exists("$CFG->dirroot/theme/$themename/layout/tiles/$filename")) {
+            return "$CFG->dirroot/theme/$themename/layout/tiles/$filename";
+        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/$themename/layout/tiles/$filename")) {
+            return "$CFG->themedir/$themename/layout/tiles/$filename";
+        }
+        // Not here so check parent Shoehorn.
+        if (file_exists("$CFG->dirroot/theme/shoehorn/layout/tiles/$filename")) {
+            return "$CFG->dirroot/theme/shoehorn/layout/tiles/$filename";
+        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
+            return "$CFG->themedir/shoehorn/layout/tiles/$filename";
+        } else {
+            return dirname(__FILE__)."$filename";
+        }
+    }
+
+    /**
      * This method creates the dynamic HTML needed for the 
      * layout and then passes it back in an object so it can
      * be echo'd to the page.
@@ -239,6 +267,7 @@ class toolbox {
      * @return array of background image urls or empty array if none.
      */
     static public function shown_loginbackgroundchanger_images($PAGE) {
+        global $CFG;
         $images = array();
         $settings = $PAGE->theme->settings;
 
@@ -247,7 +276,7 @@ class toolbox {
             for ($img = 1; $img <= $numberofimages; $img++) {
                 $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
                 if (!empty($settings->$loginbackgroundchangerimageno)) {
-                    $images[] = '"'.$PAGE->theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno).'"';
+                    $images[] = $PAGE->theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
                }
             }
         }
