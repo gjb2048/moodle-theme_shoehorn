@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Shoelace theme with the underlying Bootstrap theme.
+ * Shoehorn theme with the underlying Bootstrap theme.
  *
  * @package    theme
  * @subpackage shoehorn
@@ -54,7 +54,7 @@ defined('MOODLE_INTERNAL') || die;
     $name = 'theme_shoehorn/fontawesome';
     $title = get_string('fontawesome', 'theme_shoehorn');
     $description = get_string('fontawesome_desc', 'theme_shoehorn');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 1);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 

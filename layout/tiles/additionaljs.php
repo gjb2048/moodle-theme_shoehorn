@@ -41,7 +41,7 @@ switch ($PAGE->pagelayout) {
         }
         break;
     case 'admin':
-        $userload = (!isset($PAGE->theme->settings->userload)) ? true : $PAGE->theme->settings->userload;
+        $userload = (empty($PAGE->theme->settings->userload)) ? false : $PAGE->theme->settings->userload;
         if ($userload) {
             $userloadpostfix = get_string('userloadpostfix', 'theme_shoehorn');
             if (!empty($PAGE->layout_options['chart'])) {

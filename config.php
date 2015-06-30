@@ -198,7 +198,7 @@ $THEME->layouts = array(
         'file' => 'page.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre'
-    ),
+    )
 );
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';

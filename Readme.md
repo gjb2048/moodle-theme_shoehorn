@@ -178,6 +178,7 @@ Version information
 Version 2.9.0.9.
   1. Child theme support.
   2. Improve backstretch on login page.
+  3. Add child theme 'shoebrush'.  See 'shoebrush' folder for details.
 
 Version 2.9.0.8.
   1. More tidy up.
