@@ -30,6 +30,13 @@ function theme_shoehorn_process_css($css, $theme) {
     $logo = $theme->setting_file_url('logo', 'logo');
     $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
 
+    // Set the theme font
+    $headingfont = \theme_shoehorn\toolbox::get_setting('fontnameheading');
+    $bodyfont = \theme_shoehorn\toolbox::get_setting('fontnamebody');
+
+    $css = theme_shoehorn_set_font($css, 'heading', $headingfont);
+    $css = theme_shoehorn_set_font($css, 'body', $bodyfont);
+
     // Show login message if desired.
     $css = theme_shoehorn_set_loginmessage($css, $theme);
 
@@ -125,6 +132,65 @@ function theme_shoehorn_set_setting($css, $tag, $replacement) {
     }
 
     $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+function theme_shoehorn_set_font($css, $type, $fontname) {
+    $familytag = '[[setting:' . $type .'font]]';
+    $facetag = '[[setting:fontfiles' . $type . ']]';
+    if (empty($fontname)) {
+        $familyreplacement = '';
+        $facereplacement = '';
+    } else {
+        static $theme;
+        if (empty($theme)) {
+            $theme = theme_config::load('shoehorn');  // $theme needs to be us for child themes.
+        }
+
+        $fontfiles = array();
+        $fontfileeot = $theme->setting_file_url('fontfileeot' . $type, 'fontfileeot' . $type);
+        if (!empty($fontfileeot)) {
+            $fontfiles[] = "url('" . $fontfileeot . "?#iefix') format('embedded-opentype')";
+        }
+        $fontfilewoff = $theme->setting_file_url('fontfilewoff' . $type, 'fontfilewoff' . $type);
+        if (!empty($fontfilewoff)) {
+            $fontfiles[] = "url('" . $fontfilewoff . "') format('woff')";
+        }
+        $fontfilewofftwo = $theme->setting_file_url('fontfilewofftwo' . $type, 'fontfilewofftwo' . $type);
+        if (!empty($fontfilewofftwo)) {
+            $fontfiles[] = "url('" . $fontfilewofftwo . "') format('woff2')";
+        }
+        $fontfileotf = $theme->setting_file_url('fontfileotf' . $type, 'fontfileotf' . $type);
+        if (!empty($fontfileotf)) {
+            $fontfiles[] = "url('" . $fontfileotf . "') format('opentype')";
+        }
+        $fontfilettf = $theme->setting_file_url('fontfilettf' . $type, 'fontfilettf' . $type);
+        if (!empty($fontfilettf)) {
+            $fontfiles[] = "url('" . $fontfilettf . "') format('truetype')";
+        }
+        $fontfilesvg = $theme->setting_file_url('fontfilesvg' . $type, 'fontfilesvg' . $type);
+        if (!empty($fontfilesvg)) {
+            $fontfiles[] = "url('" . $fontfilesvg . "') format('svg')";
+        }
+
+        if (!empty($fontfiles)) {
+            $familyreplacement = '"'.$fontname.'",';
+            $facereplacement = '@font-face {' . PHP_EOL . 'font-family: "' . $fontname . '";' . PHP_EOL;
+            $facereplacement .= !empty($fontfileeot) ? "src: url('" . $fontfileeot . "');" . PHP_EOL : '';
+            $facereplacement .= "src: ";
+            $facereplacement .= implode("," . PHP_EOL . " ", $fontfiles);
+            $facereplacement .= ";";
+            $facereplacement .= '' . PHP_EOL . "}";
+        } else {
+            // No files no point.
+            $familyreplacement = '';
+            $facereplacement = '';
+        }
+    }
+
+    $css = str_replace($familytag, $familyreplacement, $css);
+    $css = str_replace($facetag, $facereplacement, $css);
 
     return $css;
 }
@@ -262,6 +328,8 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'style') {
             theme_shoehorn_serve_css($args[1]);
+        } else if (preg_match("/^fontfile(eot|otf|svg|ttf|woff|woff2)(heading|body)$/", $filearea)) { // http://www.regexr.com/.
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 14) === 'imagebankimage') {

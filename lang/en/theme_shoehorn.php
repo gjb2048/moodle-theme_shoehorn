@@ -232,6 +232,27 @@ $string['coursetiles_desc'] = 'Use course tiles for activities and resources.';
 // Accordion block regions.
 $string['blocktitleunknown'] = 'Block title unknown';
 
+// Font settings.
+$string['fontsettings'] = 'Font';
+$string['fontheadingsub'] = 'Font settings';
+$string['fontheadingdesc'] = 'Select and enter the fonts that you want to use in your Moodle environment.';
+$string['fontnameheading'] = 'Heading font';
+$string['fontnameheadingdesc'] = 'Enter the exact name of the font to use for headings.';
+$string['fontnamebody'] = 'Text font';
+$string['fontnamebodydesc'] = 'Enter the exact name of the font to use for all other text.';
+$string['fontfilettfheading'] = 'Heading TTF font file';
+$string['fontfileotfheading'] = 'Heading OTF font file';
+$string['fontfilewoffheading'] = 'Heading WOFF font file';
+$string['fontfilewofftwoheading'] = 'Heading WOFF2 font file';
+$string['fontfileeotheading'] = 'Heading EOT font file';
+$string['fontfilesvgheading'] = 'Heading SVG font file';
+$string['fontfilettfbody'] = 'Body TTF font file';
+$string['fontfileotfbody'] = 'Body OTF font file';
+$string['fontfilewoffbody'] = 'Body WOFF font file';
+$string['fontfilewofftwobody'] = 'Body WOFF2 font file';
+$string['fontfileeotbody'] = 'Body EOT font file';
+$string['fontfilesvgbody'] = 'Body SVG font file';
+
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
 $string['frontpagesliderheadingsub'] = 'Present your portfolio with slides on the front page';

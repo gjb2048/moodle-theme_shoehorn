@@ -29,6 +29,8 @@ namespace theme_shoehorn;
 
 class toolbox {
 
+    static protected $theme;
+
     /**
      * Finds the given tile file in the theme.  If it does not exist for the Shoehorn child theme then the parent is checked.
      * @param string $filename Filename without extension to get.
@@ -54,6 +56,30 @@ class toolbox {
             return "$CFG->themedir/shoehorn/layout/tiles/$filename";
         } else {
             return dirname(__FILE__)."$filename";
+        }
+    }
+
+    static public function get_setting($setting, $format = false, $theme = null) {
+
+        if (empty($theme)) {
+            if (empty(self::$theme)) {
+                self::$theme = \theme_config::load('shoehorn');
+            }
+            $theme = self::$theme;
+        }
+
+        global $CFG;
+        require_once($CFG->dirroot . '/lib/weblib.php');
+        if (empty($theme->settings->$setting)) {
+            return false;
+        } else if (!$format) {
+            return $theme->settings->$setting;
+        } else if ($format === 'format_text') {
+            return format_text($theme->settings->$setting, FORMAT_PLAIN);
+        } else if ($format === 'format_html') {
+            return format_text($theme->settings->$setting, FORMAT_HTML, array('trusted' => true, 'noclean' => true));
+        } else {
+            return format_string($theme->settings->$setting);
         }
     }
 

@@ -1751,7 +1751,7 @@ html
 
 body
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
 
@@ -1900,7 +1900,7 @@ h6,
 .h5,
 .h6
 {
-    font-family: 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:headingfont]] 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 500;
     line-height: 1.1;
 
@@ -9278,7 +9278,7 @@ button.close
 
 .tooltip
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: normal;
     font-style: normal;
@@ -9450,7 +9450,7 @@ button.close
 
 .popover
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -14315,7 +14315,7 @@ textarea.path-admin .roleassigntable input[type='text']
 
 .path-calendar .maincalendar .calendar-controls .current
 {
-    font-family: 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:headingfont]] 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 25px;
     font-weight: 500;
     line-height: 1.2;
@@ -18677,7 +18677,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select
 .box.message .messagearea .messagesend .mform .fitemtitle,
 .box.message .messagearea .messagesend .mform .form-label
 {
-    font-family: 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:headingfont]] 'Railway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 24px;
     font-weight: 500;
     line-height: 1.1;
@@ -18723,7 +18723,7 @@ textarea.box.message .contactselector form#usergroupform fieldset select
 
 #newmessageoverlay
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -25283,7 +25283,7 @@ input.fp-btn-choose
 
 .enrolpanel.roleassign.visible
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -25923,7 +25923,7 @@ input.fp-btn-choose
 
 .transform-test-heading
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 32px;
@@ -26134,7 +26134,7 @@ fieldset[disabled] #dock .dockedtitle.active
 
 #dock .dockedtitle h2
 {
-    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: [[setting:bodyfont]] 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 32px;

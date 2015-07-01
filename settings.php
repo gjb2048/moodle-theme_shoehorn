@@ -282,6 +282,133 @@ defined('MOODLE_INTERNAL') || die;
 
     $ADMIN->add('theme_shoehorn', $generalsettings);
 
+    // Font....
+    $fontsettings = new admin_settingpage('theme_shoehorn_font', get_string('fontsettings', 'theme_shoehorn'));
+    // This is the descriptor for the font settings
+    $name = 'theme_shoehorn/fontheading';
+    $heading = get_string('fontheadingsub', 'theme_shoehorn');
+    $information = get_string('fontheadingdesc', 'theme_shoehorn');
+    $setting = new admin_setting_heading($name, $heading, $information);
+    $fontsettings->add($setting);
+
+    // Heading font name
+    $name = 'theme_shoehorn/fontnameheading';
+    $title = get_string('fontnameheading', 'theme_shoehorn');
+    $description = get_string('fontnameheadingdesc', 'theme_shoehorn');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // Text font name
+    $name = 'theme_shoehorn/fontnamebody';
+    $title = get_string('fontnamebody', 'theme_shoehorn');
+    $description = get_string('fontnamebodydesc', 'theme_shoehorn');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // Heading.
+    // TTF Font.
+    $name = 'theme_shoehorn/fontfilettfheading';
+    $title = get_string('fontfilettfheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilettfheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // OTF Font.
+    $name = 'theme_shoehorn/fontfileotfheading';
+    $title = get_string('fontfileotfheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfileotfheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // WOFF Font.
+    $name = 'theme_shoehorn/fontfilewoffheading';
+    $title = get_string('fontfilewoffheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilewoffheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // WOFF2 Font.
+    $name = 'theme_shoehorn/fontfilewofftwoheading';
+    $title = get_string('fontfilewofftwoheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilewofftwoheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // EOT Font.
+    $name = 'theme_shoehorn/fontfileeotheading';
+    $title = get_string('fontfileeotheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfileweotheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // SVG Font.
+    $name = 'theme_shoehorn/fontfilesvgheading';
+    $title = get_string('fontfilesvgheading', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilesvgheading');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // Body.
+    // TTF Font.
+    $name = 'theme_shoehorn/fontfilettfbody';
+    $title = get_string('fontfilettfbody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilettfbody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // OTF Font.
+    $name = 'theme_shoehorn/fontfileotfbody';
+    $title = get_string('fontfileotfbody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfileotfbody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // WOFF Font.
+    $name = 'theme_shoehorn/fontfilewoffbody';
+    $title = get_string('fontfilewoffbody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilewoffbody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // WOFF2 Font.
+    $name = 'theme_shoehorn/fontfilewofftwobody';
+    $title = get_string('fontfilewofftwobody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilewofftwobody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // EOT Font.
+    $name = 'theme_shoehorn/fontfileeotbody';
+    $title = get_string('fontfileeotbody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfileweotbody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    // SVG Font.
+    $name = 'theme_shoehorn/fontfilesvgbody';
+    $title = get_string('fontfilesvgbody', 'theme_shoehorn');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilesvgbody');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $fontsettings->add($setting);
+
+    $ADMIN->add('theme_shoehorn', $fontsettings);
+
     // Front page slider page....
     // Number of front page slides.
     $name = 'theme_shoehorn/frontpagenumberofslides';

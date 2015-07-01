@@ -62,6 +62,12 @@ body.pagelayout-frontpage #region-main-shoehorn-shadow {
     [[setting:landffrontpagecontenttransparencymain]]
 }
 
+/* Custom Font
+--------------*/
+[[setting:fontfilesheading]]
+
+[[setting:fontfilesbody]]
+
 /* Custom CSS Settings
 -------------------------*/
 [[setting:customcss]]
