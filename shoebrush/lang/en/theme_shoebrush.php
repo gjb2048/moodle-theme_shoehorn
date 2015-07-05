@@ -31,8 +31,8 @@ $string['pluginname'] = 'Shoebrush';
 $string['choosereadme'] = '
 <div class="clearfix">
 <div class="well">
-<h2>Essential</h2>
-<p><img class="img-polaroid" src="shoehorn/pix/screenshot.jpg" /></p>
+<h2>Shoebrush</h2>
+<p><img class="img-polaroid" src="shoehorn/pix/screenshot.png" /></p>
 </div>
 <div class="well">
 <h3>About Shoebrush</h3>
@@ -48,6 +48,8 @@ $string['choosereadme'] = '
 clicking here to donate.
 </a>
 <br>Donations may allow me to provide you with more or better features in less time.</p>
+<h3>Customisation</h3>
+<p>If you would like this theme customised or build a new theme from scratch, then I offer competitive rates.  Please contact me via \'www.gjbarnard.co.uk/contact/\' or \'gjbarnard at gmail dot com\' or \'about.me/gjbarnard\' to discuss your requirements.</p>
 </div></div>';
 
 // General.

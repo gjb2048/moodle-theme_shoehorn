@@ -44,9 +44,9 @@ Donations may allow me to provide you with more or better features in less time.
 
 Customisation
 =============
-If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme
-from scratch, then I offer competitive rates.  Please contact me via www.gjbarnard.co.uk/contact/ or gjbarnard at gmail dot com
-to discuss your requirements.
+If you like this theme and would like me to customise it, transpose functionality to another theme or
+build a new theme from scratch, then I offer competitive rates.  Please contact me via 'www.gjbarnard.co.uk/contact/'
+or 'gjbarnard at gmail dot com' or 'about.me/gjbarnard' to discuss your requirements.
 
 Required version of Moodle
 ==========================
@@ -178,7 +178,9 @@ Version information
 Version 2.9.0.9.
   1. Child theme support.
   2. Improve backstretch on login page.
-  3. Add child theme 'shoebrush'.  See 'shoebrush' folder for details.
+  3. Added 'Shoebrush' child theme in 'shoebrush' sub-folder.  To use, read the 'Installation' instructions in
+     'shoebrush/Readme.md'.  The 'shoebrush' sub-folder is just a place to store and distribute the child theme.
+     It will NOT be available until you install it.
   4. Add custom font support for headings and body text.
 
 Version 2.9.0.8.

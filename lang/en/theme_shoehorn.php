@@ -52,7 +52,7 @@ $string['choosereadme'] = '
 <li>Site pages that you can customise with your own content.</li>
 <li>Slider navigation of course content with the \'One section per page\' course layout setting.</li>
 </ul>
-<h3>Parents</h3>
+<h3>Parent</h3>
 <p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.6 by: Bas Brands, David Scotson and many other contributors.</p>
 <h3>Theme Credits</h3>
 <p>Author: G J Barnard - <a href="//about.me/gjbarnard" target="_blank">About.me</a> - <a href="//moodle.org/user/profile.php?id=442195">Moodle profile</a> - <a href="//uk.linkedin.com/in/gjbarnard">Linkedin</a></p>
@@ -60,6 +60,8 @@ $string['choosereadme'] = '
 <p><a href="//github.com/gjb2048/moodle-theme_shoehorn/issues">Shoehorn issues.</a></p>
 <h3>More information</h3>
 <p><a href="shoehorn/Readme.md">How to use this theme.</a></p>
+<h3>Customisation</h3>
+<p>If you like this theme and would like me to customise it, transpose functionality to another theme or build a new theme from scratch, then I offer competitive rates.  Please contact me via \'www.gjbarnard.co.uk/contact/\' or \'gjbarnard at gmail dot com\' or \'about.me/gjbarnard\' to discuss your requirements.</p>
 </div></div>';
 
 $string['configtitle'] = 'Shoehorn';
