@@ -26,6 +26,7 @@
  */
 
 function theme_shoebrush_process_css($css, $theme) {
+    global $CFG;
     if (file_exists("$CFG->dirroot/theme/shoehorn/lib.php")) {
         require_once("$CFG->dirroot/theme/shoehorn/lib.php");
     } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/lib.php")) {

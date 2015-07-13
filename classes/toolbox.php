@@ -39,17 +39,21 @@ class toolbox {
     static public function get_tile_file($filename) {
         global $CFG, $PAGE;
         $themedir = $PAGE->theme->dir;
-        $themename = $PAGE->theme->name;
-        //error_log('filename: '.$filename.', dir: '.$themedir.', name: '.$themename);
         $filename .= '.php';
-        if (file_exists("$themedir/layout/tiles/$filename")) {
-            return "$themedir/layout/tiles/$filename";
-        } else if (file_exists("$CFG->dirroot/theme/$themename/layout/tiles/$filename")) {
-            return "$CFG->dirroot/theme/$themename/layout/tiles/$filename";
-        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/$themename/layout/tiles/$filename")) {
-            return "$CFG->themedir/$themename/layout/tiles/$filename";
+
+        /* Check only if a child of 'Shoehorn' to prevent conflicts with other themes using the 'tiles' folder.
+           The test is to change theme from Shoelace to Shoebrush with the theme selector and not get an error. */
+        if (in_array('shoehorn', $PAGE->theme->parents)) {
+            $themename = $PAGE->theme->name;
+            if (file_exists("$themedir/layout/tiles/$filename")) {
+                return "$themedir/layout/tiles/$filename";
+            } else if (file_exists("$CFG->dirroot/theme/$themename/layout/tiles/$filename")) {
+                return "$CFG->dirroot/theme/$themename/layout/tiles/$filename";
+            } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/$themename/layout/tiles/$filename")) {
+                return "$CFG->themedir/$themename/layout/tiles/$filename";
+            }
         }
-        // Not here so check parent Shoehorn.
+        // Check Shoehorn.
         if (file_exists("$CFG->dirroot/theme/shoehorn/layout/tiles/$filename")) {
             return "$CFG->dirroot/theme/shoehorn/layout/tiles/$filename";
         } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {

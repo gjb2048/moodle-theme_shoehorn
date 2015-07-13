@@ -31,23 +31,23 @@ $string['pluginname'] = 'Shoebrush';
 $string['choosereadme'] = '
 <div class="clearfix">
 <div class="well">
-<h2>Essential</h2>
-<p><img class="img-polaroid" src="shoehorn/pix/screenshot.jpg" /></p>
+<h2>Shoebrush</h2>
+<p><img class="img-polaroid" src="shoehorn/pix/screenshot.png" /></p>
 </div>
 <div class="well">
 <h3>About Shoebrush</h3>
 <p>Shoebrush is a basic child theme of Shoehoen to help you as a theme developer create your own child theme of Shoehorn.</p>
 <h3>Theme Credits</h3>
 <p>Author: Gareth J Barnard</p>
-<h3>Donations</h3>
-<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider donating by:
+<h3>Sponsorships</h3>
+<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider sponsoring by:
 <h4>PayPal</h4>
-<p>Please contact me via my <a href="http://moodle.org/user/profile.php?id=442195" target="_blank">\'Moodle profile\'</a> for details as I am an individual and therefore am unable to have \'donation\' / \'buy me now\' buttons under their terms.</p>
+<p>Please contact me via my <a href="http://moodle.org/user/profile.php?id=442195" target="_blank">\'Moodle profile\'</a> for details as I am an individual and therefore am unable to have \'buy me now\' buttons under their terms.</p>
 <h4>Flattr</h4>
 <a href="https://flattr.com/profile/gjb2048" target="_blank">
-clicking here to donate.
+clicking here to sponsor.
 </a>
-<br>Donations may allow me to provide you with more or better features in less time.</p>
+<br>Sponsorships may allow me to provide you with more or better features in less time.</p>
 </div></div>';
 
 // General.

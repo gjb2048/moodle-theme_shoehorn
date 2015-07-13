@@ -56,6 +56,15 @@ $string['choosereadme'] = '
 <p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.6 by: Bas Brands, David Scotson and many other contributors.</p>
 <h3>Theme Credits</h3>
 <p>Author: G J Barnard - <a href="//about.me/gjbarnard" target="_blank">About.me</a> - <a href="//moodle.org/user/profile.php?id=442195">Moodle profile</a> - <a href="//uk.linkedin.com/in/gjbarnard">Linkedin</a></p>
+<h3>Sponsorships</h3>
+<p>This theme is provided to you for free, and if you want to express your gratitude for using this theme, please consider sponsoring by:
+<h4>PayPal</h4>
+<p>Please contact me via my <a href="http://moodle.org/user/profile.php?id=442195" target="_blank">\'Moodle profile\'</a> for details as I am an individual and therefore am unable to have \'buy me now\' buttons under their terms.</p>
+<h4>Flattr</h4>
+<a href="https://flattr.com/profile/gjb2048" target="_blank">
+clicking here to sponsor.
+</a>
+<br>Sponsorships may allow me to provide you with more or better features in less time.</p>
 <h3>Report a bug:</h3>
 <p><a href="//github.com/gjb2048/moodle-theme_shoehorn/issues">Shoehorn issues.</a></p>
 <h3>More information</h3>
