@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1
+  1. First stable version.
+
 Version 2.9.0.9.
   1. Child theme support.
   2. Improve backstretch on login page.
