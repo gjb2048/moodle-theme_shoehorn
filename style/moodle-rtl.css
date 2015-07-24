@@ -30227,7 +30227,15 @@ aside
 
 .block.block_fake
 {
+    color: [[setting:navbardefaultcolour]];
     background-color: [[setting:navbardefaultbackground8rgba]];
+}
+
+.block.block_fake .panel-default > .panel-heading,
+.block.block_fake a,
+.block.block_fake .header h2
+{
+    color: [[setting:navbardefaultcolour]];
 }
 
 .block.block_shoehorn_chart

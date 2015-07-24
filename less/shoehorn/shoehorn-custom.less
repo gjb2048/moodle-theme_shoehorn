@@ -348,7 +348,11 @@ aside {
 
 // Fake blocks.
 .block.block_fake {
+    color: ~"[[setting:navbardefaultcolour]]";
     background-color: ~"[[setting:navbardefaultbackground8rgba]]";
+    .panel-default > .panel-heading, a, .header h2 {
+        color: ~"[[setting:navbardefaultcolour]]";
+    }
 }
 
 .block.block_shoehorn_chart {

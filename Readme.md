@@ -177,6 +177,7 @@ Version information
 ===================
 Version 2.9.1.1
   1. Fix lesson table padding removed.
+  2. Fix fake block text colour.
 
 Version 2.9.1
   1. First stable version.
