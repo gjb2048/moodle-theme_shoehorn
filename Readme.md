@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.1
+  1. Fix lesson table padding removed.
+
 Version 2.9.1
   1. First stable version.
 
