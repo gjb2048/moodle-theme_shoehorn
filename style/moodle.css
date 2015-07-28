@@ -13166,6 +13166,10 @@ span.editinstructions
 {
     padding: 0 5px;
 }
+.coursebox .info .coursename
+{
+    display: inline-block;
+}
 .coursebox.remotehost > .info > .categoryname a
 {
     background-image: url([[pix:moodle|i/mnethost]]);
@@ -24246,6 +24250,10 @@ ul.weeks
 .coursebox .content .summary.noteachers
 {
     margin-left: 0;
+}
+.coursebox .moreinfo
+{
+    display: inline-block;
 }
 /* Experimental CSS for big font capability.
 @dock-height: (@dock-width * 5.5);
