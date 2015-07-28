@@ -167,13 +167,6 @@ $string['loginmessage_desc'] = "The brief login message to show.  Leave blank to
 $string['loginmessage'] = 'The login message';
 $string['theloginmessage'] = 'Login here using your username and password';
 
-// Experimental settings.
-$string['experimental']= 'Experimental';
-$string['experimental_desc']= 'Experimental settings.';
-
-$string['dynamiclang']= 'Dynamic LTR / RTL language';
-$string['dynamiclang_desc']= 'Dynamic LTR / RTL language swapping as described on: moodle.org/mod/forum/discuss.php?d=264955.';
-
 // Status:....
 $string['draft'] = 'Draft';
 $string['published'] = 'Published';

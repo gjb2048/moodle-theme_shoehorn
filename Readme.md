@@ -185,6 +185,7 @@ Version 2.8.1.5.
   4. Added 'Shoebrush' child theme in 'shoebrush' sub-folder.  To use, read the 'Installation' instructions in
      'shoebrush/Readme.md'.  The 'shoebrush' sub-folder is just a place to store and distribute the child theme.
      It will NOT be available until you install it.
+  5. Remove experimental dynamiclang.
 
 Version 2.8.1.4.
   1. Fix small security issue.

@@ -256,21 +256,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-    // Experimental.
-    $generalsettings->add(new admin_setting_heading('theme_shoehorn_experimental', get_string('experimental', 'theme_shoehorn'),
-            format_text(get_string('experimental_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
-
-    // Dynamic LTR-RTL.
-    $name = 'theme_shoehorn/dynamiclang';
-    $title = get_string('dynamiclang', 'theme_shoehorn');
-    $description = get_string('dynamiclang_desc', 'theme_shoehorn');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, '0');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $generalsettings->add($setting);
-
-    $generalsettings->add(new admin_setting_heading('theme_shoehorn_generalreadme', get_string('readme_title', 'theme_shoehorn'),
-            get_string('readme_desc', 'theme_shoehorn', array('url' => $readme))));
-
     $ADMIN->add('theme_shoehorn', $generalsettings);
 
     // Front page slider page....

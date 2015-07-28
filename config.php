@@ -35,14 +35,10 @@ if (!get_config('core', 'themedesignermode')) {
     $tdm = '_min';
 }
 
-if (empty($THEME->settings->dynamiclang)) {
-    if ('ltr' === get_string('thisdirection', 'langconfig')) {
-        $THEME->sheets = array('moodle'.$tdm);
-    } else {
-        $THEME->sheets = array('moodle-rtl'.$tdm, 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
-    }
+if ('ltr' === get_string('thisdirection', 'langconfig')) {
+    $THEME->sheets = array('moodle'.$tdm);
 } else {
-    $THEME->sheets = array('theme');  // moodle / moodle-rtl served in layout/tiles/header.php separately.
+    $THEME->sheets = array('moodle-rtl'.$tdm, 'tinymce-rtl', 'yui2-rtl', 'forms-rtl');
 }
 $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.

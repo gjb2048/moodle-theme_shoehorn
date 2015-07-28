@@ -1261,21 +1261,4 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
         return $antigravity;
     }
-
-    // Moodle CSS file serving.
-    public function get_csswww() {
-        global $CFG;
-
-        if (right_to_left()) {
-            $moodlecss = 'moodle-rtl.css';
-        } else {
-            $moodlecss = 'moodle.css';
-        }
-
-        $syscontext = context_system::instance();
-        $itemid = theme_get_revision();
-        $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/style/$itemid/$moodlecss");
-        $url = preg_replace('|^https?://|i', '//', $url->out(false));
-        return $url;
-    }
 }
