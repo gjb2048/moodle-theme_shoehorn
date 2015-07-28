@@ -23,7 +23,8 @@
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$slides = shoehorn_shown_frontpageslides(); // In lib.php.
+$slides = \theme_shoehorn\toolbox::shown_frontpageslides($PAGE);
+
 $slidestoshow = false;
 foreach ($slides as $sideid => $shown) {
     if ($shown == 2) {
@@ -135,4 +136,4 @@ if ($speed == 0) {
         </a>
     </div>
 </div>
-<?php } ?>
+<?php }

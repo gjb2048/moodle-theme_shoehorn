@@ -28,7 +28,7 @@
 function theme_shoehorn_process_css($css, $theme) {
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_shoehorn_set_logo($css, $logo);
+    $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
 
     // Show login message if desired.
     $css = theme_shoehorn_set_loginmessage($css, $theme);
@@ -42,26 +42,12 @@ function theme_shoehorn_process_css($css, $theme) {
     } else {
         $customcss = null;
     }
-    $css = theme_shoehorn_set_customcss($css, $customcss);
+    $css = theme_shoehorn_set_setting($css, '[[setting:customcss]]', $customcss);
 
     return $css;
 }
 
-function theme_shoehorn_set_logo($css, $logo) {
-    $tag = '[[setting:logo]]';
-    $replacement = $logo;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-function theme_shoehorn_set_customcss($css, $customcss) {
-    $tag = '[[setting:customcss]]';
-    $replacement = $customcss;
+function theme_shoehorn_set_setting($css, $tag, $replacement) {
     if (is_null($replacement)) {
         $replacement = '';
     }
@@ -110,10 +96,11 @@ function theme_shoehorn_set_landf($css, $theme) {
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     if (!empty($theme->settings->landfallpagescontenttransparency)) {
-        $replacement .= $theme->settings->landfallpagescontenttransparency / 100;
-        $replacementmain .= $theme->settings->landfallpagescontenttransparency;
+        $allpages = round($theme->settings->landfallpagescontenttransparency, 2);
+        $replacement .= $allpages / 100;
+        $replacementmain .= $allpages;
         $replacementmain .= '); opacity: ';
-        $replacementmain .= $theme->settings->landfallpagescontenttransparency / 100;
+        $replacementmain .= $allpages / 100;
     } else {
         $replacementmain .= '100); opacity: 1.0';
         $replacement = '1.0';
@@ -142,10 +129,11 @@ function theme_shoehorn_set_landf($css, $theme) {
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     if (!empty($theme->settings->landffrontpagecontenttransparency)) {
-        $replacement .= $theme->settings->landffrontpagecontenttransparency / 100;
-        $replacementmain .= $theme->settings->landffrontpagecontenttransparency;
+        $frontpage = round($theme->settings->landffrontpagecontenttransparency, 2);
+        $replacement .= $frontpage / 100;
+        $replacementmain .= $frontpage;
         $replacementmain .= '); opacity: ';
-        $replacementmain .= $theme->settings->landffrontpagecontenttransparency / 100;
+        $replacementmain .= $frontpage / 100;
     } else {
         $replacementmain .= '100); opacity: 1.0';
         $replacement = '1.0';
@@ -157,111 +145,6 @@ function theme_shoehorn_set_landf($css, $theme) {
     $css = str_replace($tagmain, $replacementmain, $css);
 
     return $css;
-}
-
-/**
- * This function creates the dynamic HTML needed for the 
- * layout and then passes it back in an object so it can
- * be echo'd to the page.
- *
- * This keeps the logic out of the layout files.
- */
-function theme_shoehorn_html_for_settings($PAGE) {
-    $settings = $PAGE->theme->settings;
-
-    $html = new stdClass;
-
-    $html->navbarclass = array('navbar');
-    if (!empty($settings->inversenavbar)) {
-        $html->navbarclass[] = 'navbar-inverse';
-    } else {
-        $html->navbarclass[] = 'navbar-default';
-    }
-
-    $html->containerclass = 'container-fluid';
-
-    $html->additionalbodyclasses = array();
-
-    $devicetype = core_useragent::get_device_type(); // In /lib/classes/useragent.php.
-    if ($devicetype == "mobile") {
-        $html->additionalbodyclasses[] = 'mobiledevice';
-    } else if ($devicetype == "tablet") {
-        $html->additionalbodyclasses[] = 'tabletdevice';
-    }
-
-    if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
-        $html->additionalbodyclasses[] = 'coursetiles';
-    }
-
-    if (!empty($settings->fontawesome) && ($settings->fontawesome == 1)) {
-        $html->additionalbodyclasses[] = 'fontawesome';
-        $html->fontawesome = true;
-    } else {
-        $html->fontawesome = false;
-    }
-
-    if (!empty($settings->socialsignpost)) {
-        $html->additionalbodyclasses[] = 'socialsignpost';
-    }
-
-    if (!empty($settings->compactnavbar)) {
-        $html->additionalbodyclasses[] = 'compactnavbar';
-    }
-
-    if (!empty($settings->navbarfixedtop)) {
-        $html->additionalbodyclasses[] = 'navbarfixedtop';
-        $html->navbarclass[] = 'navbar-fixed-top'; 
-    }
-
-    if ($PAGE->pagelayout == 'frontpage') {
-        if (!empty($settings->landffrontpagebackgroundimage)) {
-            $html->additionalbodyclasses[] = 'frontpagebackgroundimage';
-        }
-    } else {
-        if (!empty($settings->landfallpagesbackgroundimage)) {
-            $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
-        }
-    }
-    return $html;
-}
-
-function shoehorn_grid($hassidepre, $hassidepost) {
-    global $PAGE;
-
-    if ($hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-sm-4 col-md-6 col-lg-8');
-        $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
-        $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
-    } else if ($hassidepre && !$hassidepost) {
-        $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
-        $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
-        $regions['post'] = 'emtpy';
-    } else if (!$hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
-        $regions['pre'] = 'empty';
-        $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
-    } else if (!$hassidepre && !$hassidepost) {
-        $regions = array('content' => 'col-md-12');
-        $regions['pre'] = 'empty';
-        $regions['post'] = 'empty';
-    }
-
-    if (('rtl' === get_string('thisdirection', 'langconfig')) && (empty($PAGE->theme->settings->dynamiclang))) {
-        if ($hassidepre && $hassidepost) {
-            $regions = array('content' => 'col-sm-4 col-sm-push-8 col-md-6 col-md-push-6 col-lg-8 col-lg-push-4');
-            $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
-            $regions['post'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
-        } else if ($hassidepre && !$hassidepost) {
-            $regions = array('content' => 'col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 col-lg-10 col-lg-push-2');
-            $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 col-lg-2 col-lg-pull-10';
-            $regions['post'] = 'empty';
-        } else if (!$hassidepre && $hassidepost) {
-            $regions = array('content' => 'col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 col-lg-10 col-lg-push-2');
-            $regions['pre'] = 'empty';
-            $regions['post'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
-        }
-    }
-    return $regions;
 }
 
 // Moodle CSS file serving.
@@ -284,141 +167,6 @@ function theme_shoehorn_get_csswww() {
     return $url;
 }
 
-
-function shoehorn_showslider($settings) {
-    $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
-    if ($devicetype == "mobile") {
-        $showslider = (empty($settings->frontpageslidermobile)) ? false : $settings->frontpageslidermobile;
-    } else if ($devicetype == "tablet") {
-        $showslider = (empty($settings->frontpageslidertablet)) ? false : $settings->frontpageslidertablet;
-    } else {
-        $showslider = true;
-    }
-    return $showslider;
-}
-
-/**
- * States if the site pages can be shown.
- *
- * @return array of pageid => 1 = no, 2 = yes.
- */
-function shoehorn_shown_sitepages() {
-    $pages = array();
-    $theme = theme_config::load('shoehorn');
-
-    $numberofsitepages = (empty($theme->settings->numberofsitepages)) ? false : $theme->settings->numberofsitepages;
-    if ($numberofsitepages) {
-        $loggedin = isloggedin();
-        $lang = current_language();
-        for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
-            $sitepagestatus = 'sitepagestatus'.$sp;
-            if (empty($theme->settings->$sitepagestatus) or ($theme->settings->$sitepagestatus == 2)) { // 2 is published.
-                $sitepagetitle = 'sitepagetitle'.$sp;
-                if (!empty($theme->settings->$sitepagetitle)) {
-                    $sitepagedisplay = 'sitepagedisplay'.$sp;
-                    if (empty($theme->settings->$sitepagedisplay)
-                        or ($theme->settings->$sitepagedisplay == 1) // Always 
-                        or (($theme->settings->$sitepagedisplay == 2) and ($loggedin == false)) // Logged out.
-                        or (($theme->settings->$sitepagedisplay == 3) and ($loggedin == true)) // Logged in.
-                    ) {
-                        $sitepagelang = 'sitepagelang'.$sp;
-                        if (empty($theme->settings->$sitepagelang) or ($theme->settings->$sitepagelang == 'all') or ($theme->settings->$sitepagelang == $lang)) {
-                            // Page can be shown.
-                            $pages[$sp] = 2;
-                        } else {
-                            // Page is not shown.
-                            $pages[$sp] = 1;
-                        }
-                    } else {
-                        // Page is known but not shown.
-                        $pages[$sp] = 1;
-                    }
-                } else {
-                    // Page is known but has no title.
-                    $pages[$sp] = 3;
-                }
-            } else {
-                // Page is known but not published.
-                $pages[$sp] = 4;
-            }
-        }
-    }
-
-    return $pages;
-}
-
-/**
- * States if the front page slides can be shown.
- *
- * @return array of slideno => 1 = no, 2 = yes.
- */
-function shoehorn_shown_frontpageslides() {
-    $slides = array();
-    $theme = theme_config::load('shoehorn');
-
-    $frontpagenumberofslides = (empty($theme->settings->frontpagenumberofslides)) ? false : $theme->settings->frontpagenumberofslides;
-    if ($frontpagenumberofslides) {
-        $loggedin = isloggedin();
-        $lang = current_language();
-        for ($sl = 1; $sl <= $frontpagenumberofslides; $sl++) {
-            $frontpageslidestatus = 'frontpageslidestatus'.$sl;
-            if (empty($theme->settings->$frontpageslidestatus) or ($theme->settings->$frontpageslidestatus == 2)) { // 2 is published.
-                $frontpageslidedisplay = 'frontpageslidedisplay'.$sl;
-                if (empty($theme->settings->$frontpageslidedisplay)
-                    or ($theme->settings->$frontpageslidedisplay == 1) // Always 
-                    or (($theme->settings->$frontpageslidedisplay == 2) and ($loggedin == false)) // Logged out.
-                    or (($theme->settings->$frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
-                ) {
-                    $frontpageslidelang = 'frontpageslidelang'.$sl;
-                    if (empty($theme->settings->$frontpageslidelang) or ($theme->settings->$frontpageslidelang == 'all') or ($theme->settings->$frontpageslidelang == $lang)) {
-                        // Slide can be shown.
-                        $slides[$sl] = 2;
-                    } else {
-                        // Slide is not shown.
-                        $slides[$sl] = 1;
-                    }
-                }
-            }
-        }
-    }
-
-    return $slides;
-}
-
-/**
- * States the number of background images (if any).
- *
- * @return array of background image urls or empty array if none.
- */
-function shoehorn_shown_loginbackgroundchanger_images() {
-    $images = array();
-    $theme = theme_config::load('shoehorn');
-
-    $numberofimages = (empty($theme->settings->loginbackgroundchangernumberofimages)) ? false : $theme->settings->loginbackgroundchangernumberofimages;
-    if (($numberofimages) && (shoehorn_showloginbackgroundchanger($theme->settings))) {
-        for ($img = 1; $img <= $numberofimages; $img++) {
-            $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
-            if (!empty($theme->settings->$loginbackgroundchangerimageno)) {
-                $images[] = '"'.$theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno).'"';
-            }
-        }
-    }
-
-    return $images;
-}
-
-function shoehorn_showloginbackgroundchanger($settings) {
-    $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
-    if ($devicetype == "mobile") {
-        $showimages = (empty($settings->loginbackgroundchangermobile)) ? false : $settings->loginbackgroundchangermobile;
-    } else if ($devicetype == "tablet") {
-        $showimages = (empty($settings->loginbackgroundchangertablet)) ? false : $settings->loginbackgroundchangertablet;
-    } else {
-        $showimages = true;
-    }
-    return $showimages;
-}
-
 /**
  * Serves any files associated with the theme settings.
  *
@@ -432,28 +180,27 @@ function shoehorn_showloginbackgroundchanger($settings) {
  * @return bool
  */
 function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    static $theme;
+    if (empty($theme)) {
+        $theme = theme_config::load('shoehorn');
+    }
+
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
         } else if ($filearea === 'style') {
             theme_shoehorn_serve_css($args[1]);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 14) === 'imagebankimage') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 27) === 'loginbackgroundchangerimage') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if ($filearea === 'syntaxhighlighter') {
             theme_shoehorn_serve_syntaxhighlighter($args[1]);
         } else if ($filearea === 'landffrontpagebackgroundimage') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('landffrontpagebackgroundimage', $args, $forcedownload, $options);
         } else if ($filearea === 'landfallpagesbackgroundimage') {
-            $theme = theme_config::load('shoehorn');
             return $theme->setting_file_serve('landfallpagesbackgroundimage', $args, $forcedownload, $options);
         } else {
             send_file_not_found();
@@ -491,10 +238,13 @@ function theme_shoehorn_serve_css($filename) {
 
 function theme_shoehorn_serve_syntaxhighlighter($filename) {
     global $CFG;
-    if (!empty($CFG->themedir)) {
+    if (file_exists("{$CFG->dirroot}/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/")) {
+        $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+    } else if (!empty($CFG->themedir) && file_exists("{$CFG->themedir}/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/")) {
         $thesyntaxhighlighterpath = $CFG->themedir . '/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
     } else {
-        $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+        header('HTTP/1.0 404 Not Found');
+        die('Shoehorn syntax highlighter scripts folder not found, check $CFG->themedir is correct.');
     }
     $thefile = $thesyntaxhighlighterpath . $filename;
 
@@ -548,50 +298,4 @@ function theme_shoehorn_send_cached($path, $filename, $lastmodified, $etag, $con
 
     readfile($path . $filename);
     die;
-}
-
-function theme_shoehorn_social_footer($settings) {
-    $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
-    $haveicons = false;
-    if ($numberofsociallinks) {
-        for ($sli = 1; $sli <= $numberofsociallinks; $sli++) {
-            $name = 'social'.$sli;
-            if (!empty($settings->$name)) {
-                $haveicons = true;
-                break;
-            }
-        }
-    }
-
-    if ($haveicons) {
-        // Max social links of 16.
-        $diff = floor($numberofsociallinks / 6);
-        $side = 5 - $diff;
-        $centre = 2 + ($diff * 2);
-        $cols['side'] = 'col-sm-'.$side.' col-md-'.$side.' col-lg-'.$side;
-        $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre.' post-size-'.$diff;
-    } else {
-        $cols['side'] = 'col-sm-6 col-md-6 col-lg-6';
-        $cols['centre'] = '';
-    }
-
-    return $cols;
-}
-
-function shoehorn_hex2rgb($hex) {
-    // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
-    $hex = str_replace("#", "", $hex);
-
-    if(strlen($hex) == 3) {
-        $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-        $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-        $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-    } else {
-        $r = hexdec(substr($hex,0,2));
-        $g = hexdec(substr($hex,2,2));
-        $b = hexdec(substr($hex,4,2));
-    }
-    $rgb = array($r, $g, $b);
-    return implode(",", $rgb); // returns the rgb values separated by commas
-    //return $rgb; // returns an array with the rgb values
 }

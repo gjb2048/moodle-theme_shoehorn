@@ -36,22 +36,22 @@
  */
 
 $loggedin = isloggedin();
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
-if (!empty($loginpageimages)) {  // $loginpageimages defined in jquery.php.
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+if (!empty($loginpageimages)) {  // Variable $loginpageimages defined in additionaljs.php.
     $settingshtml->additionalbodyclasses[] = 'loginpageimages';
 }
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('navbar')); ?>
 
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
@@ -67,10 +67,10 @@ echo $OUTPUT->doctype() ?>
             }
             ?>
         </div>
-        <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
     </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(\theme_shoehorn\toolbox::get_tile_file('footer')); ?>
 
 </div>
 <?php

@@ -25,22 +25,23 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
+
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
 $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
-$regions = shoehorn_grid($hassidepre, $hassidepost);
-$showslider = shoehorn_showslider($PAGE->theme->settings);
 $PAGE->set_popup_notification_allowed(false);
-require_once(dirname(__FILE__).'/tiles/jquery.php');
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$showslider = \theme_shoehorn\toolbox::showslider($PAGE->theme->settings);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
@@ -49,17 +50,17 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <div id="page-area" class="row">
-        <?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('navbar')); ?>
 
-        <?php require_once(dirname(__FILE__).'/tiles/pageheader.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pageheader')); ?>
 
         <div id="page-content" class="row">
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <?php
                 if ($showslider) {
-                    require_once(dirname(__FILE__).'/tiles/frontpageslider.php');
+                    require_once(\theme_shoehorn\toolbox::get_tile_file('frontpageslider'));
                 }
-                require_once(dirname(__FILE__).'/tiles/marketingspots.php');
+                require_once(\theme_shoehorn\toolbox::get_tile_file('marketingspots'));
                 ?>
                 <section id="region-main-shoehorn">
                     <?php
@@ -79,12 +80,12 @@ echo $OUTPUT->doctype() ?>
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
 
-            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+            <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>
 
     </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(\theme_shoehorn\toolbox::get_tile_file('footer')); ?>
 
 </div>
 </body>

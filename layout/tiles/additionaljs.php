@@ -33,10 +33,11 @@ if ($fitvids) {
     $PAGE->requires->jquery_plugin('fitvids', 'theme_shoehorn');
 }
 switch ($PAGE->pagelayout) {
-    case 'login': 
-        $loginpageimages = shoehorn_shown_loginbackgroundchanger_images();
+    case 'login':
+        $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images($PAGE);
         if (!empty($loginpageimages)) {
             $PAGE->requires->jquery_plugin('backstretch', 'theme_shoehorn');
         }
+        break;
 }
 $PAGE->requires->jquery_plugin('antigravity', 'theme_shoehorn');

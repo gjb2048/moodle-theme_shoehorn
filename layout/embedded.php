@@ -25,11 +25,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
-echo $OUTPUT->doctype() 
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+echo $OUTPUT->doctype()
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>

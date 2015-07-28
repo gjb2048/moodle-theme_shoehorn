@@ -25,14 +25,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__).'/tiles/jquery.php');
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
-$regions = shoehorn_grid(false, false);
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$regions = \theme_shoehorn\toolbox::grid(false, false, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 echo $OUTPUT->doctype();
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes($settingshtml->additionalbodyclasses); ?>>
 
@@ -40,7 +40,7 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_top_of_body_html(); ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
     <div id="page-area" class="row">
-        <?php require_once(dirname(__FILE__).'/tiles/pageheader.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pageheader')); ?>
 
         <div id="page-content" class="row">
             <div id="region-main" class="<?php echo $regions['content']; ?>">
@@ -49,11 +49,11 @@ echo $OUTPUT->standard_top_of_body_html(); ?>
                 </section>
                 <div id="region-main-shoehorn-shadow"></div>
             </div>
-            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+            <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>
     </div>
 
-    <?php require_once(dirname(__FILE__).'/tiles/footer.php'); ?>
+    <?php require_once(\theme_shoehorn\toolbox::get_tile_file('footer')); ?>
 </div>
 </body>
 </html>

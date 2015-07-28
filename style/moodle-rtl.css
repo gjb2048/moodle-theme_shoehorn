@@ -14918,6 +14918,11 @@ span.editinstructions
     padding: 0 5px;
 }
 
+.coursebox .info .coursename
+{
+    display: inline-block;
+}
+
 .coursebox.remotehost > .info > .categoryname a
 {
     background-image: url([[pix:moodle|i/mnethost]]);

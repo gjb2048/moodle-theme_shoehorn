@@ -14,16 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
+
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
-$regions = bootstrap_grid($hassidepre, $hassidepost);
-require_once(dirname(__FILE__).'/tiles/jquery.php');
 
-$settingshtml = theme_shoehorn_html_for_settings($PAGE);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
-<?php require_once(dirname(__FILE__).'/tiles/header.php'); ?>
+<?php require_once(\theme_shoehorn\toolbox::get_tile_file('header')); ?>
 
 <body <?php echo $OUTPUT->body_attributes(); ?>>
 
@@ -32,7 +33,7 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <div id="page-area" class="row">
-        <?php require_once(dirname(__FILE__).'/tiles/navbar.php'); ?>
+        <?php require_once(\theme_shoehorn\toolbox::get_tile_file('navbar')); ?>
 
         <header class="moodleheader col-md-12">
             <?php echo $OUTPUT->page_heading(); ?>
@@ -57,7 +58,7 @@ echo $OUTPUT->doctype() ?>
             if ($hassidepost) {
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
-            <?php require_once(dirname(__FILE__).'/tiles/pagebottom.php'); ?>
+            <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>
     </div>
 
