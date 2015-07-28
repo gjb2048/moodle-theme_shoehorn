@@ -178,6 +178,7 @@ Version information
 Version 2.9.1.1
   1. Fix lesson table padding removed.
   2. Fix fake block text colour.
+  3. Remove experimental dynamiclang.
 
 Version 2.9.1
   1. First stable version.

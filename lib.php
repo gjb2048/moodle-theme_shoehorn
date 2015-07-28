@@ -285,26 +285,6 @@ function theme_shoehorn_set_landf($css, $theme) {
     return $css;
 }
 
-// Moodle CSS file serving.
-function theme_shoehorn_get_csswww() {
-    global $CFG;
-
-    if (right_to_left()) {
-        $moodlecss = 'moodle-rtl.css';
-    } else {
-        $moodlecss = 'moodle.css';
-    }
-
-    $syscontext = context_system::instance();
-    $itemid = theme_get_revision();
-    $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_shoehorn/style/$itemid/$moodlecss");
-    // Now this is tricky because the we can not hard code http or https here, lets use the relative link.
-    // Note: unfortunately moodle_url does not support //urls yet.
-    $url = preg_replace('|^https?://|i', '//', $url->out(false));
-
-    return $url;
-}
-
 /**
  * Serves any files associated with the theme settings.
  *
@@ -326,8 +306,6 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        } else if ($filearea === 'style') {
-            theme_shoehorn_serve_css($args[1]);
         } else if (preg_match("/^fontfile(eot|otf|svg|ttf|woff|woff2)(heading|body)$/", $filearea)) { // http://www.regexr.com/.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
@@ -348,32 +326,6 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
     } else {
         send_file_not_found();
     }
-}
-
-function theme_shoehorn_serve_css($filename) {
-    global $CFG;
-    if (!empty($CFG->themedir)) {
-        $thestylepath = $CFG->themedir . '/shoehorn/style/experimental/';
-    } else {
-        $thestylepath = $CFG->dirroot . '/theme/shoehorn/style/experimental/';
-    }
-    $thesheet = $thestylepath . $filename;
-
-    /* http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static file who's
-      contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for the moment if
-      that decision is a factor. */
-
-    $etagfile = md5_file($thesheet);
-    // File.
-    $lastmodified = filemtime($thesheet);
-    // Header.
-    $ifmodifiedsince = (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false);
-    $etagheader = (isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : false);
-
-    if ((($ifmodifiedsince) && (strtotime($ifmodifiedsince) == $lastmodified)) || $etagheader == $etagfile) {
-        theme_shoehorn_send_unmodified($lastmodified, $etagfile, 'text/css');
-    }
-    theme_shoehorn_send_cached($thestylepath, $filename, $lastmodified, $etagfile, 'text/css');
 }
 
 function theme_shoehorn_serve_syntaxhighlighter($filename) {

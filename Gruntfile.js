@@ -222,35 +222,6 @@ module.exports = function(grunt) {
                 },
                 src: 'less/fontawesome.less',
                 dest: 'style/font-awesome.css'
-            },
-            // Experimental styles.
-            // Compile moodle styles.
-            moodle_e: {
-                options: {
-                    compress: COMPRESS,
-                    paths: ".",
-                    report: 'min',
-                    sourceMap: SOURCEMAP,
-                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
-                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/experimental/moodle.treasure.map',
-                    sourceMapFilename: 'style/experimental/moodle.treasure.map'
-                },
-                src: 'less/experimental/moodle.less',
-                dest: 'style/experimental/moodle.css'
-            },
-            // Compile theme styles.
-            theme_e: {
-                options: {
-                    compress: COMPRESS,
-                    paths: ".",
-                    report: 'min',
-                    sourceMap: SOURCEMAP,
-                    sourceMapRootpath: MOODLEURLPREFIX + '/theme/' + THEMEDIR,
-                    sourceMapURL: MOODLEURLPREFIX + '/theme/' + THEMEDIR + '/style/theme.treasure.map',
-                    sourceMapFilename: 'style/theme.treasure.map'
-                },
-                src: 'less/experimental/theme.less',
-                dest: 'style/theme.css'
             }
         },
         csscomb: {
@@ -262,12 +233,6 @@ module.exports = function(grunt) {
                 cwd: 'style/',
                 src: ['moodle.css', 'moodle-rtl.css', 'editor.css', 'font-awesome.css'],
                 dest: 'style/'
-            },
-            experimental: {
-                expand: true,
-                cwd: 'style/experimental/',
-                src: ['moodle.css', 'moodle-rtl.css'],
-                dest: 'style/experimental/'
             }
         },
         exec: {
@@ -376,20 +341,6 @@ module.exports = function(grunt) {
                         from: "glyphicons-halflings-regular.woff'",
                         to:   "glyphicons-halflings-regular.woff]]'",
                     }]
-            },
-            font_fix_e: {
-                src: 'style/experimental/moodle.css',
-                    overwrite: true,
-                    replacements: [{
-                        from: 'src: url(\'.eot\');',
-                        to: '',
-                    }, {
-                        from: 'src: url(\'.eot?#iefix\') format(\'embedded-opentype\'), url(\'.woff2\') format(\'woff2\'), url(\'.woff\') format(\'woff\'), url(\'.ttf\') format(\'truetype\'), url(\'.svg#\') format(\'svg\');',
-                        to: '',
-                    }, {
-                        from: '@font-face \{[^\n]font-family: \'Glyphicons Halflings\';[^\n]\}', // TODO: Intent is to remove with REGEX, but not working.  Leaves empty font-face declaration in CSS.
-                        to: '',
-                    }]
             }
         },
         svgmin: {                       // Task
@@ -461,9 +412,8 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("experimental", ["less:moodle_e", "less:theme_e", "replace:font_fix_e", "cssflip:rtl_e", "csscomb:experimental"]);
     grunt.registerTask("main", ["less:moodle", "less:editor", "less:fontawesome", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme"]);
-    grunt.registerTask("compile", ["main", "experimental", "decache"]);
+    grunt.registerTask("compile", ["main", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
     grunt.registerTask("svg", ["copy:svg", "replace:svg_colours", "svgmin"]);

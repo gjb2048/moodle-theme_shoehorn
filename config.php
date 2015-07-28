@@ -32,17 +32,13 @@ $THEME->parents = array();
 
 $THEME->sheets = array();
 $THEME->sheets[] = 'chartist_min';
-if (empty($THEME->settings->dynamiclang)) {
-    if ('ltr' === get_string('thisdirection', 'langconfig')) {
-        $THEME->sheets[] = 'moodle';
-    } else {
-        $THEME->sheets[] = 'moodle-rtl';
-        $THEME->sheets[] = 'tinymce-rtl';
-        $THEME->sheets[] = 'yui2-rtl';
-        $THEME->sheets[] = 'forms-rtl';
-    }
+if ('ltr' === get_string('thisdirection', 'langconfig')) {
+    $THEME->sheets[] = 'moodle';
 } else {
-    $THEME->sheets[] = 'theme';  // Sheets moodle / moodle-rtl served in layout/tiles/header.php separately.
+    $THEME->sheets[] = 'moodle-rtl';
+    $THEME->sheets[] = 'tinymce-rtl';
+    $THEME->sheets[] = 'yui2-rtl';
+    $THEME->sheets[] = 'forms-rtl';
 }
 $THEME->sheets[] = 'general';
 if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.

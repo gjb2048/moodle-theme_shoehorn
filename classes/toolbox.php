@@ -173,7 +173,7 @@ class toolbox {
             $regions['post'] = 'empty';
         }
 
-        if (('rtl' === get_string('thisdirection', 'langconfig')) && (empty($PAGE->theme->settings->dynamiclang))) {
+        if ('rtl' === get_string('thisdirection', 'langconfig')) {
             if ($hassidepre && $hassidepost) {
                 $regions = array('content' => 'col-sm-4 col-sm-push-8 col-md-6 col-md-push-6 col-lg-8 col-lg-push-4');
                 $regions['pre'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
