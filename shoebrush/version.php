@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Shoehorn theme with the underlying Bootstrap theme.
+ * Shoebrush theme.
  *
  * @package    theme
- * @subpackage shoehorn
- * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @subpackage shoebrush
+ * @copyright  &copy; 2015-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,8 +27,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2015042304;
+$plugin->version = 2015042300; // YYYYMMDDVV.
+$plugin->maturity = MATURITY_RC; // this version's maturity level.
+$plugin->release = '2.8.0.1';
 $plugin->requires  = 2014111000.00; // 2.8 (Build: 20141110).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '2.8.1.5';
+$plugin->component = 'theme_shoebrush';
+$plugin->dependencies = array(
+    'theme_shoehorn'  => 2015042304
+);

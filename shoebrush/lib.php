@@ -15,20 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Shoehorn theme with the underlying Bootstrap theme.
+ * Shoebrush theme.
  *
  * @package    theme
- * @subpackage shoehorn
- * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @subpackage shoebrush
+ * @copyright  &copy; 2015-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+function theme_shoebrush_process_css($css, $theme) {
+    global $CFG;
+    if (file_exists("$CFG->dirroot/theme/shoehorn/lib.php")) {
+        require_once("$CFG->dirroot/theme/shoehorn/lib.php");
+    } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/lib.php")) {
+        require_once("$CFG->themedir/shoehorn/lib.php");
+    } // else will just fail when cannot find theme_shoehorn_process_css!
+    static $parenttheme;
+    if (empty($parenttheme)) {
+        $parenttheme = theme_config::load('shoehorn'); 
+    }
+    $css = theme_shoehorn_process_css($css, $parenttheme);
 
-$plugin->version   = 2015042304;
-$plugin->requires  = 2014111000.00; // 2.8 (Build: 20141110).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '2.8.1.5';
+    // If you have your own settings, then add them here.
+
+    // Finally return processed CSS
+    return $css;
+}

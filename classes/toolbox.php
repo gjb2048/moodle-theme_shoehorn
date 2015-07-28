@@ -306,7 +306,7 @@ class toolbox {
             for ($img = 1; $img <= $numberofimages; $img++) {
                 $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
                 if (!empty($settings->$loginbackgroundchangerimageno)) {
-                    $images[] = $PAGE->theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
+                    $images[] = '"'.$PAGE->theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno).'"';
                }
             }
         }

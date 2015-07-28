@@ -178,6 +178,14 @@ Todo
 
 Version information
 ===================
+Version 2.8.1.5.
+  1. Fix bootstrap_grid() -> shoehorn_grid() in layout/secure.php.
+  2. Add child theme support from M2.9 version.
+  3. Fix header colour.
+  4. Added 'Shoebrush' child theme in 'shoebrush' sub-folder.  To use, read the 'Installation' instructions in
+     'shoebrush/Readme.md'.  The 'shoebrush' sub-folder is just a place to store and distribute the child theme.
+     It will NOT be available until you install it.
+
 Version 2.8.1.4.
   1. Fix small security issue.
 

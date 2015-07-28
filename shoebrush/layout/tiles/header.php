@@ -15,20 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Shoehorn theme with the underlying Bootstrap theme.
+ * Shoebrush theme.
  *
  * @package    theme
- * @subpackage shoehorn
- * @copyright  &copy; 2014-onwards G J Barnard in respect to modifications of the Bootstrap theme.
+ * @subpackage shoebrush
+ * @copyright  &copy; 2015-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2015042304;
-$plugin->requires  = 2014111000.00; // 2.8 (Build: 20141110).
-$plugin->component = 'theme_shoehorn';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '2.8.1.5';
+?>
+<!-- Shoebrush header -->
+<head>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <?php
+        echo $OUTPUT->standard_head_html();
+        if (!empty($PAGE->theme->settings->cdnfonts) && ($PAGE->theme->settings->cdnfonts == 2)) {
+            require_once(dirname(__FILE__).'/cdnfonts.php');
+        }
+    ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
