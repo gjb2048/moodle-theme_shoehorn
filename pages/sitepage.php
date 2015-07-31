@@ -48,9 +48,6 @@ $PAGE->set_other_editing_capability('moodle/course:update');
 $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
 
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
-$PAGE->add_body_classes($settingshtml->additionalbodyclasses);
-
 $o = '';
 $pages = \theme_shoehorn\toolbox::shown_sitepages($PAGE);
 $loggedin = isloggedin();

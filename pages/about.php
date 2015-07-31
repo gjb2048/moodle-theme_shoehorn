@@ -34,9 +34,6 @@ $PAGE->set_url($thispageurl, $thispageurl->params());
 $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
 
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
-$PAGE->add_body_classes($settingshtml->additionalbodyclasses);
-
 $PAGE->set_title('About Shoehorn');
 $PAGE->set_heading('About Shoehorn');
 

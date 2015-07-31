@@ -179,6 +179,9 @@ Version 2.9.1.1
   1. Fix lesson table padding removed.
   2. Fix fake block text colour.
   3. Remove experimental dynamiclang.
+  4. Update to FontAwesome 4.4.0.
+  5. Fix chart heading colour.
+  6. Fix theme renderer not being initialised correctly on custom pages.
 
 Version 2.9.1
   1. First stable version.

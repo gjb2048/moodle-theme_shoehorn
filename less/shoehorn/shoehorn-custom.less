@@ -355,10 +355,6 @@ aside {
     }
 }
 
-.block.block_shoehorn_chart {
-    background-color: @panel-bg;
-}
-
 // My home.
 #region-main .block {
     color: ~"[[setting:textcolour]]";
@@ -1308,9 +1304,14 @@ a[name="lastused"] {
 }
 
 // Chart.
-
-.block.block_shoehorn_chart .content {
-  padding: 0px 0px;
+.block.block_shoehorn_chart {
+    background-color: @panel-bg;
+    .header h2 {
+        color: ~"[[setting:linkcolour]]";
+    }
+    .content {
+         padding: 0px 0px;
+    }
 }
 
 .ct-chart {

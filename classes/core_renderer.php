@@ -363,7 +363,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             $mycoursesmenu->add($homelabel, new moodle_url('/my/index.php'), $hometext);
 
             if ($this->fontawesome) {
-                $courseicons = array('list', 'list-alt', 'book', 'tasks', 'suitcase');
+                $courseicons = array('list', 'list-alt', 'list-ul', 'book', 'tasks', 'suitcase', 'graduation-cap');
             } else {
                 $courseicons = array('list', 'list-alt', 'book', 'tasks', 'briefcase');
             }
@@ -380,7 +380,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     if ($course->visible){
                         $coursetext = format_string($course->fullname);
                         if ($this->fontawesome) {
-                            $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-'.$courseicons[$course->id % 5])); // 5 is the courseicons array length.
+                            $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-'.$courseicons[$course->id % 7])); // 7 is the courseicons array length.
                         } else {
                             $courselabel = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-'.$courseicons[$course->id % 5]));
                         }
