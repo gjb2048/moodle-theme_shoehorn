@@ -175,6 +175,10 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.2
+  1. Tidy up user menu.
+  2. Add role switched item if required.
+
 Version 2.9.1.1
   1. Fix lesson table padding removed.
   2. Fix fake block text colour.

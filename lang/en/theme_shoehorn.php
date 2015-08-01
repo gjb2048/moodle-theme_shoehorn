@@ -128,6 +128,8 @@ $string['langpack_urlname'] = 'Language packs';
 // Navbar.
 $string['togglenavigation'] = 'Toggle navigation';
 $string['gotobottom'] = 'Go to the bottom of the page';
+$string['unknownrole'] = 'unknown role';
+$string['loggedinas'] = 'You are logged in as a \'{$a}\', return to my normal role';
 
 // Messages.
 $string['unreadnewnotification'] = 'New notification';

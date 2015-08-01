@@ -517,24 +517,6 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
                 $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
 
-                $logouttext = get_string('logout');
-                if ($this->fontawesome) {
-                    $logout = html_writer::tag('i', '', array('class' => 'fa fa-power-off'));
-                } else {
-                    $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
-                }
-                $logout .= html_writer::tag('span', $logouttext);
-                if (\core\session\manager::is_loggedinas()) {
-                    $logouturl = new moodle_url('/course/loginas.php', array('id' => $this->page->course->id, 'sesskey' => sesskey()));
-                } else {
-                    $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
-                }
-                $usermenu->add(
-                    $logout,
-                    $logouturl,
-                    $logouttext
-                );
-
                 $viewprofiletext = get_string('viewprofile');
                 if ($this->fontawesome) {
                     $viewprofile = html_writer::tag('i', '', array('class' => 'fa fa-user'));
@@ -559,6 +541,42 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     $editmyprofile,
                     new moodle_url('/user/edit.php', array('id' => $USER->id)),
                     $editmyprofiletext
+                );
+
+                if (is_role_switched($this->page->course->id)) { // Has switched roles.
+                    global $DB;
+                    $context = context_course::instance($this->page->course->id);
+                    if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
+                        $rolename = role_get_name($role, $context);
+                    } else {
+                        $rolename = get_string('unknownrole', 'theme_shoehorn');
+                    }
+                    if ($this->fontawesome) {
+                        $loggedinas = html_writer::tag('i', '', array('class' => 'fa fa-clock-o'));
+                    } else {
+                        $loggedinas = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-time'));
+                    }
+                    $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
+                    $url = new moodle_url('/course/switchrole.php', array('id' => $this->page->course->id,'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
+                    $usermenu->add($loggedinas, $url);
+                }
+
+                $logouttext = get_string('logout');
+                if ($this->fontawesome) {
+                    $logout = html_writer::tag('i', '', array('class' => 'fa fa-power-off'));
+                } else {
+                    $logout = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-off'));
+                }
+                $logout .= html_writer::tag('span', $logouttext);
+                if (\core\session\manager::is_loggedinas()) {
+                    $logouturl = new moodle_url('/course/loginas.php', array('id' => $this->page->course->id, 'sesskey' => sesskey()));
+                } else {
+                    $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+                }
+                $usermenu->add(
+                    $logout,
+                    $logouturl,
+                    $logouttext
                 );
             } else if ($this->page->pagelayout != 'login') {
                 $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10003);
