@@ -178,6 +178,9 @@ Version information
 Version 2.9.1.2
   1. Tidy up user menu.
   2. Add role switched item if required.
+  3. MDL-48202.
+  4. MDL-46860.
+  5. Divider does not show.
 
 Version 2.9.1.1
   1. Fix lesson table padding removed.

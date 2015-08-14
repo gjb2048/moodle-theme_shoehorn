@@ -21549,29 +21549,6 @@ ol
     vertical-align: baseline;
 }
 
-.block .header .commands
-{
-    clear: both;
-
-    text-align: left;
-}
-
-.block .header .commands > a
-{
-    margin: 0 3px;
-}
-
-.block .header .commands .icon img
-{
-    width: 12px;
-    height: 12px;
-}
-
-.block .header .commands img.actionmenu
-{
-    width: auto;
-}
-
 .block .content
 {
     padding: 4px 14px;
@@ -21685,6 +21662,34 @@ fieldset[disabled] .block .singleselect select
 textarea.block .singleselect select
 {
     height: auto;
+}
+
+.editing .block .header .commands
+{
+    clear: both;
+
+    text-align: left;
+}
+
+.editing .block .header .commands > a
+{
+    margin: 0 3px;
+}
+
+.editing .block .header .commands .icon img
+{
+    width: 12px;
+    height: 12px;
+}
+
+.editing .block .header .commands img.actionmenu
+{
+    width: auto;
+}
+
+.dir-rtl.editing .block .header .commands
+{
+    text-align: right;
 }
 
 .block.list_block .unlist > li > .column
@@ -25353,7 +25358,7 @@ input.fp-btn-choose
     width: 237px;
 }
 
-@media (max-width:873px)
+@media (max-width:767px)
 {
     .file-picker .fp-repo-area
     {
