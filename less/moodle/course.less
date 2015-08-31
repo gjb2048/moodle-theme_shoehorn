@@ -250,7 +250,13 @@
             }
         }
         li.section.hidden {
-            .opacity(.5);
+            .sectionname,
+            .content > div,  /* All the divs but the activities which are in a UL. */
+            .activity .activityinstance {
+                .opacity(50);
+                margin-left: 10px;
+                margin-right: 10px;
+            }
         }
     }
 }

@@ -8204,9 +8204,12 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 .course-content ul li.section.main .right
 {
     display: none;
-}.course-content ul li.section.hidden
-{
-    opacity: .5;filter: alpha(opacity=50);
+}.course-content ul li.section.hidden .sectionname,
+.course-content ul li.section.hidden .content > div,
+.course-content ul li.section.hidden .activity .activityinstance
+{margin-right: 10px;margin-left: 10px;
+
+    opacity: 50;filter: alpha(opacity=5000);
 }.course-content ul.topics li.section .content,
 .course-content ul.weeks li.section .content
 {
@@ -11556,6 +11559,21 @@ ol
 }.block .footer
 {
     margin-bottom: 4px;
+}.block.beingmoved
+{
+    border-width: 2px;border-style: dashed;
+}.block.invisible .header h2
+{
+    opacity: 50;filter: alpha(opacity=5000);
+}.block.hidden .header .block_action .block-hider-hide
+{
+    display: none;
+}.block.hidden .header .block_action .block-hider-show
+{
+    display: inline;
+}.block.list_block .unlist > li > .column
+{
+    display: inline-block;
 }.block .blockannotation
 {
     font-size: .75em;margin: -1em 0 1em;
@@ -14999,6 +15017,9 @@ a:focus
 }.block .moodle-actionmenu[data-enhanced].show
 {
     display: block !important;
+}.choosercontainer #chooseform .submitbuttons
+{
+    margin: auto;padding: .7em 0;
 }.course-content .section-summary
 {
     border: 1px solid [[setting:textcolour]];
@@ -16280,7 +16301,10 @@ body.frontpagebackgroundimage .forumpost
     border-top-left-radius: 4px;border-bottom-left-radius: 4px;
 }.course-content .right a
 {
-    display: inline-block;margin-bottom: 4px;
+    display: block;
+}.course-content .right br
+{
+    display: none;
 }aside
 {
     float: left;

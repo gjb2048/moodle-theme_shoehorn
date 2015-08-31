@@ -181,6 +181,9 @@ Version 2.9.1.2
   3. MDL-48202.
   4. MDL-46860.
   5. Divider does not show.
+  6. MDL-42634.
+  7. Tidy up button area on chooser dialog.
+  8. Tidy up course when editing.
 
 Version 2.9.1.1
   1. Fix lesson table padding removed.
