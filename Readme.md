@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.3
+  1. MDL-51229.
+
 Version 2.9.1.2
   1. Tidy up user menu.
   2. Add role switched item if required.
