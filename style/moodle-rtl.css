@@ -12087,6 +12087,11 @@ a.skip:active
     font-weight: bold;
 }
 
+#page-enrol-users .enrol-users-page-action input
+{
+    margin-right: 0;
+}
+
 .corelightbox
 {
     position: absolute;
@@ -15003,6 +15008,36 @@ textarea.path-admin .roleassigntable input[type='text']
     margin-right: 0;
     margin-left: 0;
     padding: 0;
+}
+
+.course-content li.section ul
+{
+    list-style: disc;
+}
+
+.course-content li.section ul ul
+{
+    list-style: circle;
+}
+
+.course-content li.section ul ul ul
+{
+    list-style: square;
+}
+
+.course-content li.section li.activity ul
+{
+    list-style: disc;
+}
+
+.course-content li.section li.activity ul ul
+{
+    list-style: circle;
+}
+
+.course-content li.section li.activity ul ul ul
+{
+    list-style: square;
 }
 
 .path-course-view .completionprogress

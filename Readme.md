@@ -176,7 +176,9 @@ Todo
 Version information
 ===================
 Version 2.9.1.3
-  1. MDL-51229.
+  1. MDL-50323.
+  2. MDL-51194.
+  3. MDL-51229.
 
 Version 2.9.1.2
   1. Tidy up user menu.
