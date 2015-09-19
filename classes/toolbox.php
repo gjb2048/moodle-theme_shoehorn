@@ -150,6 +150,11 @@ class toolbox {
                 $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
             }
         }
+
+        if ((!empty($settings->landfallhorizontalquiz)) && ($PAGE->pagelayout == 'incourse')) {
+            $html->additionalbodyclasses[] = 'horizontalquiz';
+        }
+
         return $html;
     }
 

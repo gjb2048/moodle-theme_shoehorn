@@ -803,6 +803,18 @@ defined('MOODLE_INTERNAL') || die;
     );
     $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
+    // Quiz.
+    $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_quiz', get_string('landfquiz', 'theme_shoehorn'),
+            format_text(get_string('landfquiz_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+
+    $name = 'theme_shoehorn/landfallhorizontalquiz';
+    $title = get_string('landfallhorizontalquiz', 'theme_shoehorn');
+    $description = get_string('landfallhorizontalquiz_desc', 'theme_shoehorn');
+    $default = false;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $landfsettings->add($setting);
+
     // All other pages.
     $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_allpages', get_string('landfallpages', 'theme_shoehorn'),
             format_text(get_string('landfallpages_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));

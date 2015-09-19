@@ -349,6 +349,11 @@ $string['landffrontpagebackgroundimage_desc'] = 'Set the front page background i
 $string['landffrontpagecontenttransparency'] = 'Front page content transparency';
 $string['landffrontpagecontenttransparency_desc'] = 'Set the front page content transparency.';
 
+$string['landfquiz'] = 'Quiz';
+$string['landfquiz_desc'] = 'Quiz look and feel settings.';
+$string['landfallhorizontalquiz'] = 'Horizontal layout';
+$string['landfallhorizontalquiz_desc'] = 'Set the quiz to have a horizontal layout.';
+
 $string['landfallpages'] = 'All pages';
 $string['landfallpages_desc'] = 'All pages look and feel settings bar the front.';
 $string['landfallpagesbackgroundimage'] = 'All pages background image';

@@ -42,7 +42,11 @@ body.allpagesbackgroundimage #page-area {
     [[setting:landfallpagesbackgroundimage]]
 }
 
-body #region-main-shoehorn, body.allpagesbackgroundimage .panel-default, body.allpagesbackgroundimage .block, body.allpagesbackgroundimage .forumpost {
+body #region-main-shoehorn,
+body.allpagesbackgroundimage .panel-default,
+body.allpagesbackgroundimage .block,
+body.allpagesbackgroundimage .forumpost
+body.horizontalquiz.pagelayout-incourse#page-mod-quiz-attempt .que .info {
     [[setting:landfallpagescontenttransparency]]
 }
 

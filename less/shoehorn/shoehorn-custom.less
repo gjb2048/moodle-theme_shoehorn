@@ -1192,6 +1192,53 @@ pre.sh {
   margin: 0 0 !important; // I do not like importants but has to override core editor inline style.
 }
 
+// Quiz.
+body.horizontalquiz.pagelayout-incourse#page-mod-quiz-attempt {
+    .que {
+        .info {
+            border: 1px solid @state-info-border;
+            border-top-left-radius: @border-radius-base;
+            border-top-right-radius: @border-radius-base;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background-color: @body-bg;
+            float: initial;
+            width: auto;
+            margin-bottom: -1px;
+            padding: 8px 8px 8px 18px;
+            > div {
+                font-size: @font-size-base;
+                margin-top: .7em;
+                padding-left: 25px;
+                display: inline;
+            }
+            .editquestion img.iconsmall {
+                margin-right: 0.3em;
+                margin-bottom: 0.3em;
+            }
+        }
+
+        .content {
+            margin: 0;
+            width: auto;
+            .formulation {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        h3.no {
+            display: inline;
+            font-size: @font-size-base;
+            line-height: 1;
+            padding-right: 25px;
+            .qno {
+                font-size: inherit;
+            }
+        }
+    }
+}
+
 // Footer.
 #page-footer {
     #shoehorn > .verticalrgba(~"[[setting:footertopbackgroundrgba]]"; ~"[[setting:footerbottombackgroundrgba]]");
