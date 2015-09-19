@@ -179,6 +179,11 @@ Version 2.9.1.3
   1. MDL-50323.
   2. MDL-51194.
   3. MDL-51229.
+  4. Update grade.less from bootstrapbase.
+  5. Added 'user preferences' link to user menu.  Code credit 'Hartmut Scherer': https://moodle.org/mod/forum/discuss.php?d=320238.
+  6. Port of Essential issue #536.
+  7. Port of Essential issue #537.
+  8. Port of Essential issue #538.
 
 Version 2.9.1.2
   1. Tidy up user menu.

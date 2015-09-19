@@ -319,7 +319,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                 $messagecontent .= html_writer::start_span('msg-body');
                 $messagecontent .= html_writer::start_span('msg-title');
                 $messagecontent .= html_writer::span($message->from->firstname . ': ', 'msg-sender');
-                $messagecontent .= $message->text;
+                $messagecontent .= htmlspecialchars($message->text, ENT_COMPAT | ENT_HTML401, 'UTF-8');
                 $messagecontent .= html_writer::end_span();
                 $messagecontent .= html_writer::start_span('msg-time');
                 $messagecontent .= html_writer::tag('i', '', array('class' => $timeicon));
@@ -327,7 +327,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                 $messagecontent .= html_writer::end_span();
 
                 $messageurl = new moodle_url('/message/index.php', array('user1' => $USER->id, 'user2' => $message->from->id));
-                $messagemenu->add($messagecontent, $messageurl, $message->text);
+                $messagemenu->add($messagecontent, $messageurl, htmlspecialchars($message->text, ENT_COMPAT | ENT_HTML401, 'UTF-8'));
             }
         }
 
@@ -553,6 +553,19 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     $editmyprofiletext
                 );
 
+                $preferencestext = get_string('preferences');
+                if ($this->fontawesome) {
+                    $preferences = html_writer::tag('i', '', array('class' => 'fa fa-key'));
+                } else {
+                    $preferences = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-cog'));
+                }
+                $preferences .= html_writer::tag('span', $preferencestext);
+                $usermenu->add(
+                    $preferences,
+                    new moodle_url('/user/preferences.php', array('id' => $USER->id)),
+                    $preferencestext
+                );
+
                 if (is_role_switched($this->page->course->id)) { // Has switched roles.
                     global $DB;
                     $context = context_course::instance($this->page->course->id);
@@ -607,25 +620,33 @@ class theme_shoehorn_core_renderer extends core_renderer {
         $course = $this->page->course;
         $content = new stdClass();
         $modinfo = get_fast_modinfo($course);
+        $course = course_get_format($course)->get_course();
         $modfullnames = array();
         $archetypes = array();
-        foreach ($modinfo->cms as $cm) {
-            // Exclude activities which are not visible or have no link (=label).
-            if (!$cm->uservisible or !$cm->has_view()) {
+        foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+            if (($section > $course->numsections) or (empty($modinfo->sections[$section]))) {
+                // This is a stealth section or is empty.
                 continue;
             }
-            if (array_key_exists($cm->modname, $modfullnames)) {
-                continue;
-            }
-            if (!array_key_exists($cm->modname, $archetypes)) {
-                $archetypes[$cm->modname] = plugin_supports('mod', $cm->modname, FEATURE_MOD_ARCHETYPE, MOD_ARCHETYPE_OTHER);
-            }
-            if ($archetypes[$cm->modname] == MOD_ARCHETYPE_RESOURCE) {
-                if (!array_key_exists('resources', $modfullnames)) {
-                    $modfullnames['resources'] = get_string('resources');
+            foreach ($modinfo->sections[$thissection->section] as $modnumber) {
+                $cm = $modinfo->cms[$modnumber];
+                // Exclude activities which are not visible or have no link (=label).
+                if (!$cm->uservisible or !$cm->has_view()) {
+                    continue;
                 }
-            } else {
-                $modfullnames[$cm->modname] = $cm->modplural;
+                if (array_key_exists($cm->modname, $modfullnames)) {
+                    continue;
+                }
+                if (!array_key_exists($cm->modname, $archetypes)) {
+                    $archetypes[$cm->modname] = plugin_supports('mod', $cm->modname, FEATURE_MOD_ARCHETYPE, MOD_ARCHETYPE_OTHER);
+                }
+                if ($archetypes[$cm->modname] == MOD_ARCHETYPE_RESOURCE) {
+                    if (!array_key_exists('resources', $modfullnames)) {
+                        $modfullnames['resources'] = get_string('resources');
+                    }
+                } else {
+                    $modfullnames[$cm->modname] = $cm->modplural;
+                }
             }
         }
         core_collator::asort($modfullnames);
