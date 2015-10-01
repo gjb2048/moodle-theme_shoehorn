@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.4
+  1. Update from Bootstrap theme version 2015092400.
+
 Version 2.9.1.3
   1. MDL-50323.
   2. MDL-51194.

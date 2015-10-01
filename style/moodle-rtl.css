@@ -10018,8 +10018,6 @@ button.close
 .box.message .messagearea .messagehistory #message_user_pictures:after,
 .userprofile dl.list dd:before,
 .userprofile dl.list dd:after,
-.userprofile dl.list dd:before,
-.userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:before,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:before,
@@ -10057,7 +10055,6 @@ button.close
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
-.userprofile dl.list dd:after,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:after,
@@ -10529,15 +10526,30 @@ button.close
             border-radius: 0 6px 6px 6px;
 }
 
-div[role='main'] ul,
-div[role='main'] ol
-{
-    padding: 0 20px;
-}
-
 pre
 {
     white-space: pre-wrap;
+}
+
+.progress .bar
+{
+    font-size: 12px;
+    line-height: 20px;
+
+    float: right;
+
+    width: 0;
+    height: 100%;
+
+    -webkit-transition: width .6s ease;
+         -o-transition: width .6s ease;
+            transition: width .6s ease;
+    text-align: center;
+
+    color: #fff;
+    background-color: #1f4d87;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
 }
 
 li.activity.label,
@@ -10628,24 +10640,9 @@ img.icon.hide
     display: inline !important;
 }
 
-div[role='main'] ul,
-div[role='main'] ol
+.gradingform_rubric
 {
-    overflow: visible;
-
-    padding-right: 20px;
-}
-
-div[role='main'] ul.section,
-div[role='main'] ol.section,
-div[role='main'] ul.weeks,
-div[role='main'] ol.weeks,
-div[role='main'] ul.topics,
-div[role='main'] ol.topics
-{
-    overflow: visible;
-
-    padding: 0;
+    max-width: none !important;
 }
 
 .layout-option-noheader #page-header,
@@ -11483,12 +11480,17 @@ form.popupform div
     vertical-align: text-bottom;
 }
 
+.smallicon
+{
+    box-sizing: initial;
+}
+
 .no-overflow
 {
     overflow-x: auto;
     overflow-y: hidden;
 
-    margin-bottom: 15px;
+    margin-bottom: 1px;
 
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
@@ -11972,11 +11974,6 @@ a.skip:active
 .smartselect.compactmenu .smartselect_submenuitem:hover > .smartselect_menuitem_label
 {
     font-weight: bold;
-}
-
-#page-enrol-users .enrol-users-page-action input
-{
-    margin-right: 0;
 }
 
 .corelightbox
@@ -12498,7 +12495,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 
 .choosercontainer #chooseform .submitbuttons
 {
-    margin: .7em 0;
+    padding: .7em 0;
 
     text-align: center;
 }
@@ -13720,7 +13717,7 @@ textarea.path-admin .roleassigntable input[type='text']
     border-top-width: 0;
 }
 
-#page-admin-index #notice .checkforupdates
+#page-admin-index .alert .singlebutton
 {
     text-align: center;
 }
@@ -14644,11 +14641,6 @@ textarea.path-admin .roleassigntable input[type='text']
     display: inherit;
 }
 
-.editing ul.weeks h3.sectionname
-{
-    white-space: normal;
-}
-
 .editing_show + .editing_assign,
 .editing_hide + .editing_assign
 {
@@ -14657,6 +14649,7 @@ textarea.path-admin .roleassigntable input[type='text']
 
 .section
 {
+    margin: 0;
     padding: 0;
 }
 
@@ -14818,16 +14811,11 @@ textarea.path-admin .roleassigntable input[type='text']
     display: none;
 }
 
-.course-content ul li.section.hidden .sectionname,
-.course-content ul li.section.hidden .content > div,
-.course-content ul li.section.hidden .activity .activityinstance
+.course-content ul li.section.hidden
 {
-    margin-right: 10px;
-    margin-left: 10px;
+    opacity: .5;
 
-    opacity: 50;
-
-    filter: alpha(opacity=5000);
+    filter: alpha(opacity=50);
 }
 
 .course-content ul.topics li.section .content,
@@ -14836,36 +14824,6 @@ textarea.path-admin .roleassigntable input[type='text']
     margin-right: 0;
     margin-left: 0;
     padding: 0;
-}
-
-.course-content li.section ul
-{
-    list-style: disc;
-}
-
-.course-content li.section ul ul
-{
-    list-style: circle;
-}
-
-.course-content li.section ul ul ul
-{
-    list-style: square;
-}
-
-.course-content li.section li.activity ul
-{
-    list-style: disc;
-}
-
-.course-content li.section li.activity ul ul
-{
-    list-style: circle;
-}
-
-.course-content li.section li.activity ul ul ul
-{
-    list-style: square;
 }
 
 .path-course-view .completionprogress
@@ -14954,11 +14912,6 @@ li.section.hidden span.commands a.editing_hide,
 li.section.hidden span.commands a.editing_show
 {
     cursor: default;
-}
-
-ul.weeks h3.sectionname
-{
-    white-space: nowrap;
 }
 
 .single-section h3.sectionname
@@ -15192,11 +15145,6 @@ span.editinstructions
 .coursebox .enrolmenticons img
 {
     padding: 0 5px;
-}
-
-.coursebox .info .coursename
-{
-    display: inline-block;
 }
 
 .coursebox.remotehost > .info > .categoryname a
@@ -15453,6 +15401,12 @@ span.editinstructions
     margin-bottom: 200px;
 
     background-color: transparent;
+}
+
+#course-category-listings ul.ml ul.ml
+{
+    margin: 0;
+    padding: 0;
 }
 
 #course-category-listings.columns-2 > #course-listing > div
@@ -17819,6 +17773,11 @@ textarea.box.message .message_form input[type='text']
     padding-left: 15px;
 }
 
+.box.message .contactselector .singleselect select
+{
+    width: 100%;
+}
+
 @media (min-width:992px)
 {
     .box.message .contactselector
@@ -17991,11 +17950,34 @@ textarea.box.message .contactselector form#usergroupform fieldset select
     list-style: none;
 }
 
-.box.message .contactselector .message-contacts .pix,
-.box.message .contactselector .message-contacts .link,
+.box.message .contactselector .message-contacts
+{
+    position: relative;
+
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid #c9e6ff;
+}
+
+.box.message .contactselector .message-contacts li:nth-child(odd)
+{
+    background-color: #e3f2ff;
+}
+
+.box.message .contactselector .message-contacts li
+{
+    line-height: 26px;
+
+    padding: 5px 0;
+
+    border-top: 1px solid #c9e6ff;
+}
+
 .box.message .contactselector .message-contacts .contact
 {
-    display: inline-block;
+    margin: 0 25px 0 24%;
+
+    text-align: right;
 }
 
 .box.message .contactselector .message-contacts .link
@@ -18005,7 +17987,8 @@ textarea.box.message .contactselector form#usergroupform fieldset select
 
 .box.message .contactselector .message-contacts .pix
 {
-    margin-left: 5px;
+    position: absolute;
+    right: 0;
 }
 
 .box.message .messagearea
@@ -18458,42 +18441,28 @@ textarea.box.message .contactselector form#usergroupform fieldset select
 {
     position: relative;
 
+    float: right;
+
+    width: 41.66666667%;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
 
     text-align: center;
-}
-
-@media (min-width:992px)
-{
-    .box.message .messagearea .messagehistory #message_user_pictures .box.user
-    {
-        float: right;
-
-        width: 41.66666667%;
-    }
 }
 
 .box.message .messagearea .messagehistory #message_user_pictures .box.between
 {
     position: relative;
 
+    float: right;
+
+    width: 16.66666667%;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
 
     text-align: center;
-}
-
-@media (min-width:992px)
-{
-    .box.message .messagearea .messagehistory #message_user_pictures .box.between
-    {
-        float: right;
-
-        width: 16.66666667%;
-    }
 }
 
 .box.message .messagearea .messagehistory .messagehistorytype
@@ -19912,56 +19881,6 @@ body.path-question-type .mform fieldset.hidden
     padding: 0;
 }
 
-.userprofile .fullprofilelink
-{
-    margin: 10px;
-
-    text-align: center;
-}
-
-.userprofile .description
-{
-    margin-bottom: 20px;
-}
-
-.userprofile .profile_tree
-{
-    -webkit-column-count: 2;
-       -moz-column-count: 2;
-            column-count: 2;
-    -webkit-column-gap: 30px;
-       -moz-column-gap: 30px;
-            column-gap: 30px;
-}
-
-.userprofile .profile_tree section
-{
-    display: inline-block;
-
-    width: 100%;
-}
-
-@media (min-width:768px)
-{
-    .userprofile dl.list dt
-    {
-        float: right;
-        clear: right;
-        overflow: hidden;
-
-        width: 160px;
-
-        text-align: left;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .userprofile dl.list dd
-    {
-        margin-right: 180px;
-    }
-}
-
 .user-box
 {
     float: right;
@@ -19972,67 +19891,6 @@ body.path-question-type .mform fieldset.hidden
     margin: 8px;
 
     text-align: center;
-}
-
-#page-user-profile .node_category li,
-.path-user .node_category li
-{
-    list-style-type: square;
-}
-
-#page-user-profile .node_category li.contentnode,
-.path-user .node_category li.contentnode
-{
-    list-style-type: none;
-}
-
-#page-user-profile.dir-ltr .node_category .contentnode,
-.path-user.dir-ltr .node_category .contentnode
-{
-    margin-right: -20px;
-}
-
-#page-user-profile.dir-rtl .node_category .contentnode,
-.path-user.dir-rtl .node_category .contentnode
-{
-    margin-left: -20px;
-}
-
-.dir-rtl .userprofile .description
-{
-    margin-left: 0;
-}
-
-.dir-rtl .user-box
-{
-    float: left;
-}
-
-.dir-rtl .userprofile dl.list dt
-{
-    float: left;
-
-    padding-right: 10px;
-
-    text-align: right;
-}
-
-.dir-rtl .userprofile dl.list dd
-{
-    margin-right: 0;
-}
-
-@media (max-width:480px)
-{
-    .userprofile .profile_tree
-    {
-        -webkit-column-count: 1;
-           -moz-column-count: 1;
-                column-count: 1;
-        -webkit-column-gap: 30px;
-           -moz-column-gap: 30px;
-                column-gap: 30px;
-    }
 }
 
 .userlist .action-icon img
@@ -20060,15 +19918,6 @@ body.path-question-type .mform fieldset.hidden
     text-align: center;
 }
 
-.userlist table#participants td,
-.userlist table#participants th
-{
-    padding: 4px;
-
-    text-align: right;
-    vertical-align: middle;
-}
-
 .userlist table.controls
 {
     width: 100%;
@@ -20084,15 +19933,19 @@ body.path-question-type .mform fieldset.hidden
     text-align: left;
 }
 
-.userlist table.controls .groupselector
+.userlist table#participants td,
+.userlist table#participants th
 {
-    margin-top: 0;
-    margin-bottom: 0;
+    padding: 4px;
+
+    text-align: right;
+    vertical-align: middle;
 }
 
-.userlist table.controls .groupselector label
+.userlist table.controls td.right,
+.userlist table.controls td.left
 {
-    display: block;
+    padding: 4px;
 }
 
 .userinfobox
@@ -20103,14 +19956,6 @@ body.path-question-type .mform fieldset.hidden
     border-collapse: separate;
 
     border: 1px solid;
-}
-
-.userinfobox .left,
-.userinfobox .side
-{
-    width: 100px;
-
-    vertical-align: top;
 }
 
 .userinfobox .userpicture
@@ -20156,6 +20001,14 @@ body.path-question-type .mform fieldset.hidden
     text-align: left;
     vertical-align: top;
     white-space: nowrap;
+}
+
+.userinfobox .left,
+.userinfobox .side
+{
+    width: 100px;
+
+    vertical-align: top;
 }
 
 .groupinfobox
@@ -20234,11 +20087,6 @@ body.path-question-type .mform fieldset.hidden
     font-size: .8em;
 }
 
-#userselector_options
-{
-    padding: .3em 0;
-}
-
 #userselector_options .collapsibleregioncaption
 {
     font-weight: bold;
@@ -20249,11 +20097,6 @@ body.path-question-type .mform fieldset.hidden
     margin: .2em 0;
 
     text-align: right;
-}
-
-.dir-rtl #userselector_options p
-{
-    text-align: left;
 }
 
 #page-user-profile .messagebox
@@ -20272,68 +20115,6 @@ body.path-question-type .mform fieldset.hidden
     text-align: center;
 }
 
-.dir-rtl .userlist table#participants td,
-.dir-rtl .userlist table#participants th
-{
-    text-align: left;
-}
-
-.dir-rtl .userlist table#participants
-{
-    margin: 0 auto;
-}
-
-#page-my-index.dir-rtl .block h3
-{
-    text-align: left;
-}
-
-.profileeditor > .singleselect
-{
-    margin: 0 0 0 .5em;
-}
-
-.profileeditor > .singlebutton
-{
-    display: inline-block;
-
-    margin: 0 .5em 0 0;
-}
-
-.profileeditor > .singlebutton div,
-.profileeditor > .singlebutton input
-{
-    margin: 0;
-}
-
-.dir-rtl .profileeditor > .singleselect
-{
-    margin: 0 .5em 0 0;
-}
-
-.dir-rtl .profileeditor > .singlebutton
-{
-    margin: 0 0 0 .5em;
-}
-
-#groupeditform .groups,
-#groupeditform .members
-{
-    float: right;
-
-    width: 49%;
-
-    text-align: right;
-}
-
-.dir-rtl #groupeditform .groups,
-.dir-rtl #groupeditform .members
-{
-    float: left;
-
-    text-align: left;
-}
-
 .preferences-group ul
 {
     margin-right: 0;
@@ -20342,9 +20123,25 @@ body.path-question-type .mform fieldset.hidden
     list-style: none;
 }
 
-.dir-rtl .preferences-group
+.usermenu
 {
     float: left;
+}
+
+.usermenu .username
+{
+    margin-left: 5px;
+}
+
+.usermenu .dropdown-toggle
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.usermenu .dropdown-menu > li > a
+{
+    padding: 3px 10px;
 }
 
 .userprofile .fullprofilelink
@@ -20489,22 +20286,39 @@ fieldset[disabled] .userprofile .header-button-group .btn.active
     }
 }
 
-.userprofile dl,
+.userprofile dd,
+.userprofile dt
+{
+    margin-right: 0;
+}
+
 .userprofile ul
 {
-    margin: 0;
+    margin-right: 10px;
+}
+
+.userprofile ul > li ul
+{
+    margin-right: 0;
 }
 
 #page-user-profile .node_category li,
 .path-user .node_category li
 {
-    list-style-type: square;
+    list-style-type: none;
 }
 
 #page-user-profile .node_category li.contentnode,
 .path-user .node_category li.contentnode
 {
     list-style-type: none;
+}
+
+.path-user .node_category:first-child li span
+{
+    display: block;
+
+    margin-bottom: 10px;
 }
 
 .page-context-header
@@ -21449,6 +21263,7 @@ img#persona_signin
 ul,
 ol
 {
+    margin: 0 25px 10px 0;
     padding: 0;
 }
 
@@ -21630,34 +21445,6 @@ ol
     margin-bottom: 4px;
 }
 
-.block.beingmoved
-{
-    border-width: 2px;
-    border-style: dashed;
-}
-
-.block.invisible .header h2
-{
-    opacity: 50;
-
-    filter: alpha(opacity=5000);
-}
-
-.block.hidden .header .block_action .block-hider-hide
-{
-    display: none;
-}
-
-.block.hidden .header .block_action .block-hider-show
-{
-    display: inline;
-}
-
-.block.list_block .unlist > li > .column
-{
-    display: inline-block;
-}
-
 .block .blockannotation
 {
     font-size: .75em;
@@ -21753,11 +21540,6 @@ textarea.block .singleselect select
 .editing .block .header .commands img.actionmenu
 {
     width: auto;
-}
-
-.dir-rtl.editing .block .header .commands
-{
-    text-align: right;
 }
 
 .block.list_block .unlist > li > .column
@@ -22297,7 +22079,6 @@ textarea.mform .fitem .felement input[type='password']
 .mform .iconhelp
 {
     margin-right: 4px;
-    margin-left: -16px;
 }
 
 .form-item .form-label
@@ -23204,6 +22985,21 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 .navbar-fixed-bottom
 {
     z-index: 4030;
+}
+
+@media (max-width:768px)
+{
+    .navbar-collapse.collapse,
+    .navbar-collapse.collapsing
+    {
+        margin-top: 50px;
+    }
+
+    .navbar-collapse.collapse .nav,
+    .navbar-collapse.collapsing .nav
+    {
+        float: none !important;
+    }
 }
 
 .langmenu form
@@ -25055,29 +24851,35 @@ input.fp-btn-choose
     border-collapse: collapse;
 }
 
+.userenrolment tr
+{
+    vertical-align: top;
+}
+
+.userenrolment td
+{
+    height: 41px;
+    padding: 0;
+}
+
+.userenrolment .subfield
+{
+    margin-left: 5px;
+}
+
 .userenrolment .col_userdetails .subfield_picture
 {
     float: right;
-
-    margin: 0 5px;
 }
 
-.userenrolment .col_role a,
-.userenrolment .col_role span
+.userenrolment .col_lastseen
 {
-    display: inline-block;
-
-    vertical-align: middle;
+    width: 150px;
 }
 
-.userenrolment .col_role a
+.userenrolment .col_role
 {
-    float: left;
-}
-
-.userenrolment .col_role .addrole
-{
-    text-align: center;
+    width: 262px;
 }
 
 .userenrolment .hasAllRoles .col_role .addrole
@@ -25085,13 +24887,39 @@ input.fp-btn-choose
     display: none;
 }
 
+.userenrolment .col_enrol .enrolment
+{
+    float: right;
+
+    margin: 3px;
+    padding: 3px;
+}
+
+.userenrolment .col_enrol .enrolment a
+{
+    float: left;
+
+    margin-right: 3px;
+}
+
+.userenrolment .col_role .roles,
+.userenrolment .col_group .groups
+{
+    margin-left: 30px;
+}
+
+.userenrolment .col_role .role,
 .userenrolment .col_group .group
 {
     float: right;
 
+    margin: 3px;
+    padding: 3px;
+
     white-space: nowrap;
 }
 
+.userenrolment .col_role .role a,
 .userenrolment .col_group .group a
 {
     margin-right: 3px;
@@ -25099,14 +24927,25 @@ input.fp-btn-choose
     cursor: pointer;
 }
 
+.userenrolment .col_role .addrole,
 .userenrolment .col_group .addgroup
 {
-    text-align: center;
+    float: left;
+
+    margin: 3px;
+    padding: 3px;
 }
 
-.userenrolment .col_group .addgroup a img
+.userenrolment .col_role .addrole > *:hover,
+.userenrolment .col_group .addgroup > *:hover
 {
-    vertical-align: bottom;
+    border-bottom: 1px solid #666;
+}
+
+.userenrolment .col_role .addrole img,
+.userenrolment .col_group .addgroup img
+{
+    vertical-align: baseline;
 }
 
 .enrolpanel.roleassign.visible
@@ -25667,79 +25506,6 @@ input.fp-btn-choose
     text-align: center;
 }
 
-.moodlezoom
-{
-    display: none;
-}
-
-@media (min-width:768px)
-{
-    .moodlezoom
-    {
-        display: block;
-    }
-
-    .moodlezoom
-    {
-        margin-right: 10px;
-    }
-
-    .moodlezoom span.zoomout
-    {
-        display: none;
-    }
-
-    .dir-rtl .moodlezoom
-    {
-        margin-right: 0;
-        margin-left: 10px;
-    }
-
-    body.zoomin
-    {
-        padding-top: 0;
-    }
-
-    body.zoomin .moodlezoom span.zoomout
-    {
-        display: block;
-    }
-
-    body.zoomin .moodlezoom span.zoomin
-    {
-        display: none;
-    }
-
-    body.zoomin .block-region
-    {
-        display: none;
-    }
-
-    body.zoomin #region-main,
-    body.zoomin #region-bs-main-and-pre
-    {
-        right: 0 !important;
-
-        width: 100% !important;
-    }
-
-    body.zoomin header.navbar
-    {
-        display: none;
-    }
-
-    body.zoomin #page-header h1,
-    body.zoomin #page-footer
-    {
-        display: none;
-    }
-}
-
-.nonsense
-{
-    right: 0;
-}
-
 .transform-test-heading
 {
     font-family: [[setting:bodyfont]] 'Cabin','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -25767,7 +25533,6 @@ body.has_dock div#dock
 #dock
 {
     position: fixed;
-    z-index: 12000;
     top: 0;
     right: 0;
 
@@ -26354,11 +26119,6 @@ fieldset[disabled] #dock .dockedtitle.active
     margin-bottom: 0;
 }
 
-.core_grades_notices .singlebutton
-{
-    display: inline-block;
-}
-
 #page-grade-grading-manage #activemethodselector label
 {
     display: inline-block;
@@ -26391,6 +26151,7 @@ fieldset[disabled] #dock .dockedtitle.active
     display: inline-block;
     overflow: hidden;
 
+    box-sizing: content-box;
     width: 150px;
     margin: .5em;
     margin-bottom: 0;
@@ -26407,6 +26168,7 @@ fieldset[disabled] #dock .dockedtitle.active
     vertical-align: middle;
     vertical-align: top;
     white-space: nowrap;
+    white-space: normal;
 
     border: 1px solid transparent;
     border: 1px solid #aaa;
@@ -26495,51 +26257,30 @@ fieldset[disabled] a#page-grade-grading-manage .actions .action
     background: #fff none no-repeat top left;
 }
 
-.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .score
+.criteria .remark textarea
 {
+    height: auto;
+}
+
+.mform.gradingform_rubric_editform .fitem .felement .hiddenelement
+{
+    display: none;
+}
+
+.mform.gradingform_rubric_editform .fitem .felement .pseudotablink
+{
+    position: relative;
+
     float: left;
 
-    margin-right: 28px;
-    margin-left: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
 
-    text-align: left;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete
-{
-    float: right;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete input
-{
-    right: 0;
-    left: auto;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion
-{
-    margin-right: 0;
-    margin-left: 5px;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion input
-{
-    padding-right: 10px;
-    padding-left: 26px;
-
-    background-position: left 8px top 8px;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric .options .option .value
-{
-    margin-right: 0;
-    margin-left: 5px;
-}
-
-.dir-rtl #rubric-rubric.gradingform_rubric .options .option input
-{
-    margin-right: 12px;
-    margin-left: 5px;
+    color: transparent;
+    border: 0 solid;
+    background-color: transparent;
 }
 
 #rubric-rubric.gradingform_rubric #rubric-criteria
@@ -26621,13 +26362,13 @@ fieldset[disabled] a#page-grade-grading-manage .actions .action
 {
     float: none;
 
-    width: 2em;
+    width: 3em;
 }
 
 #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.hiddenelement,
 #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.pseudotablink
 {
-    width: 0;
+    width: 0 !important;
 }
 
 #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel
@@ -26831,344 +26572,9 @@ fieldset[disabled] a#rubric-rubric.gradingform_rubric .addcriterion
     margin-left: 12px;
 }
 
-.path-grade-edit-tree .setup-grades h4
+.path-grade-report-grader .grade_icons
 {
-    margin: 0;
-}
-
-.path-grade-edit-tree .setup-grades .column-rowspan
-{
-    width: 24px;
-    min-width: 24px;
-    max-width: 24px;
-    padding: 0;
-}
-
-.path-grade-edit-tree .setup-grades .category td.column-name
-{
-    padding-right: 0;
-}
-
-.path-grade-edit-tree .setup-grades td.column-name
-{
-    padding-right: 24px;
-}
-
-.path-grade-edit-tree .setup-grades .column-name h4 img.icon
-{
-    padding-right: 0;
-}
-
-.path-grade-edit-tree .setup-grades .category input[type='text'],
-.path-grade-edit-tree .setup-grades .category .column-range,
-.path-grade-edit-tree .setup-grades .categoryitem,
-.path-grade-edit-tree .setup-grades .courseitem
-{
-    font-weight: bold;
-}
-
-.path-grade-edit-tree .setup-grades .emptyrow
-{
-    display: none;
-}
-
-.path-grade-edit-tree .setup-grades .gradeitemdescription
-{
-    font-weight: normal;
-
-    padding-right: 24px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight
-{
-    white-space: nowrap;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level3
-{
-    padding-right: 37px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level4
-{
-    padding-right: 66px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level5
-{
-    padding-right: 95px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level6
-{
-    padding-right: 124px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level7
-{
-    padding-right: 153px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level8
-{
-    padding-right: 182px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level9
-{
-    padding-right: 211px;
-}
-
-.path-grade-edit-tree .setup-grades .column-weight.level10
-{
-    padding-right: 240px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level2
-{
-    padding-right: 37px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level3
-{
-    padding-right: 66px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level4
-{
-    padding-right: 95px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level5
-{
-    padding-right: 124px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level6
-{
-    padding-right: 153px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level7
-{
-    padding-right: 182px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level8
-{
-    padding-right: 211px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level9
-{
-    padding-right: 240px;
-}
-
-.path-grade-edit-tree .setup-grades .column-range.level10
-{
-    padding-right: 269px;
-}
-
-.path-grade-edit-tree .setup-grades.generaltable .levelodd
-{
-    background-color: #e3f2ff;
-}
-
-.path-grade-edit-tree .setup-grades.generaltable .leveleven
-{
-    background-color: transparent;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .category td.column-name
-{
-    padding-left: 0;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades td.column-name
-{
-    padding-left: 24px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-name h4 img.icon
-{
-    padding-right: 4px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .gradeitemdescription
-{
-    padding-right: 0;
-    padding-left: 24px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level3
-{
-    padding-right: 0;
-    padding-left: 37px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level4
-{
-    padding-right: 0;
-    padding-left: 66px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level5
-{
-    padding-right: 0;
-    padding-left: 95px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level6
-{
-    padding-right: 0;
-    padding-left: 124px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level7
-{
-    padding-right: 0;
-    padding-left: 153px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level8
-{
-    padding-right: 0;
-    padding-left: 182px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level9
-{
-    padding-right: 0;
-    padding-left: 211px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level10
-{
-    padding-right: 0;
-    padding-left: 240px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level2
-{
-    padding-right: 0;
-    padding-left: 37px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level3
-{
-    padding-right: 0;
-    padding-left: 66px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level4
-{
-    padding-right: 0;
-    padding-left: 95px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level5
-{
-    padding-right: 0;
-    padding-left: 124px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level6
-{
-    padding-right: 0;
-    padding-left: 153px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level7
-{
-    padding-right: 0;
-    padding-left: 182px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level8
-{
-    padding-right: 0;
-    padding-left: 211px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level9
-{
-    padding-right: 0;
-    padding-left: 240px;
-}
-
-.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level10
-{
-    padding-right: 0;
-    padding-left: 269px;
-}
-
-.path-grade-report .gradeparent table
-{
-    border-radius: 4px;
-}
-
-.path-grade-report .gradeparent tr .cell
-{
-    background-color: #fff;
-}
-
-.path-grade-report .gradeparent table,
-.path-grade-report .gradeparent .cell
-{
-    border-color: #c9e6ff;
-}
-
-.path-grade-report .gradeparent tr:nth-of-type(even) .cell,
-.path-grade-report .gradeparent .floater .cell,
-.path-grade-report .gradeparent .avg
-{
-    background-color: #e3f2ff;
-}
-
-.path-grade-report .gradeparent table .clickable
-{
-    cursor: pointer;
-}
-
-.path-grade-report-user .user-grade
-{
-    border: none;
-}
-
-.path-grade-report-user .user-grade.generaltable .levelodd
-{
-    background-color: #e3f2ff;
-}
-
-.path-grade-report-user .user-grade.generaltable .leveleven
-{
-    background-color: transparent;
-}
-
-.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell
-{
-    padding-right: 43px;
-}
-
-.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell
-{
-    padding-right: 5px;
-    padding-left: 43px;
-}
-
-.content-only.path-grade-report-grader .gradeparent table
-{
-    margin-right: 38px;
-}
-
-.content-only.path-grade-report-grader.dir-rtl .gradeparent table
-{
-    margin-right: 0;
-    margin-left: 38px;
+    display: inline;
 }
 
 .breadcrumb,

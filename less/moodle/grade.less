@@ -17,13 +17,6 @@
     }
 }
 
-// Grade upgrade notice.
-.core_grades_notices {
-    .singlebutton {
-        display: inline-block;
-    }
-}
-
 // Rubrics
 #page-grade-grading-manage {
     #activemethodselector {
@@ -50,6 +43,8 @@
             margin: 0.5em;
             padding: 1em;
             border: 1px solid #aaa;
+            box-sizing: content-box;
+            white-space: normal;
             .action-icon {
                 display: inline-block;
                 position: relative;
@@ -81,51 +76,12 @@
     }
 }
 
-.dir-rtl {
-    #rubric-rubric.gradingform_rubric {
-        #rubric-criteria .criterion {
-            .level {
-                .score {
-                    text-align: right;
-                    float: right;
-                    margin-left: 28px;
-                    margin-right: 0px;
-                }
-                .delete {
-                    float: left;
-                    input {
-                        left: 0;
-                        right: auto;
-                    }
-                }
-            }
-        }
-        .addcriterion {
-            margin-right: 5px;
-            margin-left: 0px;
-
-            input {
-                padding-right: 26px;
-                padding-left: 10px;
-                background-position: right 8px top 8px;
-            }
-        }
-        .options {
-            .option {
-                .value {
-                    margin-left: 0px;
-                    margin-right: 5px;
-                }
-                input {
-                    // margins flipped for RTL.
-                    margin-left: 12px;
-                    margin-right: 5px;
-                }
-            }
-        }
-    }
+.criteria .remark textarea {
+    height: auto;
 }
 
+.mform.gradingform_rubric_editform .fitem .felement .hiddenelement {display:none;}
+.mform.gradingform_rubric_editform .fitem .felement .pseudotablink {background-color:transparent;border:0 solid;height:1px;width:1px;color:transparent;padding:0;margin:0;position:relative;float:right;}
 #rubric-rubric {
     &.gradingform_rubric {
         #rubric-criteria {
@@ -182,11 +138,11 @@
                     input {
                         // Should handle at least three chars with room to spare.
                         float: none;
-                        width: 2em;
+                        width: 3em;
                         &.hiddenelement,&.pseudotablink {
                             // Zero out the width if it's still in the block flow for some reason
                             // when hidden
-                            width: 0;
+                            width: 0 !important;
                         }
                     }
                 }
@@ -237,263 +193,6 @@
         }
     }
 }
-
-// Set up grades layout.
-.path-grade-edit-tree .setup-grades {
-    h4 {
-        margin: 0;
-    }
-    .column-rowspan {
-        padding: 0;
-        width: 24px;
-        min-width: 24px;
-        max-width: 24px;
-    }
-    .category td.column-name {
-        padding-left: 0;
-    }
-    td.column-name {
-        padding-left: 24px;
-    }
-    .column-name h4 img.icon {
-        padding-left: 0;
-    }
-    .category input[type="text"],
-    .category .column-range,
-    .categoryitem,
-    .courseitem {
-        font-weight: bold;
-    }
-    .emptyrow {
-        display: none;
-    }
-    .gradeitemdescription {
-        font-weight: normal;
-        padding-left: 24px;
-    }
-    .column-weight {
-        white-space: nowrap;
-        &.level3 {
-            padding-left: 37px;
-        }
-        &.level4 {
-            padding-left: 66px;
-        }
-        &.level5 {
-            padding-left: 95px;
-        }
-        &.level6 {
-            padding-left: 124px;
-        }
-        &.level7 {
-            padding-left: 153px;
-        }
-        &.level8 {
-            padding-left: 182px;
-        }
-        &.level9 {
-            padding-left: 211px;
-        }
-        &.level10 {
-            padding-left: 240px;
-        }
-    }
-    .column-range {
-        &.level2 {
-            padding-left: 37px;
-        }
-        &.level3 {
-            padding-left: 66px;
-        }
-        &.level4 {
-            padding-left: 95px;
-        }
-        &.level5 {
-            padding-left: 124px;
-        }
-        &.level6 {
-            padding-left: 153px;
-        }
-        &.level7 {
-            padding-left: 182px;
-        }
-        &.level8 {
-            padding-left: 211px;
-        }
-        &.level9 {
-            padding-left: 240px;
-        }
-        &.level10 {
-            padding-left: 269px;
-        }
-    }
-    &.generaltable {
-        .levelodd {
-            background-color: @table-bg-accent;
-        }
-        .leveleven {
-            background-color: @table-bg;
-        }
-    }
-}
-
-.dir-rtl {
-    &.path-grade-edit-tree .setup-grades {
-        .category td.column-name {
-            padding-right: 0;
-        }
-        td.column-name {
-            padding-right: 24px;
-        }
-        .column-name h4 img.icon {
-            padding-left: 4px;
-        }
-        .gradeitemdescription {
-            padding-left: 0;
-            padding-right: 24px;
-        }
-        .column-weight {
-            &.level3 {
-                padding-left: 0;
-                padding-right: 37px;
-            }
-            &.level4 {
-                padding-left: 0;
-                padding-right: 66px;
-            }
-            &.level5 {
-                padding-left: 0;
-                padding-right: 95px;
-            }
-            &.level6 {
-                padding-left: 0;
-                padding-right: 124px;
-            }
-            &.level7 {
-                padding-left: 0;
-                padding-right: 153px;
-            }
-            &.level8 {
-                padding-left: 0;
-                padding-right: 182px;
-            }
-            &.level9 {
-                padding-left: 0;
-                padding-right: 211px;
-            }
-            &.level10 {
-                padding-left: 0;
-                padding-right: 240px;
-            }
-        }
-        .column-range {
-            &.level2 {
-                padding-left: 0;
-                padding-right: 37px;
-            }
-            &.level3 {
-                padding-left: 0;
-                padding-right: 66px;
-            }
-            &.level4 {
-                padding-left: 0;
-                padding-right: 95px;
-            }
-            &.level5 {
-                padding-left: 0;
-                padding-right: 124px;
-            }
-            &.level6 {
-                padding-left: 0;
-                padding-right: 153px;
-            }
-            &.level7 {
-                padding-left: 0;
-                padding-right: 182px;
-            }
-            &.level8 {
-                padding-left: 0;
-                padding-right: 211px;
-            }
-            &.level9 {
-                padding-left: 0;
-                padding-right: 240px;
-            }
-            &.level10 {
-                padding-left: 0;
-                padding-right: 269px;
-            }
-        }
-    }
-}
-
-/**
- * Grader report.
- */
-.path-grade-report {
-    .gradeparent {
-        table {
-            border-radius: @border-radius-base;
-        }
-        tr .cell {
-            background-color: @pagination-bg;
-        }
-        table,
-        .cell {
-            border-color: @table-border-color;
-        }
-        tr:nth-of-type(even) .cell,
-        .floater .cell,
-        .avg {
-            background-color: @table-bg-accent;
-        }
-        table .clickable {
-            cursor: pointer;
-        }
-    }
- }
-
-/**
- * User report.
- */
-.path-grade-report-user .user-grade {
-    border: none;
-    &.generaltable {
-        .levelodd {
-            background-color: @table-bg-accent;
-        }
-        .leveleven {
-            background-color: @table-bg;
-        }
-    }
-}
-
-.has_dock.path-grade-report-grader {
-    .gradeparent .sideonly.floating > .cell,
-    .gradeparent .sideonly.floating > .cell,
-    .gradeparent .sideonly.floating > .cell {
-        padding-left: 5 + (@dock-width + (@dock-title-margin * 2));
-    }
-
-    &.dir-rtl {
-        .gradeparent .sideonly.floating > .cell,
-        .gradeparent .sideonly.floating > .cell,
-        .gradeparent .sideonly.floating > .cell {
-            padding-left: 5px;
-            padding-right: 5 + (@dock-width + (@dock-title-margin * 2));
-        }
-    }
-}
-
-.content-only.path-grade-report-grader {
-    .gradeparent table {
-        margin-left: (@dock-width + (@dock-title-margin * 2));
-    }
-
-    &.dir-rtl {
-        .gradeparent table {
-            margin-left: 0;
-            margin-right: (@dock-width + (@dock-title-margin * 2));
-        }
-    }
+.path-grade-report-grader .grade_icons {
+    display: inline;
 }

@@ -43,6 +43,9 @@
         }
     }
     .contactselector {
+        .singleselect select {
+            width: 100%;
+        }
         .make-md-column(4);
         form#usergroupform {
             padding: 5px 10px;
@@ -104,16 +107,29 @@
             list-style: none;
         }
         .message-contacts {
-            .pix,
-            .link,
+            position: relative;
+            border-bottom: 1px solid @table-border-color;
+            margin-bottom: 10px;
+
+            li:nth-child(odd) {
+                background-color: @table-bg-accent;
+            }
+
+            li {
+                padding: 5px 0;
+                line-height: 26px;
+                border-top: 1px solid @table-border-color;
+            }
             .contact {
-                display: inline-block;
+                margin: 0 24% 0 25px;
+                text-align: left;
             }
             .link {
                 .pull-right;
             }
             .pix {
-                margin-right: 5px;
+                position: absolute;
+                left: 0;
             }
         }
     }
@@ -226,11 +242,11 @@
             #message_user_pictures {
                 .make-row();
                 .box.user {
-                    .make-md-column(5);
+                    .make-xs-column(5);
                     text-align: center;
                 }
                 .box.between {
-                    .make-md-column(2);
+                    .make-xs-column(2);
                     text-align: center;
                 }
             }

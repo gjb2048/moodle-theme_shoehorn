@@ -379,9 +379,12 @@ form.popupform div {
     vertical-align: text-bottom;
     margin: 0 0.3em;
 }
+.smallicon {
+    box-sizing: initial;
+}
 
 .no-overflow {
-    margin-bottom: (@line-height-computed * 0.75);
+    margin-bottom: 1px;
     overflow-y: hidden;
     overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -713,10 +716,6 @@ a.skip:active {
 }
 .smartselect.compactmenu .smartselect_submenuitem:hover > .smartselect_menuitem_label {
     font-weight: bold;
-}
-
-#page-enrol-users .enrol-users-page-action input {
-    margin-left: 0
 }
 
 .corelightbox {
@@ -1070,7 +1069,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 }
 /* Center the submit buttons within the area */
 .choosercontainer #chooseform .submitbuttons {
-    margin: 0.7em 0;
+    padding: 0.7em 0;
     text-align: center;
 }
 .choosercontainer #chooseform .submitbuttons input {
@@ -1368,3 +1367,4 @@ ul.dragdrop-keyboard-drag li {
     width: 12px;
     height: 12px;
 }
+

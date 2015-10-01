@@ -51,26 +51,6 @@
     .footer {
         margin-bottom: 4px;
     }
-    &.beingmoved {
-        border-width: 2px;
-        border-style: dashed;
-    }
-    &.invisible {
-        .header h2 {
-            .opacity(50);
-        }
-    }
-    &.hidden .header .block_action {
-        .block-hider-hide {
-            display: none;
-        }
-        .block-hider-show {
-            display: inline;
-        }
-    }
-    &.list_block .unlist > li > .column {
-        display: inline-block;
-    }
     .blockannotation {
         font-size: 0.75em;
         margin: -1em 0 1em;
@@ -79,6 +59,7 @@
         .form-control;
     }
 }
+
 .editing {
     .block {
         .header {
@@ -95,17 +76,6 @@
                 }
                 img.actionmenu {
                     width: auto;
-                }
-            }
-        }
-    }
-}
-.dir-rtl {
-    &.editing {
-        .block {
-            .header {
-                .commands {
-                    text-align: left;
                 }
             }
         }

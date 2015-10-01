@@ -130,11 +130,6 @@
             display: inherit;
         }
     }
-    ul.weeks {
-        h3.sectionname {
-            white-space: normal;
-        }
-    }
 }
 
 .editing_show + .editing_assign,
@@ -145,6 +140,7 @@
 
 .section {
     padding: 0;
+    margin: 0;
     .activity {
         .commands {
             white-space: nowrap;
@@ -250,13 +246,7 @@
             }
         }
         li.section.hidden {
-            .sectionname,
-            .content > div,  /* All the divs but the activities which are in a UL. */
-            .activity .activityinstance {
-                .opacity(50);
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+            .opacity(.5);
         }
     }
 }
@@ -266,33 +256,6 @@
         margin-right: 0px;
         margin-left: 0px;
         padding: 0;
-    }
-}
-
-.course-content li {
-    &.section {
-        ul {
-            list-style: disc;
-            ul {
-                list-style: circle;
-                ul {
-                    list-style: square;
-                }
-            }
-        }
-        li {
-            &.activity {
-                ul {
-                    list-style: disc;
-                    ul {
-                        list-style: circle;
-                        ul {
-                            list-style: square;
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -360,11 +323,6 @@
 }
 li.section.hidden span.commands a.editing_hide,li.section.hidden span.commands a.editing_show {
     cursor: default;
-}
-ul.weeks {
-    h3.sectionname {
-        white-space: nowrap;
-    }
 }
 
 .single-section {
@@ -487,20 +445,21 @@ span.editinstructions {
     }
 }
 
- .coursebox {
+// .coursebox {
 //    .panel;
 //    .panel-default;
-    .info {
+//    .info {
 //           .panel-heading;
 //           padding: 10px 15px;
 //           border-bottom: 1px solid transparent;
 //           .border-top-radius(@panel-border-radius - 1);
-        .coursename {
+//         .coursename {
 //             .panel-title;
-            display: inline-block;
-        }
-    }
-}
+//             display: inline-block;
+//         }
+//     }
+// }
+
 
 .coursebox.remotehost {
     & > .info {
@@ -714,6 +673,11 @@ span.editinstructions {
 #course-category-listings {
     background-color: @table-bg;
     margin-bottom: 200px;
+
+    ul.ml ul.ml {
+        margin: 0;
+        padding: 0;
+    }
 
     /** Two column layout */
     &.columns-2 {

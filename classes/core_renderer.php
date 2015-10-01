@@ -111,14 +111,12 @@ class theme_shoehorn_core_renderer extends core_renderer {
             } else {
                 $content = html_writer::start_tag('li');
                 // The node doesn't have children so produce a final menuitem.
-                $class = '';
                 if ($menunode->get_url() !== null) {
                     $url = $menunode->get_url();
-                    $class = $url->get_param('essentialcolours');
                 } else {
                     $url = '#';
                 }
-                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(), 'class' => $class));
+                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title()));
             }
             $content .= html_writer::end_tag('li');
         }

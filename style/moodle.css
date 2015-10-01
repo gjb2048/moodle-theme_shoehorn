@@ -5599,8 +5599,6 @@ button.list-group-item-danger.active:focus
 .box.message .messagearea .messagehistory #message_user_pictures:after,
 .userprofile dl.list dd:before,
 .userprofile dl.list dd:after,
-.userprofile dl.list dd:before,
-.userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:before,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:before,
@@ -5635,7 +5633,6 @@ button.list-group-item-danger.active:focus
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
-.userprofile dl.list dd:after,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:after,
@@ -5937,13 +5934,13 @@ button.list-group-item-danger.active:focus
 }.dropdown-submenu.pull-left > .dropdown-menu
 {
     left: -100%;margin-left: 10px;-webkit-border-radius: 6px 0 6px 6px;-moz-border-radius: 6px 0 6px 6px;border-radius: 6px 0 6px 6px;
-}div[role='main'] ul,
-div[role='main'] ol
-{
-    padding: 0 20px;
 }pre
 {
     white-space: pre-wrap;
+}.progress .bar
+{font-size: 12px;line-height: 20px;
+
+    float: left;width: 0;height: 100%;-webkit-transition: width .6s ease;-o-transition: width .6s ease;transition: width .6s ease;text-align: center;color: #fff;background-color: #1f4d87;-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
 }li.activity.label,
 .file-picker td.label
 {font-size: inherit;line-height: inherit;display: block;padding: 8px;white-space: normal;color: inherit;border: inherit;
@@ -5990,20 +5987,9 @@ div[role='main'] ol
 }.pagelayout-admin .show
 {
     display: inline !important;
-}div[role='main'] ul,
-div[role='main'] ol
-{overflow: visible;
-
-    padding-left: 20px;
-}div[role='main'] ul.section,
-div[role='main'] ol.section,
-div[role='main'] ul.weeks,
-div[role='main'] ol.weeks,
-div[role='main'] ul.topics,
-div[role='main'] ol.topics
-{overflow: visible;
-
-    padding: 0;
+}.gradingform_rubric
+{
+    max-width: none !important;
 }.layout-option-noheader #page-header,
 .layout-option-nonavbar #page-navbar,
 .layout-option-nofooter #page-footer,
@@ -6499,10 +6485,13 @@ form.popupform div
 {margin: 0 .3em;
 
     vertical-align: text-bottom;
+}.smallicon
+{
+    box-sizing: initial;
 }.no-overflow
 {overflow-x: auto;overflow-y: hidden;
 
-    margin-bottom: 15px;-ms-overflow-style: -ms-autohiding-scrollbar;-webkit-overflow-scrolling: touch;
+    margin-bottom: 1px;-ms-overflow-style: -ms-autohiding-scrollbar;-webkit-overflow-scrolling: touch;
 }.no-overflow > .generaltable
 {
     margin-bottom: 0;
@@ -6752,9 +6741,6 @@ a.skip:active
 }.smartselect.compactmenu .smartselect_submenuitem:hover > .smartselect_menuitem_label
 {
     font-weight: bold;
-}#page-enrol-users .enrol-users-page-action input
-{
-    margin-left: 0;
 }.corelightbox
 {position: absolute;top: 0;left: 0;width: 100%;height: 100%;text-align: center;
 
@@ -6996,7 +6982,7 @@ a.skip:active
     padding: 0;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;background: #f2f2f2;
 }.choosercontainer #chooseform .submitbuttons
 {
-    margin: .7em 0;text-align: center;
+    padding: .7em 0;text-align: center;
 }.choosercontainer #chooseform .submitbuttons input
 {
     min-width: 100px;margin: 0 .5em;
@@ -7622,7 +7608,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 {margin-left: 301px;
 
     border: 1px solid #000;border-top-width: 0;
-}#page-admin-index #notice .checkforupdates
+}#page-admin-index .alert .singlebutton
 {
     text-align: center;
 }#plugins-check-info
@@ -8118,15 +8104,12 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 .editing .course-content ul li.section.main .right
 {
     display: inherit;
-}.editing ul.weeks h3.sectionname
-{
-    white-space: normal;
 }.editing_show + .editing_assign,
 .editing_hide + .editing_assign
 {
     margin-left: 20px;
 }.section
-{
+{margin: 0;
     padding: 0;
 }.section .activity .commands
 {display: inline !important;
@@ -8207,34 +8190,13 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 .course-content ul li.section.main .right
 {
     display: none;
-}.course-content ul li.section.hidden .sectionname,
-.course-content ul li.section.hidden .content > div,
-.course-content ul li.section.hidden .activity .activityinstance
-{margin-right: 10px;margin-left: 10px;
-
-    opacity: 50;filter: alpha(opacity=5000);
+}.course-content ul li.section.hidden
+{
+    opacity: .5;filter: alpha(opacity=50);
 }.course-content ul.topics li.section .content,
 .course-content ul.weeks li.section .content
 {
     margin-right: 0;margin-left: 0;padding: 0;
-}.course-content li.section ul
-{
-    list-style: disc;
-}.course-content li.section ul ul
-{
-    list-style: circle;
-}.course-content li.section ul ul ul
-{
-    list-style: square;
-}.course-content li.section li.activity ul
-{
-    list-style: disc;
-}.course-content li.section li.activity ul ul
-{
-    list-style: circle;
-}.course-content li.section li.activity ul ul ul
-{
-    list-style: square;
 }.path-course-view .completionprogress
 {position: relative;z-index: 1000;display: block;float: right;height: 20px;
     margin-left: 25px;text-align: right;
@@ -8280,9 +8242,6 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 li.section.hidden span.commands a.editing_show
 {
     cursor: default;
-}ul.weeks h3.sectionname
-{
-    white-space: nowrap;
 }.single-section h3.sectionname
 {clear: both;
 
@@ -8381,9 +8340,6 @@ li.section.hidden span.commands a.editing_show
 }.coursebox .enrolmenticons img
 {
     padding: 0 5px;
-}.coursebox .info .coursename
-{
-    display: inline-block;
 }.coursebox.remotehost > .info > .categoryname a
 {
     background-image: url([[pix:moodle|i/mnethost]]);
@@ -8505,6 +8461,9 @@ li.section.hidden span.commands a.editing_show
 {margin-bottom: 200px;
 
     background-color: transparent;
+}#course-category-listings ul.ml ul.ml
+{
+    margin: 0;padding: 0;
 }#course-category-listings.columns-2 > #course-listing > div
 {
     position: relative;left: -1px;
@@ -9658,6 +9617,9 @@ fieldset[disabled] .box.message .message_form input[type='text']
 }.box.message .contactselector
 {
     position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;
+}.box.message .contactselector .singleselect select
+{
+    width: 100%;
 }@media (min-width:992px)
 {
     .box.message .contactselector
@@ -9735,17 +9697,25 @@ fieldset[disabled] .box.message .contactselector form#usergroupform fieldset sel
 }.box.message .contactselector ul
 {margin: 0;
     padding: 0;list-style: none;
-}.box.message .contactselector .message-contacts .pix,
-.box.message .contactselector .message-contacts .link,
-.box.message .contactselector .message-contacts .contact
+}.box.message .contactselector .message-contacts
 {
-    display: inline-block;
+    position: relative;margin-bottom: 10px;border-bottom: 1px solid #c9e6ff;
+}.box.message .contactselector .message-contacts li:nth-child(odd)
+{
+    background-color: #e3f2ff;
+}.box.message .contactselector .message-contacts li
+{line-height: 26px;
+
+    padding: 5px 0;border-top: 1px solid #c9e6ff;
+}.box.message .contactselector .message-contacts .contact
+{
+    margin: 0 24% 0 25px;text-align: left;
 }.box.message .contactselector .message-contacts .link
 {
     float: right !important;
 }.box.message .contactselector .message-contacts .pix
 {
-    margin-right: 5px;
+    position: absolute;left: 0;
 }.box.message .messagearea
 {
     position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;
@@ -10019,22 +9989,10 @@ fieldset[disabled] .box.message .contactselector form#usergroupform fieldset sel
     margin-left: -15px;
 }.box.message .messagearea .messagehistory #message_user_pictures .box.user
 {
-    position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;text-align: center;
-}@media (min-width:992px)
-{
-    .box.message .messagearea .messagehistory #message_user_pictures .box.user
-    {
-        float: left;width: 41.66666667%;
-    }
+    position: relative;float: left;width: 41.66666667%;min-height: 1px;padding-right: 15px;padding-left: 15px;text-align: center;
 }.box.message .messagearea .messagehistory #message_user_pictures .box.between
 {
-    position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;text-align: center;
-}@media (min-width:992px)
-{
-    .box.message .messagearea .messagehistory #message_user_pictures .box.between
-    {
-        float: left;width: 16.66666667%;
-    }
+    position: relative;float: left;width: 16.66666667%;min-height: 1px;padding-right: 15px;padding-left: 15px;text-align: center;
 }.box.message .messagearea .messagehistory .messagehistorytype
 {
     color: #fff;border: 0;
@@ -10704,65 +10662,9 @@ a.que .correctness:focus
 }body.path-question-type .mform fieldset.hidden
 {margin: .7em 0 0;
     padding: 0;
-}.userprofile .fullprofilelink
-{margin: 10px;
-
-    text-align: center;
-}.userprofile .description
-{
-    margin-bottom: 20px;
-}.userprofile .profile_tree
-{
-    -webkit-column-count: 2                                                                      ;-moz-column-count: 2;column-count: 2;-webkit-column-gap: 30px;-moz-column-gap: 30px;column-gap: 30px;
-}.userprofile .profile_tree section
-{
-    display: inline-block;width: 100%;
-}@media (min-width:768px)
-{
-    .userprofile dl.list dt
-    {
-        float: left;clear: left;overflow: hidden;width: 160px;text-align: right;white-space: nowrap;text-overflow: ellipsis;
-    }.userprofile dl.list dd
-    {
-        margin-left: 180px;
-    }
 }.user-box
 {float: left;clear: none;width: 115px;height: 160px;
     margin: 8px;text-align: center;
-}#page-user-profile .node_category li,
-.path-user .node_category li
-{
-    list-style-type: square;
-}#page-user-profile .node_category li.contentnode,
-.path-user .node_category li.contentnode
-{
-    list-style-type: none;
-}#page-user-profile.dir-ltr .node_category .contentnode,
-.path-user.dir-ltr .node_category .contentnode
-{
-    margin-left: -20px;
-}#page-user-profile.dir-rtl .node_category .contentnode,
-.path-user.dir-rtl .node_category .contentnode
-{
-    margin-right: -20px;
-}.dir-rtl .userprofile .description
-{
-    margin-right: 0;
-}.dir-rtl .user-box
-{
-    float: right;
-}.dir-rtl .userprofile dl.list dt
-{
-    float: right;padding-left: 10px;text-align: left;
-}.dir-rtl .userprofile dl.list dd
-{
-    margin-left: 0;
-}@media (max-width:480px)
-{
-    .userprofile .profile_tree
-    {
-        -webkit-column-count: 1                                                                                                              ;-moz-column-count: 1;column-count: 1;-webkit-column-gap: 30px;-moz-column-gap: 30px;column-gap: 30px;
-    }
 }.userlist .action-icon img
 {
     vertical-align: middle;
@@ -10778,10 +10680,6 @@ a.que .correctness:focus
 }.userlist table#participants
 {
     text-align: center;
-}.userlist table#participants td,
-.userlist table#participants th
-{padding: 4px;text-align: left;
-    vertical-align: middle;
 }.userlist table.controls
 {
     width: 100%;
@@ -10791,19 +10689,17 @@ a.que .correctness:focus
 }.userlist table.controls .right
 {
     text-align: right;
-}.userlist table.controls .groupselector
-{margin-top: 0;
-    margin-bottom: 0;
-}.userlist table.controls .groupselector label
+}.userlist table#participants td,
+.userlist table#participants th
+{padding: 4px;text-align: left;
+    vertical-align: middle;
+}.userlist table.controls td.right,
+.userlist table.controls td.left
 {
-    display: block;
+    padding: 4px;
 }.userinfobox
 {
     width: 100%;padding: 10px;border-collapse: separate;border: 1px solid;
-}.userinfobox .left,
-.userinfobox .side
-{
-    width: 100px;vertical-align: top;
 }.userinfobox .userpicture
 {
     width: 100px;height: 100px;
@@ -10827,6 +10723,10 @@ a.que .correctness:focus
 {font-weight: bold;
 
     text-align: right;vertical-align: top;white-space: nowrap;
+}.userinfobox .left,
+.userinfobox .side
+{
+    width: 100px;vertical-align: top;
 }.groupinfobox
 {
     min-height: 20px;margin-bottom: 20px;padding: 19px;border: 1px solid #e3e3e3;border-radius: 4px;background-color: #f5f5f5;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
@@ -10862,18 +10762,12 @@ a.que .correctness:focus
 }.userselector .userselector-infobelow
 {
     font-size: .8em;
-}#userselector_options
-{
-    padding: .3em 0;
 }#userselector_options .collapsibleregioncaption
 {
     font-weight: bold;
 }#userselector_options p
 {
     margin: .2em 0;text-align: left;
-}.dir-rtl #userselector_options p
-{
-    text-align: right;
 }#page-user-profile .messagebox
 {margin-right: auto;margin-left: auto;
 
@@ -10882,48 +10776,22 @@ a.que .correctness:focus
 {margin-right: auto;margin-left: auto;
 
     text-align: center;
-}.dir-rtl .userlist table#participants td,
-.dir-rtl .userlist table#participants th
-{
-    text-align: right;
-}.dir-rtl .userlist table#participants
-{
-    margin: 0 auto;
-}#page-my-index.dir-rtl .block h3
-{
-    text-align: right;
-}.profileeditor > .singleselect
-{
-    margin: 0 .5em 0 0;
-}.profileeditor > .singlebutton
-{
-    display: inline-block;margin: 0 0 0 .5em;
-}.profileeditor > .singlebutton div,
-.profileeditor > .singlebutton input
-{
-    margin: 0;
-}.dir-rtl .profileeditor > .singleselect
-{
-    margin: 0 0 0 .5em;
-}.dir-rtl .profileeditor > .singlebutton
-{
-    margin: 0 .5em 0 0;
-}#groupeditform .groups,
-#groupeditform .members
-{float: left;
-
-    width: 49%;text-align: left;
-}.dir-rtl #groupeditform .groups,
-.dir-rtl #groupeditform .members
-{
-    float: right;text-align: right;
 }.preferences-group ul
 {margin-right: 0;margin-left: 0;
 
     list-style: none;
-}.dir-rtl .preferences-group
+}.usermenu
 {
     float: right;
+}.usermenu .username
+{
+    margin-right: 5px;
+}.usermenu .dropdown-toggle
+{
+    padding-top: 10px;padding-bottom: 10px;
+}.usermenu .dropdown-menu > li > a
+{
+    padding: 3px 10px;
 }.userprofile .fullprofilelink
 {margin: 10px;
 
@@ -11006,18 +10874,28 @@ fieldset[disabled] .userprofile .header-button-group .btn.active
     {
         margin-left: 180px;
     }
-}.userprofile dl,
-.userprofile ul
+}.userprofile dd,
+.userprofile dt
 {
-    margin: 0;
+    margin-left: 0;
+}.userprofile ul
+{
+    margin-left: 10px;
+}.userprofile ul > li ul
+{
+    margin-left: 0;
 }#page-user-profile .node_category li,
 .path-user .node_category li
 {
-    list-style-type: square;
+    list-style-type: none;
 }#page-user-profile .node_category li.contentnode,
 .path-user .node_category li.contentnode
 {
     list-style-type: none;
+}.path-user .node_category:first-child li span
+{display: block;
+
+    margin-bottom: 10px;
 }.page-context-header
 {
     overflow: hidden;
@@ -11483,7 +11361,7 @@ table.collection .status
     float: right;
 }ul,
 ol
-{
+{margin: 0 0 10px 25px;
     padding: 0;
 }.container .moodleSkin img.mceIcon
 {
@@ -11580,21 +11458,6 @@ ol
 }.block .footer
 {
     margin-bottom: 4px;
-}.block.beingmoved
-{
-    border-width: 2px;border-style: dashed;
-}.block.invisible .header h2
-{
-    opacity: 50;filter: alpha(opacity=5000);
-}.block.hidden .header .block_action .block-hider-hide
-{
-    display: none;
-}.block.hidden .header .block_action .block-hider-show
-{
-    display: inline;
-}.block.list_block .unlist > li > .column
-{
-    display: inline-block;
 }.block .blockannotation
 {
     font-size: .75em;margin: -1em 0 1em;
@@ -11638,9 +11501,6 @@ fieldset[disabled] .block .singleselect select
 }.editing .block .header .commands img.actionmenu
 {
     width: auto;
-}.dir-rtl.editing .block .header .commands
-{
-    text-align: left;
 }.block.list_block .unlist > li > .column
 {
     display: inline-block;
@@ -11932,7 +11792,7 @@ textarea.mform .fitem .felement input[type='password']
 {
     cursor: help;
 }.mform .iconhelp
-{margin-right: -16px;
+{
     margin-left: 4px;
 }.form-item .form-label
 {
@@ -12416,6 +12276,17 @@ fieldset[disabled] #page-mod-forum-discuss .discussioncontrols .discussioncontro
 .navbar-fixed-bottom
 {
     z-index: 4030;
+}@media (max-width:768px)
+{
+    .navbar-collapse.collapse,
+    .navbar-collapse.collapsing
+    {
+        margin-top: 50px;
+    }.navbar-collapse.collapse .nav,
+    .navbar-collapse.collapsing .nav
+    {
+        float: none !important;
+    }
 }.langmenu form
 {
     margin: 0;
@@ -13660,34 +13531,57 @@ button.yui3-button.closebutton:hover
 }.userenrolment
 {
     width: 100%;border-collapse: collapse;
+}.userenrolment tr
+{
+    vertical-align: top;
+}.userenrolment td
+{height: 41px;
+    padding: 0;
+}.userenrolment .subfield
+{
+    margin-right: 5px;
 }.userenrolment .col_userdetails .subfield_picture
 {
-    float: left;margin: 0 5px;
-}.userenrolment .col_role a,
-.userenrolment .col_role span
+    float: left;
+}.userenrolment .col_lastseen
 {
-    display: inline-block;vertical-align: middle;
-}.userenrolment .col_role a
+    width: 150px;
+}.userenrolment .col_role
 {
-    float: right;
-}.userenrolment .col_role .addrole
-{
-    text-align: center;
+    width: 262px;
 }.userenrolment .hasAllRoles .col_role .addrole
 {
     display: none;
-}.userenrolment .col_group .group
+}.userenrolment .col_enrol .enrolment
 {
-    float: left;white-space: nowrap;
-}.userenrolment .col_group .group a
+    float: left;margin: 3px;padding: 3px;
+}.userenrolment .col_enrol .enrolment a
+{
+    float: right;margin-left: 3px;
+}.userenrolment .col_role .roles,
+.userenrolment .col_group .groups
+{
+    margin-right: 30px;
+}.userenrolment .col_role .role,
+.userenrolment .col_group .group
+{
+    float: left;margin: 3px;padding: 3px;white-space: nowrap;
+}.userenrolment .col_role .role a,
+.userenrolment .col_group .group a
 {
     margin-left: 3px;cursor: pointer;
-}.userenrolment .col_group .addgroup
+}.userenrolment .col_role .addrole,
+.userenrolment .col_group .addgroup
 {
-    text-align: center;
-}.userenrolment .col_group .addgroup a img
+    float: right;margin: 3px;padding: 3px;
+}.userenrolment .col_role .addrole > *:hover,
+.userenrolment .col_group .addgroup > *:hover
 {
-    vertical-align: bottom;
+    border-bottom: 1px solid #666;
+}.userenrolment .col_role .addrole img,
+.userenrolment .col_group .addgroup img
+{
+    vertical-align: baseline;
 }.enrolpanel.roleassign.visible
 {font-family: [[setting:bodyfont]] 'Cabin','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 14px;font-weight: normal;font-style: normal;line-height: 1.42857143;
 
@@ -13925,51 +13819,6 @@ button.yui3-button.closebutton:hover
 #page-footer .performanceinfo
 {
     text-align: center;
-}.moodlezoom
-{
-    display: none;
-}@media (min-width:768px)
-{
-    .moodlezoom
-    {
-        display: block;
-    }.moodlezoom
-    {
-        margin-left: 10px;
-    }.moodlezoom span.zoomout
-    {
-        display: none;
-    }.dir-rtl .moodlezoom
-    {margin-right: 10px;
-        margin-left: 0;
-    }body.zoomin
-    {
-        padding-top: 0;
-    }body.zoomin .moodlezoom span.zoomout
-    {
-        display: block;
-    }body.zoomin .moodlezoom span.zoomin
-    {
-        display: none;
-    }body.zoomin .block-region
-    {
-        display: none;
-    }body.zoomin #region-main,
-    body.zoomin #region-bs-main-and-pre
-    {left: 0 !important;
-
-        width: 100% !important;
-    }body.zoomin header.navbar
-    {
-        display: none;
-    }body.zoomin #page-header h1,
-    body.zoomin #page-footer
-    {
-        display: none;
-    }
-}.nonsense
-{
-    left: 0;
 }.transform-test-heading
 {
     font-family: [[setting:bodyfont]] 'Cabin','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 14px;font-weight: bold;line-height: 32px;margin: 0;padding: 0;text-align: center;
@@ -13981,8 +13830,9 @@ body.has_dock .moodleheader
 {
     display: inline;
 }#dock
-{position: fixed;
-    z-index: 12000;top: 0;left: 0;width: 38px;height: 100%;border-right: 0 none;background-color: transparent;
+{position: fixed;top: 0;left: 0;
+
+    width: 38px;height: 100%;border-right: 0 none;background-color: transparent;
 }#dock .nothingdocked
 {display: none;
     visibility: hidden;
@@ -14322,9 +14172,6 @@ fieldset[disabled] #dock .dockedtitle.active
 .gradetreebox select
 {
     margin-bottom: 0;
-}.core_grades_notices .singlebutton
-{
-    display: inline-block;
 }#page-grade-grading-manage #activemethodselector label
 {
     display: inline-block;
@@ -14335,8 +14182,8 @@ fieldset[disabled] #dock .dockedtitle.active
 {
     display: block;margin-bottom: 1em;text-align: center;
 }#page-grade-grading-manage .actions .action
-{font-size: 14px;font-size: 18px;font-weight: normal;line-height: 1.42857143;line-height: 1.33;position: relative;display: inline-block;overflow: hidden;width: 150px;margin: .5em;
-    margin-bottom: 0;padding: 6px 12px;padding: 10px 16px;padding: 1em;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;vertical-align: top;white-space: nowrap;border: 1px solid transparent;border: 1px solid #aaa;border-radius: 4px;border-radius: 6px;background-image: none;touch-action: manipulation;
+{font-size: 14px;font-size: 18px;font-weight: normal;line-height: 1.42857143;line-height: 1.33;position: relative;display: inline-block;overflow: hidden;box-sizing: content-box;width: 150px;margin: .5em;
+    margin-bottom: 0;padding: 6px 12px;padding: 10px 16px;padding: 1em;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;vertical-align: top;white-space: nowrap;white-space: normal;border: 1px solid transparent;border: 1px solid #aaa;border-radius: 4px;border-radius: 6px;background-image: none;touch-action: manipulation;
 }#page-grade-grading-manage .actions .action:focus,
 #page-grade-grading-manage .actions .action:active:focus,
 #page-grade-grading-manage .actions .action.active:focus,
@@ -14379,28 +14226,15 @@ fieldset[disabled] a#page-grade-grading-manage .actions .action
 .gradingform_rubric.editor .addcriterion input
 {
     background: #fff none no-repeat top left;
-}.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .score
-{float: right;margin-right: 0;margin-left: 28px;
-
-    text-align: right;
-}.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete
+}.criteria .remark textarea
 {
-    float: left;
-}.dir-rtl #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .level .delete input
-{right: auto;
-    left: 0;
-}.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion
+    height: auto;
+}.mform.gradingform_rubric_editform .fitem .felement .hiddenelement
 {
-    margin-right: 5px;margin-left: 0;
-}.dir-rtl #rubric-rubric.gradingform_rubric .addcriterion input
-{
-    padding-right: 26px;padding-left: 10px;background-position: right 8px top 8px;
-}.dir-rtl #rubric-rubric.gradingform_rubric .options .option .value
-{margin-right: 5px;
-    margin-left: 0;
-}.dir-rtl #rubric-rubric.gradingform_rubric .options .option input
-{margin-right: 5px;
-    margin-left: 12px;
+    display: none;
+}.mform.gradingform_rubric_editform .fitem .felement .pseudotablink
+{position: relative;float: right;width: 1px;height: 1px;margin: 0;padding: 0;color: transparent;border: 0 solid;
+    background-color: transparent;
 }#rubric-rubric.gradingform_rubric #rubric-criteria
 {
     margin-bottom: 1em;
@@ -14436,11 +14270,11 @@ fieldset[disabled] a#page-grade-grading-manage .actions .action
     background-color: #ddd;
 }#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input
 {
-    float: none;width: 2em;
+    float: none;width: 3em;
 }#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.hiddenelement,
 #rubric-rubric.gradingform_rubric #rubric-criteria .criterion .scorevalue input.pseudotablink
 {
-    width: 0;
+    width: 0 !important;
 }#rubric-rubric.gradingform_rubric #rubric-criteria .criterion .addlevel
 {
     vertical-align: middle;
@@ -14519,199 +14353,9 @@ fieldset[disabled] a#rubric-rubric.gradingform_rubric .addcriterion
 }#rubric-rubric.gradingform_rubric .options .option input
 {margin-right: 12px;
     margin-left: 5px;
-}.path-grade-edit-tree .setup-grades h4
+}.path-grade-report-grader .grade_icons
 {
-    margin: 0;
-}.path-grade-edit-tree .setup-grades .column-rowspan
-{width: 24px;min-width: 24px;max-width: 24px;
-    padding: 0;
-}.path-grade-edit-tree .setup-grades .category td.column-name
-{
-    padding-left: 0;
-}.path-grade-edit-tree .setup-grades td.column-name
-{
-    padding-left: 24px;
-}.path-grade-edit-tree .setup-grades .column-name h4 img.icon
-{
-    padding-left: 0;
-}.path-grade-edit-tree .setup-grades .category input[type='text'],
-.path-grade-edit-tree .setup-grades .category .column-range,
-.path-grade-edit-tree .setup-grades .categoryitem,
-.path-grade-edit-tree .setup-grades .courseitem
-{
-    font-weight: bold;
-}.path-grade-edit-tree .setup-grades .emptyrow
-{
-    display: none;
-}.path-grade-edit-tree .setup-grades .gradeitemdescription
-{
-    font-weight: normal;padding-left: 24px;
-}.path-grade-edit-tree .setup-grades .column-weight
-{
-    white-space: nowrap;
-}.path-grade-edit-tree .setup-grades .column-weight.level3
-{
-    padding-left: 37px;
-}.path-grade-edit-tree .setup-grades .column-weight.level4
-{
-    padding-left: 66px;
-}.path-grade-edit-tree .setup-grades .column-weight.level5
-{
-    padding-left: 95px;
-}.path-grade-edit-tree .setup-grades .column-weight.level6
-{
-    padding-left: 124px;
-}.path-grade-edit-tree .setup-grades .column-weight.level7
-{
-    padding-left: 153px;
-}.path-grade-edit-tree .setup-grades .column-weight.level8
-{
-    padding-left: 182px;
-}.path-grade-edit-tree .setup-grades .column-weight.level9
-{
-    padding-left: 211px;
-}.path-grade-edit-tree .setup-grades .column-weight.level10
-{
-    padding-left: 240px;
-}.path-grade-edit-tree .setup-grades .column-range.level2
-{
-    padding-left: 37px;
-}.path-grade-edit-tree .setup-grades .column-range.level3
-{
-    padding-left: 66px;
-}.path-grade-edit-tree .setup-grades .column-range.level4
-{
-    padding-left: 95px;
-}.path-grade-edit-tree .setup-grades .column-range.level5
-{
-    padding-left: 124px;
-}.path-grade-edit-tree .setup-grades .column-range.level6
-{
-    padding-left: 153px;
-}.path-grade-edit-tree .setup-grades .column-range.level7
-{
-    padding-left: 182px;
-}.path-grade-edit-tree .setup-grades .column-range.level8
-{
-    padding-left: 211px;
-}.path-grade-edit-tree .setup-grades .column-range.level9
-{
-    padding-left: 240px;
-}.path-grade-edit-tree .setup-grades .column-range.level10
-{
-    padding-left: 269px;
-}.path-grade-edit-tree .setup-grades.generaltable .levelodd
-{
-    background-color: #e3f2ff;
-}.path-grade-edit-tree .setup-grades.generaltable .leveleven
-{
-    background-color: transparent;
-}.dir-rtl.path-grade-edit-tree .setup-grades .category td.column-name
-{
-    padding-right: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades td.column-name
-{
-    padding-right: 24px;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-name h4 img.icon
-{
-    padding-left: 4px;
-}.dir-rtl.path-grade-edit-tree .setup-grades .gradeitemdescription
-{padding-right: 24px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level3
-{padding-right: 37px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level4
-{padding-right: 66px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level5
-{padding-right: 95px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level6
-{padding-right: 124px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level7
-{padding-right: 153px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level8
-{padding-right: 182px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level9
-{padding-right: 211px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-weight.level10
-{padding-right: 240px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level2
-{padding-right: 37px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level3
-{padding-right: 66px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level4
-{padding-right: 95px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level5
-{padding-right: 124px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level6
-{padding-right: 153px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level7
-{padding-right: 182px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level8
-{padding-right: 211px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level9
-{padding-right: 240px;
-    padding-left: 0;
-}.dir-rtl.path-grade-edit-tree .setup-grades .column-range.level10
-{padding-right: 269px;
-    padding-left: 0;
-}.path-grade-report .gradeparent table
-{
-    border-radius: 4px;
-}.path-grade-report .gradeparent tr .cell
-{
-    background-color: #fff;
-}.path-grade-report .gradeparent table,
-.path-grade-report .gradeparent .cell
-{
-    border-color: #c9e6ff;
-}.path-grade-report .gradeparent tr:nth-of-type(even) .cell,
-.path-grade-report .gradeparent .floater .cell,
-.path-grade-report .gradeparent .avg
-{
-    background-color: #e3f2ff;
-}.path-grade-report .gradeparent table .clickable
-{
-    cursor: pointer;
-}.path-grade-report-user .user-grade
-{
-    border: none;
-}.path-grade-report-user .user-grade.generaltable .levelodd
-{
-    background-color: #e3f2ff;
-}.path-grade-report-user .user-grade.generaltable .leveleven
-{
-    background-color: transparent;
-}.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader .gradeparent .sideonly.floating > .cell
-{
-    padding-left: 43px;
-}.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell,
-.has_dock.path-grade-report-grader.dir-rtl .gradeparent .sideonly.floating > .cell
-{padding-right: 43px;
-    padding-left: 5px;
-}.content-only.path-grade-report-grader .gradeparent table
-{
-    margin-left: 38px;
-}.content-only.path-grade-report-grader.dir-rtl .gradeparent table
-{margin-right: 38px;
-    margin-left: 0;
+    display: inline;
 }.breadcrumb,
 .breadcrumb-button > a
 {
