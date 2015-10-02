@@ -28,7 +28,7 @@
 require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
 $regions = \theme_shoehorn\toolbox::grid(false, false, $PAGE);
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 echo $OUTPUT->doctype();
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

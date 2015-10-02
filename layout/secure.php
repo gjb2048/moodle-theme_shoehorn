@@ -20,7 +20,7 @@ $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

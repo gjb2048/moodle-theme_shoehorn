@@ -33,7 +33,7 @@ $knownregionpre = $PAGE->blocks->is_known_region('side-pre');
 $PAGE->set_popup_notification_allowed(false);
 
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, false, $PAGE);
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

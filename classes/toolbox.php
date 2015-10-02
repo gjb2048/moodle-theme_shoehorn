@@ -59,7 +59,7 @@ class toolbox {
         } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
             return "$CFG->themedir/shoehorn/layout/tiles/$filename";
         } else {
-            return dirname(__FILE__)."$filename";
+            return dirname(__FILE__)."/$filename";
         }
     }
 
@@ -92,10 +92,22 @@ class toolbox {
      * layout and then passes it back in an object so it can
      * be echo'd to the page.
      *
+     * @param $theme Theme to use if not parent.
+     *
      * This keeps the logic out of the layout files.
      */
-    static public function html_for_settings($PAGE) {
-        $settings = $PAGE->theme->settings;
+    static public function html_for_settings($theme = null) {
+
+        if (empty($theme)) {
+            if (empty(self::$theme)) {
+                self::$theme = \theme_config::load('shoehorn');
+            }
+            $theme = self::$theme;
+        }
+
+        global $PAGE;
+
+        $settings = $theme->settings;
 
         $html = new \stdClass();
 

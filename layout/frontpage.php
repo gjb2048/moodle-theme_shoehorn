@@ -37,7 +37,7 @@ $PAGE->set_popup_notification_allowed(false);
 
 $showslider = \theme_shoehorn\toolbox::showslider($PAGE->theme->settings);
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
-$settingshtml = \theme_shoehorn\toolbox::html_for_settings($PAGE);
+$settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

@@ -36,7 +36,7 @@ $string['choosereadme'] = '
 </div>
 <div class="well">
 <h3>About Shoebrush</h3>
-<p>Shoebrush is a basic child theme of Shoehoen to help you as a theme developer create your own child theme of Shoehorn.</p>
+<p>Shoebrush is a basic child theme of Shoehorn to help you as a theme developer create your own child theme of Shoehorn.</p>
 <h3>Theme Credits</h3>
 <p>Author: Gareth J Barnard</p>
 <h3>Sponsorships</h3>
