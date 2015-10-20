@@ -30,10 +30,12 @@ class theme_shoehorn_core_renderer extends core_renderer {
     protected $enrolledcourses = null;
     protected $syntaxhighlighterenabled = false;
     protected $fontawesome = false;
+    protected $themeconfig = null;
 
     public function __construct(moodle_page $page, $target) {
         parent::__construct($page, $target);
-        $this->fontawesome = (empty($this->page->theme->settings->fontawesome)) ? false : $this->page->theme->settings->fontawesome;
+        $this->themeconfig = \theme_shoehorn\toolbox::get_theme_config('shoehorn');
+        $this->fontawesome = (empty($this->themeconfig->settings->fontawesome)) ? false : $this->themeconfig->settings->fontawesome;
     }
 
     public function notification($message, $classes = 'notifyproblem') {
@@ -329,7 +331,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
-        $displaymycourses = (empty($this->page->theme->settings->displaymycoursesmenu)) ? false : $this->page->theme->settings->displaymycoursesmenu;
+        $displaymycourses = (empty($this->themeconfig->settings->displaymycoursesmenu)) ? false : $this->themeconfig->settings->displaymycoursesmenu;
         if (isloggedin() && !isguestuser() && $displaymycourses) {
             switch ($displaymycourses) {
                 case 1:
@@ -660,7 +662,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
      */
     protected function mycourses() {
         $content = '';
-        $displaymycourses = (empty($this->page->theme->settings->displaymycourses)) ? false : $this->page->theme->settings->displaymycourses;
+        $displaymycourses = (empty($this->themeconfig->settings->displaymycourses)) ? false : $this->themeconfig->settings->displaymycourses;
         if ($displaymycourses == 2) {
             $mycourses = $this->get_enrolled_courses();
 
@@ -747,7 +749,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             $messagelist[] = $this->shoehorn_process_message($message);
         }
 
-        $showoldmessages = (empty($this->page->theme->settings->showoldmessages)) ? false : $this->page->theme->settings->showoldmessages;
+        $showoldmessages = (empty($this->themeconfig->settings->showoldmessages)) ? false : $this->themeconfig->settings->showoldmessages;
         if ($showoldmessages == 2) {
             $maxmessages = 5;
             $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
@@ -820,9 +822,9 @@ class theme_shoehorn_core_renderer extends core_renderer {
         $items[] = html_writer::tag('a', get_string('home'), array('href' => $url, 'target' => '_self'));
 
         // Footer menu setting.
-        if (!empty($this->page->theme->settings->footermenu)) {
+        if (!empty($this->themeconfig->settings->footermenu)) {
             $lang = current_language();
-            $lines = explode("\n", $this->page->theme->settings->footermenu);
+            $lines = explode("\n", $this->themeconfig->settings->footermenu);
 
             foreach ($lines as $line) {
                 $line = trim($line);
@@ -849,7 +851,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
         // Syntax highlighting.
         if (($this->syntaxhighlighterenabled) ||
-            ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2) && ($this->page->user_is_editing()))) {
+            ((!empty($this->themeconfig->settings->syntaxhighlight)) && ($this->themeconfig->settings->syntaxhighlight == 2) && ($this->page->user_is_editing()))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
             $items[] = html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'), array('href' => $url, 'target' => '_blank'));
@@ -866,13 +868,13 @@ class theme_shoehorn_core_renderer extends core_renderer {
                 }
                 $url = preg_replace('|^https?://|i', '//', $url->out(false));
                 $sitepagetitle = 'sitepagetitle'.$pageid;
-                $items[] = html_writer::tag('a', $this->page->theme->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
+                $items[] = html_writer::tag('a', $this->themeconfig->settings->$sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
             }
         }
 
         // Copyright setting.
-        if (!empty($this->page->theme->settings->copyright)) {
-            $items[] = html_writer::tag('span', ' '.$this->page->theme->settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
+        if (!empty($this->themeconfig->settings->copyright)) {
+            $items[] = html_writer::tag('span', ' '.$this->themeconfig->settings->copyright.' '.userdate(time(), '%Y'), array('class' => 'copyright'));
         }
 
         if (count($items) > 0) {
@@ -925,7 +927,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                 $zones[] = $block->title;
             }
 
-            $blocksperrow = $this->page->theme->settings->numpagebottomblocks;
+            $blocksperrow = $this->themeconfig->settings->numpagebottomblocks;
             // When editing we want all the blocks to be the same.
             if (($blocksperrow > 4) || ($editing)) {
                 $blocksperrow = 4; // Will result in a 'col-sm-3 col-md-3 col-lg-3'.
@@ -1001,7 +1003,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
      */
     public function blocks($region, $classes = array(), $tag = 'aside') {
         $output = '';
-        $accordionblocks = (empty($this->page->theme->settings->accordion)) ? false : $this->page->theme->settings->accordion;
+        $accordionblocks = (empty($this->themeconfig->settings->accordion)) ? false : $this->themeconfig->settings->accordion;
         if ($accordionblocks == 2) {
             if (($region == 'side-pre') || ($region == 'side-post')) {
                 $output = $this->collapse_blocks($region, $classes, $tag);
@@ -1285,7 +1287,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
     }
 
     protected function syntax_highlighter() {
-        if ((!empty($this->page->theme->settings->syntaxhighlight)) && ($this->page->theme->settings->syntaxhighlight == 2)) {
+        if ((!empty($this->themeconfig->settings->syntaxhighlight)) && ($this->themeconfig->settings->syntaxhighlight == 2)) {
             if (strpos($this->page->course->summary, get_string('syntaxsummary', 'theme_shoehorn')) !== false) {
                 $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shCore.js');
                 $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shAutoloader.js');

@@ -24,9 +24,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__).'/../../lib.php');
+//require_once(dirname(__FILE__).'/../../lib.php');
 
-$fitvids = (!isset($PAGE->theme->settings->fitvids)) ? true : $PAGE->theme->settings->fitvids;
+$themeconfig = \theme_shoehorn\toolbox::get_theme_config('shoehorn');
+$fitvids = (!isset($themeconfig->settings->fitvids)) ? true : $themeconfig->settings->fitvids;
 if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
@@ -35,13 +36,13 @@ switch ($PAGE->pagelayout) {
         $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images($PAGE);
         if (!empty($loginpageimages)) {
             $data = array('data' => array('images' => array_values($loginpageimages),
-                                          'duration' => $PAGE->theme->settings->loginbackgroundchangerspeed,
-                                          'fade' => $PAGE->theme->settings->loginbackgroundchangerfade));
+                                          'duration' => $themeconfig->settings->loginbackgroundchangerspeed,
+                                          'fade' => $themeconfig->settings->loginbackgroundchangerfade));
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init', $data);
         }
         break;
     case 'admin':
-        $userload = (empty($PAGE->theme->settings->userload)) ? false : $PAGE->theme->settings->userload;
+        $userload = (empty($themeconfig->settings->userload)) ? false : $themeconfig->settings->userload;
         if ($userload) {
             $userloadpostfix = get_string('userloadpostfix', 'theme_shoehorn');
             if (!empty($PAGE->layout_options['chart'])) {

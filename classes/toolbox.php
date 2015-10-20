@@ -29,7 +29,14 @@ namespace theme_shoehorn;
 
 class toolbox {
 
-    static protected $theme;
+    static protected $themes = array();
+
+    static public function get_theme_config($themename) {
+        if (empty(self::$themes[$themename])) {
+            self::$themes[$themename] = \theme_config::load($themename);
+        }
+        return self::$themes[$themename];
+    }
 
     /**
      * Finds the given tile file in the theme.  If it does not exist for the Shoehorn child theme then the parent is checked.
@@ -66,10 +73,7 @@ class toolbox {
     static public function get_setting($setting, $format = false, $theme = null) {
 
         if (empty($theme)) {
-            if (empty(self::$theme)) {
-                self::$theme = \theme_config::load('shoehorn');
-            }
-            $theme = self::$theme;
+            $theme = self::get_theme_config('shoehorn');
         }
 
         global $CFG;
@@ -99,10 +103,7 @@ class toolbox {
     static public function html_for_settings($theme = null) {
 
         if (empty($theme)) {
-            if (empty(self::$theme)) {
-                self::$theme = \theme_config::load('shoehorn');
-            }
-            $theme = self::$theme;
+            $theme = self::get_theme_config('shoehorn');
         }
 
         global $PAGE;
@@ -227,7 +228,7 @@ class toolbox {
      */
     static public function shown_sitepages($PAGE) {
         $pages = array();
-        $settings = $PAGE->theme->settings;
+        $settings = self::get_theme_config('shoehorn')->settings;
 
         $numberofsitepages = (empty($settings->numberofsitepages)) ? false : $settings->numberofsitepages;
         if ($numberofsitepages) {
@@ -277,7 +278,7 @@ class toolbox {
      */
     static public function shown_frontpageslides($PAGE) {
         $slides = array();
-        $settings = $PAGE->theme->settings;
+        $settings = self::get_theme_config('shoehorn')->settings;
 
         $frontpagenumberofslides = (empty($settings->frontpagenumberofslides)) ? false : $settings->frontpagenumberofslides;
         if ($frontpagenumberofslides) {
@@ -293,7 +294,7 @@ class toolbox {
                         or (($settings->$frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
                     ) {
                         $frontpageslidelang = 'frontpageslidelang'.$sl;
-                        if (empty($settings->$frontpageslidelang) or ($settings->$frontpageslidelang == 'all') or ($theme->settings->$frontpageslidelang == $lang)) {
+                        if (empty($settings->$frontpageslidelang) or ($settings->$frontpageslidelang == 'all') or ($settings->$frontpageslidelang == $lang)) {
                             // Slide can be shown.
                             $slides[$sl] = 2;
                         } else {
@@ -316,7 +317,7 @@ class toolbox {
     static public function shown_loginbackgroundchanger_images($PAGE) {
         global $CFG;
         $images = array();
-        $settings = $PAGE->theme->settings;
+        $settings = self::get_theme_config('shoehorn')->settings;
 
         $numberofimages = (empty($settings->loginbackgroundchangernumberofimages)) ? false : $settings->loginbackgroundchangernumberofimages;
         if (($numberofimages) && (self::showloginbackgroundchanger($settings))) {
