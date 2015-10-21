@@ -171,7 +171,8 @@ class theme_shoehorn_core_renderer extends core_renderer {
     public function page_heading($tag = 'h1') {
         $o = '';
 
-        $logo = $this->page->theme->setting_file_url('logo', 'logo');
+        $theme = \theme_shoehorn\toolbox::get_theme_config('shoehorn');
+        $logo = $theme->setting_file_url('logo', 'logo');
         if (!is_null($logo)) {
             $o .= html_writer::start_tag('div', array('class' => 'row')).
                   html_writer::tag($tag, $this->page->heading, array('class' => 'logoheading col-xs-8 col-sm-9 col-md-10')).
