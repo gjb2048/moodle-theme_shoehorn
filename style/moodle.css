@@ -23498,7 +23498,7 @@ body.tabletdevice .carouselslider a.carousel-control
     top: 0;
     left: 100%;
 
-    margin-top: -6px;
+    margin-top: 0;
     margin-left: -1px;
 
     -webkit-border-radius: 0 6px 6px 6px;
