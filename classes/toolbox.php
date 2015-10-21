@@ -317,14 +317,15 @@ class toolbox {
     static public function shown_loginbackgroundchanger_images($PAGE) {
         global $CFG;
         $images = array();
-        $settings = self::get_theme_config('shoehorn')->settings;
+        $theme = self::get_theme_config('shoehorn');
+        $settings = $theme->settings;
 
         $numberofimages = (empty($settings->loginbackgroundchangernumberofimages)) ? false : $settings->loginbackgroundchangernumberofimages;
         if (($numberofimages) && (self::showloginbackgroundchanger($settings))) {
             for ($img = 1; $img <= $numberofimages; $img++) {
                 $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
                 if (!empty($settings->$loginbackgroundchangerimageno)) {
-                    $images[] = $PAGE->theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
+                    $images[] = $theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
                }
             }
         }

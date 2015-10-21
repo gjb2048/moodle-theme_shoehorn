@@ -165,7 +165,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
     /**
      * Gets HTML for the page heading.
      *
-     * @param string $tag The tag to encase the heading in. h1 by default.
+     * @param string $tag The tag to encase the heading in, h1 by default.
      * @return string HTML.
      */
     public function page_heading($tag = 'h1') {
