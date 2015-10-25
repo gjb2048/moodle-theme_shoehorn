@@ -548,8 +548,12 @@ ul {
     .form-item .form-setting td input[type="text"] {
         min-width: 220px; // Device detection regular expressions boxes on 'Theme settings' page.
     }
-    .mform .fcontainer .fitem .felement.fdate_time_selector select {
-        min-width: inherit;
+    .mform .fcontainer .fitem .felement {
+        &.fdate_time_selector, &.fdate_selector {
+            select {
+                min-width: inherit;
+            }
+        }
     }
 }
 

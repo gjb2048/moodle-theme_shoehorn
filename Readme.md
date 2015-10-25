@@ -180,6 +180,7 @@ Version 2.9.1.4
   2. Improve child theme support.
   3. Minor adjustment to date time selector widths.
   4. Fix dropdown-submenu position.
+  5. Fix setting form header text colour.
 
 Version 2.9.1.3
   1. MDL-50323.
