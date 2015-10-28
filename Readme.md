@@ -182,6 +182,7 @@ Version 2.9.1.4
   4. Fix dropdown-submenu position.
   5. Fix setting form header text colour.
   6. Focus for social icons.
+  7. Fix body background image when docked.
 
 Version 2.9.1.3
   1. MDL-50323.

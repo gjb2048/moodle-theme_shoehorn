@@ -80,9 +80,6 @@ $THEME->plugins_exclude_sheets = array(
     )
 );
 
-error_log('Shoehorn: '.print_r($THEME, true));
-//error_log('Shoehorn 2: '.\theme_shoehorn\toolbox::get_config_setting('numberofsociallinks'));
-
 $allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
 $bottomregions = array('page-bottom', 'footer-pre', 'footer-post');
