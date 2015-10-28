@@ -33,7 +33,7 @@ if ($fitvids) {
 }
 switch ($PAGE->pagelayout) {
     case 'login':
-        $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images($PAGE);
+        $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {
             $data = array('data' => array('images' => array_values($loginpageimages),
                                           'duration' => $themeconfig->settings->loginbackgroundchangerspeed,

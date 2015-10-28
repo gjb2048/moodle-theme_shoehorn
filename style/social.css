@@ -83,7 +83,7 @@ ul.socialnetworks li {
     color: #1F4D87;
 }
 
-#page-footer .socialnetworks a:hover {
+#page-footer .socialnetworks a:hover, #page-footer .socialnetworks a:focus {
     background-color: transparent;
     color: #2B6EBF;
 }
@@ -92,83 +92,83 @@ ul.socialnetworks li {
 #page-footer .socialnetworks a .fa-dropbox {
     color: #007EE5;
 }
-#page-footer .socialnetworks a:hover .fa-dropbox {
+#page-footer .socialnetworks a:hover .fa-dropbox, #page-footer .socialnetworks a:focus .fa-dropbox {
     color: #0090FF;
 }
 
 #page-footer .socialnetworks a .fa-facebook-square {
    color: #4862A3;
 }
-#page-footer .socialnetworks a:hover .fa-facebook-square {
+#page-footer .socialnetworks a:hover .fa-facebook-square, #page-footer .socialnetworks a:focus .fa-facebook-square {
    color: #668BE2;
 }
 
 #page-footer .socialnetworks a .fa-github {
     color: #000;
 }
-#page-footer .socialnetworks a:hover .fa-github {
+#page-footer .socialnetworks a:hover .fa-github, #page-footer .socialnetworks a:focus .fa-github {
     color: #707070;
 }
 
 #page-footer .socialnetworks a .fa-google-plus-square {
     color: #DD4B39;
 }
-#page-footer .socialnetworks a:hover .fa-google-plus-square {
+#page-footer .socialnetworks a:hover .fa-google-plus-square, #page-footer .socialnetworks a:focus .fa-google-plus-square {
     color: #FF5542;
 }
 
 #page-footer .socialnetworks a .fa-linkedin-square {
     color: #007ABB;
 }
-#page-footer .socialnetworks a:hover .fa-linkedin-square {
+#page-footer .socialnetworks a:hover .fa-linkedin-square, #page-footer .socialnetworks a:focus .fa-linkedin-square {
     color: #0097E2;
 }
 
 #page-footer .socialnetworks a .fa-pinterest-square {
     color: #D73532;
 }
-#page-footer .socialnetworks a:hover .fa-pinterest-square {
+#page-footer .socialnetworks a:hover .fa-pinterest-square, #page-footer .socialnetworks a:focus .fa-pinterest-square {
     color: #EF3C39;
 }
 
 #page-footer .socialnetworks a .fa-skype {
     color: #01AEF2;
 }
-#page-footer .socialnetworks a:hover .fa-skype {
+#page-footer .socialnetworks a:hover .fa-skype, #page-footer .socialnetworks a:focus .fa-skype {
     color: #02BBFF;
 }
 
 #page-footer .socialnetworks a .fa-tumblr-square {
     color: #3B5876;
 }
-#page-footer .socialnetworks a:hover .fa-tumblr-square {
+#page-footer .socialnetworks a:hover .fa-tumblr-square, #page-footer .socialnetworks a:focus .fa-tumblr-square {
     color: #547EA8;
 }
 
 #page-footer .socialnetworks a .fa-twitter-square {
     color: #55acee;
 }
-#page-footer .socialnetworks a:hover .fa-twitter-square {
+#page-footer .socialnetworks a:hover .fa-twitter-square, #page-footer .socialnetworks a:focus .fa-twitter-square {
     color: #5BBBFF;
 }
 
 #page-footer .socialnetworks a .fa-vimeo-square {
     color: #20B9EB;
 }
-#page-footer .socialnetworks a:hover .fa-vimeo-square {
+#page-footer .socialnetworks a:hover .fa-vimeo-square, #page-footer .socialnetworks a:focus .fa-vimeo-square {
     color: #23CFFF;
 }
 
 #page-footer .socialnetworks a .fa-vk {
     color: #44678D;
 }
-#page-footer .socialnetworks a:hover .fa-vk {
+#page-footer .socialnetworks a:hover .fa-vk, #page-footer .socialnetworks a:focus .fa-vk {
     color: #5E8EC1;
 }
 
 #page-footer .socialnetworks a .fa-youtube-square {
     color: #E12C27;
 }
-#page-footer .socialnetworks a:hover .fa-youtube-square {
+#page-footer .socialnetworks a:hover .fa-youtube-square, #page-footer .socialnetworks a:focus .fa-youtube-square {
     color: #FF2D2D;
 }

@@ -24,8 +24,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$numberofsociallinks = (empty($PAGE->theme->settings->numberofsociallinks)) ? false : $PAGE->theme->settings->numberofsociallinks;
-$fontawesome = (empty($PAGE->theme->settings->fontawesome)) ? false : $PAGE->theme->settings->fontawesome;
+$numberofsociallinks = \theme_shoehorn\toolbox::get_setting('numberofsociallinks');
+$fontawesome = \theme_shoehorn\toolbox::get_setting('fontawesome');
 $haveicons = false; // Define here for footer.php scope.
 
 // If there are social links then they are displayed.
@@ -37,19 +37,19 @@ if ($numberofsociallinks) {
         'users' => 'Unlisted', 'vimeo-square' => 'Vimeo', 'vk' => 'Vk', 'globe' => 'Website', 'youtube-square' => 'YouTube'
     );
     for ($i = 1; $i <= $numberofsociallinks; $i++) {
-        $name = 'social'.$i;
-        if (!empty($PAGE->theme->settings->$name)) {
+        $sociallink = \theme_shoehorn\toolbox::get_setting('social'.$i);
+        if (!empty($sociallink)) {
             if (!$haveicons) {
                 $haveicons = true;
                 $icons = '<div class="row">';
                 $icons .= '<div class="col-md-12 socialnetworkscontainer">';
                 $icons .= '<ul class="socialnetworks">';
             }
-            $iconname = 'socialicon'.$i;
-            $icons .= '<li><a href="'.$PAGE->theme->settings->$name.'" target="_blank">';
-            $icons .= '<span class="sr-only">'.$choices[$PAGE->theme->settings->$iconname].'</span>';
+            $iconname = \theme_shoehorn\toolbox::get_setting('socialicon'.$i);
+            $icons .= '<li><a href="'.$sociallink.'" target="_blank">';
+            $icons .= '<span class="sr-only">'.$choices[$iconname].'</span>';
             if ($fontawesome) {
-                $icons .= '<i class="fa fa-2x fa-'.$PAGE->theme->settings->$iconname.'"></i>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
+                $icons .= '<i class="fa fa-2x fa-'.$iconname.'"></i>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
             } else {
                 $icons .= '<span class="glyphicon glyphicon-2x glyphicon-globe"></span>';
             }

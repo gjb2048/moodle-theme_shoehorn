@@ -23,7 +23,7 @@
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$slides = \theme_shoehorn\toolbox::shown_frontpageslides($PAGE);
+$slides = \theme_shoehorn\toolbox::shown_frontpageslides();
 
 $slidestoshow = false;
 foreach ($slides as $sideid => $shown) {

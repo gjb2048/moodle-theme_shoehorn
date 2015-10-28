@@ -70,6 +70,13 @@ class toolbox {
         }
     }
 
+    /**
+     * Finds the given setting in the theme from the themes' configuration object.
+     * @param string $setting Setting name.
+     * @param string $format false|'format_text'|'format_html'.
+     * @param theme_config $theme null|theme_config object.
+     * @return any false|value of setting.
+     */
     static public function get_setting($setting, $format = false, $theme = null) {
 
         if (empty($theme)) {
@@ -89,6 +96,19 @@ class toolbox {
         } else {
             return format_string($theme->settings->$setting);
         }
+    }
+
+    /**
+     * Finds the given setting in the theme using the get_config core function for when the theme_config object has not been created.
+     * @param string $setting Setting name.
+     * @param themename $themename null(default of 'shoehorn' used)|theme name.
+     * @return any false|value of setting.
+     */
+    static public function get_config_setting($setting, $themename = null) {
+        if (empty($themename)) {
+            $themename = 'shoehorn';
+        }
+        return \get_config('theme_'.$themename, $setting);
     }
 
     /**
@@ -226,7 +246,7 @@ class toolbox {
      *
      * @return array of pageid => 1 = no, 2 = yes.
      */
-    static public function shown_sitepages($PAGE) {
+    static public function shown_sitepages() {
         $pages = array();
         $settings = self::get_theme_config('shoehorn')->settings;
 
@@ -276,7 +296,7 @@ class toolbox {
      *
      * @return array of slideno => 1 = no, 2 = yes.
      */
-    static public function shown_frontpageslides($PAGE) {
+    static public function shown_frontpageslides() {
         $slides = array();
         $settings = self::get_theme_config('shoehorn')->settings;
 
@@ -314,7 +334,7 @@ class toolbox {
      *
      * @return array of background image urls or empty array if none.
      */
-    static public function shown_loginbackgroundchanger_images($PAGE) {
+    static public function shown_loginbackgroundchanger_images() {
         global $CFG;
         $images = array();
         $theme = self::get_theme_config('shoehorn');
@@ -333,7 +353,7 @@ class toolbox {
         return $images;
     }
 
-    static public function showloginbackgroundchanger($settings) {
+    static private function showloginbackgroundchanger($settings) {
         $devicetype = \core_useragent::get_device_type(); // In moodlelib.php.
         if ($devicetype == "mobile") {
             $showimages = (empty($settings->loginbackgroundchangermobile)) ? false : $settings->loginbackgroundchangermobile;
@@ -345,7 +365,8 @@ class toolbox {
         return $showimages;
     }
 
-    static public function social_footer($settings) {
+    static public function social_footer() {
+        $settings = self::get_theme_config('shoehorn')->settings;
         $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
         $haveicons = false;
         if ($numberofsociallinks) {

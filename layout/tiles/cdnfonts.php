@@ -33,6 +33,6 @@
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
 <?php 
-if (!empty($settingshtml->fontawesome) && ($settingshtml->fontawesome == true)) { // Use FontAwesome CDN.
-    echo '<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">';
+if (!empty($settingshtml->fontawesome) && ($settingshtml->fontawesome)) { // Use FontAwesome CDN.
+    echo '<link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">';
 }

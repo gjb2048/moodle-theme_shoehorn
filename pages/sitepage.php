@@ -49,7 +49,7 @@ $PAGE->set_docs_path('');
 $PAGE->set_pagelayout('page');
 
 $o = '';
-$pages = \theme_shoehorn\toolbox::shown_sitepages($PAGE);
+$pages = \theme_shoehorn\toolbox::shown_sitepages();
 $loggedin = isloggedin();
 
 $theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.

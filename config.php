@@ -41,14 +41,17 @@ if ('ltr' === get_string('thisdirection', 'langconfig')) {
     $THEME->sheets[] = 'forms-rtl';
 }
 $THEME->sheets[] = 'general';
-if (!(!empty($THEME->settings->cdnfonts) && ($THEME->settings->cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
+$cdnfonts = \theme_shoehorn\toolbox::get_config_setting('cdnfonts');
+$fontawesome = \theme_shoehorn\toolbox::get_config_setting('fontawesome');
+if (!(!empty($cdnfonts) && ($cdnfonts == 2))) { // NOT of CDN Font setting does exist and is set to yes.
     $THEME->sheets[] = 'font';
-    if (!empty($THEME->settings->fontawesome) && ($THEME->settings->fontawesome == 1)) { // Use FontAwesome locally.
+    if (!empty($fontawesome) && ($fontawesome == 1)) { // Use FontAwesome locally.
         $THEME->sheets[] = 'font-awesome';
     }
 }
 $THEME->sheets[] = 'font-local'; // Fonts that must be local because there is no CDN for them.
-if ((!empty($THEME->settings->numberofsociallinks)) && ($THEME->settings->numberofsociallinks > 0)) {
+$numberofsociallinks = \theme_shoehorn\toolbox::get_config_setting('numberofsociallinks');
+if ((!empty($numberofsociallinks)) && ($numberofsociallinks > 0)) {
     $THEME->sheets[] = 'social';
 }
 $THEME->sheets[] = 'custom';
@@ -58,8 +61,11 @@ $THEME->yuicssmodules = array();
 $THEME->javascripts_footer = array(
     'shoehorn'
 );
-if ((!empty($THEME->settings->docking) && ($THEME->settings->docking == 2)) &&
-    (empty($THEME->settings->accordion) || ((!empty($THEME->settings->accordion) && ($THEME->settings->accordion == 1))))) {
+
+$docking = \theme_shoehorn\toolbox::get_config_setting('docking');
+$accordion = \theme_shoehorn\toolbox::get_config_setting('accordion');
+if ((!empty($docking) && ($docking == 2)) &&
+    (empty($accordion) || ((!empty($accordion) && ($accordion == 1))))) {
     $THEME->enable_dock = true;
     $THEME->javascripts_footer[] = 'dock';
 } else {
@@ -73,6 +79,9 @@ $THEME->plugins_exclude_sheets = array(
         'html'
     )
 );
+
+error_log('Shoehorn: '.print_r($THEME, true));
+//error_log('Shoehorn 2: '.\theme_shoehorn\toolbox::get_config_setting('numberofsociallinks'));
 
 $allregions = array('side-pre', 'side-post', 'page-bottom', 'footer-pre', 'footer-post');
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
