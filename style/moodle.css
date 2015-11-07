@@ -9542,6 +9542,9 @@ li.section.hidden span.commands a.editing_show
 }.fp-forminset .control-group .controls
 {
     margin-left: 125px;
+}.fp-forminset .control-group .controls select
+{
+    width: 100%;
 }.fp-forminset .control-group .controls.control-radio input
 {
     margin-top: 3px;

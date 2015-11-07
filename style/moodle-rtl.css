@@ -17615,6 +17615,11 @@ a.ygtvspacer:hover
     margin-right: 125px;
 }
 
+.fp-forminset .control-group .controls select
+{
+    width: 100%;
+}
+
 .fp-forminset .control-group .controls.control-radio input
 {
     margin-top: 3px;

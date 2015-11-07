@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.5
+  1. MDL-51921.
+
 Version 2.9.1.4
   1. Update from Bootstrap theme version 2015092400.
   2. Improvements for child theme support.
