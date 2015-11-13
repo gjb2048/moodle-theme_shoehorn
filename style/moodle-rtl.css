@@ -29938,6 +29938,17 @@ aside
     padding-right: 0;
 }
 
+.course-content ul.ctopics li.section.main,
+.course-content ul.ctopics li.tcsection
+{
+    margin: 0;
+}
+
+body.format-topcoll .course-content div.row
+{
+    margin: 0;
+}
+
 .editing .ctopics .section .editing_title .iconsmall
 {
     vertical-align: middle;

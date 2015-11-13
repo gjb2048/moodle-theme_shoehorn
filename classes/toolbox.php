@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -49,7 +50,7 @@ class toolbox {
         $filename .= '.php';
 
         /* Check only if a child of 'Shoehorn' to prevent conflicts with other themes using the 'tiles' folder.
-           The test is to change theme from Shoelace to Shoebrush with the theme selector and not get an error. */
+          The test is to change theme from Shoelace to Shoebrush with the theme selector and not get an error. */
         if (in_array('shoehorn', $PAGE->theme->parents)) {
             $themename = $PAGE->theme->name;
             if (file_exists("$themedir/layout/tiles/$filename")) {
@@ -66,7 +67,7 @@ class toolbox {
         } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
             return "$CFG->themedir/shoehorn/layout/tiles/$filename";
         } else {
-            return dirname(__FILE__)."/$filename";
+            return dirname(__FILE__) . "/$filename";
         }
     }
 
@@ -108,7 +109,7 @@ class toolbox {
         if (empty($themename)) {
             $themename = 'shoehorn';
         }
-        return \get_config('theme_'.$themename, $setting);
+        return \get_config('theme_' . $themename, $setting);
     }
 
     /**
@@ -150,7 +151,7 @@ class toolbox {
             $html->additionalbodyclasses[] = 'tabletdevice';
         }
 
-        if ((!empty($settings->coursetiles)) and ($settings->coursetiles == 2)) {
+        if ((!empty($settings->coursetiles)) and ( $settings->coursetiles == 2)) {
             $html->additionalbodyclasses[] = 'coursetiles';
         }
 
@@ -255,18 +256,19 @@ class toolbox {
             $loggedin = isloggedin();
             $lang = current_language();
             for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
-                $sitepagestatus = 'sitepagestatus'.$sp;
-                if (empty($settings->$sitepagestatus) or ($settings->$sitepagestatus == 2)) { // 2 is published.
-                    $sitepagetitle = 'sitepagetitle'.$sp;
+                $sitepagestatus = 'sitepagestatus' . $sp;
+                if (empty($settings->$sitepagestatus) or ( $settings->$sitepagestatus == 2)) { // 2 is published.
+                    $sitepagetitle = 'sitepagetitle' . $sp;
                     if (!empty($settings->$sitepagetitle)) {
-                        $sitepagedisplay = 'sitepagedisplay'.$sp;
+                        $sitepagedisplay = 'sitepagedisplay' . $sp;
                         if (empty($settings->$sitepagedisplay)
-                            or ($settings->$sitepagedisplay == 1) // Always.
-                            or (($settings->$sitepagedisplay == 2) and ($loggedin == false)) // Logged out.
-                            or (($settings->$sitepagedisplay == 3) and ($loggedin == true)) // Logged in.
+                                or ( $settings->$sitepagedisplay == 1) // Always.
+                                or ( ($settings->$sitepagedisplay == 2) and ( $loggedin == false)) // Logged out.
+                                or ( ($settings->$sitepagedisplay == 3) and ( $loggedin == true)) // Logged in.
                         ) {
-                            $sitepagelang = 'sitepagelang'.$sp;
-                            if (empty($settings->$sitepagelang) or ($settings->$sitepagelang == 'all') or ($settings->$sitepagelang == $lang)) {
+                            $sitepagelang = 'sitepagelang' . $sp;
+                            if (empty($settings->$sitepagelang) or ( $settings->$sitepagelang == 'all') or ( $settings->$sitepagelang
+                                    == $lang)) {
                                 // Page can be shown.
                                 $pages[$sp] = 2;
                             } else {
@@ -305,16 +307,17 @@ class toolbox {
             $loggedin = isloggedin();
             $lang = current_language();
             for ($sl = 1; $sl <= $frontpagenumberofslides; $sl++) {
-                $frontpageslidestatus = 'frontpageslidestatus'.$sl;
-                if (empty($settings->$frontpageslidestatus) or ($settings->$frontpageslidestatus == 2)) { // 2 is published.
-                    $frontpageslidedisplay = 'frontpageslidedisplay'.$sl;
+                $frontpageslidestatus = 'frontpageslidestatus' . $sl;
+                if (empty($settings->$frontpageslidestatus) or ( $settings->$frontpageslidestatus == 2)) { // 2 is published.
+                    $frontpageslidedisplay = 'frontpageslidedisplay' . $sl;
                     if (empty($settings->$frontpageslidedisplay)
-                        or ($settings->$frontpageslidedisplay == 1) // Always.
-                        or (($settings->$frontpageslidedisplay == 2) and ($loggedin == false)) // Logged out.
-                        or (($settings->$frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
+                            or ( $settings->$frontpageslidedisplay == 1) // Always.
+                            or ( ($settings->$frontpageslidedisplay == 2) and ( $loggedin == false)) // Logged out.
+                            or ( ($settings->$frontpageslidedisplay == 3) and ( $loggedin == true)) // Logged in.
                     ) {
-                        $frontpageslidelang = 'frontpageslidelang'.$sl;
-                        if (empty($settings->$frontpageslidelang) or ($settings->$frontpageslidelang == 'all') or ($settings->$frontpageslidelang == $lang)) {
+                        $frontpageslidelang = 'frontpageslidelang' . $sl;
+                        if (empty($settings->$frontpageslidelang) or ( $settings->$frontpageslidelang == 'all') or ( $settings->$frontpageslidelang
+                                == $lang)) {
                             // Slide can be shown.
                             $slides[$sl] = 2;
                         } else {
@@ -343,10 +346,10 @@ class toolbox {
         $numberofimages = (empty($settings->loginbackgroundchangernumberofimages)) ? false : $settings->loginbackgroundchangernumberofimages;
         if (($numberofimages) && (self::showloginbackgroundchanger($settings))) {
             for ($img = 1; $img <= $numberofimages; $img++) {
-                $loginbackgroundchangerimageno = 'loginbackgroundchangerimage'.$img;
+                $loginbackgroundchangerimageno = 'loginbackgroundchangerimage' . $img;
                 if (!empty($settings->$loginbackgroundchangerimageno)) {
                     $images[] = $theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
-               }
+                }
             }
         }
 
@@ -371,7 +374,7 @@ class toolbox {
         $haveicons = false;
         if ($numberofsociallinks) {
             for ($sli = 1; $sli <= $numberofsociallinks; $sli++) {
-                $name = 'social'.$sli;
+                $name = 'social' . $sli;
                 if (!empty($settings->$name)) {
                     $haveicons = true;
                     break;
@@ -384,8 +387,8 @@ class toolbox {
             $diff = floor($numberofsociallinks / 6);
             $side = 5 - $diff;
             $centre = 2 + ($diff * 2);
-            $cols['side'] = 'col-sm-'.$side.' col-md-'.$side.' col-lg-'.$side;
-            $cols['centre'] = 'col-sm-'.$centre.' col-md-'.$centre.' col-lg-'.$centre.' post-size-'.$diff;
+            $cols['side'] = 'col-sm-' . $side . ' col-md-' . $side . ' col-lg-' . $side;
+            $cols['centre'] = 'col-sm-' . $centre . ' col-md-' . $centre . ' col-lg-' . $centre . ' post-size-' . $diff;
         } else {
             $cols['side'] = 'col-sm-6 col-md-6 col-lg-6';
             $cols['centre'] = '';
@@ -393,4 +396,221 @@ class toolbox {
 
         return $cols;
     }
+
+    /**
+     * Generate the display of the header part of a section before
+     * course modules are included
+     *
+     * @param stdClass $that theme_shoehorn_format_XXXXX_renderer instance.
+     * @param stdClass $section The course_section entry from DB
+     * @param stdClass $course The course entry from DB
+     * @param stdClass $format format_XXXXX instance.
+     * @param int $displaysection The section number in the course which is being displayed
+     * @return string HTML to output.
+     */
+    static public function course_format_section_header(&$that, $section, $course, $format, $displaysection) {
+        global $PAGE;
+        $o = '';
+        $sectionstyle = '';
+
+        if ($section->section != 0) {
+            // Only in the non-general sections.
+            if (!$section->visible) {
+                $sectionstyle = ' hidden';
+            } else if ($format->is_section_current($section)) {
+                $sectionstyle = ' current';
+            }
+        }
+        if ($section->section == $displaysection) {
+            $sectionstyle .= ' active';
+        }
+        $o .= \html_writer::start_tag('li',
+                        array('id' => 'section-' . $section->section,
+                    'class' => 'section main clearfix' . $sectionstyle . ' item', 'role' => 'region',
+                    'aria-label' => $format->get_section_name($section)));
+
+        $leftcontent = $that->section_left_content($section, $course, true);
+        $o .= \html_writer::tag('div', $leftcontent, array('class' => 'left side'));
+
+        $rightcontent = $that->section_right_content($section, $course, true);
+        $o .= \html_writer::tag('div', $rightcontent, array('class' => 'right side'));
+        $o .= \html_writer::start_tag('div', array('class' => 'content'));
+
+        $o .= \html_writer::tag('h3', $format->get_section_name($section), array('class' => 'sectionname'));
+
+        $o .= \html_writer::start_tag('div', array('class' => 'summary'));
+        $o .= $that->format_summary_text($section);
+
+        $context = \context_course::instance($course->id);
+        $o .= \html_writer::end_tag('div');
+
+        $o .= $that->section_availability_message($section, has_capability('moodle/course:viewhiddensections', $context));
+
+        return $o;
+    }
+
+    /**
+     * Generate the display of the footer part of a section
+     *
+     * @return string HTML to output.
+     */
+    static public function course_format_section_footer() {
+        $o = \html_writer::end_tag('div');
+        $o .= \html_writer::end_tag('li');
+
+        return $o;
+    }
+
+    /**
+     * Output the html for a single section page.
+     *
+     * @param stdClass $that theme_shoehorn_format_XXXXX_renderer instance.
+     * @param stdClass $courserenderer course renderer instance.
+     * @param stdClass $course The course entry from DB
+     * @param array $sections (argument not used)
+     * @param array $mods (argument not used)
+     * @param array $modnames (argument not used)
+     * @param array $modnamesused (argument not used)
+     * @param int $displaysection The section number in the course which is being displayed
+     */
+    static public function course_format_print_single_section_page(&$that, &$courserenderer, $course, $sections, $mods,
+            $modnames, $modnamesused, $displaysection, $nbformat = false) {
+        global $PAGE;
+
+        if ($PAGE->user_is_editing()) {
+            echo \html_writer::start_tag('div', array('class' => 'panel panel-default'));
+            echo \html_writer::tag('h3', get_string('editonmainpage', 'theme_shoehorn'));
+            echo \html_writer::end_tag('div');
+            return;
+        }
+
+        $modinfo = get_fast_modinfo($course);
+        $format = course_get_format($course);
+        $course = $format->get_course();
+
+        // Can we view the section in question?
+        if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
+            // This section doesn't exist.
+            print_error('unknowncoursesection', 'error', null, $course->fullname);
+            return;
+        }
+
+        if (!$sectioninfo->uservisible) {
+            if (!$course->hiddensections) {
+                echo $that->start_section_list();
+                echo $that->section_hidden($displaysection);
+                echo $that->end_section_list();
+            }
+            // Can't view this section.
+            return;
+        }
+
+        // Copy activity clipboard..
+        echo $that->course_activity_clipboard($course, $displaysection);
+
+        // Start single-section div.
+        echo \html_writer::start_tag('div', array('class' => 'shoehorn-single-course-page'));
+
+        $sections = $modinfo->get_section_info_all();
+
+        // Check we will have a section to show...
+        $shownsections = array();
+        foreach ($sections as $section => $thissection) {
+            if ($thissection->section > $course->numsections) {
+                /* Activities inside this section are 'orphaned', this section will be printed on the main course page when
+                  editing is on. */
+                break;  // Not sure why core does not use this instead of 'continue'?
+            }
+            $showsection = $thissection->uservisible ||
+                    ($thissection->visible && !$thissection->available && $thissection->showavailability && !empty($thissection->availableinfo));
+            if ($showsection) {
+                $shownsections[] = $thissection->section;
+            }
+        }
+        if (count($shownsections) > 0) {
+            $loopsection = 0;
+            $numsections = count($shownsections);
+            $sections = $modinfo->get_section_info_all();
+
+            echo \html_writer::start_tag('div', array('class' => 'carouselslider'));
+            echo \html_writer::start_tag('div',
+                    array('id' => 'myCourseCarousel', 'class' => 'carousel slide',
+                'data-ride' => 'carousel', 'data-interval' => ''));
+            echo \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
+            for ($i = 0; $i < $numsections; $i++) {
+                $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i);
+                if ($i == $displaysection) {
+                    $attributes['class'] = 'active';
+                }
+                echo \html_writer::start_tag('li', $attributes);
+                echo \html_writer::end_tag('li');
+            }
+            echo \html_writer::end_tag('ol');
+
+            echo \html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
+            while ($loopsection < $numsections) {
+                $thissection = $sections[$shownsections[$loopsection]];
+                $loopsection++;
+                if ($thissection->section == 0) {
+                    // 0-section is displayed a little different than the others.
+                    if (!$nbformat) {
+                        if ($thissection->summary or ! empty($modinfo->sections[0])) {
+                            echo self::course_format_section_header($that, $thissection, $course, $format, $displaysection);
+                            echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                            echo $courserenderer->course_section_add_cm_control($course, 0, 0);
+                            echo self::course_format_section_footer();
+                        }
+                    } else {
+                        echo self::course_format_section_header($that, $thissection, $course, $format, $displaysection);
+                        if ($thissection->summary or ! empty($modinfo->sections[0])) {
+                            echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                            echo $courserenderer->course_section_add_cm_control($course, 0, 0);
+                        }
+                        // See if we are using a version of the format's renderer where the method 'print_noticeboard' is public.
+                        if (in_array('print_noticeboard', get_class_methods($that))) {
+                            $that->print_noticeboard($course);
+                        }
+                        echo self::course_format_section_footer();
+                    }
+                    continue;
+                }
+
+                echo self::course_format_section_header($that, $thissection, $course, $format, $displaysection);
+                if ($thissection->uservisible) {
+                    echo $courserenderer->course_section_cm_list($course, $thissection, 0);
+                    echo $courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
+                }
+                echo self::course_format_section_footer();
+            }
+            echo \html_writer::end_tag('ul');
+
+            echo \html_writer::start_tag('a',
+                    array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
+                'data-slide' => 'prev'));
+            if ($PAGE->theme->settings->fontawesome) {
+                echo \html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-left'));
+            } else {
+                echo \html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-left'));
+            }
+            echo \html_writer::end_tag('a');
+            echo \html_writer::start_tag('a',
+                    array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
+                'data-slide' => 'next'));
+            if ($PAGE->theme->settings->fontawesome) {
+                echo \html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-right'));
+            } else {
+                echo \html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-right'));
+            }
+            echo \html_writer::end_tag('a');
+            echo \html_writer::end_tag('div');
+            echo \html_writer::end_tag('div');
+        } else {
+            echo \html_writer::start_tag('div', array('class' => 'panel panel-default'));
+            echo \html_writer::tag('h3', get_string('nosectionstoshow', 'theme_shoehorn'));
+            echo \html_writer::end_tag('div');
+        }
+        // Close single-section div.
+        echo \html_writer::end_tag('div');
+    }
+
 }

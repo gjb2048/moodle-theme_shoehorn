@@ -177,6 +177,8 @@ Version information
 ===================
 Version 2.9.1.5
   1. MDL-51921.
+  2. Fix course format autoloading renderers.
+  3. Add support for Collapsed Topics responsive feature.
 
 Version 2.9.1.4
   1. Update from Bootstrap theme version 2015092400.
