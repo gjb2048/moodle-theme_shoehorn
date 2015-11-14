@@ -29708,12 +29708,12 @@ body.pagelayout-redirect #page
     border-bottom-right-radius: 4px;
 }
 
-.course-content .right a
+body.editing .course-content .right a
 {
     display: block;
 }
 
-.course-content .right br
+body.editing .course-content .right br
 {
     display: none;
 }
