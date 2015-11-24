@@ -1,11 +1,12 @@
+// General block styles.
 .block {
     &:extend(.panel);
     &:extend(.panel-default);
-     &.invisible {
+    &.invisible {
          border-color: lighten(@panel-default-border, 5%);
          .header {
              background-color: lighten(@panel-default-heading-bg, 5%);
-             h2 {
+        h2 {
                color: lighten(@panel-default-text, 20%);
            }
        }
@@ -27,6 +28,9 @@
     .content {
         word-wrap: break-word;
         padding: 4px 14px;
+        h3 {
+            font-size: 1.1em;
+        }
         hr {
             margin: 5px 0;
         }
@@ -58,6 +62,21 @@
     .singleselect select {
         .form-control;
     }
+    &.beingmoved {
+        border-width: 2px;
+        border-style: dashed;
+    }
+    &.hidden .header .block_action {
+        .block-hider-hide {
+            display: none;
+        }
+        .block-hider-show {
+            display: inline;
+        }
+    }
+    &.list_block .unlist > li > .column {
+        display: inline-block;
+    }
 }
 
 .editing {
@@ -82,6 +101,18 @@
     }
 }
 
+.dir-rtl {
+    &.editing {
+        .block {
+            .header {
+                .commands {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
 .block.list_block {
     .unlist {
         & > li {
@@ -92,12 +123,18 @@
     }
 }
 
+// Hide the block content when the block has been minimised.
+.jsenabled .block.hidden .content {
+    display: none;
+}
+
 .blockmovetarget,
 .block.beingmoved {
     border-width: 2px;
     border-style: dashed;
 }
 
+// Style the div used as a move target for non-drag+drop block moves.
 .blockmovetarget {
     display: block;
     height: 1em;
@@ -120,6 +157,36 @@
     display: none;
 }
 
+// Style the div that contains the cancel link for moving a block with JS disabled.
+.blockannotation {
+    // Blocks have a bottom margin of 20px, to associate this link with the block being moved
+    // we move it up 10px, and then give it a bottom margin of 10px giving it a better visual association
+    position: relative;
+    top: -10px;
+    margin-bottom: 10px;
+}
+
+// Styles for the blog menu block.
+.block_blog_menu #blogsearchquery {
+    max-width: 92%;
+}
+
+// Styles for the admin block.
+.block_settings {
+    #adminsearchquery {
+        max-width: 92%;
+    }
+}
+
+// Styles for the search forums block.
+.block_search_forums {
+    #searchform_search {
+        width: auto;
+        max-width: 92%;
+    }
+}
+
+// Styles for the Calendar Upcoming block.
 .block_calendar_upcoming {
     .footer {
         margin-top: .5em;
@@ -129,6 +196,7 @@
             padding-left: 22px;
         }
         .footer {
+            margin-top: .5em;
             padding-top: 10px;
             padding-left: 0px;
         }
@@ -146,6 +214,7 @@
     }
 }
 
+// Styles for the RSS client block.
 .block_rss_client {
     .content li {
         margin-bottom: 10px;
@@ -170,6 +239,7 @@
     }
 }
 
+// Styles for the news items block.
 .block_news_items .content {
     .newlink {
         padding-bottom: 10px;
@@ -195,5 +265,77 @@
     .footer {
         padding-top: 10px;
         padding-left: 0px;
+    }
+}
+
+// Overide for login block.
+.block_login {
+    input#login_username,
+    input#login_password {
+        width: 95%;
+    }
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 280px;
+    }
+    input[type="submit"] {
+        margin: 10px 0;
+    }
+}
+
+// Styles for the special "Add block" block shown while editing.
+.block_adminblock {
+    .content {
+        display: block;
+        padding: 3px 5px;
+    }
+    select {
+        max-width: 92%;
+    }
+}
+
+// RTL styles for blocks.
+.dir-rtl {
+
+    // RTL styles for blocks in general.
+    .block {
+        .header {
+            text-align: right;
+            h2 {
+                text-align: right;
+            }
+            .block_action {
+                float: left;
+                > * {
+                    margin-left: 0;
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+
+    // LTR styles for the calendar upcoming block.
+    .block_calendar_upcoming {
+        .content {
+            .date {
+                padding-right: 22px;
+            }
+            .footer {
+                padding-right: 0px;
+            }
+        }
+    }
+
+    // RTL styles for the news items block.
+    .block_news_items .content {
+        ul li {
+            .name {
+                padding-right: 1ex;
+            }
+        }
+        .footer {
+            padding-left: 0px;
+        }
     }
 }

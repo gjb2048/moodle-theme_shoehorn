@@ -50,11 +50,11 @@ or 'gjbarnard at gmail dot com' or 'about.me/gjbarnard' to discuss your requirem
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2015051100.00 release 2.9 (Build: 20150511) and above within the 2.9 branch until the
+This version works with Moodle version 2015111600.00 3.0 (Build: 20151116) and above within the 3.0 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/29/en/Installing_Moodle'.
+'docs.moodle.org/30/en/Installing_Moodle'.
 
 Licenses used
 =============
@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 3.0.0.1
+  1. Initial beta version for Moodle 3.0.
+
 Version 2.9.1.5
   1. MDL-51921.
   2. Fix course format autoloading renderers.
