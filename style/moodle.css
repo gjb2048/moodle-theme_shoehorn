@@ -8617,6 +8617,8 @@ button.close
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:before,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
+.groupmanagementtable:before,
+.groupmanagementtable:after,
 .userprofile dl.list dd:before,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:before,
@@ -8655,6 +8657,7 @@ button.close
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
+.groupmanagementtable:after,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:after,
@@ -17743,6 +17746,30 @@ body.path-question-type .mform fieldset.hidden
     margin-left: 0;
 
     list-style: none;
+}
+.groupmanagementtable
+{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.groupmanagementtable .groups,
+.groupmanagementtable .members
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 768px)
+{
+    .groupmanagementtable .groups,
+    .groupmanagementtable .members
+    {
+        float: left;
+
+        width: 50%;
+    }
 }
 .usermenu
 {

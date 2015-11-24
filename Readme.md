@@ -183,6 +183,7 @@ Version 2.9.1.5
   2. Fix course format autoloading renderers.
   3. Add support for Collapsed Topics responsive feature.
   4. Fix slight Collapsed Topics right column issue when not editing.
+  5. Fix group selection boxes, ref: https://github.com/bmbrands/theme_bootstrap/commit/b850d9ba0aaa69e3710ed203fe927860881635b3
 
 Version 2.9.1.4
   1. Update from Bootstrap theme version 2015092400.
