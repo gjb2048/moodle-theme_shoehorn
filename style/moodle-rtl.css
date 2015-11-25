@@ -1851,7 +1851,6 @@ hr
 }
 
 .sr-only,
-.accesshide,
 a.skip-block,
 a.skip
 {
@@ -11272,6 +11271,23 @@ a.disabled
     background: #d9edf7;
 }
 
+.red,
+.notifyproblem
+{
+    color: #a94442;
+}
+
+.green,
+.notifysuccess
+{
+    color: #31708f;
+}
+
+.highlight
+{
+    background: #d9edf7;
+}
+
 .reportlink
 {
     text-align: left;
@@ -11289,12 +11305,22 @@ a.autolink.glossary:hover
     white-space: nowrap;
 }
 
+.pagelayout-mydashboard.jsenabled .collapsibleregioncaption
+{
+    cursor: pointer;
+}
+
 .collapsibleregioncaption img
 {
     vertical-align: middle;
 }
 
 .jsenabled .hiddenifjs
+{
+    display: none;
+}
+
+.visibleifjs
 {
     display: none;
 }
@@ -11314,24 +11340,21 @@ a.autolink.glossary:hover
     visibility: hidden;
 }
 
+.collapsible-actions
+{
+    display: none;
+
+    text-align: left;
+}
+
+.dir-rtl .collapsible-actions
+{
+    text-align: right;
+}
+
 .jsenabled .collapsible-actions
 {
     display: block;
-}
-
-.visibleifjs
-{
-    display: none;
-}
-
-.collapsible-actions
-{
-    display: none;
-}
-
-.collapsible-actions
-{
-    text-align: left;
 }
 
 .collapsible-actions .collapseexpand
@@ -11340,10 +11363,18 @@ a.autolink.glossary:hover
 
     background-image: url([[pix:t/collapsed_rtl]]);
     background-repeat: no-repeat;
-    background-position: right;
 }
 
-.collapsible-actions .collapse-all
+.dir-rtl .collapsible-actions .collapseexpand
+{
+    padding-right: 0;
+    padding-left: 20px;
+
+    background: url([[pix:t/collapsed_rtl]]) right center no-repeat;
+}
+
+.collapsible-actions .collapse-all,
+.dir-rtl .collapsible-actions .collapse-all
 {
     background-image: url([[pix:t/expanded]]);
 }
@@ -11377,6 +11408,7 @@ a.autolink.glossary:hover
 }
 
 .bold,
+.warning,
 .errorbox .title,
 .pagingbar .title,
 .pagingbar .thispage
@@ -11403,9 +11435,15 @@ img.icon
 {
     width: 16px;
     height: 16px;
-    margin-left: 6px;
+    padding-left: 6px;
 
     vertical-align: text-bottom;
+}
+
+.dir-rtl img.icon
+{
+    padding-right: 6px;
+    padding-left: 0;
 }
 
 img.iconsmall
@@ -11422,7 +11460,9 @@ img.iconhelp,
 {
     width: 16px;
     height: 16px;
-    margin-right: 3px;
+    padding-right: 3px;
+
+    vertical-align: text-bottom;
 }
 
 h1 img.iconhelp,
@@ -11438,9 +11478,16 @@ h5 img.icon,
 h6 img.iconhelp,
 h6 img.icon
 {
-    margin: 4px;
+    padding: 4px;
 
     vertical-align: middle;
+}
+
+.dir-rtl img.iconhelp,
+.dir-rtl .helplink img
+{
+    padding-right: 0;
+    padding-left: 3px;
 }
 
 img.iconlarge
@@ -11459,6 +11506,12 @@ img.iconsort
     vertical-align: text-bottom;
 }
 
+.dir-rtl img.iconsort
+{
+    padding-right: 0;
+    padding-left: .3em;
+}
+
 img.icontoggle
 {
     width: 50px;
@@ -11473,13 +11526,15 @@ img.iconkbhelp
     height: 17px;
 }
 
-img.icon-pre
+img.icon-pre,
+.dir-rtl img.icon-post
 {
     padding-right: 0;
     padding-left: 3px;
 }
 
-img.icon-post
+img.icon-post,
+.dir-rtl img.icon-pre
 {
     padding-right: 3px;
     padding-left: 0;
@@ -11515,7 +11570,7 @@ img.icon-post
 
 .boxwidthwide
 {
-    width: 100%;
+    width: 80%;
 }
 
 .headermain
@@ -11534,6 +11589,17 @@ img.icon-post
 img.uihint
 {
     cursor: help;
+}
+
+#addmembersform table
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+table.flexible .emptyrow
+{
+    display: none;
 }
 
 img.emoticon
@@ -11562,20 +11628,13 @@ form.popupform div
     vertical-align: text-bottom;
 }
 
-.smallicon
-{
-    box-sizing: initial;
-}
+/** The 1-pixel padding is there to avoid phantom scroll bars on OS X (FF, Safari and Chrome)**/
 
 .no-overflow
 {
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto;
 
-    margin-bottom: 1px;
-
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1px;
 }
 
 .no-overflow > .generaltable
@@ -11583,7 +11642,20 @@ form.popupform div
     margin-bottom: 0;
 }
 
-/** Accessibility features **/
+.accesshide
+{
+    font-size: 1em;
+    font-weight: normal;
+
+    position: absolute;
+    right: -10000px;
+}
+
+.dir-rtl .accesshide
+{
+    top: -30000px;
+    right: auto;
+}
 
 span.hide,
 div.hide
@@ -11608,8 +11680,6 @@ a.skip:active
 
     height: 1px;
 }
-
-/** Blogs **/
 
 .addbloglink
 {
@@ -11638,8 +11708,6 @@ a.skip:active
 {
     margin-right: 43px;
 }
-
-/** Group **/
 
 #page-group-index #groupeditform
 {
@@ -11686,6 +11754,23 @@ a.skip:active
     margin: 0 auto;
 }
 
+.groupmanagementtable #removeselect_wrapper,
+.groupmanagementtable #addselect_wrapper
+{
+    width: 100%;
+}
+
+.groupmanagementtable #removeselect_wrapper label,
+.groupmanagementtable #addselect_wrapper label
+{
+    font-weight: normal;
+}
+
+.dir-rtl .groupmanagementtable p
+{
+    text-align: left;
+}
+
 #group-usersummary
 {
     width: 14em;
@@ -11704,7 +11789,136 @@ a.skip:active
     display: inline-block;
 }
 
-/** Notes **/
+.loginbox
+{
+    overflow: visible;
+
+    margin: 15px;
+}
+
+.loginbox.twocolumns
+{
+    margin: 15px;
+}
+
+.loginbox h2,
+.loginbox .subcontent
+{
+    margin: 5px;
+    padding: 10px;
+
+    text-align: center;
+}
+
+.loginbox .loginpanel .desc
+{
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.loginbox .signuppanel .subcontent
+{
+    text-align: right;
+}
+
+.dir-rtl .loginbox .signuppanel .subcontent
+{
+    text-align: left;
+}
+
+.loginbox .loginsub
+{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.loginbox .guestsub,
+.loginbox .forgotsub,
+.loginbox .potentialidps
+{
+    margin: 5px 12%;
+}
+
+.loginbox .potentialidps .potentialidplist
+{
+    margin-right: 40%;
+}
+
+.loginbox .potentialidps .potentialidplist div
+{
+    text-align: right;
+}
+
+.loginbox .loginform
+{
+    margin-top: 1em;
+
+    text-align: right;
+}
+
+.loginbox .loginform .form-label
+{
+    float: right;
+
+    width: 49%;
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+.loginbox .loginform .form-input
+{
+    float: left;
+
+    width: 50%;
+}
+
+.loginbox .loginform .form-input input
+{
+    width: 6em;
+}
+
+.loginbox .signupform
+{
+    margin-top: 1em;
+
+    text-align: center;
+}
+
+.loginbox.twocolumns .loginpanel,
+.loginbox.twocolumns .signuppanel
+{
+    display: block;
+    float: right;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 48%;
+    min-height: 30px;
+    margin: 0;
+    margin-right: 2.76243%;
+    margin-bottom: -2000px;
+    padding: 0;
+    padding-bottom: 2000px;
+
+    border: 0;
+}
+
+.dir-rtl .loginbox.twocolumns .loginpanel,
+.dir-rtl .loginbox.twocolumns .signuppanel
+{
+    float: left;
+}
+
+.loginbox .potentialidp .smallicon
+{
+    margin: 0 .3em;
+
+    vertical-align: text-bottom;
+}
 
 .notepost
 {
@@ -11729,8 +11943,6 @@ a.skip:active
     margin-right: 20px;
 }
 
-/** My Moodle **/
-
 .path-my .coursebox .overview
 {
     margin: 15px 30px 10px 30px;
@@ -11743,14 +11955,15 @@ a.skip:active
     margin: 0;
 }
 
-/** Modules **/
-
 .mod_introbox
 {
     padding: 10px;
 }
 
-/** Comments **/
+table.mod_index
+{
+    width: 100%;
+}
 
 .comment-ctrl
 {
@@ -11779,6 +11992,13 @@ a.skip:active
     overflow: auto;
 
     width: 100%;
+}
+
+.comment-area textarea.fullwidth
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .comment-area .fd
@@ -11848,6 +12068,11 @@ a.skip:active
     width: 20px;
 }
 
+.dir-rtl .comment-message .picture
+{
+    float: left;
+}
+
 .comment-message .text
 {
     margin: 0;
@@ -11869,21 +12094,13 @@ a.skip:active
     margin: .3em;
 }
 
-.comment-delete-confirm
+.dir-rtl .comment-delete
 {
-    width: 5em;
-    padding: 2px;
+    position: absolute;
+    right: 0;
+    left: auto;
 
-    text-align: center;
-
-    background: #eee;
-}
-
-.comment-container
-{
-    float: right;
-
-    margin: 4px;
+    margin: .3em;
 }
 
 .comment-report-selectall
@@ -11941,6 +12158,326 @@ a.skip:active
 .completion-expired .completion-expected
 {
     font-weight: bold;
+}
+
+/**
+* Tags
+*/
+
+#page-tag-coursetags_edit .coursetag_edit_centered
+{
+    position: relative;
+
+    width: 600px;
+    margin: 20px auto;
+}
+
+#page-tag-coursetags_edit .coursetag_edit_row
+{
+    clear: both;
+}
+
+#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_left
+{
+    float: right;
+
+    width: 50%;
+
+    text-align: left;
+}
+
+#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_right
+{
+    margin-right: 50%;
+}
+
+#page-tag-coursetags_edit .coursetag_edit_input3
+{
+    display: none;
+}
+
+#page-tag-coursetags_more .coursetag_more_large
+{
+    font-size: 120%;
+}
+
+#page-tag-coursetags_more .coursetag_more_small
+{
+    font-size: 80%;
+}
+
+#page-tag-coursetags_more .coursetag_more_link
+{
+    font-size: 80%;
+}
+
+#tag-description,
+#tag-blogs
+{
+    width: 100%;
+}
+
+#tag-management-box
+{
+    line-height: 20px;
+
+    margin-bottom: 10px;
+}
+
+#tag-user-table
+{
+    clear: both;
+
+    width: 100%;
+    padding: 3px;
+}
+
+#tag-user-table:before,
+#tag-user-table:after
+{
+    display: table;
+
+    content: ' ';
+}
+
+#tag-user-table:after
+{
+    clear: both;
+}
+
+#tag-user-table:before,
+#tag-user-table:after
+{
+    display: table;
+
+    content: ' ';
+}
+
+#tag-user-table:after
+{
+    clear: both;
+}
+
+img.user-image
+{
+    width: 100px;
+    height: 100px;
+}
+
+#small-tag-cloud-box
+{
+    width: 300px;
+    margin: 0 auto;
+}
+
+#big-tag-cloud-box
+{
+    float: none;
+
+    width: 600px;
+    margin: 0 auto;
+}
+
+ul#tag-cloud-list
+{
+    margin: 0;
+    padding: 5px;
+
+    list-style: none;
+}
+
+ul#tag-cloud-list li
+{
+    display: inline;
+
+    margin: 0;
+
+    list-style-type: none;
+}
+
+#tag-search-box
+{
+    margin: 10px auto;
+
+    text-align: center;
+}
+
+#tag-search-results-container
+{
+    width: 100%;
+    padding: 0;
+}
+
+#tag-search-results
+{
+    display: block;
+    float: right;
+
+    width: 60%;
+    margin: 15px 20% 0 20%;
+    padding: 0;
+}
+
+#tag-search-results li
+{
+    line-height: 20px;
+
+    float: right;
+
+    width: 30%;
+    padding-right: 1%;
+    padding-left: 1%;
+
+    list-style: none;
+
+    text-align: right;
+}
+
+span.flagged-tag,
+tr.flagged-tag,
+span.flagged-tag a,
+tr.flagged-tag a
+{
+    color: #a94442;
+}
+
+.tag-management-table td,
+.tag-management-table th
+{
+    padding: 4px;
+
+    vertical-align: middle;
+}
+
+.tag-management-table tr td.tageditingon .displaytagname,
+.tag-management-table td .edittagname
+{
+    display: none;
+}
+
+.tag-management-table tr td.tageditingon .edittagname
+{
+    position: relative;
+
+    display: inherit;
+}
+
+.tag-management-table tr td.tageditingon .edittagname .editinstructions
+{
+    margin-right: 0;
+    margin-left: -300px;
+}
+
+.tag-management-table tr td .tagnameedit img
+{
+    opacity: .2;
+}
+
+.tag-management-table tr:hover td .tagnameedit img,
+.tag-management-table tr td .tagnameedit:focus img
+{
+    opacity: 1;
+}
+
+.tag-management-table tr:hover td.tageditingon .tagnameedit img
+{
+    opacity: .2;
+}
+
+h2.tag-heading,
+div#tag-description,
+div#tag-blogs,
+body.tag .managelink
+{
+    padding: 5px;
+}
+
+.tag_cloud .s20
+{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.tag_cloud .s19
+{
+    font-size: 1.5em;
+}
+
+.tag_cloud .s18
+{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.tag_cloud .s17
+{
+    font-size: 1.4em;
+}
+
+.tag_cloud .s16
+{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.tag_cloud .s15
+{
+    font-size: 1.3em;
+}
+
+.tag_cloud .s14
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.tag_cloud .s13
+{
+    font-size: 1.2em;
+}
+
+.tag_cloud .s12,
+.tag_cloud .s11
+{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.tag_cloud .s10,
+.tag_cloud .s9
+{
+    font-size: 1.1em;
+}
+
+.tag_cloud .s8,
+.tag_cloud .s7
+{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.tag_cloud .s6,
+.tag_cloud .s5
+{
+    font-size: 1em;
+}
+
+.tag_cloud .s4,
+.tag_cloud .s3
+{
+    font-size: .9em;
+    font-weight: bold;
+}
+
+.tag_cloud .s2,
+.tag_cloud .s1
+{
+    font-size: .9em;
+}
+
+.tag_cloud .s0
+{
+    font-size: .8em;
 }
 
 /**
@@ -12088,6 +12625,309 @@ a.skip:active
     font-weight: bold;
 }
 
+/**
+* Registration
+*/
+
+#page-admin-registration-register .registration_textfield
+{
+    width: 300px;
+}
+
+/**
+* Enrol
+*/
+
+.userenrolment
+{
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.userenrolment tr
+{
+    vertical-align: top;
+}
+
+.userenrolment td
+{
+    height: 41px;
+    padding: 0;
+}
+
+.userenrolment .subfield
+{
+    margin-left: 5px;
+}
+
+.userenrolment .col_userdetails .subfield_picture
+{
+    float: right;
+}
+
+.userenrolment .col_lastseen
+{
+    width: 150px;
+}
+
+.userenrolment .col_role
+{
+    width: 262px;
+}
+
+.userenrolment .col_role .roles,
+.userenrolment .col_group .groups
+{
+    margin-left: 30px;
+}
+
+.userenrolment .col_role .role,
+.userenrolment .col_group .group
+{
+    float: right;
+
+    margin: 3px;
+    padding: 3px;
+
+    white-space: nowrap;
+}
+
+.userenrolment .col_role .role a,
+.userenrolment .col_group .group a
+{
+    margin-right: 3px;
+
+    cursor: pointer;
+}
+
+.userenrolment .col_role .addrole,
+.userenrolment .col_group .addgroup
+{
+    float: left;
+
+    margin: 3px;
+    padding: 3px;
+}
+
+.userenrolment .col_role .addrole > *:hover,
+.userenrolment .col_group .addgroup > *:hover
+{
+    border-bottom: 1px solid #666;
+}
+
+.userenrolment .col_role .addrole img,
+.userenrolment .col_group .addgroup img
+{
+    vertical-align: baseline;
+}
+
+.dir-rtl .userenrolment .col_role .role
+{
+    float: left;
+}
+
+.userenrolment .hasAllRoles .col_role .addrole
+{
+    display: none;
+}
+
+.userenrolment .col_enrol .enrolment
+{
+    float: right;
+
+    margin: 3px;
+    padding: 3px;
+}
+
+.userenrolment .col_enrol .enrolment a
+{
+    float: left;
+
+    margin-right: 3px;
+}
+
+#page-enrol-users .enrol_user_buttons
+{
+    float: left;
+}
+
+#page-enrol-users .enrol_user_buttons .enrolusersbutton
+{
+    display: inline;
+}
+
+#page-enrol-users .enrol_user_buttons .enrolusersbutton div,
+#page-enrol-users .enrol_user_buttons .enrolusersbutton form
+{
+    display: inline;
+
+    margin-left: 0;
+}
+
+#page-enrol-users #filterform
+{
+    display: inline-block;
+
+    min-height: 20px;
+    margin-bottom: 20px;
+    padding: 19px;
+    padding: 9px;
+
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+#page-enrol-users #filterform blockquote
+{
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, .15);
+}
+
+#page-enrol-users #filterform .fitem
+{
+    line-height: 2.85714286;
+
+    display: inline-block;
+
+    margin-left: .3em;
+
+    white-space: nowrap;
+}
+
+#page-enrol-users #filterform .fitem label
+{
+    line-height: 1.42857143;
+
+    display: inline;
+
+    padding-left: .3em;
+}
+
+#page-enrol-users #filterform .fitem :before,
+#page-enrol-users #filterform .fitem :after
+{
+    display: inline;
+}
+
+#page-enrol-users #filterform div,
+#page-enrol-users #filterform fieldset
+{
+    display: inline;
+    float: none;
+    clear: none;
+
+    width: auto;
+    margin: 0;
+}
+
+#page-enrol-users #filterform select,
+#page-enrol-users #filterform .ftext input
+{
+    width: 7em;
+}
+
+#page-enrol-users #filterform input,
+#page-enrol-users #filterform select
+{
+    margin-bottom: 0;
+}
+
+#page-enrol-users .user-enroller-panel .uep-search-results .user .details
+{
+    width: 237px;
+}
+
+#page-enrol-users .user-enroller-panel .uep-search-results .cohort .details
+{
+    width: 237px;
+}
+
+.dir-rtl#page-enrol-users .col_userdetails .subfield_picture
+{
+    float: left;
+}
+
+.dir-rtl#page-enrol-users .enrol_user_buttons
+{
+    float: right;
+}
+
+.dir-rtl#page-enrol-users .enrol_user_buttons .enrolusersbutton
+{
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+.dir-rtl#page-enrol-users .enrol_user_buttons .enrolusersbutton div
+{
+    margin-right: 0;
+}
+
+.dir-rtl#page-enrol-users #filterform .fitem
+{
+    margin-right: .3em;
+    margin-left: 0;
+}
+
+.dir-rtl#page-enrol-users #filterform .fitem label
+{
+    padding-right: .3em;
+    padding-left: 0;
+}
+
+#page-enrol-users .enrol-users-page-action input
+{
+    margin-right: 0;
+}
+
+/**
+* Overide for RTL layout
+**/
+
+.dir-rtl .headermain
+{
+    float: left;
+}
+
+.dir-rtl .headermenu
+{
+    float: right;
+}
+
+.dir-rtl .loginbox .loginform .form-label
+{
+    float: left;
+
+    text-align: right;
+}
+
+.dir-rtl .loginbox .loginform .form-input
+{
+    margin-left: 1%;
+
+    text-align: left;
+}
+
+.dir-rtl .yui3-menu-hidden
+{
+    right: 0;
+}
+
+#page-admin-roles-define.dir-rtl #rolesform .felement
+{
+    margin-left: 180px;
+}
+
+#page-message-edit.dir-rtl table.generaltable th.c0
+{
+    text-align: left;
+}
+
 .corelightbox
 {
     position: absolute;
@@ -12118,6 +12958,15 @@ a.skip:active
 {
     display: table-cell;
 }
+
+.label .mod-indent
+{
+    float: right;
+
+    padding-top: 20px;
+}
+
+/* Creates a series of .mod-indent-# rule declarations based on indent size and number of indent levels. */
 
 .mod-indent-1
 {
@@ -12189,10 +13038,19 @@ a.skip:active
     width: 420px;
 }
 
-.mod-indent-15,
+.mod-indent-15
+{
+    width: 450px;
+}
+
+.mod-indent-16
+{
+    width: 480px;
+}
+
 .mod-indent-huge
 {
-    width: 420px;
+    width: 480px;
 }
 
 /* Audio player size in 'block' mode (can only change width, height is hardcoded in JS) */
@@ -12249,14 +13107,166 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     background: none;
 }
 
-.mceEditor.moodleSkin .mceToolbar a span.mceIcon
+/** Fix YUI 2 Treeview for Right to left languages **/
+
+.dir-rtl .ygtvtn,
+.dir-rtl .ygtvtm,
+.dir-rtl .ygtvtmh,
+.dir-rtl .ygtvtmhh,
+.dir-rtl .ygtvtp,
+.dir-rtl .ygtvtph,
+.dir-rtl .ygtvtphh,
+.dir-rtl .ygtvln,
+.dir-rtl .ygtvlm,
+.dir-rtl .ygtvlmh,
+.dir-rtl .ygtvlmhh,
+.dir-rtl .ygtvlp,
+.dir-rtl .ygtvlph,
+.dir-rtl .ygtvlphh,
+.dir-rtl .ygtvdepthcell,
+.dir-rtl .ygtvok,
+.dir-rtl .ygtvok:hover,
+.dir-rtl .ygtvcancel,
+.dir-rtl .ygtvcancel:hover
 {
-    padding: 7px;
+    width: 18px;
+    height: 22px;
+
+    cursor: pointer;
+
+    background-image: url([[pix:theme|yui2-treeview-sprite-rtl]]);
+    background-repeat: no-repeat;
 }
 
-.mceEditor.moodleSkin .mceToolbar a span.mceIcon img
+.dir-rtl .ygtvtn
 {
-    padding: 0;
+    background-position: 0 -5600px;
+}
+
+.dir-rtl .ygtvtm
+{
+    background-position: 0 -4000px;
+}
+
+.dir-rtl .ygtvtmh,
+.dir-rtl .ygtvtmhh
+{
+    background-position: 0 -4800px;
+}
+
+.dir-rtl .ygtvtp
+{
+    background-position: 0 -6400px;
+}
+
+.dir-rtl .ygtvtph,
+.dir-rtl .ygtvtphh
+{
+    background-position: 0 -7200px;
+}
+
+.dir-rtl .ygtvln
+{
+    background-position: 0 -1600px;
+}
+
+.dir-rtl .ygtvlm
+{
+    background-position: 0 0;
+}
+
+.dir-rtl .ygtvlmh,
+.dir-rtl .ygtvlmhh
+{
+    background-position: 0 -800px;
+}
+
+.dir-rtl .ygtvlp
+{
+    background-position: 0 -2400px;
+}
+
+.dir-rtl .ygtvlph,
+.dir-rtl .ygtvlphh
+{
+    background-position: 0 -3200px;
+}
+
+.dir-rtl .ygtvdepthcell
+{
+    background-position: 0 -8000px;
+}
+
+.dir-rtl .ygtvok
+{
+    background-position: 0 -8800px;
+}
+
+.dir-rtl .ygtvok:hover
+{
+    background-position: 0 -8844px;
+}
+
+.dir-rtl .ygtvcancel
+{
+    background-position: 0 -8822px;
+}
+
+.dir-rtl .ygtvcancel:hover
+{
+    background-position: 0 -8866px;
+}
+
+.dir-rtl.yui-skin-sam .yui-panel .hd
+{
+    text-align: left;
+}
+
+.dir-rtl .yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd
+{
+    text-align: left;
+}
+
+/** Fix TinyMCE editor right to left **/
+
+.dir-rtl .clearlooks2.ie9 .mceAlert .mceMiddle span,
+.dir-rtl .clearlooks2 .mceConfirm .mceMiddle span
+{
+    top: 44px;
+}
+
+.dir-rtl .o2k7Skin table,
+.dir-rtl .o2k7Skin tbody,
+.dir-rtl .o2k7Skin a,
+.dir-rtl .o2k7Skin img,
+.dir-rtl .o2k7Skin tr,
+.dir-rtl .o2k7Skin div,
+.dir-rtl .o2k7Skin td,
+.dir-rtl .o2k7Skin iframe,
+.dir-rtl .o2k7Skin span,
+.dir-rtl .o2k7Skin *,
+.dir-rtl .o2k7Skin .mceText,
+.dir-rtl .o2k7Skin .mceListBox .mceText
+{
+    text-align: left;
+}
+
+.path-rating .ratingtable
+{
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.path-rating .ratingtable th.rating
+{
+    width: 100%;
+}
+
+.path-rating .ratingtable td.rating,
+.path-rating .ratingtable td.time
+{
+    text-align: center;
+    white-space: nowrap;
 }
 
 .initialbar a,
@@ -12386,6 +13396,12 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     border-style: none;
     background-image: url([[pix:theme|sprite]]);
     background-repeat: no-repeat;
+}
+
+.dir-rtl .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons
+{
+    right: 0;
+    left: auto;
 }
 
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd
@@ -12597,12 +13613,20 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     overflow: auto;
 }
 
+/* Question Bank - Question Chooser "Close" button */
+
+#page-question-edit.dir-rtl a.container-close
+{
+    right: 6px;
+    left: auto;
+}
+
 /**
-* Chooser Dialogues (moodle-core-chooserdialogue)
-*
-* This CSS belong to the chooser dialogue which should work both with, and
-* without javascript enabled
-*/
+ * Chooser Dialogues (moodle-core-chooserdialogue)
+ *
+ * This CSS belong to the chooser dialogue which should work both with, and
+ * without javascript enabled
+ */
 
 /* Hide the dialog and it's title */
 
@@ -12635,6 +13659,16 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     text-align: center;
 }
 
+/* Fixed for safari browser on iPhone4S with ios7.*/
+
+@media (max-height: 639px)
+{
+    .ios.safari .choosercontainer #chooseform .submitbuttons
+    {
+        padding: 45px 0;
+    }
+}
+
 .choosercontainer #chooseform .submitbuttons input
 {
     min-width: 100px;
@@ -12652,14 +13686,20 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 
 /* Only set these options if we're showing the js container */
 
-.jsenabled .choosercontainer #chooseform .alloptions
+.jschooser .choosercontainer #chooseform .alloptions
 {
     overflow-x: hidden;
     overflow-y: auto;
 
     max-width: 20.3em;
 
-    box-shadow: inset 0 0 30px 0 #ccc;
+    -webkit-box-shadow: inset 0 0 30px 0 #ccc;
+            box-shadow: inset 0 0 30px 0 #ccc;
+}
+
+.dir-rtl.jschooser .choosercontainer #chooseform .alloptions
+{
+    max-width: 18.3em;
 }
 
 /* Settings for option rows and option subtypes */
@@ -12688,8 +13728,16 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     padding: 0 .5em 0 0;
 }
 
-.choosercontainer #chooseform .option span.modicon img.icon,
-.choosercontainer #chooseform .nonoption span.modicon img.icon
+.dir-rtl .choosercontainer #chooseform .option .typename,
+.dir-rtl .choosercontainer #chooseform .option span.modicon img.icon,
+.dir-rtl .choosercontainer #chooseform .nonoption .typename,
+.dir-rtl .choosercontainer #chooseform .nonoption span.modicon img.icon
+{
+    padding: 0 0 0 .5em;
+}
+
+.chooserdialogue-course-modchooser .choosercontainer #chooseform .option span.modicon img.icon,
+.chooserdialogue-course-modchooser .choosercontainer #chooseform .nonoption span.modicon img.icon
 {
     width: 24px;
     height: 24px;
@@ -12718,10 +13766,21 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     padding-bottom: .1em;
 }
 
+.dir-rtl .choosercontainer #chooseform .nonoption
+{
+    padding-right: 0;
+    padding-left: 2.7em;
+}
+
 .choosercontainer #chooseform .subtype
 {
     margin-bottom: 0;
     padding: 0 3.2em 0 1.6em;
+}
+
+.dir-rtl .choosercontainer #chooseform .subtype
+{
+    padding: 0 1.6em 0 3.2em;
 }
 
 .choosercontainer #chooseform .subtype .typename
@@ -12729,10 +13788,15 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     margin: 0 .2em 0 0;
 }
 
+.dir-rtl .choosercontainer #chooseform .subtype .typename
+{
+    margin: 0 0 0 .2em;
+}
+
 /* The instruction/help area */
 
-.jsenabled .choosercontainer #chooseform .instruction,
-.jsenabled .choosercontainer #chooseform .typesummary
+.jschooser .choosercontainer #chooseform .instruction,
+.jschooser .choosercontainer #chooseform .typesummary
 {
     line-height: 2em;
 
@@ -12752,9 +13816,18 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     background-color: #fff;
 }
 
+.dir-rtl.jschooser .choosercontainer #chooseform .instruction,
+.dir-rtl.jschooser .choosercontainer #chooseform .typesummary
+{
+    right: 0;
+    left: 18.5em;
+
+    border-left: 1px solid grey;
+}
+
 /* Selected option settings */
 
-.jsenabled .choosercontainer #chooseform .instruction,
+.jschooser .choosercontainer #chooseform .instruction,
 .choosercontainer #chooseform .selected .typesummary
 {
     display: block;
@@ -12859,11 +13932,410 @@ body.jsenabled .formlisting
     display: block;
 }
 
+/* Badges styles */
+
+table.collection
+{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    border: 1px solid #c9e6ff;
+}
+
+table.collection > thead > tr > th,
+table.collection > tbody > tr > th,
+table.collection > tfoot > tr > th,
+table.collection > thead > tr > td,
+table.collection > tbody > tr > td,
+table.collection > tfoot > tr > td
+{
+    line-height: 1.42857143;
+
+    padding: 8px;
+
+    vertical-align: top;
+
+    border-top: 1px solid #c9e6ff;
+}
+
+table.collection > thead > tr > th
+{
+    vertical-align: bottom;
+
+    border-bottom: 2px solid #c9e6ff;
+}
+
+table.collection > caption + thead > tr:first-child > th,
+table.collection > colgroup + thead > tr:first-child > th,
+table.collection > thead:first-child > tr:first-child > th,
+table.collection > caption + thead > tr:first-child > td,
+table.collection > colgroup + thead > tr:first-child > td,
+table.collection > thead:first-child > tr:first-child > td
+{
+    border-top: 0;
+}
+
+table.collection > tbody + tbody
+{
+    border-top: 2px solid #c9e6ff;
+}
+
+table.collection .table
+{
+    background-color: #fff;
+}
+
+table.collection > thead > tr > th,
+table.collection > tbody > tr > th,
+table.collection > tfoot > tr > th,
+table.collection > thead > tr > td,
+table.collection > tbody > tr > td,
+table.collection > tfoot > tr > td
+{
+    border: 1px solid #c9e6ff;
+}
+
+table.collection > thead > tr > th,
+table.collection > thead > tr > td
+{
+    border-bottom-width: 2px;
+}
+
+table.collection > tbody > tr:nth-of-type(odd)
+{
+    background-color: #e3f2ff;
+}
+
+table.collection .name
+{
+    text-align: right;
+    vertical-align: middle;
+}
+
+table.collection .awards
+{
+    width: 10%;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.collection .criteria
+{
+    width: 40%;
+
+    text-align: right;
+    vertical-align: top;
+}
+
+table.collection .badgeimage,
+table.collection .status
+{
+    width: 15%;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.collection .description
+{
+    width: 25%;
+
+    text-align: right;
+}
+
+table.collection .actions
+{
+    width: 11em;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.criteria-action
+{
+    float: left;
+
+    padding: 0 3px;
+}
+
+div.criteria-description
+{
+    margin: 5px 0;
+    padding: 10px 15px;
+
+    border: 1px solid #eee;
+    background: none repeat scroll 0 0 #f9f9f9;
+}
+
+ul.badges
+{
+    margin: 0;
+
+    list-style: none;
+}
+
+.badges li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 150px;
+    padding-top: 1em;
+
+    text-align: center;
+    vertical-align: top;
+}
+
+.badges li .badge-name
+{
+    display: block;
+
+    padding: 5px;
+}
+
+.badges li > img
+{
+    position: absolute;
+}
+
+.badges li .badge-image
+{
+    z-index: 1;
+    top: 0;
+    right: 10px;
+
+    width: 100px;
+    height: 100px;
+}
+
+.badges li .badge-actions
+{
+    position: relative;
+}
+
+.badges li .expireimage
+{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 25px;
+
+    width: 100px;
+    height: 100px;
+
+    opacity: .85;
+}
+
+#badge-image
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20%;
+    min-width: 100px;
+    margin-top: 17px;
+    padding: 0;
+
+    vertical-align: top;
+
+    background-color: transparent;
+}
+
+#badge-image .expireimage
+{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+
+    width: 100px;
+    height: 100px;
+
+    opacity: 85;
+
+    filter: alpha(opacity=8500);
+}
+
+#badge-image .singlebutton
+{
+    padding-top: 5px;
+}
+
+#badge-image .singlebutton input
+{
+    margin-right: 0;
+}
+
+.dir-rtl #badge-image
+{
+    float: left;
+}
+
+.dir-rtl #badge-image .expireimage
+{
+    right: 41px;
+}
+
+#badge-details
+{
+    display: inline-block;
+
+    width: 79%;
+}
+
+#badge-overview dl,
+#badge-details dl
+{
+    margin: 0;
+}
+
+#badge-overview dl dt,
+#badge-details dl dt,
+#badge-overview dl dd,
+#badge-details dl dd
+{
+    padding: 3px 0;
+
+    vertical-align: top;
+}
+
+#badge-overview dl dt,
+#badge-details dl dt
+{
+    display: inline-block;
+    clear: both;
+
+    width: 20%;
+    min-width: 100px;
+}
+
+#badge-overview dl dd,
+#badge-details dl dd
+{
+    display: inline-block;
+
+    width: 79%;
+    margin-right: 1%;
+}
+
+.badge-profile
+{
+    vertical-align: top;
+}
+
+.connected
+{
+    color: #3c763d;
+}
+
+.notconnected
+{
+    color: #a94442;
+}
+
+.connecting
+{
+    color: #8a6d3b;
+}
+
+#page-badges-award .recipienttable tr td
+{
+    vertical-align: top;
+}
+
+#page-badges-award .recipienttable tr td.actions .actionbutton
+{
+    width: 100%;
+    margin: .3em 0;
+    padding: .5em 0;
+}
+
+#page-badges-award .recipienttable tr td.existing,
+#page-badges-award .recipienttable tr td.potential
+{
+    width: 42%;
+}
+
+#issued-badge-table .activatebadge
+{
+    display: inline-block;
+}
+
+.statusbox.active
+{
+    background-color: #dff0d8;
+}
+
+.statusbox.inactive
+{
+    background-color: #fcf8e3;
+}
+
+.statusbox
+{
+    margin-bottom: 5px;
+    padding: 5px;
+
+    text-align: center;
+}
+
+.statusbox .activatebadge
+{
+    display: inline-block;
+}
+
+.statusbox .activatebadge input[type=submit]
+{
+    margin: 3px;
+}
+
+.activatebadge
+{
+    margin: 0;
+
+    text-align: right;
+    vertical-align: middle;
+}
+
+.dir-rtl .activatebadge
+{
+    text-align: left;
+}
+
+img#persona_signin
+{
+    cursor: pointer;
+}
+
+.addcourse
+{
+    float: left;
+}
+
+.invisiblefieldset
+{
+    display: inline;
+
+    margin: 0;
+    padding: 0;
+
+    border-width: 0;
+}
+
 .breadcrumb-nav
 {
     float: right;
 
     margin-bottom: 10px;
+}
+
+.dir-rtl .breadcrumb-nav
+{
+    float: left;
 }
 
 .breadcrumb-button .singlebutton div
@@ -12874,6 +14346,82 @@ body.jsenabled .formlisting
 .breadcrumb-nav .breadcrumb
 {
     margin: 0;
+}
+
+/** Header-bar styles **/
+
+.page-context-header
+{
+    overflow: hidden;
+}
+
+.page-context-header .page-header-image,
+.page-context-header .page-header-headings
+{
+    position: relative;
+
+    display: block;
+}
+
+.page-context-header .page-header-image
+{
+    margin-bottom: 1em;
+}
+
+.page-context-header .page-header-headings
+{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.page-context-header .page-header-headings h1
+{
+    display: block;
+}
+
+.page-context-header .page-header-headings,
+.page-context-header .header-button-group
+{
+    line-height: 24px;
+
+    position: relative;
+
+    vertical-align: middle;
+}
+
+.page-context-header .header-button-group
+{
+    display: block;
+}
+
+.page-context-header .header-button-group a
+{
+    position: relative;
+    top: -.4em;
+}
+
+.dir-ltr .page-context-header .page-header-image
+{
+    float: right;
+
+    margin-left: 1em;
+}
+
+.dir-ltr .page-context-header .header-button-group
+{
+    float: left;
+}
+
+.dir-rtl .page-context-header .page-header-image
+{
+    float: left;
+
+    margin-right: 1em;
+}
+
+.dir-rtl .page-context-header .header-button-group
+{
+    float: right;
 }
 
 /** Action menu component styles **/
@@ -12887,12 +14435,20 @@ body.jsenabled .formlisting
 
 .moodle-actionmenu ul
 {
-    line-height: 30px;
-
     margin: 0;
     padding: 0;
 
     list-style-type: none;
+}
+
+.section_action_menu .moodle-actionmenu ul.menubar
+{
+    margin: 0;
+}
+
+.section_action_menu .moodle-actionmenu ul.menu
+{
+    margin: 0 0 10px 10px;
 }
 
 .moodle-actionmenu .toggle-display,
@@ -12922,7 +14478,17 @@ body.jsenabled .formlisting
     filter: alpha(opacity=50);
 }
 
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu
+{
+    display: block;
+
+    margin-right: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall,
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .smallicon
 {
     margin: 4px 0 4px 4px;
     padding: 8px 2px 0 4px;
@@ -12930,237 +14496,80 @@ body.jsenabled .formlisting
     vertical-align: text-bottom;
 }
 
-.jsenabled .moodle-actionmenu[data-enhanced] .toggle-display
+.moodle-actionmenu[data-enhanced] .toggle-display
 {
     opacity: 1;
 
     filter: alpha(opacity=100);
 }
 
-.jsenabled .moodle-actionmenu[data-enhanced] .menu-action-text
+.moodle-actionmenu[data-enhanced] .menu-action-text
 {
     display: inline;
+}
 
-    white-space: normal;
+.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu
+{
+    margin-right: initial;
+    margin-left: 4px;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret
+{
+    margin-right: initial;
+    margin-left: 2px;
 }
 
 .moodle-actionmenu[data-enhanced].show
 {
     position: relative;
+    /** no wrap is set - prevent menu items from wrapping **/
 }
 
 .moodle-actionmenu[data-enhanced].show .menu
 {
-    font-size: 14px;
-
     position: absolute;
     z-index: 1000;
-    top: 100%;
-    right: 0;
 
-    display: none;
     display: block;
-    float: right;
-
-    min-width: 160px;
-    margin: 2px 0 0;
-    padding: 5px 0;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    list-style: none;
 
     text-align: right;
 
-    border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: #fff;
-    background-clip: padding-box;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: -5px 5px 20px 0 #666;
     /** bottom left of button **/
     /** bottom right of button **/
     /** top left of button **/
     /** top right of button **/
 }
 
-.moodle-actionmenu[data-enhanced].show .menu.pull-right
-{
-    right: auto;
-    left: 0;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .divider
-{
-    overflow: hidden;
-
-    height: 1px;
-    margin: 9px 0;
-
-    background-color: #e5e5e5;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu > li > a
-{
-    font-weight: normal;
-    line-height: 1.42857143;
-
-    display: block;
-    clear: both;
-
-    padding: 3px 20px;
-
-    white-space: nowrap;
-
-    color: #1f4d87;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .userpicture
-{
-    margin-right: -10px;
-    margin-left: 7px;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-body
-{
-    line-height: 20px;
-
-    display: inline-block;
-
-    max-width: 175px;
-
-    vertical-align: middle;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-title
-{
-    line-height: 14px;
-
-    display: inline-block;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-sender
-{
-    color: #478fca;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-time
-{
-    font-size: 11px;
-
-    display: block;
-
-    color: #777;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu [title='new']
-{
-    background-color: #e9f7fb;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .glyphicon
-{
-    margin-left: 5px;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover i:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus i:first-child
-{
-    margin-right: -2px;
-    margin-left: 3px;
-    padding: 2px;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu li a:hover,
-.moodle-actionmenu[data-enhanced].show .menu li a:focus,
-.moodle-actionmenu[data-enhanced].show .menu li a:active
-{
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu li a:hover .userpicture,
-.moodle-actionmenu[data-enhanced].show .menu li a:focus .userpicture,
-.moodle-actionmenu[data-enhanced].show .menu li a:active .userpicture
-{
-    width: 31px;
-    height: 31px;
-
-    border: solid 2px rgba(255, 255, 255, .5);
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-title,
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-body,
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-sender,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-sender,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-sender
-{
-    color: #fff;
-    background: none;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time
-{
-    color: #fff;
-    background: none;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time span,
-.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time i,
-.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time i,
-.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time i
-{
-    background: none;
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-sender
-{
-    color: [[setting:textcolour]];
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .msg-time
-{
-    color: [[setting:textcolour]];
-}
-
-.moodle-actionmenu[data-enhanced].show .menu .icon
-{
-    margin-left: 5px;
-}
-
 .moodle-actionmenu[data-enhanced].show .menu a
 {
-    line-height: 1.42857143;
-
     display: block;
 
-    padding: 3px 20px;
-
-    white-space: nowrap;
+    padding: 2px 28px 2px 1em;
 
     color: #1f4d87;
 }
 
-.moodle-actionmenu[data-enhanced].show .menu a:hover,
-.moodle-actionmenu[data-enhanced].show .menu a:focus
+.moodle-actionmenu[data-enhanced].show .menu a:hover
 {
-    text-decoration: none;
-
-    color: #fff;
+    color: #1f4d87;
     background-color: #e3f2ff;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu a:first-child
+{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.moodle-actionmenu[data-enhanced].show .menu a:last-child
+{
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .moodle-actionmenu[data-enhanced].show .menu a.hidden
@@ -13173,9 +14582,11 @@ body.jsenabled .formlisting
     vertical-align: middle;
 }
 
-.moodle-actionmenu[data-enhanced].show .menu .iconsmall
+.moodle-actionmenu[data-enhanced].show .menu .iconsmall,
+.moodle-actionmenu[data-enhanced].show .menu .smallicon
 {
-    margin: 0 -10px 4px 4px;
+    margin: 4px -24px 4px 4px;
+    padding: 4px;
 }
 
 .moodle-actionmenu[data-enhanced].show .menu > li
@@ -13217,8 +14628,7 @@ body.jsenabled .formlisting
 
 .moodle-actionmenu[data-enhanced].show .menu.align-tr-br
 {
-    top: 100% !important;
-    right: inherit;
+    top: 100%;
     left: 0;
 
     margin-top: 4px;
@@ -13292,7 +14702,137 @@ body.jsenabled .formlisting
     margin-bottom: 4px;
 }
 
+.moodle-actionmenu[data-enhanced].show.nowrap-items .menu > li
+{
+    white-space: nowrap;
+}
+
 .block .moodle-actionmenu
+{
+    text-align: left;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu
+{
+    right: 0;
+    left: auto;
+
+    text-align: left;
+    /** bottom left of button **/
+    /** bottom right of button **/
+    /** top left of button **/
+    /** top right of button **/
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu a
+{
+    padding: 2px 1em 2px 28px;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .iconsmall,
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .smallicon
+{
+    margin-right: 4px;
+    margin-left: -24px;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-bl
+{
+    right: auto;
+    left: 0;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-bl
+{
+    right: 100%;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-bl
+{
+    right: auto;
+    left: 0;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-bl
+{
+    right: 100%;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-br
+{
+    right: auto;
+    left: 100%;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-br
+{
+    right: 0;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-br
+{
+    right: auto;
+    left: 100%;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-br
+{
+    right: 0;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-tl
+{
+    right: auto;
+    left: 0;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-tl
+{
+    right: 100%;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-tl
+{
+    right: auto;
+    left: 0;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-tl
+{
+    right: 100%;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-tr
+{
+    right: auto;
+    left: 100%;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-tr
+{
+    right: 0;
+    left: auto;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-tr
+{
+    right: auto;
+    left: 100%;
+}
+
+.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-tr
+{
+    right: 0;
+    left: auto;
+}
+
+.dir-rtl .block .moodle-actionmenu
 {
     text-align: left;
 }
@@ -13306,6 +14846,63 @@ ul.dragdrop-keyboard-drag li
 {
     width: 12px;
     height: 12px;
+}
+
+a.disabled:hover,
+a.disabled
+{
+    font-style: italic;
+
+    cursor: default;
+    text-decoration: none;
+
+    color: #808080;
+}
+
+body.lockscroll
+{
+    overflow: hidden;
+
+    height: 100%;
+}
+
+.dir-rtl ul
+{
+    margin-right: 0;
+    margin-left: 25px;
+}
+
+.progressbar_container
+{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* IE10 only fix for calendar titling */
+
+.ie10 .yui3-calendar-header-label
+{
+    display: inline-block;
+}
+
+dd:before,
+dd:after
+{
+    display: block;
+
+    content: ' ';
+}
+
+dd:after
+{
+    clear: both;
+}
+
+.nav-tabs > .active > a[href],
+.nav-tabs > .active > a[href]:hover,
+.nav-tabs > .active > a[href]:focus
+{
+    cursor: pointer;
 }
 
 /* admin.less */
@@ -22436,6 +24033,13 @@ textarea.searchform input[type='text']
     padding-right: 0;
 }
 
+/**
+ * Moodle forms HTML isn't changeable via renderers (yet?) so this
+ * .less file imports styles from the bootstrap @variables file and
+ * adds them to the existing Moodle form CSS ids and classes.
+ *
+ */
+
 .mform .fitem .fitemtitle
 {
     position: relative;
@@ -23213,6 +24817,7 @@ input[type='checkbox']
 
 #fitem_id_availabilityconditionsjson
 {
+    /* Eye icon in front of an item and delete icon after it. */
     /* Hidden eye icon still takes up space. */
     /* Eye icons in front of child lists are aligned specially. */
     /* Add button lines up with child elements. */
@@ -23229,13 +24834,8 @@ input[type='checkbox']
 #fitem_id_availabilityconditionsjson select,
 #fitem_id_availabilityconditionsjson input[type=text]
 {
-    line-height: 30px;
-
-    display: inline-block;
-
-    width: auto;
-    height: 30px;
-    padding: 4px 6px;
+    position: relative;
+    top: 4px;
 }
 
 #fitem_id_availabilityconditionsjson label
@@ -23245,12 +24845,13 @@ input[type='checkbox']
 
 #fitem_id_availabilityconditionsjson .availability-group
 {
-    margin: 5px;
+    margin-left: 8px;
 }
 
 #fitem_id_availabilityconditionsjson .availability-item
 {
-    margin-bottom: 6px;
+    margin-right: 20px;
+    margin-bottom: 4px;
 }
 
 #fitem_id_availabilityconditionsjson .availability-header
@@ -23262,12 +24863,18 @@ input[type='checkbox']
 {
     display: inline-block;
 
-    margin: 0 8px;
-    padding: 5px;
+    margin-left: 8px;
+    padding: 2px 4px 0 0;
 
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     background: none repeat scroll 0 0 #f5f5f5;
+}
+
+#fitem_id_availabilityconditionsjson .availability-eye,
+#fitem_id_availabilityconditionsjson .availability-delete
+{
+    margin-left: 8px;
 }
 
 #fitem_id_availabilityconditionsjson .availability-eye[aria-hidden=true]
@@ -23309,6 +24916,53 @@ input[type='checkbox']
 {
     margin-right: 20px;
     margin-bottom: 6px;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-group
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-none
+{
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-plugincontrols
+{
+    margin-right: 8px;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-eye,
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-delete
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-button
+{
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.dir-rtl #fitem_id_availabilityconditionsjson .availability-connector
+{
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+/* Default form styling colours all text red. With availability conditions
+   this looks excessive as we show 'Invalid' markers in specific places. */
+
+.mform .error .availability-field
+{
+    color: #1f4d87;
 }
 
 /* This dialogue is used to add an availability condition. */
@@ -23362,6 +25016,104 @@ input[type='checkbox']
     margin-top: 4px;
     margin-right: 1em;
     margin-left: 1em;
+}
+
+.dir-rtl .availability-dialogue ul button
+{
+    float: left;
+
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+.dir-rtl .availability-dialogue label
+{
+    margin-right: 1em;
+    margin-left: 170px;
+}
+
+/* Custom styles for autocomplete form element */
+
+.form-autocomplete-selection
+{
+    min-height: 21px;
+    margin: .2em;
+}
+
+.form-autocomplete-multiple [role=listitem]
+{
+    cursor: pointer;
+}
+
+.form-autocomplete-suggestions
+{
+    position: absolute;
+    z-index: 1;
+
+    overflow: auto;
+
+    min-width: 206px;
+    max-height: 20em;
+    margin: 0;
+    margin-top: -.2em;
+    padding: 0;
+
+    border: 2px solid #eee;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.form-autocomplete-suggestions li
+{
+    margin: 0;
+    padding: .2em;
+
+    list-style-type: none;
+
+    cursor: pointer;
+
+    color: #1f4d87;
+}
+
+.form-autocomplete-suggestions li:hover
+{
+    color: #fff;
+    background-color: #fff;
+}
+
+.form-autocomplete-suggestions li[aria-selected=true]
+{
+    color: #555;
+    background-color: #ffd25a;
+}
+
+.form-autocomplete-downarrow
+{
+    position: relative;
+    top: -.3em;
+    right: -1.5em;
+
+    cursor: pointer;
+
+    color: #1f4d87;
+}
+
+.dir-rtl .form-autocomplete-downarrow
+{
+    right: inherit;
+    left: -1.5em;
+}
+
+.form-autocomplete-selection:focus
+{
+    outline: none;
+}
+
+.form-autocomplete-selection [data-active-selection=true]
+{
+    font-size: large;
+
+    padding: .5em;
 }
 
 /* modules.less */
@@ -24460,21 +26212,6 @@ table.flexible .emptyrow
     text-align: center;
 }
 
-.btn-lineup
-{
-    margin: 0 5px 3px 0;
-}
-
-input[name='searchwikicontent'] + input[type='submit'],
-select + input[type='submit'],
-input[type='text'] + input[type='button'],
-input[type='password'] + input[type='submit'],
-input[type='text'] + button,
-input[type='text'] + input[type='submit']
-{
-    margin: 0 5px 3px 0;
-}
-
 p.arrow_button
 {
     margin-top: 5em;
@@ -24496,10 +26233,15 @@ p.arrow_button input
 
 #addcontrols
 {
-    margin-top: 5em;
+    margin-top: 2.14285714;
     margin-bottom: 3em;
 
     text-align: center;
+}
+
+#addcontrols label
+{
+    display: inline;
 }
 
 #addcontrols input,
@@ -24508,6 +26250,22 @@ p.arrow_button input
     display: block;
 
     width: 100%;
+    margin: auto;
+}
+
+.btn-lineup
+{
+    margin: 0 5px 10px 0;
+}
+
+input[name='searchwikicontent'] + input[type='submit'],
+select + input[type='submit'],
+input[type='text'] + input[type='button'],
+input[type='password'] + input[type='submit'],
+input[type='text'] + button,
+input[type='text'] + input[type='submit']
+{
+    margin: 0 5px 10px 0;
 }
 
 button,
@@ -24522,7 +26280,7 @@ input[type='reset']
 
     display: inline-block;
 
-    margin: 0 5px 3px 0;
+    margin: 0 5px 10px 0;
     margin-bottom: 0;
     padding: 6px 12px;
 
@@ -25326,7 +27084,7 @@ fieldset[disabled] .submit.buttons input[name='cancel'].active
 #notice .singlebutton + .singlebutton input,
 .submit.buttons input[name='cancel']
 {
-    margin: 0 5px 3px 0;
+    margin: 0 5px 10px 0;
 }
 
 input[id$='_clearbutton'],
@@ -25449,7 +27207,11 @@ input[type='reset'] .badge
     background-color: #fff;
 }
 
-button.yui3-button.closebutton,
+button.yui3-button.closebutton
+{
+    background-position: 0 0;
+}
+
 button.yui3-button.closebutton:hover
 {
     background-position: 0 0;
@@ -25460,14 +27222,13 @@ input.fp-btn-choose
     font-size: 12px;
     line-height: 1.5;
 
-    margin-top: 4px;
-    margin-right: 0;
-    padding: 5px 10px;
+    padding: 1px 5px;
 
     border-radius: 3px;
 }
 
-.user-enroller-panel .uep-search-results .user .options .enrol
+.user-enroller-panel .uep-search-results .user .options .enrol,
+.user-enroller-panel .uep-search-results .cohort .options .enrol
 {
     font-size: 12px;
     line-height: 1.5;
