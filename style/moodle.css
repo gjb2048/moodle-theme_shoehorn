@@ -335,8 +335,8 @@ th
 {
     font-family: 'Glyphicons Halflings';
 
-    src: url('[[font:theme|glyphicons-halflings-regular.eot]]');
-    src: url('[[font:theme|glyphicons-halflings-regular.eot]]?#iefix') format('embedded-opentype'), url('[[font:theme|glyphicons-halflings-regular.woff2]]') format('woff2'), url('[[font:theme|glyphicons-halflings-regular.woff]]') format('woff'), url('[[font:theme|glyphicons-halflings-regular.ttf]]') format('truetype'), url('[[font:theme|glyphicons-halflings-regular.svg]]#glyphicons_halflingsregular') format('svg');
+    src: url('[[font:theme|glyphicons-halflings-regular]].eot');
+    src: url('[[font:theme|glyphicons-halflings-regular]].eot?#iefix') format('embedded-opentype'), url('[[font:theme|glyphicons-halflings-regular]].woff2') format('woff2'), url('[[font:theme|glyphicons-halflings-regular]].woff') format('woff'), url('[[font:theme|glyphicons-halflings-regular]].ttf') format('truetype'), url('[[font:theme|glyphicons-halflings-regular]].svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon
 {
@@ -1512,6 +1512,7 @@ hr
     border-top: 1px solid #2d70c5;
 }
 .sr-only,
+.accesshide,
 a.skip-block,
 a.skip
 {
@@ -7257,6 +7258,7 @@ button.list-group-item-danger.active:focus
     margin-bottom: 0;
 }
 .panel,
+.userprofile .profile_tree section,
 .block,
 .forumpost
 {
@@ -7540,6 +7542,7 @@ button.list-group-item-danger.active:focus
     border-bottom: 1px solid #1f4d87;
 }
 .panel-default,
+.userprofile .profile_tree section,
 .block,
 .forumpost
 {
@@ -8616,8 +8619,6 @@ button.close
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:before,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
-.groupmanagementtable:before,
-.groupmanagementtable:after,
 .userprofile dl.list dd:before,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:before,
@@ -8626,6 +8627,8 @@ button.close
 .path-backup .mform .grouped_settings:after,
 .path-backup .mform .grouped_settings .fitem:before,
 .path-backup .mform .grouped_settings .fitem:after,
+.row-fluid:before,
+.row-fluid:after,
 .mform fieldset.hidden .fitem_actionbuttons:before,
 .mform fieldset.hidden .fitem_actionbuttons:after,
 .mform .fitem:before,
@@ -8656,11 +8659,11 @@ button.close
 .box.message .contactselector form#usergroupform fieldset:after,
 .box.message .messagearea .messagehistory .messagehistory .mdl-left:after,
 .box.message .messagearea .messagehistory #message_user_pictures:after,
-.groupmanagementtable:after,
 .userprofile dl.list dd:after,
 .mform .fitem_actionbuttons:after,
 .path-backup .mform .grouped_settings:after,
 .path-backup .mform .grouped_settings .fitem:after,
+.row-fluid:after,
 .mform fieldset.hidden .fitem_actionbuttons:after,
 .mform .fitem:after,
 .form-item:after
@@ -9231,6 +9234,12 @@ img.icon.hide
 {
     max-width: none !important;
 }
+.input-group .form-control,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group
+{
+    z-index: initial;
+}
 /** core.less */
 /** Page layout CSS starts **/
 .layout-option-noheader #page-header,
@@ -9720,20 +9729,6 @@ a.disabled
 {
     background: #d9edf7;
 }
-.red,
-.notifyproblem
-{
-    color: #a94442;
-}
-.green,
-.notifysuccess
-{
-    color: #31708f;
-}
-.highlight
-{
-    background: #d9edf7;
-}
 .reportlink
 {
     text-align: right;
@@ -9747,19 +9742,11 @@ a.autolink.glossary:hover
 {
     white-space: nowrap;
 }
-.pagelayout-mydashboard.jsenabled .collapsibleregioncaption
-{
-    cursor: pointer;
-}
 .collapsibleregioncaption img
 {
     vertical-align: middle;
 }
 .jsenabled .hiddenifjs
-{
-    display: none;
-}
-.visibleifjs
 {
     display: none;
 }
@@ -9775,19 +9762,21 @@ a.autolink.glossary:hover
 {
     visibility: hidden;
 }
-.collapsible-actions
-{
-    display: none;
-
-    text-align: right;
-}
-.dir-rtl .collapsible-actions
-{
-    text-align: left;
-}
 .jsenabled .collapsible-actions
 {
     display: block;
+}
+.visibleifjs
+{
+    display: none;
+}
+.collapsible-actions
+{
+    display: none;
+}
+.collapsible-actions
+{
+    text-align: right;
 }
 .collapsible-actions .collapseexpand
 {
@@ -9795,16 +9784,9 @@ a.autolink.glossary:hover
 
     background-image: url([[pix:t/collapsed]]);
     background-repeat: no-repeat;
+    background-position: left;
 }
-.dir-rtl .collapsible-actions .collapseexpand
-{
-    padding-right: 20px;
-    padding-left: 0;
-
-    background: url([[pix:t/collapsed_rtl]]) right center no-repeat;
-}
-.collapsible-actions .collapse-all,
-.dir-rtl .collapsible-actions .collapse-all
+.collapsible-actions .collapse-all
 {
     background-image: url([[pix:t/expanded]]);
 }
@@ -9835,7 +9817,6 @@ a.autolink.glossary:hover
     background: transparent;
 }
 .bold,
-.warning,
 .errorbox .title,
 .pagingbar .title,
 .pagingbar .thispage
@@ -9858,14 +9839,9 @@ img.icon
 {
     width: 16px;
     height: 16px;
-    padding-right: 6px;
+    margin-right: 6px;
 
     vertical-align: text-bottom;
-}
-.dir-rtl img.icon
-{
-    padding-right: 0;
-    padding-left: 6px;
 }
 img.iconsmall
 {
@@ -9880,9 +9856,7 @@ img.iconhelp,
 {
     width: 16px;
     height: 16px;
-    padding-left: 3px;
-
-    vertical-align: text-bottom;
+    margin-left: 3px;
 }
 h1 img.iconhelp,
 h1 img.icon,
@@ -9897,15 +9871,9 @@ h5 img.icon,
 h6 img.iconhelp,
 h6 img.icon
 {
-    padding: 4px;
+    margin: 4px;
 
     vertical-align: middle;
-}
-.dir-rtl img.iconhelp,
-.dir-rtl .helplink img
-{
-    padding-right: 3px;
-    padding-left: 0;
 }
 img.iconlarge
 {
@@ -9921,11 +9889,6 @@ img.iconsort
 
     vertical-align: text-bottom;
 }
-.dir-rtl img.iconsort
-{
-    padding-right: .3em;
-    padding-left: 0;
-}
 img.icontoggle
 {
     width: 50px;
@@ -9938,14 +9901,12 @@ img.iconkbhelp
     width: 49px;
     height: 17px;
 }
-img.icon-pre,
-.dir-rtl img.icon-post
+img.icon-pre
 {
     padding-right: 3px;
     padding-left: 0;
 }
-img.icon-post,
-.dir-rtl img.icon-pre
+img.icon-post
 {
     padding-right: 0;
     padding-left: 3px;
@@ -9975,7 +9936,7 @@ img.icon-post,
 }
 .boxwidthwide
 {
-    width: 80%;
+    width: 100%;
 }
 .headermain
 {
@@ -9991,15 +9952,6 @@ img.icon-post,
 img.uihint
 {
     cursor: help;
-}
-#addmembersform table
-{
-    margin-right: auto;
-    margin-left: auto;
-}
-table.flexible .emptyrow
-{
-    display: none;
 }
 img.emoticon
 {
@@ -10023,30 +9975,21 @@ form.popupform div
 
     vertical-align: text-bottom;
 }
-/** The 1-pixel padding is there to avoid phantom scroll bars on OS X (FF, Safari and Chrome)**/
 .no-overflow
 {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-    padding-bottom: 1px;
+    margin-bottom: 1px;
+
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
 }
 .no-overflow > .generaltable
 {
     margin-bottom: 0;
 }
-.accesshide
-{
-    font-size: 1em;
-    font-weight: normal;
-
-    position: absolute;
-    left: -10000px;
-}
-.dir-rtl .accesshide
-{
-    top: -30000px;
-    left: auto;
-}
+/** Accessibility features **/
 span.hide,
 div.hide
 {
@@ -10068,6 +10011,7 @@ a.skip:active
 
     height: 1px;
 }
+/** Blogs **/
 .addbloglink
 {
     text-align: center;
@@ -10091,6 +10035,7 @@ a.skip:active
 {
     margin-left: 43px;
 }
+/** Group **/
 #page-group-index #groupeditform
 {
     text-align: center;
@@ -10128,20 +10073,6 @@ a.skip:active
     min-width: 80%;
     margin: 0 auto;
 }
-.groupmanagementtable #removeselect_wrapper,
-.groupmanagementtable #addselect_wrapper
-{
-    width: 100%;
-}
-.groupmanagementtable #removeselect_wrapper label,
-.groupmanagementtable #addselect_wrapper label
-{
-    font-weight: normal;
-}
-.dir-rtl .groupmanagementtable p
-{
-    text-align: right;
-}
 #group-usersummary
 {
     width: 14em;
@@ -10157,119 +10088,7 @@ a.skip:active
 {
     display: inline-block;
 }
-.loginbox
-{
-    overflow: visible;
-
-    margin: 15px;
-}
-.loginbox.twocolumns
-{
-    margin: 15px;
-}
-.loginbox h2,
-.loginbox .subcontent
-{
-    margin: 5px;
-    padding: 10px;
-
-    text-align: center;
-}
-.loginbox .loginpanel .desc
-{
-    margin: 0;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    padding: 0;
-}
-.loginbox .signuppanel .subcontent
-{
-    text-align: left;
-}
-.dir-rtl .loginbox .signuppanel .subcontent
-{
-    text-align: right;
-}
-.loginbox .loginsub
-{
-    margin-right: 0;
-    margin-left: 0;
-}
-.loginbox .guestsub,
-.loginbox .forgotsub,
-.loginbox .potentialidps
-{
-    margin: 5px 12%;
-}
-.loginbox .potentialidps .potentialidplist
-{
-    margin-left: 40%;
-}
-.loginbox .potentialidps .potentialidplist div
-{
-    text-align: left;
-}
-.loginbox .loginform
-{
-    margin-top: 1em;
-
-    text-align: left;
-}
-.loginbox .loginform .form-label
-{
-    float: left;
-
-    width: 49%;
-
-    text-align: right;
-    white-space: nowrap;
-}
-.loginbox .loginform .form-input
-{
-    float: right;
-
-    width: 50%;
-}
-.loginbox .loginform .form-input input
-{
-    width: 6em;
-}
-.loginbox .signupform
-{
-    margin-top: 1em;
-
-    text-align: center;
-}
-.loginbox.twocolumns .loginpanel,
-.loginbox.twocolumns .signuppanel
-{
-    display: block;
-    float: left;
-
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 48%;
-    min-height: 30px;
-    margin: 0;
-    margin-bottom: -2000px;
-    margin-left: 2.76243%;
-    padding: 0;
-    padding-bottom: 2000px;
-
-    border: 0;
-}
-.dir-rtl .loginbox.twocolumns .loginpanel,
-.dir-rtl .loginbox.twocolumns .signuppanel
-{
-    float: right;
-}
-.loginbox .potentialidp .smallicon
-{
-    margin: 0 .3em;
-
-    vertical-align: text-bottom;
-}
+/** Notes **/
 .notepost
 {
     margin-bottom: 1em;
@@ -10289,6 +10108,7 @@ a.skip:active
 {
     margin-left: 20px;
 }
+/** My Moodle **/
 .path-my .coursebox .overview
 {
     margin: 15px 30px 10px 30px;
@@ -10299,14 +10119,12 @@ a.skip:active
 
     margin: 0;
 }
+/** Modules **/
 .mod_introbox
 {
     padding: 10px;
 }
-table.mod_index
-{
-    width: 100%;
-}
+/** Comments **/
 .comment-ctrl
 {
     font-size: 12px;
@@ -10331,12 +10149,6 @@ table.mod_index
     overflow: auto;
 
     width: 100%;
-}
-.comment-area textarea.fullwidth
-{
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
 }
 .comment-area .fd
 {
@@ -10395,10 +10207,6 @@ table.mod_index
 
     width: 20px;
 }
-.dir-rtl .comment-message .picture
-{
-    float: right;
-}
 .comment-message .text
 {
     margin: 0;
@@ -10417,13 +10225,20 @@ table.mod_index
 
     margin: .3em;
 }
-.dir-rtl .comment-delete
+.comment-delete-confirm
 {
-    position: absolute;
-    right: auto;
-    left: 0;
+    width: 5em;
+    padding: 2px;
 
-    margin: .3em;
+    text-align: center;
+
+    background: #eee;
+}
+.comment-container
+{
+    float: left;
+
+    margin: 4px;
 }
 .comment-report-selectall
 {
@@ -10470,277 +10285,6 @@ table.mod_index
 .completion-expired .completion-expected
 {
     font-weight: bold;
-}
-/**
-* Tags
-*/
-#page-tag-coursetags_edit .coursetag_edit_centered
-{
-    position: relative;
-
-    width: 600px;
-    margin: 20px auto;
-}
-#page-tag-coursetags_edit .coursetag_edit_row
-{
-    clear: both;
-}
-#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_left
-{
-    float: left;
-
-    width: 50%;
-
-    text-align: right;
-}
-#page-tag-coursetags_edit .coursetag_edit_row .coursetag_edit_right
-{
-    margin-left: 50%;
-}
-#page-tag-coursetags_edit .coursetag_edit_input3
-{
-    display: none;
-}
-#page-tag-coursetags_more .coursetag_more_large
-{
-    font-size: 120%;
-}
-#page-tag-coursetags_more .coursetag_more_small
-{
-    font-size: 80%;
-}
-#page-tag-coursetags_more .coursetag_more_link
-{
-    font-size: 80%;
-}
-#tag-description,
-#tag-blogs
-{
-    width: 100%;
-}
-#tag-management-box
-{
-    line-height: 20px;
-
-    margin-bottom: 10px;
-}
-#tag-user-table
-{
-    clear: both;
-
-    width: 100%;
-    padding: 3px;
-}
-#tag-user-table:before,
-#tag-user-table:after
-{
-    display: table;
-
-    content: ' ';
-}
-#tag-user-table:after
-{
-    clear: both;
-}
-#tag-user-table:before,
-#tag-user-table:after
-{
-    display: table;
-
-    content: ' ';
-}
-#tag-user-table:after
-{
-    clear: both;
-}
-img.user-image
-{
-    width: 100px;
-    height: 100px;
-}
-#small-tag-cloud-box
-{
-    width: 300px;
-    margin: 0 auto;
-}
-#big-tag-cloud-box
-{
-    float: none;
-
-    width: 600px;
-    margin: 0 auto;
-}
-ul#tag-cloud-list
-{
-    margin: 0;
-    padding: 5px;
-
-    list-style: none;
-}
-ul#tag-cloud-list li
-{
-    display: inline;
-
-    margin: 0;
-
-    list-style-type: none;
-}
-#tag-search-box
-{
-    margin: 10px auto;
-
-    text-align: center;
-}
-#tag-search-results-container
-{
-    width: 100%;
-    padding: 0;
-}
-#tag-search-results
-{
-    display: block;
-    float: left;
-
-    width: 60%;
-    margin: 15px 20% 0 20%;
-    padding: 0;
-}
-#tag-search-results li
-{
-    line-height: 20px;
-
-    float: left;
-
-    width: 30%;
-    padding-right: 1%;
-    padding-left: 1%;
-
-    list-style: none;
-
-    text-align: left;
-}
-span.flagged-tag,
-tr.flagged-tag,
-span.flagged-tag a,
-tr.flagged-tag a
-{
-    color: #a94442;
-}
-.tag-management-table td,
-.tag-management-table th
-{
-    padding: 4px;
-
-    vertical-align: middle;
-}
-.tag-management-table tr td.tageditingon .displaytagname,
-.tag-management-table td .edittagname
-{
-    display: none;
-}
-.tag-management-table tr td.tageditingon .edittagname
-{
-    position: relative;
-
-    display: inherit;
-}
-.tag-management-table tr td.tageditingon .edittagname .editinstructions
-{
-    margin-right: -300px;
-    margin-left: 0;
-}
-.tag-management-table tr td .tagnameedit img
-{
-    opacity: .2;
-}
-.tag-management-table tr:hover td .tagnameedit img,
-.tag-management-table tr td .tagnameedit:focus img
-{
-    opacity: 1;
-}
-.tag-management-table tr:hover td.tageditingon .tagnameedit img
-{
-    opacity: .2;
-}
-h2.tag-heading,
-div#tag-description,
-div#tag-blogs,
-body.tag .managelink
-{
-    padding: 5px;
-}
-.tag_cloud .s20
-{
-    font-size: 1.5em;
-    font-weight: bold;
-}
-.tag_cloud .s19
-{
-    font-size: 1.5em;
-}
-.tag_cloud .s18
-{
-    font-size: 1.4em;
-    font-weight: bold;
-}
-.tag_cloud .s17
-{
-    font-size: 1.4em;
-}
-.tag_cloud .s16
-{
-    font-size: 1.3em;
-    font-weight: bold;
-}
-.tag_cloud .s15
-{
-    font-size: 1.3em;
-}
-.tag_cloud .s14
-{
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.tag_cloud .s13
-{
-    font-size: 1.2em;
-}
-.tag_cloud .s12,
-.tag_cloud .s11
-{
-    font-size: 1.1em;
-    font-weight: bold;
-}
-.tag_cloud .s10,
-.tag_cloud .s9
-{
-    font-size: 1.1em;
-}
-.tag_cloud .s8,
-.tag_cloud .s7
-{
-    font-size: 1em;
-    font-weight: bold;
-}
-.tag_cloud .s6,
-.tag_cloud .s5
-{
-    font-size: 1em;
-}
-.tag_cloud .s4,
-.tag_cloud .s3
-{
-    font-size: .9em;
-    font-weight: bold;
-}
-.tag_cloud .s2,
-.tag_cloud .s1
-{
-    font-size: .9em;
-}
-.tag_cloud .s0
-{
-    font-size: .8em;
 }
 /**
 * Web Service
@@ -10862,261 +10406,6 @@ body.tag .managelink
 {
     font-weight: bold;
 }
-/**
-* Registration
-*/
-#page-admin-registration-register .registration_textfield
-{
-    width: 300px;
-}
-/**
-* Enrol
-*/
-.userenrolment
-{
-    width: 100%;
-
-    border-collapse: collapse;
-}
-.userenrolment tr
-{
-    vertical-align: top;
-}
-.userenrolment td
-{
-    height: 41px;
-    padding: 0;
-}
-.userenrolment .subfield
-{
-    margin-right: 5px;
-}
-.userenrolment .col_userdetails .subfield_picture
-{
-    float: left;
-}
-.userenrolment .col_lastseen
-{
-    width: 150px;
-}
-.userenrolment .col_role
-{
-    width: 262px;
-}
-.userenrolment .col_role .roles,
-.userenrolment .col_group .groups
-{
-    margin-right: 30px;
-}
-.userenrolment .col_role .role,
-.userenrolment .col_group .group
-{
-    float: left;
-
-    margin: 3px;
-    padding: 3px;
-
-    white-space: nowrap;
-}
-.userenrolment .col_role .role a,
-.userenrolment .col_group .group a
-{
-    margin-left: 3px;
-
-    cursor: pointer;
-}
-.userenrolment .col_role .addrole,
-.userenrolment .col_group .addgroup
-{
-    float: right;
-
-    margin: 3px;
-    padding: 3px;
-}
-.userenrolment .col_role .addrole > *:hover,
-.userenrolment .col_group .addgroup > *:hover
-{
-    border-bottom: 1px solid #666;
-}
-.userenrolment .col_role .addrole img,
-.userenrolment .col_group .addgroup img
-{
-    vertical-align: baseline;
-}
-.dir-rtl .userenrolment .col_role .role
-{
-    float: right;
-}
-.userenrolment .hasAllRoles .col_role .addrole
-{
-    display: none;
-}
-.userenrolment .col_enrol .enrolment
-{
-    float: left;
-
-    margin: 3px;
-    padding: 3px;
-}
-.userenrolment .col_enrol .enrolment a
-{
-    float: right;
-
-    margin-left: 3px;
-}
-#page-enrol-users .enrol_user_buttons
-{
-    float: right;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton
-{
-    display: inline;
-}
-#page-enrol-users .enrol_user_buttons .enrolusersbutton div,
-#page-enrol-users .enrol_user_buttons .enrolusersbutton form
-{
-    display: inline;
-
-    margin-right: 0;
-}
-#page-enrol-users #filterform
-{
-    display: inline-block;
-
-    min-height: 20px;
-    margin-bottom: 20px;
-    padding: 19px;
-    padding: 9px;
-
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    border-radius: 3px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-}
-#page-enrol-users #filterform blockquote
-{
-    border-color: #ddd;
-    border-color: rgba(0, 0, 0, .15);
-}
-#page-enrol-users #filterform .fitem
-{
-    line-height: 2.85714286;
-
-    display: inline-block;
-
-    margin-right: .3em;
-
-    white-space: nowrap;
-}
-#page-enrol-users #filterform .fitem label
-{
-    line-height: 1.42857143;
-
-    display: inline;
-
-    padding-right: .3em;
-}
-#page-enrol-users #filterform .fitem :before,
-#page-enrol-users #filterform .fitem :after
-{
-    display: inline;
-}
-#page-enrol-users #filterform div,
-#page-enrol-users #filterform fieldset
-{
-    display: inline;
-    float: none;
-    clear: none;
-
-    width: auto;
-    margin: 0;
-}
-#page-enrol-users #filterform select,
-#page-enrol-users #filterform .ftext input
-{
-    width: 7em;
-}
-#page-enrol-users #filterform input,
-#page-enrol-users #filterform select
-{
-    margin-bottom: 0;
-}
-#page-enrol-users .user-enroller-panel .uep-search-results .user .details
-{
-    width: 237px;
-}
-#page-enrol-users .user-enroller-panel .uep-search-results .cohort .details
-{
-    width: 237px;
-}
-.dir-rtl#page-enrol-users .col_userdetails .subfield_picture
-{
-    float: right;
-}
-.dir-rtl#page-enrol-users .enrol_user_buttons
-{
-    float: left;
-}
-.dir-rtl#page-enrol-users .enrol_user_buttons .enrolusersbutton
-{
-    margin-right: 1em;
-    margin-left: 0;
-}
-.dir-rtl#page-enrol-users .enrol_user_buttons .enrolusersbutton div
-{
-    margin-left: 0;
-}
-.dir-rtl#page-enrol-users #filterform .fitem
-{
-    margin-right: 0;
-    margin-left: .3em;
-}
-.dir-rtl#page-enrol-users #filterform .fitem label
-{
-    padding-right: 0;
-    padding-left: .3em;
-}
-#page-enrol-users .enrol-users-page-action input
-{
-    margin-left: 0;
-}
-/**
-* Overide for RTL layout
-**/
-.dir-rtl .headermain
-{
-    float: right;
-}
-.dir-rtl .headermenu
-{
-    float: left;
-}
-.dir-rtl .loginbox .loginform .form-label
-{
-    float: right;
-
-    text-align: left;
-}
-.dir-rtl .loginbox .loginform .form-input
-{
-    margin-right: 1%;
-
-    text-align: right;
-}
-.dir-rtl .yui3-menu-hidden
-{
-    left: 0;
-}
-#page-admin-roles-define.dir-rtl #rolesform .felement
-{
-    margin-right: 180px;
-}
-#page-message-edit.dir-rtl table.generaltable th.c0
-{
-    text-align: right;
-}
 .corelightbox
 {
     position: absolute;
@@ -11144,13 +10433,6 @@ body.tag .managelink
 {
     display: table-cell;
 }
-.label .mod-indent
-{
-    float: left;
-
-    padding-top: 20px;
-}
-/* Creates a series of .mod-indent-# rule declarations based on indent size and number of indent levels. */
 .mod-indent-1
 {
     width: 30px;
@@ -11207,17 +10489,10 @@ body.tag .managelink
 {
     width: 420px;
 }
-.mod-indent-15
-{
-    width: 450px;
-}
-.mod-indent-16
-{
-    width: 480px;
-}
+.mod-indent-15,
 .mod-indent-huge
 {
-    width: 480px;
+    width: 420px;
 }
 /* Audio player size in 'block' mode (can only change width, height is hardcoded in JS) */
 .resourcecontent .mediaplugin_mp3 object
@@ -11261,142 +10536,13 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 
     background: none;
 }
-/** Fix YUI 2 Treeview for Right to left languages **/
-.dir-rtl .ygtvtn,
-.dir-rtl .ygtvtm,
-.dir-rtl .ygtvtmh,
-.dir-rtl .ygtvtmhh,
-.dir-rtl .ygtvtp,
-.dir-rtl .ygtvtph,
-.dir-rtl .ygtvtphh,
-.dir-rtl .ygtvln,
-.dir-rtl .ygtvlm,
-.dir-rtl .ygtvlmh,
-.dir-rtl .ygtvlmhh,
-.dir-rtl .ygtvlp,
-.dir-rtl .ygtvlph,
-.dir-rtl .ygtvlphh,
-.dir-rtl .ygtvdepthcell,
-.dir-rtl .ygtvok,
-.dir-rtl .ygtvok:hover,
-.dir-rtl .ygtvcancel,
-.dir-rtl .ygtvcancel:hover
+.mceEditor.moodleSkin .mceToolbar a span.mceIcon
 {
-    width: 18px;
-    height: 22px;
-
-    cursor: pointer;
-
-    background-image: url([[pix:theme|yui2-treeview-sprite-rtl]]);
-    background-repeat: no-repeat;
+    padding: 7px;
 }
-.dir-rtl .ygtvtn
+.mceEditor.moodleSkin .mceToolbar a span.mceIcon img
 {
-    background-position: 0 -5600px;
-}
-.dir-rtl .ygtvtm
-{
-    background-position: 0 -4000px;
-}
-.dir-rtl .ygtvtmh,
-.dir-rtl .ygtvtmhh
-{
-    background-position: 0 -4800px;
-}
-.dir-rtl .ygtvtp
-{
-    background-position: 0 -6400px;
-}
-.dir-rtl .ygtvtph,
-.dir-rtl .ygtvtphh
-{
-    background-position: 0 -7200px;
-}
-.dir-rtl .ygtvln
-{
-    background-position: 0 -1600px;
-}
-.dir-rtl .ygtvlm
-{
-    background-position: 0 0;
-}
-.dir-rtl .ygtvlmh,
-.dir-rtl .ygtvlmhh
-{
-    background-position: 0 -800px;
-}
-.dir-rtl .ygtvlp
-{
-    background-position: 0 -2400px;
-}
-.dir-rtl .ygtvlph,
-.dir-rtl .ygtvlphh
-{
-    background-position: 0 -3200px;
-}
-.dir-rtl .ygtvdepthcell
-{
-    background-position: 0 -8000px;
-}
-.dir-rtl .ygtvok
-{
-    background-position: 0 -8800px;
-}
-.dir-rtl .ygtvok:hover
-{
-    background-position: 0 -8844px;
-}
-.dir-rtl .ygtvcancel
-{
-    background-position: 0 -8822px;
-}
-.dir-rtl .ygtvcancel:hover
-{
-    background-position: 0 -8866px;
-}
-.dir-rtl.yui-skin-sam .yui-panel .hd
-{
-    text-align: right;
-}
-.dir-rtl .yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd
-{
-    text-align: right;
-}
-/** Fix TinyMCE editor right to left **/
-.dir-rtl .clearlooks2.ie9 .mceAlert .mceMiddle span,
-.dir-rtl .clearlooks2 .mceConfirm .mceMiddle span
-{
-    top: 44px;
-}
-.dir-rtl .o2k7Skin table,
-.dir-rtl .o2k7Skin tbody,
-.dir-rtl .o2k7Skin a,
-.dir-rtl .o2k7Skin img,
-.dir-rtl .o2k7Skin tr,
-.dir-rtl .o2k7Skin div,
-.dir-rtl .o2k7Skin td,
-.dir-rtl .o2k7Skin iframe,
-.dir-rtl .o2k7Skin span,
-.dir-rtl .o2k7Skin *,
-.dir-rtl .o2k7Skin .mceText,
-.dir-rtl .o2k7Skin .mceListBox .mceText
-{
-    text-align: right;
-}
-.path-rating .ratingtable
-{
-    width: 100%;
-    margin-bottom: 1em;
-}
-.path-rating .ratingtable th.rating
-{
-    width: 100%;
-}
-.path-rating .ratingtable td.rating,
-.path-rating .ratingtable td.time
-{
-    text-align: center;
-    white-space: nowrap;
+    padding: 0;
 }
 .initialbar a,
 .initialbar strong
@@ -11512,11 +10658,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     border-style: none;
     background-image: url([[pix:theme|sprite]]);
     background-repeat: no-repeat;
-}
-.dir-rtl .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons
-{
-    right: auto;
-    left: 0;
 }
 .moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd
 {
@@ -11697,18 +10838,12 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 {
     overflow: auto;
 }
-/* Question Bank - Question Chooser "Close" button */
-#page-question-edit.dir-rtl a.container-close
-{
-    right: auto;
-    left: 6px;
-}
 /**
- * Chooser Dialogues (moodle-core-chooserdialogue)
- *
- * This CSS belong to the chooser dialogue which should work both with, and
- * without javascript enabled
- */
+* Chooser Dialogues (moodle-core-chooserdialogue)
+*
+* This CSS belong to the chooser dialogue which should work both with, and
+* without javascript enabled
+*/
 /* Hide the dialog and it's title */
 .chooserdialoguebody,
 .choosertitle
@@ -11734,14 +10869,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 
     text-align: center;
 }
-/* Fixed for safari browser on iPhone4S with ios7.*/
-@media (max-height: 639px)
-{
-    .ios.safari .choosercontainer #chooseform .submitbuttons
-    {
-        padding: 45px 0;
-    }
-}
 .choosercontainer #chooseform .submitbuttons input
 {
     min-width: 100px;
@@ -11762,12 +10889,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 
     max-width: 20.3em;
 
-    -webkit-box-shadow: inset 0 0 30px 0 #ccc;
-            box-shadow: inset 0 0 30px 0 #ccc;
-}
-.dir-rtl.jschooser .choosercontainer #chooseform .alloptions
-{
-    max-width: 18.3em;
+    box-shadow: inset 0 0 30px 0 #ccc;
 }
 /* Settings for option rows and option subtypes */
 .choosercontainer #chooseform .moduletypetitle,
@@ -11791,15 +10913,8 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
 {
     padding: 0 0 0 .5em;
 }
-.dir-rtl .choosercontainer #chooseform .option .typename,
-.dir-rtl .choosercontainer #chooseform .option span.modicon img.icon,
-.dir-rtl .choosercontainer #chooseform .nonoption .typename,
-.dir-rtl .choosercontainer #chooseform .nonoption span.modicon img.icon
-{
-    padding: 0 .5em 0 0;
-}
-.chooserdialogue-course-modchooser .choosercontainer #chooseform .option span.modicon img.icon,
-.chooserdialogue-course-modchooser .choosercontainer #chooseform .nonoption span.modicon img.icon
+.choosercontainer #chooseform .option span.modicon img.icon,
+.choosercontainer #chooseform .nonoption span.modicon img.icon
 {
     width: 24px;
     height: 24px;
@@ -11824,27 +10939,14 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     padding-bottom: .1em;
     padding-left: 2.7em;
 }
-.dir-rtl .choosercontainer #chooseform .nonoption
-{
-    padding-right: 2.7em;
-    padding-left: 0;
-}
 .choosercontainer #chooseform .subtype
 {
     margin-bottom: 0;
     padding: 0 1.6em 0 3.2em;
 }
-.dir-rtl .choosercontainer #chooseform .subtype
-{
-    padding: 0 3.2em 0 1.6em;
-}
 .choosercontainer #chooseform .subtype .typename
 {
     margin: 0 0 0 .2em;
-}
-.dir-rtl .choosercontainer #chooseform .subtype .typename
-{
-    margin: 0 .2em 0 0;
 }
 /* The instruction/help area */
 .jschooser .choosercontainer #chooseform .instruction,
@@ -11866,14 +10968,6 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview
     padding: 1.6em;
 
     background-color: #fff;
-}
-.dir-rtl.jschooser .choosercontainer #chooseform .instruction,
-.dir-rtl.jschooser .choosercontainer #chooseform .typesummary
-{
-    right: 18.5em;
-    left: 0;
-
-    border-right: 1px solid grey;
 }
 /* Selected option settings */
 .jschooser .choosercontainer #chooseform .instruction,
@@ -11968,355 +11062,11 @@ body.jsenabled .formlisting
 {
     display: block;
 }
-/* Badges styles */
-table.collection
-{
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-
-    border: 1px solid #c9e6ff;
-}
-table.collection > thead > tr > th,
-table.collection > tbody > tr > th,
-table.collection > tfoot > tr > th,
-table.collection > thead > tr > td,
-table.collection > tbody > tr > td,
-table.collection > tfoot > tr > td
-{
-    line-height: 1.42857143;
-
-    padding: 8px;
-
-    vertical-align: top;
-
-    border-top: 1px solid #c9e6ff;
-}
-table.collection > thead > tr > th
-{
-    vertical-align: bottom;
-
-    border-bottom: 2px solid #c9e6ff;
-}
-table.collection > caption + thead > tr:first-child > th,
-table.collection > colgroup + thead > tr:first-child > th,
-table.collection > thead:first-child > tr:first-child > th,
-table.collection > caption + thead > tr:first-child > td,
-table.collection > colgroup + thead > tr:first-child > td,
-table.collection > thead:first-child > tr:first-child > td
-{
-    border-top: 0;
-}
-table.collection > tbody + tbody
-{
-    border-top: 2px solid #c9e6ff;
-}
-table.collection .table
-{
-    background-color: #fff;
-}
-table.collection > thead > tr > th,
-table.collection > tbody > tr > th,
-table.collection > tfoot > tr > th,
-table.collection > thead > tr > td,
-table.collection > tbody > tr > td,
-table.collection > tfoot > tr > td
-{
-    border: 1px solid #c9e6ff;
-}
-table.collection > thead > tr > th,
-table.collection > thead > tr > td
-{
-    border-bottom-width: 2px;
-}
-table.collection > tbody > tr:nth-of-type(odd)
-{
-    background-color: #e3f2ff;
-}
-table.collection .name
-{
-    text-align: left;
-    vertical-align: middle;
-}
-table.collection .awards
-{
-    width: 10%;
-
-    text-align: center;
-    vertical-align: middle;
-}
-table.collection .criteria
-{
-    width: 40%;
-
-    text-align: left;
-    vertical-align: top;
-}
-table.collection .badgeimage,
-table.collection .status
-{
-    width: 15%;
-
-    text-align: center;
-    vertical-align: middle;
-}
-table.collection .description
-{
-    width: 25%;
-
-    text-align: left;
-}
-table.collection .actions
-{
-    width: 11em;
-
-    text-align: center;
-    vertical-align: middle;
-}
-a.criteria-action
-{
-    float: right;
-
-    padding: 0 3px;
-}
-div.criteria-description
-{
-    margin: 5px 0;
-    padding: 10px 15px;
-
-    border: 1px solid #eee;
-    background: none repeat scroll 0 0 #f9f9f9;
-}
-ul.badges
-{
-    margin: 0;
-
-    list-style: none;
-}
-.badges li
-{
-    position: relative;
-
-    display: inline-block;
-
-    width: 150px;
-    padding-top: 1em;
-
-    text-align: center;
-    vertical-align: top;
-}
-.badges li .badge-name
-{
-    display: block;
-
-    padding: 5px;
-}
-.badges li > img
-{
-    position: absolute;
-}
-.badges li .badge-image
-{
-    z-index: 1;
-    top: 0;
-    left: 10px;
-
-    width: 100px;
-    height: 100px;
-}
-.badges li .badge-actions
-{
-    position: relative;
-}
-.badges li .expireimage
-{
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 25px;
-
-    width: 100px;
-    height: 100px;
-
-    opacity: .85;
-}
-#badge-image
-{
-    position: relative;
-
-    display: inline-block;
-
-    width: 20%;
-    min-width: 100px;
-    margin-top: 17px;
-    padding: 0;
-
-    vertical-align: top;
-
-    background-color: transparent;
-}
-#badge-image .expireimage
-{
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-
-    width: 100px;
-    height: 100px;
-
-    opacity: 85;
-
-    filter: alpha(opacity=8500);
-}
-#badge-image .singlebutton
-{
-    padding-top: 5px;
-}
-#badge-image .singlebutton input
-{
-    margin-left: 0;
-}
-.dir-rtl #badge-image
-{
-    float: right;
-}
-.dir-rtl #badge-image .expireimage
-{
-    left: 41px;
-}
-#badge-details
-{
-    display: inline-block;
-
-    width: 79%;
-}
-#badge-overview dl,
-#badge-details dl
-{
-    margin: 0;
-}
-#badge-overview dl dt,
-#badge-details dl dt,
-#badge-overview dl dd,
-#badge-details dl dd
-{
-    padding: 3px 0;
-
-    vertical-align: top;
-}
-#badge-overview dl dt,
-#badge-details dl dt
-{
-    display: inline-block;
-    clear: both;
-
-    width: 20%;
-    min-width: 100px;
-}
-#badge-overview dl dd,
-#badge-details dl dd
-{
-    display: inline-block;
-
-    width: 79%;
-    margin-left: 1%;
-}
-.badge-profile
-{
-    vertical-align: top;
-}
-.connected
-{
-    color: #3c763d;
-}
-.notconnected
-{
-    color: #a94442;
-}
-.connecting
-{
-    color: #8a6d3b;
-}
-#page-badges-award .recipienttable tr td
-{
-    vertical-align: top;
-}
-#page-badges-award .recipienttable tr td.actions .actionbutton
-{
-    width: 100%;
-    margin: .3em 0;
-    padding: .5em 0;
-}
-#page-badges-award .recipienttable tr td.existing,
-#page-badges-award .recipienttable tr td.potential
-{
-    width: 42%;
-}
-#issued-badge-table .activatebadge
-{
-    display: inline-block;
-}
-.statusbox.active
-{
-    background-color: #dff0d8;
-}
-.statusbox.inactive
-{
-    background-color: #fcf8e3;
-}
-.statusbox
-{
-    margin-bottom: 5px;
-    padding: 5px;
-
-    text-align: center;
-}
-.statusbox .activatebadge
-{
-    display: inline-block;
-}
-.statusbox .activatebadge input[type=submit]
-{
-    margin: 3px;
-}
-.activatebadge
-{
-    margin: 0;
-
-    text-align: left;
-    vertical-align: middle;
-}
-.dir-rtl .activatebadge
-{
-    text-align: right;
-}
-img#persona_signin
-{
-    cursor: pointer;
-}
-.addcourse
-{
-    float: right;
-}
-.invisiblefieldset
-{
-    display: inline;
-
-    margin: 0;
-    padding: 0;
-
-    border-width: 0;
-}
 .breadcrumb-nav
 {
     float: left;
 
     margin-bottom: 10px;
-}
-.dir-rtl .breadcrumb-nav
-{
-    float: right;
 }
 .breadcrumb-button .singlebutton div
 {
@@ -12340,6 +11090,9 @@ img#persona_signin
 }
 .page-context-header .page-header-image
 {
+    float: left;
+
+    margin-right: 1em;
     margin-bottom: 1em;
 }
 .page-context-header .page-header-headings
@@ -12362,32 +11115,16 @@ img#persona_signin
 }
 .page-context-header .header-button-group
 {
+    float: right;
+}
+.page-context-header .header-button-group
+{
     display: block;
 }
 .page-context-header .header-button-group a
 {
     position: relative;
     top: -.4em;
-}
-.dir-ltr .page-context-header .page-header-image
-{
-    float: left;
-
-    margin-right: 1em;
-}
-.dir-ltr .page-context-header .header-button-group
-{
-    float: right;
-}
-.dir-rtl .page-context-header .page-header-image
-{
-    float: right;
-
-    margin-left: 1em;
-}
-.dir-rtl .page-context-header .header-button-group
-{
-    float: left;
 }
 /** Action menu component styles **/
 .moodle-actionmenu,
@@ -12398,18 +11135,12 @@ img#persona_signin
 }
 .moodle-actionmenu ul
 {
+    line-height: 30px;
+
     margin: 0;
     padding: 0;
 
     list-style-type: none;
-}
-.section_action_menu .moodle-actionmenu ul.menubar
-{
-    margin: 0;
-}
-.section_action_menu .moodle-actionmenu ul.menu
-{
-    margin: 0 10px 10px 0;
 }
 .moodle-actionmenu .toggle-display,
 .moodle-actionmenu .menu-action-text
@@ -12434,87 +11165,220 @@ img#persona_signin
 
     filter: alpha(opacity=50);
 }
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu
-{
-    display: block;
-
-    margin-left: 4px;
-    padding-right: 4px;
-    padding-left: 4px;
-}
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall,
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .smallicon
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall
 {
     margin: 4px 4px 4px 0;
     padding: 8px 4px 0 2px;
 
     vertical-align: text-bottom;
 }
-.moodle-actionmenu[data-enhanced] .toggle-display
+.jsenabled .moodle-actionmenu[data-enhanced] .toggle-display
 {
     opacity: 1;
 
     filter: alpha(opacity=100);
 }
-.moodle-actionmenu[data-enhanced] .menu-action-text
+.jsenabled .moodle-actionmenu[data-enhanced] .menu-action-text
 {
     display: inline;
-}
-.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu
-{
-    margin-right: 4px;
-    margin-left: initial;
-}
-.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret
-{
-    margin-right: 2px;
-    margin-left: initial;
+
+    white-space: normal;
 }
 .moodle-actionmenu[data-enhanced].show
 {
     position: relative;
-    /** no wrap is set - prevent menu items from wrapping **/
 }
 .moodle-actionmenu[data-enhanced].show .menu
 {
+    font-size: 14px;
+
     position: absolute;
     z-index: 1000;
+    top: 100%;
+    left: 0;
 
+    display: none;
     display: block;
+    float: left;
+
+    min-width: 160px;
+    margin: 2px 0 0;
+    padding: 5px 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    list-style: none;
 
     text-align: left;
 
+    border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: 5px;
+    border-radius: 4px;
     background-color: #fff;
-    box-shadow: 5px 5px 20px 0 #666;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     /** bottom left of button **/
     /** bottom right of button **/
     /** top left of button **/
     /** top right of button **/
 }
-.moodle-actionmenu[data-enhanced].show .menu a
+.moodle-actionmenu[data-enhanced].show .menu.pull-right
 {
+    right: 0;
+    left: auto;
+}
+.moodle-actionmenu[data-enhanced].show .menu .divider
+{
+    overflow: hidden;
+
+    height: 1px;
+    margin: 9px 0;
+
+    background-color: #e5e5e5;
+}
+.moodle-actionmenu[data-enhanced].show .menu > li > a
+{
+    font-weight: normal;
+    line-height: 1.42857143;
+
+    display: block;
+    clear: both;
+
+    padding: 3px 20px;
+
+    white-space: nowrap;
+
+    color: #1f4d87;
+}
+.moodle-actionmenu[data-enhanced].show .menu .userpicture
+{
+    margin-right: 7px;
+    margin-left: -10px;
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-body
+{
+    line-height: 20px;
+
+    display: inline-block;
+
+    max-width: 175px;
+
+    vertical-align: middle;
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-title
+{
+    line-height: 14px;
+
+    display: inline-block;
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-sender
+{
+    color: #478fca;
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-time
+{
+    font-size: 11px;
+
     display: block;
 
-    padding: 2px 1em 2px 28px;
+    color: #777;
+}
+.moodle-actionmenu[data-enhanced].show .menu [title='new']
+{
+    background-color: #e9f7fb;
+}
+.moodle-actionmenu[data-enhanced].show .menu .glyphicon
+{
+    margin-right: 5px;
+}
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover span:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus span:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:hover i:first-child,
+.moodle-actionmenu[data-enhanced].show .menu > li > a:focus i:first-child
+{
+    margin-right: 3px;
+    margin-left: -2px;
+    padding: 2px;
+}
+.moodle-actionmenu[data-enhanced].show .menu li a:hover,
+.moodle-actionmenu[data-enhanced].show .menu li a:focus,
+.moodle-actionmenu[data-enhanced].show .menu li a:active
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.moodle-actionmenu[data-enhanced].show .menu li a:hover .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu li a:focus .userpicture,
+.moodle-actionmenu[data-enhanced].show .menu li a:active .userpicture
+{
+    width: 31px;
+    height: 31px;
+
+    border: solid 2px rgba(255, 255, 255, .5);
+    border-radius: 4px;
+    background-color: #fff;
+}
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-title,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-body,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-sender,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-sender
+{
+    color: #fff;
+    background: none;
+}
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time
+{
+    color: #fff;
+    background: none;
+}
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time span,
+.moodle-actionmenu[data-enhanced].show .menu li:hover .msg-time i,
+.moodle-actionmenu[data-enhanced].show .menu li:focus .msg-time i,
+.moodle-actionmenu[data-enhanced].show .menu li:active .msg-time i
+{
+    background: none;
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-sender
+{
+    color: [[setting:textcolour]];
+}
+.moodle-actionmenu[data-enhanced].show .menu .msg-time
+{
+    color: [[setting:textcolour]];
+}
+.moodle-actionmenu[data-enhanced].show .menu .icon
+{
+    margin-right: 5px;
+}
+.moodle-actionmenu[data-enhanced].show .menu a
+{
+    line-height: 1.42857143;
+
+    display: block;
+
+    padding: 3px 20px;
+
+    white-space: nowrap;
 
     color: #1f4d87;
 }
-.moodle-actionmenu[data-enhanced].show .menu a:hover
+.moodle-actionmenu[data-enhanced].show .menu a:hover,
+.moodle-actionmenu[data-enhanced].show .menu a:focus
 {
-    color: #1f4d87;
+    text-decoration: none;
+
+    color: #fff;
     background-color: #e3f2ff;
-}
-.moodle-actionmenu[data-enhanced].show .menu a:first-child
-{
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-.moodle-actionmenu[data-enhanced].show .menu a:last-child
-{
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
 }
 .moodle-actionmenu[data-enhanced].show .menu a.hidden
 {
@@ -12527,8 +11391,7 @@ img#persona_signin
 .moodle-actionmenu[data-enhanced].show .menu .iconsmall,
 .moodle-actionmenu[data-enhanced].show .menu .smallicon
 {
-    margin: 4px 4px 4px -24px;
-    padding: 4px;
+    margin: 4px 4px 4px -10px;
 }
 .moodle-actionmenu[data-enhanced].show .menu > li
 {
@@ -12565,6 +11428,7 @@ img#persona_signin
 {
     top: 100%;
     right: 0;
+    left: inherit;
 
     margin-top: 4px;
 }
@@ -12626,116 +11490,7 @@ img#persona_signin
 
     margin-bottom: 4px;
 }
-.moodle-actionmenu[data-enhanced].show.nowrap-items .menu > li
-{
-    white-space: nowrap;
-}
 .block .moodle-actionmenu
-{
-    text-align: right;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu
-{
-    right: auto;
-    left: 0;
-
-    text-align: right;
-    /** bottom left of button **/
-    /** bottom right of button **/
-    /** top left of button **/
-    /** top right of button **/
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu a
-{
-    padding: 2px 28px 2px 1em;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .iconsmall,
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .smallicon
-{
-    margin-right: -24px;
-    margin-left: 4px;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-bl
-{
-    right: 0;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-bl
-{
-    right: auto;
-    left: 100%;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-bl
-{
-    right: 0;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-bl
-{
-    right: auto;
-    left: 100%;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-br
-{
-    right: 100%;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-br
-{
-    right: auto;
-    left: 0;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-br
-{
-    right: 100%;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-br
-{
-    right: auto;
-    left: 0;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-tl
-{
-    right: 0;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-tl
-{
-    right: auto;
-    left: 100%;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-tl
-{
-    right: 0;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-tl
-{
-    right: auto;
-    left: 100%;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tl-tr
-{
-    right: 100%;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-tr-tr
-{
-    right: auto;
-    left: 0;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-bl-tr
-{
-    right: 100%;
-    left: auto;
-}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu.align-br-tr
-{
-    right: auto;
-    left: 0;
-}
-.dir-rtl .block .moodle-actionmenu
 {
     text-align: right;
 }
@@ -12748,145 +11503,7 @@ ul.dragdrop-keyboard-drag li
     width: 12px;
     height: 12px;
 }
-a.disabled:hover,
-a.disabled
-{
-    font-style: italic;
-
-    cursor: default;
-    text-decoration: none;
-
-    color: #808080;
-}
-body.lockscroll
-{
-    overflow: hidden;
-
-    height: 100%;
-}
-.dir-rtl ul
-{
-    margin-right: 25px;
-    margin-left: 0;
-}
-.progressbar_container
-{
-    max-width: 500px;
-    margin: 0 auto;
-}
-/* IE10 only fix for calendar titling */
-.ie10 .yui3-calendar-header-label
-{
-    display: inline-block;
-}
-dd:before,
-dd:after
-{
-    display: block;
-
-    content: ' ';
-}
-dd:after
-{
-    clear: both;
-}
-.nav-tabs > .active > a[href],
-.nav-tabs > .active > a[href]:hover,
-.nav-tabs > .active > a[href]:focus
-{
-    cursor: pointer;
-}
-/* admin.less */
-.formtable tbody th
-{
-    font-weight: normal;
-
-    text-align: right;
-}
-.path-admin #assignrole
-{
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
-}
-.path-admin .admintable .leftalign
-{
-    text-align: left;
-}
-.dir-rtl.path-admin .admintable .leftalign
-{
-    text-align: right;
-}
-.environmenttable p.warn
-{
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-}
-.environmenttable .error,
-.environmenttable span.warn,
-.environmenttable .ok
-{
-    font-size: 75%;
-    font-weight: bold;
-    line-height: 1;
-
-    display: inline;
-
-    padding: .2em .6em .3em;
-
-    text-align: center;
-    text-align: left;
-    vertical-align: baseline;
-    white-space: nowrap;
-
-    color: #fff;
-    border-radius: .25em;
-}
-a.environmenttable .error:hover,
-a.environmenttable span.warn:hover,
-a.environmenttable .ok:hover,
-a.environmenttable .error:focus,
-a.environmenttable span.warn:focus,
-a.environmenttable .ok:focus
-{
-    cursor: pointer;
-    text-decoration: none;
-
-    color: #fff;
-}
-.environmenttable .error:empty,
-.environmenttable span.warn:empty,
-.environmenttable .ok:empty
-{
-    display: none;
-}
-.btn .environmenttable .error,
-.btn .environmenttable span.warn,
-.btn .environmenttable .ok
-{
-    position: relative;
-    top: -1px;
-}
-.environmenttable .error
-{
-    background-color: #f2dede;
-}
-.environmenttable span.warn
-{
-    background-color: #fcf8e3;
-}
-.environmenttable .ok
-{
-    background-color: #dff0d8;
-}
-.path-admin .admintable.environmenttable .name,
-.path-admin .admintable.environmenttable .info,
-.path-admin #assignrole .admintable .role,
-.path-admin #assignrole .admintable .userrole,
-.path-admin #assignrole .admintable .roleholder
-{
-    white-space: nowrap;
-}
+/* admin.less  */
 .path-admin .incompatibleblockstable td.c0
 {
     font-weight: bold;
@@ -12966,11 +11583,13 @@ img.iconsmall
 #page-admin-course-category .buttons,
 #page-admin-index .copyright,
 #page-admin-index .copyrightnotice,
+#page-admin-index .adminerror,
+#page-admin-index .availableupdatesinfo,
 #page-admin-index .adminerror .singlebutton,
 #page-admin-index .adminwarning .singlebutton,
 #page-admin-index #layout-table .singlebutton
 {
-    margin-bottom: 1em;
+    margin-bottom: 1em !important;
 
     text-align: center;
 }
@@ -13031,7 +11650,9 @@ img.iconsmall
 }
 #page-admin-index .releasenoteslink,
 #page-admin-index .adminwarning,
-#page-admin-index .adminerror
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .maturityinfo
 {
     width: 60%;
     min-width: 220px;
@@ -13044,7 +11665,9 @@ img.iconsmall
 }
 #page-admin-index .releasenoteslink h4,
 #page-admin-index .adminwarning h4,
-#page-admin-index .adminerror h4
+#page-admin-index .maturitywarning h4,
+#page-admin-index .testsitewarning h4,
+#page-admin-index .maturityinfo h4
 {
     margin-top: 0;
 
@@ -13052,49 +11675,66 @@ img.iconsmall
 }
 #page-admin-index .releasenoteslink .alert-link,
 #page-admin-index .adminwarning .alert-link,
-#page-admin-index .adminerror .alert-link
+#page-admin-index .maturitywarning .alert-link,
+#page-admin-index .testsitewarning .alert-link,
+#page-admin-index .maturityinfo .alert-link
 {
     font-weight: bold;
 }
 #page-admin-index .releasenoteslink > p,
 #page-admin-index .adminwarning > p,
-#page-admin-index .adminerror > p,
+#page-admin-index .maturitywarning > p,
+#page-admin-index .testsitewarning > p,
+#page-admin-index .maturityinfo > p,
 #page-admin-index .releasenoteslink > ul,
 #page-admin-index .adminwarning > ul,
-#page-admin-index .adminerror > ul
+#page-admin-index .maturitywarning > ul,
+#page-admin-index .testsitewarning > ul,
+#page-admin-index .maturityinfo > ul
 {
     margin-bottom: 0;
 }
 #page-admin-index .releasenoteslink > p + p,
 #page-admin-index .adminwarning > p + p,
-#page-admin-index .adminerror > p + p
+#page-admin-index .maturitywarning > p + p,
+#page-admin-index .testsitewarning > p + p,
+#page-admin-index .maturityinfo > p + p
 {
     margin-top: 5px;
 }
-#page-admin-index .adminerror
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .adminwarning.maturityinfo.maturity50
 {
     color: #a94442;
     border-color: #ebccd1;
     background-color: #f2dede;
 }
-#page-admin-index .adminerror hr
+#page-admin-index .maturitywarning hr,
+#page-admin-index .testsitewarning hr,
+#page-admin-index .adminwarning.maturityinfo.maturity50 hr
 {
     border-top-color: #e4b9c0;
 }
-#page-admin-index .adminerror .alert-link
+#page-admin-index .maturitywarning .alert-link,
+#page-admin-index .testsitewarning .alert-link,
+#page-admin-index .adminwarning.maturityinfo.maturity50 .alert-link
 {
     color: #843534;
 }
+#page-admin-index .adminwarning.availableupdatesinfo,
 #page-admin-index .releasenoteslink
 {
     color: #31708f;
     border-color: #bce8f1;
     background-color: #d9edf7;
 }
+#page-admin-index .adminwarning.availableupdatesinfo hr,
 #page-admin-index .releasenoteslink hr
 {
     border-top-color: #a6e1ec;
 }
+#page-admin-index .adminwarning.availableupdatesinfo .alert-link,
 #page-admin-index .releasenoteslink .alert-link
 {
     color: #245269;
@@ -13103,7 +11743,8 @@ img.iconsmall
 {
     display: block;
 }
-#page-admin-index .updateplugin div
+#page-admin-index .updateplugin div,
+#page-admin-plugins .updateplugin div
 {
     margin-bottom: .5em;
 }
@@ -13138,6 +11779,66 @@ img.iconsmall
 .path-admin .roleassigntable
 {
     width: 100%;
+}
+.path-admin .roleassigntable input[type='text']
+{
+    font-size: 14px;
+    line-height: 1.42857143;
+
+    display: block;
+
+    width: 100%;
+    height: 34px;
+    margin-bottom: .3em;
+    padding: 6px 12px;
+
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    color: #1f4d87;
+    border: 1px solid #1f4d87;
+    border-radius: 4px;
+    background-color: #fff;
+    background-image: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.path-admin .roleassigntable input[type='text']:focus
+{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.path-admin .roleassigntable input[type='text']::-moz-placeholder
+{
+    opacity: 1;
+    color: #2965b0;
+}
+.path-admin .roleassigntable input[type='text']:-ms-input-placeholder
+{
+    color: #2965b0;
+}
+.path-admin .roleassigntable input[type='text']::-webkit-input-placeholder
+{
+    color: #2965b0;
+}
+.path-admin .roleassigntable input[type='text'][disabled],
+.path-admin .roleassigntable input[type='text'][readonly],
+fieldset[disabled] .path-admin .roleassigntable input[type='text']
+{
+    opacity: 1;
+    background-color: #e3f2ff;
+}
+.path-admin .roleassigntable input[type='text'][disabled],
+fieldset[disabled] .path-admin .roleassigntable input[type='text']
+{
+    cursor: not-allowed;
+}
+textarea.path-admin .roleassigntable input[type='text']
+{
+    height: auto;
 }
 .path-admin .roleassigntable td
 {
@@ -13180,10 +11881,6 @@ img.iconsmall
 
     text-align: left;
 }
-.path-admin.dir-rtl table.rolecap tr.rolecap th
-{
-    text-align: right;
-}
 .path-admin .rolecap .hiddenrow
 {
     display: none;
@@ -13221,135 +11918,21 @@ img.iconsmall
 {
     width: 100%;
 }
-.environmentbox
-{
-    margin-top: 1em;
-}
-#mnetconfig table
-{
-    margin-right: auto;
-    margin-left: auto;
-}
-.environmenttable .cell
-{
-    padding: .15em .5em;
-}
-.environmenttable img.iconhelp
-{
-    padding-right: .3em;
-}
-.dir-rtl .environmenttable img.iconhelp
-{
-    padding-right: 0;
-    padding-left: .3em;
-}
-#trustedhosts .generaltable
-{
-    width: 500px;
-    margin-right: auto;
-    margin-left: auto;
-}
 #trustedhosts .standard
 {
     width: auto;
-}
-#adminsettings legend
-{
-    display: none;
 }
 #adminsettings fieldset.error
 {
     margin: .2em 0 .5em 0;
 }
-#adminsettings fieldset.error legend
-{
-    display: block;
-}
-.dir-rtl #admin-spelllanguagelist textarea,
-#page-admin-setting-editorsettingstinymce.dir-rtl .form-textarea textarea
-{
-    text-align: left;
-
-    direction: ltr;
-}
-/* Styles for flags on admin settings */
 .adminsettingsflags
 {
     float: right;
 }
-.dir-rtl .adminsettingsflags
-{
-    float: left;
-}
 .adminsettingsflags label
 {
     margin-right: 7px;
-}
-.dir-rtl .adminsettingsflags label
-{
-    margin-left: 7px;
-}
-.form-description
-{
-    clear: right;
-}
-.dir-rtl .form-description
-{
-    clear: left;
-}
-.form-item .form-setting .form-htmlarea
-{
-    display: inline;
-
-    width: 640px;
-}
-.form-item .form-setting .form-htmlarea .htmlarea
-{
-    display: block;
-
-    width: 640px;
-}
-.form-item .form-setting .form-multicheckbox ul
-{
-    margin: 7px 0 0 0;
-    padding: 0;
-
-    list-style: none;
-}
-.form-item .form-setting .defaultsnext
-{
-    display: inline;
-
-    margin-right: .5em;
-}
-.dir-rtl .form-item .form-setting .defaultsnext
-{
-    margin-right: 0;
-    margin-left: .5em;
-}
-.form-item .form-setting .locked-checkbox
-{
-    display: inline;
-
-    margin-right: .2em;
-    margin-left: .5em;
-}
-.dir-rtl .form-item .form-setting .locked-checkbox
-{
-    display: inline;
-
-    margin-right: .5em;
-    margin-left: .2em;
-}
-.form-item .form-setting .form-password .unmask,
-.form-item .form-setting .form-defaultinfo
-{
-    display: inline-block;
-}
-.form-item .pathok,
-.form-item .patherror
-{
-    margin-left: .5em;
 }
 #admin-emoticons td input
 {
@@ -13359,15 +11942,9 @@ img.iconsmall
 {
     width: 4em;
 }
-#adminthemeselector .selectedtheme td.c0
+#adminthemeselector .selectedtheme > td
 {
-    border: 1px solid #000;
-    border-right-width: 0;
-}
-#adminthemeselector .selectedtheme td.c1
-{
-    border: 1px solid #000;
-    border-left-width: 0;
+    background: #d9edf7;
 }
 .admin_colourpicker,
 .admin_colourpicker_preview
@@ -13411,23 +11988,33 @@ img.iconsmall
     border: 1px solid #000;
     border-top-width: 0;
 }
-/** Overide for RTL layout **/
-.dir-rtl .form-item .form-setting,
-.dir-rtl .form-item .form-label,
-.dir-rtl .form-item .form-description,
-.dir-rtl.path-admin .roleassigntable p
-{
-    text-align: right;
-}
-#page-admin-index #notice .checkforupdates
+#page-admin-index .alert .singlebutton
 {
     text-align: center;
+}
+#plugins-check-info
+{
+    margin: 1em;
+
+    text-align: center;
+}
+#plugins-check .displayname .pluginicon
+{
+    width: 16px;
+}
+.pluginicon.noicon
+{
+    display: none;
 }
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity200 .info.release
 {
     background-color: #d9edf7;
 }
-#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity100 .info.release,
+#plugins-control-panel .extension .source,
+#plugins-check .extension .source
+{
+    font-weight: bold;
+}
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity150 .info.release
 {
     background-color: #fcf8e3;
@@ -13664,39 +12251,16 @@ img.iconsmall
 {
     margin: 0;
 }
-.uninstalldeleteconfirmexternal
-{
-    margin: 5px 0 10px 0;
-    padding: .5em 1em;
-
-    background-color: #fcf8e3;
-}
-#page-admin-index .upgradepluginsinfo
-{
-    text-align: center;
-}
-#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo .separator:after
-{
-    content: ' | ';
-}
-.dir-rtl #plugins-check .pluginupdateinfo
-{
-    text-align: center;
-
-    direction: ltr;
-}
-.dir-rtl #plugins-check .requires-ok
-{
-    text-align: left;
-
-    direction: ltr;
-}
 /** MNet networking */
 #page-admin-mnet-peers .box.deletedhosts
 {
     font-size: 12px;
 
     margin-bottom: 1em;
+}
+#page-admin-mnet-peers .mform .certdetails
+{
+    background-color: white;
 }
 #page-admin-mnet-peers .mform .deletedhostinfo
 {
@@ -13706,27 +12270,10 @@ img.iconsmall
     border: 2px solid #ebccd1;
     background-color: #f2dede;
 }
-#core-cache-plugin-summaries table,
-#core-cache-store-summaries table
-{
-    width: 100%;
-}
-#core-cache-lock-summary table,
-#core-cache-definition-summaries table,
-#core-cache-mode-mappings table
-{
-    margin: 0 auto;
-}
-#core-cache-store-summaries .default-store td
-{
-    font-style: italic;
-}
 #core-cache-rescan-definitions,
 #core-cache-mode-mappings .edit-link,
 #core-cache-lock-summary .new-instance
 {
-    margin-top: .5em;
-
     text-align: center;
 }
 .tinymcesubplugins img.icon
@@ -13734,37 +12281,43 @@ img.iconsmall
     padding-top: 0;
     padding-bottom: 0;
 }
-.maintenancewarning
+#page-admin-roles-assign div.box.generalbox
 {
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
-
-    overflow: hidden;
-
-    padding: 3px 1em;
-
-    text-align: center;
-}
-.maintenancewarning.error
-{
-    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 15px;
 
     color: #a94442;
-    border: 2px solid #ebccd1;
+    border: 1px solid transparent;
+    border-color: #ebccd1;
+    border-radius: 4px;
     background-color: #f2dede;
 }
-.maintenancewarning.warning
+#page-admin-roles-assign div.box.generalbox h4
 {
-    color: #8a6d3b;
-    border: 2px solid #faebcc;
-    background-color: #fcf8e3;
+    margin-top: 0;
+
+    color: inherit;
 }
-#adminsettings .form-overridden
+#page-admin-roles-assign div.box.generalbox .alert-link
 {
-    color: #31708f;
-    background-color: #d9edf7;
+    font-weight: bold;
+}
+#page-admin-roles-assign div.box.generalbox > p,
+#page-admin-roles-assign div.box.generalbox > ul
+{
+    margin-bottom: 0;
+}
+#page-admin-roles-assign div.box.generalbox > p + p
+{
+    margin-top: 5px;
+}
+#page-admin-roles-assign div.box.generalbox hr
+{
+    border-top-color: #e4b9c0;
+}
+#page-admin-roles-assign div.box.generalbox .alert-link
+{
+    color: #843534;
 }
 /* calendar.less */
 .calendar_event_course
@@ -14227,6 +12780,14 @@ img.iconsmall
 {
     display: inline;
 }
+.section .side.left
+{
+    float: left;
+}
+.section .side.right
+{
+    float: right;
+}
 .section .spinner
 {
     width: 16px;
@@ -14485,8 +13046,13 @@ img.iconsmall
 {
     display: none;
 }
-.course-content ul li.section.hidden
+.course-content ul li.section.hidden .sectionname > span,
+.course-content ul li.section.hidden .content > div,
+.course-content ul li.section.hidden .activity .activityinstance
 {
+    margin-right: 10px;
+    margin-left: 10px;
+
     opacity: .5;
 
     filter: alpha(opacity=50);
@@ -14608,7 +13174,7 @@ span.editinstructions
 #dndupload-status
 {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     top: 52px;
     left: 50%;
 
@@ -14978,7 +13544,8 @@ span.editinstructions
 
     vertical-align: text-bottom;
 }
-.section .moodle-actionmenu .iconsmall
+.section .moodle-actionmenu .iconsmall,
+.section .moodle-actionmenu .smallicon
 {
     /** reset sets 100% !important which breaks on IE8 without this !important */
     width: 21px;
@@ -19095,30 +17662,6 @@ body.path-question-type .mform fieldset.hidden
 
     list-style: none;
 }
-.groupmanagementtable
-{
-    margin-right: -15px;
-    margin-left: -15px;
-}
-.groupmanagementtable .groups,
-.groupmanagementtable .members
-{
-    position: relative;
-
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-@media (min-width: 768px)
-{
-    .groupmanagementtable .groups,
-    .groupmanagementtable .members
-    {
-        float: left;
-
-        width: 50%;
-    }
-}
 .usermenu
 {
     float: right;
@@ -19160,6 +17703,7 @@ body.path-question-type .mform fieldset.hidden
     display: inline-block;
 
     width: 100%;
+    padding: 0 15px;
 }
 .userprofile .header-button-group
 {
@@ -19275,6 +17819,19 @@ fieldset[disabled] .userprofile .header-button-group .btn.active
 {
     margin-left: 0;
 }
+@media (max-width: 480px)
+{
+    .userprofile .profile_tree
+    {
+        /** Display the profile on one column on phones. */
+        -webkit-column-count: 1;
+           -moz-column-count: 1;
+                column-count: 1;
+        -webkit-column-gap: 30px;
+           -moz-column-gap: 30px;
+                column-gap: 30px;
+    }
+}
 #page-user-profile .node_category li,
 .path-user .node_category li
 {
@@ -19290,32 +17847,6 @@ fieldset[disabled] .userprofile .header-button-group .btn.active
     display: block;
 
     margin-bottom: 10px;
-}
-.page-context-header
-{
-    overflow: hidden;
-}
-.page-context-header:after
-{
-    clear: both;
-}
-.page-context-header .page-header-image
-{
-    display: table-cell;
-
-    padding-right: 10px;
-
-    vertical-align: top;
-}
-.page-context-header .page-header-headings
-{
-    display: table-cell;
-
-    vertical-align: bottom;
-}
-.page-context-header .page-header-headings h1
-{
-    margin: 0;
 }
 .core_message-messenger-sendmessage-content .message-send
 {
@@ -19679,85 +18210,48 @@ ul#tag-cloud-list li
 
     text-align: left;
 }
+tr.flagged-tag,
 span.flagged-tag,
+tr.flagged-tag a,
 span.flagged-tag a
 {
     color: #a94442;
 }
-.tag-management-form
+.tag-management-table td,
+.tag-management-table th
 {
-    text-align: center;
+    padding: 4px;
+
+    vertical-align: middle;
 }
-table#tag-management-list
+.tag-management-table tr td.tageditingon .displaytagname,
+.tag-management-table td .edittagname
 {
-    text-align: left;
+    display: none;
 }
-#relatedtags-autocomplete-container
-{
-    width: 100%;
-    min-height: 4.6em;
-    margin-right: auto;
-    margin-left: auto;
-}
-#relatedtags-autocomplete
+.tag-management-table tr td.tageditingon .edittagname
 {
     position: relative;
 
-    display: block;
-
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
+    display: inherit;
 }
-#relatedtags-autocomplete .yui-ac-content
+.tag-management-table tr td.tageditingon .edittagname .editinstructions
 {
-    position: absolute;
-    z-index: 9050;
-    left: 20%;
-
-    overflow: hidden;
-
-    width: 420px;
-
-    border: 1px solid #404040;
-    background: #fff;
+    margin-right: -300px;
+    margin-left: 0;
 }
-#relatedtags-autocomplete .ysearchquery
+.tag-management-table tr td .tagnameedit img
 {
-    position: absolute;
-    z-index: 10;
-    right: 10px;
-
-    color: #808080;
+    opacity: .2;
 }
-#relatedtags-autocomplete .yui-ac-shadow
+.tag-management-table tr:hover td .tagnameedit img,
+.tag-management-table tr td .tagnameedit:focus img
 {
-    position: absolute;
-    z-index: 9049;
-
-    width: 100%;
-    margin: .3em;
-
-    background: #a0a0a0;
+    opacity: 1;
 }
-#relatedtags-autocomplete ul
+.tag-management-table tr:hover td.tageditingon .tagnameedit img
 {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    list-style-type: none;
-}
-#relatedtags-autocomplete li
-{
-    padding: 0 5px;
-
-    cursor: default;
-    white-space: nowrap;
-}
-#relatedtags-autocomplete li.yui-ac-highlight
-{
-    background: #ffc;
+    opacity: .2;
 }
 h2.tag-heading,
 div#tag-description,
@@ -20636,12 +19130,6 @@ textarea.searchform input[type='text']
 {
     padding-left: 0;
 }
-/**
- * Moodle forms HTML isn't changeable via renderers (yet?) so this
- * .less file imports styles from the bootstrap @variables file and
- * adds them to the existing Moodle form CSS ids and classes.
- *
- */
 .mform .fitem .fitemtitle
 {
     position: relative;
@@ -21334,6 +19822,10 @@ input[type='checkbox']
 #fitem_id_availabilityconditionsjson
 {
     /* Eye icon in front of an item and delete icon after it. */
+    /*.availability-eye,
+    .availability-delete {
+        margin-right: 8px;
+    }*/
     /* Hidden eye icon still takes up space. */
     /* Eye icons in front of child lists are aligned specially. */
     /* Add button lines up with child elements. */
@@ -21348,8 +19840,13 @@ input[type='checkbox']
 #fitem_id_availabilityconditionsjson select,
 #fitem_id_availabilityconditionsjson input[type=text]
 {
-    position: relative;
-    top: 4px;
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: auto;
+    height: 30px;
+    padding: 4px 6px;
 }
 #fitem_id_availabilityconditionsjson label
 {
@@ -21357,12 +19854,11 @@ input[type='checkbox']
 }
 #fitem_id_availabilityconditionsjson .availability-group
 {
-    margin-right: 8px;
+    margin: 5px;
 }
 #fitem_id_availabilityconditionsjson .availability-item
 {
-    margin-bottom: 4px;
-    margin-left: 20px;
+    margin-bottom: 6px;
 }
 #fitem_id_availabilityconditionsjson .availability-header
 {
@@ -21372,17 +19868,12 @@ input[type='checkbox']
 {
     display: inline-block;
 
-    margin-right: 8px;
-    padding: 2px 0 0 4px;
+    margin: 0 8px;
+    padding: 5px;
 
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     background: none repeat scroll 0 0 #f5f5f5;
-}
-#fitem_id_availabilityconditionsjson .availability-eye,
-#fitem_id_availabilityconditionsjson .availability-delete
-{
-    margin-right: 8px;
 }
 #fitem_id_availabilityconditionsjson .availability-eye[aria-hidden=true]
 {
@@ -21418,45 +19909,6 @@ input[type='checkbox']
 {
     margin-bottom: 6px;
     margin-left: 20px;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-group
-{
-    margin-right: 0;
-    margin-left: 8px;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-none
-{
-    margin-right: 20px;
-    margin-left: 0;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-plugincontrols
-{
-    margin-right: 0;
-    margin-left: 8px;
-    padding-right: 4px;
-    padding-left: 0;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-eye,
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-delete
-{
-    margin-right: 0;
-    margin-left: 8px;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-button
-{
-    margin-right: 15px;
-    margin-left: 0;
-}
-.dir-rtl #fitem_id_availabilityconditionsjson .availability-connector
-{
-    margin-right: 20px;
-    margin-left: 0;
-}
-/* Default form styling colours all text red. With availability conditions
-   this looks excessive as we show 'Invalid' markers in specific places. */
-.mform .error .availability-field
-{
-    color: #1f4d87;
 }
 /* This dialogue is used to add an availability condition. */
 .availability-dialogue .moodle-dialogue .moodle-dialogue-bd
@@ -21502,18 +19954,6 @@ input[type='checkbox']
 {
     margin-top: 4px;
     margin-right: 1em;
-    margin-left: 1em;
-}
-.dir-rtl .availability-dialogue ul button
-{
-    float: right;
-
-    margin-right: 1em;
-    margin-left: 0;
-}
-.dir-rtl .availability-dialogue label
-{
-    margin-right: 170px;
     margin-left: 1em;
 }
 /* Custom styles for autocomplete form element */
@@ -21573,11 +20013,6 @@ input[type='checkbox']
     cursor: pointer;
 
     color: #1f4d87;
-}
-.dir-rtl .form-autocomplete-downarrow
-{
-    right: -1.5em;
-    left: inherit;
 }
 .form-autocomplete-selection:focus
 {
@@ -21847,6 +20282,12 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     float: right;
 
     margin-top: 4px;
+}
+.breadcrumb-button .singlebutton
+{
+    float: left;
+
+    margin-left: 4px;
 }
 .navbar-inverse .logininfo a
 {
@@ -24081,6 +22522,216 @@ input.fp-btn-choose
         margin-right: 5px;
     }
 }
+.row-fluid
+{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.row-fluid .span1
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span1
+    {
+        float: left;
+
+        width: 8.33333333%;
+    }
+}
+.row-fluid .span2
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span2
+    {
+        float: left;
+
+        width: 16.66666667%;
+    }
+}
+.row-fluid .span3
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span3
+    {
+        float: left;
+
+        width: 25%;
+    }
+}
+.row-fluid .span4
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span4
+    {
+        float: left;
+
+        width: 33.33333333%;
+    }
+}
+.row-fluid .span5
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span5
+    {
+        float: left;
+
+        width: 41.66666667%;
+    }
+}
+.row-fluid .span6
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span6
+    {
+        float: left;
+
+        width: 50%;
+    }
+}
+.row-fluid .span7
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span7
+    {
+        float: left;
+
+        width: 58.33333333%;
+    }
+}
+.row-fluid .span8
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span8
+    {
+        float: left;
+
+        width: 66.66666667%;
+    }
+}
+.row-fluid .span9
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span9
+    {
+        float: left;
+
+        width: 75%;
+    }
+}
+.row-fluid .span10
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span10
+    {
+        float: left;
+
+        width: 83.33333333%;
+    }
+}
+.row-fluid .span11
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span11
+    {
+        float: left;
+
+        width: 91.66666667%;
+    }
+}
+.row-fluid .span12
+{
+    position: relative;
+
+    min-height: 1px;
+    padding: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .row-fluid .span12
+    {
+        float: left;
+
+        width: 100%;
+    }
+}
 @media (max-width: 768px)
 {
     #filesskin .yui3-panel,
@@ -24199,6 +22850,7 @@ body.has_dock div#dock
 #dock
 {
     position: fixed;
+    z-index: 12000;
     top: 0;
     left: 0;
 
@@ -26993,6 +25645,14 @@ ul.weeks
     .block
     {
         margin-bottom: 10px;
+    }
+}
+@media (max-width: 768px)
+{
+    .navbar-collapse.collapse,
+    .navbar-collapse.collapsing
+    {
+        margin-top: 0;
     }
 }
 .dropdown-menu li a:hover,

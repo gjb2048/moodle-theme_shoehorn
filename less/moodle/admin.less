@@ -1,52 +1,4 @@
-/* admin.less */
-.formtable tbody th {
-    font-weight: normal;
-    text-align: right;
-}
-
-.path-admin #assignrole {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.path-admin .admintable .leftalign {
-    text-align: left;
-}
-
-.dir-rtl.path-admin .admintable .leftalign {
-    text-align: right;
-}
-
-.environmenttable {
-    p.warn {
-        background-color : @state-warning-bg;
-        color: @state-warning-text;
-    }
-    .error,
-    span.warn,
-    .ok {
-        .label;
-    }
-    .error {
-        background-color : @state-danger-bg;
-    }
-    span.warn {
-        background-color : @state-warning-bg;
-    }
-    .ok {
-        background-color: @state-success-bg;
-    }
-}
-
-.path-admin .admintable.environmenttable .name,
-.path-admin .admintable.environmenttable .info,
-.path-admin #assignrole .admintable .role,
-.path-admin #assignrole .admintable .userrole,
-.path-admin #assignrole .admintable .roleholder {
-    white-space: nowrap;
-}
-
+/* admin.less  */
 .path-admin .incompatibleblockstable td.c0 {
     font-weight: bold;
 }
@@ -68,6 +20,8 @@
 .timewarninghidden {
     display: none;
 }
+
+// These status classes are only used on /report/security/ page
 .statusok,
 .statuswarning,
 .statusserious,
@@ -144,11 +98,13 @@ img.iconsmall {
 #page-admin-course-category .buttons,
 #page-admin-index .copyright,
 #page-admin-index .copyrightnotice,
+#page-admin-index .adminerror,
+#page-admin-index .availableupdatesinfo,
 #page-admin-index .adminerror .singlebutton,
 #page-admin-index .adminwarning .singlebutton,
 #page-admin-index #layout-table .singlebutton {
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 1em !important;
 }
 
 .path-admin-roles .capabilitysearchui {
@@ -207,16 +163,21 @@ img.iconsmall {
 
 #page-admin-index .releasenoteslink,
 #page-admin-index .adminwarning,
-#page-admin-index .adminerror {
-    margin: auto;
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .maturityinfo {
     .alert;
     width: 60%;
     min-width: 220px;
+    margin: auto;
 }
-#page-admin-index .adminerror {
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .adminwarning.maturityinfo.maturity50 {
     .alert-danger;
 }
 
+#page-admin-index .adminwarning.availableupdatesinfo,
 #page-admin-index .releasenoteslink {
     .alert-info;
 }
@@ -225,7 +186,9 @@ img.iconsmall {
     display: block;
 }
 
-#page-admin-index .updateplugin div {
+
+#page-admin-index .updateplugin div,
+#page-admin-plugins .updateplugin div {
     margin-bottom: 0.5em;
 }
 
@@ -257,6 +220,10 @@ img.iconsmall {
 // This is the CSS for the role assignment control.
 .path-admin .roleassigntable {
     width: 100%;
+    input[type="text"] {
+    	.form-control;
+    	margin-bottom: 0.3em;
+    }
 }
 
 .path-admin .roleassigntable td {
@@ -298,10 +265,6 @@ img.iconsmall {
     font-weight: normal;
 }
 
-.path-admin.dir-rtl table.rolecap tr.rolecap th {
-    text-align: right;
-}
-
 .path-admin .rolecap .hiddenrow {
     display: none;
 }
@@ -338,129 +301,20 @@ img.iconsmall {
     width: 100%;
 }
 
-.environmentbox {
-    margin-top: 1em;
-}
-
-#mnetconfig table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.environmenttable .cell {
-    padding: .15em .5em;
-}
-
-.environmenttable img.iconhelp {
-    padding-right: .3em;
-}
-
-.dir-rtl .environmenttable img.iconhelp {
-    padding-left: .3em;
-    padding-right: 0
-}
-
-#trustedhosts .generaltable {
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-}
-
 #trustedhosts .standard {
     width: auto;
-}
-
-// This usage of legend is a bit weird,
-// seems to be using them as error text
-// that's only sometimes visible. Should
-// look into sorting it.
-#adminsettings legend {
-    display: none;
 }
 
 #adminsettings fieldset.error {
     margin: .2em 0 .5em 0;
 }
 
-#adminsettings fieldset.error legend {
-    display: block;
-}
-
-.dir-rtl #admin-spelllanguagelist textarea,
-#page-admin-setting-editorsettingstinymce.dir-rtl .form-textarea textarea {
-    text-align: left;
-    direction: ltr;
-}
-
-/* Styles for flags on admin settings */
 .adminsettingsflags {
     float: right;
 }
 
-.dir-rtl .adminsettingsflags {
-    float: left;
-}
-
 .adminsettingsflags label {
     margin-right: 7px;
-}
-
-.dir-rtl .adminsettingsflags label {
-    margin-left: 7px;
-}
-
-.form-description {
-    clear: right;
-}
-
-.dir-rtl .form-description {
-    clear: left;
-}
-
-.form-item .form-setting .form-htmlarea {
-    width: 640px;
-    display: inline;
-}
-
-.form-item .form-setting .form-htmlarea .htmlarea {
-    width: 640px;
-    display: block;
-}
-
-.form-item .form-setting .form-multicheckbox ul {
-    list-style: none;
-    padding: 0;
-    margin: 7px 0 0 0;
-}
-
-.form-item .form-setting .defaultsnext {
-    margin-right: 0.5em;
-    display: inline;
-}
-.dir-rtl .form-item .form-setting .defaultsnext {
-    margin-left: 0.5em;
-    margin-right: 0;
-}
-.form-item .form-setting .locked-checkbox {
-    margin-right: 0.2em;
-    margin-left: 0.5em;
-    display: inline;
-}
-
-.dir-rtl .form-item .form-setting .locked-checkbox {
-    margin-right: 0.5em;
-    margin-left: 0.2em;
-    display: inline;
-}
-
-.form-item .form-setting .form-password .unmask,
-.form-item .form-setting .form-defaultinfo {
-    display: inline-block;
-}
-
-.form-item .pathok,
-.form-item .patherror {
-    margin-left: 0.5em;
 }
 
 #admin-emoticons td input {
@@ -471,14 +325,8 @@ img.iconsmall {
     width: 4em;
 }
 
-#adminthemeselector .selectedtheme td.c0 {
-    border: 1px solid @black;
-    border-right-width: 0;
-}
-
-#adminthemeselector .selectedtheme td.c1 {
-    border: 1px solid @black;
-    border-left-width: 0;
+#adminthemeselector .selectedtheme > td {
+    background: @state-info-bg;
 }
 
 .admin_colourpicker,
@@ -518,23 +366,33 @@ img.iconsmall {
     border-top-width: 0;
 }
 
-/** Overide for RTL layout **/
-.dir-rtl .form-item  .form-setting,
-.dir-rtl .form-item  .form-label,
-.dir-rtl .form-item .form-description,
-.dir-rtl.path-admin .roleassigntable p {
-    text-align: right
+// Plugins check.
+#page-admin-index .alert .singlebutton {
+    text-align: center;
 }
 
-#page-admin-index #notice .checkforupdates {
+#plugins-check-info {
     text-align: center;
+    margin: 1em;
+}
+
+#plugins-check .displayname .pluginicon {
+    width: 16px;
+}
+
+.pluginicon.noicon {
+    display: none;
 }
 
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity200 .info.release {
     background-color: @state-info-bg;
 }
 
-#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity100 .info.release,
+#plugins-control-panel .extension .source,
+#plugins-check .extension .source {
+    font-weight: bold;
+}
+
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo.maturity150 .info.release {
     background-color: @state-warning-bg;
 }
@@ -615,7 +473,6 @@ img.iconsmall {
         }
     }
 }
-
 
 // Plugins check page displayed during upgrade.
 #plugins-check-page {
@@ -729,13 +586,15 @@ img.iconsmall {
 
 // Available plugin update notification.
 
-#plugins-check-page, #plugins-control-panel {
+#plugins-check-page,
+#plugins-control-panel {
     .pluginupdateinfo {
         background-color: @state-info-bg;
         &.maturity50 {
             background-color: @state-danger-bg;
         }
-        &.maturity100, &.maturity150 {
+        &.maturity100, 
+        &.maturity150 {
             background-color: @state-warning-bg;
         }
         padding: 5px;
@@ -770,36 +629,15 @@ img.iconsmall {
     }
 }
 
-.uninstalldeleteconfirmexternal {
-    background-color: @state-warning-bg;
-    padding: 0.5em 1em;
-    margin: 5px 0 10px 0;
-}
-
-#page-admin-index .upgradepluginsinfo {
-    text-align: center;
-}
-
-#page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo .separator:after {
-    content: " | ";
-}
-
-.dir-rtl {
-    #plugins-check .pluginupdateinfo {
-        text-align: center;
-        direction: ltr;
-    }
-
-    #plugins-check .requires-ok {
-        text-align: left;
-        direction: ltr;
-    }
-}
 
 /** MNet networking */
 #page-admin-mnet-peers .box.deletedhosts {
     margin-bottom: 1em;
     font-size: @font-size-small;
+}
+
+#page-admin-mnet-peers .mform .certdetails {
+    background-color: white;
 }
 
 #page-admin-mnet-peers .mform .deletedhostinfo {
@@ -809,25 +647,9 @@ img.iconsmall {
     margin-bottom: 5px;
 }
 
-#core-cache-plugin-summaries table,
-#core-cache-store-summaries table {
-    width: 100%;
-}
-
-#core-cache-lock-summary table,
-#core-cache-definition-summaries table,
-#core-cache-mode-mappings table {
-    margin: 0 auto;
-}
-
-#core-cache-store-summaries .default-store td {
-    font-style: italic;
-}
-
 #core-cache-rescan-definitions,
 #core-cache-mode-mappings .edit-link,
 #core-cache-lock-summary .new-instance {
-    margin-top: 0.5em;
     text-align: center;
 }
 
@@ -836,28 +658,9 @@ img.iconsmall {
     padding-bottom: 0;
 }
 
-.maintenancewarning {
-    padding: 3px 1em;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    z-index: 1;
-    &.error {
-        color: @state-danger-text;
-        background-color: @state-danger-bg;
-        border: 2px solid @state-danger-border;
-        font-weight: bold;
-    }
-    &.warning {
-        color: @state-warning-text;
-        background-color: @state-warning-bg;
-        border: 2px solid @state-warning-border;
-    }
-}
-
-#adminsettings .form-overridden {
-    color: @state-info-text;
-    background-color: @state-info-bg;
+// Hacks for badly marked up admin warnings.
+// MDL-44323
+#page-admin-roles-assign div.box.generalbox {
+    .alert;
+    .alert-danger;
 }
