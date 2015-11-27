@@ -1,9 +1,10 @@
 Version information
 ===================
 Version 2.9.1.6
-  1. Fix typo in toolbox::grid().
-  2. Refactored commit ce9a231112fc0c98726419f69031bef088eab3e4 from M3.0 of 24/11/15.
-  3. Refactored commit a6ad6e91b3062feb2a067250268a8b1ccdddfb28 from M3.0 of 26/11/15.
+  1. Update to FontAwesome 4.5.
+  2. Fix typo in toolbox::grid().
+  3. Refactored commit ce9a231112fc0c98726419f69031bef088eab3e4 from M3.0 of 24/11/15.
+  4. Refactored commit a6ad6e91b3062feb2a067250268a8b1ccdddfb28 from M3.0 of 26/11/15.
 
 Version 2.9.1.5
   1. MDL-51921.
