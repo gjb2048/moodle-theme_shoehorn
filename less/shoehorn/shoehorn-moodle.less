@@ -224,11 +224,18 @@ ul {
     }
 }
 
-.section .moodle-actionmenu .iconsmall {
-    width: 16px;
-    height: 16px;
-    padding: 0px;
-    margin-bottom: 7px;
+.section .moodle-actionmenu {
+    .iconsmall, .smallicon {
+        width: 16px;
+        height: 16px;
+        padding: 0px;
+        margin-bottom: 7px;
+    }
+    &[data-enhanced] .menu .img {
+        .iconsmall, .smallicon {
+        }        
+        padding: 4px;
+    }
 }
 
 #page-course-index-category {
@@ -249,8 +256,8 @@ ul {
             width: 40%;
         }
         .summary.noteachers { // Class 'noteachers' is an Shoehorn special in the overridded course_renderer.php.
-            width: 100%;
-            float: none;
+                              width: 100%;
+                              float: none;
         }
         .teachers, .summary.noteachers {
             margin-left: 0px;
@@ -499,16 +506,16 @@ ul {
     }
     // submit buttons
     fieldset.hidden .fitem_actionbuttons {
-            .form-group;
-            .form-horizontal .form-group;
-            > div.felement {
-                .make-sm-column(9);
-                .make-sm-column-offset(3);
-                .make-md-column(10);
-                .make-md-column-offset(2);
-                .make-lg-column(11);
-                .make-lg-column-offset(1);
-            }
+        .form-group;
+        .form-horizontal .form-group;
+        > div.felement {
+            .make-sm-column(9);
+            .make-sm-column-offset(3);
+            .make-md-column(10);
+            .make-md-column-offset(2);
+            .make-lg-column(11);
+            .make-lg-column-offset(1);
+        }
     }
     .fcontainer,
     fieldset {
@@ -541,7 +548,7 @@ ul {
 
 .path-admin .buttons,
 .form-buttons {
-// Counteract 'float' caused by .make-md-column(8);.
+    // Counteract 'float' caused by .make-md-column(8);.
     float: none;
 }
 
@@ -747,8 +754,8 @@ ul {
 
     li {
         &:hover .msg-title, &:focus .msg-title, &:active .msg-title,
-        &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
-        &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
+            &:hover .msg-body, &:focus .msg-body, &:active .msg-body,
+            &:hover .msg-sender, &:focus .msg-sender, &:active .msg-sender {
             background: none;
             color: #fff;
         }
@@ -776,57 +783,57 @@ ul {
 // question.less.
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
-    background-color: ~"[[setting:pagebottombackground]]";
-    border: 1px solid ~"[[setting:pagetopbackground]]";
-    border-radius: @btn-border-radius-base;
-    &.thispage {
-        border-color: ~"[[setting:pagetopbackground]]";
-        .thispageholder {
-            border-color: ~"[[setting:pagetopbackground]]";
-        }
-    }
-    &:hover {
-        border-radius: (@btn-border-radius-base / 2);
-        color: ~"[[setting:textcolour10light]]";
-    }
-    &.free:hover {
-        text-decoration: none;
-    }
+                           background-color: ~"[[setting:pagebottombackground]]";
+                           border: 1px solid ~"[[setting:pagetopbackground]]";
+                           border-radius: @btn-border-radius-base;
+                           &.thispage {
+                               border-color: ~"[[setting:pagetopbackground]]";
+                               .thispageholder {
+                                   border-color: ~"[[setting:pagetopbackground]]";
+                               }
+                           }
+                           &:hover {
+                               border-radius: (@btn-border-radius-base / 2);
+                               color: ~"[[setting:textcolour10light]]";
+                           }
+                           &.free:hover {
+                               text-decoration: none;
+                           }
 }
 
 #page-mod-quiz-edit div.quizpage {
-  .pagecontent {
-    border: 1px solid ~"[[setting:pagebottombackground]]";
-    border-radius: @border-radius-base;
-  }
-  span.pagetitle {
-    min-width: 4em;
-  }
+    .pagecontent {
+        border: 1px solid ~"[[setting:pagebottombackground]]";
+        border-radius: @border-radius-base;
+    }
+    span.pagetitle {
+        min-width: 4em;
+    }
 }
 
 #page-mod-quiz-edit div.question div.content {
-  div.points {
-    padding-bottom: 0;
-    margin-top: 0;
-    top: 0;
-    display: inline-table;
-  }
-  div.questioncontrols {
-    background-color: transparent;
-    width: 70px;
-    padding: 0;
-  }
-  div.qorder {
-    right: 74px;
-    background-color: transparent;
-    input[type="text"] {
-      height: 20px;
-      font-size: 12px;
+    div.points {
+        padding-bottom: 0;
+        margin-top: 0;
+        top: 0;
+        display: inline-table;
     }
-  }
-  .questionpreview a {
-    background-color: transparent;
-  }
+    div.questioncontrols {
+        background-color: transparent;
+        width: 70px;
+        padding: 0;
+    }
+    div.qorder {
+        right: 74px;
+        background-color: transparent;
+        input[type="text"] {
+            height: 20px;
+            font-size: 12px;
+        }
+    }
+    .questionpreview a {
+        background-color: transparent;
+    }
 }
 
 
@@ -854,16 +861,16 @@ ul {
 }
 
 #page-mod-quiz-edit div.reorder div.question {
-  div.content {
-    width: 90%;
-  }
-  div.qnum {
-    width: 4em;
-  }
+    div.content {
+        width: 90%;
+    }
+    div.qnum {
+        width: 4em;
+    }
 }
 
 #page-mod-quiz-edit .reorder .questioncontentcontainer label {
-  display: inline;
+    display: inline;
 }
 
 // tags.less.
@@ -1025,11 +1032,8 @@ body.dir-rtl div.editor_atto_toolbar button + button {
 
 .helptooltip {
     margin-left: 4px;
+    body.dir-rtl & {
+        margin-left: auto;
+        margin-right: 4px;
+    }
 }
-
-body.dir-rtl .helptooltip {
-    margin-left: auto;
-    margin-right: 4px;
-}
-
-

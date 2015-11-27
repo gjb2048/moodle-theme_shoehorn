@@ -70,11 +70,11 @@ class theme_shoehorn_core_renderer extends core_renderer {
         if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout
                 == 'admin')) { // Go to bottom.
             if ($this->fontawesome) {
-                $gotobottom = html_writer::tag('i', '', array('class' => 'fa fa-arrow-circle-o-down'));
+                $gotobottom = html_writer::tag('span', '', array('class' => 'fa fa-arrow-circle-o-down'));
             } else {
                 $gotobottom = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-circle-arrow-down'));
             }
-            $output .= html_writer::link(new moodle_url('#region-main-shoehorn-shadow'), $gotobottom, array('title' => get_string('gotobottom', 'theme_shoehorn'), 'class' => 'navbar-brand'));
+            $output .= html_writer::link(new moodle_url('#region-main-shoehorn-shadow'), $gotobottom, array('title' => get_string('gotobottom', 'theme_shoehorn'), 'class' => 'goto-bottom'));
         }
         
         return $output;
@@ -317,9 +317,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
-        //$content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav'));
-        $content = html_writer::start_tag('ul',
-                        array('class' => 'nav pull-left usermenu ' . $menuclass, 'role' => 'menubar'));
+        $content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav'));
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
@@ -545,7 +543,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                 if (isset($this->page->course->id) && $this->page->course->id > 1) {
                     $branchtitle = get_string('thiscourse', 'theme_shoehorn');
                     if ($this->fontawesome) {
-                        $branchlabel = '<i class="fa fa-book"></i>';
+                        $branchlabel = '<span class="fa fa-book"></span>';
                     } else {
                         $branchlabel = '<span class="glyphicon glyphicon-book"></span>';
                     }
@@ -554,7 +552,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     $activitystreammenu = $menu->add($branchlabel, $branchurl, $branchtitle, 10001);
                     $branchtitle = get_string('people', 'theme_shoehorn');
                     if ($this->fontawesome) {
-                        $branchlabel = '<i class="fa fa-users"></i>';
+                        $branchlabel = '<span class="fa fa-users"></span>';
                     } else {
                         $branchlabel = '<span class="glyphicon glyphicon-user"></span>';
                     }
@@ -563,7 +561,7 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     $activitystreammenu->add($branchlabel, $branchurl, $branchtitle, 100003);
                     $branchtitle = get_string('grades');
                     if ($this->fontawesome) {
-                        $branchlabel = '<i class="fa fa-list-alt icon"></i>';
+                        $branchlabel = '<span class="fa fa-list-alt icon"></span>';
                     } else {
                         $branchlabel = '<span class="glyphicon glyphicon-list"></span>';
                     }
@@ -586,17 +584,6 @@ class theme_shoehorn_core_renderer extends core_renderer {
                     }
                 }
             }
-        }
-
-        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout
-                == 'admin')) { // Go to bottom.
-            if ($this->fontawesome) {
-                $gotobottom = html_writer::tag('i', '', array('class' => 'fa fa-arrow-circle-o-down'));
-            } else {
-                $gotobottom = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-circle-arrow-down'));
-            }
-            $menu->add($gotobottom, new moodle_url('#region-main-shoehorn-shadow'),
-                    get_string('gotobottom', 'theme_shoehorn'), 10002);
         }
 
         if ($addusermenu) {

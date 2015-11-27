@@ -177,6 +177,7 @@ Version information
 ===================
 Version 3.0.0.1
   1. Initial beta version for Moodle 3.0.
+  2. Update to FontAwesome 4.5.
 
 Version 2.9.1.5
   1. MDL-51921.

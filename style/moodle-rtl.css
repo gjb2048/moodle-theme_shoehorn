@@ -28430,12 +28430,18 @@ ul.weeks
     padding: 0;
 }
 
-.section .moodle-actionmenu .iconsmall
+.section .moodle-actionmenu .iconsmall,
+.section .moodle-actionmenu .smallicon
 {
     width: 16px;
     height: 16px;
     margin-bottom: 7px;
     padding: 0;
+}
+
+.section .moodle-actionmenu[data-enhanced] .menu .img
+{
+    padding: 4px;
 }
 
 #page-course-index-category .generalbox.info
@@ -30107,6 +30113,37 @@ a:focus,
 .mform legend a:focus
 {
     color: [[setting:linkcolourhover]];
+}
+
+.navbar .navbar-header .goto-bottom
+{
+    font-size: 18px;
+    line-height: 20px;
+
+    float: right;
+
+    height: 50px;
+    padding: 15px 15px;
+}
+
+.navbar .navbar-header .goto-bottom:hover,
+.navbar .navbar-header .goto-bottom:focus
+{
+    text-decoration: none;
+}
+
+.navbar .navbar-header .goto-bottom > img
+{
+    display: block;
+}
+
+@media (min-width: 768px)
+{
+    .navbar > .container .navbar .navbar-header .goto-bottom,
+    .navbar > .container-fluid .navbar .navbar-header .goto-bottom
+    {
+        margin-right: -15px;
+    }
 }
 
 body.compactnavbar .navbar
