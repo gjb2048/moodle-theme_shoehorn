@@ -65,7 +65,8 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
     protected function navbar_items() {
         global $CFG, $SITE;
-        $output = html_writer::link($CFG->wwwroot, $SITE->shortname, array('title' => $SITE->shortname, 'class' => 'navbar-brand'));
+        $output = html_writer::link($CFG->wwwroot, $SITE->shortname,
+                        array('title' => $SITE->shortname, 'class' => 'navbar-brand'));
 
         if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout
                 == 'admin')) { // Go to bottom.
@@ -74,12 +75,13 @@ class theme_shoehorn_core_renderer extends core_renderer {
             } else {
                 $gotobottom = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-circle-arrow-down'));
             }
-            $output .= html_writer::link(new moodle_url('#region-main-shoehorn-shadow'), $gotobottom, array('title' => get_string('gotobottom', 'theme_shoehorn'), 'class' => 'goto-bottom'));
+            $output .= html_writer::link(new moodle_url('#region-main-shoehorn-shadow'), $gotobottom,
+                            array('title' => get_string('gotobottom', 'theme_shoehorn'), 'class' => 'goto-bottom'));
         }
-        
+
         return $output;
     }
-    
+
     /**
      * This code renders the navbar button to control the display of the custom menu
      * on smaller screens.
@@ -91,13 +93,14 @@ class theme_shoehorn_core_renderer extends core_renderer {
     protected function navbar_button() {
         //global $CFG;
 
-        /*if (empty($CFG->custommenuitems) && $this->lang_menu() == '') {
-            return '';
-        }*/
+        /* if (empty($CFG->custommenuitems) && $this->lang_menu() == '') {
+          return '';
+          } */
 
         $iconbar = html_writer::tag('span', '', array('class' => 'icon-bar'));
         $sronly = html_writer::tag('span', get_string('togglenavigation', 'theme_shoehorn'), array('class' => 'sr-only'));
-        $button = html_writer::tag('button', $sronly. "\n" .$iconbar . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar,
+        $button = html_writer::tag('button',
+                        $sronly . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar,
                         array(
                     'class' => 'navbar-toggle',
                     'data-toggle' => 'collapse',
@@ -304,24 +307,29 @@ class theme_shoehorn_core_renderer extends core_renderer {
         }
 
         if ($haslangmenu) {
-            $strlang = get_string('language');
+            $languagetext = get_string('language');
             $currentlang = current_language();
             if (isset($langs[$currentlang])) {
                 $currentlang = $langs[$currentlang];
             } else {
-                $currentlang = $strlang;
+                $currentlang = $languagetext;
             }
-            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
+            if ($this->fontawesome) {
+                $langhtml = html_writer::tag('i', '', array('class' => 'fa fa-language'));
+            } else {
+                $langhtml = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-book'));
+            }
+            $langhtml .= html_writer::tag('span', ' ' . $currentlang);
+            $this->language = $menu->add($langhtml, new moodle_url('#'), $languagetext, 10000);
             foreach ($langs as $langtype => $langname) {
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
             }
         }
 
-        $content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav'));
+        $content = '';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
-        $content .= html_writer::end_tag('ul');
 
         return $content;
     }
@@ -335,7 +343,6 @@ class theme_shoehorn_core_renderer extends core_renderer {
         global $CFG, $USER;
 
         $addusermenu = true;
-        $addlangmenu = true;
         $addmessagemenu = true;
 
         if (!isloggedin() || isguestuser()) {
@@ -517,27 +524,6 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
-        $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2
-                or empty($CFG->langmenu)
-                or ( $this->page->course != SITEID and ! empty($this->page->course->lang))) {
-            $addlangmenu = false;
-        }
-
-        if ($addlangmenu) {
-            $languagetext = get_string('language');
-            if ($this->fontawesome) {
-                $langhtml = html_writer::tag('i', '', array('class' => 'fa fa-language'));
-            } else {
-                $langhtml = html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-book'));
-            }
-            $langhtml .= html_writer::tag('span', ' ' . $languagetext);
-            $language = $menu->add($langhtml, new moodle_url('#'), $languagetext, 10000);
-            foreach ($langs as $langtype => $langname) {
-                $language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
-            }
-        }
-
         if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse')) {
             if (!isguestuser()) {
                 if (isset($this->page->course->id) && $this->page->course->id > 1) {
@@ -673,13 +659,20 @@ class theme_shoehorn_core_renderer extends core_renderer {
             }
         }
 
-        $content = html_writer::start_tag('ul', array('class' => 'nav navbar-nav navbar-right'));
+        $content = '';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
-        $content .= html_writer::end_tag('ul');
 
         return $content;
+    }
+    
+    public function page_heading_menu() {
+        $menu = parent::page_heading_menu();
+        if (!empty($menu)) {
+            $menu = '<li>'.$menu.'</li>';
+        }
+        return $menu;
     }
 
     private function get_course_activities() {
@@ -947,8 +940,9 @@ class theme_shoehorn_core_renderer extends core_renderer {
 
         // Copyright setting.
         if (!empty($this->themeconfig->settings->copyright)) {
-            $items[] = html_writer::tag('span', ' ' . $this->themeconfig->settings->copyright . ' ' . userdate(time(),
-                                    '%Y'), array('class' => 'copyright'));
+            $items[] = html_writer::tag('span',
+                            ' ' . $this->themeconfig->settings->copyright . ' ' . userdate(time(), '%Y'),
+                            array('class' => 'copyright'));
         }
 
         if (count($items) > 0) {

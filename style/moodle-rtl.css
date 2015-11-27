@@ -29193,7 +29193,7 @@ body.dir-rtl div.editor_atto_toolbar button + button
     margin-right: 4px;
 }
 
-body.dir-rtl .helptooltip
+.dir-rtl .helptooltip
 {
     margin-right: auto;
     margin-left: 4px;
@@ -29244,6 +29244,9 @@ a:focus,
 
     height: 50px;
     padding: 15px 15px;
+
+    color: [[setting:navbardefaultcolour]];
+    background-color: inherit;
 }
 
 .navbar .navbar-header .goto-bottom:hover,
@@ -29266,6 +29269,15 @@ a:focus,
     }
 }
 
+.navbar .navbar-header .goto-bottom:hover,
+.navbar .navbar-header .goto-bottom:focus,
+.navbar .navbar-header .goto-bottom:active
+{
+    color: [[setting:navbardefaultcolourlight]];
+    background-color: [[setting:navbardefaulthover]];
+    background-color: [[setting:navbardefaulthoverrgba]];
+}
+
 body.compactnavbar .navbar
 {
     display: inline-block;
@@ -29276,10 +29288,10 @@ body.compactnavbar .navbar
     border-bottom-left-radius: 24px;
 }
 
-body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:hover,
-body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:hover,
-body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:focus,
-body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:focus
+body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
 {
     border-bottom-left-radius: 24px;
 }
@@ -29303,7 +29315,7 @@ body.compactnavbar .navbar .navbar-nav
 body.compactnavbar .navbar .navbar-brand
 {
     margin-right: 0;
-    margin-left: 15px;
+    margin-left: 0;
 }
 
 body.compactnavbar .navbar.navbar-fixed-top

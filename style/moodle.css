@@ -15864,7 +15864,7 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 }.helptooltip
 {
     margin-left: 4px;
-}body.dir-rtl .helptooltip
+}.dir-rtl .helptooltip
 {margin-right: 4px;
     margin-left: auto;
 }html
@@ -15891,7 +15891,7 @@ a:focus,
 }.navbar .navbar-header .goto-bottom
 {font-size: 18px;line-height: 20px;
 
-    float: left;height: 50px;padding: 15px 15px;
+    float: left;height: 50px;padding: 15px 15px;color: [[setting:navbardefaultcolour]];background-color: inherit;
 }.navbar .navbar-header .goto-bottom:hover,
 .navbar .navbar-header .goto-bottom:focus
 {
@@ -15906,13 +15906,18 @@ a:focus,
     {
         margin-left: -15px;
     }
+}.navbar .navbar-header .goto-bottom:hover,
+.navbar .navbar-header .goto-bottom:focus,
+.navbar .navbar-header .goto-bottom:active
+{
+    color: [[setting:navbardefaultcolourlight]];background-color: [[setting:navbardefaulthover]];background-color: [[setting:navbardefaulthoverrgba]];
 }body.compactnavbar .navbar
 {
     display: inline-block;border-top-left-radius: 0;border-top-right-radius: 0;border-bottom-right-radius: 24px;border-bottom-left-radius: 0;
-}body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:hover,
-body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:hover,
-body.compactnavbar .navbar-default .navbar-nav.navbar-right > li:last-of-type > a:focus,
-body.compactnavbar .navbar-inverse .navbar-nav.navbar-right > li:last-of-type > a:focus
+}body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
 {
     border-bottom-right-radius: 24px;
 }body.compactnavbar .navbar .navbar-collapse,
@@ -15924,7 +15929,7 @@ body.compactnavbar .navbar > .container-fluid > .navbar-header
 {margin-right: 0;
     margin-left: 0;
 }body.compactnavbar .navbar .navbar-brand
-{margin-right: 15px;
+{margin-right: 0;
     margin-left: 0;
 }body.compactnavbar .navbar.navbar-fixed-top
 {
