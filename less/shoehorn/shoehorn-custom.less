@@ -48,9 +48,16 @@ a, .mform legend a {
 }
 
 // Navbar.
-
 .navbar .navbar-header .goto-bottom {
     .navbar-brand;
+    color: ~"[[setting:navbardefaultcolour]]";
+    background-color: inherit;
+    &:hover,
+        &:focus,
+        &:active {
+        color: ~"[[setting:navbardefaultcolourlight]]";
+        #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
+    }
 }
 
 body.compactnavbar {
@@ -60,9 +67,9 @@ body.compactnavbar {
         border-top-right-radius: 0px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: @border-radius-large * 4;
-        &-default, &-inverse {
-            .navbar-nav.navbar-right {
-                > li:last-of-type > a {
+        &-default #moodle-navbar, &-inverse #moodle-navbar {
+            .navbar-nav {
+                > li:last-child > a {
                     &:hover, &:focus {
                         border-bottom-right-radius: @border-radius-large * 4;
                     }
@@ -81,7 +88,7 @@ body.compactnavbar {
         }
         .navbar-brand {
             margin-left: 0px;
-            margin-right: 15px;
+            margin-right: 0px;
         }
     }
     .navbar.navbar-fixed-top {
@@ -151,7 +158,7 @@ body.loginpageimages {
 // Block specific scaffolding.less as background highlight moves icon on Chrome!
 aside .block a, #dockeditempanel a {
     &:hover,
-    &:focus {
+        &:focus {
         text-decoration: none;
         background-color: transparent;
         border-radius: 0;
@@ -161,7 +168,7 @@ aside .block a, #dockeditempanel a {
 aside .block {
     a {
         &:hover,
-        &:focus {
+            &:focus {
             font-weight: bold;
         }
     }
@@ -171,10 +178,10 @@ aside .block {
 }
 
 #dockeditempanel a {
-  &:hover,
-  &:focus {
-    color: ~"[[setting:footerbottombackground]]";
-  }
+    &:hover,
+        &:focus {
+        color: ~"[[setting:footerbottombackground]]";
+    }
 }
 
 // Accordion block regions.
@@ -701,9 +708,9 @@ body.coursetiles {
     }
 
     &.editing #region-main .section .activity:hover,
-    #region-main .course-content .section .activity:hover,
-    #region-main .gtopics .section .activity:hover,
-    #region-main .sitetopic .section .activity:hover {
+        #region-main .course-content .section .activity:hover,
+        #region-main .gtopics .section .activity:hover,
+        #region-main .sitetopic .section .activity:hover {
         background: ~"[[setting:pagebottombackground]]";
     }
 
@@ -768,7 +775,7 @@ body.coursetiles {
         left: 10px;
         position: relative;
         .iconsmall {
-             vertical-align: middle;
+            vertical-align: middle;
         }
     }
 
@@ -844,8 +851,8 @@ body.coursetiles {
     }
 
     #gridiconcontainer { // Grid format.
-        clear: both;
-        padding-top: 20px;
+                         clear: both;
+                         padding-top: 20px;
     }
 }
 
@@ -893,7 +900,7 @@ body.fontawesome {
     }
 
     .block_calendar_upcoming .header .title h2:before,
-    .block_calendar_month .header .title h2:before {
+        .block_calendar_month .header .title h2:before {
         content: "\f073";
     }
 
@@ -902,7 +909,7 @@ body.fontawesome {
     }
 
     .block_completionstatus .header .title h2:before,
-    .block_selfcompletion .header .title h2:before {
+        .block_selfcompletion .header .title h2:before {
         content: "\f0e4";
     }
 
@@ -931,7 +938,7 @@ body.fontawesome {
     }
 
     .block_participants .header .title h2:before,
-    .block_online_users .header .title h2:before {
+        .block_online_users .header .title h2:before {
         content: "\f0c0";
     }
 
@@ -965,7 +972,7 @@ body.fontawesome {
     }
 
     .block_blog_tags .header .title h2:before,
-    .block_tags .header .title h2:before {
+        .block_tags .header .title h2:before {
         content: "\f02c";
     }
 
@@ -986,7 +993,7 @@ body.fontawesome {
     }
 
     .block_login .header .title h2:before,
-    .block_myprofile .header .title h2:before {
+        .block_myprofile .header .title h2:before {
         content: "\f007";
     }
 
@@ -1036,8 +1043,8 @@ body.fontawesome {
     }
 
     .course-content ul.weeks .content .summary li:before,
-    .course-content ul.topics .content .summary li:before,
-    .entrybox li:before {
+        .course-content ul.topics .content .summary li:before,
+        .entrybox li:before {
         .sfa();
         content: "\f0da";
     }
@@ -1053,7 +1060,7 @@ body.fontawesome {
     }
 
     #frontpage-course-list h2:before,
-    #frontpage-category-combo h2:before {
+        #frontpage-category-combo h2:before {
         .sfa();
         content: "\f109";
     }
@@ -1199,10 +1206,10 @@ pre.sh {
 
 // Site pages.
 #page-theme-shoehorn-pages-sitepage .sitepagecontent img {
-  padding: 8px;
-  box-shadow: 0px 0px 8px ~"[[setting:pagetopbackground]]";
-  background-color: white;
-  margin: 0 0 !important; // I do not like importants but has to override core editor inline style.
+    padding: 8px;
+    box-shadow: 0px 0px 8px ~"[[setting:pagetopbackground]]";
+    background-color: white;
+    margin: 0 0 !important; // I do not like importants but has to override core editor inline style.
 }
 
 // Quiz.
@@ -1376,22 +1383,22 @@ a[name="lastused"] {
         color: ~"[[setting:linkcolour]]";
     }
     .content {
-         padding: 0px 0px;
+        padding: 0px 0px;
     }
 }
 
 .ct-chart {
-  .ct-series.ct-series-a {
-    .ct-bar, .ct-line, .ct-point, .ct-slice.ct-donut {
-      stroke: ~"[[setting:linkcolour8rgba]]";
+    .ct-series.ct-series-a {
+        .ct-bar, .ct-line, .ct-point, .ct-slice.ct-donut {
+            stroke: ~"[[setting:linkcolour8rgba]]";
+        }
     }
-  }
-  .ct-label {
-    color: ~"[[setting:linkcolour4rgba]]";
-  }
-  .ct-grid {
-    stroke: ~"[[setting:linkcolour2rgba]]";
-  }
+    .ct-label {
+        color: ~"[[setting:linkcolour4rgba]]";
+    }
+    .ct-grid {
+        stroke: ~"[[setting:linkcolour2rgba]]";
+    }
 }
 
 // Way off piste...

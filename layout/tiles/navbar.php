@@ -34,11 +34,11 @@
         ?>
     </div>
 
-    <div id="moodle-navbar" class="navbar-collapse collapse">
-        <?php echo $OUTPUT->custom_menu(); ?>
+    <div id="moodle-navbar" class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav">
+        <?php echo $OUTPUT->custom_menu(); ?>        
         <?php echo $OUTPUT->user_menu(); ?>
-        <ul class="nav pull-right">
-            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+        <?php echo $OUTPUT->page_heading_menu(); ?>
         </ul>
     </div>
     </div>
