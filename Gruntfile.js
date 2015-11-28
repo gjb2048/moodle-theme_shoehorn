@@ -394,6 +394,8 @@ module.exports = function(grunt) {
         }
     });
 
+    require('time-grunt')(grunt);
+
     // Load contrib tasks.
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-contrib-watch");
