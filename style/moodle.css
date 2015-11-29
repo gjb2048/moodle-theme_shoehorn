@@ -14821,6 +14821,9 @@ ul.weeks
 }#dock .dockedtitle h2
 {
     font-size: 14px !important;line-height: 24px;margin-top: 4px;
+}#dockeditempanel
+{
+    padding-left: 0;
 }#dockeditempanel .dockeditempanel_content
 {border-color: [[setting:pagetopbackground90rgba]];
     background-color: [[setting:pagebottombackground95rgba]];
@@ -15769,6 +15772,20 @@ a:focus,
 .navbar .navbar-header .goto-bottom:active
 {
     color: [[setting:navbardefaultcolourlight]];background-color: [[setting:navbardefaulthover]];background-color: [[setting:navbardefaulthoverrgba]];
+}.navbar.navbar-inverse .navbar-header .goto-bottom
+{
+    color: #e3f2ff;
+}.navbar.navbar-inverse .navbar-header .goto-bottom:hover,
+.navbar.navbar-inverse .navbar-header .goto-bottom:focus,
+.navbar.navbar-inverse .navbar-header .goto-bottom:active
+{
+    color: #fff;background-color: #080808;
+}.has_dock .navbar
+{
+    margin-left: -25px;
+}.has_dock .navbar.navbar-fixed-top
+{
+    margin-left: 0;
 }body.compactnavbar .navbar
 {
     display: inline-block;border-top-left-radius: 0;border-top-right-radius: 0;border-bottom-right-radius: 24px;border-bottom-left-radius: 0;

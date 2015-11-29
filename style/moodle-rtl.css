@@ -27541,6 +27541,11 @@ ul.weeks
     margin-top: 4px;
 }
 
+#dockeditempanel
+{
+    padding-right: 0;
+}
+
 #dockeditempanel .dockeditempanel_content
 {
     border-color: [[setting:pagetopbackground90rgba]];
@@ -29179,6 +29184,29 @@ a:focus,
     color: [[setting:navbardefaultcolourlight]];
     background-color: [[setting:navbardefaulthover]];
     background-color: [[setting:navbardefaulthoverrgba]];
+}
+
+.navbar.navbar-inverse .navbar-header .goto-bottom
+{
+    color: #e3f2ff;
+}
+
+.navbar.navbar-inverse .navbar-header .goto-bottom:hover,
+.navbar.navbar-inverse .navbar-header .goto-bottom:focus,
+.navbar.navbar-inverse .navbar-header .goto-bottom:active
+{
+    color: #fff;
+    background-color: #080808;
+}
+
+.has_dock .navbar
+{
+    margin-right: -25px;
+}
+
+.has_dock .navbar.navbar-fixed-top
+{
+    margin-right: 0;
 }
 
 body.compactnavbar .navbar
