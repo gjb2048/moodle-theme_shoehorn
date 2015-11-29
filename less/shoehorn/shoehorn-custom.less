@@ -48,15 +48,33 @@ a, .mform legend a {
 }
 
 // Navbar.
-.navbar .navbar-header .goto-bottom {
-    .navbar-brand;
-    color: ~"[[setting:navbardefaultcolour]]";
-    background-color: inherit;
-    &:hover,
+.navbar {
+    .navbar-header .goto-bottom {
+        .navbar-brand;
+        color: ~"[[setting:navbardefaultcolour]]";
+        background-color: inherit;
+        &:hover,
         &:focus,
         &:active {
-        color: ~"[[setting:navbardefaultcolourlight]]";
-        #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
+            color: ~"[[setting:navbardefaultcolourlight]]";
+            #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
+        }
+    }
+    &.navbar-inverse .navbar-header .goto-bottom {
+        color: @navbar-inverse-link-color;
+        &:hover,
+        &:focus,
+        &:active {
+            color: @navbar-inverse-link-hover-color;
+            background-color: @navbar-inverse-link-hover-bg;
+        }
+    }
+}
+
+.has_dock .navbar {
+    margin-left: -25px;
+    &.navbar-fixed-top {
+        margin-left: 0;
     }
 }
 
