@@ -23821,6 +23821,7 @@ input[type='text'] + button,
 input[type='text'] + input[type='submit']
 {
     margin: 0 5px 3px 0;
+    margin: 0 2px 4px 0;
 }
 
 p.arrow_button
@@ -23871,6 +23872,7 @@ input[type='reset']
     display: inline-block;
 
     margin: 0 5px 3px 0;
+    margin: 0 2px 4px 0;
     margin-bottom: 0;
     padding: 6px 12px;
 
@@ -24567,6 +24569,7 @@ fieldset[disabled] .submit.buttons input[name='cancel'].focus
 .submit.buttons input[name='cancel']
 {
     margin: 0 5px 3px 0;
+    margin: 0 2px 4px 0;
 }
 
 input[id$='_clearbutton'],
@@ -26541,7 +26544,7 @@ input[type='button'],
 input[type='submit'],
 input[type='reset']
 {
-    margin: 0 5px 4px 0;
+    margin: 0 2px 4px 0;
 }
 
 .carousel-inner > .item
@@ -26893,8 +26896,7 @@ form input[type='password'],
 form.atto_form input[type='url'],
 select.singleselect
 {
-    width: 100%;
-    margin: 0 2px 5px 0;
+    margin: 0 2px 4px 0;
 }
 
 .row > .row
@@ -27052,6 +27054,21 @@ a:focus
     padding: 0;
 }
 
+.block_blog_menu #blogsearchquery
+{
+    max-width: 100%;
+}
+
+.block_settings #adminsearchquery
+{
+    max-width: 100%;
+}
+
+.block_search_forums #searchform_search
+{
+    max-width: 100%;
+}
+
 legend,
 #adminsettings h3,
 .backup-restore .backup-section > h2.header,
@@ -27061,6 +27078,11 @@ legend,
 .backup-restore .backup-section .backup-sub-section h3
 {
     color: [[setting:textcolour]];
+}
+
+.btn-lineup
+{
+    margin: 0 2px 4px 0;
 }
 
 .block .minicalendar td.weekend
@@ -29948,6 +29970,11 @@ aside
 .mycourseboxes .view a.info:hover
 {
     background: [[setting:pagebottombackground]];
+}
+
+.forumsearch input[type='submit']
+{
+    margin: 0 2px 0 0;
 }
 
 #page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td

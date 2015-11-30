@@ -12724,7 +12724,7 @@ input[type='password'] + input[type='submit'],
 input[type='text'] + button,
 input[type='text'] + input[type='submit']
 {
-    margin: 0 0 3px 5px;
+    margin: 0 0 3px 5px        ;margin: 0 0 4px 2px;
 }p.arrow_button
 {
     margin-top: 5em;text-align: center;
@@ -12748,7 +12748,7 @@ input[type='submit'],
 input[type='reset']
 {font-size: 14px;font-weight: normal;line-height: 1.42857143;
 
-    display: inline-block;margin: 0 0 3px 5px;margin-bottom: 0;padding: 6px 12px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;white-space: nowrap;color: #1f4d87;border: 1px solid transparent;border-color: #1f4d87;border-radius: 4px;background-color: #c9e6ff;background-image: none;touch-action: manipulation;
+    display: inline-block;margin: 0 0 3px 5px;margin: 0 0 4px 2px;margin-bottom: 0;padding: 6px 12px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;white-space: nowrap;color: #1f4d87;border: 1px solid transparent;border-color: #1f4d87;border-radius: 4px;background-color: #c9e6ff;background-image: none;touch-action: manipulation;
 }button:focus,
 input.form-submit:focus,
 input[type='button']:focus,
@@ -13276,7 +13276,7 @@ fieldset[disabled] .submit.buttons input[name='cancel'].focus
 }#notice .singlebutton + .singlebutton input,
 .submit.buttons input[name='cancel']
 {
-    margin: 0 0 3px 5px;
+    margin: 0 0 3px 5px        ;margin: 0 0 4px 2px;
 }input[id$='_clearbutton'],
 input[type='reset']
 {
@@ -14251,7 +14251,7 @@ input[type='button'],
 input[type='submit'],
 input[type='reset']
 {
-    margin: 0 0 4px 5px;
+    margin: 0 0 4px 2px;
 }.carousel-inner > .item
 {
     height: 160px;
@@ -14440,7 +14440,7 @@ form input[type='password'],
 form.atto_form input[type='url'],
 select.singleselect
 {
-    width: 100%;margin: 0 0 5px 2px;
+    margin: 0 0 4px 2px;
 }.row > .row
 {margin-right: 0;
     margin-left: 0;
@@ -14535,6 +14535,15 @@ a:focus
 }.editing .block .header .commands
 {
     padding: 0;
+}.block_blog_menu #blogsearchquery
+{
+    max-width: 100%;
+}.block_settings #adminsearchquery
+{
+    max-width: 100%;
+}.block_search_forums #searchform_search
+{
+    max-width: 100%;
 }legend,
 #adminsettings h3,
 .backup-restore .backup-section > h2.header,
@@ -14544,6 +14553,9 @@ a:focus
 .backup-restore .backup-section .backup-sub-section h3
 {
     color: [[setting:textcolour]];
+}.btn-lineup
+{
+    margin: 0 0 4px 2px;
 }.block .minicalendar td.weekend
 {
     color: [[setting:textcolour10light]];
@@ -16226,6 +16238,9 @@ body.frontpagebackgroundimage .forumpost
 }.mycourseboxes .view a.info:hover
 {
     background: [[setting:pagebottombackground]];
+}.forumsearch input[type='submit']
+{
+    margin: 0 0 0 2px;
 }#page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td
 {
     display: inline-block;padding-left: 0;
