@@ -28418,11 +28418,8 @@ ul.weeks
     background-color: [[setting:pagebottombackground95rgba]];
 }
 
-#page-enrol-users .enrol_user_buttons,
 .enrol_user_buttons
 {
-    float: inherit;
-
     text-align: left;
 }
 
@@ -30603,6 +30600,11 @@ body.pagelayout-redirect #page
 #region-main-shoehorn .panel-default
 {
     background-color: rgba(255, 255, 255, .9);
+}
+
+table.userenrolment
+{
+    margin-bottom: 4px;
 }
 
 #navsearchbox
