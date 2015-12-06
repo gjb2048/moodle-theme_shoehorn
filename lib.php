@@ -27,7 +27,7 @@
 
 function theme_shoehorn_process_css($css, $theme) {
     // Set the background image for the logo.
-    $logo = $theme->setting_file_url('logo', 'logo');
+    $logo = \theme_shoehorn\toolbox::setting_file_url('logo', 'logo');
     $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
 
     // Set the theme font
@@ -38,17 +38,17 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_font($css, 'body', $bodyfont);
 
     // Show login message if desired.
-    $css = theme_shoehorn_set_loginmessage($css, $theme);
+    $css = theme_shoehorn_set_loginmessage($css);
 
     // Process look and feel.
-    $css = theme_shoehorn_set_landf($css, $theme);
+    $css = theme_shoehorn_set_landf($css);
 
     // Colour settings.
-    $footerbottomcolour = (!empty($theme->settings->footerbottomcolour)) ? $theme->settings->footerbottomcolour : '#267F00';
+    $footerbottomcolour = \theme_shoehorn\toolbox::get_setting('footerbottomcolour', '#267F00');
     $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackground]]', $footerbottomcolour);  // Footer bottom background.
     $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.6));
 
-    $textcolour = (!empty($theme->settings->textcolour)) ? $theme->settings->textcolour : '#1F4D87';
+    $textcolour = \theme_shoehorn\toolbox::get_setting('textcolour', '#1F4D87');
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour]]', $textcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour8light]]', shoehorn_hexadjust($textcolour, -8));
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10light]]', shoehorn_hexadjust($textcolour, -10));
@@ -56,34 +56,34 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour10dark]]', shoehorn_hexadjust($textcolour, 10));
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour75rgba]]', shoehorn_hex2rgba($textcolour, 0.75));
 
-    $linkcolour = (!empty($theme->settings->linkcolour)) ? $theme->settings->linkcolour : '#1F4D87';
+    $linkcolour = \theme_shoehorn\toolbox::get_setting('linkcolour', '#1F4D87');
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour]]', $linkcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour2rgba]]', shoehorn_hex2rgba($linkcolour, 0.2));
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour4rgba]]', shoehorn_hex2rgba($linkcolour, 0.4));
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolour8rgba]]', shoehorn_hex2rgba($linkcolour, 0.8));
     $css = theme_shoehorn_set_setting($css, '[[setting:linkcolourhover]]', $linkcolour);
 
-    $navbartextcolour = (!empty($theme->settings->navbartextcolour)) ? $theme->settings->navbartextcolour : '#653CAE';
+    $navbartextcolour = \theme_shoehorn\toolbox::get_setting('navbartextcolour', '#653CAE');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolour]]', $navbartextcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultcolourlight]]', shoehorn_hexadjust($navbartextcolour, -10));
 
-    $navbarbackgroundcolour = (!empty($theme->settings->navbarbackgroundcolour)) ? $theme->settings->navbarbackgroundcolour : '#FFD974';
+    $navbarbackgroundcolour = \theme_shoehorn\toolbox::get_setting('navbarbackgroundcolour', '#FFD974');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', $navbarbackgroundcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.75));
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.8));
 
-    $navbarbordercolour = (!empty($theme->settings->navbarbordercolour)) ? $theme->settings->navbarbordercolour : '#FFD053';
+    $navbarbordercolour = \theme_shoehorn\toolbox::get_setting('navbarbordercolour', '#FFD053');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', $navbarbordercolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborderrgba]]', shoehorn_hex2rgba($navbarbordercolour, 0.75));
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', $navbarbordercolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba($navbarbordercolour, 0.75));
 
-    $pagetopcolour = (!empty($theme->settings->pagetopcolour)) ? $theme->settings->pagetopcolour : '#1F4D87';
+    $pagetopcolour = \theme_shoehorn\toolbox::get_setting('pagetopcolour', '#1F4D87');
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', $pagetopcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba($pagetopcolour, 1));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground90rgba]]', shoehorn_hex2rgba($pagetopcolour, .9));
 
-    $pagebottomcolour = (!empty($theme->settings->pagebottomcolour)) ? $theme->settings->pagebottomcolour : '#C9E6FF';
+    $pagebottomcolour = \theme_shoehorn\toolbox::get_setting('pagebottomcolour', '#C9E6FF');
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground]]', $pagebottomcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundrgba]]', shoehorn_hex2rgba($pagebottomcolour, 1));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackground5rgba]]', shoehorn_hex2rgba($pagebottomcolour, 0.5));
@@ -102,11 +102,11 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust($pagebottomcolour, 5));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
 
-    $footertextcolour = (!empty($theme->settings->footertextcolour)) ? $theme->settings->footertextcolour : '#B8D2E9';
+    $footertextcolour = \theme_shoehorn\toolbox::get_setting('footertextcolour', '#B8D2E9');
     $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolour]]', $footertextcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolourlight]]', shoehorn_hexadjust($footertextcolour, -10));
 
-    $footertopcolour = (!empty($theme->settings->footertopcolour)) ? $theme->settings->footertopcolour : '#269F00';
+    $footertopcolour = \theme_shoehorn\toolbox::get_setting('footertopcolour', '#269F00');
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]', shoehorn_hex2rgba($footertopcolour, 0.5));
     $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', $footerbottomcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.5));
@@ -116,8 +116,8 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]', shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
 
     // Set custom CSS.
-    if (!empty($theme->settings->customcss)) {
-        $customcss = $theme->settings->customcss;
+    if (!empty(\theme_shoehorn\toolbox::get_setting('customcss'))) {
+        $customcss = \theme_shoehorn\toolbox::get_setting('customcss');
     } else {
         $customcss = null;
     }
@@ -143,33 +143,29 @@ function theme_shoehorn_set_font($css, $type, $fontname) {
         $familyreplacement = '';
         $facereplacement = '';
     } else {
-        static $theme;
-        if (empty($theme)) {
-            $theme = theme_config::load('shoehorn');  // $theme needs to be us for child themes.
-        }
 
         $fontfiles = array();
-        $fontfileeot = $theme->setting_file_url('fontfileeot' . $type, 'fontfileeot' . $type);
+        $fontfileeot = \theme_shoehorn\toolbox::setting_file_url('fontfileeot' . $type, 'fontfileeot' . $type);
         if (!empty($fontfileeot)) {
             $fontfiles[] = "url('" . $fontfileeot . "?#iefix') format('embedded-opentype')";
         }
-        $fontfilewoff = $theme->setting_file_url('fontfilewoff' . $type, 'fontfilewoff' . $type);
+        $fontfilewoff = \theme_shoehorn\toolbox::setting_file_url('fontfilewoff' . $type, 'fontfilewoff' . $type);
         if (!empty($fontfilewoff)) {
             $fontfiles[] = "url('" . $fontfilewoff . "') format('woff')";
         }
-        $fontfilewofftwo = $theme->setting_file_url('fontfilewofftwo' . $type, 'fontfilewofftwo' . $type);
+        $fontfilewofftwo = \theme_shoehorn\toolbox::setting_file_url('fontfilewofftwo' . $type, 'fontfilewofftwo' . $type);
         if (!empty($fontfilewofftwo)) {
             $fontfiles[] = "url('" . $fontfilewofftwo . "') format('woff2')";
         }
-        $fontfileotf = $theme->setting_file_url('fontfileotf' . $type, 'fontfileotf' . $type);
+        $fontfileotf = \theme_shoehorn\toolbox::setting_file_url('fontfileotf' . $type, 'fontfileotf' . $type);
         if (!empty($fontfileotf)) {
             $fontfiles[] = "url('" . $fontfileotf . "') format('opentype')";
         }
-        $fontfilettf = $theme->setting_file_url('fontfilettf' . $type, 'fontfilettf' . $type);
+        $fontfilettf = \theme_shoehorn\toolbox::setting_file_url('fontfilettf' . $type, 'fontfilettf' . $type);
         if (!empty($fontfilettf)) {
             $fontfiles[] = "url('" . $fontfilettf . "') format('truetype')";
         }
-        $fontfilesvg = $theme->setting_file_url('fontfilesvg' . $type, 'fontfilesvg' . $type);
+        $fontfilesvg = \theme_shoehorn\toolbox::setting_file_url('fontfilesvg' . $type, 'fontfilesvg' . $type);
         if (!empty($fontfilesvg)) {
             $fontfiles[] = "url('" . $fontfilesvg . "') format('svg')";
         }
@@ -195,13 +191,13 @@ function theme_shoehorn_set_font($css, $type, $fontname) {
     return $css;
 }
 
-function theme_shoehorn_set_loginmessage($css, $theme) {
+function theme_shoehorn_set_loginmessage($css) {
     $tag = '[[setting:theloginmessge]]';
 
-    if ((!empty($theme->settings->showloginmessage)) && ($theme->settings->showloginmessage == 2)) {
+    if (\theme_shoehorn\toolbox::get_setting('showloginmessage') == 2) {
         $content = "content: '";
-        if (!empty($theme->settings->loginmessage)) {
-            $replacement = $content.$theme->settings->loginmessage."';";
+        if (!empty(\theme_shoehorn\toolbox::get_setting('loginmessage'))) {
+            $replacement = $content.\theme_shoehorn\toolbox::get_setting('loginmessage')."';";
         } else {
             $replacement = $content.get_string('theloginmessage', 'theme_shoehorn')."';";
         }
@@ -214,11 +210,11 @@ function theme_shoehorn_set_loginmessage($css, $theme) {
     return $css;
 }
 
-function theme_shoehorn_set_landf($css, $theme) {
+function theme_shoehorn_set_landf($css) {
 
     // All pages image.
     $tag = '[[setting:landfallpagesbackgroundimage]]';
-    $landfallpagesbackgroundimage = $theme->setting_file_url('landfallpagesbackgroundimage', 'landfallpagesbackgroundimage');
+    $landfallpagesbackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landfallpagesbackgroundimage', 'landfallpagesbackgroundimage');
     if ($landfallpagesbackgroundimage) {
         $replacement = 'background:  url(\''.$landfallpagesbackgroundimage.'\') repeat; margin-bottom: -26px;';
     } else {
@@ -233,8 +229,8 @@ function theme_shoehorn_set_landf($css, $theme) {
     $replacement = 'background-color: rgba(255, 255, 255, ';
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
-    if (!empty($theme->settings->landfallpagescontenttransparency)) {
-        $allpages = round($theme->settings->landfallpagescontenttransparency, 2);
+    if (!empty(\theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency'))){
+        $allpages = round(\theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency'), 2);
         $replacement .= $allpages / 100;
         $replacementmain .= $allpages;
         $replacementmain .= '); opacity: ';
@@ -251,7 +247,7 @@ function theme_shoehorn_set_landf($css, $theme) {
 
     // Front page image.
     $tag = '[[setting:landffrontpagebackgroundimage]]';
-    $landffrontpagebackgroundimage = $theme->setting_file_url('landffrontpagebackgroundimage', 'landffrontpagebackgroundimage');
+    $landffrontpagebackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landffrontpagebackgroundimage', 'landffrontpagebackgroundimage');
     if ($landffrontpagebackgroundimage) {
         $replacement = 'background:  url(\''.$landffrontpagebackgroundimage.'\') repeat; margin-bottom: -26px;';
     } else {
@@ -266,8 +262,8 @@ function theme_shoehorn_set_landf($css, $theme) {
     $replacement = 'background-color: rgba(255, 255, 255, ';
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
-    if (!empty($theme->settings->landffrontpagecontenttransparency)) {
-        $frontpage = round($theme->settings->landffrontpagecontenttransparency, 2);
+    if (!empty(\theme_shoehorn\toolbox::get_setting('landffrontpagecontenttransparency'))) {
+        $frontpage = round(\theme_shoehorn\toolbox::get_setting('landffrontpagecontenttransparency'), 2);
         $replacement .= $frontpage / 100;
         $replacementmain .= $frontpage;
         $replacementmain .= '); opacity: ';
