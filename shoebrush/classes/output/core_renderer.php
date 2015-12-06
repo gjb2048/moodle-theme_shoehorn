@@ -24,5 +24,17 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_shoebrush_core_renderer extends theme_shoehorn_core_renderer {
+namespace theme_shoebrush\output;
+
+class core_renderer extends \theme_shoehorn\output\core_renderer {
+    /**
+     * Constructor
+     *
+     * @param moodle_page $page the page we are doing output for.
+     * @param string $target one of rendering target constants
+     */
+    public function __construct(\moodle_page $page, $target) {
+        parent::__construct($page, $target);
+        $this->themeconfig[] = \theme_config::load('shoebrush');
+    }
 }

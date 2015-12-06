@@ -30,13 +30,13 @@ namespace theme_shoehorn;
 
 class toolbox {
 
-    static protected $themes = array();
+    static protected $corerenderer = null;
 
-    static public function get_theme_config($themename) {
-        if (empty(self::$themes[$themename])) {
-            self::$themes[$themename] = \theme_config::load($themename);
+    static public function set_core_renderer($core) {
+        // Set only once from the initial calling lib.php process_css function.  Must happen before parents.
+        if (null === self::$corerenderer) {
+            self::$corerenderer = $core;
         }
-        return self::$themes[$themename];
     }
 
     /**
@@ -78,25 +78,39 @@ class toolbox {
      * @param theme_config $theme null|theme_config object.
      * @return any false|value of setting.
      */
-    static public function get_setting($setting, $format = false, $theme = null) {
+    static public function get_setting($setting, $format = false, $default = false) {
 
-        if (empty($theme)) {
-            $theme = self::get_theme_config('shoehorn');
+        if (empty(self::$corerenderer)) {
+            // Use $OUTPUT.
+            global $OUTPUT;
+            self::$corerenderer = $OUTPUT;
         }
+        $settingvalue = self::$corerenderer->get_setting($setting, $default);
 
         global $CFG;
         require_once($CFG->dirroot . '/lib/weblib.php');
-        if (empty($theme->settings->$setting)) {
-            return false;
+        if (empty($settingvalue)) {
+            return $default;
         } else if (!$format) {
-            return $theme->settings->$setting;
+            return $settingvalue;
         } else if ($format === 'format_text') {
-            return format_text($theme->settings->$setting, FORMAT_PLAIN);
+            return format_text($settingvalue, FORMAT_PLAIN);
         } else if ($format === 'format_html') {
-            return format_text($theme->settings->$setting, FORMAT_HTML, array('trusted' => true, 'noclean' => true));
+            return format_text($settingvalue, FORMAT_HTML, array('trusted' => true, 'noclean' => true));
         } else {
-            return format_string($theme->settings->$setting);
+            return format_string($settingvalue);
         }
+    }
+
+    static public function setting_file_url($setting, $filearea) {
+        if (empty(self::$corerenderer)) {
+            // Use $OUTPUT.
+            global $OUTPUT;
+            self::$corerenderer = $OUTPUT;
+        }
+        error_log('get_setting toolbox: '.get_class(self::$corerenderer));
+
+        return self::$corerenderer->setting_file_url($setting, $filearea);
     }
 
     /**
@@ -121,20 +135,14 @@ class toolbox {
      *
      * This keeps the logic out of the layout files.
      */
-    static public function html_for_settings($theme = null) {
-
-        if (empty($theme)) {
-            $theme = self::get_theme_config('shoehorn');
-        }
+    static public function html_for_settings() {
 
         global $PAGE;
-
-        $settings = $theme->settings;
 
         $html = new \stdClass();
 
         $html->navbarclass = array('navbar');
-        if (!empty($settings->inversenavbar)) {
+        if (!empty(self::get_setting('inversenavbar'))) {
             $html->navbarclass[] = 'navbar-inverse';
         } else {
             $html->navbarclass[] = 'navbar-default';
@@ -151,41 +159,43 @@ class toolbox {
             $html->additionalbodyclasses[] = 'tabletdevice';
         }
 
-        if ((!empty($settings->coursetiles)) and ( $settings->coursetiles == 2)) {
+        $coursetiles = self::get_setting('coursetiles');
+        if ((!empty($coursetiles)) and ( $coursetiles == 2)) {
             $html->additionalbodyclasses[] = 'coursetiles';
         }
 
-        if (!empty($settings->fontawesome) && ($settings->fontawesome == 1)) {
+        $fontawesome = self::get_setting('fontawesome');
+        if (!empty($fontawesome) && ($fontawesome == 1)) {
             $html->additionalbodyclasses[] = 'fontawesome';
             $html->fontawesome = true;
         } else {
             $html->fontawesome = false;
         }
 
-        if (!empty($settings->socialsignpost)) {
+        if (!empty(self::get_setting('socialsignpost'))) {
             $html->additionalbodyclasses[] = 'socialsignpost';
         }
 
-        if (!empty($settings->compactnavbar)) {
+        if (!empty(self::get_setting('compactnavbar'))) {
             $html->additionalbodyclasses[] = 'compactnavbar';
         }
 
-        if (!empty($settings->navbarfixedtop)) {
+        if (!empty(self::get_setting('navbarfixedtop'))) {
             $html->additionalbodyclasses[] = 'navbarfixedtop';
             $html->navbarclass[] = 'navbar-fixed-top';
         }
 
         if ($PAGE->pagelayout == 'frontpage') {
-            if (!empty($settings->landffrontpagebackgroundimage)) {
+            if (!empty(self::get_setting('landffrontpagebackgroundimage'))) {
                 $html->additionalbodyclasses[] = 'frontpagebackgroundimage';
             }
         } else {
-            if (!empty($settings->landfallpagesbackgroundimage)) {
+            if (!empty(self::get_setting('landfallpagesbackgroundimage'))) {
                 $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
             }
         }
 
-        if ((!empty($settings->landfallhorizontalquiz)) && ($PAGE->pagelayout == 'incourse')) {
+        if ((!empty(self::get_setting('landfallhorizontalquiz'))) && ($PAGE->pagelayout == 'incourse')) {
             $html->additionalbodyclasses[] = 'horizontalquiz';
         }
 
@@ -201,7 +211,7 @@ class toolbox {
         } else if ($hassidepre && !$hassidepost) {
             $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
             $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
-            $regions['post'] = 'emtpy';
+            $regions['post'] = 'empty';
         } else if (!$hassidepre && $hassidepost) {
             $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
             $regions['pre'] = 'empty';
@@ -233,9 +243,9 @@ class toolbox {
     static public function showslider($settings) {
         $devicetype = \core_useragent::get_device_type(); // In moodlelib.php.
         if ($devicetype == "mobile") {
-            $showslider = (empty($settings->frontpageslidermobile)) ? false : $settings->frontpageslidermobile;
+            $showslider = (empty(self::get_setting('frontpageslidermobile'))) ? false : self::get_setting('frontpageslidermobile');
         } else if ($devicetype == "tablet") {
-            $showslider = (empty($settings->frontpageslidertablet)) ? false : $settings->frontpageslidertablet;
+            $showslider = (empty(self::get_setting('frontpageslidertablet'))) ? false : self::get_setting('frontpageslidertablet');
         } else {
             $showslider = true;
         }
@@ -249,26 +259,24 @@ class toolbox {
      */
     static public function shown_sitepages() {
         $pages = array();
-        $settings = self::get_theme_config('shoehorn')->settings;
 
-        $numberofsitepages = (empty($settings->numberofsitepages)) ? false : $settings->numberofsitepages;
+        $numberofsitepages = (empty(self::get_setting('numberofsitepages'))) ? false : self::get_setting('numberofsitepages');
         if ($numberofsitepages) {
             $loggedin = isloggedin();
             $lang = current_language();
             for ($sp = 1; $sp <= $numberofsitepages; $sp++) {
-                $sitepagestatus = 'sitepagestatus' . $sp;
-                if (empty($settings->$sitepagestatus) or ( $settings->$sitepagestatus == 2)) { // 2 is published.
-                    $sitepagetitle = 'sitepagetitle' . $sp;
-                    if (!empty($settings->$sitepagetitle)) {
-                        $sitepagedisplay = 'sitepagedisplay' . $sp;
-                        if (empty($settings->$sitepagedisplay)
-                                or ( $settings->$sitepagedisplay == 1) // Always.
-                                or ( ($settings->$sitepagedisplay == 2) and ( $loggedin == false)) // Logged out.
-                                or ( ($settings->$sitepagedisplay == 3) and ( $loggedin == true)) // Logged in.
+                $sitepagestatus = self::get_setting('sitepagestatus' . $sp);
+                if (empty($sitepagestatus) or ($sitepagestatus == 2)) { // 2 is published.
+                    $sitepagetitle = self::get_setting('sitepagetitle' . $sp);
+                    if (!empty($sitepagetitle)) {
+                        $sitepagedisplay = self::get_setting('sitepagedisplay' . $sp);
+                        if (empty($sitepagedisplay)
+                                or ($sitepagedisplay == 1) // Always.
+                                or (($sitepagedisplay == 2) and ($loggedin == false)) // Logged out.
+                                or (($sitepagedisplay == 3) and ($loggedin == true)) // Logged in.
                         ) {
-                            $sitepagelang = 'sitepagelang' . $sp;
-                            if (empty($settings->$sitepagelang) or ( $settings->$sitepagelang == 'all') or ( $settings->$sitepagelang
-                                    == $lang)) {
+                            $sitepagelang = self::get_setting('sitepagelang' . $sp);
+                            if (empty($sitepagelang) or ($sitepagelang == 'all') or ($sitepagelang == $lang)) {
                                 // Page can be shown.
                                 $pages[$sp] = 2;
                             } else {
@@ -300,24 +308,22 @@ class toolbox {
      */
     static public function shown_frontpageslides() {
         $slides = array();
-        $settings = self::get_theme_config('shoehorn')->settings;
 
-        $frontpagenumberofslides = (empty($settings->frontpagenumberofslides)) ? false : $settings->frontpagenumberofslides;
+        $frontpagenumberofslides = (empty(self::get_setting('frontpagenumberofslides'))) ? false : self::get_setting('frontpagenumberofslides');
         if ($frontpagenumberofslides) {
             $loggedin = isloggedin();
             $lang = current_language();
             for ($sl = 1; $sl <= $frontpagenumberofslides; $sl++) {
-                $frontpageslidestatus = 'frontpageslidestatus' . $sl;
-                if (empty($settings->$frontpageslidestatus) or ( $settings->$frontpageslidestatus == 2)) { // 2 is published.
-                    $frontpageslidedisplay = 'frontpageslidedisplay' . $sl;
-                    if (empty($settings->$frontpageslidedisplay)
-                            or ( $settings->$frontpageslidedisplay == 1) // Always.
-                            or ( ($settings->$frontpageslidedisplay == 2) and ( $loggedin == false)) // Logged out.
-                            or ( ($settings->$frontpageslidedisplay == 3) and ( $loggedin == true)) // Logged in.
+                $frontpageslidestatus = self::get_setting('frontpageslidestatus' . $sl);
+                if (empty($frontpageslidestatus) or ($frontpageslidestatus == 2)) { // 2 is published.
+                    $frontpageslidedisplay = self::get_setting('frontpageslidedisplay' . $sl);
+                    if (empty($frontpageslidedisplay)
+                            or ($frontpageslidedisplay == 1) // Always.
+                            or (($frontpageslidedisplay == 2) and ($loggedin == false)) // Logged out.
+                            or (($frontpageslidedisplay == 3) and ($loggedin == true)) // Logged in.
                     ) {
-                        $frontpageslidelang = 'frontpageslidelang' . $sl;
-                        if (empty($settings->$frontpageslidelang) or ( $settings->$frontpageslidelang == 'all') or ( $settings->$frontpageslidelang
-                                == $lang)) {
+                        $frontpageslidelang = self::get_setting('frontpageslidelang' . $sl);
+                        if (empty($frontpageslidelang) or ($frontpageslidelang == 'all') or ($frontpageslidelang == $lang)) {
                             // Slide can be shown.
                             $slides[$sl] = 2;
                         } else {
@@ -340,15 +346,13 @@ class toolbox {
     static public function shown_loginbackgroundchanger_images() {
         global $CFG;
         $images = array();
-        $theme = self::get_theme_config('shoehorn');
-        $settings = $theme->settings;
 
-        $numberofimages = (empty($settings->loginbackgroundchangernumberofimages)) ? false : $settings->loginbackgroundchangernumberofimages;
-        if (($numberofimages) && (self::showloginbackgroundchanger($settings))) {
+        $numberofimages = (empty(self::get_setting('loginbackgroundchangernumberofimages'))) ? false : self::get_setting('loginbackgroundchangernumberofimages');
+        if (($numberofimages) && (self::showloginbackgroundchanger())) {
             for ($img = 1; $img <= $numberofimages; $img++) {
-                $loginbackgroundchangerimageno = 'loginbackgroundchangerimage' . $img;
-                if (!empty($settings->$loginbackgroundchangerimageno)) {
-                    $images[] = $theme->setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
+                $loginbackgroundchangerimageno = self::get_setting('loginbackgroundchangerimage' . $img);
+                if (!empty($loginbackgroundchangerimageno)) {
+                    $images[] = self::setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
                 }
             }
         }
@@ -356,12 +360,12 @@ class toolbox {
         return $images;
     }
 
-    static private function showloginbackgroundchanger($settings) {
+    static private function showloginbackgroundchanger() {
         $devicetype = \core_useragent::get_device_type(); // In moodlelib.php.
         if ($devicetype == "mobile") {
-            $showimages = (empty($settings->loginbackgroundchangermobile)) ? false : $settings->loginbackgroundchangermobile;
+            $showimages = (empty(self::get_setting('loginbackgroundchangermobile'))) ? false : self::get_setting('loginbackgroundchangermobile');
         } else if ($devicetype == "tablet") {
-            $showimages = (empty($settings->loginbackgroundchangertablet)) ? false : $settings->loginbackgroundchangertablet;
+            $showimages = (empty(self::get_setting('loginbackgroundchangertablet'))) ? false : self::get_setting('loginbackgroundchangertablet');
         } else {
             $showimages = true;
         }
@@ -369,13 +373,12 @@ class toolbox {
     }
 
     static public function social_footer() {
-        $settings = self::get_theme_config('shoehorn')->settings;
-        $numberofsociallinks = (empty($settings->numberofsociallinks)) ? false : $settings->numberofsociallinks;
+        $numberofsociallinks = (empty(self::get_setting('numberofsociallinks'))) ? false : self::get_setting('numberofsociallinks');
         $haveicons = false;
         if ($numberofsociallinks) {
             for ($sli = 1; $sli <= $numberofsociallinks; $sli++) {
-                $name = 'social' . $sli;
-                if (!empty($settings->$name)) {
+                $name = self::get_setting('social' . $sli);
+                if (!empty($name)) {
                     $haveicons = true;
                     break;
                 }

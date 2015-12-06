@@ -26,8 +26,7 @@
 
 //require_once(dirname(__FILE__).'/../../lib.php');
 
-$themeconfig = \theme_shoehorn\toolbox::get_theme_config('shoehorn');
-$fitvids = (!isset($themeconfig->settings->fitvids)) ? true : $themeconfig->settings->fitvids;
+$fitvids = $OUTPUT->get_setting('fitvids', true);
 if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
@@ -36,13 +35,13 @@ switch ($PAGE->pagelayout) {
         $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {
             $data = array('data' => array('images' => array_values($loginpageimages),
-                                          'duration' => $themeconfig->settings->loginbackgroundchangerspeed,
-                                          'fade' => $themeconfig->settings->loginbackgroundchangerfade));
+                                          'duration' => $OUTPUT->get_setting('loginbackgroundchangerspeed'),
+                                          'fade' => $OUTPUT->get_setting('loginbackgroundchangerfade')));
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init', $data);
         }
         break;
     case 'admin':
-        $userload = (empty($themeconfig->settings->userload)) ? false : $themeconfig->settings->userload;
+        $userload = (empty($OUTPUT->get_setting('userload'))) ? false : $OUTPUT->get_setting('userload');
         if ($userload) {
             $userloadpostfix = get_string('userloadpostfix', 'theme_shoehorn');
             if (!empty($PAGE->layout_options['chart'])) {
