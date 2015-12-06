@@ -201,7 +201,7 @@ class toolbox {
         } else if ($hassidepre && !$hassidepost) {
             $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
             $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
-            $regions['post'] = 'emtpy';
+            $regions['post'] = 'empty';
         } else if (!$hassidepre && $hassidepost) {
             $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
             $regions['pre'] = 'empty';

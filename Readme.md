@@ -175,6 +175,9 @@ Todo
 
 Version information
 ===================
+Version 2.9.1.6
+  1. Fix typo in toolbox::grid().
+
 Version 2.9.1.5
   1. MDL-51921.
   2. Fix course format autoloading renderers.
