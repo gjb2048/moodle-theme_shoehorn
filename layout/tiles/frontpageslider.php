@@ -34,7 +34,7 @@ foreach ($slides as $sideid => $shown) {
 }
 
 if ($slidestoshow) {
-$speed = (!isset($PAGE->theme->settings->frontpagesliderspeed)) ? 5000 : $PAGE->theme->settings->frontpagesliderspeed;
+$speed = \theme_shoehorn\toolbox::get_setting('frontpagesliderspeed', 5000);
 if ($speed == 0) {
     $speed = '';
 }
@@ -59,9 +59,9 @@ if ($speed == 0) {
             $first = true;
             foreach ($slides as $slideid => $shown) {
                 if ($shown == 2) {
-                    $urlsetting = 'frontpageslideurl'.$slideid;
-                    if (!empty($PAGE->theme->settings->$urlsetting)) {
-                        echo '<a href="'.$PAGE->theme->settings->$urlsetting.'" target="_blank"';
+                    $urlsetting = \theme_shoehorn\toolbox::get_setting('frontpageslideurl'.$slideid);
+                    if ($urlsetting) {
+                        echo '<a href="'.$urlsetting.'" target="_blank"';
                     } else {
                         echo '<div';
                     }
@@ -71,15 +71,15 @@ if ($speed == 0) {
                         $first = false;
                     }
                     echo 'item">';
-                    $imagesetting = 'frontpageslideimage'.$slideid;
-                    if (!empty($PAGE->theme->settings->$imagesetting)) {
-                        $image = $PAGE->theme->setting_file_url($imagesetting, $imagesetting);
+                    $imagesetting = \theme_shoehorn\toolbox::get_setting('frontpageslideimage'.$slideid);
+                    if ($imagesetting) {
+                        $image = \theme_shoehorn\toolbox::setting_file_url('frontpageslideimage'.$slideid, 'frontpageslideimage'.$slideid);
                     } else {
-                        $image = $OUTPUT->pix_url('Default_Slide', 'theme');
+                        $image = \theme_shoehorn\toolbox::pix_url('Default_Slide', 'theme');
                     }
-                    $slidecaptiontitle = 'frontpageslidecaptiontitle'.$slideid;
-                    if (!empty($PAGE->theme->settings->$slidecaptiontitle)) {
-                        $imgalt = $PAGE->theme->settings->$slidecaptiontitle;
+                    $slidecaptiontitle = \theme_shoehorn\toolbox::get_setting('frontpageslidecaptiontitle'.$slideid);
+                    if ($slidecaptiontitle) {
+                        $imgalt = $slidecaptiontitle;
                     } else {
                         $imgalt = 'No caption title';
                     }
@@ -88,15 +88,15 @@ if ($speed == 0) {
                         <img src="<?php echo $image; ?>" alt="<?php echo $imgalt; ?>" />
                     </div>
                     <?php
-                    $slidecaptiontext = 'frontpageslidecaptiontext'.$slideid;
-                    if ((!empty($PAGE->theme->settings->$slidecaptiontitle)) || (!empty($PAGE->theme->settings->$slidecaptiontext))) { ?>
+                    $slidecaptiontext = \theme_shoehorn\toolbox::get_setting('frontpageslidecaptiontext'.$slideid);
+                    if ($slidecaptiontitle || $slidecaptiontext) { ?>
                         <div class="carousel-caption">
                         <?php
-                            if (!empty($PAGE->theme->settings->$slidecaptiontitle)) { echo '<h4>'.$PAGE->theme->settings->$slidecaptiontitle.'</h4>'; }
-                            if (!empty($PAGE->theme->settings->$slidecaptiontext)) { echo '<p>'.$PAGE->theme->settings->$slidecaptiontext.'</p>'; }
+                            if ($slidecaptiontitle) { echo '<h4>'.$slidecaptiontitle.'</h4>'; }
+                            if ($slidecaptiontext) { echo '<p>'.$slidecaptiontext.'</p>'; }
                         ?> </div> <?php
                     }
-                    if (!empty($PAGE->theme->settings->$urlsetting)) {
+                    if ($urlsetting) {
                         echo '</a>';
                     } else {
                         echo '</div>';
@@ -106,13 +106,13 @@ if ($speed == 0) {
         </div>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <?php if (!right_to_left()) { ?>
-            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
             <i class="fa fa-chevron-circle-left"></i>
             <?php } else { ?>
             <span class="glyphicon glyphicon-chevron-left"></i>
             <?php } ?>
         <?php } else { ?>
-            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
             <i class="fa fa-chevron-circle-right"></i>
             <?php } else { ?>
             <span class="glyphicon glyphicon-chevron-right"></i>
@@ -121,13 +121,13 @@ if ($speed == 0) {
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
         <?php if (!right_to_left()) { ?>
-            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
             <i class="fa fa-chevron-circle-right"></i>
             <?php } else { ?>
             <span class="glyphicon glyphicon-chevron-right"></i>
             <?php } ?>
         <?php } else { ?>
-            <?php if ($PAGE->theme->settings->fontawesome) { ?>
+            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
             <i class="fa fa-chevron-circle-left"></i>
             <?php } else { ?>
             <span class="glyphicon glyphicon-chevron-left"></i>

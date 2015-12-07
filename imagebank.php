@@ -27,12 +27,15 @@
 require_once('../../config.php');
 $imageid = required_param('imageid', PARAM_INT);
 
-$theme = theme_config::load('shoehorn');
+global $PAGE;
+$PAGE->set_context(context_system::instance());
+
 $name = 'imagebankimage'.$imageid;
-if (empty($theme->settings->$name)) {
+$setting = \theme_shoehorn\toolbox::get_setting($name);
+if (empty($setting)) {
     header('HTTP/1.0 404 not found');
     die('Image was not found, sorry.');
 } else {
-    $imageurl = $theme->setting_file_url($name, $name);
+    $imageurl = \theme_shoehorn\toolbox::setting_file_url($name, $name);
     header("Location: ".$imageurl);
 }

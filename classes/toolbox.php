@@ -79,12 +79,8 @@ class toolbox {
      * @return any false|value of setting.
      */
     static public function get_setting($setting, $format = false, $default = false) {
+        self::check_corerenderer();
 
-        if (empty(self::$corerenderer)) {
-            // Use $OUTPUT.
-            global $OUTPUT;
-            self::$corerenderer = $OUTPUT;
-        }
         $settingvalue = self::$corerenderer->get_setting($setting, $default);
 
         global $CFG;
@@ -103,14 +99,22 @@ class toolbox {
     }
 
     static public function setting_file_url($setting, $filearea) {
+        self::check_corerenderer();
+
+        return self::$corerenderer->setting_file_url($setting, $filearea);
+    }
+
+    static public function pix_url($imagename, $component) {
+        self::check_corerenderer();
+        return self::$corerenderer->pix_url($imagename, $component);
+    }
+
+    static private function check_corerenderer() {
         if (empty(self::$corerenderer)) {
             // Use $OUTPUT.
             global $OUTPUT;
             self::$corerenderer = $OUTPUT;
         }
-        error_log('get_setting toolbox: '.get_class(self::$corerenderer));
-
-        return self::$corerenderer->setting_file_url($setting, $filearea);
     }
 
     /**
@@ -165,7 +169,7 @@ class toolbox {
         }
 
         $fontawesome = self::get_setting('fontawesome');
-        if (!empty($fontawesome) && ($fontawesome == 1)) {
+        if (!empty($fontawesome)) {
             $html->additionalbodyclasses[] = 'fontawesome';
             $html->fontawesome = true;
         } else {
@@ -240,12 +244,12 @@ class toolbox {
         return $regions;
     }
 
-    static public function showslider($settings) {
+    static public function showslider() {
         $devicetype = \core_useragent::get_device_type(); // In moodlelib.php.
         if ($devicetype == "mobile") {
-            $showslider = (empty(self::get_setting('frontpageslidermobile'))) ? false : self::get_setting('frontpageslidermobile');
+            $showslider = self::get_setting('frontpageslidermobile', false);
         } else if ($devicetype == "tablet") {
-            $showslider = (empty(self::get_setting('frontpageslidertablet'))) ? false : self::get_setting('frontpageslidertablet');
+            $showslider = self::get_setting('frontpageslidertablet', false);
         } else {
             $showslider = true;
         }
@@ -351,8 +355,8 @@ class toolbox {
         if (($numberofimages) && (self::showloginbackgroundchanger())) {
             for ($img = 1; $img <= $numberofimages; $img++) {
                 $loginbackgroundchangerimageno = self::get_setting('loginbackgroundchangerimage' . $img);
-                if (!empty($loginbackgroundchangerimageno)) {
-                    $images[] = self::setting_file_url($loginbackgroundchangerimageno, $loginbackgroundchangerimageno);
+                if ($loginbackgroundchangerimageno) {
+                    $images[] = self::setting_file_url('loginbackgroundchangerimage' . $img, 'loginbackgroundchangerimage' . $img);
                 }
             }
         }
@@ -590,7 +594,8 @@ class toolbox {
             echo \html_writer::start_tag('a',
                     array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
                 'data-slide' => 'prev'));
-            if ($PAGE->theme->settings->fontawesome) {
+            $fontawesome = self::get_setting('fontawesome');
+            if ($fontawesome) {
                 echo \html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-left'));
             } else {
                 echo \html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-left'));
@@ -599,7 +604,7 @@ class toolbox {
             echo \html_writer::start_tag('a',
                     array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
                 'data-slide' => 'next'));
-            if ($PAGE->theme->settings->fontawesome) {
+            if ($fontawesome) {
                 echo \html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-right'));
             } else {
                 echo \html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-right'));

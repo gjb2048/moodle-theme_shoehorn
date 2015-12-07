@@ -455,7 +455,7 @@ class core_renderer extends \core_renderer {
             }
         }
 
-        $displaymycourses = (empty($this->themeconfig->settings->displaymycoursesmenu)) ? false : $this->themeconfig->settings->displaymycoursesmenu;
+        $displaymycourses = $this->get_setting('displaymycoursesmenu');
         if (isloggedin() && !isguestuser() && $displaymycourses) {
             switch ($displaymycourses) {
                 case 1:
@@ -772,7 +772,7 @@ class core_renderer extends \core_renderer {
      */
     protected function mycourses() {
         $content = '';
-        $displaymycourses = (empty($this->themeconfig->settings->displaymycourses)) ? false : $this->themeconfig->settings->displaymycourses;
+        $displaymycourses = $this->get_setting('displaymycourses');
         if ($displaymycourses == 2) {
             $mycourses = $this->get_enrolled_courses();
 
@@ -861,7 +861,7 @@ class core_renderer extends \core_renderer {
             $messagelist[] = $this->shoehorn_process_message($message);
         }
 
-        $showoldmessages = (empty($this->themeconfig->settings->showoldmessages)) ? false : $this->themeconfig->settings->showoldmessages;
+        $showoldmessages = $this->get_setting('showoldmessages');
         if ($showoldmessages == 2) {
             $maxmessages = 5;
             $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
@@ -934,9 +934,9 @@ class core_renderer extends \core_renderer {
         $items[] = html_writer::tag('a', get_string('home'), array('href' => $url, 'target' => '_self'));
 
         // Footer menu setting.
-        if (!empty($this->themeconfig->settings->footermenu)) {
+        if ($this->get_setting('footermenu')) {
             $lang = current_language();
-            $lines = explode("\n", $this->themeconfig->settings->footermenu);
+            $lines = explode("\n", $this->get_setting('footermenu'));
 
             foreach ($lines as $line) {
                 $line = trim($line);
@@ -963,8 +963,7 @@ class core_renderer extends \core_renderer {
 
         // Syntax highlighting.
         if (($this->syntaxhighlighterenabled) ||
-                ((!empty($this->themeconfig->settings->syntaxhighlight)) && ($this->themeconfig->settings->syntaxhighlight
-                == 2) && ($this->page->user_is_editing()))) {
+            (($this->get_setting('syntaxhighlight') == 2) && ($this->page->user_is_editing()))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
             $items[] = html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'),
@@ -981,16 +980,16 @@ class core_renderer extends \core_renderer {
                     $url->param('sesskey', $sesskey);
                 }
                 $url = preg_replace('|^https?://|i', '//', $url->out(false));
-                $sitepagetitle = 'sitepagetitle' . $pageid;
-                $items[] = html_writer::tag('a', $this->themeconfig->settings->$sitepagetitle,
+                $sitepagetitle = $this->get_setting('sitepagetitle' . $pageid);
+                $items[] = html_writer::tag('a', $sitepagetitle,
                                 array('href' => $url, 'class' => 'sitepagelink'));
             }
         }
 
         // Copyright setting.
-        if (!empty($this->themeconfig->settings->copyright)) {
+        if ($this->get_setting('copyright')) {
             $items[] = html_writer::tag('span',
-                            ' ' . $this->themeconfig->settings->copyright . ' ' . userdate(time(), '%Y'),
+                            ' ' . $this->get_setting('copyright') . ' ' . userdate(time(), '%Y'),
                             array('class' => 'copyright'));
         }
 
@@ -1044,7 +1043,7 @@ class core_renderer extends \core_renderer {
                 $zones[] = $block->title;
             }
 
-            $blocksperrow = $this->themeconfig->settings->numpagebottomblocks;
+            $blocksperrow = $this->get_setting('numpagebottomblocks');
             // When editing we want all the blocks to be the same.
             if (($blocksperrow > 4) || ($editing)) {
                 $blocksperrow = 4; // Will result in a 'col-sm-3 col-md-3 col-lg-3'.
@@ -1121,7 +1120,7 @@ class core_renderer extends \core_renderer {
      */
     public function blocks($region, $classes = array(), $tag = 'aside') {
         $output = '';
-        $accordionblocks = (empty($this->themeconfig->settings->accordion)) ? false : $this->themeconfig->settings->accordion;
+        $accordionblocks = $this->get_setting('accordion');
         if ($accordionblocks == 2) {
             if (($region == 'side-pre') || ($region == 'side-post')) {
                 $output = $this->collapse_blocks($region, $classes, $tag);
@@ -1407,7 +1406,7 @@ class core_renderer extends \core_renderer {
     }
 
     protected function syntax_highlighter() {
-        if ((!empty($this->themeconfig->settings->syntaxhighlight)) && ($this->themeconfig->settings->syntaxhighlight == 2)) {
+        if ($this->get_setting('syntaxhighlight') == 2) {
             if (strpos($this->page->course->summary, get_string('syntaxsummary', 'theme_shoehorn')) !== false) {
                 $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shCore.js');
                 $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shAutoloader.js');
@@ -1429,8 +1428,8 @@ class core_renderer extends \core_renderer {
         $output = parent::standard_end_of_body_html();
 
         if ($this->syntaxhighlighterenabled) {
-            $syscontext = context_system::instance();
-            $itemid = theme_get_revision();
+            $syscontext = \context_system::instance();
+            $itemid = \theme_get_revision();
             $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
                             "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
             $url = preg_replace('|^https?://|i', '//', $url->out(false));

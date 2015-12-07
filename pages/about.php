@@ -117,5 +117,3 @@ echo html_writer::end_tag('div');
 echo $OUTPUT->box_end();
 
 echo $OUTPUT->footer();
-
-

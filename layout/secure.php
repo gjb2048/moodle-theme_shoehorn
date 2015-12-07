@@ -16,8 +16,13 @@
 
 require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
-$hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
+if (!$PAGE->user_is_editing()) {
+    $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+    $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
+} else {
+    $hassidepre = $PAGE->blocks->is_known_region('side-pre');
+    $hassidepost = $PAGE->blocks->is_known_region('side-post');
+}
 
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();

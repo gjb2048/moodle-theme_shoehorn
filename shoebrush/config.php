@@ -32,6 +32,15 @@ $THEME->parents = array('shoehorn');
 
 $THEME->sheets[] = 'shoebrush';
 
+$docking = \theme_shoehorn\toolbox::get_config_setting('docking');
+$accordion = \theme_shoehorn\toolbox::get_config_setting('accordion', 'shoebrush');
+if ((!empty($docking) && ($docking == 2)) &&
+    (empty($accordion) || ((!empty($accordion) && ($accordion == 1))))) {
+    $THEME->enable_dock = true;
+} else {
+    $THEME->enable_dock = false;
+}
+
 $THEME->supportscssoptimisation = false;
 
 $sidepreregions = array('side-pre', 'page-bottom', 'footer-pre', 'footer-post');
