@@ -27,15 +27,17 @@
 
 require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
-$hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
-
-$knownregionpre = $PAGE->blocks->is_known_region('side-pre');
-$knownregionpost = $PAGE->blocks->is_known_region('side-post');
+if (!$PAGE->user_is_editing()) {
+    $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+    $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
+} else {
+    $hassidepre = $PAGE->blocks->is_known_region('side-pre');
+    $hassidepost = $PAGE->blocks->is_known_region('side-post');
+}
 
 $PAGE->set_popup_notification_allowed(false);
 
-$showslider = \theme_shoehorn\toolbox::showslider($PAGE->theme->settings);
+$showslider = \theme_shoehorn\toolbox::showslider();
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
@@ -73,10 +75,10 @@ echo $OUTPUT->doctype() ?>
             </div>
 
             <?php
-            if ($knownregionpre) {
+            if ($hassidepre) {
                 echo $OUTPUT->blocks('side-pre', $regions['pre']);
             }
-            if ($knownregionpost) {
+            if ($hassidepost) {
                 echo $OUTPUT->blocks('side-post', $regions['post']);
             }?>
 

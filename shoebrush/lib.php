@@ -26,6 +26,10 @@
  */
 
 function theme_shoebrush_process_css($css, $theme) {
+    global $PAGE;
+    $outputus = $PAGE->get_renderer('theme_shoebrush', 'core');
+    \theme_shoehorn\toolbox::set_core_renderer($outputus);
+
     global $CFG;
     if (file_exists("$CFG->dirroot/theme/shoehorn/lib.php")) {
         require_once("$CFG->dirroot/theme/shoehorn/lib.php");
@@ -42,4 +46,37 @@ function theme_shoebrush_process_css($css, $theme) {
 
     // Finally return processed CSS
     return $css;
+}
+
+/**
+ * Serves any files associated with the theme settings.
+ *
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param array $args
+ * @param bool $forcedownload
+ * @param array $options
+ * @return bool
+ */
+function theme_shoebrush_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    static $theme;
+    if (empty($theme)) {
+        $theme = theme_config::load('shoebrush');
+    }
+
+    if ($context->contextlevel == CONTEXT_SYSTEM) {
+        if ($filearea === 'logo') {
+            return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
+            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+        } else if ($filearea === 'syntaxhighlighter') {
+            theme_shoehorn_serve_syntaxhighlighter($args[1]);
+        } else {
+            send_file_not_found();
+        }
+    } else {
+        send_file_not_found();
+    }
 }

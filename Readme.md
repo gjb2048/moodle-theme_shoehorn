@@ -181,6 +181,8 @@ Version 3.0.0.1
   3. Update to BS 3.3.6.
   4. Fix typo in toolbox::grid().
   5. Improvements to child theme support.
+  6. Improvements / fixes to layout block areas when editing.
+  7. Dotted borders on empty block areas when editing.
 
 Version 2.9.1.5
   1. MDL-51921.

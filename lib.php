@@ -26,6 +26,10 @@
  */
 
 function theme_shoehorn_process_css($css, $theme) {
+    global $PAGE;
+    $outputus = $PAGE->get_renderer('theme_shoehorn', 'core');
+    \theme_shoehorn\toolbox::set_core_renderer($outputus);
+
     // Set the background image for the logo.
     $logo = \theme_shoehorn\toolbox::setting_file_url('logo', 'logo');
     $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
