@@ -7,8 +7,9 @@ Version 2.9.1.6
   4. Improvements to child theme support.
   5. Improvements / fixes to layout block areas when editing.
   6. Dotted borders on empty block areas when editing.
-  7. Refactored commit ce9a231112fc0c98726419f69031bef088eab3e4 from M3.0 of 24/11/15.
-  8. Refactored commit a6ad6e91b3062feb2a067250268a8b1ccdddfb28 from M3.0 of 26/11/15.
+  7. Start of PHPUnit tests.
+  8. Refactored commit ce9a231112fc0c98726419f69031bef088eab3e4 from M3.0 of 24/11/15.
+  9. Refactored commit a6ad6e91b3062feb2a067250268a8b1ccdddfb28 from M3.0 of 26/11/15.
 
 Version 2.9.1.5
   1. MDL-51921.
