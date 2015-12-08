@@ -183,6 +183,7 @@ Version 3.0.0.1
   5. Improvements to child theme support.
   6. Improvements / fixes to layout block areas when editing.
   7. Dotted borders on empty block areas when editing.
+  8. Start of PHPUnit tests.
 
 Version 2.9.1.5
   1. MDL-51921.
