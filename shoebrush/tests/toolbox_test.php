@@ -18,7 +18,7 @@
  * Shoehorn theme.
  *
  * @package    theme
- * @subpackage shoehorn
+ * @subpackage shoebrush
  * @copyright  &copy; 2015-onwards G J Barnard in respect to modifications of the Bootstrap theme.
  * @author     G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
@@ -26,45 +26,44 @@
  */
 
 /**
- * Core renderer unit tests for the Shoehorn theme.
- * @group theme_shoehorn
+ * Toolbox unit tests for the Shoebrush theme.
+ * @group theme_shoebrush
  */
-class theme_shoehorn_corerenderer_testcase extends advanced_testcase {
+class theme_shoebrush_toolbox_testcase extends advanced_testcase {
 
     protected $outputus;
 
     protected function setUp() {
-        set_config('textcolour', '#00ff00', 'theme_shoehorn');
-        set_config('logo', '/test.jpg', 'theme_shoehorn');
+        set_config('theme', 'shoebrush');
         $this->resetAfterTest(true);
 
         global $PAGE;
-        $this->outputus = $PAGE->get_renderer('theme_shoehorn', 'core');
+        $this->outputus = $PAGE->get_renderer('theme_shoebrush', 'core');
         \theme_shoehorn\toolbox::set_core_renderer($this->outputus);
     }
 
-    public function test_version() {
-        $ourversion = \theme_shoehorn\toolbox::get_setting('version');
-        $coretheme = \theme_config::load('shoehorn');
+    public function test_get_tilefile_header() {
+        $thefile = \theme_shoehorn\toolbox::get_tile_file('header');
+        global $CFG;
+        $withoutdirroot = str_replace($CFG->dirroot, '', $thefile);
 
-        $this->assertEquals($coretheme->settings->version, $ourversion);
+        $this->assertEquals('/theme/shoebrush/layout/tiles/header.php', $withoutdirroot);
     }
 
-    public function test_textcolour() {
-        $ourcolour = \theme_shoehorn\toolbox::get_setting('textcolour');
+    public function test_get_tilefile_pageheader() {
+        $thefile = \theme_shoehorn\toolbox::get_tile_file('pageheader');
+        global $CFG;
+        $withoutdirroot = str_replace($CFG->dirroot, '', $thefile);
 
-        $this->assertEquals('#00ff00', $ourcolour);
+        $this->assertEquals('/theme/shoehorn/layout/tiles/pageheader.php', $withoutdirroot);
     }
 
-    public function test_logo() {
-        $ourlogo = \theme_shoehorn\toolbox::setting_file_url('logo', 'logo');
+    public function test_themeinfo() {
+        global $PAGE, $CFG, $OUTPUT;
+        $themedir = str_replace($CFG->dirroot, '', $PAGE->theme->dir);
 
-        $this->assertEquals('//www.example.com/moodle/pluginfile.php/1/theme_shoehorn/logo/1/test.jpg', $ourlogo);
-    }
-
-    public function test_pix() {
-        $ouricon = \theme_shoehorn\toolbox::pix_url('icon', 'theme');
-
-        $this->assertEquals('http://www.example.com/moodle/theme/image.php/_s/shoehorn/theme/1/icon', $ouricon->out(false));
+        $this->assertEquals('shoebrush', $PAGE->theme->name);
+        $this->assertEquals('/theme/shoebrush', $themedir);
+        $this->assertEquals('shoehorn', $PAGE->theme->parents[0]);
     }
 }

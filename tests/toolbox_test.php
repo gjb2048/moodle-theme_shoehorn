@@ -26,16 +26,15 @@
  */
 
 /**
- * Core renderer unit tests for the Shoehorn theme.
+ * Toolbox unit tests for the Shoehorn theme.
  * @group theme_shoehorn
  */
-class theme_shoehorn_corerenderer_testcase extends advanced_testcase {
+class theme_shoehorn_toolbox_testcase extends advanced_testcase {
 
     protected $outputus;
 
     protected function setUp() {
-        set_config('textcolour', '#00ff00', 'theme_shoehorn');
-        set_config('logo', '/test.jpg', 'theme_shoehorn');
+        set_config('theme', 'shoehorn');
         $this->resetAfterTest(true);
 
         global $PAGE;
@@ -43,28 +42,28 @@ class theme_shoehorn_corerenderer_testcase extends advanced_testcase {
         \theme_shoehorn\toolbox::set_core_renderer($this->outputus);
     }
 
-    public function test_version() {
-        $ourversion = \theme_shoehorn\toolbox::get_setting('version');
-        $coretheme = \theme_config::load('shoehorn');
+    public function test_get_tilefile_header() {
+        $thefile = \theme_shoehorn\toolbox::get_tile_file('header');
+        global $CFG;
+        $withoutdirroot = str_replace($CFG->dirroot, '', $thefile);
 
-        $this->assertEquals($coretheme->settings->version, $ourversion);
+        $this->assertEquals('/theme/shoehorn/layout/tiles/header.php', $withoutdirroot);
     }
 
-    public function test_textcolour() {
-        $ourcolour = \theme_shoehorn\toolbox::get_setting('textcolour');
+    public function test_get_tilefile_pageheader() {
+        $thefile = \theme_shoehorn\toolbox::get_tile_file('pageheader');
+        global $CFG;
+        $withoutdirroot = str_replace($CFG->dirroot, '', $thefile);
 
-        $this->assertEquals('#00ff00', $ourcolour);
+        $this->assertEquals('/theme/shoehorn/layout/tiles/pageheader.php', $withoutdirroot);
     }
 
-    public function test_logo() {
-        $ourlogo = \theme_shoehorn\toolbox::setting_file_url('logo', 'logo');
+    public function test_themeinfo() {
+        global $PAGE, $CFG;
+        $themedir = str_replace($CFG->dirroot, '', $PAGE->theme->dir);
 
-        $this->assertEquals('//www.example.com/moodle/pluginfile.php/1/theme_shoehorn/logo/1/test.jpg', $ourlogo);
-    }
-
-    public function test_pix() {
-        $ouricon = \theme_shoehorn\toolbox::pix_url('icon', 'theme');
-
-        $this->assertEquals('http://www.example.com/moodle/theme/image.php/_s/shoehorn/theme/1/icon', $ouricon->out(false));
+        $this->assertEquals('shoehorn', $PAGE->theme->name);
+        $this->assertEquals('/theme/shoehorn', $themedir);
+        $this->assertEmpty($PAGE->theme->parents);
     }
 }
