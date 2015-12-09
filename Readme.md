@@ -184,6 +184,8 @@ Version 3.0.0.1
   6. Improvements / fixes to layout block areas when editing.
   7. Dotted borders on empty block areas when editing.
   8. Start of PHPUnit tests.
+  9. Report layouts have a different HTML tag background to cope with overflow, whilst others have the footer to
+     cope with lack of content.
 
 Version 2.9.1.5
   1. MDL-51921.
