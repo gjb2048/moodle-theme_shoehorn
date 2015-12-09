@@ -24965,6 +24965,13 @@ html
     background-color: [[setting:htmlbackground]];
     background-color: [[setting:htmlbackgroundrgba]];
 }
+html.report
+{
+    background-color: [[setting:pagebottombackground]];
+    background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0%, [[setting:pagebottombackgroundrgba]] 100%);
+    background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0%, [[setting:pagebottombackgroundrgba]] 100%);
+    background-repeat: repeat-x;
+}
 body
 {
     color: [[setting:textcolour]];

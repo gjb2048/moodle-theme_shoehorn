@@ -29,6 +29,11 @@ html {
     background-color: ~"[[setting:htmlbackgroundrgba]]";
 }
 
+html.report {
+    background-color: ~"[[setting:pagebottombackground]]";
+    #shoehorn > .verticalrgba(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
+}
+
 // Body and scaffolding.
 body {
     color: ~"[[setting:textcolour]]";

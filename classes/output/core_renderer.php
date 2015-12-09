@@ -88,6 +88,16 @@ class core_renderer extends \core_renderer {
         return $this->fontawesome;
     }
 
+    public function htmlattributes() {
+        $attr = parent::htmlattributes();
+
+        if ($this->page->pagelayout == 'report') {
+            $attr .= ' class="report"';
+        }
+
+        return $attr;
+    }
+
     public function notification($message, $classes = 'notifyproblem') {
         $message = clean_text($message);
 
