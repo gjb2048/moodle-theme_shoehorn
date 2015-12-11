@@ -26,11 +26,13 @@
  */
 namespace theme_shoehorn\output;
 
+use html_writer;
+
 defined('MOODLE_INTERNAL') || die();
 
 class core_renderer_maintenance extends \core_renderer_maintenance {
 
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(\moodle_page $page, $target) {
         parent::__construct($page, $target);
         $this->themeconfig = array(\theme_config::load('shoehorn'));
     }
