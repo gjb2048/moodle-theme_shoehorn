@@ -835,7 +835,7 @@ class core_renderer extends \core_renderer {
             $cleanmsg->from = fullname($message);
             $cleanmsg->msguserid = $message->id;
 
-            $userpicture = new user_picture($message);
+            $userpicture = new \user_picture($message);
             $userpicture->link = false;
             $picture = $this->render($userpicture);
 
