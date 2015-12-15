@@ -232,7 +232,7 @@ class core_renderer extends \core_renderer {
         return $content;
     }
 
-    protected function render_tabtree(tabtree $tabtree) {
+    protected function render_tabtree(\tabtree $tabtree) {
         if (empty($tabtree->subtree)) {
             return '';
         }
@@ -246,7 +246,7 @@ class core_renderer extends \core_renderer {
         return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs nav-justified')) . $secondrow;
     }
 
-    protected function render_tabobject(tabobject $tab) {
+    protected function render_tabobject(\tabobject $tab) {
         if ($tab->selected or $tab->activated) {
             return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'active'));
         } else if ($tab->inactive) {

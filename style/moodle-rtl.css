@@ -27024,7 +27024,7 @@ form input[type='password'],
 form.atto_form input[type='url'],
 select.singleselect
 {
-    margin: 0 2px 4px 0;
+    margin: 0 0 4px 0;
 }
 
 .row > .row
@@ -28503,6 +28503,11 @@ ul.weeks
     {
         margin-top: 0;
     }
+}
+
+.nav-tabs
+{
+    margin: 0;
 }
 
 .dropdown-menu li a:hover,
