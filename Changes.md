@@ -12,6 +12,9 @@ Version 2.9.1.6
      cope with lack of content.
   9. Refactored commit ce9a231112fc0c98726419f69031bef088eab3e4 from M3.0 of 24/11/15.
  10. Refactored commit a6ad6e91b3062feb2a067250268a8b1ccdddfb28 from M3.0 of 26/11/15.
+ 11. Fixed namespace issue in core_renderer.php.
+ 12. Fixed tab appearance issue when looking at: Site administration -> Users -> Permissions -> Define roles.
+ 13. Moved to using this Changes.md file as per: https://docs.moodle.org/dev/Plugin_files#CHANGES
 
 Version 2.9.1.5
   1. MDL-51921.
