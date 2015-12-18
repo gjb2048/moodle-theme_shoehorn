@@ -16,6 +16,9 @@ Version 2.9.1.6
  12. Fixed tab appearance issue when looking at: Site administration -> Users -> Permissions -> Define roles.
  13. Moved to using this Changes.md file as per: https://docs.moodle.org/dev/Plugin_files#CHANGES
  14. Fix Quiz > Edit quiz -> Edit maximum mark.
+ 15. Fix all blocks when docked #13.
+ 16. RTL tidy up.
+ 17. Dock tidy up.
 
 Version 2.9.1.5
   1. MDL-51921.

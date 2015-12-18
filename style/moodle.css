@@ -9318,6 +9318,14 @@ img.icon.hide
     }
 }
 */
+.content-only #region-main
+{
+    width: 100%;
+}
+.content-only.dir-rtl #region-main.col-lg-push-2
+{
+    right: 0;
+}
 /** Page layout CSS ends **/
 .mdl-left
 {
@@ -21927,8 +21935,7 @@ input.fp-btn-choose
 
     text-align: center;
 }
-body.has_dock #page,
-body.has_dock .moodleheader
+body.has_dock #page
 {
     padding-left: 41px;
 }
@@ -22414,8 +22421,7 @@ fieldset[disabled] #dock .dockedtitle.focus
 {
     cursor: pointer;
 }
-.dir-rtl.has_dock #page,
-.dir-rtl.has_dock .moodleheader
+.dir-rtl.has_dock #page
 {
     padding-right: 41px;
     padding-left: 15px;
@@ -22881,6 +22887,10 @@ fieldset[disabled] a#rubric-rubric.gradingform_rubric .addcriterion
 
     content: none;
 }
+.dir-rtl .breadcrumb-nav
+{
+    float: right;
+}
 button,
 input.form-submit,
 input[type='button'],
@@ -23252,6 +23262,15 @@ select.singleselect
 }
 @media (min-width: 768px)
 {
+    .dir-rtl .navbar-header,
+    .dir-rtl .navbar-brand,
+    .dir-rtl .navbar-nav > li
+    {
+        float: right;
+    }
+}
+@media (min-width: 768px)
+{
     body.ie.compactnavbar .navbar-collapse.collapse
     {
         display: inline-block !important;
@@ -23570,6 +23589,15 @@ ul.weeks
 .coursebox .moreinfo
 {
     display: inline-block;
+}
+body.has_dock #page
+{
+    padding-left: 50px;
+}
+body.has_dock.dir-rtl #page
+{
+    padding-right: 50px;
+    padding-left: 15px;
 }
 /* Experimental CSS for big font capability.
 @dock-height: (@dock-width * 5.5);
@@ -25069,15 +25097,6 @@ body.compactnavbar .navbar
 
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 24px;
-    border-bottom-left-radius: 0;
-}
-body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
-body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
-body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
-body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
-{
-    border-bottom-right-radius: 24px;
 }
 body.compactnavbar .navbar .navbar-collapse,
 body.compactnavbar .navbar > .container-fluid,
@@ -25098,14 +25117,37 @@ body.compactnavbar .navbar .navbar-brand
     margin-right: 0;
     margin-left: 0;
 }
+body.compactnavbar.dir-ltr .navbar
+{
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 0;
+}
+body.compactnavbar.dir-ltr .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-ltr .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-ltr .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar.dir-ltr .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
+{
+    border-bottom-right-radius: 24px;
+}
 body.compactnavbar .navbar.navbar-fixed-top
 {
     display: inline-table;
 }
 body.compactnavbar.dir-rtl .navbar.navbar-fixed-top
 {
-    /*@noflip*/
     left: inherit;
+}
+body.compactnavbar.dir-rtl .navbar
+{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 24px;
+}
+body.compactnavbar.dir-rtl .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-rtl .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
+{
+    border-bottom-left-radius: 24px;
 }
 body.navbarfixedtop header.moodleheader
 {
@@ -26870,16 +26912,16 @@ body.editing #block-region-page-bottom .block
 /*
 #block-region-page-bottom {
     .row {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 0;
+        margin-right: 0;
         padding-left: (@grid-gutter-width / 2);
         padding-right: (@grid-gutter-width / 2);
     }
     .col-md-3 {
         margin-left: (@grid-gutter-width / 2);
         margin-right: (@grid-gutter-width / 2);
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 */
@@ -27298,6 +27340,11 @@ input
 .antiGravity i.fa
 {
     padding-bottom: 2px;
+}
+.dir-rtl .antiGravity
+{
+    right: auto;
+    left: 40px;
 }
 a[name='lastused']
 {

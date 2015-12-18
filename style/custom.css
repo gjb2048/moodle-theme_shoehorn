@@ -26,16 +26,6 @@ body.pagelayout-login #region-main.loggedout {
     [[setting:theloginmessge]]
 }
 
-/* Styles that should not be flipped for RTL. */
-/* Footer. */
-body.has_dock_left_vertical.has_dock #page-footer {
-    margin-left: 0px;
-}
-
-body.has_dock_right_vertical.has_dock #page-footer {
-    margin-right: 0px;
-}
-
 /* Look and feel settings
 -------------------------*/
 body.allpagesbackgroundimage {

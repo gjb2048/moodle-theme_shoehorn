@@ -18,8 +18,7 @@
 }
 
 body.has_dock {
-    #page,
-    .moodleheader {
+    #page {
         padding-left: (@dock-width + (@dock-title-margin * 3));
     }
     div#dock {
@@ -125,14 +124,13 @@ body.has_dock {
 }
 
 .dir-rtl {
-    &.has_dock #page,
-    &.has_dock .moodleheader {
+    &.has_dock #page {
         padding-left: (@grid-gutter-width / 2);
         padding-right: (@dock-width + (@dock-title-margin * 3));
     }
     #dock {
         left: auto;
-        right: 0%;
+        right: 0;
         .dockedtitle {
             h2 {
                 line-height: @dock-width - @dock-title-font-size;

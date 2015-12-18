@@ -308,7 +308,7 @@ class core_renderer extends \core_renderer {
         } else {
             $o .= html_writer::link(new moodle_url('/'),
                             html_writer::tag($tag, $this->page->heading,
-                                    array('class' => 'heading  col-xs-12 col-sm-12 col-md-12')),
+                                    array('class' => 'heading')),
                             array('title' => get_string('home')));
         }
 
