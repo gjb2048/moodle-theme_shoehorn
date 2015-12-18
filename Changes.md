@@ -1,7 +1,7 @@
 Version information
 ===================
 Version 3.0.0.3
-  1. Update pre-fixes.
+  1. Fix Quiz > Edit quiz -> Edit maximum mark.
 
 Version 3.0.0.2
   1. Fixed namespace issue in core_renderer.php.
