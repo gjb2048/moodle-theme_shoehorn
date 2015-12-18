@@ -45,30 +45,8 @@ class toolbox {
      * @return string Complete path of the file.
      */
     static public function get_tile_file($filename) {
-        global $CFG, $PAGE;
-        $themedir = $PAGE->theme->dir;
-        $filename .= '.php';
-
-        /* Check only if a child of 'Shoehorn' to prevent conflicts with other themes using the 'tiles' folder.
-          The test is to change theme from Shoelace to Shoebrush with the theme selector and not get an error. */
-        if (in_array('shoehorn', $PAGE->theme->parents)) {
-            $themename = $PAGE->theme->name;
-            if (file_exists("$themedir/layout/tiles/$filename")) {
-                return "$themedir/layout/tiles/$filename";
-            } else if (file_exists("$CFG->dirroot/theme/$themename/layout/tiles/$filename")) {
-                return "$CFG->dirroot/theme/$themename/layout/tiles/$filename";
-            } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/$themename/layout/tiles/$filename")) {
-                return "$CFG->themedir/$themename/layout/tiles/$filename";
-            }
-        }
-        // Check Shoehorn.
-        if (file_exists("$CFG->dirroot/theme/shoehorn/layout/tiles/$filename")) {
-            return "$CFG->dirroot/theme/shoehorn/layout/tiles/$filename";
-        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
-            return "$CFG->themedir/shoehorn/layout/tiles/$filename";
-        } else {
-            return dirname(__FILE__) . "/$filename";
-        }
+        self::check_corerenderer();
+        return self::$corerenderer->get_tile_file($filename);
     }
 
     /**

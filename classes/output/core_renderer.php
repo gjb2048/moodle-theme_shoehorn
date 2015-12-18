@@ -81,6 +81,21 @@ class core_renderer extends \core_renderer {
         return end($this->themeconfig)->pix_url($imagename, $component);
     }
 
+
+    public function get_tile_file($filename) {
+        global $CFG;
+        $themedir = $this->page->theme->dir;
+        $filename .= '.php';
+
+        if (file_exists("$CFG->dirroot/theme/shoehorn/layout/tiles/$filename")) {
+            return "$CFG->dirroot/theme/shoehorn/layout/tiles/$filename";
+        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
+            return "$CFG->themedir/shoehorn/layout/tiles/$filename";
+        } else {
+            return dirname(__FILE__) . "$filename";
+        }
+    }
+
     protected function is_fontawesome() {
         if ($this->fontawesome == null) {
             $this->fontawesome = $this->get_setting('fontawesome');
