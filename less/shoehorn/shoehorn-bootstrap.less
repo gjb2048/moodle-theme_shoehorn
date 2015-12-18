@@ -42,6 +42,13 @@
   }
 }
 
+
+.dir-rtl {
+  .breadcrumb-nav {
+      float: right;
+  }
+}
+
 // buttons.less.
 button, input.form-submit, input[type="button"], input[type="submit"], input[type="reset"] {
   margin: 0 0 4px 2px;
@@ -376,6 +383,14 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
 }
 .navbar {
   z-index: 200;
+}
+
+@media(min-width: @screen-sm-min) {
+  .dir-rtl {
+    .navbar-header, .navbar-brand, .navbar-nav > li {
+      float: right;
+    }
+  }
 }
 
 @media(min-width: @screen-sm-min) {

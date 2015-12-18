@@ -2,6 +2,9 @@ Version information
 ===================
 Version 3.0.0.3
   1. Fix Quiz > Edit quiz -> Edit maximum mark.
+  2. Fix all blocks when docked #13.
+  3. RTL tidy up.
+  4. Dock tidy up.
 
 Version 3.0.0.2
   1. Fixed namespace issue in core_renderer.php.

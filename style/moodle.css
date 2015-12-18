@@ -5959,6 +5959,12 @@ button.list-group-item-danger.active:focus
 .layout-option-nocoursefooter .course-content-footer
 {
     display: none;
+}.content-only #region-main
+{
+    width: 100%;
+}.content-only.dir-rtl #region-main.col-lg-push-2
+{
+    right: 0;
 }.mdl-left
 {
     text-align: left;
@@ -13734,8 +13740,7 @@ input[type='reset'] .badge
 }.transform-test-heading
 {
     font-family: [[setting:bodyfont]] 'Cabin','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 14px;font-weight: bold;line-height: 32px;margin: 0;padding: 0;text-align: center;
-}body.has_dock #page,
-body.has_dock .moodleheader
+}body.has_dock #page
 {
     padding-left: 41px;
 }body.has_dock div#dock
@@ -14047,8 +14052,7 @@ fieldset[disabled] #dock .dockedtitle.focus
 }#dockeditempanel .dockeditempanel_hd .commands .hidepanelicon img
 {
     cursor: pointer;
-}.dir-rtl.has_dock #page,
-.dir-rtl.has_dock .moodleheader
+}.dir-rtl.has_dock #page
 {padding-right: 41px;
     padding-left: 15px;
 }.dir-rtl #dock
@@ -14269,6 +14273,9 @@ fieldset[disabled] a#rubric-rubric.gradingform_rubric .addcriterion
 {padding: 0;
 
     content: none;
+}.dir-rtl .breadcrumb-nav
+{
+    float: right;
 }button,
 input.form-submit,
 input[type='button'],
@@ -14506,6 +14513,14 @@ select.singleselect
     z-index: 200;
 }@media (min-width:768px)
 {
+    .dir-rtl .navbar-header,
+    .dir-rtl .navbar-brand,
+    .dir-rtl .navbar-nav > li
+    {
+        float: right;
+    }
+}@media (min-width:768px)
+{
     body.ie.compactnavbar .navbar-collapse.collapse
     {
         display: inline-block !important;
@@ -14671,6 +14686,12 @@ ul.weeks
 }.coursebox .moreinfo
 {
     display: inline-block;
+}body.has_dock #page
+{
+    padding-left: 50px;
+}body.has_dock.dir-rtl #page
+{padding-right: 50px;
+    padding-left: 15px;
 }#dock .dockedtitle h2
 {
     font-size: 14px !important;line-height: 24px;margin-top: 4px;
@@ -15649,13 +15670,7 @@ a:focus,
     margin-left: 0;
 }body.compactnavbar .navbar
 {
-    display: inline-block;border-top-left-radius: 0;border-top-right-radius: 0;border-bottom-right-radius: 24px;border-bottom-left-radius: 0;
-}body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
-body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
-body.compactnavbar .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
-body.compactnavbar .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
-{
-    border-bottom-right-radius: 24px;
+    display: inline-block;border-top-left-radius: 0;border-top-right-radius: 0;
 }body.compactnavbar .navbar .navbar-collapse,
 body.compactnavbar .navbar > .container-fluid,
 body.compactnavbar .navbar > .container-fluid > .navbar-header
@@ -15667,12 +15682,30 @@ body.compactnavbar .navbar > .container-fluid > .navbar-header
 }body.compactnavbar .navbar .navbar-brand
 {margin-right: 0;
     margin-left: 0;
+}body.compactnavbar.dir-ltr .navbar
+{border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 0;
+}body.compactnavbar.dir-ltr .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-ltr .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-ltr .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar.dir-ltr .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
+{
+    border-bottom-right-radius: 24px;
 }body.compactnavbar .navbar.navbar-fixed-top
 {
     display: inline-table;
 }body.compactnavbar.dir-rtl .navbar.navbar-fixed-top
 {
     left: inherit;
+}body.compactnavbar.dir-rtl .navbar
+{
+    border-bottom-right-radius: 0;border-bottom-left-radius: 24px;
+}body.compactnavbar.dir-rtl .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:hover,
+body.compactnavbar.dir-rtl .navbar-default #moodle-navbar .navbar-nav > li:last-child > a:focus,
+body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
+{
+    border-bottom-left-radius: 24px;
 }body.navbarfixedtop header.moodleheader
 {
     padding-top: 50px;
@@ -17052,6 +17085,9 @@ input
 }.antiGravity i.fa
 {
     padding-bottom: 2px;
+}.dir-rtl .antiGravity
+{right: auto;
+    left: 40px;
 }a[name='lastused']
 {
     padding-top: 50px;

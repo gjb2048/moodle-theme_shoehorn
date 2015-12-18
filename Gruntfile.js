@@ -231,7 +231,7 @@ module.exports = function(grunt) {
             theme: {
                 expand: true,
                 cwd: 'style/',
-                src: ['moodle.css', 'moodle-rtl.css', 'editor.css', 'font-awesome.css'],
+                src: ['moodle.css', 'editor.css', 'font-awesome.css'],
                 dest: 'style/'
             }
         },
@@ -253,16 +253,6 @@ module.exports = function(grunt) {
             tasks: ["compile"],
             options: {
                 spawn: false
-            }
-        },
-        cssflip: {
-            rtl: {
-                src:  'style/moodle.css',
-                dest: 'style/moodle-rtl.css'
-            },
-            rtl_e: {
-                src:  'style/experimental/moodle.css',
-                dest: 'style/experimental/moodle-rtl.css'
             }
         },
         copy: {
@@ -401,7 +391,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks("grunt-text-replace");
-    grunt.loadNpmTasks("grunt-css-flip");
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-csscomb');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -414,7 +403,7 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("main", ["less:moodle", "less:editor", "less:fontawesome", "replace:font_fix", "cssflip:rtl", "replace:rtl_images", "csscomb:theme"]);
+    grunt.registerTask("main", ["less:moodle", "less:editor", "less:fontawesome", "replace:font_fix", "replace:rtl_images", "csscomb:theme"]);
     grunt.registerTask("compile", ["main", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);

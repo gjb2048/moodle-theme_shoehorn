@@ -294,7 +294,15 @@ ul {
 }
 
 // dock.less.
-
+body.has_dock {
+    #page {
+        padding-left: (@dock-width + (@dock-title-margin * 6));
+    }
+    &.dir-rtl #page {
+        padding-left: (@grid-gutter-width / 2);
+        padding-right: (@dock-width + (@dock-title-margin * 6));
+    }
+}
 /* Experimental CSS for big font capability.
 @dock-height: (@dock-width * 5.5);
 #dock .dockedtitle h2 {

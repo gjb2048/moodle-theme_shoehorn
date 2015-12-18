@@ -32,10 +32,8 @@ $THEME->parents = array();
 
 $THEME->sheets = array();
 $THEME->sheets[] = 'chartist_min';
-if ('ltr' === get_string('thisdirection', 'langconfig')) {
-    $THEME->sheets[] = 'moodle';
-} else {
-    $THEME->sheets[] = 'moodle-rtl';
+$THEME->sheets[] = 'moodle';
+if ('rtl' === get_string('thisdirection', 'langconfig')) {
     $THEME->sheets[] = 'tinymce-rtl';
     $THEME->sheets[] = 'yui2-rtl';
     $THEME->sheets[] = 'forms-rtl';

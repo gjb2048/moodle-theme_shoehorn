@@ -86,9 +86,25 @@ a, .mform legend a {
 body.compactnavbar {
     .navbar {
         display: inline-block;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        .navbar-collapse, > .container-fluid, > .container-fluid > .navbar-header {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .navbar-nav {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .navbar-brand {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    &.dir-ltr .navbar {
+        border-bottom-left-radius: 0;
         border-bottom-right-radius: @border-radius-large * 4;
         &-default #moodle-navbar, &-inverse #moodle-navbar {
             .navbar-nav {
@@ -99,26 +115,28 @@ body.compactnavbar {
                 }
             }
         }
-        .navbar-collapse, > .container-fluid, > .container-fluid > .navbar-header {
-            padding-left: 0px;
-            padding-right: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-        .navbar-nav {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-        .navbar-brand {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
     }
     .navbar.navbar-fixed-top {
         display: inline-table;
     }
-    &.dir-rtl .navbar.navbar-fixed-top {
-        /*@noflip*/ left: inherit;
+    // RTL.
+    &.dir-rtl {
+        .navbar.navbar-fixed-top {
+            left: inherit;
+        }
+    }
+    &.dir-rtl .navbar {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: @border-radius-large * 4;
+        &-default #moodle-navbar, &-inverse #moodle-navbar {
+            .navbar-nav {
+                > li:last-child > a {
+                    &:hover, &:focus {
+                        border-bottom-left-radius: @border-radius-large * 4;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -220,8 +238,8 @@ aside .block {
         display: block;
     }
     .block .controlshtml {
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     div.block:first-child {
         border-top-left-radius: @border-radius-base;
@@ -370,7 +388,7 @@ aside {
         img, input {
             background-color: rgba(255, 255, 255, 0.7);
             vertical-align: top;
-            border-radius: 0px;
+            border-radius: 0;
         }
     }
     .dockeditempanel_hd .commands .menubar {
@@ -472,7 +490,7 @@ aside {
         padding: 2px;
         min-height: 110px;
         border-bottom: 1px solid @body-bg;
-        margin: 10px 14px 0px 10px;
+        margin: 10px 14px 0 10px;
     }
 
     a.info {
@@ -499,12 +517,12 @@ aside {
 // Scorm.
 #page-mod-scorm-report #region-main-shoehorn > div > table.boxaligncenter td {
     display: inline-block;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 // Collapsed Topics.
 .course-content .ctopics .section ul.section {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .course-content ul.ctopics li.section.main, .course-content ul.ctopics li.tcsection {
@@ -592,10 +610,10 @@ body.coursetiles {
             position: relative;
             top: -18px;
             left: -100px;
-            width: 0px;
+            width: 0;
             font-weight: bold;
             .iconsmall {
-                padding: 0px;
+                padding: 0;
                 width: 13px;
                 height: 13px;
             }
@@ -609,14 +627,14 @@ body.coursetiles {
             }
             &.moodle-actionmenu[data-enhance] {
                 top: -20px;
-                left: 0px;
+                left: 0;
                 .iconsmall {
-                    margin: 2px 4px 2px 0px;
+                    margin: 2px 4px 2px 0;
                 }
             }
         }
         .mod-indent {
-            padding-left: 0px; 
+            padding-left: 0; 
             height: 100%;
             display: block;
         }
@@ -628,19 +646,19 @@ body.coursetiles {
             margin-top: -30px;
         }
         .availabilityinfo, .contentafterlink {
-            margin-left: 0px;
+            margin-left: 0;
             border-top: 1px solid ~"[[setting:pagebottombackground]]";
             width: 192px;
         }
         .contentafterlink {
             position: relative;
-            margin-top: 0px;
+            margin-top: 0;
             font-size: .85em;
             height: 94px;
             text-overflow: ellipsis;
             overflow: auto;
             line-height: 1.25em;
-            padding-top: 0px;
+            padding-top: 0;
             top: -102px;
         }
         span.actions + .contentafterlink {
@@ -666,7 +684,7 @@ body.coursetiles {
                 padding-left: 4px;
             }
             li:first-of-type {
-                padding-left: 0px;
+                padding-left: 0;
             }
         }
 
@@ -692,11 +710,11 @@ body.coursetiles {
                 background: none;
             }
             .moodle-actionmenu[data-enhance].show .menu.align-tr-br {
-                margin-top: 0px;
+                margin-top: 0;
             }
             .editing_move {
                 left: -25px;
-                top: 0px;
+                top: 0;
             }
             .commands {
                 margin-left: auto; 
@@ -714,7 +732,7 @@ body.coursetiles {
                 right: 20px;
             }
             .togglecompletion {
-                top: 0px;
+                top: 0;
             }
         }
     }
@@ -723,7 +741,7 @@ body.coursetiles {
         .section .activity {
             margin-top: 0;
             .mod-indent-outer {
-                padding-left: 0px;
+                padding-left: 0;
             }
             margin-top: 20px;
             .autocompletion {
@@ -761,7 +779,7 @@ body.coursetiles {
     &.path-course-view #region-main li.activity > div {
         width: 100%; 
         height: 100%;
-        padding: 0px;
+        padding: 0;
     }
 
     #region-main .mod-indent-1,
@@ -837,7 +855,7 @@ body.coursetiles {
         min-height: 300px; 
         border: none; 
         background: transparent;
-        border-radius: 15px 0px 0px;
+        border-radius: 15px 0 0;
     }
 
     #region-main .introvideo {
@@ -990,7 +1008,7 @@ body.fontawesome {
     }
 
     .block_iconic_html .header .title h2:before {
-        padding-right: 0px;
+        padding-right: 0;
         content: none;
     }
 
@@ -1131,7 +1149,7 @@ body.fontawesome {
     }
     .section .label {
         .contentwithoutlink, .activityinstance {
-            padding-right: 0px;
+            padding-right: 0;
         }
     }
     > a {
@@ -1148,7 +1166,7 @@ body.fontawesome {
 @media(min-width: (@screen-xs-min + 1)) {
     .shoehorn-single-course-page {
         .section .activity .mod-indent-outer {
-            padding-left: 0px;
+            padding-left: 0;
         }
     }
     #myCourseCarousel .carousel-inner {
@@ -1163,7 +1181,7 @@ body.fontawesome {
 }
 
 .course-content .shoehorn-single-course-page ul.section {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 // Carousel indicator pips.
@@ -1210,16 +1228,16 @@ body.editing #block-region-page-bottom .block {
 /*
 #block-region-page-bottom {
     .row {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 0;
+        margin-right: 0;
         padding-left: (@grid-gutter-width / 2);
         padding-right: (@grid-gutter-width / 2);
     }
     .col-md-3 {
         margin-left: (@grid-gutter-width / 2);
         margin-right: (@grid-gutter-width / 2);
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 */
@@ -1255,7 +1273,7 @@ pre.sh {
 // Site pages.
 #page-theme-shoehorn-pages-sitepage .sitepagecontent img {
     padding: 8px;
-    box-shadow: 0px 0px 8px ~"[[setting:pagetopbackground]]";
+    box-shadow: 0 0 8px ~"[[setting:pagetopbackground]]";
     background-color: white;
     margin: 0 0 !important; // I do not like importants but has to override core editor inline style.
 }
@@ -1401,6 +1419,11 @@ select, input {
     }
 }
 
+.dir-rtl .antiGravity {
+    left: 40px;
+    right: auto;
+}
+
 // XML DB Editor - Essential Issue #90.
 a[name="lastused"] {
     padding-top: 50px;
@@ -1409,7 +1432,7 @@ a[name="lastused"] {
 // Course formats.
 // Collapsed Topics.
 .ctopics {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 // YUI dialog.
@@ -1420,8 +1443,8 @@ a[name="lastused"] {
 
 .moodle-dialogue-base .closebutton {
     margin-top: 2px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin-bottom: 0;
+    margin-left: 0;
 }
 
 // Chart.
@@ -1431,7 +1454,7 @@ a[name="lastused"] {
         color: ~"[[setting:linkcolour]]";
     }
     .content {
-        padding: 0px 0px;
+        padding: 0 0;
     }
 }
 
