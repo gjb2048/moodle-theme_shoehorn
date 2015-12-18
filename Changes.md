@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.0.3
+  1. Update pre-fixes.
+
 Version 3.0.0.2
   1. Fixed namespace issue in core_renderer.php.
   2. Fixed tab appearance issue when looking at: Site administration -> Users -> Permissions -> Define roles.
