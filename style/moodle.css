@@ -16864,6 +16864,13 @@ body.fontawesome #frontpage-category-combo h2:before
 }#page-footer
 {color: [[setting:footertextcolour]];
     background-image: -webkit-linear-gradient(top, [[setting:footertopbackgroundrgba]] 0, [[setting:footerbottombackgroundrgba]] 100%)                    ;background-image:         linear-gradient(to bottom, [[setting:footertopbackgroundrgba]] 0, [[setting:footerbottombackgroundrgba]] 100%);background-repeat: repeat-x;
+}#page-footer .themecredit
+{
+    font-size: 7pt;text-align: center;
+}#page-footer .themecredit a,
+#page-footer .themecredit a:hover
+{
+    color: inherit;
 }#page-footer a
 {
     color: [[setting:footertextcolour]];

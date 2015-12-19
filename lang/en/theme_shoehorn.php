@@ -77,6 +77,8 @@ $string['configtitle'] = 'Shoehorn';
 
 $string['pluginname'] = 'Shoehorn';
 
+$string['credit'] = 'The Shoehorn theme for Moodle is developed and maintained by ';
+
 // Regions....
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
