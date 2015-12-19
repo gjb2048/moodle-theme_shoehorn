@@ -92,7 +92,7 @@ class core_renderer extends \core_renderer {
         } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/layout/tiles/$filename")) {
             return "$CFG->themedir/shoehorn/layout/tiles/$filename";
         } else {
-            return dirname(__FILE__) . "$filename";
+            return dirname(__FILE__) . "/$filename";
         }
     }
 
@@ -1450,7 +1450,11 @@ class core_renderer extends \core_renderer {
      */
     public function standard_end_of_body_html() {
         global $CFG;
-        $output = parent::standard_end_of_body_html();
+        $output = html_writer::start_tag('div', array ('class' => 'themecredit')).
+                   get_string('credit', 'theme_shoehorn').
+                   html_writer::link('//about.me/gjbarnard', 'Gareth J Barnard', array('target' => '_blank')).
+                   html_writer::end_tag('div');
+        $output .= parent::standard_end_of_body_html();
 
         if ($this->syntaxhighlighterenabled) {
             $syscontext = \context_system::instance();
