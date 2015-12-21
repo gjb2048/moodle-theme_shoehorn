@@ -37,6 +37,7 @@ use moodle_url;
 use stdClass;
 
 class core_renderer extends \core_renderer {
+    use core_renderer_toolbox;
 
     protected $enrolledcourses = null;
     protected $syntaxhighlighterenabled = false;
@@ -48,43 +49,8 @@ class core_renderer extends \core_renderer {
         $this->themeconfig = array(\theme_config::load('shoehorn'));
     }
 
-    public function get_setting($setting, $default = false) {
-        $tcr = array_reverse($this->themeconfig, true);
-
-        $settingvalue = $default;
-        foreach($tcr as $tkey => $tconfig) {
-            if (property_exists($tconfig->settings, $setting)) {
-                $settingvalue = $tconfig->settings->$setting;
-                break;
-            }
-        }
-        return $settingvalue;
-    }
-
-    public function setting_file_url($setting, $filearea) {
-        $tcr = array_reverse($this->themeconfig, true);
-        $settingconfig = null;
-        foreach($tcr as $tkey => $tconfig) {
-            if (property_exists($tconfig->settings, $setting)) {
-                $settingconfig = $tconfig;
-                break;
-            }
-        }
-
-        if ($settingconfig) {
-            return $settingconfig->setting_file_url($setting, $filearea);
-        }
-        return null;
-    }
-
-    public function pix_url($imagename, $component = 'moodle') {
-        return end($this->themeconfig)->pix_url($imagename, $component);
-    }
-
-
     public function get_tile_file($filename) {
         global $CFG;
-        $themedir = $this->page->theme->dir;
         $filename .= '.php';
 
         if (file_exists("$CFG->dirroot/theme/shoehorn/layout/tiles/$filename")) {
@@ -111,31 +77,6 @@ class core_renderer extends \core_renderer {
         }
 
         return $attr;
-    }
-
-    public function notification($message, $classes = 'notifyproblem') {
-        $message = clean_text($message);
-
-        if ($classes == 'notifyproblem') {
-            return html_writer::div($message, 'alert alert-danger');
-        }
-        if ($classes == 'notifywarning') {
-            return html_writer::div($message, 'alert alert-warning');
-        }
-        if ($classes == 'notifysuccess') {
-            return html_writer::div($message, 'alert alert-success');
-        }
-        if ($classes == 'notifymessage') {
-            return html_writer::div($message, 'alert alert-info');
-        }
-        if ($classes == 'redirectmessage') {
-            return html_writer::div($message, 'alert alert-block alert-info');
-        }
-        if ($classes == 'notifytiny') {
-            // Not an appropriate semantic alert class!
-            return $this->debug_listing($message);
-        }
-        return html_writer::div($message, $classes);
     }
 
     protected function navbar_items() {
