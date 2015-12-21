@@ -48,7 +48,10 @@ body.frontpagebackgroundimage {
     [[setting:landffrontpagebackgroundimage]]
 }
 
-body.pagelayout-frontpage #region-main-shoehorn, body.frontpagebackgroundimage .panel-default, body.allpagesbackgroundimage .block, body.allpagesbackgroundimage .forumpost {
+body.pagelayout-frontpage #region-main-shoehorn,
+body.frontpagebackgroundimage .panel-default,
+body.allpagesbackgroundimage .block,
+body.allpagesbackgroundimage .forumpost {
     [[setting:landffrontpagecontenttransparency]]
 }
 
