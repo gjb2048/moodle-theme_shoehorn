@@ -49,7 +49,8 @@ if ($numberofsociallinks) {
             $icons .= '<li><a href="'.$sociallink.'" target="_blank">';
             $icons .= '<span class="sr-only">'.$choices[$iconname].'</span>';
             if ($fontawesome) {
-                $icons .= '<i class="fa fa-2x fa-'.$iconname.'"></i>';  // Use of 'fa-' class here for custom Shoehorn colours in social.css.
+                // Use of 'fa-' class here for custom Shoehorn colours in social.css.
+                $icons .= '<i class="fa fa-2x fa-'.$iconname.'"></i>';
             } else {
                 $icons .= '<span class="glyphicon glyphicon-2x glyphicon-globe"></span>';
             }
