@@ -24,7 +24,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$numberofmarketingspots = (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
+$numberofmarketingspots =
+    (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
 
 if ($numberofmarketingspots) {
     $marketingspots = array();
@@ -33,15 +34,18 @@ if ($numberofmarketingspots) {
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
         $marketingspotstatus = 'marketingspotstatus'.$ms;
-        if (empty($PAGE->theme->settings->$marketingspotstatus) or ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
+        if (empty($PAGE->theme->settings->$marketingspotstatus) or
+            ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
             $marketingspotdisplay = 'marketingspotdisplay'.$ms;
             if (empty($PAGE->theme->settings->$marketingspotdisplay)
-                or ($PAGE->theme->settings->$marketingspotdisplay == 1) // Always 
+                or ($PAGE->theme->settings->$marketingspotdisplay == 1) // Always
                 or (($PAGE->theme->settings->$marketingspotdisplay == 2) and ($loggedin == false)) // Logged out.
                 or (($PAGE->theme->settings->$marketingspotdisplay == 3) and ($loggedin == true)) // Logged in.
             ) {
                 $marketingspotlang = 'marketingspotlang'.$ms;
-                if (empty($PAGE->theme->settings->$marketingspotlang) or ($PAGE->theme->settings->$marketingspotlang == 'all') or ($PAGE->theme->settings->$marketingspotlang == $lang)) {
+                if (empty($PAGE->theme->settings->$marketingspotlang) or
+                    ($PAGE->theme->settings->$marketingspotlang == 'all') or
+                    ($PAGE->theme->settings->$marketingspotlang == $lang)) {
                     // Show the marketing spot.
                     $marketingspotheading = 'marketingspotheading'.$ms;
                     $marketingspotcontent = 'marketingspotcontent'.$ms;
@@ -59,7 +63,7 @@ if ($numberofmarketingspots) {
             $col = 3;
         }
         $o = html_writer::start_tag('div', array('class' => 'row'));
-        foreach($marketingspots as $marketingspot) {
+        foreach ($marketingspots as $marketingspot) {
             $o .= html_writer::start_tag('div', array('class' => 'col-sm-'.$col.' col-md-'.$col.' col-lg-'.$col));
             $o .= html_writer::start_tag('div', array('class' => 'marketingspot'));
             $o .= $marketingspot;

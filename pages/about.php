@@ -48,7 +48,8 @@ echo $OUTPUT->header();
 echo $OUTPUT->box_start();
 
 echo html_writer::start_tag('div', array('class' => 'row'));
-echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'), 'class' => 'img-responsive col-sm-4 col-md-3 col-lg-2'));
+echo html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('Shoehorn_logo', 'theme'),
+    'class' => 'img-responsive col-sm-4 col-md-3 col-lg-2'));
 echo html_writer::start_tag('div',  array('class' => 'col-sm-8 col-md-9 col-lg-10 lead'));
 $readme = new moodle_url('/theme/shoehorn/Readme.md');
 $readme = html_writer::link($readme, 'Shoehorn', array('target' => '_blank'));
@@ -94,23 +95,26 @@ echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::tag('p', 'I hope that you enjoy this theme,');
 echo html_writer::tag('p', 'Gareth J Barnard - '.
-                        html_writer::tag('a', 'About.me', (array('href' => '//about.me/gjbarnard', 'target' => '_blank'))).
-                        ' - '.
-                        html_writer::tag('a', 'Moodle Profile', (array('href' => '//moodle.org/user/profile.php?id=442195', 'target' => '_blank'))).
-                        ' - '.
-                        html_writer::tag('a', 'Google+', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
-                        ' - '.
-                        html_writer::tag('a', 'LinkedIn', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
-                        ' - '.
-                        html_writer::tag('a', 'Twitter', (array('href' => '//twitter.com/gjbarnard', 'target' => '_blank'))).
-                        ' - '.
-                        html_writer::tag('a', 'Website', (array('href' => '//www.gjbarnard.co.uk/', 'target' => '_blank')))
-                        );
+    html_writer::tag('a', 'About.me', (array('href' => '//about.me/gjbarnard', 'target' => '_blank'))).
+    ' - '.
+    html_writer::tag('a', 'Moodle Profile', (array('href' => '//moodle.org/user/profile.php?id=442195', 'target' => '_blank'))).
+    ' - '.
+    html_writer::tag('a', 'Google+', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
+    ' - '.
+    html_writer::tag('a', 'LinkedIn', (array('href' => '//uk.linkedin.com/in/gjbarnard', 'target' => '_blank'))).
+    ' - '.
+    html_writer::tag('a', 'Twitter', (array('href' => '//twitter.com/gjbarnard', 'target' => '_blank'))).
+    ' - '.
+    html_writer::tag('a', 'Website', (array('href' => '//www.gjbarnard.co.uk/', 'target' => '_blank')))
+    );
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::start_tag('div',  array('class' => 'col-md-12'));
-echo html_writer::tag('p', 'G J Barnard 2014 - '.get_string('gpllicense').' v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/gpl.html', array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')), array ('class' => 'copyright text-center col-md-12'));
+echo html_writer::tag('p', 'G J Barnard 2014 - '.get_string('gpllicense').' v3 '.
+    html_writer::tag('a', 'www.gnu.org/copyleft/gpl.html',
+    array('href' => 'http://www.gnu.org/copyleft/gpl.html', 'target' => '_blank')),
+    array ('class' => 'copyright text-center col-md-12'));
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 
