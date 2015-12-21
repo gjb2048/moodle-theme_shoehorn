@@ -49,25 +49,8 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         return $o;
     }
 
-    public function section_right_content($section, $course, $onsectionpage) {
-        return parent::section_right_content($section, $course, $onsectionpage);
-    }
-
-    public function section_availability_message($section, $canviewhidden) {
-        return parent::section_availability_message($section, $canviewhidden);
-    }
-
-    public function course_activity_clipboard($course, $sectionno = null) {
-        return parent::course_activity_clipboard($course, $sectionno);
-    }
-
-    public function format_summary_text($section) {
-        return parent::format_summary_text($section);
-    }
-
     public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
         \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course, $sections,
                 $mods, $modnames, $modnamesused, $displaysection);
     }
-
 }

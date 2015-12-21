@@ -175,7 +175,7 @@ module.exports = function(grunt) {
     configfile = path.join(moodleroot, 'config.php');
 
     decachephp += 'define(\'CLI_SCRIPT\', true);';
-    decachephp += 'require(\'' + configfile  + '\');';
+    decachephp += 'require(\'' + configfile + '\');';
     decachephp += 'theme_reset_all_caches();';
 
     var svgcolour = grunt.option('svgcolour') || '#1F4D87';
@@ -340,7 +340,7 @@ module.exports = function(grunt) {
                 }, {
                     removeUselessStrokeAndFill: false
                 }, {
-                    convertPathData: { 
+                    convertPathData: {
                         straightCurves: false // advanced SVGO plugin option
                    }
                 }]

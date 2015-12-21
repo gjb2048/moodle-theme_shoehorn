@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -84,8 +83,8 @@ class core_renderer extends \core_renderer {
         $output = html_writer::link($CFG->wwwroot, $SITE->shortname,
                         array('title' => $SITE->shortname, 'class' => 'navbar-brand'));
 
-        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') || ($this->page->pagelayout
-                == 'admin')) { // Go to bottom.
+        if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse') ||
+            ($this->page->pagelayout == 'admin')) { // Go to bottom.
             if ($this->is_fontawesome()) {
                 $gotobottom = html_writer::tag('span', '', array('class' => 'fa fa-arrow-circle-o-down'));
             } else {
@@ -107,12 +106,6 @@ class core_renderer extends \core_renderer {
      * @return string HTML fragment
      */
     protected function navbar_button() {
-        //global $CFG;
-
-        /* if (empty($CFG->custommenuitems) && $this->lang_menu() == '') {
-          return '';
-          } */
-
         $iconbar = html_writer::tag('span', '', array('class' => 'icon-bar'));
         $sronly = html_writer::tag('span', get_string('togglenavigation', 'theme_shoehorn'), array('class' => 'sr-only'));
         $button = html_writer::tag('button',
@@ -242,7 +235,8 @@ class core_renderer extends \core_renderer {
                     html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-3 col-md-2')) .
                     html_writer::link(new moodle_url('/'),
                             html_writer::empty_tag('img',
-                                    array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'), 'class' => 'logo img-responsive')),
+                                array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'),
+                                    'class' => 'logo img-responsive')),
                             array('title' => get_string('home'), 'class' => 'logoarea')) .
                     html_writer::end_tag('div') .
                     html_writer::end_tag('div');
@@ -501,12 +495,14 @@ class core_renderer extends \core_renderer {
                             'hostid' => $course->hostid,
                             'wantsurl' => '/course/view.php?id=' . $course->remoteid
                         ));
-                        $tooltip = format_string($course->hostname) . ' : ' . format_string($course->cat_name) . ' : ' . format_string($course->shortname);
+                        $tooltip = format_string($course->hostname).' : '.format_string($course->cat_name).' : '.
+                            format_string($course->shortname);
 
                         $coursetext = format_string($course->fullname);
                         if ($this->is_fontawesome()) {
+                            // Five is the courseicons array length.
                             $courselabel = html_writer::tag('i', '',
-                                            array('class' => 'fa fa-' . $courseicons[$course->remoteid % 5])); // 5 is the courseicons array length.
+                                array('class' => 'fa fa-' . $courseicons[$course->remoteid % 5]));
                         } else {
                             $courselabel = html_writer::tag('span', '',
                                             array('class' => 'glyphicon glyphicon-' . $courseicons[$course->remoteid % 5]));
@@ -648,7 +644,8 @@ class core_renderer extends \core_renderer {
                     }
                     $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
                     $url = new moodle_url('/course/switchrole.php',
-                            array('id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
+                        array('id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
+                            'returnurl' => $this->page->url->out_as_local_url(false)));
                     $usermenu->add($loggedinas, $url);
                 }
 
@@ -1047,7 +1044,8 @@ class core_renderer extends \core_renderer {
                         if ($remainingblocks < $blocksperrow) {
                             $col = 12 / $remainingblocks;
                             if ($col < 1) {
-                                // Should not happen but a fail safe - block will be small so good for screen shots when this happens.
+                                /* Should not happen but a fail safe - block will be small so good for screen shots
+                                   when this happens. */
                                 $col = 1;
                             }
                         }
@@ -1066,7 +1064,7 @@ class core_renderer extends \core_renderer {
                 } else if ($bc instanceof block_move_target) {
                     $output .= $this->block_move_target($bc, $zones, $lastblock);
                 } else {
-                    throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+                    throw new coding_exception('Unexpected type of thing ('.get_class($bc).') found in list of block contents.');
                 }
                 $output .= html_writer::end_tag('div');
             }
@@ -1127,7 +1125,7 @@ class core_renderer extends \core_renderer {
             } else if ($bc instanceof block_move_target) {
                 $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
             } else {
-                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+                throw new coding_exception('Unexpected type of thing ('.get_class($bc).') found in list of block contents.');
             }
         }
 
@@ -1198,7 +1196,7 @@ class core_renderer extends \core_renderer {
             } else if ($bc instanceof block_move_target) {
                 $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
             } else {
-                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+                throw new coding_exception('Unexpected type of thing ('.get_class($bc).') found in list of block contents.');
             }
         }
 
@@ -1244,28 +1242,10 @@ class core_renderer extends \core_renderer {
         } else if (!empty($bc->arialabel)) {
             $bc->attributes['aria-label'] = $bc->arialabel;
         }
-        /* if ($bc->dockable) {
-          $bc->attributes['data-dockable'] = 1;
-          }
-          if ($bc->collapsible == block_contents::HIDDEN) {
-          $bc->add_class('hidden');
-          }
-          if (!empty($bc->controls)) {
-          $bc->add_class('block_with_controls');
-          } */
         $bc->add_class('panel');
         $bc->add_class('panel-default');
 
-        $output = '';
-        /* if (empty($skiptitle)) {
-          $output = '';
-          $skipdest = '';
-          } else {
-          $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
-          $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
-          } */
-
-        $output .= html_writer::start_tag('div', $bc->attributes);
+        $output = html_writer::start_tag('div', $bc->attributes);
 
         $output .= $this->collapse_block_header($bc);
         $output .= $this->collapse_block_content($bc);
@@ -1273,8 +1253,6 @@ class core_renderer extends \core_renderer {
         $output .= html_writer::end_tag('div');
 
         $output .= $this->block_annotation($bc);
-
-        //$output .= $skipdest;
 
         $this->init_block_hider_js($bc);
         return $output;
@@ -1307,10 +1285,9 @@ class core_renderer extends \core_renderer {
         }
         $controlshtml = $this->block_controls($bc->controls, $blockid);
 
-        $headerattributes = array('class' => 'header panel-heading', 'data-parent' => '#block-region-' . $bc->attributes['regionid']);
+        $headerattributes = array('class' => 'header panel-heading',
+            'data-parent' => '#block-region-'.$bc->attributes['regionid']);
         if (!$this->block_has_class($bc, 'block_fake')) {
-            //$output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
-            //    array('class' => 'header panel-heading', 'data-toggle' => 'collapse', 'data-parent' => '#block-region-'.$bc->attributes['regionid'], 'href' => '#collapse-'.$bc->blockinstanceid));
             $headerattributes['data-toggle'] = 'collapse';
             $headerattributes['href'] = '#collapse-' . $bc->blockinstanceid;
         }
@@ -1341,9 +1318,6 @@ class core_renderer extends \core_renderer {
             $blockattributes['id'] = 'collapse-' . $bc->blockinstanceid;
         }
         $output = html_writer::start_tag('div', $blockattributes);
-        /* if (!$bc->title && !$this->block_controls($bc->controls)) {
-          $output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
-          } */
         $output .= $bc->content;
         $output .= $this->block_footer($bc);
         $output .= html_writer::end_tag('div');
@@ -1453,5 +1427,4 @@ class core_renderer extends \core_renderer {
 
         return $antigravity;
     }
-
 }

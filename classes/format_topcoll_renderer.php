@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -40,29 +39,9 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
             return array();
         }
 
-        public function section_left_content($section, $course, $onsectionpage) {
-            return parent::section_left_content($section, $course, $onsectionpage);
-        }
-
-        public function section_right_content($section, $course, $onsectionpage) {
-            return parent::section_right_content($section, $course, $onsectionpage);
-        }
-
-        public function section_availability_message($section, $canviewhidden) {
-            return parent::section_availability_message($section, $canviewhidden);
-        }
-
-        public function course_activity_clipboard($course, $sectionno = null) {
-            return parent::course_activity_clipboard($course, $sectionno);
-        }
-
-        public function format_summary_text($section) {
-            return parent::format_summary_text($section);
-        }
-
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course, $sections, $mods, $modnames,
-                    $modnamesused, $displaysection);
+            \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course,
+                    $sections, $mods, $modnames, $modnamesused, $displaysection);
         }
 
         protected function get_row_class() {
@@ -70,11 +49,12 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
         }
 
         protected function get_column_class($columns) {
-            $colclasses = array(1 => 'col-sm-12 col-md-12 col-lg-12', 2 => 'col-sm-6 col-md-6 col-lg-6', 3 => 'col-md-4 col-lg-4', 4 => 'col-lg-3');
+            $colclasses = array(
+                1 => 'col-sm-12 col-md-12 col-lg-12',
+                2 => 'col-sm-6 col-md-6 col-lg-6',
+                3 => 'col-md-4 col-lg-4', 4 => 'col-lg-3');
 
             return $colclasses[$columns];
         }
-
     }
-
 }

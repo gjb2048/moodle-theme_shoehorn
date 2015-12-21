@@ -19,6 +19,7 @@ Version 2.9.1.6
  15. Fix all blocks when docked #13.
  16. RTL tidy up.
  17. Dock tidy up.
+ 18. Travis CI -> https://travis-ci.org/gjb2048/moodle-theme_shoehorn
 
 Version 2.9.1.5
   1. MDL-51921.

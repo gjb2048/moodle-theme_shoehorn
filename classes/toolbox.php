@@ -136,7 +136,8 @@ class toolbox {
         $html = new \stdClass();
 
         $html->navbarclass = array('navbar');
-        if (!empty(self::get_setting('inversenavbar'))) {
+        $inversenavbar = self::get_setting('inversenavbar');
+        if (!empty($inversenavbar)) {
             $html->navbarclass[] = 'navbar-inverse';
         } else {
             $html->navbarclass[] = 'navbar-default';
@@ -166,30 +167,36 @@ class toolbox {
             $html->fontawesome = false;
         }
 
-        if (!empty(self::get_setting('socialsignpost'))) {
+        $socialsignpost = self::get_setting('socialsignpost');
+        if (!empty($socialsignpost)) {
             $html->additionalbodyclasses[] = 'socialsignpost';
         }
 
-        if (!empty(self::get_setting('compactnavbar'))) {
+        $compactnavbar = self::get_setting('compactnavbar');
+        if (!empty($compactnavbar)) {
             $html->additionalbodyclasses[] = 'compactnavbar';
         }
 
-        if (!empty(self::get_setting('navbarfixedtop'))) {
+        $navbarfixedtop = self::get_setting('navbarfixedtop');
+        if (!empty($navbarfixedtop)) {
             $html->additionalbodyclasses[] = 'navbarfixedtop';
             $html->navbarclass[] = 'navbar-fixed-top';
         }
 
         if ($PAGE->pagelayout == 'frontpage') {
-            if (!empty(self::get_setting('landffrontpagebackgroundimage'))) {
+            $landffrontpagebackgroundimage = self::get_setting('landffrontpagebackgroundimage');
+            if (!empty($landffrontpagebackgroundimage)) {
                 $html->additionalbodyclasses[] = 'frontpagebackgroundimage';
             }
         } else {
-            if (!empty(self::get_setting('landfallpagesbackgroundimage'))) {
+            $landfallpagesbackgroundimage = self::get_setting('landfallpagesbackgroundimage');
+            if (!empty($landfallpagesbackgroundimage)) {
                 $html->additionalbodyclasses[] = 'allpagesbackgroundimage';
             }
         }
 
-        if ((!empty(self::get_setting('landfallhorizontalquiz'))) && ($PAGE->pagelayout == 'incourse')) {
+        $landfallhorizontalquiz = self::get_setting('landfallhorizontalquiz');
+        if ((!empty($landfallhorizontalquiz)) && ($PAGE->pagelayout == 'incourse')) {
             $html->additionalbodyclasses[] = 'horizontalquiz';
         }
 
