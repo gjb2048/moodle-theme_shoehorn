@@ -30,12 +30,24 @@ namespace theme_shoehorn;
 
 class toolbox {
 
-    static protected $corerenderer = null;
+    protected $corerenderer = null;
+    protected static $instance;
+
+    private function __construct() {
+    }
+
+    public static function get_instance() {
+        if (!is_object(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     static public function set_core_renderer($core) {
+        $us = self::get_instance();
         // Set only once from the initial calling lib.php process_css function.  Must happen before parents.
-        if (null === self::$corerenderer) {
-            self::$corerenderer = $core;
+        if (null === $us->corerenderer) {
+            $us->corerenderer = $core;
         }
     }
 
@@ -45,8 +57,8 @@ class toolbox {
      * @return string Complete path of the file.
      */
     static public function get_tile_file($filename) {
-        self::check_corerenderer();
-        return self::$corerenderer->get_tile_file($filename);
+        $us = self::check_corerenderer();
+        return $us->get_tile_file($filename);
     }
 
     /**
@@ -57,9 +69,8 @@ class toolbox {
      * @return any false|value of setting.
      */
     static public function get_setting($setting, $format = false, $default = false) {
-        self::check_corerenderer();
-
-        $settingvalue = self::$corerenderer->get_setting($setting, $default);
+        $us = self::check_corerenderer();
+        $settingvalue = $us->get_setting($setting);
 
         global $CFG;
         require_once($CFG->dirroot . '/lib/weblib.php');
@@ -77,22 +88,23 @@ class toolbox {
     }
 
     static public function setting_file_url($setting, $filearea) {
-        self::check_corerenderer();
-
-        return self::$corerenderer->setting_file_url($setting, $filearea);
+        $us = self::check_corerenderer();
+        return $us->setting_file_url($setting, $filearea);
     }
 
     static public function pix_url($imagename, $component) {
-        self::check_corerenderer();
-        return self::$corerenderer->pix_url($imagename, $component);
+        $us = self::check_corerenderer();
+        return $us->pix_url($imagename, $component);
     }
 
     static private function check_corerenderer() {
-        if (empty(self::$corerenderer)) {
+        $us = self::get_instance();
+        if (empty($us->corerenderer)) {
             // Use $OUTPUT.
             global $OUTPUT;
-            self::$corerenderer = $OUTPUT;
+            $us->corerenderer = $OUTPUT;
         }
+        return $us->corerenderer;
     }
 
     /**

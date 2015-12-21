@@ -38,60 +38,6 @@ class core_renderer_maintenance extends \core_renderer_maintenance {
         $this->themeconfig = array(\theme_config::load('shoehorn'));
     }
 
-    public function get_setting($setting) {
-        $tcr = array_reverse($this->themeconfig, true);
-
-        $settingvalue = false;
-        foreach($tcr as $tkey => $tconfig) {
-            if (property_exists($tconfig->settings, $setting)) {
-                $settingvalue = $tconfig->settings->$setting;
-                break;
-            }
-        }
-        return $settingvalue;
-    }
-
-    public function setting_file_url($setting, $filearea) {
-        $tcr = array_reverse($this->themeconfig, true);
-        $settingconfig = null;
-        foreach($tcr as $tkey => $tconfig) {
-            if (property_exists($tconfig->settings, $setting)) {
-                $settingconfig = $tconfig;
-                break;
-            }
-        }
-
-        if ($settingconfig) {
-            return $settingconfig->setting_file_url($setting, $filearea);
-        }
-        return null;
-    }
-
-    public function pix_url($imagename, $component = 'moodle') {
-        return end($this->themeconfig)->pix_url($imagename, $component);
-    }
-
-    public function notification($message, $classes = 'notifyproblem') {
-        $message = clean_text($message);
-
-        if ($classes == 'notifyproblem') {
-            return html_writer::div($message, 'alert alert-danger');
-        }
-        if ($classes == 'notifywarning') {
-            return html_writer::div($message, 'alert alert-warning');
-        }
-        if ($classes == 'notifysuccess') {
-            return html_writer::div($message, 'alert alert-success');
-        }
-        if ($classes == 'notifymessage') {
-            return html_writer::div($message, 'alert alert-info');
-        }
-        if ($classes == 'redirectmessage') {
-            return html_writer::div($message, 'alert alert-block alert-info');
-        }
-        return html_writer::div($message, $classes);
-    }
-
     /**
      * The standard tags (typically script tags that are not needed earlier) that
      * should be output after everything else. Designed to be called in theme layout.php files.
