@@ -5,6 +5,7 @@ Version 3.0.0.3
   2. Fix all blocks when docked #13.
   3. RTL tidy up.
   4. Dock tidy up.
+  5. Travis CI -> https://travis-ci.org/gjb2048/moodle-theme_shoehorn.
 
 Version 3.0.0.2
   1. Fixed namespace issue in core_renderer.php.

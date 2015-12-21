@@ -5,7 +5,6 @@ define(['jquery', 'core/log'], function($, log) {
 
   log.debug('Shoehorn fitvids AMD');
 
-
 /*jshint browser:true */
 /*!
  * FitVids 1.1.2
@@ -93,7 +92,7 @@ define(['jquery', 'core/log'], function($, log) {
                     width = !isNaN(parseInt($this.attr('width'), 10)) ? parseInt($this.attr('width'), 10) : $this.width(),
                     aspectRatio = height / width;
                 if(!$this.attr('id')){
-                    var videoID = 'fitvid' + Math.floor(Math.random()*999999);
+                    var videoID = 'fitvid' + Math.floor(Math.random() * 999999);
                     $this.attr('id', videoID);
                 }
                 $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%");
