@@ -134,7 +134,7 @@ if ($speed == 0) {
         ?>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <?php 
+        <?php
         if (!right_to_left()) {
             if ($fontawesome) {
                 echo '<i class="fa fa-chevron-circle-right"></i>';

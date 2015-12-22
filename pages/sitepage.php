@@ -52,7 +52,8 @@ $o = '';
 $pages = \theme_shoehorn\toolbox::shown_sitepages();
 $loggedin = isloggedin();
 
-$theme = theme_config::load('shoehorn'); // Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
+// Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
+$theme = theme_config::load('shoehorn');
 $settings = $theme->settings;
 if (array_key_exists($ourpageid, $pages)) {
     if ($pages[$ourpageid] == 2) {
@@ -69,23 +70,27 @@ if (array_key_exists($ourpageid, $pages)) {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
-        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotitle', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotitle', 'theme_shoehorn',
+            array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     } else if ($pages[$ourpageid] == 4) {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
-        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotpublished', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontentnotpublished', 'theme_shoehorn',
+            array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     } else {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
         $PAGE->set_heading($text);
-        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
+        $o .= html_writer::tag('h3', get_string('pagenotdisplayedcontent', 'theme_shoehorn',
+            array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
     }
 } else {
     $text = get_string('unknownsitepage', 'theme_shoehorn').$ourpageid;
     $PAGE->set_title($text);
     $PAGE->set_heading($text);
-    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn', array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
+    $o .= html_writer::tag('h3', get_string('unknownsitepagecontent', 'theme_shoehorn',
+        array('pageid' => $ourpageid)), array('class' => 'panel panel-warning'));
 }
 
 $courseid = SITEID;
@@ -98,8 +103,8 @@ if (!$loggedin) {
     // Logged in....
     // Toggle the editing state and switches.
     if (($sesskeyvalid) && ($PAGE->user_allowed_editing())) {
-        if ($edit !== null) {             // Editing state was specified
-            $USER->editing = $edit;       // Change editing state
+        if ($edit !== null) {             // Editing state was specified.
+            $USER->editing = $edit;       // Change editing state.
             $context = context_user::instance($USER->id);
             $PAGE->set_context($context);
         }
@@ -124,8 +129,11 @@ if (!$loggedin) {
         $button = $OUTPUT->single_button($usernavurl, $editstring);
         $PAGE->set_button($button);
 
-        $settingnode = $PAGE->settingsnav->create($editstring, $usernavurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/edit', $editstring, 'moodle', null));
-        $PAGE->settingsnav->add_node($settingnode, $PAGE->settingsnav->get_children_key_list()[0]);  // Add the node before the current first.
+        $settingnode = $PAGE->settingsnav->create($editstring, $usernavurl,
+            navigation_node::TYPE_CUSTOM, null, null,
+            new pix_icon('i/edit', $editstring, 'moodle', null));
+        // Add the node before the current.
+        $PAGE->settingsnav->add_node($settingnode, $PAGE->settingsnav->get_children_key_list()[0]); first.
         $settingnode->add_class('hasicon');
         $settingnode->remove_class('root_node');
         $settingnode->make_active();
@@ -137,7 +145,8 @@ if (!$loggedin) {
 // Add us and the other pages....
 $containernode = $PAGE->navigation->find($courseid, navigation_node::TYPE_COURSE);
 if (empty($containernode)) {
-    $containernode = $PAGE->navigation->create(get_string('sitepagesheading', 'theme_shoehorn'), null, navigation_node::TYPE_CONTAINER);
+    $containernode = $PAGE->navigation->create(get_string('sitepagesheading', 'theme_shoehorn'),
+        null, navigation_node::TYPE_CONTAINER);
     $children = $PAGE->navigation->get_children_key_list();
     if (empty($children)) {
         $beforekey = null;
@@ -162,7 +171,8 @@ foreach ($pages as $pageid => $status) {
         if ($loggedin) {
             $navurl->param('sesskey', $oursesskey);
         }
-        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null,
+        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl,
+            navigation_node::TYPE_CUSTOM, null, null,
             new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
         $containernode->add_node($ournode, $beforekey);
         if ($pageid == $ourpageid) {

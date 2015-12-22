@@ -205,7 +205,6 @@ echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::start_tag('div',  array('class' => 'col-md-12'));
-echo html_writer::tag('p', html_writer::tag('a', 'SyntaxHighlighter', array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).' - '.html_writer::tag('span', 'Alex Gorbatchev 2004-2011', array ('class' => 'copyright')).' - LGPL v3 ';
 echo html_writer::tag('p', html_writer::tag('a', 'SyntaxHighlighter', array('href' => '//alexgorbatchev.com/SyntaxHighlighter/',
     'target' => '_blank')).' - '.html_writer::tag('span', 'Alex Gorbatchev 2004-2011', array ('class' => 'copyright')).
     ' - LGPL v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/lesser.html', array('href' => '//www.gnu.org/copyleft/lesser.html',
