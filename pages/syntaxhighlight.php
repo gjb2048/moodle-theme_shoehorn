@@ -55,7 +55,8 @@ echo $OUTPUT->box_start();
 
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::start_tag('div', array('class' => 'col-md-12 lead'));
-echo html_writer::tag('p', get_string('syntaxhelpone', 'theme_shoehorn', array('html' => htmlentities(get_string('syntaxsummary', 'theme_shoehorn')))));
+echo html_writer::tag('p', get_string('syntaxhelpone', 'theme_shoehorn',
+    array('html' => htmlentities(get_string('syntaxsummary', 'theme_shoehorn')))));
 echo html_writer::tag('p', get_string('syntaxhelptwo', 'theme_shoehorn'));
 echo html_writer::start_tag('table', array('class' => 'syntax'));
 echo html_writer::start_tag('thead');
@@ -198,12 +199,16 @@ echo '      return name;'.PHP_EOL;
 echo '   }'.PHP_EOL;
 echo '}'.PHP_EOL;
 echo '</pre>'.PHP_EOL;
-echo html_writer::tag('p', get_string('syntaxhelpseven', 'theme_shoehorn').' \''.html_writer::tag('a', 'SyntaxHighlighter', array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).'\'');
+echo html_writer::tag('p', get_string('syntaxhelpseven', 'theme_shoehorn').' \''.html_writer::tag('a', 'SyntaxHighlighter',
+    array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).'\'');
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
 echo html_writer::start_tag('div',  array('class' => 'col-md-12'));
-echo html_writer::tag('p', html_writer::tag('a', 'SyntaxHighlighter', array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).' - '.html_writer::tag('span', 'Alex Gorbatchev 2004-2011', array ('class' => 'copyright')).' - LGPL v3 '.html_writer::tag('a', 'www.gnu.org/copyleft/lesser.html', array('href' => '//www.gnu.org/copyleft/lesser.html', 'target' => '_blank')), array ('class' => 'text-center col-md-12'));
+echo html_writer::tag('p', html_writer::tag('a', 'SyntaxHighlighter', array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank'));
+echo ' - '.html_writer::tag('span', 'Alex Gorbatchev 2004-2011', array ('class' => 'copyright')).' - LGPL v3 ';
+echo html_writer::tag('a', 'www.gnu.org/copyleft/lesser.html', array('href' => '//www.gnu.org/copyleft/lesser.html', 'target' => '_blank')),
+    array ('class' => 'text-center col-md-12'));
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 

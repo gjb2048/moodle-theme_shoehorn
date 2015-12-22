@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -32,36 +31,7 @@ if (file_exists("$CFG->dirroot/course/format/noticebd/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/noticebd/renderer.php");
 
     class theme_shoehorn_format_noticebd_renderer extends format_noticebd_renderer {
-
-        protected function get_nav_links($course, $sections, $sectionno) {
-            return array();
-        }
-
-        public function section_left_content($section, $course, $onsectionpage) {
-            return parent::section_left_content($section, $course, $onsectionpage);
-        }
-
-        public function section_right_content($section, $course, $onsectionpage) {
-            return parent::section_right_content($section, $course, $onsectionpage);
-        }
-
-        public function section_availability_message($section, $canviewhidden) {
-            return parent::section_availability_message($section, $canviewhidden);
-        }
-
-        public function course_activity_clipboard($course, $sectionno = null) {
-            return parent::course_activity_clipboard($course, $sectionno);
-        }
-
-        public function format_summary_text($section) {
-            return parent::format_summary_text($section);
-        }
-
-        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course,
-                    $sections, $mods, $modnames, $modnamesused, $displaysection, true);
-        }
-
+        use theme_shoehorn\format_renderer_toolbox;
     }
 
 }

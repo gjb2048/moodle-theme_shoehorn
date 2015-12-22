@@ -33,14 +33,6 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/grid/renderer.php");
 
     class theme_shoehorn_format_grid_renderer extends format_grid_renderer {
-
-        protected function get_nav_links($course, $sections, $sectionno) {
-            return array();
-        }
-
-        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course,
-                $sections, $mods, $modnames, $modnamesused, $displaysection);
-        }
+        use theme_shoehorn\format_renderer_toolbox;
     }
 }

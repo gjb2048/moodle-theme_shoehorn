@@ -24,7 +24,7 @@ if (!$PAGE->user_is_editing()) {
     $hassidepost = $PAGE->blocks->is_known_region('side-post');
 }
 
-$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost);
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
 echo $OUTPUT->doctype() ?>

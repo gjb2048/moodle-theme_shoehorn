@@ -24,8 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$numberofmarketingspots =
-    (empty($PAGE->theme->settings->numberofmarketingspots)) ? false : $PAGE->theme->settings->numberofmarketingspots;
+$numberofmarketingspots = \theme_shoehorn\toolbox::get_setting('numberofmarketingspots');
 
 if ($numberofmarketingspots) {
     $marketingspots = array();
@@ -33,19 +32,19 @@ if ($numberofmarketingspots) {
     $loggedin = isloggedin();
     $o = '';
     for ($ms = 1; $ms <= $numberofmarketingspots; $ms++) {
-        $marketingspotstatus = 'marketingspotstatus'.$ms;
-        if (empty($PAGE->theme->settings->$marketingspotstatus) or
-            ($PAGE->theme->settings->$marketingspotstatus == 2)) { // 2 is published.
-            $marketingspotdisplay = 'marketingspotdisplay'.$ms;
-            if (empty($PAGE->theme->settings->$marketingspotdisplay)
-                or ($PAGE->theme->settings->$marketingspotdisplay == 1) // Always
-                or (($PAGE->theme->settings->$marketingspotdisplay == 2) and ($loggedin == false)) // Logged out.
-                or (($PAGE->theme->settings->$marketingspotdisplay == 3) and ($loggedin == true)) // Logged in.
+        $marketingspotstatus = \theme_shoehorn\toolbox::get_setting('marketingspotstatus'.$ms);
+        if (empty($marketingspotstatus) or
+            ($marketingspotstatus == 2)) { // 2 is published.
+            $marketingspotdisplay = \theme_shoehorn\toolbox::get_setting('marketingspotdisplay'.$ms);
+            if (empty($marketingspotdisplay)
+                or ($marketingspotdisplay == 1) // Always
+                or (($marketingspotdisplay == 2) and ($loggedin == false)) // Logged out.
+                or (($marketingspotdisplay == 3) and ($loggedin == true)) // Logged in.
             ) {
-                $marketingspotlang = 'marketingspotlang'.$ms;
-                if (empty($PAGE->theme->settings->$marketingspotlang) or
-                    ($PAGE->theme->settings->$marketingspotlang == 'all') or
-                    ($PAGE->theme->settings->$marketingspotlang == $lang)) {
+                $marketingspotlang = \theme_shoehorn\toolbox::get_setting('marketingspotlang'.$ms);
+                if (empty($marketingspotlang) or
+                    ($marketingspotlang == 'all') or
+                    ($marketingspotlang == $lang)) {
                     // Show the marketing spot.
                     $marketingspotheading = 'marketingspotheading'.$ms;
                     $marketingspotcontent = 'marketingspotcontent'.$ms;

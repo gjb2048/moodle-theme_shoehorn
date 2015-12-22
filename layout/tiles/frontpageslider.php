@@ -48,7 +48,7 @@ if ($speed == 0) {
             foreach ($slides as $sideid => $shown) {
                 if ($shown == 2) {
             ?>
-                    <li data-target="#myCarousel" data-slide-to="<?php echo $fs-1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
+                    <li data-target="#myCarousel" data-slide-to="<?php echo $fs - 1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
             <?php
                     $fs++;
                 }
@@ -66,8 +66,8 @@ if ($speed == 0) {
                         echo '<div';
                     }
                     echo ' class="';
-                    if ($first) { 
-                        echo 'active '; 
+                    if ($first) {
+                        echo 'active ';
                         $first = false;
                     }
                     echo 'item">';
@@ -92,8 +92,12 @@ if ($speed == 0) {
                     if ($slidecaptiontitle || $slidecaptiontext) { ?>
                         <div class="carousel-caption">
                         <?php
-                            if ($slidecaptiontitle) { echo '<h4>'.$slidecaptiontitle.'</h4>'; }
-                            if ($slidecaptiontext) { echo '<p>'.$slidecaptiontext.'</p>'; }
+                            if ($slidecaptiontitle) {
+                                echo '<h4>'.$slidecaptiontitle.'</h4>';
+                            }
+                            if ($slidecaptiontext) {
+                                echo '<p>'.$slidecaptiontext.'</p>';
+                            }
                         ?> </div> <?php
                     }
                     if ($urlsetting) {

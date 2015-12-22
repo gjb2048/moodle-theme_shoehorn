@@ -475,10 +475,10 @@ class core_renderer extends \core_renderer {
                         $coursetext = format_string($course->fullname);
                         if ($this->is_fontawesome()) {
                             $courselabel = html_writer::tag('i', '',
-                                            array('class' => 'fa fa-' . $courseicons[$course->id % 7])); // 7 is the courseicons array length.
+                                array('class' => 'fa fa-' . $courseicons[$course->id % 7])); // 7 is the courseicons array length.
                         } else {
                             $courselabel = html_writer::tag('span', '',
-                                            array('class' => 'glyphicon glyphicon-' . $courseicons[$course->id % 5]));
+                                array('class' => 'glyphicon glyphicon-' . $courseicons[$course->id % 5]));
                         }
                         $courselabel .= html_writer::tag('span', ' ' . $coursetext);
 
@@ -678,7 +678,7 @@ class core_renderer extends \core_renderer {
 
         return $content;
     }
-    
+
     public function page_heading_menu() {
         $menu = parent::page_heading_menu();
         if (!empty($menu)) {

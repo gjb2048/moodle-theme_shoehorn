@@ -233,8 +233,9 @@ function theme_shoehorn_set_landf($css) {
     $replacement = 'background-color: rgba(255, 255, 255, ';
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
-    if (!empty(\theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency'))){
-        $allpages = round(\theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency'), 2);
+    $landfallpagescontenttransparency = \theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency');
+    if (!empty($landfallpagescontenttransparency)) {
+        $allpages = round($landfallpagescontenttransparency, 2);
         $replacement .= $allpages / 100;
         $replacementmain .= $allpages;
         $replacementmain .= '); opacity: ';
@@ -266,8 +267,9 @@ function theme_shoehorn_set_landf($css) {
     $replacement = 'background-color: rgba(255, 255, 255, ';
     /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
-    if (!empty(\theme_shoehorn\toolbox::get_setting('landffrontpagecontenttransparency'))) {
-        $frontpage = round(\theme_shoehorn\toolbox::get_setting('landffrontpagecontenttransparency'), 2);
+    $landffrontpagecontenttransparency = \theme_shoehorn\toolbox::get_setting('landffrontpagecontenttransparency');
+    if (!empty($landffrontpagecontenttransparency)) {
+        $frontpage = round($landffrontpagecontenttransparency, 2);
         $replacement .= $frontpage / 100;
         $replacementmain .= $frontpage;
         $replacementmain .= '); opacity: ';
@@ -402,7 +404,7 @@ function shoehorn_hex2rgb($hex) {
     // From: http://bavotasan.com/2011/convert-hex-color-to-rgb-using-php/.
     $hex = str_replace("#", "", $hex);
 
-    if(strlen($hex) == 3) {
+    if (strlen($hex) == 3) {
         $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
         $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
         $b = hexdec(substr($hex, 2, 1).substr($hex, 2, 1));

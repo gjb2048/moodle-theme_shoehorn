@@ -24,8 +24,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-//require_once(dirname(__FILE__).'/../../lib.php');
-
 $fitvids = $OUTPUT->get_setting('fitvids', true);
 if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');

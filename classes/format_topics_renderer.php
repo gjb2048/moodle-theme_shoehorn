@@ -31,10 +31,7 @@
 require_once($CFG->dirroot . "/course/format/topics/renderer.php");
 
 class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
-
-    protected function get_nav_links($course, $sections, $sectionno) {
-        return array();
-    }
+    use theme_shoehorn\format_renderer_toolbox;
 
     public function section_left_content($section, $course, $onsectionpage) {
         $o = $this->output->spacer();
@@ -47,10 +44,5 @@ class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
         }
 
         return $o;
-    }
-
-    public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-        \theme_shoehorn\toolbox::course_format_print_single_section_page($this, $this->courserenderer, $course, $sections,
-                $mods, $modnames, $modnamesused, $displaysection);
     }
 }

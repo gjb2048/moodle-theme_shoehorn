@@ -126,24 +126,24 @@
  * @package theme
  * @subpackage shoehorn
  * @author G J Barnard - gjbarnard at gmail dot com and {@link http://moodle.org/user/profile.php?id=442195}
- * @author Based on code originally written by Joby Harding, Bas Brands, David Scotson and many other contributors. * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author Based on code originally written by Joby Harding, Bas Brands, David Scotson and many other contributors.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-module.exports = function(grunt) {
+module.exports = function(grunt) { // jshint ignore:line
 
     // Import modules.
     var path = require('path');
 
     // Theme Bootstrap constants.
-    var LESSDIR         = 'less',
-        MOODLEURLPREFIX = grunt.option('urlprefix') || '',
+    var MOODLEURLPREFIX = grunt.option('urlprefix') || '',
         THEMEDIR        = path.basename(path.resolve('.'));
 
     // PHP strings for exec task.
-    var moodleroot = path.dirname(path.dirname(__dirname)),
+    var moodleroot = path.dirname(path.dirname(__dirname)), // jshint ignore:line
         configfile = '',
         decachephp = '',
-        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
+        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || ''; // jshint ignore:line
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
@@ -171,7 +171,7 @@ module.exports = function(grunt) {
         console.log('Creating production version.');
     }
 
-    var PWD = process.cwd();
+    var PWD = process.cwd(); // jshint ignore:line
     configfile = path.join(moodleroot, 'config.php');
 
     decachephp += 'define(\'CLI_SCRIPT\', true);';
@@ -238,7 +238,7 @@ module.exports = function(grunt) {
         exec: {
             decache: {
                 cmd: 'php -r "' + decachephp + '"',
-                callback: function(error, stdout, stderror) {
+                callback: function(error) {
                     // exec will output error messages
                     // just add one to confirm success.
                     if (!error) {
