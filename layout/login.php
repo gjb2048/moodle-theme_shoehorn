@@ -56,7 +56,7 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="<?php echo $settingshtml->containerclass; ?>">
 
     <div id="page-content" class="row">
-        <div id="region-main" class="col-md-12<?php echo (!$loggedin) ? ' loggedout' : '';} ?>">
+        <div id="region-main" class="col-md-12<?php echo (!$loggedin) ? ' loggedout' : ''; ?>">
             <?php
             if ($loggedin) {
                 echo html_writer::start_tag('section', array('id' => 'region-main-shoehorn'));

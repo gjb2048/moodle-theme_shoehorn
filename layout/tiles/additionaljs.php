@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$fitvids = $OUTPUT->get_setting('fitvids', true);
+$fitvids = \theme_shoehorn\toolbox::get_setting('fitvids', true);
 if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
@@ -33,13 +33,13 @@ switch ($PAGE->pagelayout) {
         $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {
             $data = array('data' => array('images' => array_values($loginpageimages),
-                                          'duration' => $OUTPUT->get_setting('loginbackgroundchangerspeed'),
-                                          'fade' => $OUTPUT->get_setting('loginbackgroundchangerfade')));
+                'duration' => \theme_shoehorn\toolbox::get_setting('loginbackgroundchangerspeed'),
+                'fade' => \theme_shoehorn\toolbox::get_setting('loginbackgroundchangerfade')));
             $PAGE->requires->js_call_amd('theme_shoehorn/backstretch', 'init', $data);
         }
         break;
     case 'admin':
-        $userload = (empty($OUTPUT->get_setting('userload'))) ? false : $OUTPUT->get_setting('userload');
+        $userload = \theme_shoehorn\toolbox::get_setting('userload');
         if ($userload) {
             $userloadpostfix = get_string('userloadpostfix', 'theme_shoehorn');
             if (!empty($PAGE->layout_options['chart'])) {

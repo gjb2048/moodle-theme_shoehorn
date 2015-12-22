@@ -26,9 +26,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/* Now the really clever bit to expose parts of the renderer interface such that they can be accessed by a global function if
-  they are passed a reference to the $this object. */
-
 // Requires V2.6.1.3+ of the Collapsed Topics format.
 if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/topcoll/renderer.php");

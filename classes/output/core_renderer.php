@@ -690,7 +690,6 @@ class core_renderer extends \core_renderer {
     private function get_course_activities() {
         // A copy of block_activity_modules.
         $course = $this->page->course;
-        $content = new stdClass();
         $modinfo = get_fast_modinfo($course);
         $course = course_get_format($course)->get_course();
         $modfullnames = array();
@@ -788,26 +787,6 @@ class core_renderer extends \core_renderer {
             $this->enrolledcourses = enrol_get_my_courses('summary, summaryformat', $sortorder);
         }
         return $this->enrolledcourses;
-    }
-
-    protected function process_user_messages() {
-        $messagelist = array();
-
-        foreach ($usermessages as $message) {
-            $cleanmsg = new stdClass();
-            $cleanmsg->from = fullname($message);
-            $cleanmsg->msguserid = $message->id;
-
-            $userpicture = new \user_picture($message);
-            $userpicture->link = false;
-            $picture = $this->render($userpicture);
-
-            $cleanmsg->text = $picture . ' ' . $cleanmsg->text;
-
-            $messagelist[] = $cleanmsg;
-        }
-
-        return $messagelist;
     }
 
     protected function get_user_messages() {

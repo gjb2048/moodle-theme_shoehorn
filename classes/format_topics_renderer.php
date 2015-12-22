@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -26,8 +25,7 @@
  * @author     Based on code originally written by Bas Brands, David Scotson and many other contributors.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-/* Now the really clever bit to expose parts of the renderer interface such that they can be accessed by a global function if
-  they are passed a reference to the $this object. */
+
 require_once($CFG->dirroot . "/course/format/topics/renderer.php");
 
 class theme_shoehorn_format_topics_renderer extends format_topics_renderer {

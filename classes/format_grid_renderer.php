@@ -26,9 +26,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/* Now the really clever bit to expose parts of the renderer interface such that they can be accessed by a global function if
-  they are passed a reference to the $this object. */
-
 if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     include_once($CFG->dirroot . "/course/format/grid/renderer.php");
 

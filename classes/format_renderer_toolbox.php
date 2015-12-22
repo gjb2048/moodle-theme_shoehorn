@@ -146,14 +146,15 @@ trait format_renderer_toolbox {
 
         // Check we will have a section to show...
         $shownsections = array();
-        foreach ($sections as $section => $thissection) {
+        foreach ($sections as $thissection) {
             if ($thissection->section > $course->numsections) {
-                /* Activities inside this section are 'orphaned', this section will be printed on the main course page when
-                  editing is on. */
+                /* Activities inside this section are 'orphaned', this section will be printed on the main
+                   course page when editing is on. */
                 break;  // Not sure why core does not use this instead of 'continue'?
             }
             $showsection = $thissection->uservisible ||
-                    ($thissection->visible && !$thissection->available && $thissection->showavailability && !empty($thissection->availableinfo));
+                ($thissection->visible && !$thissection->available && $thissection->showavailability &&
+                !empty($thissection->availableinfo));
             if ($showsection) {
                 $shownsections[] = $thissection->section;
             }
