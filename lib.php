@@ -34,7 +34,7 @@ function theme_shoehorn_process_css($css, $theme) {
     $logo = \theme_shoehorn\toolbox::setting_file_url('logo', 'logo');
     $css = theme_shoehorn_set_setting($css, '[[setting:logo]]', $logo);
 
-    // Set the theme font
+    // Set the theme font.
     $headingfont = \theme_shoehorn\toolbox::get_setting('fontnameheading');
     $bodyfont = \theme_shoehorn\toolbox::get_setting('fontnamebody');
 
@@ -73,8 +73,10 @@ function theme_shoehorn_process_css($css, $theme) {
 
     $navbarbackgroundcolour = \theme_shoehorn\toolbox::get_setting('navbarbackgroundcolour', '#FFD974');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground]]', $navbarbackgroundcolour);
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]', shoehorn_hex2rgba($navbarbackgroundcolour, 0.8));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackgroundrgba]]',
+        shoehorn_hex2rgba($navbarbackgroundcolour, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultbackground8rgba]]',
+        shoehorn_hex2rgba($navbarbackgroundcolour, 0.8));
 
     $navbarbordercolour = \theme_shoehorn\toolbox::get_setting('navbarbordercolour', '#FFD053');
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaultborder]]', $navbarbordercolour);
@@ -98,26 +100,37 @@ function theme_shoehorn_process_css($css, $theme) {
 
     $pagebottombackgroundlight = shoehorn_hexadjust($pagebottomcolour, -5);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight]]', $pagebottombackgroundlight);
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight4rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.4));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight75rgba]]', shoehorn_hex2rgba($pagebottombackgroundlight, 0.75));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight2light]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight5dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight10dark]]', shoehorn_hexadjust($pagebottombackgroundlight, 10));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]', shoehorn_hexadjust($pagebottomcolour, 5));
-    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]', shoehorn_hexadjust($pagebottombackgroundlight, -2));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight4rgba]]',
+        shoehorn_hex2rgba($pagebottombackgroundlight, 0.4));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight75rgba]]',
+        shoehorn_hex2rgba($pagebottombackgroundlight, 0.75));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight2light]]',
+        shoehorn_hexadjust($pagebottombackgroundlight, -2));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight5dark]]',
+        shoehorn_hexadjust($pagebottombackgroundlight, 5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlight10dark]]',
+        shoehorn_hexadjust($pagebottombackgroundlight, 10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgrounddark]]',
+        shoehorn_hexadjust($pagebottomcolour, 5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]',
+        shoehorn_hexadjust($pagebottombackgroundlight, -2));
 
     $footertextcolour = \theme_shoehorn\toolbox::get_setting('footertextcolour', '#B8D2E9');
     $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolour]]', $footertextcolour);
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolourlight]]', shoehorn_hexadjust($footertextcolour, -10));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolourlight]]',
+        shoehorn_hexadjust($footertextcolour, -10));
 
     $footertopcolour = \theme_shoehorn\toolbox::get_setting('footertopcolour', '#269F00');
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]', shoehorn_hex2rgba($footertopcolour, 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]',
+        shoehorn_hex2rgba($footertopcolour, 0.5));
     $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', $footerbottomcolour);
-    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]',
+        shoehorn_hex2rgba($footerbottomcolour, 0.5));
 
     $footertopbackgroundlight = shoehorn_hexadjust($footertopcolour, 20);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlight]]', $footertopbackgroundlight);
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]', shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]',
+        shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
 
     // Set custom CSS.
     $customcsssetting = \theme_shoehorn\toolbox::get_setting('customcss');
@@ -150,39 +163,38 @@ function theme_shoehorn_set_font($css, $type, $fontname) {
     } else {
 
         $fontfiles = array();
-        $fontfileeot = \theme_shoehorn\toolbox::setting_file_url('fontfileeot' . $type, 'fontfileeot' . $type);
+        $fontfileeot = \theme_shoehorn\toolbox::setting_file_url('fontfileeot'.$type, 'fontfileeot'.$type);
         if (!empty($fontfileeot)) {
-            $fontfiles[] = "url('" . $fontfileeot . "?#iefix') format('embedded-opentype')";
+            $fontfiles[] = "url('".$fontfileeot."?#iefix') format('embedded-opentype')";
         }
-        $fontfilewoff = \theme_shoehorn\toolbox::setting_file_url('fontfilewoff' . $type, 'fontfilewoff' . $type);
+        $fontfilewoff = \theme_shoehorn\toolbox::setting_file_url('fontfilewoff'.$type, 'fontfilewoff'.$type);
         if (!empty($fontfilewoff)) {
-            $fontfiles[] = "url('" . $fontfilewoff . "') format('woff')";
+            $fontfiles[] = "url('".$fontfilewoff."') format('woff')";
         }
-        $fontfilewofftwo = \theme_shoehorn\toolbox::setting_file_url('fontfilewofftwo' . $type, 'fontfilewofftwo' . $type);
+        $fontfilewofftwo = \theme_shoehorn\toolbox::setting_file_url('fontfilewofftwo'.$type, 'fontfilewofftwo'.$type);
         if (!empty($fontfilewofftwo)) {
-            $fontfiles[] = "url('" . $fontfilewofftwo . "') format('woff2')";
+            $fontfiles[] = "url('".$fontfilewofftwo."') format('woff2')";
         }
-        $fontfileotf = \theme_shoehorn\toolbox::setting_file_url('fontfileotf' . $type, 'fontfileotf' . $type);
+        $fontfileotf = \theme_shoehorn\toolbox::setting_file_url('fontfileotf'.$type, 'fontfileotf'.$type);
         if (!empty($fontfileotf)) {
-            $fontfiles[] = "url('" . $fontfileotf . "') format('opentype')";
+            $fontfiles[] = "url('".$fontfileotf."') format('opentype')";
         }
-        $fontfilettf = \theme_shoehorn\toolbox::setting_file_url('fontfilettf' . $type, 'fontfilettf' . $type);
+        $fontfilettf = \theme_shoehorn\toolbox::setting_file_url('fontfilettf'.$type, 'fontfilettf'.$type);
         if (!empty($fontfilettf)) {
-            $fontfiles[] = "url('" . $fontfilettf . "') format('truetype')";
+            $fontfiles[] = "url('".$fontfilettf."') format('truetype')";
         }
-        $fontfilesvg = \theme_shoehorn\toolbox::setting_file_url('fontfilesvg' . $type, 'fontfilesvg' . $type);
+        $fontfilesvg = \theme_shoehorn\toolbox::setting_file_url('fontfilesvg'.$type, 'fontfilesvg'.$type);
         if (!empty($fontfilesvg)) {
-            $fontfiles[] = "url('" . $fontfilesvg . "') format('svg')";
+            $fontfiles[] = "url('".$fontfilesvg."') format('svg')";
         }
 
         if (!empty($fontfiles)) {
             $familyreplacement = '"'.$fontname.'",';
-            $facereplacement = '@font-face {' . PHP_EOL . 'font-family: "' . $fontname . '";' . PHP_EOL;
-            $facereplacement .= !empty($fontfileeot) ? "src: url('" . $fontfileeot . "');" . PHP_EOL : '';
+            $facereplacement = '@font-face {'.PHP_EOL.'font-family: "'.$fontname.'";'.PHP_EOL;
+            $facereplacement .= !empty($fontfileeot) ? "src: url('".$fontfileeot."');".PHP_EOL : '';
             $facereplacement .= "src: ";
-            $facereplacement .= implode("," . PHP_EOL . " ", $fontfiles);
-            $facereplacement .= ";";
-            $facereplacement .= '' . PHP_EOL . "}";
+            $facereplacement .= implode(",".PHP_EOL." ", $fontfiles);
+            $facereplacement .= ";".PHP_EOL."}";
         } else {
             // No files no point.
             $familyreplacement = '';
@@ -221,7 +233,8 @@ function theme_shoehorn_set_landf($css) {
 
     // All pages image.
     $tag = '[[setting:landfallpagesbackgroundimage]]';
-    $landfallpagesbackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landfallpagesbackgroundimage', 'landfallpagesbackgroundimage');
+    $landfallpagesbackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landfallpagesbackgroundimage',
+        'landfallpagesbackgroundimage');
     if ($landfallpagesbackgroundimage) {
         $replacement = 'background:  url(\''.$landfallpagesbackgroundimage.'\') repeat; margin-bottom: -26px;';
     } else {
@@ -234,7 +247,7 @@ function theme_shoehorn_set_landf($css) {
     $tagmain = '[[setting:landfallpagescontenttransparencymain]]';
 
     $replacement = 'background-color: rgba(255, 255, 255, ';
-    /* http://css-tricks.com/css-transparency-settings-for-all-broswers/ */
+    /* Ref: http://css-tricks.com/css-transparency-settings-for-all-broswers/. */
     $replacementmain = 'zoom: 1; filter: alpha(opacity=';
     $landfallpagescontenttransparency = \theme_shoehorn\toolbox::get_setting('landfallpagescontenttransparency');
     if (!empty($landfallpagescontenttransparency)) {
@@ -255,7 +268,8 @@ function theme_shoehorn_set_landf($css) {
 
     // Front page image.
     $tag = '[[setting:landffrontpagebackgroundimage]]';
-    $landffrontpagebackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landffrontpagebackgroundimage', 'landffrontpagebackgroundimage');
+    $landffrontpagebackgroundimage = \theme_shoehorn\toolbox::setting_file_url('landffrontpagebackgroundimage',
+        'landffrontpagebackgroundimage');
     if ($landffrontpagebackgroundimage) {
         $replacement = 'background:  url(\''.$landffrontpagebackgroundimage.'\') repeat; margin-bottom: -26px;';
     } else {
@@ -302,7 +316,8 @@ function theme_shoehorn_set_landf($css) {
  * @param array $options
  * @return bool
  */
-function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload,
+    array $options = array()) {
     static $theme;
     if (empty($theme)) {
         $theme = theme_config::load('shoehorn');
@@ -311,7 +326,8 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        } else if (preg_match("/^fontfile(eot|otf|svg|ttf|woff|woff2)(heading|body)$/", $filearea)) { // http://www.regexr.com/.
+        // Ref: http://www.regexr.com/.
+        } else if (preg_match("/^fontfile(eot|otf|svg|ttf|woff|woff2)(heading|body)$/", $filearea)) {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
@@ -336,18 +352,18 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
 function theme_shoehorn_serve_syntaxhighlighter($filename) {
     global $CFG;
     if (file_exists("{$CFG->dirroot}/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/")) {
-        $thesyntaxhighlighterpath = $CFG->dirroot . '/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+        $thesyntaxhighlighterpath = $CFG->dirroot.'/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
     } else if (!empty($CFG->themedir) && file_exists("{$CFG->themedir}/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/")) {
-        $thesyntaxhighlighterpath = $CFG->themedir . '/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
+        $thesyntaxhighlighterpath = $CFG->themedir.'/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/';
     } else {
         header('HTTP/1.0 404 Not Found');
         die('Shoehorn syntax highlighter scripts folder not found, check $CFG->themedir is correct.');
     }
     $thefile = $thesyntaxhighlighterpath . $filename;
 
-    /* http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static file who's
-      contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for the moment if
-      that decision is a factor. */
+    /* Ref: http://css-tricks.com/snippets/php/intelligent-php-cache-control/ - rather than /lib/csslib.php as it is a static
+      file who's contents should only change if it is rebuilt.  But! There should be no difference with TDM on so will see for
+      the moment if that decision is a factor. */
 
     $etagfile = md5_file($thefile);
     // File.
@@ -365,12 +381,12 @@ function theme_shoehorn_serve_syntaxhighlighter($filename) {
 function theme_shoehorn_send_unmodified($lastmodified, $etag, $contenttype) {
     $lifetime = 60 * 60 * 24 * 60;
     header('HTTP/1.1 304 Not Modified');
-    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
+    header('Expires: '.gmdate('D, d M Y H:i:s', time() + $lifetime).' GMT');
     header('Cache-Control: public, max-age=' . $lifetime);
     header('Content-Type: '.$contenttype.'; charset=utf-8');
-    header('Etag: "' . $etag . '"');
+    header('Etag: "'.$etag.'"');
     if ($lastmodified) {
-        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified).' GMT');
     }
     die;
 }
@@ -378,19 +394,19 @@ function theme_shoehorn_send_unmodified($lastmodified, $etag, $contenttype) {
 function theme_shoehorn_send_cached($path, $filename, $lastmodified, $etag, $contenttype) {
     global $CFG;
     require_once($CFG->dirroot . '/lib/configonlylib.php'); // For min_enable_zlib_compression().
-    // 60 days only - the revision may get incremented quite often.
+    // Sixty days only - the revision may get incremented quite often.
     $lifetime = 60 * 60 * 24 * 60;
 
-    header('Etag: "' . $etag . '"');
+    header('Etag: "'.$etag.'"');
     header('Content-Disposition: inline; filename="'.$filename.'"');
-    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
-    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
+    header('Last-Modified: '.gmdate('D, d M Y H:i:s', $lastmodified).' GMT');
+    header('Expires: '.gmdate('D, d M Y H:i:s', time() + $lifetime).' GMT');
     header('Pragma: ');
-    header('Cache-Control: public, max-age=' . $lifetime);
+    header('Cache-Control: public, max-age='.$lifetime);
     header('Accept-Ranges: none');
     header('Content-Type: '.$contenttype.'; charset=utf-8');
     if (!min_enable_zlib_compression()) {
-        header('Content-Length: ' . filesize($path . $filename));
+        header('Content-Length: '.filesize($path . $filename));
     }
 
     readfile($path . $filename);

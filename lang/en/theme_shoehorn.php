@@ -174,8 +174,8 @@ $string['customcss'] = 'Custom CSS';
 $string['customcss_desc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
 // Login page.
-$string['loginpage']= 'Login page';
-$string['loginpage_desc']= 'Login page settings.';
+$string['loginpage'] = 'Login page';
+$string['loginpage_desc'] = 'Login page settings.';
 
 $string['loginmessage'] = 'The login message';
 $string['loginmessage_desc'] = "The brief login message to show.  Leave blank to use the 'theloginmessage' language string contained in the language file.  Where you can make use of Moodle multi-language functionality.";  // Below!
@@ -192,27 +192,27 @@ $string['loggedin'] = 'Logged in';
 $string['always'] = 'Always';
 
 // Percentages:....
-$string['zeropercent'] =        '  0%';
-$string['fivepercent'] =        '  5%';
-$string['tenpercent'] =         ' 10%';
-$string['fifteenpercent'] =    ' 15%';
-$string['twentypercent'] =      ' 20%';
-$string['twentyfivepercent'] =  ' 25%';
-$string['thirtypercent'] =      ' 30%';
-$string['thirtyfivepercent'] =  ' 35%';
-$string['fortypercent'] =       ' 40%';
-$string['fortyfivepercent'] =   ' 45%';
-$string['fiftypercent'] =       ' 50%';
-$string['fifyfivepercent'] =    ' 55%';
-$string['sixtypercent'] =       ' 60%';
-$string['sixtyfivepercent'] =   ' 65%';
-$string['seventypercent'] =     ' 70%';
+$string['zeropercent'] = '  0%';
+$string['fivepercent'] = '  5%';
+$string['tenpercent'] = ' 10%';
+$string['fifteenpercent'] = ' 15%';
+$string['twentypercent'] = ' 20%';
+$string['twentyfivepercent'] = ' 25%';
+$string['thirtypercent'] = ' 30%';
+$string['thirtyfivepercent'] = ' 35%';
+$string['fortypercent'] = ' 40%';
+$string['fortyfivepercent'] = ' 45%';
+$string['fiftypercent'] = ' 50%';
+$string['fifyfivepercent'] = ' 55%';
+$string['sixtypercent'] = ' 60%';
+$string['sixtyfivepercent'] = ' 65%';
+$string['seventypercent'] = ' 70%';
 $string['seventyfivepercent'] = ' 75%';
-$string['eightypercent'] =      ' 80%';
-$string['eightyfivepercent'] =  ' 85%';
-$string['ninetypercent'] =      ' 90%';
-$string['ninetyfivepercent'] =  ' 95%';
-$string['onehundredpercent'] =  '100%';
+$string['eightypercent'] = ' 80%';
+$string['eightyfivepercent'] = ' 85%';
+$string['ninetypercent'] = ' 90%';
+$string['ninetyfivepercent'] = ' 95%';
+$string['onehundredpercent'] = '100%';
 
 // Display My Courses Menu:....
 $string['displaymycoursesmenu'] = 'Display my courses menu';

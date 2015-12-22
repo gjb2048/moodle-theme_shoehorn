@@ -47,12 +47,18 @@ if ($speed == 0) {
             $fs = 1;
             foreach ($slides as $sideid => $shown) {
                 if ($shown == 2) {
-            ?>
-                    <li data-target="#myCarousel" data-slide-to="<?php echo $fs - 1; ?>" <?php if ($first) { echo 'class="active"'; $first = false; } ?>></li>
-            <?php
+                    echo '<li data-target="#myCarousel" data-slide-to="';
+                    echo $fs - 1;
+                    echo '"';
+                    if ($first) {
+                        echo 'class="active"';
+                        $first = false;
+                    }
+                    echo '></li>';
                     $fs++;
                 }
-            } ?>
+            }
+            ?>
         </ol>
         <div class="carousel-inner">
         <?php
@@ -73,7 +79,8 @@ if ($speed == 0) {
                     echo 'item">';
                     $imagesetting = \theme_shoehorn\toolbox::get_setting('frontpageslideimage'.$slideid);
                     if ($imagesetting) {
-                        $image = \theme_shoehorn\toolbox::setting_file_url('frontpageslideimage'.$slideid, 'frontpageslideimage'.$slideid);
+                        $image = \theme_shoehorn\toolbox::setting_file_url('frontpageslideimage'.$slideid,
+                            'frontpageslideimage'.$slideid);
                     } else {
                         $image = \theme_shoehorn\toolbox::pix_url('Default_Slide', 'theme');
                     }
@@ -98,7 +105,7 @@ if ($speed == 0) {
                             if ($slidecaptiontext) {
                                 echo '<p>'.$slidecaptiontext.'</p>';
                             }
-                        ?> </div> <?php
+                        ?></div><?php
                     }
                     if ($urlsetting) {
                         echo '</a>';
@@ -109,35 +116,41 @@ if ($speed == 0) {
             } ?>
         </div>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <?php if (!right_to_left()) { ?>
-            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
-            <i class="fa fa-chevron-circle-left"></i>
-            <?php } else { ?>
-            <span class="glyphicon glyphicon-chevron-left"></i>
-            <?php } ?>
-        <?php } else { ?>
-            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
-            <i class="fa fa-chevron-circle-right"></i>
-            <?php } else { ?>
-            <span class="glyphicon glyphicon-chevron-right"></i>
-            <?php } ?>
-        <?php } ?>
+        <?php
+        $fontawesome = \theme_shoehorn\toolbox::get_setting('fontawesome');
+        if (!right_to_left()) {
+            if ($fontawesome) {
+                echo '<i class="fa fa-chevron-circle-left"></i>';
+            } else {
+                echo '<span class="glyphicon glyphicon-chevron-left"></span>';
+            }
+        } else {
+            if ($fontawesome) {
+                echo '<i class="fa fa-chevron-circle-right"></i>';
+            } else {
+                echo '<span class="glyphicon glyphicon-chevron-right"></span>';
+            }
+        }
+        ?>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <?php if (!right_to_left()) { ?>
-            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
-            <i class="fa fa-chevron-circle-right"></i>
-            <?php } else { ?>
-            <span class="glyphicon glyphicon-chevron-right"></i>
-            <?php } ?>
-        <?php } else { ?>
-            <?php if (\theme_shoehorn\toolbox::get_setting('fontawesome')) { ?>
-            <i class="fa fa-chevron-circle-left"></i>
-            <?php } else { ?>
-            <span class="glyphicon glyphicon-chevron-left"></i>
-            <?php } ?>
-        <?php } ?>
+        <?php 
+        if (!right_to_left()) {
+            if ($fontawesome) {
+                echo '<i class="fa fa-chevron-circle-right"></i>';
+            } else {
+                echo '<span class="glyphicon glyphicon-chevron-right"></span>';
+            }
+        } else {
+            if ($fontawesome) {
+                echo '<i class="fa fa-chevron-circle-left"></i>';
+            } else {
+                echo '<span class="glyphicon glyphicon-chevron-left"></span>';
+            }
+        }
+        ?>
         </a>
     </div>
 </div>
-<?php }
+<?php
+}
