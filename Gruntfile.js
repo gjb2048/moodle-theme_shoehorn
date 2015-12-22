@@ -403,7 +403,13 @@ module.exports = function(grunt) { // jshint ignore:line
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("main", ["less:moodle", "less:editor", "less:fontawesome", "replace:font_fix", "replace:rtl_images", "csscomb:theme"]);
+    grunt.registerTask("main", [
+        "less:moodle",
+        "less:editor",
+        "less:fontawesome",
+        "replace:font_fix",
+        "replace:rtl_images",
+        "csscomb:theme"]);
     grunt.registerTask("compile", ["main", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);
     grunt.registerTask("replace:svg_colours", ["replace:svg_colours_core", "replace:svg_colours_plugins"]);
