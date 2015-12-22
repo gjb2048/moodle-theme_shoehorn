@@ -33,7 +33,7 @@ require_once($CFG->dirroot . "/course/renderer.php");
 class theme_shoehorn_core_course_renderer extends core_course_renderer {
 
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG, $OUTPUT;
+        global $CFG;
 
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');

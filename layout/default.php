@@ -36,7 +36,7 @@ if (!$PAGE->user_is_editing()) {
 }
 $PAGE->set_popup_notification_allowed(false);
 
-$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost, $PAGE);
+$regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost);
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();
 
 echo $OUTPUT->doctype(); ?>

@@ -128,7 +128,7 @@ $THEME->layouts = array(
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'mydashboard.php',
+        'file' => 'default.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
@@ -195,7 +195,7 @@ $THEME->layouts = array(
     ),
     // The shoehorn custom page layout.  Not listed on: http://docs.moodle.org/dev/Themes_overview.
     'page' => array(
-        'file' => 'page.php',
+        'file' => 'default.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre'
     )

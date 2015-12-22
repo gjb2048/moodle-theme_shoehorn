@@ -37,7 +37,7 @@ if ($sesskey !== null && confirm_sesskey($sesskey)) {
     $sesskeyvalid = false;
 }
 
-$edit   = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and off
+$edit = optional_param('edit', null, PARAM_BOOL);    // Turn editing on and off.
 
 $PAGE->set_context(context_system::instance());
 $thispageurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
@@ -154,7 +154,7 @@ if (empty($children)) {
 }
 $lang = current_language();
 $oursesskey = sesskey();
-foreach($pages as $pageid => $status) {
+foreach ($pages as $pageid => $status) {
     if ($status == 2) {
         $sitepagetitle = 'sitepagetitle'.$pageid;
         $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
@@ -162,7 +162,8 @@ foreach($pages as $pageid => $status) {
         if ($loggedin) {
             $navurl->param('sesskey', $oursesskey);
         }
-        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null, new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
+        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl, navigation_node::TYPE_CUSTOM, null, null,
+            new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
         $containernode->add_node($ournode, $beforekey);
         if ($pageid == $ourpageid) {
             // Us....

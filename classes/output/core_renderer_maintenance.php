@@ -45,7 +45,6 @@ class core_renderer_maintenance extends \core_renderer_maintenance {
      * @return string HTML fragment.
      */
     public function standard_end_of_body_html() {
-        global $CFG;
         $output = html_writer::start_tag('div', array ('class' => 'themecredit')).
                    get_string('credit', 'theme_shoehorn').
                    html_writer::link('//about.me/gjbarnard', 'Gareth J Barnard', array('target' => '_blank')).

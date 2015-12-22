@@ -35,7 +35,7 @@
  * breaking installation or upgrade unwittingly.
  */
 
-$regions = \theme_shoehorn\toolbox::grid(false, false, $PAGE);
+$regions = \theme_shoehorn\toolbox::grid(false, false);
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>

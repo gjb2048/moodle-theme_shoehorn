@@ -56,21 +56,21 @@ ul.socialnetworks {
 
 body.socialsignpost ul.socialnetworks {
     list-style-type: none;
-    margin: 0px 0px 10px;
+    margin: 0 0 10px;
     border: 2px solid black;
     border-radius: 4px;
 }
 
 body.socialsignpost div.post-size-0 ul.socialnetworks {
-    background: #eee url([[pix:theme|posttop]]) no-repeat 50% 0px;
+    background: #eee url([[pix:theme|posttop]]) no-repeat 50% 0;
 }
 
 body.socialsignpost div.post-size-1 ul.socialnetworks {
-    background: #eee url([[pix:theme|posttop-1]]) no-repeat 50% 0px;
+    background: #eee url([[pix:theme|posttop-1]]) no-repeat 50% 0;
 }
 
 body.socialsignpost div.post-size-2 ul.socialnetworks {
-    background: #eee url([[pix:theme|posttop-2]]) no-repeat 50% 0px;
+    background: #eee url([[pix:theme|posttop-2]]) no-repeat 50% 0;
 }
 
 ul.socialnetworks li {

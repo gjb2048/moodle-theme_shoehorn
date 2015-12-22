@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -271,14 +270,14 @@ $ADMIN->add('theme_shoehorn', $generalsettings);
 
 // Font....
 $fontsettings = new admin_settingpage('theme_shoehorn_font', get_string('fontsettings', 'theme_shoehorn'));
-// This is the descriptor for the font settings
+// This is the descriptor for the font settings.
 $name = 'theme_shoehorn/fontheading';
 $heading = get_string('fontheadingsub', 'theme_shoehorn');
 $information = get_string('fontheadingdesc', 'theme_shoehorn');
 $setting = new admin_setting_heading($name, $heading, $information);
 $fontsettings->add($setting);
 
-// Heading font name
+// Heading font name.
 $name = 'theme_shoehorn/fontnameheading';
 $title = get_string('fontnameheading', 'theme_shoehorn');
 $description = get_string('fontnameheadingdesc', 'theme_shoehorn');
@@ -287,7 +286,7 @@ $setting = new admin_setting_configtext($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $fontsettings->add($setting);
 
-// Text font name
+// Text font name.
 $name = 'theme_shoehorn/fontnamebody';
 $title = get_string('fontnamebody', 'theme_shoehorn');
 $description = get_string('fontnamebodydesc', 'theme_shoehorn');
@@ -844,29 +843,6 @@ $name = 'theme_shoehorn/landfallpagescontenttransparency';
 $title = get_string('landfallpagescontenttransparency', 'theme_shoehorn');
 $description = get_string('landfallpagescontenttransparency_desc', 'theme_shoehorn');
 $default = 100;
-$choices = array(
-    100 => get_string('zeropercent', 'theme_shoehorn'),
-    95 => get_string('fivepercent', 'theme_shoehorn'),
-    90 => get_string('tenpercent', 'theme_shoehorn'),
-    85 => get_string('fifteenpercent', 'theme_shoehorn'),
-    80 => get_string('twentypercent', 'theme_shoehorn'),
-    75 => get_string('twentyfivepercent', 'theme_shoehorn'),
-    70 => get_string('thirtypercent', 'theme_shoehorn'),
-    65 => get_string('thirtyfivepercent', 'theme_shoehorn'),
-    60 => get_string('fortypercent', 'theme_shoehorn'),
-    55 => get_string('fortyfivepercent', 'theme_shoehorn'),
-    50 => get_string('fiftypercent', 'theme_shoehorn'),
-    45 => get_string('fifyfivepercent', 'theme_shoehorn'),
-    40 => get_string('sixtypercent', 'theme_shoehorn'),
-    35 => get_string('sixtyfivepercent', 'theme_shoehorn'),
-    30 => get_string('seventypercent', 'theme_shoehorn'),
-    25 => get_string('seventyfivepercent', 'theme_shoehorn'),
-    20 => get_string('eightypercent', 'theme_shoehorn'),
-    15 => get_string('eightyfivepercent', 'theme_shoehorn'),
-    10 => get_string('ninetypercent', 'theme_shoehorn'),
-    5 => get_string('ninetyfivepercent', 'theme_shoehorn'),
-    0 => get_string('onehundredpercent', 'theme_shoehorn')
-);
 $landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
 $ADMIN->add('theme_shoehorn', $landfsettings);
