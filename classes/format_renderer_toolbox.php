@@ -150,7 +150,7 @@ trait format_renderer_toolbox {
             if ($thissection->section > $course->numsections) {
                 /* Activities inside this section are 'orphaned', this section will be printed on the main
                    course page when editing is on. */
-                break;  // Not sure why core does not use this instead of 'continue'?
+                break; // Not sure why core does not use this instead of 'continue'?
             }
             $showsection = $thissection->uservisible ||
                 ($thissection->visible && !$thissection->available && $thissection->showavailability &&
