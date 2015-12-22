@@ -120,8 +120,9 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlightrgba]]', shoehorn_hex2rgba($footertopbackgroundlight, 0.25));
 
     // Set custom CSS.
-    if (!empty(\theme_shoehorn\toolbox::get_setting('customcss'))) {
-        $customcss = \theme_shoehorn\toolbox::get_setting('customcss');
+    $customcsssetting = \theme_shoehorn\toolbox::get_setting('customcss');
+    if (!empty($customcsssetting)) {
+        $customcss = $customcsssetting;
     } else {
         $customcss = null;
     }
@@ -198,10 +199,12 @@ function theme_shoehorn_set_font($css, $type, $fontname) {
 function theme_shoehorn_set_loginmessage($css) {
     $tag = '[[setting:theloginmessge]]';
 
-    if (\theme_shoehorn\toolbox::get_setting('showloginmessage') == 2) {
+    $showloginmessage = \theme_shoehorn\toolbox::get_setting('showloginmessage');
+    if ($showloginmessage == 2) {
         $content = "content: '";
-        if (!empty(\theme_shoehorn\toolbox::get_setting('loginmessage'))) {
-            $replacement = $content.\theme_shoehorn\toolbox::get_setting('loginmessage')."';";
+        $loginmessage = \theme_shoehorn\toolbox::get_setting('loginmessage');
+        if (!empty($loginmessage)) {
+            $replacement = $content.$loginmessage."';";
         } else {
             $replacement = $content.get_string('theloginmessage', 'theme_shoehorn')."';";
         }
