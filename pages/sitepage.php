@@ -52,20 +52,18 @@ $o = '';
 $pages = \theme_shoehorn\toolbox::shown_sitepages();
 $loggedin = isloggedin();
 
-// Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
-$theme = theme_config::load('shoehorn');
-$settings = $theme->settings;
+// Note: Cannot use $PAGE->theme as will complain about the theme already set up and cannot change.
 if (array_key_exists($ourpageid, $pages)) {
     if ($pages[$ourpageid] == 2) {
-        $sitepagetitle = 'sitepagetitle'.$ourpageid;
-        $PAGE->set_title($settings->$sitepagetitle);
+        $sitepagetitle = \theme_shoehorn\toolbox::get_setting('sitepagetitle'.$ourpageid);
+        $PAGE->set_title($sitepagetitle);
 
-        $sitepageheading = 'sitepageheading'.$ourpageid;
-        $PAGE->set_heading($settings->$sitepageheading);
+        $sitepageheading = \theme_shoehorn\toolbox::get_setting('sitepageheading'.$ourpageid);
+        $PAGE->set_heading($sitepageheading);
 
         // Content.
-        $sitepagecontent = 'sitepagecontent'.$ourpageid;
-        $o .= html_writer::tag('div', $settings->$sitepagecontent, array('class' => 'sitepagecontent'));
+        $sitepagecontent = \theme_shoehorn\toolbox::get_setting('sitepagecontent'.$ourpageid);
+        $o .= html_writer::tag('div', $sitepagecontent, array('class' => 'sitepagecontent'));
     } else if ($pages[$ourpageid] == 3) {
         $text = get_string('pagenotdisplayedtitle', 'theme_shoehorn', array('pageid' => $ourpageid));
         $PAGE->set_title($text);
@@ -165,13 +163,13 @@ $lang = current_language();
 $oursesskey = sesskey();
 foreach ($pages as $pageid => $status) {
     if ($status == 2) {
-        $sitepagetitle = 'sitepagetitle'.$pageid;
+        $sitepagetitle = \theme_shoehorn\toolbox::get_setting('sitepagetitle'.$pageid);
         $navurl = new moodle_url('/theme/shoehorn/pages/sitepage.php');
         $navurl->param('pageid', $pageid);
         if ($loggedin) {
             $navurl->param('sesskey', $oursesskey);
         }
-        $ournode = $PAGE->navigation->create($settings->$sitepagetitle, $navurl,
+        $ournode = $PAGE->navigation->create($sitepagetitle, $navurl,
             navigation_node::TYPE_CUSTOM, null, null,
             new pix_icon('i/report', get_string('sitepage', 'theme_shoehorn').$pageid, 'moodle', null));
         $containernode->add_node($ournode, $beforekey);
