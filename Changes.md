@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.0.4
+  1. Tidy up Noticeboard format for one section per page.
+
 Version 3.0.0.3
   1. Fix Quiz > Edit quiz -> Edit maximum mark.
   2. Fix all blocks when docked #13.

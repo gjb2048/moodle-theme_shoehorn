@@ -194,13 +194,16 @@ trait format_renderer_toolbox {
                         }
                     } else {
                         echo $this->course_format_section_header($thissection, $course, $format, $displaysection);
-                        if ($thissection->summary or ! empty($modinfo->sections[0])) {
-                            echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                            echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
-                        }
                         // See if we are using a version of the format's renderer where the method 'print_noticeboard' is public.
                         if (in_array('print_noticeboard', get_class_methods($this))) {
                             $this->print_noticeboard($course);
+                            if (($PAGE->user_is_editing()) && (is_siteadmin($USER))) {
+                                echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+                                echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+                            }
+                        } else {
+                            echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                            echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
                         }
                         echo $this->course_format_section_footer();
                     }
