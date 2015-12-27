@@ -42,12 +42,18 @@ class toolbox {
         return self::$instance;
     }
 
+    /**
+     * Sets the core_renderer class instance so that when purging all caches and 'theme_xxx_process_css' etc.
+     * the settings are correct.
+     * @param class core_renderer $core Child object of core_renderer class.
+     */
     static public function set_core_renderer($core) {
             global $PAGE, $CFG, $OUTPUT;
 			error_log('set_core_renderer: ');
 			error_log('P : '.print_r($PAGE->theme->name, true));
 			error_log('C : '.print_r($CFG->theme, true));
 			error_log('O : '.get_class($OUTPUT));
+			error_log('C : '.get_class($core));
 			$dbst = debug_backtrace();
 			error_log('ST:');
 			foreach ($dbst as $dbstentry) {
@@ -68,8 +74,14 @@ class toolbox {
 				}
 			}
         $us = self::get_instance();
-        // Set from the initial calling lib.php process_css function.  Must happen before parents.
-        $us->corerenderer = $core;
+        // Set only once from the initial calling lib.php process_css function so that subsequent parent calls do not override it.
+        // Must happen before parents.
+        if (null === $us->corerenderer) {
+            $us->corerenderer = $core;
+			error_log('set_core_renderer set to: '.get_class($us->corerenderer));
+        } else {
+			error_log('set_core_renderer not set to: '.get_class($core));
+		}
     }
 
     /**
@@ -91,7 +103,6 @@ class toolbox {
      */
     static public function get_setting($setting, $format = false, $default = false) {
         $us = self::check_corerenderer();
-		//error_log('GS: '.$setting.' - '.get_class($us));
         $settingvalue = $us->get_setting($setting);
 
         global $CFG;
@@ -122,7 +133,7 @@ class toolbox {
     static private function check_corerenderer() {
         $us = self::get_instance();
         if (empty($us->corerenderer)) {
-            // Cannot use $OUTPUT as might be the old renderer.  However $CFG->theme is correct.
+            // Use $OUTPUT unless is not a Shoehorn or child core_renderer which can happen on theme switch.
             global $PAGE, $CFG, $OUTPUT;
 			error_log('check_corerenderer: ');
 			error_log('P : '.print_r($PAGE->theme->name, true));
@@ -148,8 +159,37 @@ class toolbox {
 				}
 			}
             //$us->corerenderer = $PAGE->get_renderer('theme_'.$CFG->theme, 'core');
-            $us->corerenderer = $OUTPUT;
+            if (property_exists($OUTPUT, 'shoehorn')) {
+                $us->corerenderer = $OUTPUT;
+				error_log('check_corerenderer: $OUTPUT');
+            } else {
+                // Use $PAGE->theme->name as will be accurate than $CFG->theme when using URL theme changes.
+                // Core 'allowthemechangeonurl' setting.
+                global $PAGE;
+                $corerenderer = $PAGE->get_renderer('theme_'.$PAGE->theme->name, 'core');
+				error_log('check_corerenderer - get_class 1: '.get_class($corerenderer));
+                // Fallback check.
+                if (property_exists($corerenderer, 'shoehorn')) {
+                    $us->corerenderer = $corerenderer;
+					error_log('check_corerenderer: $PAGE');
+                } else {
+                    // Probably during theme switch, '$CFG->theme' will be accurrate.
+                    global $CFG;
+                    $corerenderer = $PAGE->get_renderer('theme_'.$CFG->theme, 'core');
+					error_log('check_corerenderer - get_class 2: '.get_class($corerenderer));
+                    if (property_exists($corerenderer, 'shoehorn')) {
+                        $us->corerenderer = $corerenderer;
+						error_log('check_corerenderer: $CFG');
+                    } else {
+                        // Last resort.  Hopefully will be fine on next page load for Child themes.
+                        // However '***_process_css' in lib.php will be fine as it sets the correct renderer.
+                        $us->corerenderer = $PAGE->get_renderer('theme_shoehorn', 'core');
+						error_log('check_corerenderer: fallback');
+                    }
+                }
+            }
         }
+		error_log('check_corerenderer - get_class e: '.get_class($us->corerenderer));
         return $us->corerenderer;
     }
 
