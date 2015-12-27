@@ -38,6 +38,8 @@ use stdClass;
 class core_renderer extends \core_renderer {
     use core_renderer_toolbox;
 
+    protected $shoehorn = null; // Used for determining if this is a Shoehorn or child of renderer.
+
     protected $enrolledcourses = null;
     protected $syntaxhighlighterenabled = false;
     protected $themeconfig = null;
