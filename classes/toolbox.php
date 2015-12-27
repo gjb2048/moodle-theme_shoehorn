@@ -43,6 +43,30 @@ class toolbox {
     }
 
     static public function set_core_renderer($core) {
+            global $PAGE, $CFG, $OUTPUT;
+			error_log('set_core_renderer: ');
+			error_log('P : '.print_r($PAGE->theme->name, true));
+			error_log('C : '.print_r($CFG->theme, true));
+			error_log('O : '.get_class($OUTPUT));
+			$dbst = debug_backtrace();
+			error_log('ST:');
+			foreach ($dbst as $dbstentry) {
+				if (!empty($dbstentry['file'])) {
+					error_log('file: '.$dbstentry['file']);
+				}
+				if (!empty($dbstentry['line'])) {
+					error_log(' - line: '.$dbstentry['line']);
+				}
+				if (!empty($dbstentry['function'])) {
+					error_log(' - function: '.$dbstentry['function']);
+				}
+				if (!empty($dbstentry['class'])) {
+					error_log(' - class: '.$dbstentry['class']);
+				}
+				if (!empty($dbstentry['object'])) {
+					error_log(' - object: '.get_class($dbstentry['object']));
+				}
+			}
         $us = self::get_instance();
         // Set from the initial calling lib.php process_css function.  Must happen before parents.
         $us->corerenderer = $core;
@@ -67,6 +91,7 @@ class toolbox {
      */
     static public function get_setting($setting, $format = false, $default = false) {
         $us = self::check_corerenderer();
+		//error_log('GS: '.$setting.' - '.get_class($us));
         $settingvalue = $us->get_setting($setting);
 
         global $CFG;
@@ -97,8 +122,32 @@ class toolbox {
     static private function check_corerenderer() {
         $us = self::get_instance();
         if (empty($us->corerenderer)) {
-            // Use $OUTPUT.
-            global $OUTPUT;
+            // Cannot use $OUTPUT as might be the old renderer.  However $CFG->theme is correct.
+            global $PAGE, $CFG, $OUTPUT;
+			error_log('check_corerenderer: ');
+			error_log('P : '.print_r($PAGE->theme->name, true));
+			error_log('C : '.print_r($CFG->theme, true));
+			error_log('O : '.get_class($OUTPUT));
+			$dbst = debug_backtrace();
+			error_log('ST:');
+			foreach ($dbst as $dbstentry) {
+				if (!empty($dbstentry['file'])) {
+					error_log('file: '.$dbstentry['file']);
+				}
+				if (!empty($dbstentry['line'])) {
+					error_log(' - line: '.$dbstentry['line']);
+				}
+				if (!empty($dbstentry['function'])) {
+					error_log(' - function: '.$dbstentry['function']);
+				}
+				if (!empty($dbstentry['class'])) {
+					error_log(' - class: '.$dbstentry['class']);
+				}
+				if (!empty($dbstentry['object'])) {
+					error_log(' - object: '.get_class($dbstentry['object']));
+				}
+			}
+            //$us->corerenderer = $PAGE->get_renderer('theme_'.$CFG->theme, 'core');
             $us->corerenderer = $OUTPUT;
         }
         return $us->corerenderer;
