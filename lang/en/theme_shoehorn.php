@@ -254,12 +254,12 @@ $string['fontfilewoffheading'] = 'Heading WOFF font file';
 $string['fontfilewofftwoheading'] = 'Heading WOFF2 font file';
 $string['fontfileeotheading'] = 'Heading EOT font file';
 $string['fontfilesvgheading'] = 'Heading SVG font file';
-$string['fontfilettfbody'] = 'Body TTF font file';
-$string['fontfileotfbody'] = 'Body OTF font file';
-$string['fontfilewoffbody'] = 'Body WOFF font file';
-$string['fontfilewofftwobody'] = 'Body WOFF2 font file';
-$string['fontfileeotbody'] = 'Body EOT font file';
-$string['fontfilesvgbody'] = 'Body SVG font file';
+$string['fontfilettfbody'] = 'Text TTF font file';
+$string['fontfileotfbody'] = 'Text OTF font file';
+$string['fontfilewoffbody'] = 'Text WOFF font file';
+$string['fontfilewofftwobody'] = 'Text WOFF2 font file';
+$string['fontfileeotbody'] = 'Text EOT font file';
+$string['fontfilesvgbody'] = 'Text SVG font file';
 
 // Front page slider settings.
 $string['frontpagesliderheading'] = 'Front page slider';
