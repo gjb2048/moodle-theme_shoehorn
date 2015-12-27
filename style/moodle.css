@@ -14293,6 +14293,10 @@ input[type='reset']
 }.carousel-inner > .item img
 {
     width: auto;max-width: 100%;height: auto;margin: 0 auto;padding: 0;vertical-align: middle;
+}.carousel-inner a:hover,
+.carousel-inner a:focus
+{
+    background-color: transparent;
 }@media (min-width:480px)
 {
     .carousel-inner > .item
@@ -15975,7 +15979,7 @@ body.frontpagebackgroundimage .forumpost
 }.moodleheader .logoheading,
 .moodleheader .heading
 {
-    color: #fff;
+    color: [[setting:pageheadertextcolour]];
 }header.moodleheader .heading
 {
     display: inline-block;

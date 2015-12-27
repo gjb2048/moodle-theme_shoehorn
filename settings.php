@@ -740,6 +740,16 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, $de
 $setting->set_updatedcallback('theme_reset_all_caches');
 $landfsettings->add($setting);
 
+// Page Header Text.
+$name = 'theme_shoehorn/pageheadertextcolour';
+$title = get_string('pageheadertextcolour', 'theme_shoehorn');
+$description = get_string('pageheadertextcolourdesc', 'theme_shoehorn');
+$default = '#FFFFFF';
+$previewconfig = null;
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$landfsettings->add($setting);
+
 // Footer Text.
 $name = 'theme_shoehorn/footertextcolour';
 $title = get_string('footertextcolour', 'theme_shoehorn');
@@ -811,7 +821,9 @@ $choices = array(
     5 => get_string('ninetyfivepercent', 'theme_shoehorn'),
     0 => get_string('onehundredpercent', 'theme_shoehorn')
 );
-$landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$landfsettings->add($setting);
 
 // Quiz.
 $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_quiz', get_string('landfquiz', 'theme_shoehorn'),
@@ -843,7 +855,9 @@ $name = 'theme_shoehorn/landfallpagescontenttransparency';
 $title = get_string('landfallpagescontenttransparency', 'theme_shoehorn');
 $description = get_string('landfallpagescontenttransparency_desc', 'theme_shoehorn');
 $default = 100;
-$landfsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$landfsettings->add($setting);
 
 $ADMIN->add('theme_shoehorn', $landfsettings);
 

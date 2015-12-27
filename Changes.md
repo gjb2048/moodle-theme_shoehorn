@@ -4,6 +4,8 @@ Version 3.0.0.4
   1. Tidy up Noticeboard format for one section per page.
   2. Fix issue when switching themes.
   3. Change body font setting text to 'Text'.
+  4. Fix background transparency not set.
+  5. Fix background colour on carosel hover when link.
 
 Version 3.0.0.3
   1. Fix Quiz > Edit quiz -> Edit maximum mark.
