@@ -75,6 +75,12 @@ button, input.form-submit, input[type="button"], input[type="submit"], input[typ
        max-width: 100%;
     }
   }
+  a {
+    &:hover, &:focus {
+       // Turn off background colour.
+       background-color: transparent;
+    }
+  }
 }
 
 @media(min-width: @screen-xs-min) {

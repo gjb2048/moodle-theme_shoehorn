@@ -23,6 +23,8 @@ Version 2.9.1.6
  19. Tidy up Noticeboard format for one section per page.
  20. Fix issue when switching themes.
  21. Change body font setting text to 'Text'.
+ 22. Fix background transparency not set.
+ 23. Fix background colour on carosel hover when link.
 
 Version 2.9.1.5
   1. MDL-51921.

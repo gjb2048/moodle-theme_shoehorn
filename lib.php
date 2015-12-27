@@ -115,6 +115,9 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:pagebottombackgroundlighthover]]',
         shoehorn_hexadjust($pagebottombackgroundlight, -2));
 
+    $pageheadertextcolour = \theme_shoehorn\toolbox::get_setting('pageheadertextcolour', '#FFFFFF');
+    $css = theme_shoehorn_set_setting($css, '[[setting:pageheadertextcolour]]', $pageheadertextcolour);
+
     $footertextcolour = \theme_shoehorn\toolbox::get_setting('footertextcolour', '#B8D2E9');
     $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolour]]', $footertextcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertextcolourlight]]',
