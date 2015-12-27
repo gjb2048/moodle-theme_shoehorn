@@ -21,6 +21,7 @@ Version 2.9.1.6
  17. Dock tidy up.
  18. Travis CI -> https://travis-ci.org/gjb2048/moodle-theme_shoehorn
  19. Tidy up Noticeboard format for one section per page.
+ 20. Fix issue when switching themes.
 
 Version 2.9.1.5
   1. MDL-51921.
