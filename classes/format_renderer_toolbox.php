@@ -170,7 +170,8 @@ trait format_renderer_toolbox {
                 'data-ride' => 'carousel', 'data-interval' => ''));
             echo \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
             for ($i = 0; $i < $numsections; $i++) {
-                $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i);
+                $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i,
+                    'title' => $format->get_section_name($sections[$shownsections[$i]]->section));
                 if ($i == $displaysection) {
                     $attributes['class'] = 'active';
                 }
