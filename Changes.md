@@ -6,6 +6,8 @@ Version 3.0.0.4
   3. Change body font setting text to 'Text'.
   4. Fix background transparency not set.
   5. Fix background colour on carosel hover when link.
+  6. Display section name in one section per page indicator on slider.
+  7. Changes to child theme mechanism.  For a child theme template, please contact me via https://about.me/gjbarnard.
 
 Version 3.0.0.3
   1. Fix Quiz > Edit quiz -> Edit maximum mark.
