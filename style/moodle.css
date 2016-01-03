@@ -13425,7 +13425,8 @@ button.yui3-button.closebutton:hover
 }.transform-test-heading
 {
     font-family: [[setting:bodyfont]] 'Cabin','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 14px;font-weight: bold;line-height: 32px;margin: 0;padding: 0;text-align: center;
-}body.has_dock #page
+}body.has_dock #page,
+body.has_dock .moodleheader
 {
     padding-left: 41px;
 }body.has_dock div#dock
@@ -13738,7 +13739,8 @@ fieldset[disabled] #dock .dockedtitle.focus
 }#dockeditempanel .dockeditempanel_hd .commands .hidepanelicon img
 {
     cursor: pointer;
-}.dir-rtl.has_dock #page
+}.dir-rtl.has_dock #page,
+.dir-rtl.has_dock .moodleheader
 {padding-right: 41px;
     padding-left: 15px;
 }.dir-rtl #dock

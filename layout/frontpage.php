@@ -37,9 +37,9 @@ if (!$PAGE->user_is_editing()) {
 
 $PAGE->set_popup_notification_allowed(false);
 
-$showslider = \theme_shoehorn\toolbox::showslider();
 $regions = \theme_shoehorn\toolbox::grid($hassidepre, $hassidepost);
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();
+$showslider = \theme_shoehorn\toolbox::showslider();
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -57,6 +57,10 @@ echo $OUTPUT->doctype() ?>
         <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pageheader')); ?>
 
         <div id="page-content" class="row">
+            <?php
+            if (($hassidepre) && ($regions['layout'] == 1)) {
+                echo $OUTPUT->blocks('side-pre', $regions['pre']);
+            }?>
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <?php
                 if ($showslider) {
@@ -75,7 +79,7 @@ echo $OUTPUT->doctype() ?>
             </div>
 
             <?php
-            if ($hassidepre) {
+            if (($hassidepre) && ($regions['layout'] == 2)) {
                 echo $OUTPUT->blocks('side-pre', $regions['pre']);
             }
             if ($hassidepost) {
