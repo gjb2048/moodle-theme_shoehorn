@@ -254,13 +254,7 @@
             }
         }
         li.section.hidden {
-            .sectionname > span,
-            .content > div,  /* All the divs but the activities which are in a UL. */
-            .activity .activityinstance {
-                .opacity(.5);
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+            .opacity(.5);
         }
     }
 }
@@ -374,7 +368,7 @@ span.editinstructions {
     margin-left: -15em;
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
     .border-top-radius(0);
-    z-index: 1; // to slide under navbar;
+    z-index: -1; // to slide under navbar;
 }
 .dndupload-preview {
     color: #909090;
@@ -664,8 +658,7 @@ span.editinstructions {
         }
     }
     .moodle-actionmenu {
-        .iconsmall,
-        .smallicon {
+        .iconsmall {
             max-width: none !important; /** reset sets 100% !important which breaks on IE8 without this !important */
             width:21px;
             height:21px;

@@ -665,6 +665,24 @@ $ADMIN->add('theme_shoehorn', $loginpagesettings);
 // Look and feel.
 $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
 
+// Layout.
+$landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_layout',
+        get_string('landflayout', 'theme_shoehorn'),
+        format_text(get_string('landflayoutheading_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+// Front page content transparency.
+
+$name = 'theme_shoehorn/landflayout';
+$title = get_string('landflayout', 'theme_shoehorn');
+$description = get_string('landflayoutdesc', 'theme_shoehorn');
+$default = 2;
+$choices = array(
+    1 => get_string('landflayoutbutton', 'theme_shoehorn'),
+    2 => get_string('landflayoutstep', 'theme_shoehorn')
+);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$landfsettings->add($setting);
+
 // Colours.
 $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_colours',
         get_string('landfcolours', 'theme_shoehorn'),

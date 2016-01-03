@@ -1,5 +1,9 @@
 Version information
 ===================
+Version 3.0.0.5
+  1. Fix 'Group members displayed below groups instead of right side of groups' #17 by updating Moodle styles from Bootstrap theme.
+  2. Added 'Layout' setting in 'Look and feel settings'.
+
 Version 3.0.0.4
   1. Tidy up Noticeboard format for one section per page.
   2. Fix issue when switching themes.

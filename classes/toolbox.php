@@ -266,6 +266,9 @@ class toolbox {
                 $regions['post'] = 'col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-6 col-lg-2 col-lg-pull-4';
             }
         }
+
+        $regions['layout'] = self::get_setting('landflayout');
+
         return $regions;
     }
 

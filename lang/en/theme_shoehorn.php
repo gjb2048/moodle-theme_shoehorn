@@ -321,6 +321,12 @@ $string['landfheading'] = 'Look and feel settings';
 $string['landfheadingsub'] = 'Change various aspects with these look and feel settings';
 $string['landfheadingdesc'] = 'Change various aspects of the look and feel with these settings.';
 
+$string['landflayout'] = 'Layout';
+$string['landflayoutheading_desc'] = 'Layout settings.';
+$string['landflayoutdesc'] = 'Layout order.  Second block area only if specified in \'config.php\'.';
+$string['landflayoutbutton'] = 'Block, Content, Block';
+$string['landflayoutstep'] = 'Content, Block, Block';
+
 $string['landfcolours'] = 'Colours';
 $string['landfcolours_desc'] = 'Colour settings.';
 $string['textcolour'] = 'Text';
