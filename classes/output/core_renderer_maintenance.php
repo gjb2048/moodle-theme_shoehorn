@@ -31,6 +31,8 @@ use html_writer;
 defined('MOODLE_INTERNAL') || die();
 
 class core_renderer_maintenance extends \core_renderer_maintenance {
+    use core_renderer_toolbox;
+
     protected $themeconfig = null;
 
     public function __construct(\moodle_page $page, $target) {
