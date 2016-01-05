@@ -836,8 +836,8 @@ class core_renderer extends \core_renderer {
             if ($message->fullmessageformat == FORMAT_HTML) {
                 $message->smallmessage = html_to_text($message->smallmessage);
             }
-            if (core_text::strlen($message->smallmessage) > 15) {
-                $messagecontent->text = core_text::substr($message->smallmessage, 0, 15) . '...';
+            if (\core_text::strlen($message->smallmessage) > 15) {
+                $messagecontent->text = \core_text::substr($message->smallmessage, 0, 15) . '...';
             } else {
                 $messagecontent->text = $message->smallmessage;
             }
