@@ -15428,6 +15428,13 @@ a:focus,
     {
         margin-left: -15px;
     }
+}@media (min-width:768px)
+{
+    .navbar > .container .navbar .navbar-header .goto-bottom,
+    .navbar > .container-fluid .navbar .navbar-header .goto-bottom
+    {
+        margin-left: 0;
+    }
 }.navbar .navbar-header .goto-bottom:hover,
 .navbar .navbar-header .goto-bottom:focus,
 .navbar .navbar-header .goto-bottom:active
@@ -15485,6 +15492,32 @@ body.compactnavbar.dir-rtl .navbar-default #moodle-navbar .navbar-nav > li:last-
 body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-child > a:focus
 {
     border-bottom-left-radius: 24px;
+}@media (min-width:768px)
+{
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand
+    {
+        margin-left: 0;
+    }
+}@media (min-width:768px)
+{
+    .navbar > .container,
+    .navbar > .container-fluid
+    {padding-right: 0;
+        padding-left: 0;
+    }.navbar-collapse
+    {
+        padding-right: 0;
+    }
+}.navbar-toggle
+{
+    padding: 6px 7px;
+}.navbar-toggle .icon-bar
+{
+    height: 4px;border-radius: 4px;
+}.navbar-toggle .icon-bar + .icon-bar
+{
+    margin-top: 2px;
 }body.navbarfixedtop header.moodleheader
 {
     padding-top: 50px;

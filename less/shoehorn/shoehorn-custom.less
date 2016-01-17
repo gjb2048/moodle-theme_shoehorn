@@ -140,6 +140,37 @@ body.compactnavbar {
     }
 }
 
+.navbar-brand {
+  @media (min-width: @grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar > .container,
+  .navbar > .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-collapse {
+    padding-right: 0;
+  }
+}
+
+.navbar-toggle {
+  padding: 6px 7px;
+  .icon-bar {
+    height: 4px;
+    border-radius: 4px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 2px;
+  }
+}
+
 body.navbarfixedtop header.moodleheader {
     padding-top: 50px;
 }
