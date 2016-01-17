@@ -419,7 +419,7 @@ module.exports = function(grunt) { // jshint ignore:line
         "less:editor",
         "less:fontawesome",
         "replace:font_fix",
-        "cssflip:rtl", 
+        "cssflip:rtl",
         "replace:rtl_images",
         "csscomb:theme"]);
     grunt.registerTask("compile", ["main", "decache"]);
