@@ -231,7 +231,7 @@ module.exports = function(grunt) { // jshint ignore:line
             theme: {
                 expand: true,
                 cwd: 'style/',
-                src: ['moodle.css', 'editor.css', 'font-awesome.css'],
+                src: ['moodle.css', 'moodle-rtl.css', 'editor.css', 'font-awesome.css'],
                 dest: 'style/'
             }
         },
@@ -253,6 +253,16 @@ module.exports = function(grunt) { // jshint ignore:line
             tasks: ["compile"],
             options: {
                 spawn: false
+            }
+        },
+        cssflip: {
+            rtl: {
+                src:  'style/moodle.css',
+                dest: 'style/moodle-rtl.css'
+            },
+            rtl_e: {
+                src:  'style/experimental/moodle.css',
+                dest: 'style/experimental/moodle-rtl.css'
             }
         },
         copy: {
@@ -391,6 +401,7 @@ module.exports = function(grunt) { // jshint ignore:line
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks("grunt-text-replace");
+    grunt.loadNpmTasks("grunt-css-flip");
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-csscomb');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -408,6 +419,7 @@ module.exports = function(grunt) { // jshint ignore:line
         "less:editor",
         "less:fontawesome",
         "replace:font_fix",
+        "cssflip:rtl", 
         "replace:rtl_images",
         "csscomb:theme"]);
     grunt.registerTask("compile", ["main", "decache"]);
