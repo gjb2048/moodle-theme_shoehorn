@@ -29,6 +29,7 @@ Version 2.9.1.6
  25. Changes to child theme mechanism.  For a child theme template, please contact me via https://about.me/gjbarnard.
  26. Fix 'Group members displayed below groups instead of right side of groups' #17 by updating Moodle styles from Bootstrap theme.
  27. Added 'Layout' setting in 'Look and feel settings'.
+ 28. Fix RTL login page and add activity / resource popup.
 
 Version 2.9.1.5
   1. MDL-51921.
