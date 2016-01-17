@@ -30,6 +30,8 @@ Version 2.9.1.6
  26. Fix 'Group members displayed below groups instead of right side of groups' #17 by updating Moodle styles from Bootstrap theme.
  27. Added 'Layout' setting in 'Look and feel settings'.
  28. Fix RTL login page and add activity / resource popup.
+ 29. Remove different layout in toolbox::grid for RTL due to CSS flip technology.  Put back if this changes.
+ 30. Tidy up navbar.
 
 Version 2.9.1.5
   1. MDL-51921.

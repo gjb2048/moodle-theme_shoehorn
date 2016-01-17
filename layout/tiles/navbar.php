@@ -27,7 +27,7 @@
 ?>
 <nav role="navigation" class="<?php echo implode(' ', $settingshtml->navbarclass); ?>  moodle-has-zindex">
     <div class="<?php echo $settingshtml->containerclass; ?>">
-    <div class="navbar-header">
+    <div class="navbar-header navbar-left">
         <?php
         echo $OUTPUT->navbar_items();
         echo $OUTPUT->navbar_button();
