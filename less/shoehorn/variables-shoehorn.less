@@ -485,9 +485,9 @@
 //##
 
 @jumbotron-padding:              30px;
-@jumbotron-color:                inherit;
+@jumbotron-color:                @white; //inherit;
 @jumbotron-bg:                   lighten(@text-color, 15%);
-@jumbotron-heading-color:        inherit;
+@jumbotron-heading-color:        @white; //inherit;
 @jumbotron-font-size:            ceil((@font-size-base * 1.5));
 
 
@@ -519,7 +519,7 @@
 //** Tooltip max width
 @tooltip-max-width:           200px;
 //** Tooltip text color
-@tooltip-color:               #fff;
+@tooltip-color:               @white;
 //** Tooltip background color
 @tooltip-bg:                  #000;
 @tooltip-opacity:             .9;
@@ -535,7 +535,7 @@
 //##
 
 //** Popover body background color
-@popover-bg:                          #fff;
+@popover-bg:                          @white;
 //** Popover maximum width
 @popover-max-width:                   276px;
 //** Popover border color
@@ -549,7 +549,7 @@
 //** Popover arrow width
 @popover-arrow-width:                 10px;
 //** Popover arrow color
-@popover-arrow-color:                 #fff;
+@popover-arrow-color:                 @white;
 
 //** Popover outer arrow width
 @popover-arrow-outer-width:           (@popover-arrow-width + 1);
@@ -577,9 +577,9 @@
 @label-danger-bg:             @brand-danger;
 
 //** Default label text color
-@label-color:                 #fff;
+@label-color:                 @white;
 //** Default text color of a linked label
-@label-link-hover-color:      #fff;
+@label-link-hover-color:      @white;
 
 
 //== Modals
@@ -595,7 +595,7 @@
 @modal-title-line-height:     @line-height-base;
 
 //** Background color of modal content area
-@modal-content-bg:                             #fff;
+@modal-content-bg:                             @white;
 //** Modal content border color
 @modal-content-border-color:                   rgba(0,0,0,.2);
 //** Modal content border color **for IE8**
@@ -647,7 +647,7 @@
 //** Background color of the whole progress component
 @progress-bg:                 #f5f5f5;
 //** Progress bar text color
-@progress-bar-color:          #fff;
+@progress-bar-color:          @white;
 
 //** Default progress bar color
 @progress-bar-bg:             @brand-primary;
@@ -666,7 +666,7 @@
 //##
 
 //** Background color on `.list-group-item`
-@list-group-bg:                 #fff;
+@list-group-bg:                 @white;
 //** `.list-group-item` border color
 @list-group-border:             @page-top-bg;
 //** List group border radius
@@ -690,7 +690,7 @@
 //
 //##
 
-@panel-bg:                    rgba(red(#fff), green(#fff), blue(#fff), 0.5);
+@panel-bg:                    rgba(red(@white), green(@white), blue(@white), 0.5);
 @panel-body-padding:          15px;
 @panel-border-radius:         @border-radius-base;
 
@@ -702,7 +702,7 @@
 @panel-default-border:        rgba(red(@text-color), green(@text-color), blue(@text-color), 0.2);
 @panel-default-heading-bg:    transparent;
 
-@panel-primary-text:          #fff;
+@panel-primary-text:          @white;
 @panel-primary-border:        @brand-primary;
 @panel-primary-heading-bg:    @brand-primary;
 
@@ -754,15 +754,15 @@
 //
 //##
 
-@badge-color:                 #fff;
+@badge-color:                 @white;
 //** Linked badge text color on hover
-@badge-link-hover-color:      #fff;
+@badge-link-hover-color:      @white;
 @badge-bg:                    lighten(@text-color, 10%);
 
 //** Badge text color in active nav link
 @badge-active-color:          @link-color;
 //** Badge background color in active nav link
-@badge-active-bg:             #fff;
+@badge-active-bg:             @white;
 
 @badge-font-weight:           bold;
 @badge-line-height:           1;
@@ -791,13 +791,13 @@
 
 @carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
 
-@carousel-control-color:                      #fff;
+@carousel-control-color:                      @white;
 @carousel-control-width:                      15%;
 @carousel-control-opacity:                    .5;
 @carousel-control-font-size:                  20px;
 
-@carousel-indicator-active-bg:                #fff;
-@carousel-indicator-border-color:             #fff;
+@carousel-indicator-active-bg:                @white;
+@carousel-indicator-border-color:             @white;
 
 @carousel-caption-color:                      @text-color;
 
@@ -808,7 +808,7 @@
 
 @close-font-weight:           bold;
 @close-color:                 #000;
-@close-text-shadow:           0 1px 0 #fff;
+@close-text-shadow:           0 1px 0 @white;
 
 
 //== Code
@@ -818,7 +818,7 @@
 @code-color:                  darken(@text-color, 5%);
 @code-bg:                     @page-bottom-bg-light;
 
-@kbd-color:                   #fff;
+@kbd-color:                   @white;
 @kbd-bg:                      #333;
 
 @pre-bg:                      @page-bottom-bg-light;

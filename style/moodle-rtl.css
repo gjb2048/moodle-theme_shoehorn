@@ -7743,14 +7743,14 @@ a.badge:focus
     padding-top: 30px;
     padding-bottom: 30px;
 
-    color: inherit;
+    color: #fff;
     background-color: #2d70c5;
 }
 
 .jumbotron h1,
 .jumbotron .h1
 {
-    color: inherit;
+    color: #fff;
 }
 
 .jumbotron p
@@ -23363,7 +23363,7 @@ input[type='text'] + button,
 input[type='text'] + input[type='submit']
 {
     margin: 0 5px 3px 0;
-    margin: 0 0 4px 0;
+    margin: 0;
 }
 
 p.arrow_button
@@ -23414,7 +23414,7 @@ input[type='reset']
     display: inline-block;
 
     margin: 0 5px 3px 0;
-    margin: 0 0 4px 0;
+    margin: 0;
     margin-bottom: 0;
     padding: 4px 8px;
 
@@ -24111,7 +24111,7 @@ fieldset[disabled] .submit.buttons input[name='cancel'].focus
 .submit.buttons input[name='cancel']
 {
     margin: 0 5px 3px 0;
-    margin: 0 0 4px 0;
+    margin: 0;
 }
 
 input[id$='_clearbutton'],
@@ -26687,7 +26687,7 @@ form.atto_form input[type='url'],
 select.singleselect
 {
     height: 30px;
-    margin: 0 0 4px 0;
+    margin: 0;
     padding: 4px 8px;
 }
 
@@ -26899,7 +26899,7 @@ legend,
 
 .btn-lineup
 {
-    margin: 0 0 4px 0;
+    margin: 0;
 }
 
 .block .minicalendar td.weekend
@@ -27314,6 +27314,14 @@ body.has_dock.dir-rtl #page
     padding-top: 75px;
 
     border: 2px dotted [[setting:pagebottombackground]];
+}
+
+form .input-group select,
+form .input-group input[type='text'],
+form .input-group input[type='password'],
+form .input-group select.singleselect
+{
+    max-width: 100%;
 }
 
 .mform fieldset .fitem .fitemtitle .fgrouplabel label
