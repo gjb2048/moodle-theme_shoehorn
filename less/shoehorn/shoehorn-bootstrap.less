@@ -50,7 +50,6 @@
 
 // buttons.less.
 button, input.form-submit, input[type="button"], input[type="submit"], input[type="reset"] {
-  margin: 0 0 4px 2px;
   padding: 4px 8px;
 }
 
@@ -420,28 +419,35 @@ td, th {
 }
 
 // panels.less.
-.panel-title {
-  color: @text-color;
-
-  > a {
-    color: @link-color;
-  }
-}
-
 .panel-primary {
   background-color: @panel-primary-border;
+  .panel-body {
+    color: @panel-primary-text;
+  }
 }
 .panel-success {
   background-color: @panel-success-border;
+  .panel-body {
+    color: @panel-success-text;
+  }
 }
 .panel-info {
   background-color: @panel-info-border;
+  .panel-body {
+    color: @panel-info-text;
+  }
 }
 .panel-warning {
   background-color: @panel-warning-border;
+  .panel-body {
+    color: @panel-warning-text;
+  }
 }
 .panel-danger {
   background-color: @panel-danger-border;
+  .panel-body {
+    color: @panel-danger-text;
+  }
 }
 
 .form-defaultinfo, .form-label .form-shortname {
