@@ -2,6 +2,7 @@ Version information
 ===================
 Version 3.0.0.6
   1. Tidy up forum search.
+  2. Tidy with theme tester tool (https://moodle.org/plugins/tool_themetester) work in progress.
 
 Version 3.0.0.5
   1. Fix 'Group members displayed below groups instead of right side of groups' #17 by updating Moodle styles from Bootstrap theme.
