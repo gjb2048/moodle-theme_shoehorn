@@ -4453,11 +4453,11 @@ a.badge:focus
     margin-left: 3px;
 }.jumbotron
 {margin-bottom: 30px;
-    padding-top: 30px;padding-bottom: 30px;color: inherit;background-color: #2d70c5;
+    padding-top: 30px;padding-bottom: 30px;color: #fff;background-color: #2d70c5;
 }.jumbotron h1,
 .jumbotron .h1
 {
-    color: inherit;
+    color: #fff;
 }.jumbotron p
 {font-size: 21px;font-weight: 200;
 
@@ -12535,7 +12535,7 @@ input[type='password'] + input[type='submit'],
 input[type='text'] + button,
 input[type='text'] + input[type='submit']
 {
-    margin: 0 0 10px 5px        ;margin: 0 0 4px 0;
+    margin: 0 0 10px 5px        ;margin: 0;
 }button,
 input.form-submit,
 input[type='button'],
@@ -12543,7 +12543,7 @@ input[type='submit'],
 input[type='reset']
 {font-size: 14px;font-weight: normal;line-height: 1.42857143;
 
-    display: inline-block;margin: 0 0 10px 5px;margin: 0 0 4px 0;margin-bottom: 0;padding: 4px 8px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;white-space: nowrap;color: #1f4d87;border: 1px solid transparent;border-color: #1f4d87;border-radius: 4px;background-color: #c9e6ff;background-image: none;touch-action: manipulation;
+    display: inline-block;margin: 0 0 10px 5px;margin: 0;margin-bottom: 0;padding: 4px 8px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;text-align: center;vertical-align: middle;white-space: nowrap;color: #1f4d87;border: 1px solid transparent;border-color: #1f4d87;border-radius: 4px;background-color: #c9e6ff;background-image: none;touch-action: manipulation;
 }button:focus,
 input.form-submit:focus,
 input[type='button']:focus,
@@ -13071,7 +13071,7 @@ fieldset[disabled] .submit.buttons input[name='cancel'].focus
 }#notice .singlebutton + .singlebutton input,
 .submit.buttons input[name='cancel']
 {
-    margin: 0 0 10px 5px        ;margin: 0 0 4px 0;
+    margin: 0 0 10px 5px        ;margin: 0;
 }input[id$='_clearbutton'],
 input[type='reset']
 {
@@ -14409,7 +14409,7 @@ form input[type='password'],
 form.atto_form input[type='url'],
 select.singleselect
 {height: 30px;
-    margin: 0 0 4px 0;padding: 4px 8px;
+    margin: 0;padding: 4px 8px;
 }.row > .row
 {margin-right: 0;
     margin-left: 0;
@@ -14541,7 +14541,7 @@ a:focus
     color: [[setting:textcolour]];
 }.btn-lineup
 {
-    margin: 0 0 4px 0;
+    margin: 0;
 }.block .minicalendar td.weekend
 {
     color: [[setting:textcolour10light]];
@@ -14764,6 +14764,12 @@ ul.weeks
 .filemanager.fm-noitems .fm-empty-container
 {
     padding-top: 75px;border: 2px dotted [[setting:pagebottombackground]];
+}form .input-group select,
+form .input-group input[type='text'],
+form .input-group input[type='password'],
+form .input-group select.singleselect
+{
+    max-width: 100%;
 }.mform fieldset .fitem .fitemtitle .fgrouplabel label
 {
     padding-top: 0;
