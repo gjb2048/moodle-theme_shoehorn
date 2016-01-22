@@ -32,6 +32,7 @@ Version 2.9.1.6
  28. Fix RTL login page and add activity / resource popup.
  29. Remove different layout in toolbox::grid for RTL due to CSS flip technology.  Put back if this changes.
  30. Tidy up navbar.
+ 31. Tidy up forum search.
 
 Version 2.9.1.5
   1. MDL-51921.

@@ -24,20 +24,19 @@
 // Bootstrap 3 overrides.
 
 // breadcrumbs.less.
-.breadcrumb, .breadcrumb-button > a {
-  background-color: rgba(red(@breadcrumb-bg), green(@breadcrumb-bg), blue(@breadcrumb-bg), 0.5);
-}
-
 .breadcrumb-button > a {
+  background-color: rgba(red(@breadcrumb-bg), green(@breadcrumb-bg), blue(@breadcrumb-bg), 0.5);
   padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
   border-radius: @btn-border-radius-base;
 }
 
 .breadcrumb {
+  .panel;
+  .panel-default;
   > li {
     + li:before {
       content: none;
-      padding: 0px;
+      padding: 0;
     }
   }
 }
@@ -52,6 +51,7 @@
 // buttons.less.
 button, input.form-submit, input[type="button"], input[type="submit"], input[type="reset"] {
   margin: 0 0 4px 2px;
+  padding: 4px 8px;
 }
 
 // Carousel.less.
@@ -248,8 +248,8 @@ body {
 
 // Technically dropdowns.less.
 .dropdown-menu {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
   > li > a {
     &:hover,
     &:focus {
@@ -347,14 +347,16 @@ label {
 }
 
 form select, form input[type="text"], form input[type="password"], form.atto_form input[type="url"], select.singleselect {
-    margin: 0 0 4px 0px;
+    margin: 0 0 4px 0;
+    padding: 4px 8px;
+    height: 30px;
 }
 
 // Technically grid.less.
 // I think the nested grid is broken in BS 3.1.1.
 .row > .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 // labels.less.
@@ -404,7 +406,7 @@ form select, form input[type="text"], form input[type="password"], form.atto_for
     display: inline-block !important;  // IE.
   }
   body.compactnavbar .navbar-right {
-    margin-right: 0px;
+    margin-right: 0;
     .dropdown-menu {
       left: 0;
       right: auto;
