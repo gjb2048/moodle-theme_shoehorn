@@ -26902,6 +26902,16 @@ legend,
     margin: 0;
 }
 
+input[name='searchwikicontent'] + input[type='submit'],
+select + input[type='submit'],
+input[type='text'] + input[type='button'],
+input[type='password'] + input[type='submit'],
+input[type='text'] + button,
+input[type='text'] + input[type='submit']
+{
+    margin: 0 4px 3px 0;
+}
+
 .block .minicalendar td.weekend
 {
     color: [[setting:textcolour10light]];
@@ -28926,11 +28936,14 @@ body.navbarfixedtop header.moodleheader
     font-size: 1.8em;
 }
 
-table th,
-table td
+@media (max-width:768px)
 {
-    word-wrap: break-word;
-    word-break: break-word;
+    table th,
+    table td
+    {
+        word-wrap: break-word;
+        word-break: break-word;
+    }
 }
 
 body.loginpageimages
