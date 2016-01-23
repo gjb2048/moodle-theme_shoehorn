@@ -234,17 +234,17 @@ class toolbox {
     static public function grid($hassidepre, $hassidepost) {
 
         if ($hassidepre && $hassidepost) {
-            $regions = array('content' => 'col-sm-4 col-md-6 col-lg-8');
-            $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
-            $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
+            $regions = array('content' => 'col-md-6 col-lg-8');
+            $regions['pre'] = 'col-md-3 col-lg-2';
+            $regions['post'] = 'col-md-3 col-lg-2';
         } else if ($hassidepre && !$hassidepost) {
-            $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
-            $regions['pre'] = 'col-sm-4 col-md-3 col-lg-2';
+            $regions = array('content' => 'col-md-9 col-lg-10');
+            $regions['pre'] = 'col-md-3 col-lg-2';
             $regions['post'] = 'empty';
         } else if (!$hassidepre && $hassidepost) {
-            $regions = array('content' => 'col-sm-8 col-md-9 col-lg-10');
+            $regions = array('content' => 'col-md-9 col-lg-10');
             $regions['pre'] = 'empty';
-            $regions['post'] = 'col-sm-4 col-md-3 col-lg-2';
+            $regions['post'] = 'col-md-3 col-lg-2';
         } else if (!$hassidepre && !$hassidepost) {
             $regions = array('content' => 'col-md-12');
             $regions['pre'] = 'empty';

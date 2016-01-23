@@ -14542,6 +14542,14 @@ a:focus
 }.btn-lineup
 {
     margin: 0;
+}input[name='searchwikicontent'] + input[type='submit'],
+select + input[type='submit'],
+input[type='text'] + input[type='button'],
+input[type='password'] + input[type='submit'],
+input[type='text'] + button,
+input[type='text'] + input[type='submit']
+{
+    margin: 0 0 3px 4px;
 }.block .minicalendar td.weekend
 {
     color: [[setting:textcolour10light]];
@@ -15705,10 +15713,13 @@ body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-
 }.glyphicon-2x
 {
     font-size: 1.8em;
-}table th,
-table td
-{word-wrap: break-word;
-    word-break: break-word;
+}@media (max-width:768px)
+{
+    table th,
+    table td
+    {word-wrap: break-word;
+        word-break: break-word;
+    }
 }body.loginpageimages
 {
     background-color: transparent;background-image: none;

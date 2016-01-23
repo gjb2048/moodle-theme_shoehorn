@@ -186,10 +186,12 @@ body.navbarfixedtop header.moodleheader {
     font-size: 1.8em;
 }
 
-table {
-    th, td {
-        word-break: break-word;
-        word-wrap: break-word;
+@media(max-width: @screen-sm-min) {
+    table {
+        th, td {
+            word-break: break-word;
+            word-wrap: break-word;
+        }
     }
 }
 
