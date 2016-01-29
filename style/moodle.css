@@ -17009,7 +17009,7 @@ input
 {
     content: '\00A9';
 }.antiGravity
-{font-size: 32px;line-height: 1;position: fixed;right: 40px;bottom: 32px;display: none;padding: 10px 10px 6px 10px;text-align: center;text-decoration: none;border-width: 1px;border-style: solid;border-color: [[setting:pagebottombackgroundlight]];border-radius: 1em;
+{font-size: 32px;line-height: 1;position: fixed;right: 40px;bottom: 32px;display: none;padding: 10px 10px 6px 10px;cursor: pointer;text-align: center;text-decoration: none;border-width: 1px;border-style: solid;border-color: [[setting:pagebottombackgroundlight]];border-radius: 1em;
     background-color: [[setting:pagebottombackground6rgba]];
 }.antiGravity:hover
 {
