@@ -448,6 +448,9 @@ $string['userload'] = 'User load';
 $string['userloaddesc'] = 'User load chart';
 $string['userloadpostfix'] = 'm';
 
+// Incourse.
+$string['returntosection'] = 'Return to section {$a->section}';
+
 // Readme.
 $string['readme_title'] = 'Shoehorn read-me';
 $string['readme_desc'] = 'Please click on \'{$a->url}\' for lots more information about Shoehorn.';

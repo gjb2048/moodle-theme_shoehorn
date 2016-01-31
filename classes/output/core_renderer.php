@@ -802,7 +802,7 @@ class core_renderer extends \core_renderer {
         $newmessages = $DB->get_records_sql($newmessagesql, array('userid' => $USER->id));
 
         foreach ($newmessages as $message) {
-            $messagelist[] = $this->shoehorn_process_message($message);
+            $messagelist[] = $this->process_message($message);
         }
 
         $showoldmessages = $this->get_setting('showoldmessages');
@@ -818,7 +818,7 @@ class core_renderer extends \core_renderer {
 
             foreach ($readmessages as $message) {
                 if (!$message->notification) {
-                    $messagelist[] = $this->shoehorn_process_message($message);
+                    $messagelist[] = $this->process_message($message);
                 }
             }
         }
@@ -826,7 +826,7 @@ class core_renderer extends \core_renderer {
         return $messagelist;
     }
 
-    protected function shoehorn_process_message($message) {
+    protected function process_message($message) {
         global $DB;
         $messagecontent = new stdClass();
 
@@ -951,13 +951,124 @@ class core_renderer extends \core_renderer {
         return $o;
     }
 
+    /**
+     * Outputs a heading
+     *
+     * @param string $text The text of the heading
+     * @param int $level The level of importance of the heading. Defaulting to 2
+     * @param string $classes A space-separated list of CSS classes. Defaulting to null
+     * @param string $id An optional ID
+     * @return string the HTML to output.
+     */
+    public function heading($text, $level = 2, $classes = null, $id = null) {
+        $heading = parent::heading($text, $level, $classes, $id);
+
+        if (($level == 2) && ($this->page->pagelayout == 'incourse') && (is_object($this->page->cm))) {
+            static $called = false;
+            if (!$called) {
+                $markup = html_writer::start_tag('div', array('class' => 'row'));
+
+                $markup .= html_writer::start_tag('div', array('class' => 'md-col-8'));
+                $markup .= $heading;
+                $markup .= html_writer::end_tag('div');
+
+                $markup .= html_writer::start_tag('div', array('class' => 'ms-col-4 heading-rts'));
+                $markup .= $this->return_to_section();
+                $markup .= html_writer::end_tag('div');
+
+                $markup .= html_writer::end_tag('div');
+                $called = true;
+
+                return $markup;
+            }
+        }
+        return $heading;
+    }
+
+    /**
+     * Returns course-specific information to be output immediately below content on any course page
+     * (for the current course)
+     *
+     * @param bool $onlyifnotcalledbefore output content only if it has not been output before
+     * @return string
+     */
+    public function course_content_footer($onlyifnotcalledbefore = false) {
+        if ($this->page->course->id == SITEID) {
+            // Return immediately and do not include /course/lib.php if not necessary.
+            return '';
+        }
+        static $functioncalled = false;
+        if ($functioncalled && $onlyifnotcalledbefore) {
+            // We have already output the content header.
+            return '';
+        }
+        $functioncalled = true;
+
+        $markup = parent::course_content_footer($onlyifnotcalledbefore);
+        if (($this->page->pagelayout == 'incourse') && (is_object($this->page->cm))) {
+            $markup .= html_writer::start_tag('div', array('class' => 'row'));
+            $markup .= html_writer::start_tag('div', array('class' => 'md-col-12 text-center footer-rts'));
+            $markup .= $this->return_to_section();
+            $markup .= html_writer::end_tag('div');
+            $markup .= html_writer::end_tag('div');
+        }
+
+        return $markup;
+    }
+
+    /**
+     * Generate the return to section X button code.
+     * @return markup.
+     */
+    protected function return_to_section() {
+        static $markup = null;
+        if ($markup === null) {
+            $courseformatsettings = \course_get_format($this->page->course)->get_format_options();
+            $url = new moodle_url('/course/view.php');
+            $url->param('id', $this->page->course->id);
+            $url->param('sesskey', sesskey());
+            $courseformatsettings = \course_get_format($this->page->course)->get_format_options();
+            if ((!empty($courseformatsettings['coursedisplay'])) &&
+                ($courseformatsettings['coursedisplay'] == \COURSE_DISPLAY_MULTIPAGE)) {
+                $url->param('section', $this->page->cm->sectionnum);
+                $href = $url->out(false);
+            } else {
+                $href = $url->out(false).'#section-'.$this->page->cm->sectionnum;
+            }
+            $title = get_string('returntosection', 'theme_shoehorn', array('section' => $this->page->cm->sectionnum));
+
+            if ($this->is_fontawesome()) {
+                $icon = html_writer::tag('i', '', array('class' => 'fa-sign-in fa fa-fw'));
+            } else {
+                $icon = ' '.html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-log-in'));
+            }
+            $markup = html_writer::tag('a', $title.$icon,
+                array('href' => $href, 'class' => 'btn btn-default', 'title' => $title));
+        }
+
+        return $markup;
+    }
+
+    /**
+     * Internal implementation of user image rendering.
+     *
+     * @param user_picture $userpicture
+     * @return string
+     */
+    protected function render_user_picture(\user_picture $userpicture) {
+        if ($this->page->pagetype == 'mod-forum-discuss') {
+            $userpicture->size = 1;
+        }
+        return parent::render_user_picture($userpicture);
+    }
+
     // Page bottom block region.
     /**
      * Get the HTML for blocks for region page-bottom.
      *
      * @return string HTML.
      */
-    public function shoehorn_pagebottom_block() {
+    public function pagebottom_block() {
         $region = 'page-bottom';
         $classes = array();
         $classes[] = 'block-region';

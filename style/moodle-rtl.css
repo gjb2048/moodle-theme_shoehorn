@@ -26691,7 +26691,7 @@ select.singleselect
     padding: 4px 8px;
 }
 
-.row > .row
+.row .row
 {
     margin-right: 0;
     margin-left: 0;
@@ -27931,6 +27931,62 @@ form .input-group select.singleselect
 .path-grade-report-grader .gradeparent .floater.heading .cell:nth-of-type(odd).header
 {
     background-color: [[setting:pagebottombackgroundlight]];
+}
+
+body .forumpost .row
+{
+    display: inline-block;
+}
+
+body .forumpost .row .left
+{
+    width: 76px;
+    height: 76px;
+}
+
+body .forumpost .row .content-mask,
+body .forumpost .row .options,
+body .forumpost .row .topic
+{
+    margin-right: 84px;
+}
+
+body .forumpost .row .options .commands
+{
+    margin-left: 4px;
+}
+
+body .forumpost .picture img
+{
+    width: 72px;
+    height: 72px;
+
+    border-radius: 250px;
+}
+
+body .forumpost .picture img .userpicture
+{
+    margin: 3px;
+}
+
+body .forumpost .content .posting
+{
+    padding-top: 10px;
+
+    border-top: 1px dotted #ccc;
+}
+
+body .forumpost .subject
+{
+    font-size: 1.2em;
+    font-weight: normal;
+
+    margin-bottom: -5px;
+}
+
+body .forumpost .header
+{
+    margin-bottom: 10px;
 }
 
 #region-main .input-group #coursesearchbox
@@ -29528,6 +29584,21 @@ aside
 .block.block_fake .header h2
 {
     color: [[setting:navbardefaultcolour]];
+}
+
+.heading-rts
+{
+    margin-top: 18px;
+}
+
+.heading-rts .btn
+{
+    float: left;
+}
+
+.footer-rts
+{
+    margin-top: 8px;
 }
 
 #region-main .block
@@ -31404,6 +31475,11 @@ input
 .copyright:before
 {
     content: '\00A9';
+}
+
+audio
+{
+    max-width: 100%;
 }
 
 .antiGravity

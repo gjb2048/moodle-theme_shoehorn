@@ -35,6 +35,8 @@ Version 2.9.1.6
  31. Tidy up forum search.
  32. Tidy with theme tester tool (https://moodle.org/plugins/tool_themetester) work in progress.
  33. Use pointer cursor for anti-gravity.
+ 34. Add return to section button.
+ 35. Bigger user image in forum discussion.
 
 Version 2.9.1.5
   1. MDL-51921.
