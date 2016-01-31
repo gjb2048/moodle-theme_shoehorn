@@ -37,6 +37,8 @@ Version 2.9.1.6
  33. Use pointer cursor for anti-gravity.
  34. Add return to section button.
  35. Bigger user image in forum discussion.
+ 36. Fix header hover background not fully over text.
+ 37. Fix admin colour picker size.
 
 Version 2.9.1.5
   1. MDL-51921.

@@ -302,14 +302,23 @@ body {
         @rgbwbaba: %("rgba(%d, %d, %d, %d);", round(red(@well-bg)), round(green(@well-bg)), round(blue(@well-bg)), 0.5);
         @rgbwbobo: %("rgba(%d, %d, %d, %d);", round(red(@well-border)), round(green(@well-border)), round(blue(@well-border)), 0.7);
         .moodleheader {
-            .heading, .logoheading {
+            .heading a, .logoheading {
                 color: ~"[[setting:textcolour]]";
+            }
+            .logoheading {
                 padding: 4px;
+            }
+            .heading a {
                 #shoehorn > .background-opacity(@well-bg; @rgbwbaba);
                 border-style: solid;
                 border-width: 1px;
                 #shoehorn > .border-opacity(@well-border; @rgbwbobo);
                 border-radius: @border-radius-base;
+                padding: 0 4px;
+                &:hover,
+                &:focus {
+                    background-color: rgba(red(@page-bottom-bg), green(@page-bottom-bg), blue(@page-bottom-bg), 0.7);
+                }
             }
         }
         .panel-default, .block, .forumpost {
@@ -321,8 +330,11 @@ body {
 
 // Heading with logo / no logo.
 .moodleheader {
-    .logoheading, .heading {
+    .logoheading, .heading a {
         color: ~"[[setting:pageheadertextcolour]]";
+    }
+    .heading a {
+        padding: 0 4px;
     }
 }
 

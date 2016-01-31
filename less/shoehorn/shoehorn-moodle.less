@@ -30,6 +30,13 @@
     }
 }
 
+// admin.less.
+.admin_colourpicker {
+    .previewcolour, .currentcolour {
+        box-sizing: content-box;
+    }
+}
+
 // blocks.less.
 .block .header h2 {
     color: ~"[[setting:linkcolour]]";
@@ -885,22 +892,22 @@ body {
 // question.less.
 .que .info,
 .path-mod-quiz .qnbutton { // mod_quiz style sheet.
-                           background-color: ~"[[setting:pagebottombackground]]";
-                           border: 1px solid ~"[[setting:pagetopbackground]]";
-                           border-radius: @btn-border-radius-base;
-                           &.thispage {
-                               border-color: ~"[[setting:pagetopbackground]]";
-                               .thispageholder {
-                                   border-color: ~"[[setting:pagetopbackground]]";
-                               }
-                           }
-                           &:hover {
-                               border-radius: (@btn-border-radius-base / 2);
-                               color: ~"[[setting:textcolour10light]]";
-                           }
-                           &.free:hover {
-                               text-decoration: none;
-                           }
+    background-color: ~"[[setting:pagebottombackground]]";
+    border: 1px solid ~"[[setting:pagetopbackground]]";
+    border-radius: @btn-border-radius-base;
+    &.thispage {
+        border-color: ~"[[setting:pagetopbackground]]";
+        .thispageholder {
+            border-color: ~"[[setting:pagetopbackground]]";
+        }
+    }
+    &:hover {
+        border-radius: (@btn-border-radius-base / 2);
+        color: ~"[[setting:textcolour10light]]";
+    }
+    &.free:hover {
+        text-decoration: none;
+    }
 }
 
 #page-mod-quiz-edit div.quizpage {
