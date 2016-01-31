@@ -6,6 +6,8 @@ Version 3.0.0.6
   3. Use pointer cursor for anti-gravity.
   4. Add return to section button.
   5. Bigger user image in forum discussion.
+  6. Fix header hover background not fully over text.
+  7. Fix admin colour picker size.
 
 Version 3.0.0.5
   1. Fix 'Group members displayed below groups instead of right side of groups' #17 by updating Moodle styles from Bootstrap theme.

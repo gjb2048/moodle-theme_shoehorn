@@ -233,8 +233,8 @@ class core_renderer extends \core_renderer {
         if (!is_null($logo)) {
             $o .= html_writer::start_tag('div', array('class' => 'row')) .
                     html_writer::tag($tag, $this->page->heading,
-                            array('class' => 'logoheading col-xs-8 col-sm-9 col-md-10')) .
-                    html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-3 col-md-2')) .
+                            array('class' => 'logoheading col-xs-8 col-sm-9 col-md-9 col-lg-10')) .
+                    html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-3 col-md-3 col-lg-2')) .
                     html_writer::link(new moodle_url('/'),
                             html_writer::empty_tag('img',
                                 array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'),
@@ -243,10 +243,8 @@ class core_renderer extends \core_renderer {
                     html_writer::end_tag('div') .
                     html_writer::end_tag('div');
         } else {
-            $o .= html_writer::link(new moodle_url('/'),
-                            html_writer::tag($tag, $this->page->heading,
-                                    array('class' => 'heading')),
-                            array('title' => get_string('home')));
+            $o .= html_writer::tag($tag, html_writer::link(new moodle_url('/'), $this->page->heading,
+                array('title' => get_string('home'))), array('class' => 'heading'));
         }
 
         $ieprop = \core_useragent::check_ie_properties();
@@ -968,11 +966,11 @@ class core_renderer extends \core_renderer {
             if (!$called) {
                 $markup = html_writer::start_tag('div', array('class' => 'row'));
 
-                $markup .= html_writer::start_tag('div', array('class' => 'md-col-8'));
+                $markup .= html_writer::start_tag('div', array('class' => 'col-xs-6 col-sm-6 col-md-8 col-lg-10'));
                 $markup .= $heading;
                 $markup .= html_writer::end_tag('div');
 
-                $markup .= html_writer::start_tag('div', array('class' => 'ms-col-4 heading-rts'));
+                $markup .= html_writer::start_tag('div', array('class' => 'col-xs-6 col-sm-6 col-md-4 col-lg-2 heading-rts'));
                 $markup .= $this->return_to_section();
                 $markup .= html_writer::end_tag('div');
 
@@ -1007,7 +1005,7 @@ class core_renderer extends \core_renderer {
         $markup = parent::course_content_footer($onlyifnotcalledbefore);
         if (($this->page->pagelayout == 'incourse') && (is_object($this->page->cm))) {
             $markup .= html_writer::start_tag('div', array('class' => 'row'));
-            $markup .= html_writer::start_tag('div', array('class' => 'md-col-12 text-center footer-rts'));
+            $markup .= html_writer::start_tag('div', array('class' => 'col-md-12 text-center footer-rts'));
             $markup .= $this->return_to_section();
             $markup .= html_writer::end_tag('div');
             $markup .= html_writer::end_tag('div');

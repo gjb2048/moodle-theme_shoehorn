@@ -14515,6 +14515,10 @@ a:focus
 }.path-backup .mform .grouped_settings.section_level
 {margin-right: 0;
     margin-left: 0;
+}.admin_colourpicker .previewcolour,
+.admin_colourpicker .currentcolour
+{
+    box-sizing: content-box;
 }.block .header h2
 {
     color: [[setting:linkcolour]];
@@ -15989,13 +15993,26 @@ aside .block a:focus
 }header.moodleheader
 {
     margin-bottom: 10px;
-}body.allpagesbackgroundimage .moodleheader .heading,
-body.frontpagebackgroundimage .moodleheader .heading,
+}body.allpagesbackgroundimage .moodleheader .heading a,
+body.frontpagebackgroundimage .moodleheader .heading a,
 body.allpagesbackgroundimage .moodleheader .logoheading,
 body.frontpagebackgroundimage .moodleheader .logoheading
-{padding: 4px;
-
-    color: [[setting:textcolour]];border-width: 1px;border-style: solid;border-color: #e3e3e3;border-color: rgba(227, 227, 227, .7);border-radius: 4px;background-color: #f5f5f5;background-color: rgba(245, 245, 245, .5);;;
+{
+    color: [[setting:textcolour]];
+}body.allpagesbackgroundimage .moodleheader .logoheading,
+body.frontpagebackgroundimage .moodleheader .logoheading
+{
+    padding: 4px;
+}body.allpagesbackgroundimage .moodleheader .heading a,
+body.frontpagebackgroundimage .moodleheader .heading a
+{padding: 0 4px;border-width: 1px;border-style: solid;border-color: #e3e3e3;border-color: rgba(227, 227, 227, .7);border-radius: 4px;
+    background-color: #f5f5f5;background-color: rgba(245, 245, 245, .5);;;
+}body.allpagesbackgroundimage .moodleheader .heading a:hover,
+body.frontpagebackgroundimage .moodleheader .heading a:hover,
+body.allpagesbackgroundimage .moodleheader .heading a:focus,
+body.frontpagebackgroundimage .moodleheader .heading a:focus
+{
+    background-color: rgba(201,230,255,.7);
 }body.allpagesbackgroundimage .panel-default,
 body.frontpagebackgroundimage .panel-default,
 body.allpagesbackgroundimage .block,
@@ -16005,9 +16022,12 @@ body.frontpagebackgroundimage .forumpost
 {border-color: #e3e3e3;border-color: rgba(227, 227, 227, .7);
     background-color: #f5f5f5;background-color: rgba(245, 245, 245, .5);;
 }.moodleheader .logoheading,
-.moodleheader .heading
+.moodleheader .heading a
 {
     color: [[setting:pageheadertextcolour]];
+}.moodleheader .heading a
+{
+    padding: 0 4px;
 }header.moodleheader .heading
 {
     display: inline-block;
