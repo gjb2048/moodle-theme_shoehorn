@@ -28,7 +28,7 @@ if ($knownregionpagebottom) {
 ?>
 <div class="row">
     <?php
-    echo $OUTPUT->shoehorn_pagebottom_block();
+    echo $OUTPUT->pagebottom_block();
     ?>
 </div>
 <?php
