@@ -39,6 +39,7 @@ Version 2.9.1.6
  35. Bigger user image in forum discussion.
  36. Fix header hover background not fully over text.
  37. Fix admin colour picker size.
+ 38. Colour popup in Collapsed Topics and Grid course formats.
 
 Version 2.9.1.5
   1. MDL-51921.
