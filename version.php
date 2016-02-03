@@ -27,8 +27,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2015112405;
+$plugin->version   = 2015112406;
 $plugin->requires  = 2015111600.00; // 3.0 (Build: 20151116).
 $plugin->component = 'theme_shoehorn';
 $plugin->maturity = MATURITY_BETA;
-$plugin->release = '3.0.0.6';
+$plugin->release = '3.0.0.7';

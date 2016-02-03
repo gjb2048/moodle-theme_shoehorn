@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.0.7
+  1. Colour popup in Collapsed Topics and Grid course formats.
+
 Version 3.0.0.6
   1. Tidy up forum search.
   2. Tidy with theme tester tool (https://moodle.org/plugins/tool_themetester) work in progress.

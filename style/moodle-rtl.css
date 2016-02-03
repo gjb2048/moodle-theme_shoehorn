@@ -28017,6 +28017,14 @@ form .input-group select.singleselect
     }
 }
 
+.mform .fcontainer .fitem .felement.fcolourtext input[type='text']
+{
+    display: inline-block;
+
+    min-width: auto;
+    margin-left: 4px;
+}
+
 .path-grade-report-grader th.user img.userpicture
 {
     margin-left: 0;

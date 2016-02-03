@@ -15121,6 +15121,10 @@ form .input-group select.singleselect
     {
         min-width: inherit;
     }
+}.mform .fcontainer .fitem .felement.fcolourtext input[type='text']
+{display: inline-block;
+
+    min-width: auto;margin-right: 4px;
 }.path-grade-report-grader th.user img.userpicture
 {
     margin-right: 0;
