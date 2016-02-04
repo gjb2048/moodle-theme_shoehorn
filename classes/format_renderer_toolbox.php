@@ -162,32 +162,51 @@ trait format_renderer_toolbox {
         if (count($shownsections) > 0) {
             $loopsection = 0;
             $numsections = count($shownsections);
-            $sections = $modinfo->get_section_info_all();
 
             echo \html_writer::start_tag('div', array('class' => 'carouselslider'));
             echo \html_writer::start_tag('div',
                     array('id' => 'myCourseCarousel', 'class' => 'carousel slide',
                 'data-ride' => 'carousel', 'data-interval' => ''));
             echo \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
-            for ($i = 0; $i < $numsections; $i++) {
-                $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $i,
-                    'title' => $format->get_section_name($sections[$shownsections[$i]]->section));
-                if ($i == $displaysection) {
-                    $attributes['class'] = 'active';
+            while ($loopsection < $numsections) {
+                $thissection = $sections[$shownsections[$loopsection]];
+                $showpip = false;
+                if ($thissection->section == 0) {
+                    // 0-section is displayed a little different than the others.
+                    if (get_class($format) != 'format_noticebd') {
+                        if ($thissection->summary or !empty($modinfo->sections[0])) {
+                            $showpip = true;
+                        }
+                    } else {
+                        $showpip = true;
+                    }
+                } else {
+                    $showpip = true;
                 }
-                echo \html_writer::start_tag('li', $attributes);
-                echo \html_writer::end_tag('li');
+
+                if ($showpip) {
+                    $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $loopsection,
+                        'title' => $format->get_section_name($thissection->section));
+                    if ($thissection->section == $displaysection) {
+                        $attributes['class'] = 'active';
+                    }
+                    echo \html_writer::start_tag('li', $attributes);
+                    echo \html_writer::end_tag('li');
+                }
+                $loopsection++;
             }
             echo \html_writer::end_tag('ol');
 
             echo \html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
+
+            $loopsection = 0;
             while ($loopsection < $numsections) {
                 $thissection = $sections[$shownsections[$loopsection]];
                 $loopsection++;
                 if ($thissection->section == 0) {
                     // 0-section is displayed a little different than the others.
                     if (get_class($format) != 'format_noticebd') {
-                        if ($thissection->summary or ! empty($modinfo->sections[0])) {
+                        if ($thissection->summary or !empty($modinfo->sections[0])) {
                             echo $this->course_format_section_header($thissection, $course, $format, $displaysection);
                             echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
                             echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);

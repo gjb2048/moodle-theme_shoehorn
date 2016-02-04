@@ -26349,9 +26349,7 @@ input[type='reset']
 
 .carousel-inner > .item img
 {
-    width: auto;
     max-width: 100%;
-    height: auto;
     margin: 0 auto;
     padding: 0;
 
@@ -26362,6 +26360,12 @@ input[type='reset']
 .carousel-inner a:focus
 {
     background-color: transparent;
+}
+
+#frontpageslider .carousel-inner > .item img
+{
+    width: auto;
+    height: auto;
 }
 
 @media (min-width:480px)
