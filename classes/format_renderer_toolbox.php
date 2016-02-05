@@ -167,50 +167,24 @@ trait format_renderer_toolbox {
             echo \html_writer::start_tag('div',
                     array('id' => 'myCourseCarousel', 'class' => 'carousel slide',
                 'data-ride' => 'carousel', 'data-interval' => ''));
-            echo \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
+
+            $pips = \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
+            $slides = \html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
+            $loopsection = 0;
+            $slidecount = 0;
             while ($loopsection < $numsections) {
                 $thissection = $sections[$shownsections[$loopsection]];
+                $loopsection++;
                 $showpip = false;
                 if ($thissection->section == 0) {
                     // 0-section is displayed a little different than the others.
                     if (get_class($format) != 'format_noticebd') {
                         if ($thissection->summary or !empty($modinfo->sections[0])) {
+                            $slides .= $this->course_format_section_header($thissection, $course, $format, $displaysection);
+                            $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                            $slides .= $this->courserenderer->course_section_add_cm_control($course, 0, 0);
+                            $slides .= $this->course_format_section_footer();
                             $showpip = true;
-                        }
-                    } else {
-                        $showpip = true;
-                    }
-                } else {
-                    $showpip = true;
-                }
-
-                if ($showpip) {
-                    $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $loopsection,
-                        'title' => $format->get_section_name($thissection->section));
-                    if ($thissection->section == $displaysection) {
-                        $attributes['class'] = 'active';
-                    }
-                    echo \html_writer::start_tag('li', $attributes);
-                    echo \html_writer::end_tag('li');
-                }
-                $loopsection++;
-            }
-            echo \html_writer::end_tag('ol');
-
-            echo \html_writer::start_tag('ul', array('class' => 'topics carousel-inner'));
-
-            $loopsection = 0;
-            while ($loopsection < $numsections) {
-                $thissection = $sections[$shownsections[$loopsection]];
-                $loopsection++;
-                if ($thissection->section == 0) {
-                    // 0-section is displayed a little different than the others.
-                    if (get_class($format) != 'format_noticebd') {
-                        if ($thissection->summary or !empty($modinfo->sections[0])) {
-                            echo $this->course_format_section_header($thissection, $course, $format, $displaysection);
-                            echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                            echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
-                            echo $this->course_format_section_footer();
                         }
                     } else {
                         echo $this->course_format_section_header($thissection, $course, $format, $displaysection);
@@ -218,26 +192,41 @@ trait format_renderer_toolbox {
                         if (in_array('print_noticeboard', get_class_methods($this))) {
                             $this->print_noticeboard($course);
                             if (($PAGE->user_is_editing()) && (is_siteadmin($USER))) {
-                                echo $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
-                                echo $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+                                $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
+                                $slides .= $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
                             }
                         } else {
-                            echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                            echo $this->courserenderer->course_section_add_cm_control($course, 0, 0);
+                            $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                            $slides .= $this->courserenderer->course_section_add_cm_control($course, 0, 0);
                         }
-                        echo $this->course_format_section_footer();
+                        $slides .= $this->course_format_section_footer();
+                        $showpip = true;
                     }
-                    continue;
+                } else {
+                    $slides .= $this->course_format_section_header($thissection, $course, $format, $displaysection);
+                    if ($thissection->uservisible) {
+                        $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, 0);
+                        $slides .= $this->courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
+                    }
+                    $slides .= $this->course_format_section_footer();
+                    $showpip = true;
                 }
-
-                echo $this->course_format_section_header($thissection, $course, $format, $displaysection);
-                if ($thissection->uservisible) {
-                    echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
-                    echo $this->courserenderer->course_section_add_cm_control($course, $thissection->section, 0);
+                if ($showpip) {
+                    $attributes = array('data-target' => '#myCourseCarousel', 'data-slide-to' => $slidecount,
+                        'title' => $format->get_section_name($thissection->section));
+                    if ($thissection->section == $displaysection) {
+                        $attributes['class'] = 'active';
+                    }
+                    $pips .= \html_writer::start_tag('li', $attributes);
+                    $pips .= \html_writer::end_tag('li');
+                    $slidecount++;
                 }
-                echo $this->course_format_section_footer();
             }
-            echo \html_writer::end_tag('ul');
+            $pips .= \html_writer::end_tag('ol');
+            $slides .= \html_writer::end_tag('ul');
+
+            echo $pips;
+            echo $slides;
 
             echo \html_writer::start_tag('a',
                     array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
