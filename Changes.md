@@ -42,6 +42,7 @@ Version 2.9.1.6
  38. Colour popup in Collapsed Topics and Grid course formats.
  39. Fix incorrect pip calculation when one section per page.
  40. Only resize carousel images on the front page.
+ 41. Fix glyphicon carousel position.
 
 Version 2.9.1.5
   1. MDL-51921.
