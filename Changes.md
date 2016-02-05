@@ -4,6 +4,7 @@ Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.
   2. Fix incorrect pip calculation when one section per page.
   3. Only resize carousel images on the front page.
+  4. Fix glyphicon carousel position.
 
 Version 3.0.0.6
   1. Tidy up forum search.

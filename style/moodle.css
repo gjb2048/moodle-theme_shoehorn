@@ -14289,18 +14289,39 @@ input[type='reset']
 .carousel-control.right
 {
     background-image: none;background-repeat: no-repeat;
-}.carousel-control .icon-prev,
-.carousel-control .glyphicon-chevron-left
+}.carousel-control .icon-prev
 {
     left: auto;
-}.carousel-control .icon-next,
-.carousel-control .glyphicon-chevron-right
+}.carousel-control .icon-next
 {
     right: auto;
+}.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right
+{
+    margin-top: -19px;
+}.carousel-control .glyphicon-chevron-left
+{
+    margin-left: -17px;
+}.carousel-control .glyphicon-chevron-right
+{
+    margin-right: -17px;
 }.carousel-control:hover,
 .carousel-control:focus
 {
     color: #fff;
+}@media screen and (min-width:768px)
+{
+    .carousel-control .glyphicon-chevron-left,
+    .carousel-control .glyphicon-chevron-right
+    {
+        margin-top: -15px;
+    }.carousel-control .glyphicon-chevron-left
+    {
+        margin-left: -15px;
+    }.carousel-control .glyphicon-chevron-right
+    {
+        margin-right: -15px;
+    }
 }@media (min-width:480px)
 {
     .carousel-control
