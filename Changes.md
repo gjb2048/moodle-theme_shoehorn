@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.0.8
+  1. Update .gitattributes file.
+
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.
   2. Fix incorrect pip calculation when one section per page.
