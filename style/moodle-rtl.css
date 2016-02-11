@@ -22847,6 +22847,88 @@ div#dock
     text-align: center;
 }
 
+.path-mod-assign .assignfeedback_editpdf_widget .pageheader button,
+.path-mod-assign .assignfeedback_editpdf_widget .pageheader select
+{
+    line-height: 24px;
+
+    height: 28px;
+    padding: 3px 7px;
+}
+
+.path-mod-assign a.btn
+{
+    color: #1f4d87;
+    border-color: #1f4d87;
+    background-color: #c9e6ff;
+}
+
+.path-mod-assign a.btn:focus,
+.path-mod-assign a.btn.focus
+{
+    color: #1f4d87;
+    border-color: #07121f;
+    background-color: #96ceff;
+}
+
+.path-mod-assign a.btn:hover
+{
+    color: #1f4d87;
+    border-color: #143155;
+    background-color: #96ceff;
+}
+
+.path-mod-assign a.btn:active,
+.path-mod-assign a.btn.active,
+.open > .dropdown-toggle.path-mod-assign a.btn
+{
+    color: #1f4d87;
+    border-color: #143155;
+    background-color: #96ceff;
+}
+
+.path-mod-assign a.btn:active:hover,
+.path-mod-assign a.btn.active:hover,
+.open > .dropdown-toggle.path-mod-assign a.btn:hover,
+.path-mod-assign a.btn:active:focus,
+.path-mod-assign a.btn.active:focus,
+.open > .dropdown-toggle.path-mod-assign a.btn:focus,
+.path-mod-assign a.btn:active.focus,
+.path-mod-assign a.btn.active.focus,
+.open > .dropdown-toggle.path-mod-assign a.btn.focus
+{
+    color: #1f4d87;
+    border-color: #07121f;
+    background-color: #72beff;
+}
+
+.path-mod-assign a.btn:active,
+.path-mod-assign a.btn.active,
+.open > .dropdown-toggle.path-mod-assign a.btn
+{
+    background-image: none;
+}
+
+.path-mod-assign a.btn.disabled:hover,
+.path-mod-assign a.btn[disabled]:hover,
+fieldset[disabled] .path-mod-assign a.btn:hover,
+.path-mod-assign a.btn.disabled:focus,
+.path-mod-assign a.btn[disabled]:focus,
+fieldset[disabled] .path-mod-assign a.btn:focus,
+.path-mod-assign a.btn.disabled.focus,
+.path-mod-assign a.btn[disabled].focus,
+fieldset[disabled] .path-mod-assign a.btn.focus
+{
+    border-color: #1f4d87;
+    background-color: #c9e6ff;
+}
+
+.path-mod-assign a.btn .badge
+{
+    color: #c9e6ff;
+    background-color: #1f4d87;
+}
+
 .yui-skin-sam .yui-layout.path-mod-chat-gui_ajax
 {
     background-color: #fff;

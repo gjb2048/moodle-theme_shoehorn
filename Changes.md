@@ -3,6 +3,7 @@ Version information
 Version 3.0.0.8
   1. Update .gitattributes file.
   2. Bootstrap #379 fix pdf annotation.
+  3. Bootstrap added assignment fixed.
 
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.
