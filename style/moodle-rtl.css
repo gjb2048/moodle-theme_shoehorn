@@ -17568,6 +17568,80 @@ textarea.box.message .contactselector form#usergroupform fieldset select
     color: inherit;
 }
 
+.box.message .messagearea textarea
+{
+    font-size: 14px;
+    line-height: 1.42857143;
+
+    display: block;
+
+    width: 100%;
+    height: 30px;
+    height: 200px;
+    padding: 4px 8px;
+
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    color: #1f4d87;
+    border: 1px solid #1f4d87;
+    border-radius: 4px;
+    background-color: #fff;
+    background-image: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.box.message .messagearea textarea:focus
+{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.box.message .messagearea textarea::-moz-placeholder
+{
+    opacity: 1;
+    color: #2965b0;
+}
+
+.box.message .messagearea textarea:-ms-input-placeholder
+{
+    color: #2965b0;
+}
+
+.box.message .messagearea textarea::-webkit-input-placeholder
+{
+    color: #2965b0;
+}
+
+.box.message .messagearea textarea::-ms-expand
+{
+    border: 0;
+    background-color: transparent;
+}
+
+.box.message .messagearea textarea[disabled],
+.box.message .messagearea textarea[readonly],
+fieldset[disabled] .box.message .messagearea textarea
+{
+    opacity: 1;
+    background-color: #e3f2ff;
+}
+
+.box.message .messagearea textarea[disabled],
+fieldset[disabled] .box.message .messagearea textarea
+{
+    cursor: not-allowed;
+}
+
+textarea.box.message .messagearea textarea
+{
+    height: auto;
+}
+
 .box.message .messagearea #personsearch
 {
     margin: 10px 15px;
@@ -18289,80 +18363,6 @@ textarea.box.message .contactselector form#usergroupform fieldset select
 #newmessageoverlay #newmessagelinks
 {
     margin: 5px 14px;
-}
-
-textarea
-{
-    font-size: 14px;
-    line-height: 1.42857143;
-
-    display: block;
-
-    width: 100%;
-    height: 30px;
-    height: 200px;
-    padding: 4px 8px;
-
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-
-    color: #1f4d87;
-    border: 1px solid #1f4d87;
-    border-radius: 4px;
-    background-color: #fff;
-    background-image: none;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-}
-
-textarea:focus
-{
-    border-color: #66afe9;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-}
-
-textarea::-moz-placeholder
-{
-    opacity: 1;
-    color: #2965b0;
-}
-
-textarea:-ms-input-placeholder
-{
-    color: #2965b0;
-}
-
-textarea::-webkit-input-placeholder
-{
-    color: #2965b0;
-}
-
-textarea::-ms-expand
-{
-    border: 0;
-    background-color: transparent;
-}
-
-textarea[disabled],
-textarea[readonly],
-fieldset[disabled] textarea
-{
-    opacity: 1;
-    background-color: #e3f2ff;
-}
-
-textarea[disabled],
-fieldset[disabled] textarea
-{
-    cursor: not-allowed;
-}
-
-textareatextarea
-{
-    height: auto;
 }
 
 .core_message-messenger-sendmessage-hidden
