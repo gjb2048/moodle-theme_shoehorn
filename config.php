@@ -130,7 +130,7 @@ $THEME->layouts = array(
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'default.php',
+        'file' => 'mydashboard.php',
         'regions' => $sidepreregions,
         'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
