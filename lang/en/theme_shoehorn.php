@@ -106,7 +106,7 @@ $string['accordion'] = 'Use accordion block side regions';
 $string['accordion_desc'] = 'Enable this option to use accordion functionality for the side regions.  Note: Disables docking.';
 
 $string['coursecontentsearch'] = 'Course content search';
-$string['coursecontentsearchdesc'] = "Enable course content search on the 'Dashboard' page.  Only works when Essential is not in '\$CFG->themedir'.";
+$string['coursecontentsearchdesc'] = "Enable course content search on the 'Dashboard' page.  Only works when Shoehorn is not in '\$CFG->themedir'.";
 
 $string['compactnavbar'] = 'Compact navbar';
 $string['compactnavbar_desc'] = 'Compact navigation bar.';
