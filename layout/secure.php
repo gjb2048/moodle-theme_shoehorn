@@ -45,10 +45,10 @@ echo $OUTPUT->doctype() ?>
         </header>
 
         <div id="page-content" class="row">
-            <?php
-            if (($hassidepre) && ($regions['layout'] == 1)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }?>
+<?php
+if (($hassidepre) && ($regions['layout'] == 1)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}?>
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <section id="region-main-shoehorn">
                     <?php
@@ -60,13 +60,13 @@ echo $OUTPUT->doctype() ?>
                 <div id="region-main-shoehorn-shadow"></div>
             </div>
 
-            <?php
-            if (($hassidepre) && ($regions['layout'] == 2)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }
-            if ($hassidepost) {
-                echo $OUTPUT->blocks('side-post', $regions['post']);
-            }?>
+<?php
+if (($hassidepre) && ($regions['layout'] == 2)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}
+if ($hassidepost) {
+    echo $OUTPUT->blocks('side-post', $regions['post']);
+}?>
             <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>
     </div>

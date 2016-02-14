@@ -329,8 +329,8 @@ function theme_shoehorn_pluginfile($course, $cm, $context, $filearea, $args, $fo
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-        // Ref: http://www.regexr.com/.
         } else if (preg_match("/^fontfile(eot|otf|svg|ttf|woff|woff2)(heading|body)$/", $filearea)) {
+            // Ref: http://www.regexr.com/.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (substr($filearea, 0, 19) === 'frontpageslideimage') {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);

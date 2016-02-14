@@ -38,11 +38,11 @@ if ($knownregionpagebottom) {
 <div id="page-info" class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 panel panel-default">
     <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
     <p class="helplink"><?php echo $OUTPUT->page_doc_link(); ?></p>
-    <?php
-    if ($PAGE->pagelayout != 'login') {
-        echo $OUTPUT->login_info();
-    }
-    echo $OUTPUT->standard_footer_html();
-    ?>
+<?php
+if ($PAGE->pagelayout != 'login') {
+    echo $OUTPUT->login_info();
+}
+echo $OUTPUT->standard_footer_html();
+?>
 </div>
 </div>

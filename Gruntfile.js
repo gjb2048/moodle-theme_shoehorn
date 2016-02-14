@@ -267,80 +267,80 @@ module.exports = function(grunt) { // jshint ignore:line
         },
         copy: {
             svg_core: {
-                 expand: true,
-                 cwd:  'pix_core_originals/',
-                 src:  '**',
-                 dest: 'pix_core/',
+                expand: true,
+                cwd:  'pix_core_originals/',
+                src:  '**',
+                dest: 'pix_core/',
             },
             svg_plugins: {
-                 expand: true,
-                 cwd:  'pix_plugins_originals/',
-                 src:  '**',
-                 dest: 'pix_plugins/',
+                expand: true,
+                cwd:  'pix_plugins_originals/',
+                src:  '**',
+                dest: 'pix_plugins/',
             }
         },
         replace: {
             rtl_images: {
                 src: 'style/moodle-rtl.css',
-                    overwrite: true,
-                    replacements: [{
-                        from: '[[pix:theme|fp/path_folder]]',
-                        to:   '[[pix:theme|fp/path_folder_rtl]]'
-                    }, {
-                        from: '[[pix:t/collapsed]]',
-                        to:   '[[pix:t/collapsed_rtl]]'
-                    }, {
-                        from: '[[pix:t/collapsed_empty]]',
-                        to:   '[[pix:t/collapsed_empty_rtl]]'
-                    }, {
-                        from: '[[pix:y/tn]]',
-                        to:   '[[pix:y/tn_rtl]]'
-                    }, {
-                        from: '[[pix:y/tp]]',
-                        to:   '[[pix:y/tp_rtl]]'
-                    }, {
-                        from: '[[pix:y/ln]]',
-                        to:   '[[pix:y/ln_rtl]]'
-                    }, {
-                        from: '[[pix:y/lp]]',
-                        to:   '[[pix:y/lp_rtl]]'
-                    }]
+                overwrite: true,
+                replacements: [{
+                    from: '[[pix:theme|fp/path_folder]]',
+                    to:   '[[pix:theme|fp/path_folder_rtl]]'
+                }, {
+                    from: '[[pix:t/collapsed]]',
+                    to:   '[[pix:t/collapsed_rtl]]'
+                }, {
+                    from: '[[pix:t/collapsed_empty]]',
+                    to:   '[[pix:t/collapsed_empty_rtl]]'
+                }, {
+                    from: '[[pix:y/tn]]',
+                    to:   '[[pix:y/tn_rtl]]'
+                }, {
+                    from: '[[pix:y/tp]]',
+                    to:   '[[pix:y/tp_rtl]]'
+                }, {
+                    from: '[[pix:y/ln]]',
+                    to:   '[[pix:y/ln_rtl]]'
+                }, {
+                    from: '[[pix:y/lp]]',
+                    to:   '[[pix:y/lp_rtl]]'
+                }]
             },
             svg_colours_core: {
                 src: 'pix_core/**/*.svg',
-                    overwrite: true,
-                    replacements: [{
-                        from: '#999999',
-                        to: svgcolour
-                    }]
+                overwrite: true,
+                replacements: [{
+                    from: '#999999',
+                    to: svgcolour
+                }]
             },
             svg_colours_plugins: {
                 src: 'pix_plugins/**/*.svg',
-                    overwrite: true,
-                    replacements: [{
-                        from: '#999999',
-                        to: svgcolour
-                    }]
+                overwrite: true,
+                replacements: [{
+                    from: '#999999',
+                    to: svgcolour
+                }]
             },
             font_fix: {
                 src: 'style/moodle.css',
-                    overwrite: true,
-                    replacements: [{
-                        from: "glyphicons-halflings-regular.eot",
-                        to:   "glyphicons-halflings-regular.eot]]",
-                    }, {
-                        from: "glyphicons-halflings-regular.svg",
-                        to:   "glyphicons-halflings-regular.svg]]",
-                    }, {
-                        from: "glyphicons-halflings-regular.ttf",
-                        to:   "glyphicons-halflings-regular.ttf]]",
-                    }, {
-                        from: "glyphicons-halflings-regular.woff2'",
-                        to:   "glyphicons-halflings-regular.woff2]]'",
-                    }, {
-                        from: "glyphicons-halflings-regular.woff'",
-                        to:   "glyphicons-halflings-regular.woff]]'",
-                    }]
+                overwrite: true,
+                replacements: [{
+                    from: "glyphicons-halflings-regular.eot",
+                    to:   "glyphicons-halflings-regular.eot]]",
+                }, {
+                    from: "glyphicons-halflings-regular.svg",
+                    to:   "glyphicons-halflings-regular.svg]]",
+                }, {
+                    from: "glyphicons-halflings-regular.ttf",
+                    to:   "glyphicons-halflings-regular.ttf]]",
+                }, {
+                    from: "glyphicons-halflings-regular.woff2'",
+                    to:   "glyphicons-halflings-regular.woff2]]'",
+                }, {
+                    from: "glyphicons-halflings-regular.woff'",
+                    to:   "glyphicons-halflings-regular.woff]]'",
+                }]
             }
         },
         svgmin: {                       // Task
@@ -352,7 +352,7 @@ module.exports = function(grunt) { // jshint ignore:line
                 }, {
                     convertPathData: {
                         straightCurves: false // advanced SVGO plugin option
-                   }
+                    }
                 }]
             },
             dist: {                       // Target

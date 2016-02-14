@@ -27,6 +27,14 @@
 
 require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
+$coursecontentsearch = \theme_shoehorn\toolbox::course_content_search();
+if ($coursecontentsearch) {
+    $shoehornsearch = new moodle_url('/theme/shoehorn/inspector.ajax.php');
+    $shoehornsearch->param('sesskey', sesskey());
+    $inspectorscourerdata = array('data' => array('theme' => $shoehornsearch->out(false)));
+    $PAGE->requires->js_call_amd('theme_shoehorn/inspector_scourer', 'init', $inspectorscourerdata);
+}
+
 if (!$PAGE->user_is_editing()) {
     $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
     $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
@@ -55,27 +63,35 @@ echo $OUTPUT->doctype(); ?>
 
         <div id="page-content" class="row">
             <?php
-            if (($hassidepre) && ($regions['layout'] == 1)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }?>
+if (($hassidepre) && ($regions['layout'] == 1)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}?>
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <section id="region-main-shoehorn">
-                    <?php
-                    echo $OUTPUT->course_content_header();
-                    echo $OUTPUT->main_content();
-                    echo $OUTPUT->course_content_footer();
-                    ?>
+<?php
+echo $OUTPUT->course_content_header();
+
+if ($coursecontentsearch) {
+    echo '<div class="row"><div class="courseitemsearch col-md-12">';
+    echo '<p>'.get_string('findcoursecontent', 'theme_shoehorn').
+        '</p><input type="text" name="courseitemsearch" id="courseitemsearch" disabled="disabled">';
+    echo '</div></div>';
+}
+
+echo $OUTPUT->main_content();
+echo $OUTPUT->course_content_footer();
+?>
                 </section>
                 <div id="region-main-shoehorn-shadow"></div>
             </div>
 
-            <?php
-            if (($hassidepre) && ($regions['layout'] == 2)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }
-            if ($hassidepost) {
-                echo $OUTPUT->blocks('side-post', $regions['post']);
-            }?>
+<?php
+if (($hassidepre) && ($regions['layout'] == 2)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}
+if ($hassidepost) {
+    echo $OUTPUT->blocks('side-post', $regions['post']);
+}?>
 
             <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>

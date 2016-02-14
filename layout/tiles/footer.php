@@ -39,23 +39,23 @@ if ($haveicons) {
     <div class="row">
     <?php $cols = \theme_shoehorn\toolbox::social_footer(); ?>
     <div class="<?php echo $cols['side']; ?>">
-    <?php
-    if ($knownregionfooterpre) {
-        echo $OUTPUT->blocks('footer-pre');
-    }?>
+<?php
+if ($knownregionfooterpre) {
+    echo $OUTPUT->blocks('footer-pre');
+}?>
     </div>
     <div class="<?php echo $cols['centre']; ?>">
-    <?php
-    if ($haveicons) {
-        echo $icons;
-    }
-    ?>
+<?php
+if ($haveicons) {
+    echo $icons;
+}
+?>
     </div>
     <div class="<?php echo $cols['side']; ?>">
-    <?php
-    if ($knownregionfooterpost) {
-        echo $OUTPUT->blocks('footer-post');
-    }?>
+<?php
+if ($knownregionfooterpost) {
+    echo $OUTPUT->blocks('footer-post');
+}?>
     </div>
     </div>
     <div class="row">

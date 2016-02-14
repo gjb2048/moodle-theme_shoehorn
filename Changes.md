@@ -5,6 +5,7 @@ Version 3.0.0.8
   2. Bootstrap #379 fix pdf annotation.
   3. Bootstrap added assignment fixed.
   4. Add 'Inspector Scourer'.
+  5. TravisCI Code Checker complaints.
 
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.

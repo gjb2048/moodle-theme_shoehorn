@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- ?>
+?>
 <!-- JavaScript version for Firefox - variation from Essential theme. -->
 <script type="text/javascript">
   WebFontConfig = {

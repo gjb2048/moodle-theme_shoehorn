@@ -193,7 +193,8 @@ trait format_renderer_toolbox {
                             $this->print_noticeboard($course);
                             if (($PAGE->user_is_editing()) && (is_siteadmin($USER))) {
                                 $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, $displaysection);
-                                $slides .= $this->courserenderer->course_section_add_cm_control($course, $displaysection, $displaysection);
+                                $slides .= $this->courserenderer->course_section_add_cm_control($course, $displaysection,
+                                    $displaysection);
                             }
                         } else {
                             $slides .= $this->courserenderer->course_section_cm_list($course, $thissection, 0);
