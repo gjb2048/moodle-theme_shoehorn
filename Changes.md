@@ -44,6 +44,7 @@ Version 2.9.1.6
  40. Only resize carousel images on the front page.
  41. Fix glyphicon carousel position.
  42. Update .gitattributes file.
+ 43. Add 'Inspector Scourer'.
 
 Version 2.9.1.5
   1. MDL-51921.

@@ -105,6 +105,9 @@ $string['docking_desc'] = 'Enable this option to use docking.';
 $string['accordion'] = 'Use accordion block side regions';
 $string['accordion_desc'] = 'Enable this option to use accordion functionality for the side regions.  Note: Disables docking.';
 
+$string['coursecontentsearch'] = 'Course content search';
+$string['coursecontentsearchdesc'] = "Enable course content search on the 'Dashboard' page.  Only works when Essential is not in '\$CFG->themedir'.";
+
 $string['compactnavbar'] = 'Compact navbar';
 $string['compactnavbar_desc'] = 'Compact navigation bar.';
 $string['navbarfixedtop'] = 'Navbar fixed top';
@@ -457,3 +460,6 @@ $string['readme_desc'] = 'Please click on \'{$a->url}\' for lots more informatio
 
 // IE.
 $string['iewarning'] = 'Shoehorn requires Internet Explorer 10+, you are using IE{$a->ieversion}, please upgrade.';
+
+// Course content search.
+$string['findcoursecontent'] = 'Course content: ';

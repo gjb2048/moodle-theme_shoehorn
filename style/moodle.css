@@ -15698,6 +15698,39 @@ body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-
     {word-wrap: break-word;
         word-break: break-word;
     }
+}.ui-autocomplete
+{
+    position: absolute;z-index: 1000;top: 100%;left: 0;display: none;float: left;min-width: 160px;margin: 2px 0 0 0;padding: 5px;list-style: none;border-width: 1px;border-style: solid;border-radius: 4px;background-clip: padding-box;_width: 160px;*border-right-width: 2px;*border-bottom-width: 2px;
+}.ui-autocomplete .ui-menu-item > a.ui-corner-all
+{font-weight: normal;line-height: 18px;
+
+    display: block;clear: both;padding: 3px 15px;white-space: nowrap;
+}.ui-autocomplete .ui-menu-item > a.ui-corner-all.ui-state-hover,
+.ui-autocomplete .ui-menu-item > a.ui-corner-all.ui-state-active
+{
+    text-decoration: none;border-radius: 0;background-image: none;
+}.ui-autocomplete
+{overflow-x: hidden;overflow-y: auto;max-width: 300px;
+    max-height: 240px;cursor: pointer;
+}.courseitemsearch p
+{
+    display: inline;
+}.courseitemsearch input
+{
+    margin-bottom: 4px;
+}.ui-autocomplete
+{border-color: [[setting:pagetopbackground]];
+    background-color: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}.ui-autocomplete-loading
+{
+    background: white url('[[pix:i/loading_small]]') right center no-repeat;
+}.ui-autocomplete .ui-menu-item
+{
+    color: [[setting:textcolour]];
+}.ui-autocomplete .ui-menu-item:hover,
+.ui-autocomplete .ui-menu-item:focus
+{
+    color: #fff;background-color: [[setting:textcolour]];
 }body.loginpageimages
 {
     background-color: transparent;background-image: none;

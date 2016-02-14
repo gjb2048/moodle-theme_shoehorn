@@ -83,6 +83,16 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $generalsettings->add($setting);
 
+// Course content search.
+$name = 'theme_shoehorn/coursecontentsearch';
+$title = get_string('coursecontentsearch', 'theme_shoehorn');
+$description = get_string('coursecontentsearchdesc', 'theme_shoehorn');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$generalsettings->add($setting);
+
+
 // Compact Navbar.
 $name = 'theme_shoehorn/compactnavbar';
 $title = get_string('compactnavbar', 'theme_shoehorn');
