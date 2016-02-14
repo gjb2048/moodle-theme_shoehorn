@@ -111,13 +111,14 @@ class core_renderer extends \core_renderer {
         $iconbar = html_writer::tag('span', '', array('class' => 'icon-bar'));
         $sronly = html_writer::tag('span', get_string('togglenavigation', 'theme_shoehorn'), array('class' => 'sr-only'));
         $button = html_writer::tag('button',
-                        $sronly . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar,
-                        array(
+            $sronly . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar . "\n" . $iconbar,
+                array(
                     'class' => 'navbar-toggle',
                     'data-toggle' => 'collapse',
                     'data-target' => '#moodle-navbar',
                     'type' => 'button'
-        ));
+                )
+            );
         return $button;
     }
 
@@ -491,10 +492,11 @@ class core_renderer extends \core_renderer {
                     // At the IDP, we know of all the remote courses.
                     foreach ($rcourses as $course) {
                         $url = new moodle_url('/auth/mnet/jump.php',
-                                array(
-                            'hostid' => $course->hostid,
-                            'wantsurl' => '/course/view.php?id=' . $course->remoteid
-                        ));
+                            array(
+                                'hostid' => $course->hostid,
+                                'wantsurl' => '/course/view.php?id=' . $course->remoteid
+                            )
+                        );
                         $tooltip = format_string($course->hostname).' : '.format_string($course->cat_name).' : '.
                             format_string($course->shortname);
 
@@ -505,7 +507,7 @@ class core_renderer extends \core_renderer {
                                 array('class' => 'fa fa-' . $courseicons[$course->remoteid % 5]));
                         } else {
                             $courselabel = html_writer::tag('span', '',
-                                            array('class' => 'glyphicon glyphicon-' . $courseicons[$course->remoteid % 5]));
+                               array('class' => 'glyphicon glyphicon-' . $courseicons[$course->remoteid % 5]));
                         }
                         $courselabel .= html_writer::tag('span', ' ' . $coursetext);
 
@@ -520,13 +522,13 @@ class core_renderer extends \core_renderer {
                             $courselabel = html_writer::tag('i', '', array('class' => 'fa fa-' . $courseicons[0]));
                         } else {
                             $courselabel = html_writer::tag('span', '',
-                                            array('class' => 'glyphicon glyphicon-' . $courseicons[0]));
+                                array('class' => 'glyphicon glyphicon-' . $courseicons[0]));
                         }
                         $courselabel .= html_writer::tag('span', ' ' . $coursetext);
 
                         $mycoursesmenu->add($courselabel,
-                                html_writer::link($host['url'], s($host['name']), array('title' => s($host['name']))),
-                                $host['count'] . ' ' . get_string('courses'));
+                            html_writer::link($host['url'], s($host['name']), array('title' => s($host['name']))),
+                            $host['count'] . ' ' . get_string('courses'));
                     }
                 }
             } else {

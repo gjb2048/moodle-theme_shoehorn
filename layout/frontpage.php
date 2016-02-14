@@ -58,16 +58,16 @@ echo $OUTPUT->doctype() ?>
 
         <div id="page-content" class="row">
             <?php
-            if (($hassidepre) && ($regions['layout'] == 1)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }?>
+if (($hassidepre) && ($regions['layout'] == 1)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}?>
             <div id="region-main" class="<?php echo $regions['content']; ?>">
                 <?php
-                if ($showslider) {
-                    require_once(\theme_shoehorn\toolbox::get_tile_file('frontpageslider'));
-                }
-                require_once(\theme_shoehorn\toolbox::get_tile_file('marketingspots'));
-                ?>
+if ($showslider) {
+    require_once(\theme_shoehorn\toolbox::get_tile_file('frontpageslider'));
+}
+require_once(\theme_shoehorn\toolbox::get_tile_file('marketingspots'));
+?>
                 <section id="region-main-shoehorn">
                     <?php
                     echo $OUTPUT->course_content_header();
@@ -79,12 +79,12 @@ echo $OUTPUT->doctype() ?>
             </div>
 
             <?php
-            if (($hassidepre) && ($regions['layout'] == 2)) {
-                echo $OUTPUT->blocks('side-pre', $regions['pre']);
-            }
-            if ($hassidepost) {
-                echo $OUTPUT->blocks('side-post', $regions['post']);
-            }?>
+if (($hassidepre) && ($regions['layout'] == 2)) {
+    echo $OUTPUT->blocks('side-pre', $regions['pre']);
+}
+if ($hassidepost) {
+    echo $OUTPUT->blocks('side-post', $regions['post']);
+}?>
 
             <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
         </div>

@@ -108,8 +108,9 @@ class toolbox {
      */
     static public function course_content_search() {
         $canwe = false;
-        global $CFG;
-        if ((self::get_setting('coursecontentsearch')) && (file_exists("$CFG->dirroot/theme/shoehorn/"))) {
+        global $CFG, $PAGE;
+        if (($PAGE->pagelayout == 'mydashboard') && (self::get_setting('coursecontentsearch')) &&
+            (file_exists("$CFG->dirroot/theme/shoehorn/"))) {
             $canwe = true;
         }
         return $canwe;
