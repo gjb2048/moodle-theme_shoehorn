@@ -27,8 +27,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . "/blocks/settings/renderer.php");
-
 class theme_shoehorn_block_settings_renderer extends block_settings_renderer {
 
     public function search_form(moodle_url $formtarget, $searchvalue) {

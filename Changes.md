@@ -46,6 +46,7 @@ Version 2.9.1.6
  42. Update .gitattributes file.
  43. Add 'Inspector Scourer'.
  44. TravisCI Code Checker complaints.
+ 45. Remove redundant includes in auto-loaded classes.
 
 Version 2.9.1.5
   1. MDL-51921.

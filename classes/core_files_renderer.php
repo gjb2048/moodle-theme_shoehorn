@@ -27,8 +27,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . "/files/renderer.php");
-
 class theme_shoehorn_core_files_renderer extends core_files_renderer {
 
     /**

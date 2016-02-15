@@ -27,8 +27,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . "/course/classes/management_renderer.php");
-
 class theme_shoehorn_core_course_management_renderer extends core_course_management_renderer {
     public function grid_start($id = null, $class = null) {
         $gridclass = 'row';
