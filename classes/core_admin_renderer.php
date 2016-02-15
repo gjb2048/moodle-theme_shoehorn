@@ -27,9 +27,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . "/admin/renderer.php");
-
-
 class theme_shoehorn_core_admin_renderer extends core_admin_renderer {
 
     protected function maturity_info($maturity) {

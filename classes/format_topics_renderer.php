@@ -26,8 +26,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once($CFG->dirroot . "/course/format/topics/renderer.php");
-
 class theme_shoehorn_format_topics_renderer extends format_topics_renderer {
     use theme_shoehorn\format_renderer_toolbox;
 

@@ -6,6 +6,7 @@ Version 3.0.0.8
   3. Bootstrap added assignment fixed.
   4. Add 'Inspector Scourer'.
   5. TravisCI Code Checker complaints.
+  6. Remove redundant includes in auto-loaded classes.
 
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.
