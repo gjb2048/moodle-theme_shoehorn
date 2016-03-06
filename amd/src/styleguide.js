@@ -1,5 +1,5 @@
 /* jshint ignore:start */
-define(['jquery', 'theme_shoehorn/bootstrap', 'core/log'], function ($, bootstrap, log) {
+define(['jquery', 'theme_shoehorn/bootstrap', 'theme_shoehorn/holder', 'core/log'], function ($, bootstrap, holder, log) {
 
     "use strict"; // jshint ;_;
 
