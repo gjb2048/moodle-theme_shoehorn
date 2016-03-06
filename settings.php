@@ -1166,6 +1166,8 @@ if (is_siteadmin()) {
             array(
                 'origcodelicenseurl' => html_writer::link('https://github.com/twbs/bootstrap/blob/master/LICENSE', 'MIT',
                     array('target' => '_blank')),
+                'holderlicenseurl' => html_writer::link('https://github.com/imsky/holder#license', 'MIT',
+                    array('target' => '_blank')),
                 'thiscodelicenseurl' => html_writer::link('http://www.gnu.org/copyleft/gpl.html', 'GPLv3',
                     array('target' => '_blank')),
                 'compatible' => html_writer::link('http://www.gnu.org/licenses/license-list.en.html#apache2', 'compatible',
