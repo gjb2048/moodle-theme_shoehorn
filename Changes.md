@@ -47,6 +47,8 @@ Version 2.9.1.6
  43. Add 'Inspector Scourer'.
  44. TravisCI Code Checker complaints.
  45. Remove redundant includes in auto-loaded classes.
+ 46. Add 'Style Guide' admin setting page.
+     Can also be accessed via the URL '//yourmoodlesite/theme/shoehorn/pages/styleguide.php' without logging on.
 
 Version 2.9.1.5
   1. MDL-51921.

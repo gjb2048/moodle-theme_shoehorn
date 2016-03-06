@@ -102,6 +102,11 @@ class toolbox {
         return $us->pix_url($imagename, $component);
     }
 
+    static public function get_file_contents($filename) {
+        $us = self::check_corerenderer();
+        return $us->get_file_contents($filename);
+    }
+
     /**
      * States if course content search can be used.  Will not work if theme is in $CFG->themedir.
      * @return boolean false|true if course content search can be used.
