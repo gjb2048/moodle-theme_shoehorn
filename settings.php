@@ -1164,7 +1164,7 @@ if (is_siteadmin()) {
         get_string('styleguidesub', 'theme_shoehorn'),
         get_string('styleguidedesc', 'theme_shoehorn',
             array(
-                'origcodelicenseurl' => html_writer::link('http://www.apache.org/licenses/LICENSE-2.0', 'Apache License v2.0',
+                'origcodelicenseurl' => html_writer::link('https://github.com/twbs/bootstrap/blob/master/LICENSE', 'MIT',
                     array('target' => '_blank')),
                 'thiscodelicenseurl' => html_writer::link('http://www.gnu.org/copyleft/gpl.html', 'GPLv3',
                     array('target' => '_blank')),
@@ -1172,7 +1172,7 @@ if (is_siteadmin()) {
                     array('target' => '_blank')),
                 'contentlicenseurl' => html_writer::link('http://creativecommons.org/licenses/by/3.0/', 'CC BY 3.0',
                     array('target' => '_blank')),
-                'globalsettings' => html_writer::link('http://getbootstrap.com/2.3.2/scaffolding.html#global', 'Global settings',
+                'overview' => html_writer::link('http://getbootstrap.com/css/#overview', 'Overview',
                     array('target' => '_blank'))
             )
         )

@@ -1,17 +1,34 @@
 /* jshint ignore:start */
-define(['jquery', 'theme_shoehorn/bootstrap', 'core/log'], function($, bootstrap, log) {
+define(['jquery', 'theme_shoehorn/bootstrap', 'core/log'], function ($, bootstrap, log) {
 
     "use strict"; // jshint ;_;
 
     log.debug('Shoehorn Style Guide AMD');
 
     return {
-        init: function() {
-            $(document).ready(function($) {
+        init: function () {
+            $(document).ready(function ($) {
+                !(function (log) {
+                    'use strict';
+
+                    log.debug('Shoehorn Style Guide AMD ie10-viewport-bug-workaround init');
+                    // See the Getting Started docs for more information:....
+                    // http://getbootstrap.com/getting-started/#support-ie10-width.
+                    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                        var msViewportStyle = document.createElement('style')
+                        msViewportStyle.appendChild(
+                                document.createTextNode('@-ms-viewport{width:auto!important}')
+                                )
+                        document.querySelector('head').appendChild(msViewportStyle)
+                        log.debug('Shoehorn Style Guide AMD ie10-viewport-bug-workaround active');
+                    }
+                })(log);
+
                 $("[data-toggle=tooltip]").tooltip();
-                $("[data-toggle=popover]").popover().click(function(e) {
+                $("[data-toggle=popover]").popover().click(function (e) {
                     e.preventDefault()
                 });
+
             });
             log.debug('Shoehorn Style Guide AMD init');
         }
