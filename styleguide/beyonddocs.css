@@ -1,0 +1,30 @@
+.bs-docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bs-docs-sidebar .nav > li > a {
+    color: inherit;
+    padding: 4px 2px;
+}
+
+.bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
+    color: inherit;
+    padding: 4px 1px;
+}
+
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-left: 2px;
+}
+
+.bs-docs-sidebar .nav .nav > li > a:hover, .bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 1px;
+}
+
+.bs-docs-sidebar .nav .nav.hovered {
+    display: block;
+}
+
+.bs-docs-sidebar ul {
+    margin: 0 0 0 15px;
+}

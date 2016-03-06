@@ -7,6 +7,8 @@ Version 3.0.0.8
   4. Add 'Inspector Scourer'.
   5. TravisCI Code Checker complaints.
   6. Remove redundant includes in auto-loaded classes.
+  7. Add 'Style Guide' admin setting page.
+     Can also be accessed via the URL '//yourmoodlesite/theme/shoehorn/pages/styleguide.php' without logging on.
 
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.

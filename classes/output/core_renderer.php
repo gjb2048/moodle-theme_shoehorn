@@ -63,6 +63,18 @@ class core_renderer extends \core_renderer {
         }
     }
 
+    public function get_file_contents($filename) {
+        global $CFG;
+
+        if (file_exists("$CFG->dirroot/theme/shoehorn/$filename")) {
+            return file_get_contents("$CFG->dirroot/theme/shoehorn/$filename");
+        } else if (!empty($CFG->themedir) and file_exists("$CFG->themedir/shoehorn/$filename")) {
+            return file_get_contents("$CFG->themedir/shoehorn/$filename");
+        } else {
+            return file_get_contents(dirname(__FILE__) . "/$filename");
+        }
+    }
+
     protected function is_fontawesome() {
         if ($this->fontawesome == null) {
             $this->fontawesome = $this->get_setting('fontawesome');
