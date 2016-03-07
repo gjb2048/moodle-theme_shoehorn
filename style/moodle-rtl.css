@@ -29989,6 +29989,237 @@ aside
     color: [[setting:navbardefaultcolour]];
 }
 
+.block.block_fake.block_style_guide
+{
+    margin-bottom: 20px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.block.block_fake.block_style_guide > .list-group,
+.block.block_fake.block_style_guide > .panel-collapse > .list-group
+{
+    margin-bottom: 0;
+}
+
+.block.block_fake.block_style_guide > .list-group .list-group-item,
+.block.block_fake.block_style_guide > .panel-collapse > .list-group .list-group-item
+{
+    border-width: 1px 0;
+    border-radius: 0;
+}
+
+.block.block_fake.block_style_guide > .list-group:first-child .list-group-item:first-child,
+.block.block_fake.block_style_guide > .panel-collapse > .list-group:first-child .list-group-item:first-child
+{
+    border-top: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .list-group:last-child .list-group-item:last-child,
+.block.block_fake.block_style_guide > .panel-collapse > .list-group:last-child .list-group-item:last-child
+{
+    border-bottom: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.block.block_fake.block_style_guide > .table,
+.block.block_fake.block_style_guide > .table-responsive > .table,
+.block.block_fake.block_style_guide > .panel-collapse > .table
+{
+    margin-bottom: 0;
+}
+
+.block.block_fake.block_style_guide > .table caption,
+.block.block_fake.block_style_guide > .table-responsive > .table caption,
+.block.block_fake.block_style_guide > .panel-collapse > .table caption
+{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.block.block_fake.block_style_guide > .table:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child
+{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:first-child > thead:first-child > tr:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > thead:first-child>tr:first-child,
+.block.block_fake.block_style_guide > .table:first-child > tbody:first-child > tr:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child
+{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.block.block_fake.block_style_guide > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.block.block_fake.block_style_guide > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.block.block_fake.block_style_guide > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child
+{
+    border-top-right-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.block.block_fake.block_style_guide > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.block.block_fake.block_style_guide > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.block.block_fake.block_style_guide > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.block.block_fake.block_style_guide > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child
+{
+    border-top-left-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child
+{
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:last-child > tbody:last-child > tr:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tbody:last-child>tr:last-child,
+.block.block_fake.block_style_guide > .table:last-child > tfoot:last-child > tr:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child
+{
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.block.block_fake.block_style_guide > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.block.block_fake.block_style_guide > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.block.block_fake.block_style_guide > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child
+{
+    border-bottom-right-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.block.block_fake.block_style_guide > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.block.block_fake.block_style_guide > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.block.block_fake.block_style_guide > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.block.block_fake.block_style_guide > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child
+{
+    border-bottom-left-radius: 3px;
+}
+
+.block.block_fake.block_style_guide > .panel-body + .table,
+.block.block_fake.block_style_guide > .panel-body + .table-responsive,
+.block.block_fake.block_style_guide > .table + .panel-body,
+.block.block_fake.block_style_guide > .table-responsive + .panel-body
+{
+    border-top: 1px solid #c9e6ff;
+}
+
+.block.block_fake.block_style_guide > .table > tbody:first-child > tr:first-child th,
+.block.block_fake.block_style_guide > .table > tbody:first-child > tr:first-child td
+{
+    border-top: 0;
+}
+
+.block.block_fake.block_style_guide > .table-bordered,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered
+{
+    border: 0;
+}
+
+.block.block_fake.block_style_guide > .table-bordered > thead > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr>th:first-child,
+.block.block_fake.block_style_guide > .table-bordered > thead > tr>td:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr>td:first-child,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr>td:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr>td:first-child,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr>td:first-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr>td:first-child
+{
+    border-right: 0;
+}
+
+.block.block_fake.block_style_guide > .table-bordered > thead > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr>th:last-child,
+.block.block_fake.block_style_guide > .table-bordered > thead > tr>td:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr>td:last-child,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr>td:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr>td:last-child,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr>td:last-child,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr>td:last-child
+{
+    border-left: 0;
+}
+
+.block.block_fake.block_style_guide > .table-bordered > thead > tr:first-child>td,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr:first-child>td,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr:first-child>td,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr:first-child>td,
+.block.block_fake.block_style_guide > .table-bordered > thead > tr:first-child>th,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > thead > tr:first-child>th,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr:first-child>th,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr:first-child>th
+{
+    border-bottom: 0;
+}
+
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr:last-child>td,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr:last-child>td,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr:last-child>td,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr:last-child>td,
+.block.block_fake.block_style_guide > .table-bordered > tbody > tr:last-child>th,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tbody > tr:last-child>th,
+.block.block_fake.block_style_guide > .table-bordered > tfoot > tr:last-child>th,
+.block.block_fake.block_style_guide > .table-responsive > .table-bordered > tfoot > tr:last-child>th
+{
+    border-bottom: 0;
+}
+
+.block.block_fake.block_style_guide > .table-responsive
+{
+    margin-bottom: 0;
+
+    border: 0;
+}
+
+.block.block_fake.block_style_guide .header .title h2:before
+{
+    font-family: FontAwesome;
+
+    content: '\f1fc';
+}
+
 .heading-rts
 {
     margin-top: 18px;

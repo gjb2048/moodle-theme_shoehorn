@@ -29,6 +29,17 @@ define(['jquery', 'theme_shoehorn/bootstrap', 'theme_shoehorn/holder', 'core/log
                     e.preventDefault()
                 });
 
+                // Navigation fake block.
+                $(".bs-docs-sidenav > li").each(function() {
+                    var $nav = $(this).children(".nav");
+                    $(this).hover(
+                        function() {
+                           $nav.addClass("hovered");
+                        }, function() {
+                           $nav.removeClass("hovered");
+                        }
+                    );
+                });
             });
             log.debug('Shoehorn Style Guide AMD init');
         }
