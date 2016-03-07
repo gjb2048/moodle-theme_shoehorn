@@ -56,7 +56,7 @@ class shoehorn_admin_setting_styleguide extends admin_setting {
         $this->nosave = true;
 
         global $PAGE;
-        if ($PAGE->bodyid == 'page-admin-setting-' . $name) {
+        if (($PAGE->bodyid == 'page-admin-setting-' . $name) || ($PAGE->bodyid == 'page-theme-'.$PAGE->theme->name.'-pages-styleguide')) {
             $bc = new block_contents();
             $bc->title = get_string('styleguide', 'theme_shoehorn');
             $bc->attributes['class'] = 'block block_style_guide';

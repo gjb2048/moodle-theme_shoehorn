@@ -466,5 +466,5 @@ $string['findcoursecontent'] = 'Course content: ';
 
 // Style guide.
 $string['styleguide'] = 'Style guide';
-$string['styleguidesub'] = 'Bootstrap V3.3.6 Sytle guide';
+$string['styleguidesub'] = 'Bootstrap V3.3.6 Style guide';
 $string['styleguidedesc'] = 'Original documentation code \'{$a->origcodelicenseurl}\' licensed.  Holder.js is \'{$a->holderlicenseurl}\' licensed.  Additional code \'{$a->thiscodelicenseurl}\' licensed, which is a \'{$a->compatible}\' license.  Content \'{$a->contentlicenseurl}\' licensed.  The documentation has been formatted for Moodle output with addition of FontAwesome icons where appropriate.  Additional CSS can be found in the file \'essential_admin_setting_styleguide.php\' under the comment \'// Beyond docs.css.\'.  The \'{$a->overview}\' section has been removed.';
