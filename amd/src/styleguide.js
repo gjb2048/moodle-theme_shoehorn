@@ -34,9 +34,9 @@ define(['jquery', 'theme_shoehorn/bootstrap', 'theme_shoehorn/holder', 'core/log
                     var $nav = $(this).children(".nav");
                     $(this).hover(
                         function() {
-                           $nav.addClass("hovered");
+                            $nav.addClass("hovered");
                         }, function() {
-                           $nav.removeClass("hovered");
+                            $nav.removeClass("hovered");
                         }
                     );
                 });

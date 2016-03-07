@@ -40,17 +40,17 @@ $setting = new shoehorn_admin_setting_styleguide('theme_shoehorn_styleguide',
     get_string('styleguidesub', 'theme_shoehorn'),
     get_string('styleguidedesc', 'theme_shoehorn',
         array(
-            'origcodelicenseurl' => html_writer::link('https://github.com/twbs/bootstrap/blob/master/LICENSE', 'MIT',
-                array('target' => '_blank')),
             'holderlicenseurl' => html_writer::link('https://github.com/imsky/holder#license', 'MIT',
+                array('target' => '_blank')),
+            'contentlicenseurl' => html_writer::link('http://creativecommons.org/licenses/by/3.0/', 'CC BY 3.0',
                 array('target' => '_blank')),
             'thiscodelicenseurl' => html_writer::link('http://www.gnu.org/copyleft/gpl.html', 'GPLv3',
                 array('target' => '_blank')),
             'compatible' => html_writer::link('http://www.gnu.org/licenses/license-list.en.html#apache2', 'compatible',
                 array('target' => '_blank')),
-            'contentlicenseurl' => html_writer::link('http://creativecommons.org/licenses/by/3.0/', 'CC BY 3.0',
-                array('target' => '_blank')),
             'overview' => html_writer::link('http://getbootstrap.com/css/#overview', 'Overview',
+                array('target' => '_blank')),
+            'origcodelicenseurl' => html_writer::link('https://github.com/twbs/bootstrap/blob/master/LICENSE', 'MIT',
                 array('target' => '_blank'))
         )
     )
