@@ -41,7 +41,8 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
             $colclasses = array(
                 1 => 'col-sm-12 col-md-12 col-lg-12',
                 2 => 'col-sm-6 col-md-6 col-lg-6',
-                3 => 'col-md-4 col-lg-4', 4 => 'col-lg-3');
+                3 => 'col-md-4 col-lg-4',
+                4 => 'col-lg-3');
 
             return $colclasses[$columns];
         }
