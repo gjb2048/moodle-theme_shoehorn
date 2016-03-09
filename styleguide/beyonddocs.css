@@ -28,3 +28,14 @@
 .bs-docs-sidebar ul {
     margin: 0 0 0 15px;
 }
+
+#adminsettings .bs-example .panel h3.panel-title {
+    color: inherit;
+    font-size: 16px;
+    line-height: inherit;
+    display: inherit;
+    width: inherit;
+    margin-bottom: 0;
+    padding: 0;
+    border: 0;
+}

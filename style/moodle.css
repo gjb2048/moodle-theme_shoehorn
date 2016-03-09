@@ -4728,7 +4728,7 @@ button.list-group-item:focus
 .list-group-item.active:hover .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text
 {
-    color: #fff;
+    color: #2965b0;
 }.list-group-item-success
 {
     color: #3c763d;background-color: #dff0d8;
