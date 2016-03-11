@@ -51,6 +51,7 @@ Version 2.9.1.6
      Can also be accessed via the URL '//yourmoodlesite/theme/shoehorn/pages/styleguide.php' without logging on.
  47. Add 'Format responsive' overrides for the 'Columns format'.
  48. Fix list group active text colour.
+ 49. Implement MDL-52936 - Fix link hover bug on iOS.
 
 Version 2.9.1.5
   1. MDL-51921.

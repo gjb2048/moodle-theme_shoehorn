@@ -24428,8 +24428,8 @@ input.fp-btn-choose
     padding: 3px;
 }
 
-.userenrolment .col_role .addrole > *:hover,
-.userenrolment .col_group .addgroup > *:hover
+.userenrolment .col_role .addrole > a:hover,
+.userenrolment .col_group .addgroup > a:hover
 {
     border-bottom: 1px solid #666;
 }
