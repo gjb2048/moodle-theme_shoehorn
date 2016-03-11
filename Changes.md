@@ -11,6 +11,7 @@ Version 3.0.0.8
      Can also be accessed via the URL '//yourmoodlesite/theme/shoehorn/pages/styleguide.php' without logging on.
   8. Add 'Format responsive' overrides for the 'Columns format'.
   9. Fix list group active text colour.
+ 10. Implement MDL-52936 - Fix link hover bug on iOS.
 
 Version 3.0.0.7
   1. Colour popup in Collapsed Topics and Grid course formats.
