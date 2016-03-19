@@ -17343,7 +17343,7 @@ input
 }.antiGravity:hover
 {
     text-decoration: none;border-radius: 1em;
-}.antiGravity i.fa
+}.antiGravity .fa
 {
     padding-bottom: 2px;
 }.dir-rtl .antiGravity

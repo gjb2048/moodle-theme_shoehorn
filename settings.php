@@ -253,8 +253,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('showloginmessage', 'theme_shoehorn');
     $description = get_string('showloginmessage_desc', 'theme_shoehorn') . html_writer::tag('a',
         get_string('showloginmessage_urlname', 'theme_shoehorn'),
-        array('href' => get_string('showloginmessage_urllink', 'theme_shoehorn'),
-            'target' => '_blank')) . "'.";
+        array('href' => get_string('showloginmessage_urllink', 'theme_shoehorn'), 'target' => '_blank'))."'.";
     $default = 1;
     $choices = array(
         1 => new lang_string('no'), // No.
@@ -686,8 +685,8 @@ $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landf
 if ($ADMIN->fulltree) {
     // Layout.
     $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_layout',
-            get_string('landflayout', 'theme_shoehorn'),
-            format_text(get_string('landflayoutheading_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+        get_string('landflayout', 'theme_shoehorn'),
+        format_text(get_string('landflayoutheading_desc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
 
     $name = 'theme_shoehorn/landflayout';
     $title = get_string('landflayout', 'theme_shoehorn');
@@ -923,7 +922,7 @@ if ($ADMIN->fulltree) {
     $numberofmarketingspots = get_config('theme_shoehorn', 'numberofmarketingspots');
     for ($i = 1; $i <= $numberofmarketingspots; $i++) {
         $marketingspotssettings->add(new admin_setting_heading('theme_shoehorn_marketingspot_heading' . $i,
-                get_string('marketingspotsettingspageheading', 'theme_shoehorn', array('spot' => $i)), null));
+            get_string('marketingspotsettingspageheading', 'theme_shoehorn', array('spot' => $i)), null));
 
         // Marketing spot heading.
         $name = 'theme_shoehorn/marketingspotheading' . $i;
@@ -971,7 +970,8 @@ if ($ADMIN->fulltree) {
         $title = get_string('marketingspotlang', 'theme_shoehorn', array('spot' => $i));
         $description = get_string('marketingspotlang_desc', 'theme_shoehorn',
             array('spot' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'),
-                array('href' => $langpackurl, 'target' => '_blank'))));
+            array('href' => $langpackurl, 'target' => '_blank')))
+        );
         $default = 'all';
         $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -1010,8 +1010,8 @@ if ($ADMIN->fulltree) {
     );
 
     $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepages',
-            get_string('sitepagesheadingsub', 'theme_shoehorn'),
-            format_text(get_string('sitepagesheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+        get_string('sitepagesheadingsub', 'theme_shoehorn'),
+        format_text(get_string('sitepagesheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $sitepagessettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
     $numberofsitepages = get_config('theme_shoehorn', 'numberofsitepages');
@@ -1074,7 +1074,8 @@ if ($ADMIN->fulltree) {
         $title = get_string('sitepagelang', 'theme_shoehorn', array('pageid' => $i));
         $description = get_string('sitepagelang_desc', 'theme_shoehorn',
             array('pageid' => $i, 'url' => html_writer::tag('a', get_string('langpack_urlname', 'theme_shoehorn'),
-                array('href' => $langpackurl, 'target' => '_blank'))));
+            array('href' => $langpackurl, 'target' => '_blank')))
+        );
         $default = 'all';
         $setting = new admin_setting_configselect($name, $title, $description, $default, $langsinstalled);
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -1112,8 +1113,8 @@ if ($ADMIN->fulltree) {
     );
 
     $socialsettings->add(new admin_setting_heading('theme_shoehorn_social',
-            get_string('socialheadingsub', 'theme_shoehorn'),
-            format_text(get_string('socialheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
+        get_string('socialheadingsub', 'theme_shoehorn'),
+        format_text(get_string('socialheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
     $socialsettings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
     $numberofsociallinks = get_config('theme_shoehorn', 'numberofsociallinks');

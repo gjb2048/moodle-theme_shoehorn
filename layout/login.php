@@ -58,14 +58,14 @@ echo $OUTPUT->doctype() ?>
     <div id="page-content" class="row">
         <div id="region-main" class="col-md-12<?php echo (!$loggedin) ? ' loggedout' : ''; ?>">
             <?php
-if ($loggedin) {
-    echo html_writer::start_tag('section', array('id' => 'region-main-shoehorn'));
-}
-echo $OUTPUT->main_content();
-if ($loggedin) {
-    echo html_writer::end_tag('section');
-}
-?>
+            if ($loggedin) {
+                echo html_writer::start_tag('section', array('id' => 'region-main-shoehorn'));
+            }
+            echo $OUTPUT->main_content();
+            if ($loggedin) {
+                echo html_writer::end_tag('section');
+            }
+            ?>
         </div>
         <?php require_once(\theme_shoehorn\toolbox::get_tile_file('pagebottom')); ?>
     </div>
