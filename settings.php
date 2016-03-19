@@ -28,15 +28,10 @@ defined('MOODLE_INTERNAL') || die;
 
 // Settings.
 $settings = null;
-if (is_siteadmin()) {
+$ADMIN->add('themes', new admin_category('theme_shoehorn', 'Shoehorn'));
 
-    $readme = new moodle_url('/theme/shoehorn/Readme.md');
-    $readme = html_writer::link($readme, 'Readme.md', array('target' => '_blank'));
-
-    $ADMIN->add('themes', new admin_category('theme_shoehorn', 'Shoehorn'));
-
-    $generalsettings = new admin_settingpage('theme_shoehorn_general', get_string('generalsettings', 'theme_shoehorn'));
-
+$generalsettings = new admin_settingpage('theme_shoehorn_general', get_string('generalsettings', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // CDN Fonts - 1 = no, 2 = yes.
     $name = 'theme_shoehorn/cdnfonts';
     $title = get_string('cdnfonts', 'theme_shoehorn');
@@ -277,10 +272,16 @@ if (is_siteadmin()) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-    $ADMIN->add('theme_shoehorn', $generalsettings);
+    $readme = new moodle_url('/theme/shoehorn/Readme.md');
+    $readme = html_writer::link($readme, 'Readme.md', array('target' => '_blank'));
+    $generalsettings->add(new admin_setting_heading('theme_shoehorn_generalreadme', get_string('readme_title', 'theme_shoehorn'),
+        get_string('readme_desc', 'theme_shoehorn', array('url' => $readme))));
+}
+$ADMIN->add('theme_shoehorn', $generalsettings);
 
-    // Font....
-    $fontsettings = new admin_settingpage('theme_shoehorn_font', get_string('fontsettings', 'theme_shoehorn'));
+// Font....
+$fontsettings = new admin_settingpage('theme_shoehorn_font', get_string('fontsettings', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // This is the descriptor for the font settings.
     $name = 'theme_shoehorn/fontheading';
     $heading = get_string('fontheadingsub', 'theme_shoehorn');
@@ -403,10 +404,13 @@ if (is_siteadmin()) {
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'fontfilesvgbody');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $fontsettings->add($setting);
+}
+$ADMIN->add('theme_shoehorn', $fontsettings);
 
-    $ADMIN->add('theme_shoehorn', $fontsettings);
-
-    // Front page slider page....
+// Front page slider page....
+$slidersettings = new admin_settingpage('theme_shoehorn_slider',
+    get_string('frontpagesliderheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of front page slides.
     $name = 'theme_shoehorn/frontpagenumberofslides';
     $title = get_string('frontpagenumberofslides', 'theme_shoehorn');
@@ -431,8 +435,6 @@ if (is_siteadmin()) {
         15 => '15',
         16 => '16'
     );
-    $slidersettings = new admin_settingpage('theme_shoehorn_slider',
-        get_string('frontpagesliderheading', 'theme_shoehorn'));
     $slidersettings->add(new admin_setting_heading('theme_shoehorn_slider',
         get_string('frontpagesliderheadingsub', 'theme_shoehorn'),
         format_text(get_string('frontpagesliderheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -541,9 +543,13 @@ if (is_siteadmin()) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $slidersettings->add($setting);
     }
-    $ADMIN->add('theme_shoehorn', $slidersettings);
+}
+$ADMIN->add('theme_shoehorn', $slidersettings);
 
-    // Image bank....
+// Image bank....
+$imagebanksettings = new admin_settingpage('theme_shoehorn_imagebank',
+    get_string('imagebankheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of images in the image bank.
     $name = 'theme_shoehorn/numberofimagebankimages';
     $title = get_string('numberofimagebankimages', 'theme_shoehorn');
@@ -570,8 +576,6 @@ if (is_siteadmin()) {
     );
 
     $theme = theme_config::load('shoehorn');
-    $imagebanksettings = new admin_settingpage('theme_shoehorn_imagebank',
-            get_string('imagebankheading', 'theme_shoehorn'));
     $imagebanksettings->add(new admin_setting_heading('theme_shoehorn_marketingspots',
             get_string('imagebankheadingsub', 'theme_shoehorn'),
             format_text(get_string('imagebankheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -594,9 +598,13 @@ if (is_siteadmin()) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $imagebanksettings->add($setting);
     }
-    $ADMIN->add('theme_shoehorn', $imagebanksettings);
+}
+$ADMIN->add('theme_shoehorn', $imagebanksettings);
 
-    // Login page background image changer page....
+// Login page background image changer page....
+$loginpagesettings = new admin_settingpage('theme_shoehorn_loginbackgroundchanger',
+    get_string('loginbackgroundchangerheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of images.
     $name = 'theme_shoehorn/loginbackgroundchangernumberofimages';
     $title = get_string('loginbackgroundchangernumberofimages', 'theme_shoehorn');
@@ -621,8 +629,6 @@ if (is_siteadmin()) {
         15 => '15',
         16 => '16'
     );
-    $loginpagesettings = new admin_settingpage('theme_shoehorn_loginbackgroundchanger',
-        get_string('loginbackgroundchangerheading', 'theme_shoehorn'));
     $loginpagesettings->add(new admin_setting_heading('theme_shoehorn_loginbackgroundchanger',
         get_string('loginbackgroundchangerheadingsub', 'theme_shoehorn'),
         format_text(get_string('loginbackgroundchangerheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -672,11 +678,12 @@ if (is_siteadmin()) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $loginpagesettings->add($setting);
     }
-    $ADMIN->add('theme_shoehorn', $loginpagesettings);
+}
+$ADMIN->add('theme_shoehorn', $loginpagesettings);
 
-    // Look and feel.
-    $landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
-
+// Look and feel.
+$landfsettings = new admin_settingpage('theme_shoehorn_landf', get_string('landfheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Layout.
     $landfsettings->add(new admin_setting_heading('theme_shoehorn_landf_layout',
             get_string('landflayout', 'theme_shoehorn'),
@@ -888,11 +895,14 @@ if (is_siteadmin()) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $landfsettings->add($setting);
+}
+$ADMIN->add('theme_shoehorn', $landfsettings);
 
-    $ADMIN->add('theme_shoehorn', $landfsettings);
 
-
-    // Marketing spots....
+// Marketing spots....
+$marketingspotssettings = new admin_settingpage('theme_shoehorn_marketingspots',
+    get_string('marketingspotsheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of marketing spots.
     $name = 'theme_shoehorn/numberofmarketingspots';
     $title = get_string('numberofmarketingspots', 'theme_shoehorn');
@@ -905,8 +915,6 @@ if (is_siteadmin()) {
         3 => '3',
         4 => '4'
     );
-    $marketingspotssettings = new admin_settingpage('theme_shoehorn_marketingspots',
-        get_string('marketingspotsheading', 'theme_shoehorn'));
     $marketingspotssettings->add(new admin_setting_heading('theme_shoehorn_marketingspots',
         get_string('marketingspotsheadingsub', 'theme_shoehorn'),
         format_text(get_string('marketingspotsheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -969,9 +977,13 @@ if (is_siteadmin()) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $marketingspotssettings->add($setting);
     }
-    $ADMIN->add('theme_shoehorn', $marketingspotssettings);
+}
+$ADMIN->add('theme_shoehorn', $marketingspotssettings);
 
-    // Site pages....
+// Site pages....
+$sitepagessettings = new admin_settingpage('theme_shoehorn_sitepages',
+    get_string('sitepagesheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of site pages.
     $name = 'theme_shoehorn/numberofsitepages';
     $title = get_string('numberofsitepages', 'theme_shoehorn');
@@ -997,8 +1009,6 @@ if (is_siteadmin()) {
         16 => '16'
     );
 
-    $sitepagessettings = new admin_settingpage('theme_shoehorn_sitepages',
-            get_string('sitepagesheading', 'theme_shoehorn'));
     $sitepagessettings->add(new admin_setting_heading('theme_shoehorn_sitepages',
             get_string('sitepagesheadingsub', 'theme_shoehorn'),
             format_text(get_string('sitepagesheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -1070,9 +1080,12 @@ if (is_siteadmin()) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $sitepagessettings->add($setting);
     }
-    $ADMIN->add('theme_shoehorn', $sitepagessettings);
+}
+$ADMIN->add('theme_shoehorn', $sitepagessettings);
 
-    // Social links page....
+// Social links page....
+$socialsettings = new admin_settingpage('theme_shoehorn_social', get_string('socialheading', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     // Number of social links.
     $name = 'theme_shoehorn/numberofsociallinks';
     $title = get_string('numberofsociallinks', 'theme_shoehorn');
@@ -1098,7 +1111,6 @@ if (is_siteadmin()) {
         16 => '16'
     );
 
-    $socialsettings = new admin_settingpage('theme_shoehorn_social', get_string('socialheading', 'theme_shoehorn'));
     $socialsettings->add(new admin_setting_heading('theme_shoehorn_social',
             get_string('socialheadingsub', 'theme_shoehorn'),
             format_text(get_string('socialheadingdesc', 'theme_shoehorn'), FORMAT_MARKDOWN)));
@@ -1150,17 +1162,18 @@ if (is_siteadmin()) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $socialsettings->add($setting);
+}
+$ADMIN->add('theme_shoehorn', $socialsettings);
 
-    $ADMIN->add('theme_shoehorn', $socialsettings);
-
-    // Style guide.
+// Style guide.
+$styleguidesetting = new admin_settingpage('theme_shoehorn_styleguide', get_string('styleguide', 'theme_shoehorn'));
+if ($ADMIN->fulltree) {
     if (file_exists("{$CFG->dirroot}/theme/shoehorn/shoehorn_admin_setting_styleguide.php")) {
         require_once($CFG->dirroot . '/theme/shoehorn/shoehorn_admin_setting_styleguide.php');
     } else if (!empty($CFG->themedir) && file_exists("{$CFG->themedir}/shoehorn/shoehorn_admin_setting_styleguide.php")) {
         require_once($CFG->themedir . '/shoehorn/shoehorn_admin_setting_styleguide.php');
     }
-    $setting = new admin_settingpage('theme_shoehorn_styleguide', get_string('styleguide', 'theme_shoehorn'));
-    $setting->add(new shoehorn_admin_setting_styleguide('theme_shoehorn_styleguide',
+    $styleguidesetting->add(new shoehorn_admin_setting_styleguide('theme_shoehorn_styleguide',
         get_string('styleguidesub', 'theme_shoehorn'),
         get_string('styleguidedesc', 'theme_shoehorn',
             array(
@@ -1179,5 +1192,5 @@ if (is_siteadmin()) {
             )
         )
     ));
-    $ADMIN->add('theme_shoehorn', $setting);
 }
+$ADMIN->add('theme_shoehorn', $styleguidesetting);

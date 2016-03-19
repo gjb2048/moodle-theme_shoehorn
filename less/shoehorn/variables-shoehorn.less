@@ -33,7 +33,7 @@
 @gray-darker:            lighten(#000, 13.5%); // #222
 @gray-dark:              lighten(#000, 20%);   // #333
 @gray:                   lighten(#000, 33.5%); // #555
-@gray-light:             lighten(#000, 60%);   // #999
+@gray-light:             #595959; // lighten(#000, 60%); // #999
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 @white:                  #fff;
 
@@ -832,7 +832,7 @@
 //##
 
 //** Text muted color
-@text-muted:                  lighten(@text-color, 10%);
+@text-muted:                  @gray-light;  //lighten(@text-color, 10%);
 //** Abbreviations and acronyms border color
 @abbr-border-color:           lighten(@text-color, 10%);
 //** Headings small color

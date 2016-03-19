@@ -1257,7 +1257,7 @@ h6 .small,
     text-transform: capitalize;
 }.text-muted
 {
-    color: #2965b0;
+    color: #595959;
 }.text-primary
 {
     color: #1f4d87;
@@ -2221,7 +2221,7 @@ samp
     background-color: transparent;
 }caption
 {
-    padding-top: 8px;padding-bottom: 8px;text-align: left;color: #2965b0;
+    padding-top: 8px;padding-bottom: 8px;text-align: left;color: #595959;
 }th
 {
     text-align: left;
@@ -4696,7 +4696,7 @@ button.list-group-item:focus
 }.list-group-item.disabled,
 .list-group-item.disabled:hover,
 .list-group-item.disabled:focus
-{cursor: not-allowed;color: #999;
+{cursor: not-allowed;color: #595959;
     background-color: #eee;
 }.list-group-item.disabled .list-group-item-heading,
 .list-group-item.disabled:hover .list-group-item-heading,
@@ -4707,7 +4707,7 @@ button.list-group-item:focus
 .list-group-item.disabled:hover .list-group-item-text,
 .list-group-item.disabled:focus .list-group-item-text
 {
-    color: #999;
+    color: #595959;
 }.list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus
@@ -5991,11 +5991,11 @@ a.dimmed_text:visited,
 .dimmed_category,
 .dimmed_category a
 {
-    color: #2965b0;
+    color: #595959;
 }a.disabled:hover,
 a.disabled
 {font-style: italic;cursor: default;
-    text-decoration: none;color: #2965b0;
+    text-decoration: none;color: #595959;
 }.activity.label .dimmed_text
 {
     opacity: .5;filter: alpha(opacity=50);
@@ -6989,7 +6989,7 @@ a.skip:active
 }#page-admin-qtypes .disabled,
 #page-admin-qbehaviours .disabled
 {
-    color: #2965b0;
+    color: #595959;
 }#page-admin-qtypes #qtypes div,
 #page-admin-qtypes #qtypes form,
 #page-admin-qbehaviours #qbehaviours div,
@@ -7322,7 +7322,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 #plugins-check .status-uptodate .status,
 #plugins-check .requires-ok
 {
-    color: #2965b0;
+    color: #595959;
 }#plugins-check .requires ul
 {
     font-size: 12px;margin: 0;
@@ -7348,7 +7348,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 }#plugins-control-panel .requiredby,
 #plugins-control-panel .pluginname .componentname
 {
-    font-size: 12px;color: #2965b0;
+    font-size: 12px;color: #595959;
 }#plugins-control-panel .msg td
 {
     text-align: center;
@@ -7644,7 +7644,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
     padding: 2px;text-align: center;
 }.block .minicalendar td.weekend
 {
-    color: #2965b0;
+    color: #595959;
 }.block .calendar-event-panel
 {border: 1px solid #eee;
     background-color: #eee;
@@ -7832,7 +7832,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 }.course-content .section-summary .section-summary-activities .activity-count
 {font-size: 12px;display: inline-block;margin: 3px;white-space: nowrap;
 
-    color: #2965b0;
+    color: #595959;
 }.course-content .section-summary .summary
 {
     margin-top: 5px;
@@ -8288,13 +8288,13 @@ li.section.hidden span.commands a.editing_show
     color: #1f4d87;
 }#course-category-listings .listitem[data-visible='0']
 {
-    color: #2965b0;
+    color: #595959;
 }#course-category-listings .listitem[data-visible='0'] a.categoryname
 {
-    color: #2965b0;
+    color: #595959;
 }#course-category-listings .listitem[data-visible='0'] > div > a
 {
-    color: #2965b0;
+    color: #595959;
 }#course-category-listings .listitem[data-visible='0'] > div .item-actions .action-show
 {
     display: inline;
@@ -8398,7 +8398,7 @@ li.section.hidden span.commands a.editing_show
 }#course-category-listings .listing-pagination-totals.dimmed
 {margin: .4rem 1rem .45rem;
 
-    color: #2965b0;
+    color: #595959;
 }#course-category-listings .select-a-category .notifymessage,
 #course-category-listings .select-a-category .alert
 {
@@ -9000,7 +9000,7 @@ li.section.hidden span.commands a.editing_show
     background-color: #ebebe4;
 }.fitem.disabled .fp-btn-choose
 {
-    color: #2965b0;
+    color: #595959;
 }.fitem.disabled .filepicker-filelist .filepicker-filename
 {
     display: none;
@@ -11705,7 +11705,7 @@ textareaselect.singleselect
 .form-label .form-shortname
 {font-size: 12px;
 
-    color: #2965b0;
+    color: #595959;
 }.form-setting .form-checkbox input
 {
     margin-top: 12px;
@@ -12213,7 +12213,7 @@ fieldset[disabled] #page-mod-forum-discuss .discussioncontrols .discussioncontro
     text-align: center;
 }.path-backup .backup_progress .backup_stage
 {
-    color: #2965b0;
+    color: #595959;
 }.path-backup .backup_progress .backup_stage.backup_stage_current
 {
     font-weight: bold;color: inherit;
@@ -12264,7 +12264,7 @@ fieldset[disabled] #page-mod-forum-discuss .discussioncontrols .discussioncontro
 }.backup-restore .detail-pair-value > .sub-detail
 {font-size: 12px;
 
-    display: block;color: #2965b0;
+    display: block;color: #595959;
 }.backup-restore > .singlebutton
 {
     text-align: right;
@@ -14537,12 +14537,29 @@ input[type='text'] + input[type='submit']
 }.choosercontainer #chooseform .submitbuttons
 {
     margin: auto;padding: .7em 0;
+}.activity.label .dimmed_text
+{font-style: italic;
+
+    opacity: 100;color: #595959;filter: alpha(opacity=10000);
 }.course-content .section-summary
 {
     border: 1px solid [[setting:textcolour]];
 }.course-content ul li.section.main
 {
     border: none;border-bottom: 2px solid [[setting:pagebottombackgroundlight]];
+}.course-content ul li.section.hidden
+{
+    opacity: 100;filter: alpha(opacity=10000);
+}.course-content ul li.section.hidden .sectionname > span,
+.course-content ul li.section.hidden .content > div,
+.course-content ul li.section.hidden .activity .activityinstance
+{font-style: italic;
+
+    opacity: 1;color: #595959;
+}.course-content ul li.section.hidden .sectionname > span a
+{font-style: inherit;
+
+    color: inherit;
 }ul.topics,
 ul.weeks
 {
@@ -15612,6 +15629,12 @@ a:focus,
 .navbar.navbar-inverse .navbar-header .goto-bottom:active
 {
     color: #fff;background-color: #080808;
+}.navbar ul li.dropdown > a
+{
+    width: 101%;
+}.navbar ul li.dropdown > a > span
+{
+    padding: 0 1px;
 }.has_dock .navbar
 {
     margin-left: -25px;
@@ -15712,12 +15735,28 @@ body.compactnavbar.dir-rtl .navbar-inverse #moodle-navbar .navbar-nav > li:last-
 }.ui-autocomplete
 {overflow-x: hidden;overflow-y: auto;max-width: 300px;
     max-height: 240px;cursor: pointer;
-}.courseitemsearch p
+}.courseitemsearch
+{
+    width: 100%;
+}.courseitemsearch p,
+.courseitemsearch > div
 {
     display: inline;
 }.courseitemsearch input
 {
     margin-bottom: 4px;
+}.courseitemsearch #courseitemsearch
+{
+    width: 24%;
+}.courseitemsearch #courseitemsearchresults
+{
+    position: relative;
+}.courseitemsearch .ui-autocomplete
+{
+    position: absolute;top: 0;left: 0;
+}.dir-rtl .courseitemsearch ul.ui-autocomplete
+{
+    margin: 0;
 }.ui-autocomplete
 {border-color: [[setting:pagetopbackground]];
     background-color: #fff;box-shadow: 0 5px 10px rgba(0,0,0,.2);
@@ -16127,7 +16166,7 @@ body.frontpagebackgroundimage .forumpost
     color: [[setting:navbardefaultcolour]];
 }.block.block_fake.block_style_guide
 {
-    margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;background-color: rgba(255,255,255,.5);-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    margin-bottom: 20px                                                                ;margin-bottom: 0;border: 1px solid transparent;border-radius: 4px;border-bottom-right-radius: 0;border-bottom-left-radius: 0;background-color: rgba(255,255,255,.5);-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }.block.block_fake.block_style_guide > .list-group,
 .block.block_fake.block_style_guide > .panel-collapse > .list-group
 {
@@ -16758,10 +16797,10 @@ body.fontawesome .block_myprofile .header .title h2:before
     content: '\f087';
 }body.fontawesome .block_flickr .header .title h2:before
 {
-    content: '\f03e';
+    content: '\f16e';
 }body.fontawesome .block_youtube .header .title h2:before
 {
-    content: '\f145';
+    content: '\f167';
 }body.fontawesome .block_course_badges .header .title h2:before
 {
     content: '\f091';
@@ -16798,6 +16837,10 @@ body.fontawesome #frontpage-category-combo h2:before
 {font-family: FontAwesome;font-weight: normal;font-style: normal;line-height: 1;
 
     display: inline-block;padding-right: 4px;content: '\f07c';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
+}.fa,
+:before
+{
+    speak: none;
 }#myCourseCarousel .carousel-inner
 {
     padding-bottom: 15px;

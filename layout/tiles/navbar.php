@@ -25,7 +25,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<nav role="navigation" class="<?php echo implode(' ', $settingshtml->navbarclass); ?>  moodle-has-zindex">
+<nav role="navigation" class="<?php echo implode(' ', $settingshtml->navbarclass); ?>">
     <div class="<?php echo $settingshtml->containerclass; ?>">
     <div class="navbar-header navbar-left">
         <?php

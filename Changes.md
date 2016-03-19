@@ -52,6 +52,16 @@ Version 2.9.1.6
  47. Add 'Format responsive' overrides for the 'Columns format'.
  48. Fix list group active text colour.
  49. Implement MDL-52936 - Fix link hover bug on iOS.
+ 50. Fix course content search autocomplete for RTL.
+ 51. Optimise settings.
+ 52. Have 'speak: none' for FontAwesome icons.  Ref: http://www.w3schools.com/cssref/css_ref_aural.asp.
+ 53. Use Font Awesome variables instead of codes in custom LESS.
+ 54. Add 'aria-hidden="true"' wherever possible to icons.
+ 55. Increase width of course content search autocomplete input box.
+ 56. Fix user menu width on the navbar in RTL.
+ 57. Tidy up style guide block.
+ 58. Hidden resources have low contrast.
+ 59. Fix course table of contents block navigation when there is a static navbar.
 
 Version 2.9.1.5
   1. MDL-51921.
