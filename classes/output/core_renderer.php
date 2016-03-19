@@ -245,17 +245,16 @@ class core_renderer extends \core_renderer {
 
         $logo = $this->setting_file_url('logo', 'logo');
         if (!is_null($logo)) {
-            $o .= html_writer::start_tag('div', array('class' => 'row')) .
-                    html_writer::tag($tag, $this->page->heading,
-                            array('class' => 'logoheading col-xs-8 col-sm-9 col-md-9 col-lg-10')) .
-                    html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-3 col-md-3 col-lg-2')) .
-                    html_writer::link(new moodle_url('/'),
-                            html_writer::empty_tag('img',
-                                array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'),
-                                    'class' => 'logo img-responsive')),
-                            array('title' => get_string('home'), 'class' => 'logoarea')) .
-                    html_writer::end_tag('div') .
-                    html_writer::end_tag('div');
+            $o .= html_writer::start_tag('div', array('class' => 'row')).
+                html_writer::tag($tag, $this->page->heading,
+                array('class' => 'logoheading col-xs-8 col-sm-9 col-md-9 col-lg-10')).
+                html_writer::start_tag('div', array('class' => 'col-xs-4 col-sm-3 col-md-3 col-lg-2')).
+                html_writer::link(new moodle_url('/'),
+                html_writer::empty_tag('img', array('src' => $logo, 'alt' => get_string('logo', 'theme_shoehorn'),
+                'class' => 'logo img-responsive')),
+                array('title' => get_string('home'), 'class' => 'logoarea')).
+                html_writer::end_tag('div') .
+                html_writer::end_tag('div');
         } else {
             $o .= html_writer::tag($tag, html_writer::link(new moodle_url('/'), $this->page->heading,
                 array('title' => get_string('home'))), array('class' => 'heading'));
@@ -264,8 +263,7 @@ class core_renderer extends \core_renderer {
         $ieprop = \core_useragent::check_ie_properties();
         if (is_array($ieprop)) {
             if ($ieprop['version'] < 10) {
-                $o .= html_writer::tag('h2',
-                                get_string('iewarning', 'theme_shoehorn', array('ieversion' => $ieprop['version'])));
+                $o .= html_writer::tag('h2', get_string('iewarning', 'theme_shoehorn', array('ieversion' => $ieprop['version'])));
             }
         }
 
@@ -305,8 +303,8 @@ class core_renderer extends \core_renderer {
             $item->hideicon = true;
             $breadcrumbs[] = $this->render($item);
         }
-        $listitems = html_writer::start_tag('li') . implode("$divider" . html_writer::end_tag('li') .
-                        html_writer::start_tag('li'), $breadcrumbs) . html_writer::end_tag('li');
+        $listitems = html_writer::start_tag('li') . implode("$divider" . html_writer::end_tag('li').
+            html_writer::start_tag('li'), $breadcrumbs) . html_writer::end_tag('li');
         $title = html_writer::tag('span', get_string('pagepath'), array('class' => 'accesshide'));
         return $title . html_writer::tag('ul', "$listitems", array('class' => 'breadcrumb'));
     }
@@ -340,7 +338,7 @@ class core_renderer extends \core_renderer {
                 $currentlang = $languagetext;
             }
             if ($this->is_fontawesome()) {
-                $langhtml = html_writer::tag('i', '', array('aria-hidden' => 'true', 'class' => 'fa fa-language'));
+                $langhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-language'));
             } else {
                 $langhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-book'));
             }
@@ -503,7 +501,7 @@ class core_renderer extends \core_renderer {
                         $courselabel .= html_writer::tag('span', $coursetext);
 
                         $mycoursesmenu->add($courselabel, new moodle_url('/course/view.php?id=' . $course->id),
-                                format_string($course->shortname));
+                            format_string($course->shortname));
                     }
                 }
                 // MNET.
@@ -525,8 +523,8 @@ class core_renderer extends \core_renderer {
                             $courselabel = html_writer::tag('span', '',
                                 array('aria-hidden' => 'true', 'class' => 'fa fa-' . $courseicons[$course->remoteid % 5]));
                         } else {
-                            $courselabel = html_writer::tag('span', '',
-                               array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-' . $courseicons[$course->remoteid % 5]));
+                            $courselabel = html_writer::tag('span', '', array(
+                                'aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-'.$courseicons[$course->remoteid % 5]));
                         }
                         $courselabel .= html_writer::tag('span', $coursetext);
 
@@ -593,12 +591,12 @@ class core_renderer extends \core_renderer {
                         if ($modname === 'resources') {
                             $icon = $this->pix_icon('icon', '', 'mod_page', array('class' => 'icon'));
                             $activitystreammenu->add($icon . $modfullname,
-                                    new moodle_url('/course/resources.php', array('id' => $this->page->course->id)));
+                                new moodle_url('/course/resources.php', array('id' => $this->page->course->id)));
                         } else {
                             $icon = '<img src="' . $this->pix_url('icon', $modname) . '" class="icon" alt="" />';
                             $activitystreammenu->add($icon . $modfullname,
-                                    new moodle_url('/mod/' . $modname . '/index.php',
-                                    array('id' => $this->page->course->id)));
+                                new moodle_url('/mod/' . $modname . '/index.php',
+                                array('id' => $this->page->course->id)));
                         }
                     }
                 }
@@ -650,10 +648,7 @@ class core_renderer extends \core_renderer {
                         array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
                 }
                 $preferences .= html_writer::tag('span', $preferencestext);
-                $usermenu->add(
-                        $preferences, new moodle_url('/user/preferences.php', array('id' => $USER->id)),
-                        $preferencestext
-                );
+                $usermenu->add($preferences, new moodle_url('/user/preferences.php', array('id' => $USER->id)), $preferencestext);
 
                 if (is_role_switched($this->page->course->id)) { // Has switched roles.
                     global $DB;
@@ -670,9 +665,9 @@ class core_renderer extends \core_renderer {
                             array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-time'));
                     }
                     $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
-                    $url = new moodle_url('/course/switchrole.php',
-                        array('id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
-                            'returnurl' => $this->page->url->out_as_local_url(false)));
+                    $url = new moodle_url('/course/switchrole.php', array(
+                        'id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
+                        'returnurl' => $this->page->url->out_as_local_url(false)));
                     $usermenu->add($loggedinas, $url);
                 }
 
@@ -680,13 +675,12 @@ class core_renderer extends \core_renderer {
                 if ($this->is_fontawesome()) {
                     $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-off'));
                 } else {
-                    $logout = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
+                    $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
                 }
                 $logout .= html_writer::tag('span', $logouttext);
                 if (\core\session\manager::is_loggedinas()) {
                     $logouturl = new moodle_url('/course/loginas.php',
-                            array('id' => $this->page->course->id, 'sesskey' => sesskey()));
+                        array('id' => $this->page->course->id, 'sesskey' => sesskey()));
                 } else {
                     $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
                 }
@@ -694,8 +688,7 @@ class core_renderer extends \core_renderer {
                         $logout, $logouturl, $logouttext
                 );
             } else if ($this->page->pagelayout != 'login') {
-                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'),
-                        10003);
+                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10003);
             }
         }
 
@@ -766,8 +759,7 @@ class core_renderer extends \core_renderer {
         if ($displaymycourses == 2) {
             $mycourses = $this->get_enrolled_courses();
 
-            $content .= html_writer::start_tag('div',
-                            array('class' => 'block block_dashboardcourses', 'role' => 'complementary'));
+            $content .= html_writer::start_tag('div', array('class' => 'block block_dashboardcourses', 'role' => 'complementary'));
             $content .= html_writer::start_tag('div', array('class' => 'header'));
             $content .= html_writer::start_tag('div', array('class' => 'title'));
             $allurl = new moodle_url('/course/');
@@ -787,8 +779,7 @@ class core_renderer extends \core_renderer {
                         $content .= html_writer::start_tag('div', array('class' => 'mask'));
                         $content .= html_writer::tag('h2', $course->fullname);
                         $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
-                        $content .= html_writer::link($courseurl, get_string('enter', 'theme_shoehorn'),
-                                        array('class' => 'info'));
+                        $content .= html_writer::link($courseurl, get_string('enter', 'theme_shoehorn'), array('class' => 'info'));
                         $content .= html_writer::end_tag('div');
                         $content .= html_writer::end_tag('div');
                     }
@@ -822,8 +813,7 @@ class core_renderer extends \core_renderer {
         $messagelist = array();
 
         $newmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-                            FROM {message}
-                           WHERE useridto = :userid";
+            FROM {message} WHERE useridto = :userid";
 
         $newmessages = $DB->get_records_sql($newmessagesql, array('userid' => $USER->id));
 
@@ -835,10 +825,7 @@ class core_renderer extends \core_renderer {
         if ($showoldmessages == 2) {
             $maxmessages = 5;
             $readmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-                                 FROM {message_read}
-                                WHERE useridto = :userid
-                             ORDER BY timecreated DESC
-                                LIMIT $maxmessages";
+                FROM {message_read} WHERE useridto = :userid ORDER BY timecreated DESC LIMIT $maxmessages";
 
             $readmessages = $DB->get_records_sql($readmessagesql, array('userid' => $USER->id));
 
@@ -937,7 +924,7 @@ class core_renderer extends \core_renderer {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
             $items[] = html_writer::tag('a', get_string('syntaxhighlightpage', 'theme_shoehorn'),
-                            array('href' => $url, 'target' => '_blank'));
+                array('href' => $url, 'target' => '_blank'));
         }
 
         // Site page setting.
@@ -951,8 +938,7 @@ class core_renderer extends \core_renderer {
                 }
                 $url = preg_replace('|^https?://|i', '//', $url->out(false));
                 $sitepagetitle = $this->get_setting('sitepagetitle' . $pageid);
-                $items[] = html_writer::tag('a', $sitepagetitle,
-                                array('href' => $url, 'class' => 'sitepagelink'));
+                $items[] = html_writer::tag('a', $sitepagetitle, array('href' => $url, 'class' => 'sitepagelink'));
             }
         }
 
@@ -1409,12 +1395,11 @@ class core_renderer extends \core_renderer {
             $headerattributes['data-toggle'] = 'collapse';
             $headerattributes['href'] = '#collapse-' . $bc->blockinstanceid;
         }
-        $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')),
-                        $headerattributes);
+        $output = html_writer::tag('a', html_writer::tag('div', $title, array('class' => 'title panel-title')), $headerattributes);
 
         if ($controlshtml) {
             $output .= html_writer::tag('div', html_writer::tag('div', $controlshtml, array('class' => 'title')),
-                            array('class' => 'header controlshtml'));
+                array('class' => 'header controlshtml'));
         }
 
         return $output;
@@ -1484,16 +1469,16 @@ class core_renderer extends \core_renderer {
     public function standard_end_of_body_html() {
         global $CFG;
         $output = html_writer::start_tag('div', array ('class' => 'themecredit')).
-                   get_string('credit', 'theme_shoehorn').
-                   html_writer::link('//about.me/gjbarnard', 'Gareth J Barnard', array('target' => '_blank')).
-                   html_writer::end_tag('div');
+            get_string('credit', 'theme_shoehorn').
+            html_writer::link('//about.me/gjbarnard', 'Gareth J Barnard', array('target' => '_blank')).
+            html_writer::end_tag('div');
         $output .= parent::standard_end_of_body_html();
 
         if ($this->syntaxhighlighterenabled) {
             $syscontext = \context_system::instance();
             $itemid = \theme_get_revision();
             $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
-                            "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
+                "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
 
             $script = "require(['jquery', 'core/log'], function($, log) {";  // Use AMD to get jQuery.
@@ -1543,7 +1528,7 @@ class core_renderer extends \core_renderer {
                 html_writer::end_tag('span');
         }
         $antigravity = html_writer::tag('a', $icon,
-                        array('class' => 'antiGravity', 'title' => get_string('antigravity', 'theme_shoehorn')));
+            array('class' => 'antiGravity', 'title' => get_string('antigravity', 'theme_shoehorn')));
 
         return $antigravity;
     }

@@ -11,6 +11,7 @@ Version 3.0.1.1
   8. Tidy up style guide block.
   9. Hidden resources have low contrast.
  10. Fix course table of contents block navigation when there is a static navbar.
+ 11. Changes to TravisCI fixes.
 
 Version 3.0.1
   1. Update .gitattributes file.

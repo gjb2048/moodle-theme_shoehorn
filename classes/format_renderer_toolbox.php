@@ -58,10 +58,10 @@ trait format_renderer_toolbox {
         if ($section->section == $displaysection) {
             $sectionstyle .= ' active';
         }
-        $o .= \html_writer::start_tag('li',
-                        array('id' => 'section-' . $section->section,
-                    'class' => 'section main clearfix' . $sectionstyle . ' item', 'role' => 'region',
-                    'aria-label' => $format->get_section_name($section)));
+        $o .= \html_writer::start_tag('li', array(
+            'id' => 'section-' . $section->section,
+            'class' => 'section main clearfix' . $sectionstyle . ' item', 'role' => 'region',
+            'aria-label' => $format->get_section_name($section)));
 
         $leftcontent = $this->section_left_content($section, $course, true);
         $o .= \html_writer::tag('div', $leftcontent, array('class' => 'left side'));
@@ -164,8 +164,8 @@ trait format_renderer_toolbox {
             $numsections = count($shownsections);
 
             echo \html_writer::start_tag('div', array('class' => 'carouselslider'));
-            echo \html_writer::start_tag('div',
-                    array('id' => 'myCourseCarousel', 'class' => 'carousel slide',
+            echo \html_writer::start_tag('div', array(
+                'id' => 'myCourseCarousel', 'class' => 'carousel slide',
                 'data-ride' => 'carousel', 'data-interval' => ''));
 
             $pips = \html_writer::start_tag('ol', array('class' => 'carousel-indicators'));
@@ -229,8 +229,7 @@ trait format_renderer_toolbox {
             echo $pips;
             echo $slides;
 
-            echo \html_writer::start_tag('a',
-                    array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
+            echo \html_writer::start_tag('a', array('class' => 'left carousel-control', 'href' => '#myCourseCarousel',
                 'data-slide' => 'prev'));
             $fontawesome = toolbox::get_setting('fontawesome');
             if ($fontawesome) {
@@ -239,8 +238,7 @@ trait format_renderer_toolbox {
                 echo \html_writer::tag('span', '', array('class' => 'glyphicon glyphicon-chevron-left'));
             }
             echo \html_writer::end_tag('a');
-            echo \html_writer::start_tag('a',
-                    array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
+            echo \html_writer::start_tag('a', array('class' => 'right carousel-control', 'href' => '#myCourseCarousel',
                 'data-slide' => 'next'));
             if ($fontawesome) {
                 echo \html_writer::tag('i', '', array('class' => 'fa fa-chevron-circle-right'));
