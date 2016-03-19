@@ -2106,7 +2106,7 @@ mark,
 
 .text-muted
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 .text-primary
@@ -3697,7 +3697,7 @@ caption
 
     text-align: right;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 th
@@ -8227,7 +8227,7 @@ button.list-group-item
 {
     cursor: not-allowed;
 
-    color: #999;
+    color: #595959;
     background-color: #eee;
 }
 
@@ -8242,7 +8242,7 @@ button.list-group-item
 .list-group-item.disabled:hover .list-group-item-text,
 .list-group-item.disabled:focus .list-group-item-text
 {
-    color: #999;
+    color: #595959;
 }
 
 .list-group-item.active,
@@ -10667,7 +10667,7 @@ a.dimmed_text:visited,
 .dimmed_category,
 .dimmed_category a
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 a.disabled:hover,
@@ -10678,7 +10678,7 @@ a.disabled
     cursor: default;
     text-decoration: none;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 .activity.label .dimmed_text
@@ -12722,7 +12722,7 @@ ul.dragdrop-keyboard-drag li
 #page-admin-qtypes .disabled,
 #page-admin-qbehaviours .disabled
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 #page-admin-qtypes #qtypes div,
@@ -13292,7 +13292,7 @@ textarea.path-admin .roleassigntable input[type='text']
 #plugins-check .status-uptodate .status,
 #plugins-check .requires-ok
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 #plugins-check .requires ul
@@ -13342,7 +13342,7 @@ textarea.path-admin .roleassigntable input[type='text']
 {
     font-size: 12px;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 #plugins-control-panel .msg td
@@ -13905,7 +13905,7 @@ textarea.path-admin .roleassigntable input[type='text']
 
 .block .minicalendar td.weekend
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 .block .calendar-event-panel
@@ -14268,7 +14268,7 @@ textarea.path-admin .roleassigntable input[type='text']
 
     white-space: nowrap;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 .course-content .section-summary .summary
@@ -15209,17 +15209,17 @@ span.editinstructions
 
 #course-category-listings .listitem[data-visible='0']
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 #course-category-listings .listitem[data-visible='0'] a.categoryname
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 #course-category-listings .listitem[data-visible='0'] > div > a
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 #course-category-listings .listitem[data-visible='0'] > div .item-actions .action-show
@@ -15419,7 +15419,7 @@ span.editinstructions
 {
     margin: .4rem 1rem .45rem;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 #course-category-listings .select-a-category .notifymessage,
@@ -16677,7 +16677,7 @@ a.ygtvspacer:hover
 
 .fitem.disabled .fp-btn-choose
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 .fitem.disabled .filepicker-filelist .filepicker-filename
@@ -22159,7 +22159,7 @@ textareaselect.singleselect
 {
     font-size: 12px;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 .form-setting .form-checkbox input
@@ -23233,7 +23233,7 @@ fieldset[disabled] .path-mod-assign a.btn.focus
 
 .path-backup .backup_progress .backup_stage
 {
-    color: #2965b0;
+    color: #595959;
 }
 
 .path-backup .backup_progress .backup_stage.backup_stage_current
@@ -23341,7 +23341,7 @@ fieldset[disabled] .path-mod-assign a.btn.focus
 
     display: block;
 
-    color: #2965b0;
+    color: #595959;
 }
 
 .backup-restore > .singlebutton
@@ -27275,6 +27275,16 @@ img.iconhelp,
     padding: .7em 0;
 }
 
+.activity.label .dimmed_text
+{
+    font-style: italic;
+
+    opacity: 100;
+    color: #595959;
+
+    filter: alpha(opacity=10000);
+}
+
 .course-content .section-summary
 {
     border: 1px solid [[setting:textcolour]];
@@ -27284,6 +27294,30 @@ img.iconhelp,
 {
     border: none;
     border-bottom: 2px solid [[setting:pagebottombackgroundlight]];
+}
+
+.course-content ul li.section.hidden
+{
+    opacity: 100;
+
+    filter: alpha(opacity=10000);
+}
+
+.course-content ul li.section.hidden .sectionname > span,
+.course-content ul li.section.hidden .content > div,
+.course-content ul li.section.hidden .activity .activityinstance
+{
+    font-style: italic;
+
+    opacity: 1;
+    color: #595959;
+}
+
+.course-content ul li.section.hidden .sectionname > span a
+{
+    font-style: inherit;
+
+    color: inherit;
 }
 
 ul.topics,
@@ -29139,6 +29173,16 @@ a:focus,
     background-color: #080808;
 }
 
+.navbar ul li.dropdown > a
+{
+    width: 101%;
+}
+
+.navbar ul li.dropdown > a > span
+{
+    padding: 0 1px;
+}
+
 .has_dock .navbar
 {
     margin-right: -25px;
@@ -29342,7 +29386,13 @@ body.navbarfixedtop header.moodleheader
     cursor: pointer;
 }
 
-.courseitemsearch p
+.courseitemsearch
+{
+    width: 100%;
+}
+
+.courseitemsearch p,
+.courseitemsearch > div
 {
     display: inline;
 }
@@ -29350,6 +29400,28 @@ body.navbarfixedtop header.moodleheader
 .courseitemsearch input
 {
     margin-bottom: 4px;
+}
+
+.courseitemsearch #courseitemsearch
+{
+    width: 24%;
+}
+
+.courseitemsearch #courseitemsearchresults
+{
+    position: relative;
+}
+
+.courseitemsearch .ui-autocomplete
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dir-rtl .courseitemsearch ul.ui-autocomplete
+{
+    margin: 0;
 }
 
 .ui-autocomplete
@@ -29992,9 +30064,12 @@ aside
 .block.block_fake.block_style_guide
 {
     margin-bottom: 20px;
+    margin-bottom: 0;
 
     border: 1px solid transparent;
     border-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
     background-color: rgba(255,255,255,.5);
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
             box-shadow: 0 1px 1px rgba(0,0,0,.05);
@@ -31180,12 +31255,12 @@ body.fontawesome .block_feedback .header .title h2:before
 
 body.fontawesome .block_flickr .header .title h2:before
 {
-    content: '\f03e';
+    content: '\f16e';
 }
 
 body.fontawesome .block_youtube .header .title h2:before
 {
-    content: '\f145';
+    content: '\f167';
 }
 
 body.fontawesome .block_course_badges .header .title h2:before
@@ -31306,6 +31381,12 @@ body.fontawesome #frontpage-category-names h2:before
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.fa,
+:before
+{
+    speak: none;
 }
 
 #myCourseCarousel .carousel-inner

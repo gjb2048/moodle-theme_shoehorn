@@ -29,6 +29,9 @@ if ($fitvids) {
     $PAGE->requires->js_call_amd('theme_shoehorn/fitvids', 'init');
 }
 switch ($PAGE->pagelayout) {
+    case 'course':
+            $PAGE->requires->js_call_amd('theme_shoehorn/course_navigation', 'init');
+        break;
     case 'login':
         $loginpageimages = \theme_shoehorn\toolbox::shown_loginbackgroundchanger_images();
         if (!empty($loginpageimages)) {

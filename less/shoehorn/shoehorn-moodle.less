@@ -233,6 +233,12 @@ img.iconhelp,
     padding: 0.7em 0;
 }
 
+.activity.label .dimmed_text {
+    .opacity(100);
+    color: @gray-light;
+    font-style: italic;
+}
+
 // course.less.
 .course-content {
     .section-summary {
@@ -243,6 +249,21 @@ img.iconhelp,
             border: none;
             border-bottom: 2px solid ~"[[setting:pagebottombackgroundlight]]";
         }
+    }
+}
+
+.course-content ul li.section.hidden {
+    .opacity(100);
+    .sectionname > span,
+    .content > div,  /* All the divs but the activities which are in a UL. */
+    .activity .activityinstance {
+        opacity: 1;
+        color: @gray-light;
+        font-style: italic;
+    }
+    .sectionname > span a {
+        color: inherit;
+        font-style: inherit;
     }
 }
 

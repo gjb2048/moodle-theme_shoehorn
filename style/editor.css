@@ -218,7 +218,7 @@ h6 .small,
     text-transform: capitalize;
 }.text-muted
 {
-    color: #2965b0;
+    color: #595959;
 }.text-primary
 {
     color: #1f4d87;
@@ -418,7 +418,7 @@ samp
     background-color: transparent;
 }caption
 {
-    padding-top: 8px;padding-bottom: 8px;text-align: left;color: #2965b0;
+    padding-top: 8px;padding-bottom: 8px;text-align: left;color: #595959;
 }th
 {
     text-align: left;

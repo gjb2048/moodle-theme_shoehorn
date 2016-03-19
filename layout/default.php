@@ -72,9 +72,9 @@ if (($hassidepre) && ($regions['layout'] == 1)) {
 echo $OUTPUT->course_content_header();
 
 if ($coursecontentsearch) {
-    echo '<div class="row"><div class="courseitemsearch col-md-12">';
-    echo '<p>'.get_string('findcoursecontent', 'theme_shoehorn').
-        '</p><input type="text" name="courseitemsearch" id="courseitemsearch" disabled="disabled">';
+    echo '<div class="courseitemsearch">';
+    echo '<div><p>'.get_string('findcoursecontent', 'theme_essential').'</p></div>'.
+        '<div id="courseitemsearchresults"><input type="text" name="courseitemsearch" id="courseitemsearch" disabled="disabled">';
     echo '</div></div>';
 }
 

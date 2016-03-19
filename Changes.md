@@ -1,5 +1,17 @@
 Version information
 ===================
+Version 3.0.1.1
+  1. Fix course content search autocomplete for RTL.
+  2. Optimise settings.
+  3. Have 'speak: none' for FontAwesome icons.  Ref: http://www.w3schools.com/cssref/css_ref_aural.asp.
+  4. Use Font Awesome variables instead of codes in custom LESS.
+  5. Add 'aria-hidden="true"' wherever possible to icons.
+  6. Increase width of course content search autocomplete input box.
+  7. Fix user menu width on the navbar in RTL.
+  8. Tidy up style guide block.
+  9. Hidden resources have low contrast.
+ 10. Fix course table of contents block navigation when there is a static navbar.
+
 Version 3.0.1
   1. Update .gitattributes file.
   2. Bootstrap #379 fix pdf annotation.
