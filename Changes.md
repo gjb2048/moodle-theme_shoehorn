@@ -63,6 +63,7 @@ Version 2.9.1.6
  58. Hidden resources have low contrast.
  59. Fix course table of contents block navigation when there is a static navbar.
  60. Changes to TravisCI fixes.
+ 61. Fix slight alignment issue with header.
 
 Version 2.9.1.5
   1. MDL-51921.

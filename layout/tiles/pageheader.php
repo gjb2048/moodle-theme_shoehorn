@@ -25,7 +25,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<header class="moodleheader col-md-12">
+<header class="moodleheader">
     <?php echo $OUTPUT->page_heading(); ?>
 </header>
 
