@@ -73,7 +73,7 @@ echo $OUTPUT->course_content_header();
 
 if ($coursecontentsearch) {
     echo '<div class="courseitemsearch">';
-    echo '<div><p>'.get_string('findcoursecontent', 'theme_essential').'</p></div>'.
+    echo '<div><p>'.get_string('findcoursecontent', 'theme_shoehorn').'</p></div>'.
         '<div id="courseitemsearchresults"><input type="text" name="courseitemsearch" id="courseitemsearch" disabled="disabled">';
     echo '</div></div>';
 }

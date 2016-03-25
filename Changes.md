@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.1.1.1
+  1. Fix 'Invalid get_string() identifier' - #20.
+
 Version 3.0.1.1
   1. Fix course content search autocomplete for RTL.
   2. Optimise settings.
