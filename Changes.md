@@ -64,6 +64,7 @@ Version 2.9.1.6
  59. Fix course table of contents block navigation when there is a static navbar.
  60. Changes to TravisCI fixes.
  61. Fix slight alignment issue with header.
+ 62. Fix 'Invalid get_string() identifier' - #20.
 
 Version 2.9.1.5
   1. MDL-51921.
