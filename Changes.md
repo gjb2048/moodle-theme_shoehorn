@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.0.1.2
+  1. Update Chartist.js (https://gionkunz.github.io/chartist-js/index.html) to 0.9.7 for JS and 0.9.5 for CSS.
+
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
 
