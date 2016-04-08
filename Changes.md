@@ -65,6 +65,7 @@ Version 2.9.1.6
  60. Changes to TravisCI fixes.
  61. Fix slight alignment issue with header.
  62. Fix 'Invalid get_string() identifier' - #20.
+ 63. Update Chartist.js (https://gionkunz.github.io/chartist-js/index.html) to 0.9.7 for JS and 0.9.5 for CSS.
 
 Version 2.9.1.5
   1. MDL-51921.
