@@ -67,6 +67,8 @@ Version 2.9.1.6
  62. Fix 'Invalid get_string() identifier' - #20.
  63. Update Chartist.js (https://gionkunz.github.io/chartist-js/index.html) to 0.9.7 for JS and 0.9.5 for CSS.
  64. Update to FontAwesome 4.6.1.
+ 65. Mod_feedback LESS from Bootstrap theme.
+ 66. Implement MDL-53855 - Navbar should be in exactly one nav region, and that should be labelled.
 
 Version 2.9.1.5
   1. MDL-51921.

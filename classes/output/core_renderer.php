@@ -208,7 +208,7 @@ class core_renderer extends \core_renderer {
                 $secondrow = $this->tabtree($tab->subtree);
             }
         }
-        return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs nav-justified')) . $secondrow;
+        return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs')) . $secondrow;
     }
 
     protected function render_tabobject(\tabobject $tab) {
@@ -305,8 +305,14 @@ class core_renderer extends \core_renderer {
         }
         $listitems = html_writer::start_tag('li') . implode("$divider" . html_writer::end_tag('li').
             html_writer::start_tag('li'), $breadcrumbs) . html_writer::end_tag('li');
-        $title = html_writer::tag('span', get_string('pagepath'), array('class' => 'accesshide'));
-        return $title . html_writer::tag('ul', "$listitems", array('class' => 'breadcrumb'));
+        $title = html_writer::tag('span', get_string('pagepath'), array('class' => 'accesshide', 'id' => 'navbar-label'));
+        return $title.html_writer::start_tag('nav',
+            array('aria-labelledby' => 'navbar-label',
+                'aria-label' => 'breadcrumb',
+                'class' => 'breadcrumb-nav',
+                'role' => 'navigation')).
+            html_writer::tag('ul', "$listitems", array('class' => 'breadcrumb')).
+            html_writer::end_tag('nav');
     }
 
     public function custom_menu($custommenuitems = '') {

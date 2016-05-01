@@ -1117,7 +1117,7 @@ a.thumbnail.active
 }.affix
 {
     position: fixed;
-}body
+}.editor_atto_content .img-responsive
 {
-    margin: 8px;
+    display: inline-block;
 }
