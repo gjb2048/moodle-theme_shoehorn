@@ -198,7 +198,7 @@
     .section-summary {
         border: 1px solid #ddd;
         margin-top: 5px;
-        list-style: none;
+        list-style-type: none;
         .section-title {
             margin: 2px 5px 10px 5px;
         }
@@ -270,6 +270,33 @@
         margin-right: 0px;
         margin-left: 0px;
         padding: 0;
+    }
+}
+
+.course-content li {
+    &.section {
+        ul {
+            list-style: disc;
+            ul {
+                list-style: circle;
+                ul {
+                    list-style: square;
+                }
+            }
+        }
+        li {
+            &.activity {
+                ul {
+                    list-style: disc;
+                    ul {
+                        list-style: circle;
+                        ul {
+                            list-style: square;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -379,7 +406,7 @@ span.editinstructions {
 .dndupload-preview {
     color: #909090;
     border: 1px dashed #909090;
-    list-style: none;
+    list-style-type: none;
     margin-top: .2em;
     padding: .3em;
     img.icon {
@@ -438,7 +465,7 @@ span.editinstructions {
     }
     .teachers {
         li {
-            list-style-type:none;
+            list-style-type: none;
             padding:0;
             margin:0;
         }
@@ -489,9 +516,9 @@ span.editinstructions {
         clear:both;
         .teachers {
             li {
-                list-style-type:none;
-                padding:0;
-                margin:0;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
             }
         }
         .coursecat {
@@ -772,7 +799,7 @@ span.editinstructions {
         }
     }
     ul.ml {
-        list-style: none;
+        list-style-type: none;
         margin: 1rem 0;
         ul.ml {
             margin: 0;

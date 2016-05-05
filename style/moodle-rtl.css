@@ -14267,7 +14267,7 @@ textarea.path-admin .roleassigntable input[type='text']
 {
     margin-top: 5px;
 
-    list-style: none;
+    list-style-type: none;
 
     border: 1px solid #ddd;
 }
@@ -14380,6 +14380,36 @@ textarea.path-admin .roleassigntable input[type='text']
     margin-right: 0;
     margin-left: 0;
     padding: 0;
+}
+
+.course-content li.section ul
+{
+    list-style: disc;
+}
+
+.course-content li.section ul ul
+{
+    list-style: circle;
+}
+
+.course-content li.section ul ul ul
+{
+    list-style: square;
+}
+
+.course-content li.section li.activity ul
+{
+    list-style: disc;
+}
+
+.course-content li.section li.activity ul ul
+{
+    list-style: circle;
+}
+
+.course-content li.section li.activity ul ul ul
+{
+    list-style: square;
 }
 
 .path-course-view .completionprogress
@@ -14565,7 +14595,7 @@ span.editinstructions
     margin-top: .2em;
     padding: .3em;
 
-    list-style: none;
+    list-style-type: none;
 
     color: #909090;
     border: 1px dashed #909090;
@@ -15074,7 +15104,7 @@ span.editinstructions
 {
     margin: 1rem 0;
 
-    list-style: none;
+    list-style-type: none;
 }
 
 #course-category-listings ul.ml ul.ml

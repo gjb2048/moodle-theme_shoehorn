@@ -5,6 +5,7 @@ Version 3.0.1.2
   2. Update to FontAwesome 4.6.1.
   3. Mod_feedback LESS from Bootstrap theme.
   4. Implement MDL-53855 - Navbar should be in exactly one nav region, and that should be labelled.
+  5. Fix 'Trouble with unordered lists in section headings' - #21.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.

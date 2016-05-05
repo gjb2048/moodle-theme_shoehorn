@@ -7841,7 +7841,7 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 {
     background-color: #d9edf7;
 }.course-content .section-summary
-{margin-top: 5px;list-style: none;
+{margin-top: 5px;list-style-type: none;
 
     border: 1px solid #ddd;
 }.course-content .section-summary .section-title
@@ -7896,6 +7896,24 @@ fieldset[disabled] .path-admin .roleassigntable input[type='text']
 .course-content ul.weeks li.section .content
 {
     margin-right: 0;margin-left: 0;padding: 0;
+}.course-content li.section ul
+{
+    list-style: disc;
+}.course-content li.section ul ul
+{
+    list-style: circle;
+}.course-content li.section ul ul ul
+{
+    list-style: square;
+}.course-content li.section li.activity ul
+{
+    list-style: disc;
+}.course-content li.section li.activity ul ul
+{
+    list-style: circle;
+}.course-content li.section li.activity ul ul ul
+{
+    list-style: square;
 }.path-course-view .completionprogress
 {position: relative;z-index: 1000;display: block;float: right;height: 20px;
     margin-left: 25px;text-align: right;
@@ -7975,7 +7993,7 @@ li.section.hidden span.commands a.editing_show
 {
     color: #245269;
 }.dndupload-preview
-{margin-top: .2em;padding: .3em;list-style: none;
+{margin-top: .2em;padding: .3em;list-style-type: none;
 
     color: #909090;border: 1px dashed #909090;
 }.dndupload-preview img.icon
@@ -8222,7 +8240,7 @@ li.section.hidden span.commands a.editing_show
 }#course-category-listings ul.ml
 {margin: 1rem 0;
 
-    list-style: none;
+    list-style-type: none;
 }#course-category-listings ul.ml ul.ml
 {
     margin: 0;
