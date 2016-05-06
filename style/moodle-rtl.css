@@ -27144,6 +27144,11 @@ a:focus
     color: [[setting:linkcolour]];
 }
 
+.editing .block .header .commands
+{
+    padding: 0;
+}
+
 legend,
 #adminsettings h3,
 .backup-restore .backup-section > h2.header,
