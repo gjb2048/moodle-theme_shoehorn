@@ -25,6 +25,8 @@ Version 2.9.1.6
  21. Change body font setting text to 'Text'.
  22. Fix background transparency not set.
  23. Fix background colour on carosel hover when link.
+ 24. Display section name in one section per page indicator on slider.
+ 25. Changes to child theme mechanism.  For a child theme template, please contact me via https://about.me/gjbarnard.
 
 Version 2.9.1.5
   1. MDL-51921.
