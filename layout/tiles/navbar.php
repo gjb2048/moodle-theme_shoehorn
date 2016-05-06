@@ -28,17 +28,13 @@
 <nav role="navigation" class="<?php echo implode(' ', $settingshtml->navbarclass); ?>  moodle-has-zindex">
     <div class="<?php echo $settingshtml->containerclass; ?>">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
-            <span class="sr-only"><?php echo get_string('togglenavigation', 'theme_shoehorn'); ?></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+        <?php 
+        echo $OUTPUT->navbar_items();
+        echo $OUTPUT->navbar_button();
+        ?>
     </div>
 
     <div id="moodle-navbar" class="navbar-collapse collapse">
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
         <?php echo $OUTPUT->custom_menu(); ?>
         <?php echo $OUTPUT->user_menu(); ?>
         <ul class="nav pull-right">

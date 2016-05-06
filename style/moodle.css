@@ -15621,6 +15621,13 @@ ul.weeks
     {
         margin-bottom: 10px;
     }
+}@media (max-width:768px)
+{
+    .navbar-collapse.collapse,
+    .navbar-collapse.collapsing
+    {
+        margin-top: 0;
+    }
 }.dropdown-menu li a:hover,
 .dropdown-menu li a:focus,
 .dropdown-menu li a:active
