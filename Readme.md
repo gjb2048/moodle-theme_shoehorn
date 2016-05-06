@@ -4,7 +4,7 @@ Shoehorn theme.
 
 ![image1](pix/screenshot.png "Shoehorn screenshot")
 
-[![Build Status](https://travis-ci.org/gjb2048/moodle-theme_shoehorn.svg?branch=master)](https://travis-ci.org/gjb2048/moodle-theme_shoehorn)
+[![Build Status](https://travis-ci.org/gjb2048/moodle-theme_shoehorn.svg?branch=MOODLE_29)](https://travis-ci.org/gjb2048/moodle-theme_shoehorn)
 
 About
 =====
