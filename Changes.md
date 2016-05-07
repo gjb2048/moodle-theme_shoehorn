@@ -43,6 +43,7 @@ Version 2.9.1.6
  39. Fix incorrect pip calculation when one section per page.
  40. Only resize carousel images on the front page.
  41. Fix glyphicon carousel position.
+ 42. Update .gitattributes file.
 
 Version 2.9.1.5
   1. MDL-51921.
