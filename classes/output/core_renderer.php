@@ -400,7 +400,7 @@ class core_renderer extends \core_renderer {
                     array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-envelope'));
                 $timeicon = 'glyphicon glyphicon-time';
             }
-            $messagemenucount = $messagecount;
+            $messagemenucount = $messagecount.' ';
             if ($messagecount == 1) {
                 $messagemenucount .= get_string('message', 'message');
             } else {

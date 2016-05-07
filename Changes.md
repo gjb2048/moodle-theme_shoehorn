@@ -6,6 +6,8 @@ Version 3.0.1.2
   3. Mod_feedback LESS from Bootstrap theme.
   4. Implement MDL-53855 - Navbar should be in exactly one nav region, and that should be labelled.
   5. Fix 'Trouble with unordered lists in section headings' - #21.
+  6. Fix no space after message count tooltip.
+  7. Adjustment in course navigation AMD JS not needed when navbar is static.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
