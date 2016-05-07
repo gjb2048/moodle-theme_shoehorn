@@ -8,6 +8,7 @@ Version 3.0.1.2
   5. Fix 'Trouble with unordered lists in section headings' - #21.
   6. Fix no space after message count tooltip.
   7. Adjustment in course navigation AMD JS not needed when navbar is static.
+  8. Fix message drop-down hover.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.

@@ -6833,12 +6833,6 @@ a.skip:active
 }.moodle-actionmenu[data-enhanced].show .menu .glyphicon
 {
     margin-right: 5px;
-}.moodle-actionmenu[data-enhanced].show .menu > li > a:hover span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover i:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus i:first-child
-{margin-right: 3px;margin-left: -2px;
-    padding: 2px;
 }.moodle-actionmenu[data-enhanced].show .menu li a:hover,
 .moodle-actionmenu[data-enhanced].show .menu li a:focus,
 .moodle-actionmenu[data-enhanced].show .menu li a:active
@@ -14829,12 +14823,6 @@ body.tabletdevice .carouselslider a.carousel-control
 }.dropdown-menu
 {
     padding-top: 0;padding-bottom: 0;
-}.dropdown-menu > li > a:hover span:first-child,
-.dropdown-menu > li > a:focus span:first-child,
-.dropdown-menu > li > a:hover i:first-child,
-.dropdown-menu > li > a:focus i:first-child
-{margin-right: 3px;margin-left: -2px;
-    padding: 2px;
 }.navbar-inverse .dropdown-menu
 {
     background-color: rgba(34,34,34,.75);
