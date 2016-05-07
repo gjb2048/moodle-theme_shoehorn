@@ -12430,16 +12430,6 @@ body.jsenabled .formlisting
     margin-left: 5px;
 }
 
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus span:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:hover i:first-child,
-.moodle-actionmenu[data-enhanced].show .menu > li > a:focus i:first-child
-{
-    margin-right: -2px;
-    margin-left: 3px;
-    padding: 2px;
-}
-
 .moodle-actionmenu[data-enhanced].show .menu li a:hover,
 .moodle-actionmenu[data-enhanced].show .menu li a:focus,
 .moodle-actionmenu[data-enhanced].show .menu li a:active
@@ -27300,16 +27290,6 @@ body.tabletdevice .carouselslider a.carousel-control
 {
     padding-top: 0;
     padding-bottom: 0;
-}
-
-.dropdown-menu > li > a:hover span:first-child,
-.dropdown-menu > li > a:focus span:first-child,
-.dropdown-menu > li > a:hover i:first-child,
-.dropdown-menu > li > a:focus i:first-child
-{
-    margin-right: -2px;
-    margin-left: 3px;
-    padding: 2px;
 }
 
 .navbar-inverse .dropdown-menu
