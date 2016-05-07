@@ -32,9 +32,6 @@ define(['jquery', 'core/log'], function($, log) {
                         if (navbar) {
                             if (navbar.css('position') == 'fixed') {
                                 scrollTo = scrollTo - navbarHeight;
-                            } else {
-                                // Strange but true.
-                                scrollTo = scrollTo - (navbarHeight * 2);
                             }
                         }
                         $('html, body').animate({scrollTop : scrollTo}, duration);

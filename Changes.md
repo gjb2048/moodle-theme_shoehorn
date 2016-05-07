@@ -69,6 +69,8 @@ Version 2.9.1.6
  64. Update to FontAwesome 4.6.1.
  65. Mod_feedback LESS from Bootstrap theme.
  66. Implement MDL-53855 - Navbar should be in exactly one nav region, and that should be labelled.
+ 67. Fix no space after message count tooltip.
+ 68. Adjustment in course navigation AMD JS not needed when navbar is static.
 
 Version 2.9.1.5
   1. MDL-51921.
