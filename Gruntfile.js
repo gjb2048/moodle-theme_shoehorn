@@ -133,7 +133,7 @@
 module.exports = function(grunt) { // jshint ignore:line
 
     // Import modules.
-    var path = require('path');
+    var path = require('path'); // jshint ignore:line
 
     // Theme Bootstrap constants.
     var MOODLEURLPREFIX = grunt.option('urlprefix') || '',
@@ -394,7 +394,7 @@ module.exports = function(grunt) { // jshint ignore:line
         }
     });
 
-    require('time-grunt')(grunt);
+    require('time-grunt')(grunt); // jshint ignore:line
 
     // Load contrib tasks.
     grunt.loadNpmTasks("grunt-contrib-less");
