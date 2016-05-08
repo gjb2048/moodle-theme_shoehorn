@@ -17340,9 +17340,7 @@ body.fontawesome .block_myprofile .header .title h2:before
 {font-family: FontAwesome;font-weight: normal;font-style: normal;line-height: 1;
 
     display: inline-block;padding-right: 4px;content: '\f086';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
-}body.fontawesome .course-content ul.weeks .content .summary li:before,
-body.fontawesome .course-content ul.topics .content .summary li:before,
-body.fontawesome .entrybox li:before
+}body.fontawesome .entrybox li:before
 {font-family: FontAwesome;font-weight: normal;font-style: normal;line-height: 1;
 
     display: inline-block;padding-right: 4px;content: '\f0da';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;

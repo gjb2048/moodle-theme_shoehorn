@@ -31966,8 +31966,6 @@ body.fontawesome #block-region-side-middle .block_rss_client .header .title h2:b
     -moz-osx-font-smoothing: grayscale;
 }
 
-body.fontawesome .course-content ul.weeks .content .summary li:before,
-body.fontawesome .course-content ul.topics .content .summary li:before,
 body.fontawesome .entrybox li:before
 {
     font-family: FontAwesome;
