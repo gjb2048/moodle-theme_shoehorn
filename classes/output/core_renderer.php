@@ -610,7 +610,17 @@ class core_renderer extends \core_renderer {
 
         if (!isloggedin()) {
             if ($this->page->pagelayout != 'login') {
-                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10003);
+                $logintext = get_string('login');
+                if ($this->is_fontawesome()) {
+                    $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-in'));
+                } else {
+                    $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
+                }
+                $login .= html_writer::tag('span', $logintext);
+                $loginurl = new moodle_url('/login/index.php');
+                $usermenu = $menu->add(
+                    $login, $loginurl, $logintext, 10003
+                );
             }
         } else if (isguestuser()) {
             $usertext = fullname($USER);
@@ -626,14 +636,14 @@ class core_renderer extends \core_renderer {
 
             $logintext = get_string('login');
             if ($this->is_fontawesome()) {
-                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-on'));
+                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-in'));
             } else {
-                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-on'));
+                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
             }
             $login .= html_writer::tag('span', $logintext);
             $loginurl = new moodle_url('/login/index.php');
             $usermenu->add(
-                $login, $loginurl, $logintext
+                $login, $loginurl, $logintext, 10004
             );
         } else {
             $usertext = fullname($USER);
@@ -704,7 +714,7 @@ class core_renderer extends \core_renderer {
 
             $logouttext = get_string('logout');
             if ($this->is_fontawesome()) {
-                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-off'));
+                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-out'));
             } else {
                 $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
             }

@@ -11,6 +11,8 @@ Version 3.0.1.2
   8. Fix message drop-down hover.
   9. Fix guest menu.
  10. Fix footer background and below.
+ 11. Fix sub-menus on compact navbar.
+ 12. Adjust login menu when logged out and guest.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
