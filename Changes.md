@@ -14,6 +14,7 @@ Version 3.0.1.2
  11. Fix sub-menus on compact navbar.
  12. Adjust login menu when logged out and guest.
  13. Fix zero messages navbar padding.
+ 14. Change page top background from #1F4D87 to #2E73C9.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
