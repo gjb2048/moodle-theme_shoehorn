@@ -28833,6 +28833,11 @@ form .input-group select.singleselect
     {
         min-width: inherit;
     }
+
+    .mform #id_availabilityconditions .fcontainer .fitem .felement select
+    {
+        min-width: inherit;
+    }
 }
 
 .mform .fcontainer .fitem .felement.fcolourtext input[type='text']
