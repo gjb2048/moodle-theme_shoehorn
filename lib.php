@@ -50,7 +50,6 @@ function theme_shoehorn_process_css($css, $theme) {
     // Colour settings.
     $footerbottomcolour = \theme_shoehorn\toolbox::get_setting('footerbottomcolour', '#267F00');
     $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackground]]', $footerbottomcolour);  // Footer bottom background.
-    $css = theme_shoehorn_set_setting($css, '[[setting:htmlbackgroundrgba]]', shoehorn_hex2rgba($footerbottomcolour, 0.6));
 
     $textcolour = \theme_shoehorn\toolbox::get_setting('textcolour', '#1F4D87');
     $css = theme_shoehorn_set_setting($css, '[[setting:textcolour]]', $textcolour);
@@ -124,11 +123,8 @@ function theme_shoehorn_process_css($css, $theme) {
         shoehorn_hexadjust($footertextcolour, -10));
 
     $footertopcolour = \theme_shoehorn\toolbox::get_setting('footertopcolour', '#269F00');
-    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundrgba]]',
-        shoehorn_hex2rgba($footertopcolour, 0.5));
+    $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackground]]', $footertopcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackground]]', $footerbottomcolour);
-    $css = theme_shoehorn_set_setting($css, '[[setting:footerbottombackgroundrgba]]',
-        shoehorn_hex2rgba($footerbottomcolour, 0.5));
 
     $footertopbackgroundlight = shoehorn_hexadjust($footertopcolour, 20);
     $css = theme_shoehorn_set_setting($css, '[[setting:footertopbackgroundlight]]', $footertopbackgroundlight);

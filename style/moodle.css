@@ -16092,13 +16092,13 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
     margin-left: auto;
 }html
 {
-    background-color: [[setting:htmlbackground]]        ;background-color: [[setting:htmlbackgroundrgba]];
+    background-color: [[setting:htmlbackground]];
 }html.report
 {
-    background-color: [[setting:pagebottombackground]];background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-repeat: repeat-x;
+    background-color: [[setting:pagebottombackground]];background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:      -o-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-repeat: repeat-x;
 }body
 {
-    color: [[setting:textcolour]];background-color: [[setting:pagebottombackground]];background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-repeat: repeat-x;
+    color: [[setting:textcolour]];background-color: [[setting:pagebottombackground]];background-image: -webkit-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:      -o-linear-gradient(top, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-image:         linear-gradient(to bottom, [[setting:pagetopbackgroundrgba]] 0, [[setting:pagebottombackgroundrgba]] 100%);background-repeat: repeat-x;
 }body.pagelayout-redirect
 {
     color: #fff;
@@ -17638,7 +17638,7 @@ body.fontawesome #frontpage-category-combo h2:before
     font-size: inherit;
 }#page-footer
 {color: [[setting:footertextcolour]];
-    background-image: -webkit-linear-gradient(top, [[setting:footertopbackgroundrgba]] 0, [[setting:footerbottombackgroundrgba]] 100%)                    ;background-image:         linear-gradient(to bottom, [[setting:footertopbackgroundrgba]] 0, [[setting:footerbottombackgroundrgba]] 100%);background-repeat: repeat-x;
+    background-color: [[setting:footerbottombackground]];background-image: -webkit-linear-gradient(top, [[setting:footertopbackground]] 0, [[setting:footerbottombackground]] 100%);background-image:      -o-linear-gradient(top, [[setting:footertopbackground]] 0, [[setting:footerbottombackground]] 100%);background-image:         linear-gradient(to bottom, [[setting:footertopbackground]] 0, [[setting:footerbottombackground]] 100%);background-repeat: repeat-x;
 }#page-footer .themecredit
 {
     font-size: 7pt;text-align: center;

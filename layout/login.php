@@ -35,7 +35,7 @@
  * breaking installation or upgrade unwittingly.
  */
 
-$loggedin = isloggedin();
+$loggedin = (isloggedin() && (!isguestuser()));
 require_once(\theme_shoehorn\toolbox::get_tile_file('additionaljs'));
 
 $settingshtml = \theme_shoehorn\toolbox::html_for_settings();

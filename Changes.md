@@ -9,6 +9,8 @@ Version 3.0.1.2
   6. Fix no space after message count tooltip.
   7. Adjustment in course navigation AMD JS not needed when navbar is static.
   8. Fix message drop-down hover.
+  9. Fix guest menu.
+ 10. Fix footer background and below.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
