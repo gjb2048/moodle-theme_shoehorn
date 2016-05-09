@@ -759,7 +759,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_shoehorn/pagetopcolour';
     $title = get_string('pagetopcolour', 'theme_shoehorn');
     $description = get_string('pagetopcolourdesc', 'theme_shoehorn');
-    $default = '#1F4D87';
+    $default = '#2E73C9';
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');

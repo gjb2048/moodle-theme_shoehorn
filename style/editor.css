@@ -45,7 +45,7 @@ a:focus
     border-radius: 6px;
 }.img-thumbnail
 {line-height: 1.42857143;display: inline-block;max-width: 100%;height: auto;
-    padding: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;border: 1px solid #1f4d87;border-radius: 4px;background-color: #fff;
+    padding: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;border: 1px solid #2e73c9;border-radius: 4px;background-color: #fff;
 }.img-circle
 {
     border-radius: 50%;
@@ -683,19 +683,19 @@ fieldset[disabled] a.btn
     pointer-events: none;
 }.btn-default
 {
-    color: #1f4d87;border-color: #1f4d87;background-color: #c9e6ff;
+    color: #1f4d87;border-color: #2e73c9;background-color: #c9e6ff;
 }.btn-default:focus,
 .btn-default.focus
 {
-    color: #1f4d87;border-color: #07121f;background-color: #96ceff;
+    color: #1f4d87;border-color: #163861;background-color: #96ceff;
 }.btn-default:hover
 {
-    color: #1f4d87;border-color: #143155;background-color: #96ceff;
+    color: #1f4d87;border-color: #235797;background-color: #96ceff;
 }.btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default
 {
-    color: #1f4d87;border-color: #143155;background-color: #96ceff;
+    color: #1f4d87;border-color: #235797;background-color: #96ceff;
 }.btn-default:active:hover,
 .btn-default.active:hover,
 .open > .dropdown-toggle.btn-default:hover,
@@ -706,7 +706,7 @@ fieldset[disabled] a.btn
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus
 {
-    color: #1f4d87;border-color: #07121f;background-color: #72beff;
+    color: #1f4d87;border-color: #163861;background-color: #72beff;
 }.btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default
@@ -721,7 +721,7 @@ fieldset[disabled] .btn-default:focus,
 .btn-default.disabled.focus,
 .btn-default[disabled].focus,
 fieldset[disabled] .btn-default.focus
-{border-color: #1f4d87;
+{border-color: #2e73c9;
     background-color: #c9e6ff;
 }.btn-default .badge
 {
@@ -1066,7 +1066,7 @@ input[type='button'].btn-block
 }.thumbnail
 {line-height: 1.42857143;
 
-    display: block;margin-bottom: 20px;padding: 4px;-webkit-transition: border .2s ease-in-out;-o-transition: border .2s ease-in-out;transition: border .2s ease-in-out;border: 1px solid #1f4d87;border-radius: 4px;background-color: #fff;
+    display: block;margin-bottom: 20px;padding: 4px;-webkit-transition: border .2s ease-in-out;-o-transition: border .2s ease-in-out;transition: border .2s ease-in-out;border: 1px solid #2e73c9;border-radius: 4px;background-color: #fff;
 }.thumbnail > img,
 .thumbnail a > img
 {margin-right: auto;

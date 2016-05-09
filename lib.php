@@ -83,7 +83,7 @@ function theme_shoehorn_process_css($css, $theme) {
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthover]]', $navbarbordercolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:navbardefaulthoverrgba]]', shoehorn_hex2rgba($navbarbordercolour, 0.75));
 
-    $pagetopcolour = \theme_shoehorn\toolbox::get_setting('pagetopcolour', '#1F4D87');
+    $pagetopcolour = \theme_shoehorn\toolbox::get_setting('pagetopcolour', '#2E73C9');
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground]]', $pagetopcolour);
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackgroundrgba]]', shoehorn_hex2rgba($pagetopcolour, 1));
     $css = theme_shoehorn_set_setting($css, '[[setting:pagetopbackground90rgba]]', shoehorn_hex2rgba($pagetopcolour, .9));
