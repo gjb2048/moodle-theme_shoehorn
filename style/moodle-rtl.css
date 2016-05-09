@@ -27302,11 +27302,6 @@ body.tabletdevice .carouselslider a.carousel-control
     color: #c9e6ff;
 }
 
-.dropdown-submenu
-{
-    position: relative;
-}
-
 .dropdown-submenu > .dropdown-menu
 {
     top: 0;
@@ -27487,7 +27482,6 @@ select.singleselect
 
     body.compactnavbar .navbar-right .dropdown-menu
     {
-        right: 0;
         left: auto;
     }
 }

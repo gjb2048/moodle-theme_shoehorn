@@ -74,6 +74,8 @@ Version 2.9.1.6
  69. Fix message drop-down hover.
  70. Fix guest menu.
  71. Fix footer background and below.
+ 72. Fix sub-menus on compact navbar.
+ 73. Adjust login menu when logged out and guest.
 
 Version 2.9.1.5
   1. MDL-51921.
