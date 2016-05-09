@@ -15462,6 +15462,9 @@ form .input-group select.singleselect
     .mform .fcontainer .fitem .felement.fdate_selector select
     {
         min-width: inherit;
+    }.mform #id_availabilityconditions .fcontainer .fitem .felement select
+    {
+        min-width: inherit;
     }
 }.mform .fcontainer .fitem .felement.fcolourtext input[type='text']
 {display: inline-block;

@@ -78,6 +78,7 @@ Version 2.9.1.6
  73. Adjust login menu when logged out and guest.
  74. Fix zero messages navbar padding.
  75. Change page top background from #1F4D87 to #2E73C9.
+ 76. Fix width of availability conditions selectors.
 
 Version 2.9.1.5
   1. MDL-51921.
