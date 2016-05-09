@@ -26,19 +26,18 @@
 // HTML.
 html {
     background-color: ~"[[setting:htmlbackground]]";
-    background-color: ~"[[setting:htmlbackgroundrgba]]";
 }
 
 html.report {
     background-color: ~"[[setting:pagebottombackground]]";
-    #shoehorn > .verticalrgba(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
+    #shoehorn > .verticalsettting(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
 }
 
 // Body and scaffolding.
 body {
     color: ~"[[setting:textcolour]]";
     background-color: ~"[[setting:pagebottombackground]]";
-    #shoehorn > .verticalrgba(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
+    #shoehorn > .verticalsettting(~"[[setting:pagetopbackgroundrgba]]", ~"[[setting:pagebottombackgroundrgba]]");
 }
 
 body.pagelayout-redirect {
@@ -1500,7 +1499,8 @@ body.horizontalquiz.pagelayout-incourse#page-mod-quiz-attempt {
 
 // Footer.
 #page-footer {
-    #shoehorn > .verticalrgba(~"[[setting:footertopbackgroundrgba]]"; ~"[[setting:footerbottombackgroundrgba]]");
+    background-color: ~"[[setting:footerbottombackground]]";
+    #shoehorn > .verticalsettting(~"[[setting:footertopbackground]]"; ~"[[setting:footerbottombackground]]");
     color: ~"[[setting:footertextcolour]]";
     .themecredit {
         font-size: 7pt;

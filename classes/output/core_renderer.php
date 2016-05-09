@@ -371,7 +371,6 @@ class core_renderer extends \core_renderer {
     protected function render_user_menu(custom_menu $menu) {
         global $CFG, $USER;
 
-        $addusermenu = true;
         $addmessagemenu = true;
 
         if (!isloggedin() || isguestuser()) {
@@ -609,93 +608,116 @@ class core_renderer extends \core_renderer {
             }
         }
 
-        if ($addusermenu) {
-            if (isloggedin()) {
-                $usertext = fullname($USER);
-                if ($this->is_fontawesome()) {
-                    $userhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
-                } else {
-                    $userhtml = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
-                }
-                $userhtml .= html_writer::tag('span', $usertext);
-
-                $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
-
-                $viewprofiletext = get_string('viewprofile');
-                if ($this->is_fontawesome()) {
-                    $viewprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
-                } else {
-                    $viewprofile = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
-                }
-                $viewprofile .= html_writer::tag('span', $viewprofiletext);
-                $usermenu->add(
-                        $viewprofile, new moodle_url('/user/profile.php', array('id' => $USER->id)), $viewprofiletext
-                );
-
-                $editmyprofiletext = get_string('editmyprofile');
-                if ($this->is_fontawesome()) {
-                    $editmyprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-suitcase'));
-                } else {
-                    $editmyprofile = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
-                }
-                $editmyprofile .= html_writer::tag('span', $editmyprofiletext);
-                $usermenu->add(
-                        $editmyprofile, new moodle_url('/user/edit.php', array('id' => $USER->id)), $editmyprofiletext
-                );
-
-                $preferencestext = get_string('preferences');
-                if ($this->is_fontawesome()) {
-                    $preferences = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-key'));
-                } else {
-                    $preferences = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
-                }
-                $preferences .= html_writer::tag('span', $preferencestext);
-                $usermenu->add($preferences, new moodle_url('/user/preferences.php', array('id' => $USER->id)), $preferencestext);
-
-                if (is_role_switched($this->page->course->id)) { // Has switched roles.
-                    global $DB;
-                    $context = \context_course::instance($this->page->course->id);
-                    if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
-                        $rolename = role_get_name($role, $context);
-                    } else {
-                        $rolename = get_string('unknownrole', 'theme_shoehorn');
-                    }
-                    if ($this->is_fontawesome()) {
-                        $loggedinas = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-clock-o'));
-                    } else {
-                        $loggedinas = html_writer::tag('span', '',
-                            array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-time'));
-                    }
-                    $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
-                    $url = new moodle_url('/course/switchrole.php', array(
-                        'id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
-                        'returnurl' => $this->page->url->out_as_local_url(false)));
-                    $usermenu->add($loggedinas, $url);
-                }
-
-                $logouttext = get_string('logout');
-                if ($this->is_fontawesome()) {
-                    $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-off'));
-                } else {
-                    $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
-                }
-                $logout .= html_writer::tag('span', $logouttext);
-                if (\core\session\manager::is_loggedinas()) {
-                    $logouturl = new moodle_url('/course/loginas.php',
-                        array('id' => $this->page->course->id, 'sesskey' => sesskey()));
-                } else {
-                    $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
-                }
-                $usermenu->add(
-                        $logout, $logouturl, $logouttext
-                );
-            } else if ($this->page->pagelayout != 'login') {
+        if (!isloggedin()) {
+            if ($this->page->pagelayout != 'login') {
                 $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10003);
             }
+        } else if (isguestuser()) {
+            $usertext = fullname($USER);
+            if ($this->is_fontawesome()) {
+                $userhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
+            } else {
+                $userhtml = html_writer::tag('span', '',
+                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
+            }
+            $userhtml .= html_writer::tag('span', $usertext);
+
+            $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
+
+            $logintext = get_string('login');
+            if ($this->is_fontawesome()) {
+                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-on'));
+            } else {
+                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-on'));
+            }
+            $login .= html_writer::tag('span', $logintext);
+            $loginurl = new moodle_url('/login/index.php');
+            $usermenu->add(
+                $login, $loginurl, $logintext
+            );
+        } else {
+            $usertext = fullname($USER);
+            if ($this->is_fontawesome()) {
+                $userhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
+            } else {
+                $userhtml = html_writer::tag('span', '',
+                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
+            }
+            $userhtml .= html_writer::tag('span', $usertext);
+
+            $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
+
+            $viewprofiletext = get_string('viewprofile');
+            if ($this->is_fontawesome()) {
+                $viewprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
+            } else {
+                $viewprofile = html_writer::tag('span', '',
+                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
+            }
+            $viewprofile .= html_writer::tag('span', $viewprofiletext);
+            $usermenu->add(
+                $viewprofile, new moodle_url('/user/profile.php', array('id' => $USER->id)), $viewprofiletext
+            );
+
+            $editmyprofiletext = get_string('editmyprofile');
+            if ($this->is_fontawesome()) {
+                $editmyprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-suitcase'));
+            } else {
+                $editmyprofile = html_writer::tag('span', '',
+                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
+            }
+            $editmyprofile .= html_writer::tag('span', $editmyprofiletext);
+            $usermenu->add(
+                $editmyprofile, new moodle_url('/user/edit.php', array('id' => $USER->id)), $editmyprofiletext
+            );
+
+            $preferencestext = get_string('preferences');
+            if ($this->is_fontawesome()) {
+                $preferences = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-key'));
+            } else {
+                $preferences = html_writer::tag('span', '',
+                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
+            }
+            $preferences .= html_writer::tag('span', $preferencestext);
+            $usermenu->add($preferences, new moodle_url('/user/preferences.php', array('id' => $USER->id)), $preferencestext);
+
+            if (is_role_switched($this->page->course->id)) { // Has switched roles.
+                global $DB;
+                $context = \context_course::instance($this->page->course->id);
+                if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
+                    $rolename = role_get_name($role, $context);
+                } else {
+                    $rolename = get_string('unknownrole', 'theme_shoehorn');
+                }
+                if ($this->is_fontawesome()) {
+                    $loggedinas = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-clock-o'));
+                } else {
+                    $loggedinas = html_writer::tag('span', '',
+                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-time'));
+                }
+                $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
+                $url = new moodle_url('/course/switchrole.php', array(
+                    'id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
+                    'returnurl' => $this->page->url->out_as_local_url(false)));
+                $usermenu->add($loggedinas, $url);
+            }
+
+            $logouttext = get_string('logout');
+            if ($this->is_fontawesome()) {
+                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-power-off'));
+            } else {
+                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
+            }
+            $logout .= html_writer::tag('span', $logouttext);
+            if (\core\session\manager::is_loggedinas()) {
+                $logouturl = new moodle_url('/course/loginas.php',
+                    array('id' => $this->page->course->id, 'sesskey' => sesskey()));
+            } else {
+                $logouturl = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+            }
+            $usermenu->add(
+                $logout, $logouturl, $logouttext
+            );
         }
 
         $content = '';
