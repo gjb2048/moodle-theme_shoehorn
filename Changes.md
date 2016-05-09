@@ -13,6 +13,7 @@ Version 3.0.1.2
  10. Fix footer background and below.
  11. Fix sub-menus on compact navbar.
  12. Adjust login menu when logged out and guest.
+ 13. Fix zero messages navbar padding.
 
 Version 3.0.1.1.1
   1. Fix 'Invalid get_string() identifier' - #20.
