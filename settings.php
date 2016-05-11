@@ -88,7 +88,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-
     // Compact Navbar.
     $name = 'theme_shoehorn/compactnavbar';
     $title = get_string('compactnavbar', 'theme_shoehorn');

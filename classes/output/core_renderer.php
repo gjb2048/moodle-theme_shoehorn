@@ -1466,7 +1466,7 @@ class core_renderer extends \core_renderer {
         return $output;
     }
 
-    private function block_has_class(block_contents $bc, $class) {
+    protected function block_has_class(block_contents $bc, $class) {
         return strpos($bc->attributes['class'], $class) !== false;
     }
 
