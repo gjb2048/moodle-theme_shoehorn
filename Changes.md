@@ -1,5 +1,7 @@
 Version information
 ===================
+Version 3.0.1.3
+
 Version 3.0.1.2
   1. Update Chartist.js (https://gionkunz.github.io/chartist-js/index.html) to 0.9.7 for JS and 0.9.5 for CSS.
   2. Update to FontAwesome 4.6.1.
