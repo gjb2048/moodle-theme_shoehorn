@@ -957,6 +957,7 @@ class core_renderer extends \core_renderer {
         }
 
         // Syntax highlighting.
+        // Show the information page if syntax highlighting has been enabled on the course or if it could be when editing.
         if (($this->syntaxhighlighterenabled) ||
             (($this->get_setting('syntaxhighlight') == 2) && ($this->page->user_is_editing()))) {
             $url = new moodle_url('/theme/shoehorn/pages/syntaxhighlight.php');
@@ -1466,7 +1467,7 @@ class core_renderer extends \core_renderer {
         return $output;
     }
 
-    private function block_has_class(block_contents $bc, $class) {
+    protected function block_has_class(block_contents $bc, $class) {
         return strpos($bc->attributes['class'], $class) !== false;
     }
 
