@@ -1,5 +1,7 @@
 Version information
 ===================
+Version 2.9.1.7
+
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
   2. Fix typo in toolbox::grid().
