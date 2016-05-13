@@ -140,18 +140,21 @@ class core_renderer extends \core_renderer {
         return html_writer::tag('pre', $message, array('class' => 'alert alert-info'));
     }
 
-    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
+    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuclass = '') {
         static $submenucount = 0;
 
         if ($menunode->has_children()) {
-
             if ($level == 1) {
-                $dropdowntype = 'dropdown';
+                $dropdownclass = 'dropdown';
             } else {
-                $dropdowntype = 'dropdown-submenu';
+                $dropdownclass = 'dropdown-submenu';
             }
 
-            $content = html_writer::start_tag('li', array('class' => $dropdowntype));
+            if ($menuclass) {
+                $dropdownclass .= ' '.$menuclass;
+            }
+
+            $content = html_writer::start_tag('li', array('class' => $dropdownclass));
             // If the child has menus render it as a sub menu.
             $submenucount++;
             if ($menunode->get_url() !== null) {
@@ -178,12 +181,15 @@ class core_renderer extends \core_renderer {
             $content .= '</ul>';
         } else {
             // Also, if the node's text matches '####', add a class so we can treat it as a divider.
-            $content = '';
             if (preg_match("/^#+$/", $menunode->get_text())) {
                 // This is a divider.
                 $content = html_writer::start_tag('li', array('class' => 'divider'));
             } else {
-                $content = html_writer::start_tag('li');
+                if (($menuclass) && ($level == 1)) {
+                    $content = html_writer::start_tag('li', array('class' => $menuclass));
+                } else {
+                    $content = html_writer::start_tag('li');
+                }
                 // The node doesn't have children so produce a final menuitem.
                 if ($menunode->get_url() !== null) {
                     $url = $menunode->get_url();
@@ -274,7 +280,6 @@ class core_renderer extends \core_renderer {
      * This renders the navbar.
      * Uses bootstrap compatible html.
      */
-
     public function navbar() {
         $items = $this->page->navbar->get_items();
         if (empty($items)) { // See: MDL-46107.
@@ -335,6 +340,11 @@ class core_renderer extends \core_renderer {
             return '';
         }
 
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            $content .= $this->render_custom_menu_item($item, 1, 'mycustommenu');
+        }
+
         if ($haslangmenu) {
             $languagetext = get_string('language');
             $currentlang = current_language();
@@ -349,28 +359,28 @@ class core_renderer extends \core_renderer {
                 $langhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-book'));
             }
             $langhtml .= html_writer::tag('span', $currentlang);
-            $this->language = $menu->add($langhtml, new moodle_url('#'), $languagetext, 10000);
+            $this->language = new custom_menu_item($langhtml, new moodle_url('#'), $languagetext, 10000);
             foreach ($langs as $langtype => $langname) {
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
             }
-        }
-
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
+            $content .= $this->render_custom_menu_item($this->language, 1, 'mylangmenu');
         }
 
         return $content;
     }
 
     public function user_menu($user = null, $withlinks = null) {
-        $usermenu = new custom_menu('', current_language());
-        return $this->render_user_menu($usermenu);
+        // Overridable components.
+        $content = $this->user_menu_message();
+        $content .= $this->user_menu_courses();
+        $content .= $this->user_menu_course_activities();
+        $content .= $this->user_menu_user();
+
+        return $content;
     }
 
-    protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER;
-
+    protected function user_menu_message() {
+        global $USER;
         $addmessagemenu = true;
 
         if (!isloggedin() || isguestuser()) {
@@ -405,7 +415,7 @@ class core_renderer extends \core_renderer {
             } else {
                 $messagemenucount .= get_string('messages', 'message');
             }
-            $messagemenu = $menu->add(
+            $messagemenu = new custom_menu_item(
                     $messagemenutext, new moodle_url('/message/index.php', array('viewing' => 'recentconversations')),
                     $messagemenucount, 9999
             );
@@ -433,7 +443,13 @@ class core_renderer extends \core_renderer {
                 $messagemenu->add($messagecontent, $messageurl,
                         htmlspecialchars($message->text, ENT_COMPAT | ENT_HTML401, 'UTF-8'));
             }
+            return $this->render_custom_menu_item($messagemenu, 1, 'messagemenu');
         }
+        return '';
+    }
+
+    protected function user_menu_courses() {
+        global $CFG, $USER;
 
         $displaymycourses = $this->get_setting('displaymycoursesmenu');
         if (isloggedin() && !isguestuser() && $displaymycourses) {
@@ -466,7 +482,7 @@ class core_renderer extends \core_renderer {
             $branchurl = new moodle_url('/my/index.php');
             $branchsort = 10000;
 
-            $mycoursesmenu = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+            $mycoursesmenu = new custom_menu_item($branchlabel, $branchurl, $branchtitle, $branchsort);
 
             $hometext = get_string('myhome');
             if ($this->is_fontawesome()) {
@@ -558,8 +574,12 @@ class core_renderer extends \core_renderer {
                 $noenrolments = get_string('noenrolments', 'theme_shoehorn');
                 $mycoursesmenu->add('<em>' . $noenrolments . '</em>', new moodle_url('/'), $noenrolments);
             }
+            return $this->render_custom_menu_item($mycoursesmenu, 1, 'mycoursesmenu');
         }
+        return '';
+    }
 
+    protected function user_menu_course_activities() {
         if (($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse')) {
             if (!isguestuser()) {
                 if (isset($this->page->course->id) && $this->page->course->id > 1) {
@@ -571,7 +591,7 @@ class core_renderer extends \core_renderer {
                     }
                     $branchlabel .= html_writer::tag('span', $branchtitle);
                     $branchurl = new moodle_url('#');
-                    $activitystreammenu = $menu->add($branchlabel, $branchurl, $branchtitle, 10001);
+                    $activitystreammenu = new custom_menu_item($branchlabel, $branchurl, $branchtitle, 10001);
                     $branchtitle = get_string('people', 'theme_shoehorn');
                     if ($this->is_fontawesome()) {
                         $branchlabel = '<span aria-hidden="true" class="fa fa-users"></span>';
@@ -604,9 +624,15 @@ class core_renderer extends \core_renderer {
                                 array('id' => $this->page->course->id)));
                         }
                     }
+                    return $this->render_custom_menu_item($activitystreammenu, 1, 'activitystreammenu');
                 }
             }
         }
+        return '';
+    }
+
+    protected function user_menu_user() {
+        global $USER;
 
         if (!isloggedin()) {
             if ($this->page->pagelayout != 'login') {
@@ -618,9 +644,10 @@ class core_renderer extends \core_renderer {
                 }
                 $login .= html_writer::tag('span', $logintext);
                 $loginurl = new moodle_url('/login/index.php');
-                $usermenu = $menu->add(
+                $usermenu = new custom_menu_item(
                     $login, $loginurl, $logintext, 10003
                 );
+                return $this->render_custom_menu_item($usermenu, 1, 'myusermenuloggedout');
             }
         } else if (isguestuser()) {
             $usertext = fullname($USER);
@@ -632,7 +659,7 @@ class core_renderer extends \core_renderer {
             }
             $userhtml .= html_writer::tag('span', $usertext);
 
-            $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
+            $usermenu = new custom_menu_item($userhtml, new moodle_url('#'), $usertext, 10003);
 
             $logintext = get_string('login');
             if ($this->is_fontawesome()) {
@@ -645,6 +672,7 @@ class core_renderer extends \core_renderer {
             $usermenu->add(
                 $login, $loginurl, $logintext, 10004
             );
+            return $this->render_custom_menu_item($usermenu, 1, 'myusermenuguestuser');
         } else {
             $usertext = fullname($USER);
             if ($this->is_fontawesome()) {
@@ -655,7 +683,7 @@ class core_renderer extends \core_renderer {
             }
             $userhtml .= html_writer::tag('span', $usertext);
 
-            $usermenu = $menu->add($userhtml, new moodle_url('#'), $usertext, 10003);
+            $usermenu = new custom_menu_item($userhtml, new moodle_url('#'), $usertext, 10003);
 
             $viewprofiletext = get_string('viewprofile');
             if ($this->is_fontawesome()) {
@@ -728,14 +756,9 @@ class core_renderer extends \core_renderer {
             $usermenu->add(
                 $logout, $logouturl, $logouttext
             );
+            return $this->render_custom_menu_item($usermenu, 1, 'myusermenu');
         }
-
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
-        }
-
-        return $content;
+        return '';
     }
 
     public function page_heading_menu() {
