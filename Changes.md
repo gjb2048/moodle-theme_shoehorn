@@ -4,6 +4,7 @@ Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
   2. Refactor menus for child themes to be able to override specific elements.
   3. Remove 101% width for RTL navbar items as seem fine now and causes scroll bar.
+  4. Update to FontAwesome 4.6.3.
 
 Version 3.0.1.2
   1. Update Chartist.js (https://gionkunz.github.io/chartist-js/index.html) to 0.9.7 for JS and 0.9.5 for CSS.
