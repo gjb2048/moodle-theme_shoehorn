@@ -29844,11 +29844,6 @@ a:focus,
     background-color: #080808;
 }
 
-.navbar ul li > a
-{
-    width: 101%;
-}
-
 .navbar ul li > a > span
 {
     padding: 0 1px;
