@@ -2,6 +2,7 @@ Version information
 ===================
 Version 2.9.1.7
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
+  2. Refactor menus for child themes to be able to override specific elements.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
