@@ -285,22 +285,10 @@ class core_renderer extends \core_renderer {
         if (empty($items)) { // See: MDL-46107.
             return '';
         }
-        if ($this->is_fontawesome()) {
-            if (right_to_left()) {
-                $dividericon = 'fa-angle-left';
-            } else {
-                $dividericon = 'fa-angle-right';
-            }
-            $icon = html_writer::start_tag('span', array('aria-hidden' => 'true', 'class' => 'fa '.$dividericon.' fa-lg')).
-                html_writer::end_tag('span');
+        if (right_to_left()) {
+            $icon = \theme_shoehorn\toolbox::geticonmarkup('angle-left', 'chevron-left');
         } else {
-            if (right_to_left()) {
-                $dividericon = 'glyphicon-chevron-left';
-            } else {
-                $dividericon = 'glyphicon-chevron-right';
-            }
-            $icon = html_writer::start_tag('span', array('aria-hidden' => 'true', 'class' => 'glyphicon '.$dividericon)).
-                html_writer::end_tag('span');
+            $icon = \theme_shoehorn\toolbox::geticonmarkup('angle-right', 'chevron-right');
         }
         $divider = html_writer::tag('span', $icon, array('class' => 'divider'));
         $breadcrumbs = array();
@@ -353,11 +341,7 @@ class core_renderer extends \core_renderer {
             } else {
                 $currentlang = $languagetext;
             }
-            if ($this->is_fontawesome()) {
-                $langhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-language'));
-            } else {
-                $langhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-book'));
-            }
+            $langhtml = \theme_shoehorn\toolbox::geticonmarkup('language', 'book');
             $langhtml .= html_writer::tag('span', $currentlang);
             $this->language = new custom_menu_item($langhtml, new moodle_url('#'), $languagetext, 10000);
             foreach ($langs as $langtype => $langname) {
@@ -397,17 +381,10 @@ class core_renderer extends \core_renderer {
                 $messagecount++;
             }
             $messagemenutext = html_writer::tag('span', $messagecount);
-            if ($this->is_fontawesome()) {
-                $class = 'fa fa-envelope';
-                if ($messagecount == 0) {
-                    $class .= '-o';
-                }
-                $messagemenutext .= html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => $class));
-                $timeicon = 'fa fa-clock-o';
+            if ($messagecount == 0) {
+                $messagemenutext .= \theme_shoehorn\toolbox::geticonmarkup('envelope-o', 'envelope');
             } else {
-                $messagemenutext .= html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-envelope'));
-                $timeicon = 'glyphicon glyphicon-time';
+                $messagemenutext .= \theme_shoehorn\toolbox::geticonmarkup('envelope', 'envelope');
             }
             $messagemenucount = $messagecount.' ';
             if ($messagecount == 1) {
@@ -434,7 +411,7 @@ class core_renderer extends \core_renderer {
                 $messagecontent .= htmlspecialchars($message->text, ENT_COMPAT | ENT_HTML401, 'UTF-8');
                 $messagecontent .= html_writer::end_span();
                 $messagecontent .= html_writer::start_span('msg-time');
-                $messagecontent .= html_writer::tag('i', '', array('class' => $timeicon));
+                $messagecontent .= \theme_shoehorn\toolbox::geticonmarkup('clock-o', 'time');
                 $messagecontent .= html_writer::span($message->date);
                 $messagecontent .= html_writer::end_span();
 
@@ -472,12 +449,7 @@ class core_renderer extends \core_renderer {
                 default:
                     $branchtitle = get_string('mycourses', 'theme_shoehorn');
             }
-            if ($this->is_fontawesome()) {
-                $branchlabel = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-dashboard'));
-            } else {
-                $branchlabel = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-dashboard'));
-            }
+            $branchlabel = \theme_shoehorn\toolbox::geticonmarkup('dashboard', 'dashboard');
             $branchlabel .= html_writer::tag('span', $branchtitle);
             $branchurl = new moodle_url('/my/index.php');
             $branchsort = 10000;
@@ -485,20 +457,12 @@ class core_renderer extends \core_renderer {
             $mycoursesmenu = new custom_menu_item($branchlabel, $branchurl, $branchtitle, $branchsort);
 
             $hometext = get_string('myhome');
-            if ($this->is_fontawesome()) {
-                $homelabel = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-home'));
-            } else {
-                $homelabel = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-home'));
-            }
+            $homelabel = \theme_shoehorn\toolbox::geticonmarkup('home', 'home');
             $homelabel .= html_writer::tag('span', $hometext);
             $mycoursesmenu->add($homelabel, new moodle_url('/my/index.php'), $hometext);
 
-            if ($this->is_fontawesome()) {
-                $courseicons = array('list', 'list-alt', 'list-ul', 'book', 'tasks', 'suitcase', 'graduation-cap');
-            } else {
-                $courseicons = array('list', 'list-alt', 'book', 'tasks', 'briefcase');
-            }
+            $coursefaicons = array('list', 'list-alt', 'list-ul', 'book', 'tasks', 'suitcase', 'graduation-cap');
+            $courseglyphicons = array('list', 'list-alt', 'book', 'tasks', 'briefcase');
 
             $courses = $this->get_enrolled_courses();
             $rhosts = array();
@@ -511,14 +475,8 @@ class core_renderer extends \core_renderer {
                 foreach ($courses as $course) {
                     if ($course->visible) {
                         $coursetext = format_string($course->fullname);
-                        if ($this->is_fontawesome()) {
-                             // 7 is the courseicons array length.
-                            $courselabel = html_writer::tag('span', '',
-                                array('aria-hidden' => 'true', 'class' => 'fa fa-' . $courseicons[$course->id % 7]));
-                        } else {
-                            $courselabel = html_writer::tag('span', '',
-                                array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-' . $courseicons[$course->id % 5]));
-                        }
+                        // 7 is the courseicons array length.
+                        $courselabel = \theme_shoehorn\toolbox::geticonmarkup($coursefaicons[$course->id % 7], $courseglyphicons[$course->id % 5]);
                         $courselabel .= html_writer::tag('span', $coursetext);
 
                         $mycoursesmenu->add($courselabel, new moodle_url('/course/view.php?id=' . $course->id),
@@ -539,14 +497,7 @@ class core_renderer extends \core_renderer {
                             format_string($course->shortname);
 
                         $coursetext = format_string($course->fullname);
-                        if ($this->is_fontawesome()) {
-                            // Five is the courseicons array length.
-                            $courselabel = html_writer::tag('span', '',
-                                array('aria-hidden' => 'true', 'class' => 'fa fa-' . $courseicons[$course->remoteid % 5]));
-                        } else {
-                            $courselabel = html_writer::tag('span', '', array(
-                                'aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-'.$courseicons[$course->remoteid % 5]));
-                        }
+                        $courselabel = \theme_shoehorn\toolbox::geticonmarkup($coursefaicons[$course->remoteid % 7], $courseglyphicons[$course->remoteid % 5]);
                         $courselabel .= html_writer::tag('span', $coursetext);
 
                         $mycoursesmenu->add($courselabel, $url, $tooltip);
@@ -556,13 +507,7 @@ class core_renderer extends \core_renderer {
                     // Non-IDP, we know of all the remote servers, but not courses.
                     foreach ($rhosts as $host) {
                         $coursetext = format_string($course->fullname);
-                        if ($this->is_fontawesome()) {
-                            $courselabel = html_writer::tag('span', '',
-                                array('aria-hidden' => 'true', 'class' => 'fa fa-' . $courseicons[0]));
-                        } else {
-                            $courselabel = html_writer::tag('span', '',
-                                array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-' . $courseicons[0]));
-                        }
+                        $courselabel = \theme_shoehorn\toolbox::geticonmarkup($coursefaicons[0], $courseglyphicons[0]);
                         $courselabel .= html_writer::tag('span', $coursetext);
 
                         $mycoursesmenu->add($courselabel,
@@ -584,29 +529,19 @@ class core_renderer extends \core_renderer {
             if (!isguestuser()) {
                 if (isset($this->page->course->id) && $this->page->course->id > 1) {
                     $branchtitle = get_string('thiscourse', 'theme_shoehorn');
-                    if ($this->is_fontawesome()) {
-                        $branchlabel = '<span aria-hidden="true" class="fa fa-book"></span>';
-                    } else {
-                        $branchlabel = '<span aria-hidden="true" class="glyphicon glyphicon-book"></span>';
-                    }
+                    $branchlabel = \theme_shoehorn\toolbox::geticonmarkup('book', 'book');
                     $branchlabel .= html_writer::tag('span', $branchtitle);
                     $branchurl = new moodle_url('#');
                     $activitystreammenu = new custom_menu_item($branchlabel, $branchurl, $branchtitle, 10001);
+
                     $branchtitle = get_string('people', 'theme_shoehorn');
-                    if ($this->is_fontawesome()) {
-                        $branchlabel = '<span aria-hidden="true" class="fa fa-users"></span>';
-                    } else {
-                        $branchlabel = '<span aria-hidden="true" class="glyphicon glyphicon-user"></span>';
-                    }
+                    $branchlabel = \theme_shoehorn\toolbox::geticonmarkup('users', 'user');
                     $branchlabel .= html_writer::tag('span', $branchtitle);
                     $branchurl = new moodle_url('/user/index.php', array('id' => $this->page->course->id));
                     $activitystreammenu->add($branchlabel, $branchurl, $branchtitle, 100003);
+
                     $branchtitle = get_string('grades');
-                    if ($this->is_fontawesome()) {
-                        $branchlabel = '<span aria-hidden="true" class="fa fa-list-alt icon"></span>';
-                    } else {
-                        $branchlabel = '<span aria-hidden="true" class="glyphicon glyphicon-list"></span>';
-                    }
+                    $branchlabel = \theme_shoehorn\toolbox::geticonmarkup('list-alt', 'list');
                     $branchlabel .= html_writer::tag('span', $branchtitle);
                     $branchurl = new moodle_url('/grade/report/index.php', array('id' => $this->page->course->id));
                     $activitystreammenu->add($branchlabel, $branchurl, $branchtitle, 100004);
@@ -637,11 +572,7 @@ class core_renderer extends \core_renderer {
         if (!isloggedin()) {
             if ($this->page->pagelayout != 'login') {
                 $logintext = get_string('login');
-                if ($this->is_fontawesome()) {
-                    $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-in'));
-                } else {
-                    $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
-                }
+                $login = \theme_shoehorn\toolbox::geticonmarkup('sign-in', 'off');
                 $login .= html_writer::tag('span', $logintext);
                 $loginurl = new moodle_url('/login/index.php');
                 $usermenu = new custom_menu_item(
@@ -651,22 +582,13 @@ class core_renderer extends \core_renderer {
             }
         } else if (isguestuser()) {
             $usertext = fullname($USER);
-            if ($this->is_fontawesome()) {
-                $userhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
-            } else {
-                $userhtml = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
-            }
+            $userhtml = \theme_shoehorn\toolbox::geticonmarkup('user', 'user');
             $userhtml .= html_writer::tag('span', $usertext);
 
             $usermenu = new custom_menu_item($userhtml, new moodle_url('#'), $usertext, 10003);
 
             $logintext = get_string('login');
-            if ($this->is_fontawesome()) {
-                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-in'));
-            } else {
-                $login = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
-            }
+            $login = \theme_shoehorn\toolbox::geticonmarkup('sign-in', 'off');
             $login .= html_writer::tag('span', $logintext);
             $loginurl = new moodle_url('/login/index.php');
             $usermenu->add(
@@ -675,47 +597,27 @@ class core_renderer extends \core_renderer {
             return $this->render_custom_menu_item($usermenu, 1, 'myusermenuguestuser');
         } else {
             $usertext = fullname($USER);
-            if ($this->is_fontawesome()) {
-                $userhtml = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
-            } else {
-                $userhtml = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
-            }
+            $userhtml = \theme_shoehorn\toolbox::geticonmarkup('user', 'user');
             $userhtml .= html_writer::tag('span', $usertext);
 
             $usermenu = new custom_menu_item($userhtml, new moodle_url('#'), $usertext, 10003);
 
             $viewprofiletext = get_string('viewprofile');
-            if ($this->is_fontawesome()) {
-                $viewprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-user'));
-            } else {
-                $viewprofile = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-user'));
-            }
+            $viewprofile = \theme_shoehorn\toolbox::geticonmarkup('user', 'user');
             $viewprofile .= html_writer::tag('span', $viewprofiletext);
             $usermenu->add(
                 $viewprofile, new moodle_url('/user/profile.php', array('id' => $USER->id)), $viewprofiletext
             );
 
             $editmyprofiletext = get_string('editmyprofile');
-            if ($this->is_fontawesome()) {
-                $editmyprofile = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-suitcase'));
-            } else {
-                $editmyprofile = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
-            }
+            $editmyprofile = \theme_shoehorn\toolbox::geticonmarkup('suitcase', 'cog');
             $editmyprofile .= html_writer::tag('span', $editmyprofiletext);
             $usermenu->add(
                 $editmyprofile, new moodle_url('/user/edit.php', array('id' => $USER->id)), $editmyprofiletext
             );
 
             $preferencestext = get_string('preferences');
-            if ($this->is_fontawesome()) {
-                $preferences = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-key'));
-            } else {
-                $preferences = html_writer::tag('span', '',
-                    array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-cog'));
-            }
+            $preferences = \theme_shoehorn\toolbox::geticonmarkup('key', 'cog');
             $preferences .= html_writer::tag('span', $preferencestext);
             $usermenu->add($preferences, new moodle_url('/user/preferences.php', array('id' => $USER->id)), $preferencestext);
 
@@ -727,12 +629,7 @@ class core_renderer extends \core_renderer {
                 } else {
                     $rolename = get_string('unknownrole', 'theme_shoehorn');
                 }
-                if ($this->is_fontawesome()) {
-                    $loggedinas = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-clock-o'));
-                } else {
-                    $loggedinas = html_writer::tag('span', '',
-                        array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-time'));
-                }
+                $loggedinas = \theme_shoehorn\toolbox::geticonmarkup('clock-o', 'time');
                 $loggedinas .= get_string('loggedinas', 'theme_shoehorn', $rolename);
                 $url = new moodle_url('/course/switchrole.php', array(
                     'id' => $this->page->course->id, 'sesskey' => sesskey(), 'switchrole' => 0,
@@ -741,11 +638,7 @@ class core_renderer extends \core_renderer {
             }
 
             $logouttext = get_string('logout');
-            if ($this->is_fontawesome()) {
-                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'fa fa-sign-out'));
-            } else {
-                $logout = html_writer::tag('span', '', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-off'));
-            }
+            $logout = \theme_shoehorn\toolbox::geticonmarkup('sign-out', 'off');
             $logout .= html_writer::tag('span', $logouttext);
             if (\core\session\manager::is_loggedinas()) {
                 $logouturl = new moodle_url('/course/loginas.php',
@@ -1582,13 +1475,7 @@ class core_renderer extends \core_renderer {
     }
 
     public function anti_gravity() {
-        if ($this->is_fontawesome()) {
-            $icon = html_writer::start_tag('span', array('aria-hidden' => 'true', 'class' => 'fa fa-arrow-circle-o-up')).
-                html_writer::end_tag('span');
-        } else {
-            $icon = html_writer::start_tag('span', array('aria-hidden' => 'true', 'class' => 'glyphicon glyphicon-upload')).
-                html_writer::end_tag('span');
-        }
+        $icon = \theme_shoehorn\toolbox::geticonmarkup('arrow-circle-o-up', 'upload');
         $antigravity = html_writer::tag('a', $icon,
             array('class' => 'antiGravity', 'title' => get_string('antigravity', 'theme_shoehorn')));
 

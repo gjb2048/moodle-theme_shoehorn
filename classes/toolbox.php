@@ -167,6 +167,23 @@ class toolbox {
         return \get_config('theme_' . $themename, $setting);
     }
 
+    static public function geticonmarkup($thefaicon, $theglyphicon, $classes = array(), $attributes = array()) {
+        static $fontawesome;
+        static $fontawesomeset;
+        if (empty($fontawesomeset)) {
+            $fontawesome = self::get_setting('fontawesome');
+            $fontawesomeset = true;
+        }
+        if ($fontawesome) {
+            $classes[] = 'fa fa-'.$thefaicon;
+        } else {
+            $classes[] = 'glyphicon glyphicon-'.$theglyphicon;
+        }
+        $attributes['aria-hidden'] = 'true';
+        $attributes['class'] = implode(' ', $classes);
+        return \html_writer::tag('span', '', $attributes);
+    }
+
     /**
      * This method creates the dynamic HTML needed for the
      * layout and then passes it back in an object so it can
@@ -177,7 +194,6 @@ class toolbox {
      * This keeps the logic out of the layout files.
      */
     static public function html_for_settings() {
-
         global $PAGE;
 
         $html = new \stdClass();
