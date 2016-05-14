@@ -234,7 +234,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $generalsettings->add($setting);
 
-    // Custom CSS file.
+    // Custom CSS.
     $name = 'theme_shoehorn/customcss';
     $title = get_string('customcss', 'theme_shoehorn');
     $description = get_string('customcss_desc', 'theme_shoehorn');

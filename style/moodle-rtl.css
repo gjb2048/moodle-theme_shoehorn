@@ -32343,6 +32343,8 @@ body.horizontalquiz.pagelayout-incourse#page-mod-quiz-attempt .que h3.no .qno
 
 ul.socialnetworks
 {
+    margin: 0;
+
     border-width: 1px;
     border-style: solid;
     border-color: [[setting:pagebottombackground]];

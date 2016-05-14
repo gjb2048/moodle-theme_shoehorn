@@ -17533,7 +17533,7 @@ body.fontawesome #frontpage-category-combo h2:before
 {
     color: [[setting:textcolour8light]];
 }ul.socialnetworks
-{border-width: 1px;border-style: solid;border-color: [[setting:pagebottombackground]];border-color: [[setting:pagebottombackground7rgba]];
+{margin: 0;border-width: 1px;border-style: solid;border-color: [[setting:pagebottombackground]];border-color: [[setting:pagebottombackground7rgba]];
     background-color: [[setting:pagebottombackground]];background-color: [[setting:pagebottombackground5rgba]];
 }#footermenu .divider
 {padding-right: 3px;
