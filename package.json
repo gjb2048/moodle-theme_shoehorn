@@ -34,5 +34,5 @@
     "grunt-svgmin": "~2.0.0",
     "time-grunt": "^1.2.1"
   },
-  "license": "GPLv3.0+"
+  "license": "GPL-3.0"
 }
