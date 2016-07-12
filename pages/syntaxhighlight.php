@@ -200,7 +200,7 @@ echo '   }'.PHP_EOL;
 echo '}'.PHP_EOL;
 echo '</pre>'.PHP_EOL;
 echo html_writer::tag('p', get_string('syntaxhelpseven', 'theme_shoehorn').' \''.html_writer::tag('a', 'SyntaxHighlighter',
-    array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).'\'');
+    array('href' => '//alexgorbatchev.com/SyntaxHighlighter/', 'target' => '_blank')).'\'.');
 echo html_writer::end_tag('div');
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('div', array('class' => 'row'));
