@@ -29329,6 +29329,11 @@ body .forumpost .header
     }
 }
 
+.userprofile a
+{
+    display: inline-block;
+}
+
 .yui-skin-sam .yui-panel
 {
     color: [[setting:textcolour]];

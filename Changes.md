@@ -7,6 +7,7 @@ Version 2.9.1.7
   4. Update to FontAwesome 4.6.3.
   5. Refactor FontAwesome / GlyphIcon markup generation.
   6. Fix margin on social network icons.
+  7. Fix user profile image hover.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
