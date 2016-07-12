@@ -16005,6 +16005,9 @@ body .forumpost .row .topic
     {
         float: left;width: 83.33333333%;
     }
+}.userprofile a
+{
+    display: inline-block;
 }.yui-skin-sam .yui-panel
 {
     color: [[setting:textcolour]];border: 1px solid [[setting:pagebottombackgrounddark]];border-color: [[setting:pagetopbackground]];border-radius: 4px;background-color: [[setting:pagebottombackground]];
