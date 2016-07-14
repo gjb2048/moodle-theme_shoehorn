@@ -1,5 +1,7 @@
 Version information
 ===================
+Version 3.0.1.4
+
 Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
   2. Refactor menus for child themes to be able to override specific elements.
