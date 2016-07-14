@@ -272,10 +272,20 @@ class toolbox {
             $regions = array('content' => 'col-md-6 col-lg-8');
             $regions['pre'] = 'col-md-3 col-lg-2';
             $regions['post'] = 'col-md-3 col-lg-2';
+            if (self::get_setting('landflayout') == 1) {
+                // Block, Content, Block.
+                $regions['content'] .= ' col-md-push-3 col-lg-push-2';
+                $regions['pre'] .= ' col-md-pull-6 col-lg-pull-8';
+            }
         } else if ($hassidepre && !$hassidepost) {
             $regions = array('content' => 'col-md-9 col-lg-10');
             $regions['pre'] = 'col-md-3 col-lg-2';
             $regions['post'] = 'empty';
+            if (self::get_setting('landflayout') == 1) {
+                // Block, Content.
+                $regions['content'] .= ' col-md-push-3 col-lg-push-2';
+                $regions['pre'] .= ' col-md-pull-9 col-lg-pull-10';
+            }
         } else if (!$hassidepre && $hassidepost) {
             $regions = array('content' => 'col-md-9 col-lg-10');
             $regions['pre'] = 'empty';
@@ -285,8 +295,6 @@ class toolbox {
             $regions['pre'] = 'empty';
             $regions['post'] = 'empty';
         }
-
-        $regions['layout'] = self::get_setting('landflayout');
 
         return $regions;
     }

@@ -491,15 +491,8 @@ body.editing .course-content {
     }
 }
 
-// Quiz editing sparked this.
-aside {
-    float: left;
-}
-
-@media(max-width: @screen-xs-max) {
-    aside {
-        float: none;
-    }
+// Padding on small devices.
+@media(max-width: @screen-sm-max) {
     aside:first-of-type {
         padding-top: 10px;
     }
