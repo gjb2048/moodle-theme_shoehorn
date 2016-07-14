@@ -30609,18 +30609,8 @@ body.editing .course-content .right br
     display: none;
 }
 
-aside
+@media (max-width:991px)
 {
-    float: right;
-}
-
-@media (max-width:767px)
-{
-    aside
-    {
-        float: none;
-    }
-
     aside:first-of-type
     {
         padding-top: 10px;

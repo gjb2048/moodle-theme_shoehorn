@@ -1,6 +1,7 @@
 Version information
 ===================
 Version 3.0.1.4
+  1. Fix: Block visibility issue with block, content, block layout - #23.
 
 Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
