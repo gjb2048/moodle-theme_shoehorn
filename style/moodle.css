@@ -1075,7 +1075,7 @@ a:focus
 .carousel-inner > .item > img,
 .carousel-inner > .item > a>img
 {
-    display: block;max-width: 100%;height: auto;
+    display: block;max-width: 100%;height: auto;margin: 0 !important;
 }.img-rounded
 {
     border-radius: 6px;
@@ -15959,6 +15959,13 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 }.dir-rtl .helptooltip
 {margin-right: 4px;
     margin-left: auto;
+}.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a>img
+{
+    margin: 0 !important;
 }html
 {
     background-color: [[setting:htmlbackground]];
