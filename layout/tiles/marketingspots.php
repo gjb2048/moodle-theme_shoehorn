@@ -46,10 +46,8 @@ if ($numberofmarketingspots) {
                     ($marketingspotlang == 'all') or
                     ($marketingspotlang == $lang)) {
                     // Show the marketing spot.
-                    $marketingspotheading = 'marketingspotheading'.$ms;
-                    $marketingspotcontent = 'marketingspotcontent'.$ms;
-                    $themarketingspot = html_writer::tag('h2', $PAGE->theme->settings->$marketingspotheading);
-                    $themarketingspot .= html_writer::tag('div', $PAGE->theme->settings->$marketingspotcontent);
+                    $themarketingspot = html_writer::tag('h2', \theme_shoehorn\toolbox::get_setting('marketingspotheading'.$ms));
+                    $themarketingspot .= html_writer::tag('div', \theme_shoehorn\toolbox::get_setting('marketingspotcontent'.$ms));
                     $marketingspots[] = $themarketingspot;
                 }
             }
