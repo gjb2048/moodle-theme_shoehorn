@@ -263,7 +263,7 @@ class core_renderer extends \core_renderer {
                 html_writer::end_tag('div');
         } else {
             $o .= html_writer::tag($tag, html_writer::link(new moodle_url('/'), $this->page->heading,
-                array('title' => get_string('home'))), array('class' => 'heading'));
+                array('title' => get_string('home'))), array('class' => 'heading col-md-12'));
         }
 
         $ieprop = \core_useragent::check_ie_properties();

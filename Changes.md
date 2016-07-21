@@ -4,6 +4,7 @@ Version 3.0.1.4
   1. Fix: Block visibility issue with block, content, block layout - #23.
   2. Fix: Marketing spots in child themes.
   3. Fix: Temporary fix until MDL-55185 is fixed in core.
+  4. Fix header padding when no logo.
 
 Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
