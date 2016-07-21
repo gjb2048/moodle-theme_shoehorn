@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.1.0.1
+  1. Alpha version for Moodle 3.1.
+
 Version 3.0.1.4
   1. Fix: Block visibility issue with block, content, block layout - #23.
   2. Fix: Marketing spots in child themes.

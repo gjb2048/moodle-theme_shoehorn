@@ -23,14 +23,6 @@
 }
 
 .section {
-    .side {
-        &.left {
-            float: left;
-        }
-        &.right {
-            float: right;
-        }
-    }
     .spinner {
         height: 16px;
         width: 16px;
@@ -173,10 +165,10 @@
     }
     .activity.modtype_label.label {
         font-weight: normal;
-        padding: .2em;
+        // padding: .2em;
     }
     li.activity {
-        padding: .2em;
+        padding: 0;
         clear: both;
     }
     img.movetarget {
@@ -189,7 +181,6 @@
     margin-left: 30px;
 }
 
-
 .course-content {
     margin-top: 0;
     .current {
@@ -198,7 +189,7 @@
     .section-summary {
         border: 1px solid #ddd;
         margin-top: 5px;
-        list-style-type: none;
+        list-style: none;
         .section-title {
             margin: 2px 5px 10px 5px;
         }
@@ -273,31 +264,9 @@
     }
 }
 
-.course-content li {
-    &.section {
-        ul {
-            list-style: disc;
-            ul {
-                list-style: circle;
-                ul {
-                    list-style: square;
-                }
-            }
-        }
-        li {
-            &.activity {
-                ul {
-                    list-style: disc;
-                    ul {
-                        list-style: circle;
-                        ul {
-                            list-style: square;
-                        }
-                    }
-                }
-            }
-        }
-    }
+/* Collapsed Topics support */
+.course-content ul.ctopics li.section.main, .course-content ul.ctopics li.tcsection {
+    margin: 0;
 }
 
 .path-course-view {
@@ -406,7 +375,7 @@ span.editinstructions {
 .dndupload-preview {
     color: #909090;
     border: 1px dashed #909090;
-    list-style-type: none;
+    list-style: none;
     margin-top: .2em;
     padding: .3em;
     img.icon {
@@ -456,6 +425,9 @@ span.editinstructions {
 
 .coursebox {
     position: relative;
+    img {
+        max-width: 100%;
+    }
     img.courseimage {
         .img-rounded;
         float: left;
@@ -463,9 +435,10 @@ span.editinstructions {
         margin-right: 10px;
         max-width: 140px;
     }
+
     .teachers {
         li {
-            list-style-type: none;
+            list-style-type:none;
             padding:0;
             margin:0;
         }
@@ -486,22 +459,6 @@ span.editinstructions {
     }
 }
 
-// .coursebox {
-//    .panel;
-//    .panel-default;
-//    .info {
-//           .panel-heading;
-//           padding: 10px 15px;
-//           border-bottom: 1px solid transparent;
-//           .border-top-radius(@panel-border-radius - 1);
-//         .coursename {
-//             .panel-title;
-//             display: inline-block;
-//         }
-//     }
-// }
-
-
 .coursebox.remotehost {
     & > .info {
         & > .categoryname {
@@ -516,9 +473,9 @@ span.editinstructions {
         clear:both;
         .teachers {
             li {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
+                list-style-type:none;
+                padding:0;
+                margin:0;
             }
         }
         .coursecat {
@@ -799,7 +756,7 @@ span.editinstructions {
         }
     }
     ul.ml {
-        list-style-type: none;
+        list-style: none;
         margin: 1rem 0;
         ul.ml {
             margin: 0;

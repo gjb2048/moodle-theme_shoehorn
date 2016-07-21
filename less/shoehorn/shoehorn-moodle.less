@@ -1014,6 +1014,29 @@ body {
     display: inline;
 }
 
+// search.less.
+.navbar .search-input-wrapper {
+    margin: 0 2px 0 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 18px;
+    > div {
+        margin: 10px 0 11px;
+        padding-left: 1px;
+    }
+    &.expanded {
+        width: 160px;
+    }
+    > form {
+        margin: 6px 0 3px 25px;
+    }
+}
+.dir-rtl .navbar .search-input-wrapper {
+    > form {
+        margin: 6px 25px 3px 0;
+    }
+}
+
 // tags.less.
 .carousel-caption, .carousel-indicators {
     bottom: 0;
