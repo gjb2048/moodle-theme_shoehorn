@@ -112,10 +112,6 @@
  *
  * grunt replace             Run all text replace tasks.
  *
- * grunt replace:rtl_images  Add _rtl to the filenames of certain images
- *                           that require flipping for use with RTL
- *                           languages.
- *
  * grunt replace:font_fix    Correct the format for the Moodle font
  *                           loader to pick up the Glyphicon font.
  *
@@ -231,7 +227,7 @@ module.exports = function(grunt) { // jshint ignore:line
             theme: {
                 expand: true,
                 cwd: 'style/',
-                src: ['moodle.css', 'moodle-rtl.css', 'editor.css', 'font-awesome.css'],
+                src: ['moodle.css', 'editor.css', 'font-awesome.css'],
                 dest: 'style/'
             }
         },
@@ -255,16 +251,6 @@ module.exports = function(grunt) { // jshint ignore:line
                 spawn: false
             }
         },
-        cssflip: {
-            rtl: {
-                src:  'style/moodle.css',
-                dest: 'style/moodle-rtl.css'
-            },
-            rtl_e: {
-                src:  'style/experimental/moodle.css',
-                dest: 'style/experimental/moodle-rtl.css'
-            }
-        },
         copy: {
             svg_core: {
                 expand: true,
@@ -280,32 +266,6 @@ module.exports = function(grunt) { // jshint ignore:line
             }
         },
         replace: {
-            rtl_images: {
-                src: 'style/moodle-rtl.css',
-                overwrite: true,
-                replacements: [{
-                    from: '[[pix:theme|fp/path_folder]]',
-                    to:   '[[pix:theme|fp/path_folder_rtl]]'
-                }, {
-                    from: '[[pix:t/collapsed]]',
-                    to:   '[[pix:t/collapsed_rtl]]'
-                }, {
-                    from: '[[pix:t/collapsed_empty]]',
-                    to:   '[[pix:t/collapsed_empty_rtl]]'
-                }, {
-                    from: '[[pix:y/tn]]',
-                    to:   '[[pix:y/tn_rtl]]'
-                }, {
-                    from: '[[pix:y/tp]]',
-                    to:   '[[pix:y/tp_rtl]]'
-                }, {
-                    from: '[[pix:y/ln]]',
-                    to:   '[[pix:y/ln_rtl]]'
-                }, {
-                    from: '[[pix:y/lp]]',
-                    to:   '[[pix:y/lp_rtl]]'
-                }]
-            },
             svg_colours_core: {
                 src: 'pix_core/**/*.svg',
                 overwrite: true,
@@ -401,7 +361,6 @@ module.exports = function(grunt) { // jshint ignore:line
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks("grunt-text-replace");
-    grunt.loadNpmTasks("grunt-css-flip");
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-csscomb');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -419,8 +378,6 @@ module.exports = function(grunt) { // jshint ignore:line
         "less:editor",
         "less:fontawesome",
         "replace:font_fix",
-        "cssflip:rtl",
-        "replace:rtl_images",
         "csscomb:theme"]);
     grunt.registerTask("compile", ["main", "decache"]);
     grunt.registerTask("copy:svg", ["copy:svg_core", "copy:svg_plugins"]);

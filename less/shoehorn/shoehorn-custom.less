@@ -53,24 +53,34 @@ a, .mform legend a {
 
 // Navbar.
 .navbar {
-    .navbar-header .goto-bottom {
-        .navbar-brand;
-        color: ~"[[setting:navbardefaultcolour]]";
-        background-color: inherit;
-        &:hover,
-        &:focus,
-        &:active {
-            color: ~"[[setting:navbardefaultcolourlight]]";
-            #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
+    .navbar-header {
+        .goto-bottom {
+            .navbar-brand;
+            color: ~"[[setting:navbardefaultcolour]]";
+            background-color: inherit;
+            &:hover,
+            &:focus,
+            &:active {
+                color: ~"[[setting:navbardefaultcolourlight]]";
+                #shoehorn > .background-opacity(~"[[setting:navbardefaulthover]]"; ~"[[setting:navbardefaulthoverrgba]]");
+            }
+        }
+        .search-input-wrapper span {
+            color: ~"[[setting:navbardefaultcolour]]";
         }
     }
-    &.navbar-inverse .navbar-header .goto-bottom {
-        color: @navbar-inverse-link-color;
-        &:hover,
-        &:focus,
-        &:active {
-            color: @navbar-inverse-link-hover-color;
-            background-color: @navbar-inverse-link-hover-bg;
+    &.navbar-inverse .navbar-header {
+        .goto-bottom {
+            color: @navbar-inverse-link-color;
+            &:hover,
+            &:focus,
+            &:active {
+                color: @navbar-inverse-link-hover-color;
+                background-color: @navbar-inverse-link-hover-bg;
+            }
+        }
+        .search-input-wrapper span {
+            color: @navbar-inverse-color;
         }
     }
     ul li > a {
@@ -1601,10 +1611,12 @@ audio {
     }
 }
 
+/*
 .dir-rtl .antiGravity {
     left: 40px;
     right: auto;
 }
+*/
 
 // XML DB Editor - Essential Issue #90.
 a[name="lastused"] {

@@ -97,7 +97,6 @@ input[type="text"] + input[type="submit"] {
 // core.less.
 // Bas 'fixed moving blocks to empty region' 17/01/2014 - SHA-1: 7c2d6dd6b36097290d63865acd07137b0b0497d6.
 // Look at mixins.less for left and right on push and pull respectively.
-/*
 .editing.used-region-side-post.used-region-side-pre {
     #region-main {
         .make-sm-column(4);
@@ -167,7 +166,6 @@ input[type="text"] + input[type="submit"] {
         .make-lg-column-pull(10);
     }
 }
-*/
 
 /* Icon styles */
 img.icon {
@@ -1021,7 +1019,7 @@ body {
     padding-bottom: 5px;
     width: 18px;
     > div {
-        margin: 10px 0 11px;
+        margin: 10px 0 11px 1px;
         padding-left: 1px;
     }
     &.expanded {
@@ -1031,7 +1029,12 @@ body {
         margin: 6px 0 3px 25px;
     }
 }
+
 .dir-rtl .navbar .search-input-wrapper {
+    > div {
+        margin: 10px 1px 11px 0;
+        padding-right: 1px;
+    }
     > form {
         margin: 6px 25px 3px 0;
     }

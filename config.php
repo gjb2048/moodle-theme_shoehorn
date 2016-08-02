@@ -32,14 +32,7 @@ $THEME->parents = array();
 
 $THEME->sheets = array();
 $THEME->sheets[] = 'chartist_min';
-if ('ltr' === get_string('thisdirection', 'langconfig')) {
-    $THEME->sheets[] = 'moodle';
-} else {
-    $THEME->sheets[] = 'moodle-rtl';
-    $THEME->sheets[] = 'tinymce-rtl';
-    $THEME->sheets[] = 'yui2-rtl';
-    $THEME->sheets[] = 'forms-rtl';
-}
+$THEME->sheets[] = 'moodle';
 $THEME->sheets[] = 'general';
 $cdnfonts = \theme_shoehorn\toolbox::get_config_setting('cdnfonts');
 $fontawesome = \theme_shoehorn\toolbox::get_config_setting('fontawesome');

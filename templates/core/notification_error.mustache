@@ -42,9 +42,3 @@
     {{# closebutton }}<button type="button" class="close" data-dismiss="alert">&times;</button>{{/ closebutton }}
     {{{ message }}}
 </div>
-{{# js }}
-require(['jquery', 'theme_shoehorn/bootstrap'], function($) {
-    // Setup closing of bootstrap alerts.
-    $().alert();
-});
-{{/ js }}
