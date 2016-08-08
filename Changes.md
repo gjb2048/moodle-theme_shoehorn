@@ -12,6 +12,7 @@ Version 2.9.1.7
   9. Fix: Marketing spots in child themes.
  10. Fix: Temporary fix until MDL-55185 is fixed in core.
  11. Fix header padding when no logo.
+ 12. Fix broken syntax highlighting JS loading.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
