@@ -4,6 +4,7 @@ Version 3.1.0.1
   1. Beta version for Moodle 3.1.
   2. Fix header padding when no logo.
   3. Removed CSS-Flip technology for RTL.
+  4. Fix broken syntax highlighting JS loading.
 
 Version 3.0.1.4
   1. Fix: Block visibility issue with block, content, block layout - #23.
