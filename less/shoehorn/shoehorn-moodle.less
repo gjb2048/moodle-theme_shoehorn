@@ -1189,6 +1189,51 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_] {
     }
 }
 
+/* Assign Grader */
+#page-mod-assign-grader {
+    overflow: auto;
+}
+
+.path-mod-assign {
+    [data-region="grading-navigation-panel"],
+    [data-region="review-panel"],
+    [data-region="grade-panel"],
+    [data-region="grade-actions-panel"],
+    [data-region="overlay"],
+    [data-region="review-panel"].collapsed+[data-region="grade-panel"] {
+        position: relative;
+    }
+}
+
+.path-mod-assign {
+    [data-region="review-panel"],
+    [data-region="grade-panel"] {
+        top: 0;
+    }
+}
+
+.path-mod-assign {
+    [data-region="review-panel"].collapsed,
+    [data-region="grade-panel"].collapsed {
+        display: none;
+    }
+}
+
+.path-mod-assign [data-region="review-panel"].collapsed+[data-region="grade-panel"] {
+    left: 0;
+    width: 100%;
+}
+
+.path-mod-assign #page-content [data-region="grade-panel"] .mform:not(.unresponsive) .fitem.popout .fitemtitle [data-region="popout-button"] img {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: -4px;
+}
+
+#page-mod-assign-grader.path-mod-assign [data-region="grade-panel"] .fcontainer .fitem .felement input[type='text'] {
+    min-width: inherit;
+}
+
 /* Topics format */
 .course-content ul.topics li.section .right img.icon {
     padding: 0 0 0 0;
