@@ -1406,8 +1406,6 @@ class core_renderer extends \core_renderer {
     protected function syntax_highlighter() {
         if ($this->get_setting('syntaxhighlight') == 2) {
             if (strpos($this->page->course->summary, get_string('syntaxsummary', 'theme_shoehorn')) !== false) {
-                $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shCore.js');
-                $this->page->requires->js('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/scripts/shAutoloader.js');
                 $this->page->requires->css('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/styles/shCore.css');
                 $this->page->requires->css('/theme/shoehorn/javascript/syntaxhighlighter_3_0_83/styles/shThemeDefault.css');
                 $this->syntaxhighlighterenabled = true;
@@ -1436,6 +1434,8 @@ class core_renderer extends \core_renderer {
                 "/$syscontext->id/theme_shoehorn/syntaxhighlighter/$itemid/");
             $url = preg_replace('|^https?://|i', '//', $url->out(false));
 
+            $output .= html_writer::script('', $url.'shCore.js');
+            $output .= html_writer::script('', $url.'shAutoloader.js');
             $script = "require(['jquery', 'core/log'], function($, log) {";  // Use AMD to get jQuery.
             $script .= "log.debug('Shoehorn SyntaxHighlighter AMD autoloader');";
             $script .= "$('document').ready(function(){";
