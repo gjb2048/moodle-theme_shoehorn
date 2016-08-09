@@ -1,7 +1,7 @@
 Version information
 ===================
 Version 3.1.0.1
-  1. Beta version for Moodle 3.1.
+  1. Release candidate version for Moodle 3.1.
   2. Fix header padding when no logo.
   3. Removed CSS-Flip technology for RTL.
   4. Fix broken syntax highlighting JS loading.
