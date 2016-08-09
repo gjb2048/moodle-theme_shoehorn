@@ -4,7 +4,7 @@ Shoehorn theme.
 
 ![image1](pix/screenshot.png "Shoehorn screenshot")
 
-[![Build Status](https://travis-ci.org/gjb2048/moodle-theme_shoehorn.svg?branch=MOODLE_30)](https://travis-ci.org/gjb2048/moodle-theme_shoehorn)
+[![Build Status](https://travis-ci.org/gjb2048/moodle-theme_shoehorn.svg?branch=master)](https://travis-ci.org/gjb2048/moodle-theme_shoehorn)
 
 About
 =====
@@ -52,11 +52,11 @@ or 'gjbarnard at gmail dot com' or 'about.me/gjbarnard' to discuss your requirem
 
 Required version of Moodle
 ==========================
-This version works with Moodle version 2015111600.00 3.0 (Build: 20151116) and above within the 3.0 branch until the
+This version works with Moodle 3.1 version 2016052300.00 (Build: 20160523) and above within the 3.1 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/30/en/Installing_Moodle'.
+'docs.moodle.org/31/en/Installing_Moodle'.
 
 Licenses used
 =============
