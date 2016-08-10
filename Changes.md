@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.1.0.2
+  1. Add missing assign mod icons.
+
 Version 3.1.0.1
   1. Release candidate version for Moodle 3.1.
   2. Fix header padding when no logo.
