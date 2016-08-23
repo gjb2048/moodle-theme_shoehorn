@@ -14393,6 +14393,12 @@ textarea.path-admin .roleassigntable input[type='text']
     list-style: square;
 }
 
+.course-content ul.ctopics li.section.main,
+.course-content ul.ctopics li.tcsection
+{
+    margin: 0;
+}
+
 .path-course-view .completionprogress
 {
     position: relative;
@@ -27556,6 +27562,26 @@ a:focus
 
     border-radius: 4px;
     background-color: rgba(201,230,255,.7);
+}
+
+.dir-ltr ul
+{
+    margin-right: 25px;
+}
+
+.dir-ltr ol
+{
+    margin-right: 2.5em;
+}
+
+.dir-rtl ul
+{
+    margin-left: 25px;
+}
+
+.dir-rtl ol
+{
+    margin-left: 2.5em;
 }
 
 .path-backup .mform .grouped_settings.section_level
