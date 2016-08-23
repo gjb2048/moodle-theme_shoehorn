@@ -14,6 +14,7 @@ Version 2.9.1.7
  11. Fix header padding when no logo.
  12. Fix broken syntax highlighting JS loading.
  13. Ordered/Unordered list not showing - #25.
+ 14. Update to Bootstrap v3.3.7.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
