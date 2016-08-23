@@ -28,7 +28,7 @@ a:focus
     color: #112a49;
 }a:focus
 {
-    outline: thin dotted                ;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;
+    outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;
 }figure
 {
     margin: 0;
@@ -661,7 +661,7 @@ table th[class*='col-']
 .btn:active.focus,
 .btn.active.focus
 {
-    outline: thin dotted                ;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;
+    outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;
 }.btn:hover,
 .btn:focus,
 .btn.focus
