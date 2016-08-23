@@ -6,6 +6,7 @@ Version 3.0.1.4
   3. Fix: Temporary fix until MDL-55185 is fixed in core.
   4. Fix header padding when no logo.
   5. Fix broken syntax highlighting JS loading.
+  6. Ordered/Unordered list not showing - #25.
 
 Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.
