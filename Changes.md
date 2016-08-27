@@ -8,6 +8,7 @@ Version 3.0.1.4
   5. Fix broken syntax highlighting JS loading.
   6. Ordered/Unordered list not showing - #25.
   7. Update to Bootstrap v3.3.7.
+  8. Display of true/false question in Lesson module - #26.
 
 Version 3.0.1.3
   1. Change access of 'block_has_class' method from 'private' to 'protected' for child themes.

@@ -21856,6 +21856,15 @@ textarea.mform .fitem .felement input[type='password']
     margin-right: 4px;
 }
 
+.mform .fcheckbox > span,
+.mform .fradio > span,
+.mform .fgroup > span
+{
+    display: inline-block;
+
+    margin-top: 5px;
+}
+
 .form-item .form-label
 {
     position: relative;
