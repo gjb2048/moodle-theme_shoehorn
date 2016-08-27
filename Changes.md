@@ -16,6 +16,7 @@ Version 2.9.1.7
  13. Ordered/Unordered list not showing - #25.
  14. Update to Bootstrap v3.3.7.
  15. Display of true/false question in Lesson module - #26.
+ 16. Prevent overlap of edit dropdown on hidden topics - Bootstrap theme fixes #324 and #389 - credit to Charles Fulton.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
