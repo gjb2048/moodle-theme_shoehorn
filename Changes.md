@@ -5,6 +5,7 @@ Version 3.1.0.2
   2. Ordered/Unordered list not showing - #25.
   3. Update to Bootstrap v3.3.7.
   4. Display of true/false question in Lesson module - #26.
+  5. Prevent overlap of edit dropdown on hidden topics - Bootstrap theme fixes #324 and #389 - credit to Charles Fulton.
 
 Version 3.1.0.1
   1. Release candidate version for Moodle 3.1.
