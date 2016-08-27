@@ -4,6 +4,7 @@ Version 3.1.0.2
   1. Add missing assign mod icons.
   2. Ordered/Unordered list not showing - #25.
   3. Update to Bootstrap v3.3.7.
+  4. Display of true/false question in Lesson module - #26.
 
 Version 3.1.0.1
   1. Release candidate version for Moodle 3.1.
