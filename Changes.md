@@ -15,6 +15,7 @@ Version 2.9.1.7
  12. Fix broken syntax highlighting JS loading.
  13. Ordered/Unordered list not showing - #25.
  14. Update to Bootstrap v3.3.7.
+ 15. Display of true/false question in Lesson module - #26.
 
 Version 2.9.1.6
   1. Update to FontAwesome 4.5.
