@@ -1,5 +1,8 @@
 Version information
 ===================
+Version 3.1.0.3
+  1. Improve Grader for BS3 CSS classes.
+
 Version 3.1.0.2
   1. Add missing assign mod icons.
   2. Ordered/Unordered list not showing - #25.
