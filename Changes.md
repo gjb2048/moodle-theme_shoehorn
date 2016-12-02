@@ -2,6 +2,7 @@ Version information
 ===================
 Version 3.1.0.3
   1. Improve Grader for BS3 CSS classes.
+  2. PDF not showing in grader on M3.1 - #30.
 
 Version 3.1.0.2
   1. Add missing assign mod icons.

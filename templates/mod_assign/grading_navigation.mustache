@@ -32,7 +32,7 @@
     This template includes ajax functionality, so it cannot be shown in the template library.
 }}
 <div data-region="grading-navigation" class="row-fluid">
-<div data-region="assignment-info" class="col-md-4">
+<div data-region="assignment-info" class="col-sm-4 col-md-4">
 <a href="{{config.wwwroot}}/course/view.php?id={{courseid}}">{{{coursename}}}</a><br/>
 <a href="{{config.wwwroot}}/mod/assign/view.php?id={{cmid}}">{{name}}</a>
 {{#caneditsettings}}
@@ -56,10 +56,10 @@
 {{/duedate}}
 </span>
 </div>
-<div data-region="user-info" class="col-md-4" data-assignmentid="{{assignmentid}}" data-groupid="{{groupid}}">
+<div data-region="user-info" class="col-sm-4 col-md-4" data-assignmentid="{{assignmentid}}" data-groupid="{{groupid}}">
     {{> mod_assign/grading_navigation_user_info }}
 </div>
-<div data-region="user-selector" class="col-md-4">
+<div data-region="user-selector" class="col-sm-4 col-md-4">
     <div class="alignment">
         {{> mod_assign/grading_navigation_user_selector }}
     </div>

@@ -16717,16 +16717,15 @@ body#page-question-type-multichoice div[id^=fitem_id_][id*=feedback_]
 }#page-mod-assign-grader
 {
     overflow: auto;
-}.path-mod-assign [data-region='grading-navigation-panel'],
-.path-mod-assign [data-region='review-panel'],
+}.path-mod-assign [role='main'],
+.path-mod-assign [data-region='grading-navigation-panel'],
 .path-mod-assign [data-region='grade-panel'],
 .path-mod-assign [data-region='grade-actions-panel'],
 .path-mod-assign [data-region='overlay'],
 .path-mod-assign [data-region='review-panel'].collapsed + [data-region='grade-panel']
 {
     position: relative;
-}.path-mod-assign [data-region='review-panel'],
-.path-mod-assign [data-region='grade-panel']
+}.path-mod-assign [data-region='grade-panel']
 {
     top: 0;
 }.path-mod-assign [data-region='review-panel'].collapsed,
